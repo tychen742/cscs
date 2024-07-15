@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Short-Circuiting &amp;&amp; and || &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="While Examples" href="whileexamples.html" />
+    <link rel="prev" title="Interactive while Loops" href="whileinteractive.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="while.html">While Loops</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="whilestatements.html">While-Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="while-with-sequence.html">While-Statements with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whileinteractive.html">Interactive <code class="docutils literal notranslate"><span class="pre">while</span></code> Loops</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Short-Circuiting &amp;&amp; and ||</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whileexamples.html">While Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stringmethods2.html">More String Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userinput.html">User Input: UI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcdexamples.html">Greatest Common Divisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do-while.html">Do-While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-number-game.html">Number Guessing Game Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewwhile.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="while.html">While Loops</a></li>
+      <li class="breadcrumb-item active">Short-Circuiting &amp;&amp; and ||</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/while/condition-short-circuit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="short-circuiting-and">
+<span id="short-circuit"></span><span id="index-0"></span><h1>Short-Circuiting &amp;&amp; and ||<a class="headerlink" href="#short-circuiting-and" title="Permalink to this heading"></a></h1>
+<p>Follow along with the following silly, but illustrative csharp sequence:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">false</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">true</span>
+</pre></div>
+</div>
+<p>The compound condition includes <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">0</span></code>,
+so what happens if we change x to 0 and
+try the condition again.  Will you get <code class="docutils literal notranslate"><span class="pre">false</span></code>?</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="n">DivideByZeroException</span><span class="p">:</span><span class="w"> </span><span class="n">Division</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">zero</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>No, one of the parts involves dividing by zero, and you see the result.
+What if we swap the two conditions to get the <em>logically equivalent</em></p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<span class="k">false</span>
+</pre></div>
+</div>
+<p>Something is going on here besides pure mathematical logic.
+Remember the final version in <a class="reference internal" href="while-with-sequence.html#isdigits"><span class="std std-ref">IsDigits</span></a>.  We did not
+need to continue processing when we knew the final answer
+already.  The <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> operators work the same way,
+evaluating from left to right.  If <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>,
+then <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">y/x</span> <span class="pre">&gt;</span> <span class="pre">z</span></code> starts off being evaluated like
+<code class="docutils literal notranslate"><span class="pre">false</span> <span class="pre">&amp;&amp;</span> <span class="pre">??</span></code>.  We do no need the second part evaluated to
+know the overall result is <code class="docutils literal notranslate"><span class="pre">false</span></code>, so C#
+<em>does not evaluate further</em>.  This behavior has
+acquired the jargon <em>short-circuiting</em>.  Many computer languages share
+this feature.</p>
+<p>It also applies to <code class="docutils literal notranslate"><span class="pre">||</span></code>.  In what situation do you know
+what the final result is after evaluating
+the first condition?  In this case you know:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">??</span>
+</pre></div>
+</div>
+<p>evaluates to true.  Continuing with the same csharp sequence above
+(where x is 0, y is 5, and z is 1):</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<span class="k">true</span>
+</pre></div>
+</div>
+<p>The division by 0 in the second condition <em>never happens</em>.
+It is short-circuited.</p>
+<p>For completeness, try the other order:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="n">DivideByZeroException</span><span class="p">:</span><span class="w"> </span><span class="n">Division</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">zero</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>This idea is useful in the <code class="docutils literal notranslate"><span class="pre">Agree</span></code> function, where you
+want to deal with the first character in the user’s answer.</p>
+<p>In situations where you want to
+test conditionThatWillBombWithBadData, you want to avoid
+causing an Exception.
+When there is good data, you want the result to actually
+come from conditionThatWillBombWithBadData.  There are two cases,
+however, depending on what result
+you want if the data for this condition <em>is bad</em>, so you cannot evaluate it:</p>
+<ul>
+<li><p>If you want the result to be <code class="docutils literal notranslate"><span class="pre">false</span></code> with bad data for the dangerous
+condition, use</p>
+<blockquote>
+<div><p>falseConditionIfDataBad <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> conditionThatWillBombWithBadData</p>
+</div></blockquote>
+</li>
+<li><p>If you want the result to be <code class="docutils literal notranslate"><span class="pre">true</span></code> with bad data for
+the dangerous condition, use</p>
+<blockquote>
+<div><p>trueConditionIfDataBad <code class="docutils literal notranslate"><span class="pre">||</span></code> conditionThatWillBombWithBadData</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="whileinteractive.html" class="btn btn-neutral float-left" title="Interactive while Loops" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="whileexamples.html" class="btn btn-neutral float-right" title="While Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

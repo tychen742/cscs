@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interfaces" href="../interfaces/interfaces.html" />
+    <link rel="prev" title="Chapter Review Questions" href="../classes/reviewclasses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Testing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/testing/testing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing">
+<span id="index-0"></span><span id="id1"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h1>
+<p>Now that we have learned a bit about classes, we’re going to use the same feature
+to support <em>unit testing</em>. Unit testing is a concept that will become part of just
+about everything you do in future programming-focused courses, so we want to make sure
+that you understand the idea and begin to make use of it in all of your work.</p>
+<p>The notion of unit testing is straightforward in principle. When you write a program
+in general, the program comprises what are properly known as units of development.
+Each language has its own definition of what units are but most modern programming
+languages view the <em>class</em> concept as the core unit of testing. Once we have a class,
+we can test it and all of the parts associated with it, especially its methods.</p>
+<p>We will be introducing parts of file <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/rational_nunit/rational_unit_tests.cs">rational_nunit/rational_unit_tests.cs</a>.</p>
+<section id="assertions">
+<span id="index-1"></span><h2>Assertions<a class="headerlink" href="#assertions" title="Permalink to this heading"></a></h2>
+<p>A key notion of testing is the ability to make a logical assertion about something
+that generally must hold <em>true</em> if the test is to pass.</p>
+<p>Assertions are not a standard language feature in C#. Instead, there are a number of
+classes that provide functions for assertion handling. In the framework we are using for
+unit testing (NUnit), a class named Assert supports assertion testing.</p>
+<p>In our tests, we make use of an assertion method, <code class="docutils literal notranslate"><span class="pre">Assert.IsTrue()</span></code> to determine
+whether an assertion is successful. If the variable or expression passed to this
+method is <em>false</em>, the assertion fails.</p>
+<p>Here are some examples of assertions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Assert.IsTrue(true)</span></code>: The assertion is trivially successful,
+because the boolean value <code class="docutils literal notranslate"><span class="pre">true</span></code> is true.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Assert.IsTrue(false)</span></code>: The assertion is not successful, because the boolean value
+<code class="docutils literal notranslate"><span class="pre">false</span></code> is not true!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Assert.IsFalse(false)</span></code>: This assertion is successful, because
+<code class="docutils literal notranslate"><span class="pre">false</span></code> is, of course, false.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Assert.IsTrue(5</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>: Success</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Assert.IsTrue(0</span> <span class="pre">&gt;</span> <span class="pre">5)</span></code>: Failure</p></li>
+</ul>
+<p>There are many available assertion methods. In our tests, we use <code class="docutils literal notranslate"><span class="pre">Assert.IsTrue()</span></code>,
+which works for everything we want to test. Other assertion methods do their magic
+rather similarly, because every assertion method ultimately must determine whether
+what is being tested is true or false.</p>
+</section>
+<section id="attributes">
+<span id="index-2"></span><h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
+<p>Besides assertions, a building block of testing (in C# and beyond) comes in the form
+of attributes. Attributes are an additional piece of information that can be attached
+to classes, variables, and methods in C#. There are two attributes of interest to us:</p>
+<ul class="simple">
+<li><p>[TestFixture]: This indicates that a class is being used for testing purposes.</p></li>
+<li><p>[Test]: This indicates that a method is one of the methods in a class being used
+for testing purposes.</p></li>
+</ul>
+<p>Without these annotations, classes and methods will <em>not</em> be used for testing purposes.
+This allows a class to have some methods that are used for testing while other methods
+are ignored.</p>
+<p>In the remainder of this section, we’re going to take a look at the strategy for testing
+the Rational class. In general, your goal is to ensure that the entire class is tested.
+It is easier said than done. In later courses (Software Engineering) you would learn about
+strategies for <em>coverage</em> testing.</p>
+<p>Our strategy will be as follows:</p>
+<ul class="simple">
+<li><p>Test the constructor and make sure the <em>representation</em> of the rational number is
+sound. If the constructor isn’t initializing an instance properly, it is likely
+that little else in the class will work properly.</p></li>
+<li><p>Then test the rest of the class. Whenever possible, group the tests in some logical
+way. In the case of the Rational class, there are three general categories (and one
+rather special one): arithmetic operations, comparisons, and conversions. In addition,
+there is the parsing test, which ensures that we can convert strings representing
+fractions into properly initialized (and reduced) rational numbers.</p></li>
+</ul>
+<p>Let’s get started.</p>
+</section>
+<section id="testing-the-constructor">
+<h2>Testing the Constructor<a class="headerlink" href="#testing-the-constructor" title="Permalink to this heading"></a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">      </span><span class="na">[Test()]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConstructorTest</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">{</span>
+<span class="linenos"> 4</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetNumerator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetDenominator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetNumerator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">3</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetDenominator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetNumerator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetDenominator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">125</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetNumerator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">125</span><span class="p">);</span>
+<span class="linenos">15</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetDenominator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Testing the constructor is fairly straightforward. We essentially test three basic
+cases:</p>
+<ul>
+<li><p>Test whether a basic rational number can be constructed. In the above, we test for
+3/5, 3/-5, 6/10, and 125. Per the implementation of the Rational class (how we defined
+it), these should result in fractions with numerators of 3, -3, 3, and 12; and denominators
+of 5, 5, 5, and 1, respectively.</p></li>
+<li><p>As you can observe from the code, we perform basic assertion testing to ensure that
+the numerators and denominators are what we expect. For example:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">GetNumerator</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tests whether the newly minted rational number, Rational(3, 5), actually has the
+expected numerator of 3.</p>
+</li>
+<li><p>If we are able to get through the entire code of the <code class="docutils literal notranslate"><span class="pre">ConstructorTest()</span></code> method,
+our constructor test is a success. Otherwise, it is a failure.</p></li>
+</ul>
+<p>We’ll look at how to actually run our tests in a bit but let’s continue taking a look
+at how the rest of our testing is done.</p>
+</section>
+<section id="testing-rational-comparisons">
+<h2>Testing Rational Comparisons<a class="headerlink" href="#testing-rational-comparisons" title="Permalink to this heading"></a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w">      </span><span class="na">[Test()]</span>
+<span class="linenos">2</span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BasicComparisonTests</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<span class="linenos">4</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">);</span>
+<span class="linenos">5</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="linenos">6</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">7</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">8</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">9</span><span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>It is pretty well established by now that the ability to compare is of fundamental importance
+whenever we are talking about data. Everything we do, especially when it comes to searching
+(finding a value) and sorting (putting values in order) depends on comparison.</p>
+<p>In this test, we construct a few Rational instances (r1, r2, and r3) and perform at least
+one test for each of the essential operators (&gt;, &lt;, and =). Recall from our earlier discussion
+of the Rational class that the CompareTo method return a value <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">0</span></code>
+when one Rational is <em>less than</em> another. It returns a number
+<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">0</span></code> for <em>greater than</em>, and <code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">0</span></code> for <em>equal to</em>.</p>
+<p>If any one of these comparisons fails, this means that we cannot rely on the ability to
+compare Rational numbers. This will likely prevent other tests from working, such as the
+arithmetic tests, which rely on the ability to test whether a <em>computed result</em> matches
+an <em>expected result</em> (e.g. 1/4 + 2/4 == 3/4).</p>
+</section>
+<section id="testing-rational-arithmetic">
+<h2>Testing Rational Arithmetic<a class="headerlink" href="#testing-rational-arithmetic" title="Permalink to this heading"></a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">      </span><span class="na">[Test()]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">BasicArithmeticTests</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">         </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="w">         </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">);</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Subtract</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">58</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Multiply</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span>
+<span class="linenos">14</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">47</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">64</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Divide</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span>
+<span class="linenos">17</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">11</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Reciprocal</span><span class="p">();</span>
+<span class="linenos">20</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="p">.</span><span class="n">Negate</span><span class="p">();</span>
+<span class="linenos">23</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Testing of arithmetic is a fairly straightforward idea. For all of these tests, we
+create a couple of rational numbers (47/64 and -11/64) and then call the various methods
+to perform addition, subtraction, multiplication, division, reciprocal, and negation.</p>
+<p>The key to testing arithmetic successfully in the case of a Rational number is to know
+know what the result <em>should be</em>. As a concrete example, the result of adding these
+two rational numbers should be 36/64. So the testing strategy is to use the <code class="docutils literal notranslate"><span class="pre">Add()</span></code>
+method to add the two rational numbers and then test whether the result of the addition
+is equal to the <em>known</em> answer of 36/64.</p>
+<p>As you can observe by looking at the code, the magic occurs by checking whether the
+<em>computed</em> result matches the <em>constructed</em> result:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Because we have <em>separately</em> tested the constructor and comparison methods, we can
+assume that it is ok to rely upon comparison methods as part of this arithmetic test.</p>
+<p>And it is in this example where we begin to see the <em>art of testing</em>. You can write
+tests that assume that other tests of features you are using have <em>already passed</em>. In the
+event that your assumption is wrong, you’d be able to know that this is the case, because
+all of the tests you assumed to pass would not have passed.</p>
+<p>Again, to be clear, the arithmetic tests we have done here <em>assume</em> that we can rely on
+the constructor and the comparison operation to determine equality of two rational numbers.
+It is entirely possible that this is not true, so we’ll be able to determine this when
+examining the test output (we’d see that not only the arithmetic test fails but possibly the
+constructor and/or comparison tests as well).</p>
+<p>The remaining tests are fairly straightforward. We’ll more or less present them as is with
+minimal explanation as they are in many ways variations on the theme.</p>
+</section>
+<section id="testing-rational-conversions-to-other-types">
+<h2>Testing Rational Conversions (to other types)<a class="headerlink" href="#testing-rational-conversions-to-other-types" title="Permalink to this heading"></a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">      </span><span class="na">[Test()]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConversionTests</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<span class="linenos"> 4</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">2</span><span class="p">);</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="n">ToDecimal</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0.5</span><span class="n">m</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">ToDecimal</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">0.5</span><span class="n">m</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0.5</span><span class="p">);</span><span class="w"> </span><span class="c1">//.5 is stored exactly</span>
+<span class="linenos">10</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">0.5</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;-1/2&quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;-5&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">//implicit use of ToString</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we want to make sure that Rational objects can be converted to floating point
+and decimal types (the built-in types of the C# language).</p>
+<p>For example, Rational(3/6) is 1/2, which is 0.5 (both in its floating-point and decimal
+representations.</p>
+</section>
+<section id="testing-the-parsing-feature">
+<h2>Testing the Parsing Feature<a class="headerlink" href="#testing-the-parsing-feature" title="Permalink to this heading"></a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">      </span><span class="na">[Test()]</span>
+<span class="linenos"> 2</span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ParseTest</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="w">      </span><span class="p">{</span>
+<span class="linenos"> 4</span><span class="w">         </span><span class="n">Rational</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rational</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;-12/30&quot;</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="o">-</span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rational</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">123</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rational</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;1.125&quot;</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rational</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">         </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">Equals</span><span class="p">(</span><span class="s">&quot;9/8&quot;</span><span class="p">));</span>
+<span class="linenos">12</span><span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The parsing test tests whether we can convert the string representation of a rational number
+into an actual (reduced) rational number. We test three general cases:</p>
+<ul class="simple">
+<li><p>The ability to take a fraction and convert it into a rational number. This fraction may
+or may not have a “-” sign in it. For example -12/30 should be equivalent to constructing
+a Rational(-12, 30).</p></li>
+<li><p>The ability to take a whole number and get a proper Rational, e.g. 123 is equal to
+Rational(123)</p></li>
+<li><p>The ability to take a textual representation (1.125) and get a proper Rational(9, 8)
+representation. In this case, we are also getting an extra test to ensure the result
+is reduced.</p></li>
+</ul>
+</section>
+<section id="running-the-nunit-tests">
+<span id="running-nunit-tests"></span><span id="index-3"></span><h2>Running the NUnit Tests<a class="headerlink" href="#running-the-nunit-tests" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>In Xamarin Studio, select the rational_nunit project.</p></li>
+<li><p>In the main Xamarin Studio menu click “Run” and select “Run Unit Tests”</p></li>
+</ol>
+<p>A test pad should appear and show something like</p>
+<a class="reference internal image-reference" href="../_images/NUnitTestXamarinInit.png"><img alt="../_images/NUnitTestXamarinInit.png" src="../_images/NUnitTestXamarinInit.png" style="width: 350pt;" /></a>
+<p>This likely just shows the overall results in the summary line at the bottom.
+You can show details by clicking on one or more of headings at the
+top of the pad.  In particular, if you click Successful Test, Failed Tests,
+and Output (and likely drag the top of the pad to make
+it large enough to see everything), you should see something like</p>
+<a class="reference internal image-reference" href="../_images/NUnitTestXamarinDetails.png"><img alt="../_images/NUnitTestXamarinDetails.png" src="../_images/NUnitTestXamarinDetails.png" style="width: 350pt;" /></a>
+<p>As you can see in the above displays, all of the tests in <code class="docutils literal notranslate"><span class="pre">RationalTests</span></code>
+get executed, and they all pass.
+There are no failed tests to see,
+but that part would be the most important details if any were there!
+The output just details the sequence of execution.</p>
+<p>Xamarin Studio remembers the headings selected, so next time you run tests,
+the same details will show.</p>
+<p>The testing file is using NUnit.Framework.  There is a little more to this.
+If you edit the references, selecting All sources, and entering nunit
+in the search box, you see</p>
+<a class="reference internal image-reference" href="../_images/NUnitReferencesXamarin.png"><img alt="../_images/NUnitReferencesXamarin.png" src="../_images/NUnitReferencesXamarin.png" style="width: 350pt;" /></a>
+<p>Note there are more than one version of nunit.framework. On a Mac,
+the selected version worked directly, but the logical looking one, provided
+by Xamarin, did <em>not</em> work directly.  Either worked if we select the context
+menu in the Solutions pad for the nunit.framework version added to the references,
+and make it look like</p>
+<a class="reference internal image-reference" href="../_images/NUnitNotSpecificVersion.png"><img alt="../_images/NUnitNotSpecificVersion.png" src="../_images/NUnitNotSpecificVersion.png" style="width: 200pt;" /></a>
+<p>with the “Require Specific Version” item toggled so it is <em>not</em> checked.</p>
+<p>We waited until now to discuss unit testing, because the test classes are coded with
+<em>instance</em> methods,
+unlike the static methods that we started out with.</p>
+<p>A test can also call <code class="docutils literal notranslate"><span class="pre">Main</span></code> of a program, with specified parameters that
+would normally come from the command line.  See the small project
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/cmdline_to_file">cmdline_to_file</a>.</p>
+<section id="string-replace-nunit-test-exercise">
+<span id="index-4"></span><h3>String Replace NUnit Test Exercise<a class="headerlink" href="#string-replace-nunit-test-exercise" title="Permalink to this heading"></a></h3>
+<p>If you completed the program from the stub
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/string_manip_stub/string_manip.cs">string_manip_stub/string_manip.cs</a>,
+then add a testing class using NUnit that tests <code class="docutils literal notranslate"><span class="pre">ReplaceFirst</span></code>
+with the same parameters as used in the original file’s <code class="docutils literal notranslate"><span class="pre">Main</span></code>.
+If you did the elaboration of <code class="docutils literal notranslate"><span class="pre">ReplaceFirst</span></code> that just returns the original
+string when the target is not found, then add tests for that, too.
+Remember the necessary library reference and try it out.</p>
+</section>
+<section id="grade-file-nunit-test-exercise">
+<span id="index-5"></span><h3>Grade File NUnit Test Exercise<a class="headerlink" href="#grade-file-nunit-test-exercise" title="Permalink to this heading"></a></h3>
+<p>Add a testing class using NUnit to <a class="reference internal" href="../appendix/hw-gradefiles.html#hw-gradefiles"><span class="std std-ref">Homework: Grade File</span></a>.
+Remember the necessary library reference.
+Sample data files and files for testing the results
+are included in the project.  Just test
+using command line parameters (so there is no Console input).
+Test with both comp170 and comp150.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../classes/reviewclasses.html" class="btn btn-neutral float-left" title="Chapter Review Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../interfaces/interfaces.html" class="btn btn-neutral float-right" title="Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

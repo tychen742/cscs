@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab: Version Control &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mercurial and Teamwork" href="hgteamwork.html" />
+    <link rel="prev" title="Group Project" href="project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="monotools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xamarinstudio.html">Xamarin Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html">Command Line Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precedence.html">Precedence of Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">Group Project</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lab: Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hgteamwork.html">Mercurial and Teamwork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="appendix.html">Appendix</a></li>
+      <li class="breadcrumb-item active">Lab: Version Control</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix/lab-versioncontrol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab-version-control">
+<span id="lab-versioncontrol"></span><span id="index-0"></span><h1>Lab: Version Control<a class="headerlink" href="#lab-version-control" title="Permalink to this heading"></a></h1>
+<p>Modern software development requires an early introduction source code
+management, also known as version control. While source code
+management is frequently touted as being beneficial to a <em>project
+team</em>, it is also of great value for <em>individuals</em> and provides a
+clear mechanism for tracking, preserving, and sharing your work.</p>
+<p>In addition, it simplifies the process of demonstrating and submitting
+your work to your instructor (and graduate assistants). Long gone are
+the days of carrying stuff around on USB drives and sending e-mail
+attachments.</p>
+<p>There are numerous options for version control. In the free/open
+source community, a number of solutions have emerged, including some
+old (CVS, Subversion) and some new (Mercurial, Git, and Bazaar). We’re
+particularly fond of the Mercurial system. A key reason for our choice
+is that there is an excellent cloud-based solution to host your
+projects known as Bitbucket (<a class="reference external" href="http://bitbucket.org">http://bitbucket.org</a>).</p>
+<p>Mercurial is set up for our labs.  You can install it for your
+personal machine from <a class="reference external" href="http://mercurial.selenic.com/downloads/">http://mercurial.selenic.com/downloads/</a> .</p>
+<p>There are other similar solutions to Bitbucket but none at present
+provides a completely <em>free</em> solution for hosting <em>private</em>
+repositories, which allow you to keep your work <em>secret</em> from others.</p>
+<p>The basic idea is to keep a main current copy of a project at a place
+like bitbucket.  Anywhere that you work, you can download a copy of the
+central version.  You can add and change files.  There are several
+layers insulating changes to local files from changes to the
+central repository:</p>
+<ul class="simple">
+<li><p>You must explicitly <em>add</em> any new file names you want the repository to track.</p></li>
+<li><p>Even on a tracked file, you must <em>commit</em> changes to the local repository.</p></li>
+<li><p>For the committed changes to get to the central repository, you must <em>push</em> them.</p></li>
+<li><p>You have control over what files get ignored.</p></li>
+</ul>
+<p>Later, when you want the latest changes to the central repository to get to your
+site, you need to <em>pull</em> data from the central repository, and then explicitly
+<em>update</em> your local repository, to incorporate the new data from the central
+repository.</p>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this heading"></a></h2>
+<p>In this lab, we’re going to learn:</p>
+<ol class="arabic simple">
+<li><p>How to create a source code repository.</p></li>
+<li><p>How to add files and folders to a repository and track them.</p></li>
+<li><p>How to make sure certain files and folders are not kept in the repository.</p></li>
+<li><p>How to push your changes to a remote repository (at Bitbucket.org).</p></li>
+<li><p>How to do your work at home and in the lab.</p></li>
+<li><p>How to get our book, examples, and projects (now that that you know how
+to use Mercurial).</p></li>
+</ol>
+<section id="before-we-proceed">
+<h3>Before We Proceed<a class="headerlink" href="#before-we-proceed" title="Permalink to this heading"></a></h3>
+<p>You should know that this lab is designed to be repeated as many times
+as needed. You can create as many repositories as you wish, subject to
+the limitations at Bitbucket.org, and may want to create different
+repositories for different needs (one for yourself, one for you and
+your partner in pair programming, etc.) This lab assumes you are
+starting with a repository for your own work. We’ll include a step for
+how to add a <em>collaborator</em> to the project.</p>
+<p>Future labs will talk about additional things you need to know when it comes
+to collaboration, so please view this lab as a <em>beginning</em> aimed at helping
+you to start using version control right away for your own projects.</p>
+</section>
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<section id="create-bitbucket-org-account">
+<span id="index-1"></span><h3>Create Bitbucket.org account<a class="headerlink" href="#create-bitbucket-org-account" title="Permalink to this heading"></a></h3>
+<p>We’re going to begin by creating a remote repository for our work. The
+advantage of doing so is that we get a <em>hosted</em> repository that we can
+use to push/pull our work. (Unlike a dangerous stunt, you <em>want</em> to be able
+to try this at home, too!)</p>
+<p>Signing up for a repository at <a class="reference external" href="http://bitbucket.org">http://bitbucket.org</a> is easy. From the
+landing page, just click on the option for the <em>Free Plan</em>. This allows
+you to create any number of public/private repositories with support
+for up to 5 users. This is all you’ll need for your work in this course.</p>
+<p>Once you’ve created your account (and confirmed it, if required) you
+are good to go for the rest of this lab!</p>
+</section>
+<section id="create-repository-at-bitbucket">
+<h3>Create repository at Bitbucket<a class="headerlink" href="#create-repository-at-bitbucket" title="Permalink to this heading"></a></h3>
+<p>Now we’ll create a first repository at Bitbucket.org.</p>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">Repositories</span> <span class="pre">-&gt;</span> <span class="pre">Create</span> <span class="pre">Repository</span></code> (the option is at the bottom
+of the list of menu options). You’ll see this screen:</p>
+<a class="reference internal image-reference" href="../_images/hgcreaterepository.png"><img alt="Xamarin Studio Image" class="align-center" src="../_images/hgcreaterepository.png" style="width: 350pt;" /></a>
+<p>You’ll need to fill in or select the following options:</p>
+<ul class="simple">
+<li><p>Name: A short name for your project. You are encouraged to keep this
+simple.  If you are using this for all of your work in COMP 170
+(which is fine) you might name the repository after your
+initials. So if your name is Linus Torvalds, you could give a short
+name like <em>LinusTorvaldsCOMP170</em> or <em>LTCOMP170</em>.</p></li>
+<li><p>Repository Type: Select Mercurial. Yes, we realize that Xamarin Studio
+supports Git natively, but for the reasons mentioned earlier, we
+have chosen Mercurial. We will allow you to use Git on your own if
+you can figure it out and use it properly. But this lab assumes
+Mercurial.</p></li>
+<li><p>Language: You can select anything you like here. We do C# for the
+most part in this class, so we recommend that you select it.</p></li>
+<li><p>Description: You can give any description you like. If you are
+working with a partner please list both you and your partner’s name
+in the description.</p></li>
+<li><p>Web Site: Optional</p></li>
+<li><p>Private checkbox should be checked.</p></li>
+</ul>
+<p>So just go ahead and create your first repository. You can always
+create more of them later.</p>
+<p>Here is an example of a filled out form:</p>
+<a class="reference internal image-reference" href="../_images/hgcreaterepository2.png"><img alt="Xamarin Studio Image" class="align-center" src="../_images/hgcreaterepository2.png" style="width: 350pt;" /></a>
+</section>
+<section id="set-up-your-mercurial-commit-username">
+<h3>Set up your Mercurial commit username<a class="headerlink" href="#set-up-your-mercurial-commit-username" title="Permalink to this heading"></a></h3>
+<p>If you in a place where you have a permanent home directory,
+like on your machine or in the Linux Lab,
+create a file named <code class="docutils literal notranslate"><span class="pre">.hgrc</span></code> in <em>your home directory</em>. Your home directory is
+where you are dumped when you open a DOS or Linux/OS X terminal.  This is <em>not</em>
+inside your repository.
+This file must contain the following lines, with the part after the equal sign
+personalized for you:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="na">[ui]</span>
+<span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">John</span><span class="w"> </span><span class="n">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">johndoe@johndoe</span><span class="p">.</span><span class="n">com</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>It is a convention to give a name and email address, though
+it does not need to match the email address you gave when
+signing up for bitbucket.</p>
+<p>Creating this file saves you the trouble of having to pass the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">username</span></code>
+option to <code class="docutils literal notranslate"><span class="pre">hg</span></code> each time you do a <em>commit</em> operation.</p>
+<p>You can put this file in your home directory in Windows labs, but it disappears.
+You might want to keep an extra copy in your repository, and copy it to the Windows
+home folder when in the lab.</p>
+<p>As a gentle reminder, your home directory on Windows can be a bit difficult to find.
+The easiest way is to use your editor to locate your home folder.
+When in the DOS prompt, you will also see the path to your directory as part of the prompt.
+For example, on Windows 7, you will see <code class="docutils literal notranslate"><span class="pre">C:\Users\johndoe</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To ensure that you did this step correctly, please open a <em>new</em> terminal or DOS
+window at this time and use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> or <code class="docutils literal notranslate"><span class="pre">dir</span></code> command to verify that the <code class="docutils literal notranslate"><span class="pre">.hgrc</span></code>
+file is indeed present in your home directory. If it is in any other folder, Mercurial
+(the <strong>hg</strong> command) will not be able to find it–and you will receive an error.</p>
+</div>
+</section>
+<section id="clone-a-repository-from-bitbucket">
+<h3>Clone a repository from Bitbucket<a class="headerlink" href="#clone-a-repository-from-bitbucket" title="Permalink to this heading"></a></h3>
+<p>Open a terminal or DOS command shell.</p>
+<p>On Windows, the Mono shell is not appropriate. You can get a regular DOS
+command shell by clicking the start menu and typing <code class="docutils literal notranslate"><span class="pre">cmd</span></code> and into the text box
+at the bottom of the start menu, and pressing return.</p>
+<p>In the terminal/DOS-shell navigate with to the the directory
+where you want to place the repository
+as a sub-directory.  This could be your home directory on your machine or
+a flash drive in a lab.</p>
+<p><strong>Windows only</strong>:
+To navigate in a DOS-Shell to a flash drive, you need to enter the short command:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>or possible another drive letter followed by a colon.
+DOS drive letters are annoying because they be different another time with different
+resources loaded.  Once you see the proper drive displayed, <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the desired
+directory.</p>
+<p>If all has gone well at bitbucket, you should be able to look at your
+bitbucket site and see your new repository on the
+list of repositories .</p>
+<p>For example, the co-author’s new repository, <code class="docutils literal notranslate"><span class="pre">gkt170</span></code>, shows up on
+the list of repositories (the dropdown) as <code class="docutils literal notranslate"><span class="pre">gkthiruvathukal/gkt170</span></code>.</p>
+<p>So you can now go ahead by selecting this newly created repository
+from the list of repositories.  If all goes well, you should see the
+following screen:</p>
+<a class="reference internal image-reference" href="../_images/hgrepositorysummary.png"><img alt="Xamarin Studio Image" class="align-center" src="../_images/hgrepositorysummary.png" style="height: 300pt;" /></a>
+<p>Somewhere on this screen, you should see this text:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Clone</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="nf">repository</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="m">546</span><span class="w"> </span><span class="n">bytes</span><span class="p">):</span><span class="w"> </span><span class="n">HTTPS</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">SSH</span>
+<span class="n">hg</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="c1">//yourusername@bitbucket.org/yourusername/yourrepository</span>
+</pre></div>
+</div>
+<p>Copy the command you see in the browser starting <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code>, and paste it in
+as a command in your terminal/DOS-shell window.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">hg</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="c1">//gkthiruvathukal@bitbucket.org/gkthiruvathukal/gkt170</span>
+</pre></div>
+</div>
+<p>You will see some output:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="w"> </span><span class="n">authorization</span><span class="w"> </span><span class="n">required</span>
+<span class="n">realm</span><span class="p">:</span><span class="w"> </span><span class="n">Bitbucket</span><span class="p">.</span><span class="n">org</span><span class="w"> </span><span class="n">HTTP</span>
+<span class="n">user</span><span class="p">:</span><span class="w"> </span><span class="n">gkthiruvathukal</span>
+<span class="n">password</span><span class="p">:</span>
+<span class="n">destination</span><span class="w"> </span><span class="n">directory</span><span class="p">:</span><span class="w"> </span><span class="n">gkt170</span>
+<span class="n">no</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">found</span>
+<span class="n">updating</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="k">default</span>
+<span class="m">0</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">updated</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">merged</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">removed</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">unresolved</span>
+</pre></div>
+</div>
+<p>You have created a copy of the (empty) bitbucket repository in a
+subdirectory named the same as yourrepository (gkt170 in the example).
+The is the “checkout directory”, the top level of your copy.</p>
+<p>Again, because the repository at Bitbucket is presently empty, the
+above output actually makes sense. There are no files to be
+updated. We’ll learn more about what this output means later. It is
+possible to get <em>unresolved</em> files when you make changes that
+introduce conflicts. We’re going to do whatever we can to avoid these
+for the small projects in our course work. However, when working in
+teams, it will become especially important that you and your
+teammate(s) are careful to communicate changes you are making,
+especially when changing the same files in a project.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A version control system doesn’t replace the need for human communication and being
+organized.</p>
+</div>
+</section>
+<section id="add-an-hgignore-and-hello-world-file-to-your-project">
+<h3>Add an .hgignore and Hello World file to your project<a class="headerlink" href="#add-an-hgignore-and-hello-world-file-to-your-project" title="Permalink to this heading"></a></h3>
+<p>Change directory into the top-level directory of your local repository.
+That should mean <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the directory whose name matches the
+bitbucket repository name.</p>
+<p>The following is an example of a “dot hgignore” file.  Mercurial will neither
+list or otherwise pay attention the files in this list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># This indicates that we are using shell-like matching logic
+#    instead of regular expressions.
+syntax: glob
+# For Mac users
+Thumbs.db
+.DS_Store
+# This is where Xamarin Studio puts compiled stuff.
+bin/
+In case you compiled your own stuff, we ignore *.exe and *.dll
+*.exe
+*.dll
+# This is a temporary debugging file generated by Xamarin Studio
+*.pidb
+# And one other thing we don&#39;t need.
+*.userprefs
+</pre></div>
+</div>
+<p>Here is a brief explanation of what we’ve included here and why:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">syntax:</span> <span class="pre">glob</span></code> indicates that uses the “glob” syntax, which comes
+from MS-DOS (the command prompt still found on Windows). Glob syntax
+allows you to do special things like match all files having a
+certain extension (e.g. <code class="docutils literal notranslate"><span class="pre">*.exe</span></code> matches <code class="docutils literal notranslate"><span class="pre">Hello.exe</span></code> and any
+other filename with extension .exe.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Thumbs.db</span></code> and <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code>. Unfortunately, the Mac is still
+notorious for generating temporary files that serve no purpose,
+except on OS X. In general, we try to keep these files out of our
+repository and encourage you to do the same, especially if you are a
+Mac user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.exe</span></code> and <code class="docutils literal notranslate"><span class="pre">*.dll</span></code>. Anything that can be (re)produced by the
+Mono or Xamarin Studio tools should be excluded. In particular, do not
+keep these files in your repository. Today, they are quite small,
+but in future development work, they can be large. Worse, they are
+not text files (unlike your .cs files), so they cannot be stored
+optimally in a version control system.</p></li>
+<li><p>There are some other files produced by Xamarin Studio that we’ve put on
+the exclusion list, including <code class="docutils literal notranslate"><span class="pre">*.pidb</span></code> and <code class="docutils literal notranslate"><span class="pre">*.userprefs</span></code>. The
+reasoning for not keeping these is similar to that in the previous
+case.</p></li>
+</ul>
+<p>Now do the following steps:</p>
+<ol class="arabic simple">
+<li><p>Using your text editor, create a file <code class="docutils literal notranslate"><span class="pre">.hgignore</span></code>. You can simply
+copy and paste the above contents into this file.  Be careful of an editor
+like notepad, which adds “.txt” to the end of file names by default.</p></li>
+</ol>
+<blockquote>
+<div><dl class="simple">
+<dt><strong>Windows</strong>: To change from the default extension, use Save As, and change the</dt><dd><p>file type from .txt by electing the drop-down menu beside file type, and
+select “All files”.</p>
+</dd>
+</dl>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Create or copy your existing <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> example, hello.cs to the
+the <code class="docutils literal notranslate"><span class="pre">labs</span></code> folder.</p></li>
+<li><p>Let’s test whether .hgignore is having any effect. Go to the
+<code class="docutils literal notranslate"><span class="pre">labs</span></code> folder and compile the <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World.</span></code> example.</p></li>
+<li><p>Verify that the .cs and .exe files are in the labs directory
+(<code class="docutils literal notranslate"><span class="pre">ls</span></code> on Linux or OS X; <code class="docutils literal notranslate"><span class="pre">dir</span></code> on MS-DOS)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~/gkt170/labs$ mcs hello.cs
+gkt@gkt-mini:~/gkt170/labs$ ls -l
+total 8
+-rw-r--r-- 1 gkt gkt  224 2012-02-20 20:02 hello.cs
+-rwxrwxr-x 1 gkt gkt 3072 2012-02-20 20:05 hello.exe
+</pre></div>
+</div>
+</li>
+<li><p>Check the status:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~/gkt170/labs$ hg status
+? .hgignore
+? labs/hello.cs
+</pre></div>
+</div>
+<p>What this tells us is that <code class="docutils literal notranslate"><span class="pre">.hgignore</span></code> and <code class="docutils literal notranslate"><span class="pre">labs/hello.cs</span></code> are not
+presently being tracked by our version control system, Mercurial. The
+file <code class="docutils literal notranslate"><span class="pre">labs/hello.exe</span></code> is not shown, because it’s on the ignore list.</p>
+<p>Note that we actually need to put the <code class="docutils literal notranslate"><span class="pre">.hgignore</span></code> file under version
+control if we want to use it wherever we happen to be working with our
+stuff (i.e. when we’re not in the computer lab but, say, at home).</p>
+</li>
+<li><p>Add the file to version control:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~/gkt170$ hg add .hgignore
+
+gkt@gkt-mini:~/gkt170$ hg add labs/hello.cs
+</pre></div>
+</div>
+</li>
+<li><p>Commit the changes, and then see the log entry
+with the commands below.  If you set the .hgrc file,
+the command somewhere inside your local repository could be:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">hg</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="s">&quot;adding an .hgignore file and Hello, World to the project&quot;</span>
+</pre></div>
+</div>
+<p>If you did not create .hgrc, you need also include identification
+with -u yourName after <code class="docutils literal notranslate"><span class="pre">commit</span></code>, as in</p>
+<blockquote>
+<div><p>hg commit -u gkt -m “adding an .hgignore file and Hello, World to the project”</p>
+</div></blockquote>
+<p>It is Ok if your message wraps to a new line.  You can check the log entry created
+by your commit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~/gkt170$ hg log
+changeset:   0:9fe6ee1bf907
+tag:         tip
+user:        George K. Thiruvathukal &lt;gkt@cs.luc.edu&gt;
+date:        Mon Feb 20 20:14:42 2012 -0600
+summary:     adding an .hgignore file and Hello, World to the project
+</pre></div>
+</div>
+</li>
+<li><p>Push the changes to Bitbucket with the following command.
+(You’ll be prompted for user/password not shown here):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>hg push
+</pre></div>
+</div>
+<p>You should get a response like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pushing to https://gkthiruvathukal@bitbucket.org/gkthiruvathukal/gkt170
+searching for changes
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 1 changesets with 2 changes to 2 files
+remote: bb/acl: gkthiruvathukal is allowed. accepted payload.
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-an-initial-structure-for-your-project">
+<h3>Create an initial structure for your project<a class="headerlink" href="#create-an-initial-structure-for-your-project" title="Permalink to this heading"></a></h3>
+<p>We suggest that you follow a scheme similar to what we use when working
+with version control. We suggest that your source code goes in
+one or more folders, like work, or homework and labs.</p>
+<p>So let’s do it:</p>
+<ol class="arabic">
+<li><p>Make sure you are in the checkout directory, or <code class="docutils literal notranslate"><span class="pre">cd</span></code> to it.</p></li>
+<li><p>Create directories:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir hw
+mkdir labs
+</pre></div>
+</div>
+<p>We will be creating items in each one of these folders during the lab.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please note that most version control systems do not allow you to add <em>empty</em>
+folders to the repository. You must create at least one file and <strong>hg add</strong> it
+to the repository (and <strong>hg add</strong> and <strong>hg push</strong>) for the folder to actually
+be created. The above was just intended to make you aware of a desired “organization”.
+You are free to organize your project any way you like as long as we are able
+to find your homework assignments.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-and-test-content">
+<h3>Create and Test Content<a class="headerlink" href="#create-and-test-content" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>copy in or create a simple program in a directory you created,
+like labs/hello.cs</p></li>
+<li><p>Run it.</p></li>
+<li><p>Now go back to the command prompt, and enterEnter:</p>
+<blockquote>
+<div><p>hg status</p>
+</div></blockquote>
+<p>and produce a response like:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="w"> </span><span class="n">labs</span><span class="o">/</span><span class="n">hello</span><span class="p">.</span><span class="n">cs</span>
+</pre></div>
+</div>
+<p>Mercurial shows you the tracked files that are modified (none here)
+or files not not being tracked (after a ‘?’),
+except for those files explicitly ignored.  As you can see,
+the source (.cs) file is shown, but
+no “binary” objects (like an .exe file),
+since you gave instructions to ignore all such files.</p>
+</li>
+<li><p>Add the new solution/projects to Mercurial. At this point, if the above list looks
+“reasonable” to you, you can go ahead and just add <em>everything</em>. The <strong>hg</strong> command
+makes this easy for you. Instead of adding the specific files,
+you can just type the following (nothing after the add):</p>
+<blockquote>
+<div><p>hg add</p>
+</div></blockquote>
+<p>and produce a response like:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">adding</span><span class="w"> </span><span class="n">do_the_math</span><span class="p">.</span><span class="n">cs</span>
+</pre></div>
+</div>
+<p>If you inadvertently added something that you truly don’t want in the repository, you
+can use the <strong>hg rm</strong> command to remove it. We have nothing at the moment that
+we want to remove, but want to make you aware that correcting mistakes is possible.</p>
+</li>
+<li><p>As before, commit and push.  Here is a sequence from Dr. Thiruvathukal’s Mac:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~/gkt170$ hg commit -m &quot;adding hello program&quot;
+gkt@gkt-mini:~/gkt170$ hg push
+pushing to https://gkthiruvathukal@bitbucket.org/gkthiruvathukal/gkt170\
+searching for changes
+remote: adding changesets
+remote: adding manifests
+remote: adding file changes
+remote: added 1 changesets with 1 change to 1 file
+remote: bb/acl: gkthiruvathukal is allowed. accepted payload.
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="verify-that-your-stuff-really-made-it-to-bitbucket-org">
+<h3>Verify that your stuff really made it to bitbucket.org<a class="headerlink" href="#verify-that-your-stuff-really-made-it-to-bitbucket-org" title="Permalink to this heading"></a></h3>
+<p>At this point, it is entirely possible that you need some convincing to believe that
+everything we’ve been doing thus far is really making it to your repository at Bitbucket.
+Luckily, this is where having a web interface really can help us.</p>
+<p>Do the following:</p>
+<ol class="arabic">
+<li><p>Log into bitbucket.org if you are not already logged in.</p></li>
+<li><p>Go to Repositories and look for your repository. In the authors case, it is under
+<code class="docutils literal notranslate"><span class="pre">gkthiruvathukal</span> <span class="pre">/</span> <span class="pre">gkt170</span></code>.</p></li>
+<li><p>It pays to take a quick look at the dashboard. You’ll see the <em>recent commits</em> on the
+main screen. You should see at least two commits from our lab session thus far, both
+of which likely happened just “minutes ago”.</p></li>
+<li><p>You can click on any revision to see what changes were made. It is ok to do so at this
+time, but we’re going to take a look at the powerful capability of “looking at the
+source”. So go to the <em>Source</em> tab.</p>
+<a class="reference internal image-reference" href="../_images/bitbucket-source.png"><img alt="Xamarin Studio Image" class="align-center" src="../_images/bitbucket-source.png" style="width: 350pt;" /></a>
+</li>
+<li><p>If all was done properly, you will see .hgignore and labs. These
+were all the result of our earlier sequence of commit+push operations. You can click on
+any folder to drill into the hierarchy of folders/files that have been pushed
+to Bitbucket (from your local repository). In labs you find
+your source code (for hello.cs). Then you
+can look at it–through the web! When you do so, you’ll see something like this.</p>
+<a class="reference internal image-reference" href="../_images/HelloWorld.png"><img alt="Xamarin Studio Image" class="align-center" src="../_images/HelloWorld.png" style="height: 290pt;" /></a>
+</li>
+</ol>
+</section>
+<section id="working-between-lab-and-home-or-home-and-lab">
+<h3>Working between lab and home (or home and lab)<a class="headerlink" href="#working-between-lab-and-home-or-home-and-lab" title="Permalink to this heading"></a></h3>
+<p>It may not be immediately obvious, but what we have just shown you is how to work between
+the classroom/lab environment and home. In the typical scenario, when you go to your
+desk (or laptop), you will go through the following lifecycle:</p>
+<ul class="simple">
+<li><p><strong>hg pull</strong>: To gather any changes that you made at another location. You are always
+pulling changes from the repository stored at Bitbucket, which is acting as our
+intermediary. Being “in the cloud” it is a great place to keep stuff without having
+to worry (for the most part) about the repository getting lost.</p></li>
+<li><p><strong>hg update</strong>: To update your local copy of the repository with all of the changes
+that you just pulled down from Bitbucket.</p></li>
+<li><p>Create or modify your folders/files as desired.</p></li>
+<li><p>If any files that you want included were just created, use <strong>hg add</strong>.  It does not
+hurt to use this command, even if nothing was added.</p></li>
+<li><p><strong>hg commit -m message.</strong>: Save any changes you’ve made, to your local repository only.</p></li>
+<li><p><strong>hg push</strong>: Push the changes you’ve stashed in your local repository to the Bitbucket
+repository.</p></li>
+</ul>
+<p>You might wonder why the pull/update and commit/push operations are separate. For a team
+of one (or two, if you have a pair), it is not likely that you’d make a mistake when
+coordinating changes to a central repository. In a larger team, however, some coordination
+is required. We’re not going into all of those details in this lab, of course, but will
+likely revisit this topic as we get closer to the team project, which we think will make
+you thankful for having a version control system.</p>
+</section>
+<section id="getting-our-examples">
+<h3>Getting our examples<a class="headerlink" href="#getting-our-examples" title="Permalink to this heading"></a></h3>
+<p>We’re going to conclude by taking this opportunity to introduce you to how <em>we</em> (Drs.
+Harrington and Thiruvathukal) are actually using the stuff we are teaching to work as
+a team on developing the book and examples.</p>
+<ol class="arabic">
+<li><p>Pick a different location (outside of your repository folder and its subfolders)
+to check out our stuff from Bitbucket:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>hg clone https://bitbucket.org/loyolachicagocs_books/introcs-csharp-examples
+</pre></div>
+</div>
+</li>
+<li><p>Don’t worry about breaking anything. Because Bitbucket knows what users are allowed
+to push changes to our repository, anything you change in your copy won’t affect us.</p>
+</li>
+<li><p>Look under the source tab on the project page.</p></li>
+<li><p>For example, if you performed a clone to introcs-csharp-examples, you should be able to change directory to introcs-csharp-examples:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gkt@gkt-mini:~$ cd introcs-csharp-examples
+gkt@gkt-mini:~/introcs-csharp-examples$ ls
+addition1
+...
+write_test
+</pre></div>
+</div>
+<p>(Most output has been eliminated for conciseness.)</p>
+</li>
+<li><p>You can explore subfolders to see our programs.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="project.html" class="btn btn-neutral float-left" title="Group Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hgteamwork.html" class="btn btn-neutral float-right" title="Mercurial and Teamwork" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
