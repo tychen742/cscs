@@ -9,7 +9,7 @@ Build Status
 Viewing and Downloading
 ---------------------------
 
-Web Site - http://introcs.cs.luc.edu
+Web Site - http://introcscs.tychen.us
 
 Building the Book
 --------------------
