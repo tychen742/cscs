@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nested if Statements &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter Review Questions" href="reviewdecisions.html" />
+    <link rel="prev" title="Compound Boolean Expressions" href="compoundconditions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="decisions.html">Decisions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifstatements.html">Simple <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifelse.html"><code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comparisonops.html">More Conditional Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifelsechained.html">Multiple Tests and <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifpitfalls.html">If-statement Pitfalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compoundconditions.html">Compound Boolean Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewdecisions.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="decisions.html">Decisions</a></li>
+      <li class="breadcrumb-item active">Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/decisions/ifnested.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nested-if-statements">
+<span id="if-nested"></span><span id="index-0"></span><h1>Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#nested-if-statements" title="Permalink to this heading"></a></h1>
+<p>In <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements the substatements (the if-true and if-false clauses)
+are quite arbitrary statements.  They can be more <code class="docutils literal notranslate"><span class="pre">if</span></code> or
+<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements.
+In <a class="reference internal" href="ifelsechained.html#multiple-tests"><span class="std std-ref">Multiple Tests and if-else Statements</span></a>
+we have just illustrated placing an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement as the <code class="docutils literal notranslate"><span class="pre">else</span></code>
+clause, and repeating this pattern, to repeatedly test for one more case,
+stopping when the first true condition if reached.
+To choose one case from multiple cases,
+each condition separates one case terminal case from all the remaining
+untested cases.</p>
+<p>Consider a different situation:  Steven Covey suggested that people classify
+possible actions on two axes: urgent vs. not urgent and important vs. not
+important, leading to four possible combinations.
+We could ask a person to classify an activity this way, and them give a
+process comment, something like from Covey’s book:</p>
+<ul class="simple">
+<li><p>Important and urgent:  Be sure to schedule this promptly!</p></li>
+<li><p>Important and not urgent:  Make sure that this is included regularly in your
+plans!  Do not let urgent but unimportant things interfere!</p></li>
+<li><p>Not important and urgent:  Can you skip this, or is it really worth
+letting this displace important things you need to do?</p></li>
+<li><p>Not important and not urgent:  Is there anything more worthwhile
+for you to do now?</p></li>
+</ul>
+<p>Assume we have Boolean variables <code class="docutils literal notranslate"><span class="pre">important</span></code> and <code class="docutils literal notranslate"><span class="pre">urgent</span></code>.
+There are four separate combinations, and we could handle this with a
+chain of compound conditions checking for one at a time:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Be sure ...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Make sure ...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Can you...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Is there ...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Compound test conditions
+are not necessary if we keep track of partial answers,
+nesting <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, thinking about the two aspects separately:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Be sure ...&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Make sure ...&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Can you...&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Is there ...&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The outer <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> determines whether the action is important, so the inner
+conditions only need to deal with urgency.  Also note that in executing
+this version there are never more than two short conditions evaluated.
+In the first version,
+you may have to go through all three conditions.  Both approaches work.
+Which is clearer to you?</p>
+<section id="cartesian-plane-location-exercise-example">
+<h2>Cartesian Plane Location Exercise/Example<a class="headerlink" href="#cartesian-plane-location-exercise-example" title="Permalink to this heading"></a></h2>
+<p>Points in the Cartesian plane are given by an x and a y coordinate.  Seven
+parts of the Cartesian plane are labeled in the figure below.</p>
+<a class="reference internal image-reference" href="../_images/cartesian.png"><img alt="parts of Cartesian plane" class="align-center" src="../_images/cartesian.png" style="width: 135.15pt;" /></a>
+<p>So we match each point with only one name, refer to the point where
+both x and y are 0 as the origin, and only use the terms x axis or y axis when
+the point is <em>not</em> the origin.</p>
+<p>Write a program prompting the user for integer x and y values, and print
+out the part of the plane as named in the figure.
+Separate the input and output from the naming logic:
+Have a function with x and y coordinates as parameters that returns the
+name of the part of the Cartesian plane.</p>
+<p>There are several possible approaches to this function:</p>
+<ul class="simple">
+<li><p>Since each part is associated with a condition on both x and y,
+you could write a 7 clause chain of if else if else …. with each condition
+being a <em>compound</em> Boolean expression checking for another specific case.
+This gives some more practice with compound boolean expressions.</p></li>
+<li><p>The previous version is conceptually straightforward,
+but you end up checking the sign of x and y
+many more times than you need to.  Alternately you can make each condition
+check only the sign of <em>one</em> coordinate, and <em>nest</em> <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements
+checking one coordinate inside an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement checking the other
+coordinate.  This is more complicated than the Covey importance and
+urgency example, since each sign has three possibilities (+, 0, -)
+rather than two. <em>Our</em> solutions to this approach are in example
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/cartesian/cartesian.cs">cartesian/cartesian.cs</a>.  There are actually two alternative
+solutions functions there.
+The first version uses many <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements, but since each clause
+executes a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement that stops any further execution,
+no <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses are actually needed, as shown in <code class="docutils literal notranslate"><span class="pre">PartOfPlane2</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compoundconditions.html" class="btn btn-neutral float-left" title="Compound Boolean Expressions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reviewdecisions.html" class="btn btn-neutral float-right" title="Chapter Review Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

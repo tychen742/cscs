@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>.Net Library (API) &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter Review Questions" href="reviewlists.html" />
+    <link rel="prev" title="List Syntax" href="listsyntax.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lists.html">Lists</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="listsyntax.html">List Syntax</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">.Net Library (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewlists.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lists.html">Lists</a></li>
+      <li class="breadcrumb-item active">.Net Library (API)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lists/dotnetapi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="net-library-api">
+<span id="dotnetapi"></span><span id="index-0"></span><h1>.Net Library (API)<a class="headerlink" href="#net-library-api" title="Permalink to this heading"></a></h1>
+<p>This book can only introduce so many classes and methods from the C# library.
+You should browse the MSDN .Net Framework Class Library’s online documentation.</p>
+<blockquote>
+<div><p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/gg145045.aspx">http://msdn.microsoft.com/en-us/library/gg145045.aspx</a></p>
+</div></blockquote>
+<p>We mostly deal with classes in the namespaces System, System.IO,
+and System.Collections.Generic, and you can drill down to them.</p>
+<p>One complication is that
+variations on these classes and methods are included for several Microsoft languages.
+Under the Syntax heading, make sure the <strong>C# tab</strong> is selected.</p>
+<p>For example, you can click in the left column on System.Collections Namespaces, and then
+System.Collections.Generic, and then, for example, List(T).  (In C# that is <code class="docutils literal notranslate"><span class="pre">List&lt;T&gt;</span></code>.)</p>
+<p>The summary section separates constructors, properties, and methods.  When you see one of these
+with promise, click on it to get the full details.  For example, click on the first method in the
+Methods section, <code class="docutils literal notranslate"><span class="pre">Add</span></code>, or something new, like <code class="docutils literal notranslate"><span class="pre">IndexOf</span></code>, or <code class="docutils literal notranslate"><span class="pre">Reverse</span></code>, or <code class="docutils literal notranslate"><span class="pre">Sort</span></code>….</p>
+<p>Classes also can be classified in several ways for browsing:</p>
+<ul class="simple">
+<li><p>Those you will want to be fairly familiar with pretty soon:  string, List, Dictionary</p></li>
+<li><p>Those that might be useful, that you should be at least aware of.</p></li>
+<li><p>Those that may be useful eventually, but are not worth your time now.</p></li>
+</ul>
+<p>You will also find methods in various categories as you browse:</p>
+<ul class="simple">
+<li><p>Methods that make sense and are useful right away</p></li>
+<li><p>Methods that take a little reading to absorb</p></li>
+<li><p>Features that we have yet to discuss</p></li>
+<li><p>Features that are well beyond what we have talked about - ask or wait or read a <em>lot</em>.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="listsyntax.html" class="btn btn-neutral float-left" title="List Syntax" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reviewlists.html" class="btn btn-neutral float-right" title="Chapter Review Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiple Function Definitions &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function Parameters" href="funcparam.html" />
+    <link rel="prev" title="A First Function Definition" href="firstfunc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="functions.html">Defining Functions of your Own</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="firstfunc.html">A First Function Definition</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multiple Function Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcparam.html">Function Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcparam2.html">Multiple Function Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcreturn.html">Returned Function Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writerconsumer.html">Two Roles: Writer and Consumer of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localscope.html">Local Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticvariables.html">Static Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notusereturn.html">Not using Return Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraryclass.html">Library Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceback.html">Tracebacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcsummary.html">Static Function Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewfunc.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="functions.html">Defining Functions of your Own</a></li>
+      <li class="breadcrumb-item active">Multiple Function Definitions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/functions/multfunc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multiple-function-definitions">
+<span id="id1"></span><h1>Multiple Function Definitions<a class="headerlink" href="#multiple-function-definitions" title="Permalink to this heading"></a></h1>
+<p>Here is example program <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/birthday3/birthday3.cs">birthday3/birthday3.cs</a> where we add a function
+<code class="docutils literal notranslate"><span class="pre">HappyBirthdayAndre</span></code>, and call them both. Guess what happens, and
+then load and try it:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Birthday3</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">HappyBirthdayEmily</span><span class="p">();</span>
+<span class="w">      </span><span class="n">HappyBirthdayAndre</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HappyBirthdayEmily</span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday, dear Emily.&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HappyBirthdayAndre</span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday, dear Andre.&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Again, definitions are remembered and execution starts in <code class="docutils literal notranslate"><span class="pre">Main</span></code>.
+The order in which the function definitions are given does not matter
+to C#.  It is a human choice.  For variety I show <code class="docutils literal notranslate"><span class="pre">Main</span></code> first.  This
+means a human reading in order gets an overview of what is happening
+by looking at Main, but does not know the details until reading the
+definitions of the birthday functions.</p>
+<p>Detailed order of execution:</p>
+<ol class="arabic simple">
+<li><p>Line 5: Start on <code class="docutils literal notranslate"><span class="pre">Main</span></code></p></li>
+<li><p>Line 7. This location is remembered as execution jumps to
+<code class="docutils literal notranslate"><span class="pre">HappyBirthdayEmily</span></code></p></li>
+<li><p>Lines 11-17 are executed and Emily is sung to.</p></li>
+<li><p>Return to the end of Line 7: Back from <code class="docutils literal notranslate"><span class="pre">HappyBirthdayEmily</span></code>
+function call</p></li>
+<li><p>Line 8: Now <code class="docutils literal notranslate"><span class="pre">HappyBirthdayAndre</span></code> is called as this location is
+remembered.</p></li>
+<li><p>Lines 19-25: Sing to Andre</p></li>
+<li><p>Return to the end of line 8: Back from <code class="docutils literal notranslate"><span class="pre">HappyBirthdayAndre</span></code>
+function call, done with <code class="docutils literal notranslate"><span class="pre">Main</span></code>;
+at the end of the program</p></li>
+</ol>
+<p>The calls to the birthday functions
+<em>happen</em> to be in the same order as their definitions, but that is
+arbitrary. If the two lines of the body of <code class="docutils literal notranslate"><span class="pre">Main</span></code> were swapped,
+the order of
+operations would change, but if the order of the whole function
+definitions were changed,
+it would make no difference in execution.</p>
+<p>Functions that you write can also call other functions you write.
+In this case Main calls each of the birthday functions.</p>
+<div class="admonition warning" id="index-0">
+<p class="admonition-title">Warning</p>
+<p>A common compiler error is caused by failing to match the braces
+that wrap a function body.  A new function heading can only
+exist outside all other function declarations and inside a class.
+If you have too few or extra <code class="docutils literal notranslate"><span class="pre">'}'</span></code> you are likely to find
+a perfectly fine looking function heading with an error,
+for instance, about not
+allowing <code class="docutils literal notranslate"><span class="pre">static</span></code> here….
+Check your earlier lack or excess of braces!</p>
+</div>
+<p id="index-1">Xamarin Studio, like other modern code editors, can show you
+matching delimiters.  If you place your cursor immediately after a delimiter
+{ } ( ) [ ], the matching one should become highlighted.</p>
+<section id="poem-function-exercise">
+<h2>Poem Function Exercise<a class="headerlink" href="#poem-function-exercise" title="Permalink to this heading"></a></h2>
+<p>Write a program, <code class="file docutils literal notranslate"><span class="pre">poem.cs</span></code>, that defines a function that
+prints a <em>short</em> poem or song verse. Give a meaningful name to the
+function. Have the program call the function three times,
+so the poem or verse is repeated three times.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="firstfunc.html" class="btn btn-neutral float-left" title="A First Function Definition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="funcparam.html" class="btn btn-neutral float-right" title="Function Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

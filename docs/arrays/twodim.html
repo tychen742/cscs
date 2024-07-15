@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-dimensional Arrays &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter Review Questions" href="reviewarrays.html" />
+    <link rel="prev" title="Lab: Performance" href="lab-searching-arrays-lists-maps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="arrays.html">Arrays</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="onedim.html">One Dimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Musical Scales and Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">Linear Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sorting.html">Sorting Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binarysearching.html">Binary Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-array1d.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-searching-arrays-lists-maps.html">Lab: Performance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-dimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewarrays.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="arrays.html">Arrays</a></li>
+      <li class="breadcrumb-item active">Multi-dimensional Arrays</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/arrays/twodim.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multi-dimensional-arrays">
+<span id="id1"></span><h1>Multi-dimensional Arrays<a class="headerlink" href="#multi-dimensional-arrays" title="Permalink to this heading"></a></h1>
+<section id="rectangular-arrays-two-dimensional">
+<span id="index-0"></span><h2>Rectangular Arrays (Two Dimensional)<a class="headerlink" href="#rectangular-arrays-two-dimensional" title="Permalink to this heading"></a></h2>
+<p>You should be familiar with one dimensional arrays. The data in arrays
+may be any type. While a one dimensional array
+works for a sequence of data,
+we need something more for a two dimensional table,
+where data values vary over both row and column.</p>
+<p>If we have a table of integers, for instance with three
+rows and four columns:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">55</span>
+<span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">10</span>
+<span class="m">6</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">49</span><span class="w"> </span><span class="m">12</span>
+</pre></div>
+</div>
+<p>We could declare an array variable of the right size as</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="p">[,]</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Multiple indices are separated by commas inside the square brackets.
+In declaring an array type, no indices are included so the <code class="docutils literal notranslate"><span class="pre">[,]</span></code>
+indicates a two dimensional array.  Where the <code class="docutils literal notranslate"><span class="pre">new</span></code> object is being created,
+the values inside the square brackets give each dimension.</p>
+<p>In general the notation for a two dimensional array declaration is:</p>
+<blockquote>
+<div><p><strong>type</strong> <code class="docutils literal notranslate"><span class="pre">[,</span> <span class="pre">]</span></code> <strong>variableName</strong></p>
+</div></blockquote>
+<p>and to create a new array with default values:</p>
+<blockquote>
+<div><p>new <strong>type</strong> <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>intExpression1</em><code class="docutils literal notranslate"><span class="pre">,</span></code> <em>intExpression2</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></p>
+</div></blockquote>
+<p>where the expressions evaluate to integers for the dimensions.</p>
+<p>To assign the 8 in the table above, consider that it is in the second
+row in normal counting, but we start array indices at 0, so there are
+rows 0, 1, and 2, and the 8 has row index 1.
+Again starting with index 0 for columns, the 8 is at index
+2. We can assign a value to that position with</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In fact a two dimensional array just needs two indices that could mean
+anything.  For instance, it was just the standard convention,
+calling the left index the row.  They could have been switched everywhere, and
+assume the notation <code class="docutils literal notranslate"><span class="pre">table[column,</span> <span class="pre">row]</span></code>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="p">[,]</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">];</span>
+<span class="n">table</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>but we will <em>stick with</em> the original <code class="docutils literal notranslate"><span class="pre">[row,</span> <span class="pre">column]</span></code> model.</p>
+<p>Data indexed by more than two integer indices can be stored in a higher
+dimension array, with more indices between the square braces.  We
+will only consider two dimensional arrays in the examples here.</p>
+<p>A shorthand for initializing all the data in the table,
+analogous to initializing one dimensional arrays is:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="p">[,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w">  </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">55</span><span class="p">},</span>
+<span class="w">                  </span><span class="p">{</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">  </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">},</span>
+<span class="w">                  </span><span class="p">{</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">49</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>All rows must be the same length when using this notation.</p>
+<p>Often two dimensional arrays, like one dimensional  arrays, are processed
+in loops. Multiple dimension arrays are often processed in nested loops.
+We could print out this table using columns 5 spaces wide with the code:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">4</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0, 5}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">         </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If we wanted to make a more general function out of that code,
+we have a problem:  the number of rows and columns were literal values
+that we knew.  We need something more general.  For one dimensional
+arrays we had the Length property, but now there are more than one
+lengths!</p>
+<p>The following csharp sequence illustrates the syntax needed:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">int</span><span class="p">[,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w">  </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">55</span><span class="p">},</span>
+<span class="w">      </span><span class="o">&gt;</span><span class="w">                   </span><span class="p">{</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">  </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">},</span>
+<span class="w">      </span><span class="o">&gt;</span><span class="w">                   </span><span class="p">{</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">49</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+<span class="m">12</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="m">3</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="m">4</span>
+<span class="n">csharp</span><span class="o">&gt;</span><span class="w"> </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">table</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">&gt;</span><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">      </span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span>
+<span class="m">2</span>
+<span class="m">4</span>
+<span class="m">7</span>
+<span class="m">55</span>
+<span class="m">3</span>
+<span class="m">1</span>
+<span class="m">8</span>
+<span class="m">10</span>
+<span class="m">6</span>
+<span class="m">0</span>
+<span class="m">49</span>
+<span class="m">12</span>
+</pre></div>
+</div>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The meaning for the Length property,
+is now the <em>total</em> number of elements, (3)(4) = 12.</p></li>
+<li><p>The separate method <code class="docutils literal notranslate"><span class="pre">GetLength</span></code> is needed to find the number of rows and columns.
+The entries in the list of array indices in the multi-dimensional array notation
+are themselves indexed to provide the <code class="docutils literal notranslate"><span class="pre">GetLength</span></code> method parameter for each dimension.
+In this case index 0 gives the row length (left index of the array notation),
+and 1 gives the column length (right index of the array notation).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">foreach</span></code> statement behavior is consistent with the <code class="docutils literal notranslate"><span class="pre">Length</span></code> property, giving <em>all</em>
+the elements, row by row.  More generally, the rightmost indices vary most rapidly
+as the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> statement iterates through all elements.</p></li>
+</ul>
+<p>Just replacing 3 and 4 by <code class="docutils literal notranslate"><span class="pre">table.GetLength(0)</span></code> and <code class="docutils literal notranslate"><span class="pre">table.GetLength(1)</span></code> in the
+table printing code would make it general.</p>
+<p>A more elaborate table might include row and column sums:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="m">2</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">7</span><span class="w">  </span><span class="m">55</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">68</span>
+<span class="w">  </span><span class="m">3</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">8</span><span class="w">  </span><span class="m">10</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">22</span>
+<span class="w">  </span><span class="m">6</span><span class="w">   </span><span class="m">0</span><span class="w">  </span><span class="m">49</span><span class="w">  </span><span class="m">12</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">67</span>
+<span class="o">---------------------</span>
+<span class="w"> </span><span class="m">11</span><span class="w">   </span><span class="m">5</span><span class="w">  </span><span class="m">64</span><span class="w">  </span><span class="m">77</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">157</span>
+</pre></div>
+</div>
+<p>For example, the following function from example file
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/print_table/print_table.cs">print_table/print_table.cs</a>,
+prints out a table of integers
+neatly, including row and column sums.  It illustrates
+a number of things.  It shows the interplay between
+one and two dimensional arrays, since the row and column sums are
+just one dimensional arrays.</p>
+<p>Now that we are using arrays,
+we can easily look at the same collection of data repeatedly.
+It is possible to look at the data one time to just see its maximum
+width, and then go through again and print data using a column
+width that is just large enough for the longest numbers.
+When looking through the data for string lengths, the row and column
+structure is not important, so the code illustrates <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loops
+to chug through all the data.  We use the earlier trick in
+<a class="reference internal" href="../for/forexamples.html#modular-mult-table"><span class="std std-ref">Modular Multiplication Table</span></a>, creating a custom format string to make columns
+the right width.</p>
+<p>The code refers once to the earlier <code class="docutils literal notranslate"><span class="pre">StringOfReps</span></code> in <a class="reference internal" href="../for/lab-nested-loops.html#lab-loops"><span class="std std-ref">Lab: Loops</span></a>
+for the row of dashes setting off the column sums:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">      </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintTableAndSums</span><span class="p">(</span><span class="kt">int</span><span class="p">[,]</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">rowSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">)],</span>
+<span class="w">         </span><span class="n">colSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">)];</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="n">rowSum</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">];</span>
+<span class="w">               </span><span class="n">colSum</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">];</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">rowSum</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">sum</span><span class="p">).</span><span class="n">Length</span><span class="p">;</span>
+<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">n</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">colSum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">n</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">rowSum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">n</span><span class="p">).</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{0,&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;} &quot;</span><span class="p">;</span>
+
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;| &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">rowSum</span><span class="p">[</span><span class="n">r</span><span class="p">]);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">reps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StringOfReps</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">,(</span><span class="n">width</span><span class="o">+</span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="o">+</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">reps</span><span class="p">);</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">colSum</span><span class="p">[</span><span class="n">c</span><span class="p">]);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;| &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<section id="row-and-column-numbering-exercise">
+<span id="row-col-number-exercise"></span><span id="index-1"></span><h3>Row and Column Numbering Exercise<a class="headerlink" href="#row-and-column-numbering-exercise" title="Permalink to this heading"></a></h3>
+<p>Write a function that sets the values in a given
+rectangular array to 10 * (row index +1) + column index + 1, with the
+normal row and column indices, starting from 0. For example
+an array with two rows
+and five columns would end up with values below. Your method should set
+the values in the array, not print them out:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">15</span>
+<span class="m">21</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">25</span>
+</pre></div>
+</div>
+<p>If there are no more than 9 rows or columns, this display gives row and
+column numbers neatly for the normal human counting system, starting from 1.</p>
+</section>
+<section id="varying-column-width-exercise">
+<span id="varying-width-columns-exercise"></span><span id="index-2"></span><h3>Varying Column Width Exercise<a class="headerlink" href="#varying-column-width-exercise" title="Permalink to this heading"></a></h3>
+<p>Copy the project file <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/print_table/print_table.cs">print_table/print_table.cs</a> to a file
+<code class="file docutils literal notranslate"><span class="pre">print_varying_width_table.cs</span></code> in a projet of yours.
+Edit it so that <em>each</em> column
+is only as wide as it needs to be: the width for the widest entry in
+that column.
+The earlier data would now print as:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">55</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">68</span>
+<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">22</span>
+<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">49</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="m">67</span>
+<span class="o">----------------</span>
+<span class="m">11</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="m">77</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">157</span>
+</pre></div>
+</div>
+<p>Calculate each of these widths <em>only once</em>.
+Hint: Create an array of widths and an array of format strings.</p>
+</section>
+</section>
+<section id="advanced-topic-array-of-arrays">
+<span id="index-3"></span><h2>Advanced topic: Array of Arrays<a class="headerlink" href="#advanced-topic-array-of-arrays" title="Permalink to this heading"></a></h2>
+<p>Since you can have an array of any type, it is also possible to have an
+<em>array of arrays</em>.</p>
+<p>You could create a table with shape like the initial example
+in <a class="reference internal" href="#multi-dimensional-arrays"><span class="std std-ref">Multi-dimensional Arrays</span></a></p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="p">[][]</span><span class="w"> </span><span class="n">table2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="m">3</span><span class="p">][</span><span class="m">4</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>and refer to an element still by row and column index::</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">table2</span><span class="p">[</span><span class="m">1</span><span class="p">][</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The notational difference so far is just that each index in enclosed in
+separate square brackets, with no commas.</p>
+<p>This takes somewhat more memory and is longer to
+access than the multidimensional arrays that we have been talking about
+with the comma-separated notation.  For most uses, when you want to
+refer to a rectangular table of data, like above,
+this new version has little to
+offer.</p>
+<p>There are a couple of reasons why you might want this format.</p>
+<p>First you may have functions that operate on one dimensional arrays,
+and individual rows of <code class="docutils literal notranslate"><span class="pre">table2</span></code> are one dimensional arrays:
+<code class="docutils literal notranslate"><span class="pre">table2[1]</span></code> has type <code class="docutils literal notranslate"><span class="pre">int[]</span></code>.  On the other hand, with the
+earlier <code class="docutils literal notranslate"><span class="pre">table</span></code> with type  <code class="docutils literal notranslate"><span class="pre">int[,]</span></code>, references to part of
+the array must always include a comma, so <code class="docutils literal notranslate"><span class="pre">tabel[1]</span></code> would
+not refer to a row, but would be a syntax error.</p>
+<p>Also in an array of arrays, since each row is an independent array,
+their lengths can <em>vary</em>.
+Here is code to make a doubly indexed “triangular” collection
+(of 0 values).
+Each row must be separately created as a new array:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="p">[][]</span><span class="w"> </span><span class="n">tri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="m">4</span><span class="p">][];</span><span class="w"> </span><span class="c1">//create four null int[] elements</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tri</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Length 4 (rows)</span>
+<span class="w">   </span><span class="n">tri</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// each row has a different length</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">tri</span></code> constructed as above:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tri[3,</span> <span class="pre">3]</span></code> would given a compiler error: no changing <code class="docutils literal notranslate"><span class="pre">[][]</span></code> to <code class="docutils literal notranslate"><span class="pre">[,</span> <span class="pre">]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tri[3][3]</span></code> would refer to an element.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tri[1][3]</span></code> would given a run-time out-of-bounds error.
+since <code class="docutils literal notranslate"><span class="pre">tri[1]</span></code> is an array of length 2.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lab-searching-arrays-lists-maps.html" class="btn btn-neutral float-left" title="Lab: Performance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reviewarrays.html" class="btn btn-neutral float-right" title="Chapter Review Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

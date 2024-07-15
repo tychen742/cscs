@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Syntax &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title=".Net Library (API)" href="dotnetapi.html" />
+    <link rel="prev" title="Lists" href="lists.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lists.html">Lists</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">List Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dotnetapi.html">.Net Library (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewlists.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lists.html">Lists</a></li>
+      <li class="breadcrumb-item active">List Syntax</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lists/listsyntax.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="list-syntax">
+<span id="listsyntax"></span><span id="index-0"></span><h1>List Syntax<a class="headerlink" href="#list-syntax" title="Permalink to this heading"></a></h1>
+<p>Arrays are fine if you know ahead of time how long your sequence of items is.
+Then you create your array with that length, and you are all set.</p>
+<p>If you want a variable sized container, you are likely to want a <code class="docutils literal notranslate"><span class="pre">List</span></code>.
+As with arrays, you might want a collection of any particular type.
+Unfortunately, you cannot use the simple notation of arrays to specify
+the type of element in a <code class="docutils literal notranslate"><span class="pre">List</span></code>.  Array syntax is
+<em>built into</em> the language.  Lists are handled in the <em>library</em> of types
+provided by C# from the .Net framework.  There are all sorts of
+situations where you might want a general idea to have a version for each of
+many kinds of objects.  There is <em>not</em> a new syntax for <em>each</em> one.</p>
+<section id="generics">
+<span id="index-1"></span><h2>Generics<a class="headerlink" href="#generics" title="Permalink to this heading"></a></h2>
+<p>Instead .Net 4.0 introduced one new form of syntax that can apply to all sorts of
+classes, <em>generics</em>.</p>
+<p>The type for a list of strings is</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The type for an <code class="docutils literal notranslate"><span class="pre">int</span></code> list is</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In general the new generic syntax allows a type (or several, comma separated) in angle
+brackets after a class name.  Lists are an example that depends on just
+one included type.  We will see more shortly.</p>
+<p>There is a namespace for the generics for collections, including List:
+System.Collections.Generic.</p>
+<p>We will use several generic library classes, though we will not write the definitions of
+new generic classes ourselves.</p>
+</section>
+<section id="list-constructors-and-methods">
+<span id="index-2"></span><h2>List Constructors and Methods<a class="headerlink" href="#list-constructors-and-methods" title="Permalink to this heading"></a></h2>
+<p>We can play with some <code class="docutils literal notranslate"><span class="pre">List</span></code> methods in csharp.
+Note that csharp informally displays the
+value of a <code class="docutils literal notranslate"><span class="pre">List</span></code> with a list of elements inside braces.
+This is <em>not</em> a legal
+way to assign values to lists.</p>
+<p>The blocks below are all from one csharp session,
+with our comments breaking up the sequence.</p>
+<p>With the no-parameter constructor, the <code class="docutils literal notranslate"><span class="pre">List</span></code> is empty to start:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; List&lt;string&gt; words = new List&lt;string&gt;();
+csharp&gt; words;
+{  }
+csharp&gt; words.Count;
+0
+</pre></div>
+</div>
+<p>You can add elements, and keep count with the <code class="docutils literal notranslate"><span class="pre">Count</span></code> property
+as the size changes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words.Add(&quot;up&quot;);
+csharp&gt; words;
+{ &quot;up&quot; }
+csharp&gt; words.Add(&quot;down&quot;);
+csharp&gt; words;
+{ &quot;up&quot;, &quot;down&quot; }
+csharp&gt; words.Add(&quot;over&quot;);
+csharp&gt; words;
+{ &quot;up&quot;, &quot;down&quot;, &quot;over&quot; }
+csharp&gt; words.Count;
+3
+</pre></div>
+</div>
+<p id="index-3">You can reference and change elements by index, like with arrays:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words[0];
+&quot;up&quot;
+csharp&gt; words[2];
+&quot;over&quot;
+csharp&gt; words[2] = &quot;in&quot;;
+csharp&gt; words;
+{ &quot;up&quot;, &quot;down&quot;, &quot;in&quot; }
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">foreach</span></code> like with arrays or other sequences:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; foreach (string s in words) {
+          &gt;    Console.WriteLine(s.ToUpper());
+          &gt; }
+UP
+DOWN
+ON
+</pre></div>
+</div>
+<p id="index-4">Note:  Unfortunately C# is not user-friendly if
+you try to use <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> to print a <code class="docutils literal notranslate"><span class="pre">List</span></code> <em>object</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; Console.WriteLine(words)
+System.Collections.Generic.List`1[System.Int32]
+</pre></div>
+</div>
+<p>Next compare <code class="docutils literal notranslate"><span class="pre">Remove</span></code>, which finds the first matching element and removes it,
+and <code class="docutils literal notranslate"><span class="pre">RemoveAt</span></code>, which removes the element at a specified index.
+<code class="docutils literal notranslate"><span class="pre">Remove</span></code> returns whether the List has been changed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words.Remove(&quot;down&quot;);
+true
+csharp&gt; words;
+{ &quot;up&quot;, &quot;in&quot; }
+csharp&gt; words.Remove(&quot;around&quot;); // no change
+false
+csharp&gt; words.Add(&quot;out&quot;);
+csharp&gt; words.Add(&quot;on&quot;);
+csharp&gt; words;
+{ &quot;up&quot;, &quot;in&quot;, &quot;out&quot;, &quot;on&quot; }
+csharp&gt; words.RemoveAt(2); // &quot;out&quot; is at index 2
+csharp&gt; words;
+{ &quot;up&quot;, &quot;in&quot;, &quot;on&quot; }
+</pre></div>
+</div>
+<p>Removing does not leave a “hole” in the <code class="docutils literal notranslate"><span class="pre">List</span></code>:  The list closes up,
+so the index decreases for the elements after the removed one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words[2];
+&quot;on&quot;
+csharp&gt; words.Count;
+3
+</pre></div>
+</div>
+<p>You can check for membership in a <code class="docutils literal notranslate"><span class="pre">List</span></code> with <code class="docutils literal notranslate"><span class="pre">Contains</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words.Contains(&quot;in&quot;);
+true
+csharp&gt; words.Contains(&quot;into&quot;);
+false
+</pre></div>
+</div>
+<p>You can also remove all elements at once:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; words.Clear();
+csharp&gt; words.Count;
+0
+</pre></div>
+</div>
+<p id="index-5">Here is a List containing <code class="docutils literal notranslate"><span class="pre">int</span></code> elements.
+Though more verbose than for an array, you can initialize a <code class="docutils literal notranslate"><span class="pre">List</span></code>
+with another collection, including an anonymous array,
+specified with an explicit sequence in braces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; List&lt;int&gt; nums = new List&lt;int&gt;(new[]{5, 3, 7, 4});
+csharp&gt; nums;
+{ 5, 3, 7, 4 }
+</pre></div>
+</div>
+<p>We have been using the explicit declaration syntax, but generic types tend to get long,
+so <code class="docutils literal notranslate"><span class="pre">var</span></code> is handy with them:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">stuff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>When initializing a generic object, you still need to remember both the angle braces
+around the type <em>and</em> the parentheses for the parameter list after that.</p>
+<p id="index-6">An aside on the <code class="docutils literal notranslate"><span class="pre">Remove</span></code> method:  It both causes a side effect,
+changing the list,
+<em>and</em> it returns a value.  If a function returns a value,
+we typically use the function call as an
+expression in a larger statement.  This is not necessary, as described in
+<a class="reference internal" href="../functions/notusereturn.html#not-using-ret-val"><span class="std std-ref">Not using Return Values</span></a>.  In that section we discussed the <em>mistake</em> of not
+using return values.  The <code class="docutils literal notranslate"><span class="pre">Remove</span></code> method illustrates that this is
+not always a mistake:  If you just want the side effect, trying to remove an element,
+whether or not it is in the list, then there is no need to check for the return value.
+This complete C# statement is fine:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">someList</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You should generally think carefully before <em>defining</em> a function
+that both has a side effect
+and a return value.  Most functions that return a value do not have a side effect.
+If you see a function used in the normal way as an expression, it is easy to forget that
+it was <em>also</em> producing some side effect.</p>
+</section>
+<section id="interactive-list-example">
+<span id="index-7"></span><h2>Interactive List Example<a class="headerlink" href="#interactive-list-example" title="Permalink to this heading"></a></h2>
+<p>Lists are handy when you do not know how much data there will be.
+A simple example would be reading in lines from the user interactively:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">/// Return a List of lines entered by the user in response</span>
+<span class="c1">/// to the prompt.  Lines in the List will be nonempty, since an</span>
+<span class="c1">/// empty line terminates the input.</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ReadLines</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">prompt</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">prompt</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;An empty line terminates input.&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">lines</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">lines</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lists.html" class="btn btn-neutral float-left" title="Lists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dotnetapi.html" class="btn btn-neutral float-right" title=".Net Library (API)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
