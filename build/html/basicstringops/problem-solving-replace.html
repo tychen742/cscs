@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Creative Problem Solution &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab: String Operations" href="lab-string-ops.html" />
+    <link rel="prev" title="Some Instance Methods and the Length Property" href="stringmethods.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="basicstringops.html">Basic String Operations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="stringindexing.html">String Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stringmethods.html">Some Instance Methods and the Length Property</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">A Creative Problem Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-string-ops.html">Lab: String Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewstring.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="basicstringops.html">Basic String Operations</a></li>
+      <li class="breadcrumb-item active">A Creative Problem Solution</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/basicstringops/problem-solving-replace.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="a-creative-problem-solution">
+<span id="solve-string-replace"></span><span id="index-0"></span><h1>A Creative Problem Solution<a class="headerlink" href="#a-creative-problem-solution" title="Permalink to this heading"></a></h1>
+<p>Thus far the exercises and examples suggested have been of
+a very simple form, where the idea of the steps should
+have been pretty clear, and the main issue was just
+translating syntax into C#, one instruction at a time.</p>
+<p>We still have a lot of syntax to concentrate on,
+but still, early on, we wanted to get in some real thought
+of problem solving.  To get very interesting you
+need a number of options that might be combined in
+a variety of ways.  The short list of
+string methods just introduced
+is likely give us enough to think about….</p>
+<p>Here is a basic string manipulation problem:
+given a string, like,
+<code class="docutils literal notranslate"><span class="pre">&quot;It</span> <span class="pre">was</span> <span class="pre">the</span> <span class="pre">best</span> <span class="pre">of</span> <span class="pre">times.&quot;</span></code>,
+find and replace a specified part of it by another string.
+For instance replace <code class="docutils literal notranslate"><span class="pre">&quot;best&quot;</span></code> by <code class="docutils literal notranslate"><span class="pre">&quot;worst&quot;</span></code>.
+In this example we would get the result:
+<code class="docutils literal notranslate"><span class="pre">&quot;It</span> <span class="pre">was</span> <span class="pre">the</span> <span class="pre">worst</span> <span class="pre">of</span> <span class="pre">times.&quot;</span></code>.</p>
+<p>It is very important to give concrete examples to
+illustrate the idea desired.  Our human brains may be
+very quick to see a solution like this in a very
+concrete case, but what about making it general?</p>
+<p>First this seems like a basic logical operation worthy
+of a function or method, so we need a heading.
+(Confession:  there are methods in the class
+string for replacement, but this is a good learning exercise,
+so we are starting over on our own.)  Since
+we cannot change the string class, we will write a
+static function to generate the new string.</p>
+<p>For simplicity at the moment we will only change
+the first occurrence, and for now we will assume the
+replacement makes sense.  The following heading
+(with documentation) should work:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">/// Return s with the first occurence of target</span>
+<span class="c1">/// replaced by replacement.</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">replaceFirst</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">target</span><span class="p">,</span>
+<span class="w">                           </span><span class="kt">string</span><span class="w"> </span><span class="n">replacement</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As soon as we have the calling interface, it is good to be thinking
+of the tests it should pass.  Here is a Main program written
+to test the function in different ways and display the results:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;It was the best of times.&quot;</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Of times it was the best.&quot;</span><span class="p">;</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;str1=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;str2=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<span class="w">   </span><span class="c1">// to embed a quote inside a string constant, precede it by backslash(\).</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Let us do some \&quot;cutting and pasting\&quot; of strings!&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">str3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replaceFirst</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;worst&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;str3 = str1 with best =&gt; worst: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str3</span><span class="p">);</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">str4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replaceFirst</span><span class="p">(</span><span class="n">str2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;worst&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;str2 with best =&gt; worst: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str4</span><span class="p">);</span>
+<span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">str5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replaceFirst</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;worst&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;best&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;str3 with worst =&gt; best: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str5</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Writing tests <em>first</em> is a good idea to focus you on what really
+needs to be accomplished, and then running tests later is a snap!</p>
+<p>The human brain and eyes are fabulous in the way they process
+many things in parallel and use tools you have accumulated over
+a lifetime.  In particular this substitution idea should
+seem pretty reasonable, and given any <em>specific concrete</em> example,
+you are likely to be able to solve it instantly, with very little
+conscious effort.  Once it becomes a programming problem, with
+parameters stated in general, with just placeholder names
+like <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">target</span></code>, and given the limited set of approaches
+you have in a programming language, then the complexion of this
+problem changes completely.  Many students guess the general problem will
+be nearly as simple as the concrete examples they do in their heads,
+and then get very discouraged when the answer does not flow out of
+them.  In fact it takes practice and experience, and it is easier
+to handle if you acknowledge that up front!</p>
+<p>So let’s start in with the practice, and gain some experience.
+With <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code>, and <code class="docutils literal notranslate"><span class="pre">replacement</span></code> all being general, this
+problem could easily be too much to contemplate at once,
+so let us replace <em>concrete</em> examples by generality gradually.
+The idea is to get to the end.  Rather than trying to jump a chasm,
+we can take small steps and go around.</p>
+<p>A basic idea is to make small incremental
+changes, test at each stage, and gradually see more of the tests
+(that you have already written) be satisfied.  Also, if you make a
+mistake and screw up something that worked before, you can generally
+focus on the small addition to see where the mistakes were.
+<a class="footnote-reference brackets" href="#extreme" id="id1">1</a></p>
+<p>This also avoids you needing to keep too much in your head at once.</p>
+<p>We do have code written already:  The test code.  Start by writing
+something that will trivially satisfy the first concrete test.
+The body of the function can be just:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="s">&quot;It was the worst of times&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is a tiny, easy, silly looking step, but it does accomplish
+two things:  It makes sure we can produce output
+in the proper string form, and the test code runs, passing the
+first test.</p>
+<p>Now we gradually get more complicated.  We will continue to assume
+<code class="docutils literal notranslate"><span class="pre">target</span></code> and <code class="docutils literal notranslate"><span class="pre">replacement</span></code> are as in the original example,
+and <code class="docutils literal notranslate"><span class="pre">target</span></code> is in the same place in <code class="docutils literal notranslate"><span class="pre">s</span></code>,
+but suppose we imagine each
+of the other characters in <code class="docutils literal notranslate"><span class="pre">s</span></code> may be something different:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;???????????best??????????&quot;</span>
+</pre></div>
+</div>
+<p>Now we have to start thinking about what we have to work with.
+We have a string, and we have string methods.
+Have a look at the ideas of each method (exact syntax
+not important at the moment).  Clearly we are going to have to
+deal with parts of strings, and the methods to deal with parts
+involve indices, so let us add to our visual model:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">:</span><span class="w"> </span><span class="m">0123456789012345678901234</span>
+<span class="w">    </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="o">???????????</span><span class="n">best</span><span class="o">??????????</span>
+</pre></div>
+</div>
+<p>Continue in class….  The example program stub is
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/string_manip_stub/string_manip.cs">string_manip_stub/string_manip.cs</a>.</p>
+<p>In general, when given a
+project with “stub” in it, you should copy the files into a project
+of your own and make modifications.  Though the original version
+should compile and run, it does not do much without your additions.
+In stubs where you need to
+complete a function with a return value, you will often see
+a dummy choice for the return statement, just so the stub compiles.
+Where the return type is string <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">implemented&quot;</span></code> is a handy
+temporary choice.</p>
+<p>When you have that function version, test it.
+You will need to rename
+our incremental variations so the current version has the name
+used in Main.</p>
+<p>What might further advances toward full generality be,
+in small steps?  We pinned <code class="docutils literal notranslate"><span class="pre">best</span></code> at a specific location.
+We could remove that assumption.  The location will still be
+important, but we do not know it ahead of time….</p>
+<p>A further advance would be a version that is complete
+in all ways, except we still assume <code class="docutils literal notranslate"><span class="pre">target</span></code> is in <code class="docutils literal notranslate"><span class="pre">s</span></code>,
+but beyond that, do not assume what the three parameters are.</p>
+<p>Finally we should allow <code class="docutils literal notranslate"><span class="pre">s</span></code> to not contain <code class="docutils literal notranslate"><span class="pre">target</span></code>
+(though this requires the central idea of the next chapter).</p>
+<p>The testing regime in <code class="docutils literal notranslate"><span class="pre">Main</span></code> is clear to understand and write,
+but pretty primitive.  You have to look at a lot of output
+every time you test.  We will come up with better testing schemes
+later.</p>
+<dl class="footnote brackets">
+<dt class="label" id="extreme"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>We will not go far into the history of software engineering
+practice here, but these incremental problem solving methods
+were first widely
+introduced as a part of <em>extreme programming</em>.
+That name gives you an idea of the newness at the time.</p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stringmethods.html" class="btn btn-neutral float-left" title="Some Instance Methods and the Length Property" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lab-string-ops.html" class="btn btn-neutral float-right" title="Lab: String Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

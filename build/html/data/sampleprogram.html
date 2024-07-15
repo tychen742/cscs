@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Sample C# Program &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab: Editing, Compiling, and Running with Xamarin Studio" href="lab-edit-compile-run.html" />
+    <link rel="prev" title="C# Data and Operations" href="data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="data.html">C# Data and Operations</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">A Sample C# Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-edit-compile-run.html">Lab: Editing, Compiling, and Running with Xamarin Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">Variables and Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Syntax Template Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings1.html">Strings, Part I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print1.html">Writing to the Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programstructure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Combining Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings2.html">String Special Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeline-substitution.html">Substitutions in Console.WriteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-and-conversions.html">Value Types and Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning-to-problem-solve.html">Learning to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-division-sentences.html">Lab: Division Sentences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewdataop.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="data.html">C# Data and Operations</a></li>
+      <li class="breadcrumb-item active">A Sample C# Program</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data/sampleprogram.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="a-sample-c-program">
+<span id="sample-program"></span><span id="index-0"></span><h1>A Sample C# Program<a class="headerlink" href="#a-sample-c-program" title="Permalink to this heading"></a></h1>
+<p>As a start let us consider a ridiculously simple problem and a program to solve it.
+Suppose you paint the walls of rooms in one color and the ceiling in another, and
+you want to calculate the size of the areas to cover with paint.
+For simplicity ignore doors.
+What data do you need to start with?  Clearly the dimensions of the room.
+Suppose we consider modern houses where the height of the room is predictably 8 feet,
+so the new starting data is just the length and width of the room.</p>
+<p>You need to</p>
+<ol class="arabic simple">
+<li><p>Obtain the length and width from the user.</p></li>
+<li><p>Calculate the wall area and ceiling area.</p></li>
+<li><p>Let the user know the results.</p></li>
+</ol>
+<p>This is a very simple programming pattern:  data in, calculate results,
+output results.  In this case the calculations in the middle are very easy.</p>
+<p>In the examples that you should have downloaded is a first simple program,
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/painting/painting.cs">painting/painting.cs</a>.</p>
+<p>Here is what it looks like when it runs, with the user typing the 20.5 and the 10:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Calculation of Room Paint Requirements
+Enter room length: 20.5
+Enter room width: 10
+The wall area is 488 square feet.
+The ceiling area is 205 square feet.
+</pre></div>
+</div>
+<p>This is not very exciting, but it is a simple place to start seeing
+basic program features.  We will refer back to this sample run while
+discussing the program.
+Here is the text of the program:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">class</span><span class="w"> </span><span class="nc">Painting</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">wallArea</span><span class="p">,</span><span class="w"> </span><span class="n">ceilingArea</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">widthString</span><span class="p">,</span><span class="w"> </span><span class="n">lengthString</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">HEIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Calculation of Room Paint Requirements&quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Enter room length: &quot;</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">      </span><span class="n">lengthString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="linenos">14</span><span class="w">      </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">lengthString</span><span class="p">);</span>
+<span class="linenos">15</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Enter room width: &quot;</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">      </span><span class="n">widthString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="linenos">17</span><span class="w">      </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">widthString</span><span class="p">);</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="w">      </span><span class="n">wallArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">HEIGHT</span><span class="p">;</span><span class="w"> </span><span class="c1">// ignore doors</span>
+<span class="linenos">20</span><span class="w">      </span><span class="n">ceilingArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The wall area is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">wallArea</span>
+<span class="linenos">23</span><span class="w">                        </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; square feet.&quot;</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The ceiling area is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ceilingArea</span>
+<span class="linenos">25</span><span class="w">                        </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; square feet.&quot;</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">27</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This section gives an overview of a working
+program, even if all the explanations do not make total sense yet.
+This is a first introduction of concepts and syntax that gets fully explained
+in further sections.</p>
+<p>Do not worry if you not totally understand the
+explanations! Try to get the gist now and the details later.</p>
+<p>The different colors are used in modern program editors to
+emphasize the different uses of the parts of the program.</p>
+<p>We give a line by line explanation:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The C# environment supplies an enormous number of parts that you can
+reference.
+Nobody is familiar with all of them.
+If you had to make sure you always used names that did not conflict with other
+names supplied, you would be in trouble.  To avoid this C# has <em>namespaces</em>.  The
+same name can be used in different namespaces without conflict.  The central
+standard namespace is <code class="docutils literal notranslate"><span class="pre">System</span></code>.  We will always include this first line,
+<code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">System;</span></code>.</p>
+<p>Lines 2, 10, 18, and 21 are blank.
+This is merely for the human reader to separate sections visually.  The computer
+ignores them.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Painting</span>
+<span class="p">{</span>
+</pre></div>
+</div>
+<p>A basic unit in C# is a <em>class</em>.  Our code sits inside a class.  Each class
+has a <em>heading</em> with <code class="docutils literal notranslate"><span class="pre">class</span></code> followed by a name.
+This class is <code class="docutils literal notranslate"><span class="pre">Painting</span></code>.  After the heading comes
+a <em>body</em> delimited by braces.  The opening brace <code class="docutils literal notranslate"><span class="pre">{</span></code> in line 4, is matched
+by the closing brace <code class="docutils literal notranslate"><span class="pre">}</span></code> on the last line of the program.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="p">{</span>
+</pre></div>
+</div>
+<p>A class is broken up with chunks called <em>functions</em> or <em>methods</em>.  Each has
+a <em>heading</em>.  C# allows the currently popular programming paradigm called
+<em>object-oriented programming</em>, where classes generally
+describe new kinds of objects.
+This is useful in complicated situations,
+but we start more simply with the older <em>procedural</em> programming.
+Unfortunately for now,
+the more common situation is with objects, so a function that does <em>not</em>
+involve such new objects must be marked specially as <code class="docutils literal notranslate"><span class="pre">static</span></code>.</p>
+<p>Functions can be like in math, where they produce a function value
+for later use.  In C# they can
+also just <em>do</em> something (like write to the screen), and not produce a value
+for later use in the program.
+To show that
+no function value is produced, the word <code class="docutils literal notranslate"><span class="pre">void</span></code> is used.</p>
+<p>Every program must start running somewhere.  In C# that is at a function with
+name <code class="docutils literal notranslate"><span class="pre">Main</span></code>.  So our program starts running here.
+This syntax for this function needs to start just like here, with
+<code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">Main</span></code>.</p>
+<p>Even though this is not a mathematical function producing a value, a function in
+C# must be followed by parentheses <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>.</p>
+<p>After the function heading comes a <em>body</em>.  Like with a class, a function body
+is delimited by braces.  The opening brace here is matched by the closing
+brace on the second to last line of the program.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">wallArea</span><span class="p">,</span><span class="w"> </span><span class="n">ceilingArea</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A program works with data of many different possible types.  One type
+is <code class="docutils literal notranslate"><span class="pre">double</span></code>.  A <code class="docutils literal notranslate"><span class="pre">double</span></code> can hold an approximate numerical value,
+including a possible fractional part.</p>
+<p>To refer to data in a program we use names called <em>variables</em>.
+This line says that
+<code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">wallArea</span></code>, and <code class="docutils literal notranslate"><span class="pre">ceilingArea</span></code> are all
+the names for variables that can hold a <code class="docutils literal notranslate"><span class="pre">double</span></code> value.  We will assign
+values to these variables later.</p>
+<p>This line is a <em>declaration</em> statement.
+Most statements in C#, like this one, end with <code class="docutils literal notranslate"><span class="pre">;</span></code> - a semicolon.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">widthString</span><span class="p">,</span><span class="w"> </span><span class="n">lengthString</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is another declaration.  This time the type of the variables is
+<code class="docutils literal notranslate"><span class="pre">string</span></code>, which means a sequence of characters, like a line you
+might type at the keyboard.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">HEIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here is another declaration for a <code class="docutils literal notranslate"><span class="pre">double</span></code>, looking slightly different.
+In this case we follow a convention, using all capital letters, to
+suggest that the value of <code class="docutils literal notranslate"><span class="pre">HEIGHT</span></code> will be constant (unchanging),
+and we assign its value at the same time with <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">8</span></code>.  This naming of
+constants is not
+strictly necessary, but it makes the program’s intention easier to follow.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Calculation of Room Paint Requirements&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Console</span></code> refers to the terminal or console window where text output
+appears for the program.  One of the things you can do with the Console
+is <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>, to write a line.  The period between <code class="docutils literal notranslate"><span class="pre">Console</span></code> and
+<code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> indicates <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> is a named part of the <code class="docutils literal notranslate"><span class="pre">Console</span></code>.
+This <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> is a function.  Like in math, it can have
+a parameter in parentheses.  While you are used to a parameter for a
+function in math being a number, functions in C# are much more general.
+A function can be defined with any type of parameters.
+Here the parameter is a string,
+<code class="docutils literal notranslate"><span class="pre">&quot;Calculation</span> <span class="pre">of</span> <span class="pre">Room</span> <span class="pre">Paint</span> <span class="pre">Requirements&quot;</span></code>,
+delimited by the quotes at either end.  Notice that the contents
+of this string appear at the start of the screen output
+displayed for this program.  The program did <strong>write</strong> this <strong>line</strong>.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Enter room length: &quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This statement is similar to the last one, except that it uses <code class="docutils literal notranslate"><span class="pre">Write</span></code>
+rather than <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>.  The <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> function wrote a whole line -
+see that the output next <em>after</em> the <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> statement
+started on the next line.
+Here <code class="docutils literal notranslate"><span class="pre">Write</span></code> does not advance the printing position to the next line
+after it.</p>
+<p>This statement serves as a <em>prompt</em>: letting the user know that information is being
+requested (a room length).</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">lengthString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Here is where the program takes in the information requested from the user.
+Its action is actually right to left:  <code class="docutils literal notranslate"><span class="pre">Console.ReadLine</span></code> is another
+function available with the <code class="docutils literal notranslate"><span class="pre">Console</span></code>, that reads a line typed in by the
+user on the keyboard.  Here in the sample run,
+on the same line as the prompt string
+(because of the previous <code class="docutils literal notranslate"><span class="pre">Write</span></code>, not <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>),
+the user types
+<code class="docutils literal notranslate"><span class="pre">20.5</span></code> and the Enter or Return key.</p>
+<p>In the sample run,
+the value produced by the <code class="docutils literal notranslate"><span class="pre">Console.ReadLine</span></code> function is these four
+characters <code class="docutils literal notranslate"><span class="pre">20.5</span></code>.</p>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">lengthString</span></code> was declared as a variable to hold a string.
+The  <code class="docutils literal notranslate"><span class="pre">=</span></code> indicates an <em>assignment statement</em>.
+It is an <em>assignment</em> of the value on the right of the equal sign
+to be the current value of the variable on the left
+of the equal sign.  In the sample run, this would mean that the variable
+<code class="docutils literal notranslate"><span class="pre">lengthString</span></code> would end up holding the value <code class="docutils literal notranslate"><span class="pre">&quot;20.5&quot;</span></code>.  Though these
+characters happen  to look like a number,
+any sequence of characters can be typed.
+The <code class="docutils literal notranslate"><span class="pre">Console.ReadLine()</span></code> function produces this sequence of characters
+as a <em>string</em> type.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">lengthString</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Of course we want to interpret the user’s input as a number in order to do
+our arithmetic.  This line makes the conversion between the types.</p>
+<p>It is another assignment statement (with the <code class="docutils literal notranslate"><span class="pre">=</span></code>).  We are assigning to
+the variable <code class="docutils literal notranslate"><span class="pre">length</span></code>, which we declared as a <code class="docutils literal notranslate"><span class="pre">double</span></code>.
+The value assigned comes from the
+expression on the right of the <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">double.Parse(lengthString)</span></code>.
+The function <code class="docutils literal notranslate"><span class="pre">double.Parse</span></code>, is just the one we want, it takes a string parameter
+<code class="docutils literal notranslate"><span class="pre">lengthString</span></code> containing the string from the user input,
+and the value produced is the corresponding <code class="docutils literal notranslate"><span class="pre">double</span></code> number.  In
+the sample run that assigns to <code class="docutils literal notranslate"><span class="pre">length</span></code> the value 20.5.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Enter room width: &quot;</span><span class="p">);</span>
+<span class="n">widthString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">widthString</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>These lines are analogous to the previous three lines:
+give a prompt for the user;
+get the user response; convert it to a <code class="docutils literal notranslate"><span class="pre">double</span></code>, and assign to a variable
+(<code class="docutils literal notranslate"><span class="pre">width</span></code> in this case).  In the sample run the variable <code class="docutils literal notranslate"><span class="pre">width</span></code> is assigned
+the value 10.</p>
+<p id="index-1">At this point we have all the data we need from the user.  The next part is
+the brief calculations of results:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">wallArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">HEIGHT</span><span class="p">;</span><span class="w"> </span><span class="c1">// ignore doors</span>
+<span class="n">ceilingArea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>At the end of the first line is a <em>comment</em>.  It starts with <code class="docutils literal notranslate"><span class="pre">//</span></code> and ends
+at the end of the same line.  It is ignored by the compiler.  It is there for humans,
+hopefully to add something that helps understanding of the program.</p>
+<p>We have two assignment statements.  The values to assign are given by arithmetic
+expressions on the right side of the equal signs.  It looks pretty much like
+regular math, except in math class you may be used to only having one letter names
+for variables, unlike <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">HEIGHT</span></code>.</p>
+<p>The tradeoff for allowing multiple character names is that multiplication must
+have an explicit operation symbol.
+The symbol used for multiplication in C# is <code class="docutils literal notranslate"><span class="pre">*</span></code> an asterisk.  The <code class="docutils literal notranslate"><span class="pre">+</span></code>
+and parentheses serve their normal mathematical purpose.  In the sample run,
+the value of <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">(length</span> <span class="pre">+</span> <span class="pre">width)</span> <span class="pre">*</span> <span class="pre">HEIGHT</span></code> is</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2 * (20.5 + 10) * 8
+</pre></div>
+</div>
+<p>which simplifies to 488.</p>
+<p>With the sample run, <code class="docutils literal notranslate"><span class="pre">ceilingArea</span></code> would get the value 20.5 * 10, or 205.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The wall area is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">wallArea</span>
+<span class="w">                  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; square feet.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This is a single statement.  Line endings act just like a space in C#.
+The statement ends with the semicolon on the second line.</p>
+<p>Again <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> will print something to the computer console.  This
+time the string printed is more complicated:  It starts off with
+the literal string <code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">wall</span> <span class="pre">area</span> <span class="pre">is</span> <span class="pre">&quot;</span></code>, but then we want to print out
+the calculated result.  The <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">wallArea</span></code> allows that.  The <code class="docutils literal notranslate"><span class="pre">+</span></code> sign
+after the string is not a mathematical operator here.  Coming after a string,
+it has a special string meaning:  It converts the next part
+<code class="docutils literal notranslate"><span class="pre">wallArea</span></code> to be a string.  In the sample run that would be converting the
+<code class="docutils literal notranslate"><span class="pre">double</span></code> value 488 to be the string <code class="docutils literal notranslate"><span class="pre">&quot;488&quot;</span></code>.  The plus sign then “adds” the strings
+in a manner appropriate for strings, <em>concatenating</em> them.  That means joining
+them together, end to end.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">square</span> <span class="pre">feet.&quot;</span></code> then tacks on the last part to the string.
+In the sample output you see what is printed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The wall area is 488 square feet.
+</pre></div>
+</div>
+<p>sandwiching the value taken from the variable <code class="docutils literal notranslate"><span class="pre">wallArea</span></code> between
+two literal string, given in quotes.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The ceiling area is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ceilingArea</span>
+<span class="w">                  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; square feet.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This statement behave like the previous one, except with different
+quoted strings and the value of a different variable.  See the sample output.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally we have the matching closing braces marking the end of the body of the
+<code class="docutils literal notranslate"><span class="pre">Main</span></code> function and the end of the body of the <code class="docutils literal notranslate"><span class="pre">Painting</span></code> class.</p>
+<p>Of course the display would look different if the user entered different data.
+Here is what is displayed when the user enters length 15 and width 6.5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Calculation of Room Paint Requirements
+Enter room length: 15
+Enter room width: 6.5
+The wall area is 344 square feet.
+The ceiling area is 97.5 square feet.
+</pre></div>
+</div>
+<p id="index-2">The blank space in the program was there to aid human understanding.
+In a C# program <em>whitespace</em> is any consecutive combination of spaces,
+newlines, and tabs.  C# treats any amount of whitespace
+just the same as a single space, except inside quoted strings,
+where every character is important.</p>
+<p>Also the compiler does not require whitespace around special symbols
+like <code class="docutils literal notranslate"><span class="pre">{};().=*+,</span></code>.  Hence
+the <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/painting/painting.cs">painting/painting.cs</a> program above would be just as well translated
+by the compiler if it were written as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>using System;class Painting{static void Main(){double width,length
+,wallArea,ceilingArea;string widthString,lengthString;double HEIGHT
+=8;Console.WriteLine(&quot;Calculation of Room Paint Requirements&quot;);Console.
+Write(&quot;Enter room length: &quot;);lengthString=Console.ReadLine();length=
+double.Parse(lengthString);Console.Write(&quot;Enter room width: &quot;);
+widthString=Console.ReadLine();width=double.Parse(widthString);wallArea
+=2*(length+width)*HEIGHT;ceilingArea=length*width;Console.WriteLine(
+        &quot;The wall area is &quot;                  +                 wallArea
++&quot; square feet.&quot;);Console.WriteLine
+      (&quot;The ceiling area is &quot;
+               +ceilingArea+
+&quot; square feet.&quot;);}}
+</pre></div>
+</div>
+<p>Since human understanding is very important, we will emphasize good
+whitespace conventions, and expect you to use them.</p>
+<p>Next we give you an even simpler program to run in the lab.  After
+that we return to how you can get the painting program to run on your computer.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data.html" class="btn btn-neutral float-left" title="C# Data and Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lab-edit-compile-run.html" class="btn btn-neutral float-right" title="Lab: Editing, Compiling, and Running with Xamarin Studio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

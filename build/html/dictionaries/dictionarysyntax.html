@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dictionary Syntax &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dictionary Efficiency" href="dictionaryefficiency.html" />
+    <link rel="prev" title="Dictionaries" href="dictionaries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dictionaries.html">Dictionaries</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dictionary Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dictionaryefficiency.html">Dictionary Efficiency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dictionaryexamples.html">Dictionary Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-filedata.html">Lab: File Data and Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewdictionaries.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="dictionaries.html">Dictionaries</a></li>
+      <li class="breadcrumb-item active">Dictionary Syntax</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dictionaries/dictionarysyntax.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dictionary-syntax">
+<h1>Dictionary Syntax<a class="headerlink" href="#dictionary-syntax" title="Permalink to this heading"></a></h1>
+<p>We have explored several ways of storing a collection of the same type of data:</p>
+<ul class="simple">
+<li><p>arrays: built-in syntax, unchanging size of the collection</p></li>
+<li><p>List: generic class type, allows the size of the collection to grow</p></li>
+</ul>
+<p>Both approaches allow reference to data elements using a
+numerical index between square brackets, as in <code class="docutils literal notranslate"><span class="pre">words[i]</span></code>.
+The index provides an order for the elements,
+but there is no meaning to the index beyond the sequence order.</p>
+<p>Often, we want to look up data based on a more meaningful key, as in a
+dictionary: given a word,
+you can look up the definition.</p>
+<p>C# uses the type name <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, but with greater generality than in
+nontechnical use. In a regular dictionary, you start with a word,
+and look up the definition.  The generalization is to have some piece of
+data that leads you to (or <em>maps</em> to) another piece of data.
+The computer science jargon is that a <em>key</em> leads you to a <em>value</em>.
+In a normal dictionary, these are both likely to be strings, but in the
+C# generalization, the possible types of key and value are much more extensive.
+Hence the generic <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type requires you to specify
+both a type for the key and a type for the value.</p>
+<p>We can initialize an English-Spanish dictionary <code class="docutils literal notranslate"><span class="pre">e2sp</span></code> with</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>That is quite a mouthful!  The C# <code class="docutils literal notranslate"><span class="pre">var</span></code> syntax is handy to shorten it:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The general generic type syntax is</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Dictionary&lt;</span></code> <strong>keyType</strong><code class="docutils literal notranslate"><span class="pre">,</span></code> <strong>valueType</strong> <code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p>
+</div></blockquote>
+<p>If you are counting the number of repetitions of words in a document, you are likely to want
+a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> mapping each word to its number of repetitions so far:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">wordCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If your friends all have a personal list of phone numbers, you might look them up
+with a dictionary with a string name for the key and a <code class="docutils literal notranslate"><span class="pre">List</span></code> of personal phone number
+strings for the value.  The type could be <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;string,</span> <span class="pre">List&lt;string&gt;&gt;</span></code>.
+This example illustrates how one generic type can be built on another.</p>
+<p>There is no restriction on the value type.  There is one important technical
+restriction on the key type: it should be immutable. This has to do with the implementation
+referenced in <a class="reference internal" href="dictionaryefficiency.html#dictionary-efficiency"><span class="std std-ref">Dictionary Efficiency</span></a>.</p>
+<p id="index-0">Similar to an array or <code class="docutils literal notranslate"><span class="pre">List</span></code>,
+you can assign and reference elements of a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>,
+using square bracket notation.  The difference is that the reference is through a key,
+not a sequential index, as in:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">[</span><span class="s">&quot;one&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uno&quot;</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">&quot;two&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dos&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Csharp displays dictionaries in its own special form,
+as a sequence of pairs {key, value}.  Again, this is <em>special</em> to csharp.
+Here is a longer csharp sequence, broken up with our comments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; Dictionary&lt;string, string&gt; e2sp = new Dictionary&lt;string, string&gt;();
+csharp&gt; e2sp;
+{}
+csharp&gt; e2sp[&quot;one&quot;] = &quot;uno&quot;;
+csharp&gt; e2sp[&quot;two&quot;] = &quot;dos&quot;;
+csharp&gt; e2sp[&quot;three&quot;] = &quot;tres&quot;;
+csharp&gt; e2sp.Count;
+3
+csharp&gt; e2sp;
+{{ &quot;one&quot;, &quot;uno&quot; }, { &quot;two&quot;, &quot;dos&quot; }, { &quot;three&quot;, &quot;tres&quot; }}
+csharp&gt; Console.WriteLine(&quot;{0}, {1}, {2}...&quot;, e2sp[&quot;one&quot;],
+      &gt; e2sp[&quot;two&quot;], e2sp[&quot;three&quot;]);
+uno, dos, tres...
+</pre></div>
+</div>
+<p id="index-1">If you want to iterate through a whole <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, you will want the syntax below,
+with <code class="docutils literal notranslate"><span class="pre">foreach</span></code> and the property <code class="docutils literal notranslate"><span class="pre">Keys</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; foreach (string s in e2sp.Keys) {
+      &gt;    Console.WriteLine(s);
+      &gt; }
+one
+two
+three
+</pre></div>
+</div>
+<p>The documentation for <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> says
+that you cannot depend on the order of processing with <code class="docutils literal notranslate"><span class="pre">foreach</span></code>, though the present
+implementation remembers the order in which keys were added.</p>
+<p id="index-2">It is often useful to know if a key is already in a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>:
+Note the method <code class="docutils literal notranslate"><span class="pre">ContainsKey</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; e2sp.ContainsKey(&quot;seven&quot;);
+false
+csharp&gt; e2sp.ContainsKey(&quot;three&quot;);
+true
+</pre></div>
+</div>
+<p>The method Remove takes a key as parameter.  Like a <code class="docutils literal notranslate"><span class="pre">List</span></code> and other
+collections, a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> has a <code class="docutils literal notranslate"><span class="pre">Clear</span></code> method:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; e2sp.Count;
+3
+csharp&gt; e2sp.Remove(&quot;two&quot;);
+true
+csharp&gt; e2sp.Count;
+2
+csharp&gt; e2sp.Clear();
+csharp&gt; e2sp.Count;
+0
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dictionaries.html" class="btn btn-neutral float-left" title="Dictionaries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dictionaryefficiency.html" class="btn btn-neutral float-right" title="Dictionary Efficiency" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

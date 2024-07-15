@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Function Parameters &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multiple Function Parameters" href="funcparam2.html" />
+    <link rel="prev" title="Multiple Function Definitions" href="multfunc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="functions.html">Defining Functions of your Own</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="firstfunc.html">A First Function Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multfunc.html">Multiple Function Definitions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Function Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcparam2.html">Multiple Function Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcreturn.html">Returned Function Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writerconsumer.html">Two Roles: Writer and Consumer of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localscope.html">Local Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staticvariables.html">Static Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notusereturn.html">Not using Return Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraryclass.html">Library Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceback.html">Tracebacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcsummary.html">Static Function Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewfunc.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="functions.html">Defining Functions of your Own</a></li>
+      <li class="breadcrumb-item active">Function Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/functions/funcparam.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="function-parameters">
+<span id="index-0"></span><span id="id1"></span><h1>Function Parameters<a class="headerlink" href="#function-parameters" title="Permalink to this heading"></a></h1>
+<p>As a young child, you probably heard Happy Birthday sung to a
+couple of people, and then you could sing to a new person, say
+Maria, without needing to hear the whole special version with
+Maria’s name in it word for word. You had the power of
+<em>abstraction</em>. With examples like the versions for Emily and Andre,
+you could figure out what change to make it so the song could be
+sung to Maria!</p>
+<p>Unfortunately, C# is not that smart. It needs explicit rules.
+If you needed to explain <em>explicitly</em> to someone how Happy Birthday
+worked in general, rather than just by example, you might say
+something like this:</p>
+<p>First you have to be <em>given</em> a person’s name. Then you sing the
+song with the person’s name inserted at the end of the third line.</p>
+<p>C# works something like that, but with its own syntax. The term
+“person’s name” serves as a stand-in for the actual data that
+will be used, “Emily”, “Andre”, or “Maria”. This is just like
+the association with a variable name in C#. “person’s name”
+is not a legal C# identifier, so we will use just <code class="docutils literal notranslate"><span class="pre">person</span></code> as
+this stand-in.  It will be a variable in the program,
+so it needs a type in C#.  The names are strings,
+so the type of <code class="docutils literal notranslate"><span class="pre">person</span></code> is <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<p>In between the parentheses of the function definition heading, we insert the variable
+name <code class="docutils literal notranslate"><span class="pre">person</span></code>, preceded  by its type, <code class="docutils literal notranslate"><span class="pre">string</span></code>.
+Then in the body of the definition
+of the function, <code class="docutils literal notranslate"><span class="pre">person</span></code> is used in place of the real data for any
+specific person’s name. Read and then run example program
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/birthday4/birthday4.cs">birthday4/birthday4.cs</a>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">class</span><span class="w"> </span><span class="nc">Birthday4</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HappyBirthday</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">person</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday, dear &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="linenos">14</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">      </span><span class="n">HappyBirthday</span><span class="p">(</span><span class="s">&quot;Emily&quot;</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">      </span><span class="n">HappyBirthday</span><span class="p">(</span><span class="s">&quot;Andre&quot;</span><span class="p">);</span>
+<span class="linenos">17</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>In the definition heading for <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>, <code class="docutils literal notranslate"><span class="pre">person</span></code> is
+referred to as a <em>parameter</em>, or a <em>formal parameter</em>. This
+variable name is a <em>placeholder</em> for the real name of the person
+being sung to.  In the definition we give instructions for singing
+Happy Birthday <em>without</em> knowing the exact name of the person who might be sung to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Main</span></code> now has two calls to the same function,
+but between the parentheses, where there was the <strong>placeholder</strong> <code class="docutils literal notranslate"><span class="pre">person</span></code>
+in the definition, now we have the <strong>actual people</strong> being sung to.
+The value between the parentheses here in the function call
+is referred to as an <em>argument</em> or <em>actual parameter</em> of the
+function call. The argument supplies the actual data to be used in
+the function execution. When the call is made, C# does this by
+associating the <strong>formal</strong> parameter name <code class="docutils literal notranslate"><span class="pre">person</span></code> with the <strong>actual</strong>
+parameter data, as in an assignment statement. In the first call,
+this actual data is <code class="docutils literal notranslate"><span class="pre">&quot;Emily&quot;</span></code>. We say the actual parameter value
+is <em>passed</em> to the function for execution.</p>
+<p>The execution in greater detail:</p>
+<ol class="arabic">
+<li><p>Lines 13: Execution starts in Main.</p></li>
+<li><p>Line 15: Call to <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>, with actual parameter
+<code class="docutils literal notranslate"><span class="pre">&quot;Emily&quot;</span></code>.</p></li>
+<li><p>Line 5: <code class="docutils literal notranslate"><span class="pre">&quot;Emily&quot;</span></code> is passed to the function, so
+<code class="docutils literal notranslate"><span class="pre">person</span> <span class="pre">=</span> <span class="pre">&quot;Emily&quot;</span></code>.</p></li>
+<li><p>Lines 7-10: The song is printed, with <code class="docutils literal notranslate"><span class="pre">&quot;Emily&quot;</span></code> used as the
+value of <code class="docutils literal notranslate"><span class="pre">person</span></code> in line 9: printing</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Happy</span><span class="w"> </span><span class="n">Birthday</span><span class="p">,</span><span class="w"> </span><span class="n">dear</span><span class="w"> </span><span class="n">Emily</span><span class="p">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>End of line 15 after returning from the function call</p></li>
+<li><p>Line 16: Call to <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>, this time with actual
+parameter <code class="docutils literal notranslate"><span class="pre">&quot;Andre&quot;</span></code></p></li>
+<li><p>Line 5: <code class="docutils literal notranslate"><span class="pre">&quot;Andre&quot;</span></code> is passed to the function, so
+<code class="docutils literal notranslate"><span class="pre">person</span> <span class="pre">=</span> <span class="pre">&quot;Andre&quot;</span></code>.</p></li>
+<li><p>Lines 7-10: The song is printed, with <code class="docutils literal notranslate"><span class="pre">&quot;Andre&quot;</span></code> used as the
+value of <code class="docutils literal notranslate"><span class="pre">person</span></code> in line 9: printing</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Happy</span><span class="w"> </span><span class="n">Birthday</span><span class="p">,</span><span class="w"> </span><span class="n">dear</span><span class="w"> </span><span class="n">Andre</span><span class="p">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>End of line 16 after returning from the function call,
+and the program is over.</p></li>
+</ol>
+<p>The beauty of this system is that the same function definition can
+be used for a call with a different actual parameter variable, and
+then have a different effect. The value of the variable person is
+used in the third line of <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>, to put in whatever
+actual parameter value was given.</p>
+<p id="index-1">This is the power of <em>abstraction</em>. It is one application of the
+most important principal in programming. Rather than have a number
+of separately coded parts with only slight variations, see where it
+is appropriate to combine them using a function whose parameters
+refer to the parts that are different in different situations. Then
+the code is written to be simultaneously appropriate for the
+separate specific situations, with the substitutions of the right
+parameter values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure you completely understand <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/birthday4/birthday4.cs">birthday4/birthday4.cs</a>
+and the sequence of execution!  It illustrates extremely
+important ideas that many people miss the first time!  It is
+essential to understand the difference between</p>
+<ol class="arabic simple">
+<li><p><em>Defining</em> a function (lines 5-11)
+with the heading including <em>formal</em> parameter name and type,
+where the code is merely instructions to be remembered,
+not acted on immediately.</p></li>
+<li><p><em>Calling</em> a function with an <em>actual</em> parameter value to be
+substituted for the formal parameter,
+(with <em>no</em> type included!) and have the function
+code actually <em>run</em> when the instruction containing the call
+is run.  Also note that the function can be
+called multiple times with different expressions as the
+actual parameter (line 15 and again in line 16).</p></li>
+</ol>
+</div>
+<p>We can combine function parameters with user input, and have the
+program be able to print Happy Birthday for anyone. Check out the
+<code class="docutils literal notranslate"><span class="pre">Main</span></code> method and run <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/birthday_who/birthday_who.cs">birthday_who/birthday_who.cs</a>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">class</span><span class="w"> </span><span class="nc">Birthday_Who</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">HappyBirthday</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">person</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday, dear &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Happy Birthday to you!&quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="linenos">14</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">userName</span><span class="p">;</span>
+<span class="linenos">16</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Who would you like to sing Happy Birthday to?&quot;</span><span class="p">);</span>
+<span class="linenos">17</span><span class="w">      </span><span class="n">userName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="linenos">18</span><span class="w">      </span><span class="n">HappyBirthday</span><span class="p">(</span><span class="n">userName</span><span class="p">);</span>
+<span class="linenos">19</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This last version illustrates several important ideas:</p>
+<ol class="arabic">
+<li><p>There are more than one way to get information into a function:</p>
+<ol class="arabic simple">
+<li><p>Have a value passed in through a parameter (from line 18 to line 5).</p></li>
+<li><p>Prompt the user, and obtain data from the keyboard (lines 16-17).</p></li>
+</ol>
+</li>
+<li><p>It is a good idea to separate the <em>internal</em> processing of data
+from the <em>external</em> input from the user by the use of distinct
+functions. Here the user interaction is in <code class="docutils literal notranslate"><span class="pre">Main</span></code>, and the data
+is manipulated in <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>.</p></li>
+<li><p>In the first examples of actual parameters, we used literal
+values. In general an actual parameter can be an expression. The
+expression is evaluated before it is passed in the function call.
+One of the simplest expressions is a plain variable name, which is
+evaluated by replacing it with its associated value.
+Note this important situation in the example:
+We have the
+value of <code class="docutils literal notranslate"><span class="pre">userName</span></code> in <code class="docutils literal notranslate"><span class="pre">Main</span></code> becoming the value of <code class="docutils literal notranslate"><span class="pre">person</span></code>
+in <code class="docutils literal notranslate"><span class="pre">HappyBirthday</span></code>.  We used different names to illustrate the
+important fact:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the <em>value</em> of the actual parameter is passed, not any
+variable name, so there is <em>no need</em> to have a match between a variable name
+used in
+an actual parameter and the formal parameter name.</p>
+</div>
+</li>
+</ol>
+<section id="birthday-function-exercise">
+<span id="birthdayfunctionex"></span><h2>Birthday Function Exercise<a class="headerlink" href="#birthday-function-exercise" title="Permalink to this heading"></a></h2>
+<p>Make your own further change to <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/birthday4/birthday4.cs">birthday4/birthday4.cs</a> and save it in your
+own project as
+<code class="docutils literal notranslate"><span class="pre">birthday_many.cs</span></code>: Add a function call
+(but <em>not</em> another function <em>definition</em>), so Maria gets a verse, in
+addition to Emily and Andre. Also print a blank line between
+verses. (There are two ways to handle the blank lines:
+You may <em>either</em> do this by adding a print line to the
+function definition, <em>or</em> by adding a print line between all calls to
+the function.  Recall that if you give Console.WriteLine an empty
+parameter list, it just goes to the next line.)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multfunc.html" class="btn btn-neutral float-left" title="Multiple Function Definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="funcparam2.html" class="btn btn-neutral float-right" title="Multiple Function Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 22:28:04.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
