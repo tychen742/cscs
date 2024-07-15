@@ -45,7 +45,7 @@ jobs:
       - name: Generate HTML using Sphinx
         run: |
           make html
-          echo introcs.cs.luc.edu > build/html/CNAME
+          echo introcscs.tychen.us > build/html/CNAME
 
       - name: Generate LaTeX using Sphinx
         run: |
