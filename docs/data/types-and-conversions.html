@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Value Types and Conversions &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Learning to Solve Problems" href="learning-to-problem-solve.html" />
+    <link rel="prev" title="Substitutions in Console.WriteLine" href="writeline-substitution.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="data.html">C# Data and Operations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sampleprogram.html">A Sample C# Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-edit-compile-run.html">Lab: Editing, Compiling, and Running with Xamarin Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">Variables and Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Syntax Template Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings1.html">Strings, Part I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print1.html">Writing to the Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programstructure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Combining Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings2.html">String Special Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeline-substitution.html">Substitutions in Console.WriteLine</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Value Types and Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning-to-problem-solve.html">Learning to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-division-sentences.html">Lab: Division Sentences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewdataop.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="data.html">C# Data and Operations</a></li>
+      <li class="breadcrumb-item active">Value Types and Conversions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data/types-and-conversions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="value-types-and-conversions">
+<span id="value-types"></span><span id="index-0"></span><h1>Value Types and Conversions<a class="headerlink" href="#value-types-and-conversions" title="Permalink to this heading"></a></h1>
+<section id="type-int">
+<span id="index-1"></span><span id="id1"></span><h2>Type int<a class="headerlink" href="#type-int" title="Permalink to this heading"></a></h2>
+<p>A variable is
+associated with a space in memory.  This space has a fixed size associated with the type
+of data.
+The <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> types are examples of <em>value types</em>,
+which means that this memory space holds an encoding of the complete data for the
+value of the variable.  The fixed space means that an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot be a totally
+arbitrary integer of an enormous size.  In fact an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable can only hold
+an integer in a specific range.  See <a class="reference internal" href="../context/computerscience.html#data-representation"><span class="std std-ref">Data Representation</span></a> for the
+general format of the underlying encoding in bits.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">int</span></code> is held in a memory space of 32 bits, so it can have at
+most <span class="math notranslate nohighlight">\(2^{32}\)</span> values, and the encoding is chosen so about half are positive and
+half are negative: An <code class="docutils literal notranslate"><span class="pre">int</span></code> has maximum value <span class="math notranslate nohighlight">\(2^{31} - 1 = 2147483647\)</span> and
+a minimum value of <span class="math notranslate nohighlight">\(-2^{31} = -2147483648\)</span>.  The extreme values are also
+named constants in C#, <code class="docutils literal notranslate"><span class="pre">int.MaxValue</span></code> and <code class="docutils literal notranslate"><span class="pre">int.MinValue</span></code>.</p>
+<p>In particular this means <code class="docutils literal notranslate"><span class="pre">int</span></code> arithmetic does not always work.  What is worse,
+it fails <em>silently</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; int i = int.MaxValue;
+csharp&gt; i;
+2147483647
+csharp&gt; i + 5;
+-2147483644
+</pre></div>
+</div>
+<p>Add two positive numbers and get a negative number!  Getting such a wrong
+answer is called <em>overflow</em>.
+Be very careful if you are
+going to be using big numbers!  Note: with addition,
+overflow will give the wrong sign,
+but the sign may not give such a clue
+if another operation overflows, like multiplication.</p>
+</section>
+<section id="type-long">
+<span id="index-2"></span><span id="id2"></span><h2>Type long<a class="headerlink" href="#type-long" title="Permalink to this heading"></a></h2>
+<p>Most everyday uses of integers fit in this range of an <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+and many modern computers are designed
+to operate on an <code class="docutils literal notranslate"><span class="pre">int</span></code> very efficiently, but sometimes you need a
+larger range.  Type <cite>long</cite> uses twice as much space.</p>
+<p>The same kind of silent overflow errors happen with <code class="docutils literal notranslate"><span class="pre">long</span></code> arithmetic, but only
+with much larger numbers.</p>
+<p>When we get to <a class="reference internal" href="../arrays/arrays.html#array"><span class="std std-ref">Arrays</span></a>, you will see that a program may store
+an enormous number of integers, and then the total space may be an
+issue.  If some numbers fit in a <code class="docutils literal notranslate"><span class="pre">long</span></code>, but not an <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+<code class="docutils literal notranslate"><span class="pre">long</span></code> must be used, taking us twice the space of an array of <code class="docutils literal notranslate"><span class="pre">int</span></code>
+elements.  If all the integers have even more limited ranges,
+they might be stored in the smaller space of a <code class="docutils literal notranslate"><span class="pre">short</span></code>
+or a <code class="docutils literal notranslate"><span class="pre">byte</span></code>.
+We will not further discuss or use types <code class="docutils literal notranslate"><span class="pre">short</span></code> or <code class="docutils literal notranslate"><span class="pre">byte</span></code> in this book.
+Here we will only use the integral types <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">long</span></code>.</p>
+</section>
+<section id="type-double">
+<span id="index-3"></span><span id="id3"></span><h2>Type double<a class="headerlink" href="#type-double" title="Permalink to this heading"></a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">double</span></code> is also a value type, stored in a fixed sized space.  There are
+even more issues with <code class="docutils literal notranslate"><span class="pre">double</span></code> storage than with an <code class="docutils literal notranslate"><span class="pre">int</span></code>:  Not only do you need
+to worry about the total magnitude of the number, you also need to choose
+a <em>precision</em>:  There are an infinite number of real values, just between 0 and 1.
+Clearly we cannot encode for all of them!  As a result a <code class="docutils literal notranslate"><span class="pre">double</span></code> has a limited
+number of digits of accuracy.  There is also an older type <code class="docutils literal notranslate"><span class="pre">float</span></code> that takes up
+half of the space of a <code class="docutils literal notranslate"><span class="pre">double</span></code>, and has a smaller range and less accuracy.  This at
+least gives a reason for the name <code class="docutils literal notranslate"><span class="pre">double</span></code>:  double the storage space of a <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p>To avoid a ridiculously large number of
+trailing 0’s, a big double literal can be
+expressed using a variant of scientific notation:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">1.79769313486232E+308</span></code> means <span class="math notranslate nohighlight">\(1.7976931348623157(10^{308})\)</span></p>
+</div></blockquote>
+<p>C# does not have the typography for raised exponents.  Instead
+literal values can use the E to mean
+“times 10 to the power”, and the E is followed by and exponent integer
+that can be positive or negative.
+The whole double literal may not contain any embedded blanks.  Internally
+these numbers are stored with powers of 2, not 10:  See
+<a class="reference internal" href="../context/computerscience.html#data-representation"><span class="std std-ref">Data Representation</span></a>.</p>
+<p>Arithmetic with the <code class="docutils literal notranslate"><span class="pre">double</span></code> type does not overflow silently as with
+the integral types.
+We show behavior that could be important if you do scientific computing
+with enormous numbers:  There are values for Infinity and Not a Number,
+abbreviated NaN.  See them used in csharp:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; double x = double.MaxValue;
+csharp&gt; x;
+1.79769313486232E+308
+csharp&gt; double y = 10 * x;
+csharp&gt; y;
+Infinity
+csharp&gt; y  + 1000;
+Infinity
+csharp&gt; y  - 1000;
+Infinity
+csharp&gt; 1000/y;
+0
+csharp&gt; double z = 10 - y;
+csharp&gt; z;
+-Infinity
+csharp&gt; double sum = y + z;
+csharp&gt; sum;
+NaN
+csharp&gt; sum/1000;
+NaN
+</pre></div>
+</div>
+<p>Once a result gets too big, it gets listed as infinity.
+As you can see,
+there is some arithmetic allowed with a finite number and infinity!
+Still some operations are not legal.
+Once a result turns into <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, no arithmetic operations change
+further results away from <code class="docutils literal notranslate"><span class="pre">NaN</span></code>,
+so there is a lasting record of a big error!</p>
+<p>Note that Infinity, -Infinity and NaN are just representations when displayed
+as strings.  The numerical constants are
+<code class="docutils literal notranslate"><span class="pre">Double.PositiveInfinity</span></code>, <code class="docutils literal notranslate"><span class="pre">Double.NegativeInfinity</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double.NaN</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is no such neat system for showing off small inaccuracies in <code class="docutils literal notranslate"><span class="pre">double</span></code>
+arithmetic accumulating
+due to limited precision.  These inaccuracies <em>still</em> happen silently.</p>
+</div>
+</section>
+<section id="numeric-types-and-limits">
+<span id="numeric-type-limits"></span><span id="index-4"></span><h2>Numeric Types and  Limits<a class="headerlink" href="#numeric-types-and-limits" title="Permalink to this heading"></a></h2>
+<p>The listing below shows how the storage size in bits translates into the limits
+for various numerical types.  We will not discuss or use <code class="docutils literal notranslate"><span class="pre">short</span></code>,
+<code class="docutils literal notranslate"><span class="pre">byte</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> further.</p>
+<dl class="simple">
+<dt>long</dt><dd><p>64 bits; range -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</p>
+</dd>
+<dt>int</dt><dd><p>32 bits; range -2,147,483,648 to 2,147,483,647</p>
+</dd>
+<dt>short</dt><dd><p>16 bits; range -32,768 to 32,767</p>
+</dd>
+<dt>byte</dt><dd><p>8 bits; range 0 to 255 (no negative values)</p>
+</dd>
+<dt>double</dt><dd><p>64 bits; maximum magnitude: <span class="math notranslate nohighlight">\(1.7976931348623157(10^{308})\)</span>;
+about 15 digits of accuracy</p>
+</dd>
+<dt>float</dt><dd><p>32 bits; maximum magnitude: <span class="math notranslate nohighlight">\(3.402823(10^{38})\)</span>; about 7 digits of accuracy</p>
+</dd>
+<dt>decimal</dt><dd><p>128 bits; maximum value: 79228162514264337593543950335;
+28 digits of accuracy;  can exactly represents decimal values
+for financial operations; briefly discussed in <em>optional</em>
+<a class="reference internal" href="../classes/overload-op.html#decimal-type"><span class="std std-ref">Decimal Type</span></a>.</p>
+</dd>
+<dt>char</dt><dd><p>See <a class="reference internal" href="#integer-char"><span class="std std-ref">char as integer</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="casting">
+<span id="cast"></span><span id="index-5"></span><h2>Casting<a class="headerlink" href="#casting" title="Permalink to this heading"></a></h2>
+<p>While the mathematical ideas of 42 and 42.0 are the same, C# has specific types.
+There are various places where numerical types get converted automatically by C#
+or explicitly by the programmer.
+A major issue is whether the new type can accurately represent the original value.</p>
+<p>Going from <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">double</span></code> has no issue:  Any <code class="docutils literal notranslate"><span class="pre">int</span></code> can be exactly
+represented as a <code class="docutils literal notranslate"><span class="pre">double</span></code>.  Code like the following is fine:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; int i = 33;
+csharp&gt; double d = i;
+csharp&gt; double x;
+csharp&gt; x = 11;
+csharp&gt; double z = i + 2.5;
+csharp&gt; ShowVars();
+int i = 33
+double d = 33
+double x = 11
+double z = 35.5
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">double</span></code> variable <code class="docutils literal notranslate"><span class="pre">d</span></code> is initialized with the value of an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable.
+The <code class="docutils literal notranslate"><span class="pre">double</span></code> variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is assigned a value using an <code class="docutils literal notranslate"><span class="pre">int</span></code> literal.
+The <code class="docutils literal notranslate"><span class="pre">double</span></code> variable <code class="docutils literal notranslate"><span class="pre">z</span></code> is initialized with the value of a sum involving
+both an <code class="docutils literal notranslate"><span class="pre">int</span></code> variable and a <code class="docutils literal notranslate"><span class="pre">double</span></code> literal.  As we have discussed before in
+<a class="reference internal" href="arithmetic.html#arithmetic"><span class="std std-ref">Arithmetic</span></a>, the <code class="docutils literal notranslate"><span class="pre">int</span></code> is converted to a <code class="docutils literal notranslate"><span class="pre">double</span></code> before the addition
+operation is done.</p>
+<p>The other direction for conversion is more problematic:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; double d= 2.7;
+csharp&gt; int i;
+csharp&gt; i = d;
+{interactive}(1,4): error CS0266: Cannot implicitly convert type
+   &#39;double&#39; to &#39;int&#39;.
+An explicit conversion exists (are you missing a cast?)
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">i</span></code> cannot accurately hold the value 2.7.
+Since the compiler does this checking, looking only at types, not values, this even
+fails if the the <code class="docutils literal notranslate"><span class="pre">double</span></code> happens to have an integer value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; double d = 2.0;
+csharp&gt; int i = d;
+{interactive}(1,4): error CS0266: Cannot implicitly convert type
+   &#39;double&#39; to &#39;int&#39;.
+An explicit conversion exists (are you missing a cast?)
+</pre></div>
+</div>
+<p id="index-6">If you really want to possibly lose precision and convert a <code class="docutils literal notranslate"><span class="pre">double</span></code> to
+an <code class="docutils literal notranslate"><span class="pre">int</span></code> result, you <em>can</em> do it, but you must be explicit, using a <em>cast</em>
+as the csharp error messages suggest.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; double d= 2.7;
+csharp&gt; int i;
+csharp&gt; i = (int)d;
+csharp&gt; i;
+2
+</pre></div>
+</div>
+<p>The desired result type name in parentheses <code class="docutils literal notranslate"><span class="pre">(int)</span></code> is a <em>cast</em>, telling the compiler
+you really intend the conversion.  Look what is lost!  The cast does not
+<em>round</em> to the nearest integer, it <em>truncates</em> toward 0, dropping the fractional
+part, .7 here.</p>
+<p id="index-7">Rounding is possible, but if you really want the <code class="docutils literal notranslate"><span class="pre">int</span></code> type, it takes two steps,
+because the function <code class="docutils literal notranslate"><span class="pre">Math.Round</span></code> does round to a mathematical integer, but leaves
+the type as <code class="docutils literal notranslate"><span class="pre">double</span></code>!  To round <code class="docutils literal notranslate"><span class="pre">d</span></code> to an <code class="docutils literal notranslate"><span class="pre">int</span></code> result we could use:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; i = (int)Math.Round(d);
+csharp&gt; i;
+3
+</pre></div>
+</div>
+<p>You can also use an explicit cast from int to double.  This is generally not needed,
+because of the automatic conversions, but there is one place where it is
+important:  if you want <code class="docutils literal notranslate"><span class="pre">double</span></code> division but have <code class="docutils literal notranslate"><span class="pre">int</span></code> parts.  Here is a
+quick artificial test:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; int sum = 14;
+csharp&gt; int n = 4;
+csharp&gt; double avg = sum/n;
+csharp&gt; avg;
+3
+</pre></div>
+</div>
+<p>Oops, integer division.  Instead, continue with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; avg = (double)sum/n;
+csharp&gt; avg;
+3.5
+</pre></div>
+</div>
+<p>We get the right decimal answer.</p>
+<p>This is a bit more subtle than it may appear:
+The cast to double, <code class="docutils literal notranslate"><span class="pre">(double)</span></code>
+is an operation in C# and so it has a <em>precedence</em> like all operations.  Casting
+happens to have precedence higher than any arithmetic operation, so the expression is
+equivalent to:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">avg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">sum</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On the other hand, if we switch the order the other way with parentheses around the
+division:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; avg = (double)(sum/n);
+csharp&gt; avg;
+3
+</pre></div>
+</div>
+<p>then working <em>one</em> step at a time, <code class="docutils literal notranslate"><span class="pre">(sum/n)</span></code> is <em>integer</em> division,
+with result 3.  It is the 3 that is then cast to a double (too late)!</p>
+<p>See the appendix <a class="reference internal" href="../appendix/precedence.html#precedence"><span class="std std-ref">Precedence of Operators</span></a>, listing all C# operations discussed in this book.</p>
+</section>
+<section id="type-char">
+<span id="index-8"></span><span id="id4"></span><h2>Type char<a class="headerlink" href="#type-char" title="Permalink to this heading"></a></h2>
+<p>The type for an individual character is <code class="docutils literal notranslate"><span class="pre">char</span></code>.  A <code class="docutils literal notranslate"><span class="pre">char</span></code> literal value is
+a <em>single</em> character enclosed in <em>single</em> quotes, like <code class="docutils literal notranslate"><span class="pre">'a'</span></code> or <code class="docutils literal notranslate"><span class="pre">'$'</span></code>.
+The literal for a
+single quote character itself and the literal for a newline use
+<em>escape codes</em>, like in <a class="reference internal" href="strings2.html#strings2"><span class="std std-ref">String Special Cases</span></a>:
+The literals are <code class="docutils literal notranslate"><span class="pre">'\''</span></code> and <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> respectively.</p>
+<p>Be careful to distinguish a <code class="docutils literal notranslate"><span class="pre">char</span></code> literal like <code class="docutils literal notranslate"><span class="pre">'A'</span></code>
+from a string literal <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code>.</p>
+<p id="integer-char"><span id="index-9"></span><strong>Char as integer</strong>:  Though the <code class="docutils literal notranslate"><span class="pre">char</span></code> type has character literals
+and prints as a character,
+internally a <code class="docutils literal notranslate"><span class="pre">char</span></code> is a <em>type of integer</em>, stored in 16 bits,
+with the correspondence
+between numeric codes and characters given by the <em>Unicode</em> standard.
+Unicode allows special symbol characters and alphabets of many languages.
+We will stick to the standard American keyboard for these characters.</p>
+<p>Besides different alphabets, Unicode also has characters for all sorts of
+symbols: emoticons, chess pieces, advanced math….  See
+<a class="reference external" href="http://www.unicode.org/charts">http://www.unicode.org/charts</a>.  All the symbols can be represented as escape
+codes in C#, starting with <code class="docutils literal notranslate"><span class="pre">\u</span></code> followed by 4 hexadecimal digits.  For example
+<code class="docutils literal notranslate"><span class="pre">\u262F</span></code> produces a yin-yang symbol.</p>
+<p>We mention the <code class="docutils literal notranslate"><span class="pre">char</span></code> type being numeric mostly because of errors
+that you can make that would otherwise be hard to figure out.  This code does
+not concatenate the <code class="docutils literal notranslate"><span class="pre">char</span></code> symbols:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; Console.WriteLine(&#39;A&#39; + &#39;-&#39;);
+110
+</pre></div>
+</div>
+<p>What?
+We mentioned that modern computers are set up to easily work with the <code class="docutils literal notranslate"><span class="pre">int</span></code>
+type.  In arithmetic with <em>smaller</em> integral types the operands are first
+automatically converted to type <code class="docutils literal notranslate"><span class="pre">int</span></code>.
+An <code class="docutils literal notranslate"><span class="pre">int</span></code> sum is an <code class="docutils literal notranslate"><span class="pre">int</span></code>, and that is
+what is printed.</p>
+<p>You can look at the numeric values inside a <code class="docutils literal notranslate"><span class="pre">char</span></code> with a cast!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; (int)&#39;A&#39;;
+65
+csharp&gt; (int)&#39;-&#39;;
+45
+</pre></div>
+</div>
+<p>So the earlier 110 is correct:  65 + 45 = 110.</p>
+<p>For completeness:
+It is also possible to cast from small <code class="docutils literal notranslate"><span class="pre">int</span></code> back to <code class="docutils literal notranslate"><span class="pre">char</span></code>.
+This may be useful for dealing with the alphabet
+in sequence (or simple classical cryptographic codes):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>csharp&gt; &#39;A&#39; + 1;
+66
+csharp&gt; (char)(&#39;A&#39; + 1);
+&#39;B&#39;
+</pre></div>
+</div>
+<p>The capital letter one place after A is B.</p>
+</section>
+<section id="type-boolean-or-bool">
+<span id="type-boolean"></span><span id="index-10"></span><h2>Type Boolean or bool<a class="headerlink" href="#type-boolean-or-bool" title="Permalink to this heading"></a></h2>
+<p>There is one more very important value type, that we introduce here
+for completeness, though we will not use it until
+<a class="reference internal" href="../decisions/decisions.html#if-statements"><span class="std std-ref">Decisions</span></a>.
+Logical conditions are either true or false.  The type with just these
+two values is <em>Boolean</em>, or <em>bool</em> for short.  The
+type is named after George Boole, who invented what we now call
+<em>Boolean algebra</em>.  Though it seemed like a useless mathematical curiosity
+when Boole invented it, a century later Boolean algebra turned out to be
+at the heart of the implementation of computer hardware.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Boolean literals are <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>, with <em>no</em> quotes
+around them.</p>
+</div>
+<p>With quotes they would be of type string, not Boolean!</p>
+</section>
+<section id="overflow-to-positive-exercise">
+<h2>Overflow to Positive Exercise<a class="headerlink" href="#overflow-to-positive-exercise" title="Permalink to this heading"></a></h2>
+<p>We gave an example above in <a class="reference internal" href="#type-int"><span class="std std-ref">Type int</span></a>,
+adding two positive <code class="docutils literal notranslate"><span class="pre">int</span></code> values and
+clearly having an error, since the result was negative.  Declare
+and initialize two positive <code class="docutils literal notranslate"><span class="pre">int</span></code> variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Experiment
+with the initializations so</p>
+<ol class="lowerroman simple">
+<li><p>Their product is too big to fit in an <code class="docutils literal notranslate"><span class="pre">int</span></code> AND</p></li>
+<li><p>The wrong overflow result for <code class="docutils literal notranslate"><span class="pre">x*y</span></code> is <em>positive</em>, not negative.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="writeline-substitution.html" class="btn btn-neutral float-left" title="Substitutions in Console.WriteLine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="learning-to-problem-solve.html" class="btn btn-neutral float-right" title="Learning to Solve Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

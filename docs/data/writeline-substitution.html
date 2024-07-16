@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Substitutions in Console.WriteLine &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Value Types and Conversions" href="types-and-conversions.html" />
+    <link rel="prev" title="String Special Cases" href="strings2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="data.html">C# Data and Operations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sampleprogram.html">A Sample C# Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-edit-compile-run.html">Lab: Editing, Compiling, and Running with Xamarin Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">Variables and Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Syntax Template Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings1.html">Strings, Part I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print1.html">Writing to the Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programstructure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Combining Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings2.html">String Special Cases</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Substitutions in Console.WriteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-and-conversions.html">Value Types and Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning-to-problem-solve.html">Learning to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-division-sentences.html">Lab: Division Sentences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewdataop.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="data.html">C# Data and Operations</a></li>
+      <li class="breadcrumb-item active">Substitutions in Console.WriteLine</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data/writeline-substitution.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="substitutions-in-console-writeline">
+<span id="substitution-in-writeline"></span><h1>Substitutions in Console.WriteLine<a class="headerlink" href="#substitutions-in-console-writeline" title="Permalink to this heading"></a></h1>
+<section id="output-with">
+<h2>Output With <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#output-with" title="Permalink to this heading"></a></h2>
+<p>An elaboration of a “Hello, World” program, could greet the user,
+after obtaining the user’s name.  If the user enters the name
+Elliot, the program could print</p>
+<blockquote>
+<div><p>Hello, Elliot!</p>
+</div></blockquote>
+<p>This is a very simple
+input-process-output program (in fact with almost no “process”).
+Think how would you code it.</p>
+<p>You need to obtain a name, remember it and use it in your output.
+A solution is in the next section.</p>
+</section>
+<section id="string-format-operation">
+<span id="format-strings"></span><span id="index-0"></span><h2>String Format Operation<a class="headerlink" href="#string-format-operation" title="Permalink to this heading"></a></h2>
+<p>A common convention is fill-in-the blanks. For instance,</p>
+<blockquote>
+<div><p>Hello, _____!</p>
+</div></blockquote>
+<p>and you can fill in the name of the person greeted, and combine
+given text with a chosen insertion. C# has a similar
+construction, better called fill-in-the-braces,
+that can be used with <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code>.</p>
+<p>Instead of inserting user input with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operation as in
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/hello_you1/hello_you1.cs">hello_you1/hello_you1.cs</a>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloYou1</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="w"> </span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;What is your name?&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="w"> </span><span class="p">();</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>look at a variation, <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/hello_you2/hello_you2.cs">hello_you2/hello_you2.cs</a>, shown below.
+Both programs
+look exactly the same to the user:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloYou</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="w"> </span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;What is your name?&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="w"> </span><span class="p">();</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Hello, {0}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All the new syntax is in the line:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Hello, {0}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> actually can take parameters <em>after</em> an initial string,
+but only when  the string is in the form of a <em>format string</em>,
+with expression(s) in braces where substitutions are to be made,
+(like in fill-in-the-blanks). Here the format string is <code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">{0}!&quot;</span></code>.</p>
+<p>The remaining parameters, after the initial string,
+give the values to be substituted.  To
+know <em>which</em> further parameter to substitute, the parameters after the
+initial string are implicitly numbered,
+<em>starting from 0</em>.
+Starting with 0 is consistent with other numbering sequences in C#.
+So here, where there is just one value to substitute (<code class="docutils literal notranslate"><span class="pre">name</span></code>), it gets the index 0,
+and where it is substituted, the braces get 0 inside, to indicate
+that parameter with index 0 is to be substituted.</p>
+<p>Everything in the initial string that is <em>outside</em> the braces is just
+<em>repeated verbatim</em>.  In particular, if the only parameter is a string
+with no braces, it is printed completely
+verbatim (reducing to the situations where we have used <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> before).</p>
+<p>A more elaborate silly examples that you could test in csharp would be:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Peter&quot;</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Piper&quot;</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pick&quot;</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} {1}, {0} {1}, {2}.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">what</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>It would print:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Peter</span><span class="w"> </span><span class="n">Piper</span><span class="p">,</span><span class="w"> </span><span class="n">Peter</span><span class="w"> </span><span class="n">Piper</span><span class="p">,</span><span class="w"> </span><span class="n">pick</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>where parameter 0 is <code class="docutils literal notranslate"><span class="pre">first</span></code> (value <code class="docutils literal notranslate"><span class="pre">&quot;Peter&quot;</span></code>),
+parameter 1 is <code class="docutils literal notranslate"><span class="pre">last</span></code> ( value <code class="docutils literal notranslate"><span class="pre">&quot;Piper&quot;</span></code>), and
+parameter 2 is <code class="docutils literal notranslate"><span class="pre">what</span></code> (value <code class="docutils literal notranslate"><span class="pre">&quot;pick&quot;</span></code>).</p>
+<p>Make sure you see why the given output is exactly what is printed.</p>
+<p>Or try in csharp:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} plus {1} is {2}; {0} times {1} is {3}.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and see it print:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7 plus 5 is 12; 7 times 5 is 35.
+</pre></div>
+</div>
+<p>Note the following features of the parameters after the first string:</p>
+<ul class="simple">
+<li><p>These parameters can be any expression,
+and the expressions get evaluated before printing.</p></li>
+<li><p>These parameters to be substituted can be of any type.</p></li>
+<li><p>These parameters are automatically converted to a string form, just as in the
+use of the string <code class="docutils literal notranslate"><span class="pre">+</span></code> operation.</p></li>
+</ul>
+<p>In fact the simple use of format strings
+shown so far can be completed replaced by long expressions with <code class="docutils literal notranslate"><span class="pre">+</span></code>,
+if that is your taste.  We later discusses fancier formatting in <a class="reference internal" href="../for/forexamples.html#tables"><span class="std std-ref">Tables</span></a>,
+that <em>cannot</em> be duplicated with a simple string <code class="docutils literal notranslate"><span class="pre">+</span></code> operation.
+We will use the simple numbered substitutions for now just
+to get used to the idea of substitution.</p>
+<p id="index-1">A technical point: Since braces have special meaning in a format
+string, there must be a special rule if you want braces to actually
+be included in the final <em>formatted</em> string. The rule is to double
+the braces: <code class="docutils literal notranslate"><span class="pre">&quot;{{&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;}}&quot;</span></code>. The fragment</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;The set is {{{0}, {1}}}.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>produces</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The set is {2, 3}.
+</pre></div>
+</div>
+<p>Note:  Braces only get their special meaning if there are at least two
+parameters (forcing the first parameter to be a format string).
+If there is just a single parameter,
+braces are interpreted as regular characters.</p>
+<section id="format-reading-exercise">
+<h3>Format Reading Exercise<a class="headerlink" href="#format-reading-exercise" title="Permalink to this heading"></a></h3>
+<p>What is printed?</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0}{1}{1}{2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ssi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ppi&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Check yourself.</p>
+</section>
+<section id="exercise-for-format">
+<span id="quotientformat"></span><h3>Exercise for Format<a class="headerlink" href="#exercise-for-format" title="Permalink to this heading"></a></h3>
+<p>Write a program, <code class="docutils literal notranslate"><span class="pre">quotient_format.cs</span></code>, that behaves like
+<a class="reference internal" href="io.html#quotientproblem"><span class="std std-ref">Exercise for Quotients</span></a>, but generate the sentence using
+<code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> with a format string and no <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+</section>
+<section id="madlib-exercise">
+<h3>Madlib Exercise<a class="headerlink" href="#madlib-exercise" title="Permalink to this heading"></a></h3>
+<p>Write a program, <code class="docutils literal notranslate"><span class="pre">my_mad_lib.cs</span></code>, that prompts the user for
+words that fit specified gramatical patterns ( a noun, a verb, a color,
+a city….) and plug them into a multiline format string so they fit
+grammatically, and
+print the usually silly result.
+If you are not used to mad libs, try running (not
+looking at the source code) the example project mad_lib, and then try it
+again with different data.
+If this exercise seems like too big of a challenge yet,
+see our example source code,
+<a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/mad_lib/mad_lib.cs">mad_lib/mad_lib.cs</a>, and then <em>start over</em> on your own.</p>
+</section>
+</section>
+<section id="overloading">
+<span id="index-2"></span><span id="id1"></span><h2>Overloading<a class="headerlink" href="#overloading" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> function can take parameters in different ways:</p>
+<ul class="simple">
+<li><p>It can take a single parameter of an type (and print its string representation).</p></li>
+<li><p>It can take a string parameter followed by any number of parameters used to
+substitute into the initial format string.</p></li>
+<li><p>It can take no parameters, and just advance to the next line (not used yet in
+this book).</p></li>
+</ul>
+<p>Though each of these uses has the same name, <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code>,
+they are technically all different functions:  A function is not just recognized
+by its name, but by its <em>signature</em>,
+which includes the name <strong>and</strong> the number and types of parameters.
+The technical term for using the same name with different signatures for different
+functions is <em>overloading</em> the function (or method).</p>
+<p>This only makes practical sense for a group of closely related functions, where the
+use of the same name is more helpful than confusing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="strings2.html" class="btn btn-neutral float-left" title="String Special Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="types-and-conversions.html" class="btn btn-neutral float-right" title="Value Types and Conversions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

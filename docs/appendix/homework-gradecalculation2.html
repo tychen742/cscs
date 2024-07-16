@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework: Grade Calculation from Individual Scores &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Homework: Grade File" href="hw-gradefiles.html" />
+    <link rel="prev" title="Homework: Grade Calculation" href="homework-gradecalculation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../arrays/arrays.html">Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="appendix.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="monotools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xamarinstudio.html">Xamarin Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html">Command Line Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precedence.html">Precedence of Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">Group Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-versioncontrol.html">Lab: Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hgteamwork.html">Mercurial and Teamwork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="appendix.html">Appendix</a></li>
+      <li class="breadcrumb-item active">Homework: Grade Calculation from Individual Scores</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix/homework-gradecalculation2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="homework-grade-calculation-from-individual-scores">
+<span id="homework-grade-calculation2"></span><span id="index-0"></span><h1>Homework: Grade Calculation from Individual Scores<a class="headerlink" href="#homework-grade-calculation-from-individual-scores" title="Permalink to this heading"></a></h1>
+<p>In the previous assignment, we calculated grades based on a <em>memorized</em>
+overall grade within each of the categories below, as in this example:</p>
+<ul class="simple">
+<li><p>exams - 40% (integer weight is 40)</p></li>
+<li><p>labs - 15% (weight 15)</p></li>
+<li><p>homework - 15% (weight 15)</p></li>
+<li><p>project - 20% (weight 20)</p></li>
+<li><p>participation - 10% (weight 10)</p></li>
+</ul>
+<p>In this assignment, we are going to change the specification slightly
+to make the program a bit smarter. Instead of someone having to remember
+what their average grade was for each category, we will prompt the user for
+the number of items within each category (e.g. number of exams, number
+of labs, etc.), have the user enter individual grades, and have the program
+calculate the average for the category.</p>
+<p>As usual, we will begin by specifying <em>requirements</em>.
+User responses are shown <strong>bold faced</strong>.</p>
+<section id="functional-requirements">
+<h2>Functional Requirements<a class="headerlink" href="#functional-requirements" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Instead of bombing out if the weights don’t add up to 100, use <a class="reference internal" href="../while/do-while.html#do-while"><span class="std std-ref">Do-While Loops</span></a>
+to prompt the user again
+for all of the weights until they do add up to 100. A <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">while</span></code>
+loop is the right choice here, because you can test all of the weights
+at the end of the loop, after each time they have been entered
+in the loop.</p></li>
+<li><p>Write a function, <code class="docutils literal notranslate"><span class="pre">FindAverage</span></code>,
+to do the following.  The example refers to the category exam,
+but you will want your code to work for each
+category, and hence the category
+<em>name</em> will need to be a parameter to <code class="docutils literal notranslate"><span class="pre">FindAverage</span></code>.)</p>
+<p>Prompt the user for the number of items in the category:</p>
+<blockquote>
+<div><p>Please enter the number grades in category exam: <strong>4</strong></p>
+</div></blockquote>
+<p>Instead of prompting the user for an overall average
+exam grade, use a loop  to
+read one grade at a time. The grades will be added together (on the fly)
+to give the grade for that category. For example, after you have asked
+for the number of exams, you’d prompt the user to enter each exam
+grade and have the program compute the sum. As soon as a category
+sum is calculated, also print out the average as shown in the sample below:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Please enter the grade for exam 1: <strong>100</strong></div>
+<div class="line">Please enter the grade for exam 2: <strong>90</strong></div>
+<div class="line">Please enter the grade for exam 3: <strong>80</strong></div>
+<div class="line">Please enter the grade for exam 4: <strong>92</strong></div>
+<div class="line">Calculated average exam grade = 90.5</div>
+</div>
+</div></blockquote>
+<p>Of course you must return the grade to the caller for use in the
+overall weighted average grade.</p>
+<p>A category may have only a single grade, in which case the
+user will just enter the number of grades as 1.</p>
+</li>
+<li><p>Once you have read in the data for each of the items within a category,
+you’ll basically be able to <em>reuse</em> the code that you developed in the
+previous assignment to compute the weighted average and print the
+final letter grade.</p></li>
+<li><p>Print the final numerical average, <em>this time rounded to one decimal place</em>.
+If the final average was actually 93.125, you would print 93.1.
+If the final average was actually 93, you would print 93.0.
+If the final average was actually 93.175, you would print 93.2.</p></li>
+</ol>
+</section>
+<section id="style-requirements">
+<h2>Style Requirements<a class="headerlink" href="#style-requirements" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>For this assignment, you are expected to start using functions for all
+aspects of the assignment. For example, it can become tedious in a hurry
+to write code to prompt for each of exams, labs, homework, etc. when
+a single function (with parameter named <em>category</em>) could be used to
+avoid repeating yourself. In particular you should
+write your function to take advantage of our <code class="docutils literal notranslate"><span class="pre">UI</span></code>
+class, from <a class="reference internal" href="../while/userinput.html#ui"><span class="std std-ref">User Input: UI</span></a>.</p></li>
+<li><p>Also beginning with this assignment, it is expected that your work
+will be presented neatly. That is, we expect the following:</p>
+<ul class="simple">
+<li><p>proper indentation that makes your program more readable by other
+humans. Use all spaces, not tabs to indent.  You never know what
+default tabs your grader will have set up.</p></li>
+<li><p>proper naming of classes and functions. In C#, the convention is to
+begin a name with a capital letter. You can have multiple words in a
+name, but these should be capitalized using a method known as
+CamelCase <a class="reference internal" href="#camelcase" id="id1"><span>[CamelCase]</span></a>. We also recommend this same naming convention
+for variables but with a lowercase first letter.
+For variables, we are also
+ok with the use of underscores. For example, in homework 1 we used
+names like <cite>exam_grade</cite>. If you use CamelCase, you can name this
+variable <cite>examGrade</cite>.</p></li>
+<li><p>If you have any questions about the neatness or appearance of your
+code, please talk to the instructor or teaching assistant.</p></li>
+<li><p>This guide from CIS 193 at <a class="reference internal" href="#upenncsharp" id="id2"><span>[UPennCSharp]</span></a>
+provides a nice set of conventions
+to follow. We include this here so you know that other faculty at
+other universities also consider neatness/appearance to be important.</p></li>
+</ul>
+</li>
+</ol>
+<dl class="citation">
+<dt class="label" id="camelcase"><span class="brackets"><a class="fn-backref" href="#id1">CamelCase</a></span></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/CamelCase">http://en.wikipedia.org/wiki/CamelCase</a></p>
+</dd>
+<dt class="label" id="upenncsharp"><span class="brackets"><a class="fn-backref" href="#id2">UPennCSharp</a></span></dt>
+<dd><p><a class="reference external" href="http://www.cis.upenn.edu/~cis193/csstyle.html">http://www.cis.upenn.edu/~cis193/csstyle.html</a></p>
+</dd>
+</dl>
+</section>
+<section id="grading-rubric">
+<h2>Grading Rubric<a class="headerlink" href="#grading-rubric" title="Permalink to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As a general rule, we expect programs to be complete,
+compile correctly, run, and be
+thoroughly tested. We are able to grade an incomplete program
+but will only give at most 10/25
+for effort. Instead of submitting something incomplete,
+you are encouraged to complete your program and
+submit it per the late policy.  Start early and get help!</p>
+</div>
+<p>25 point assignment broken down as follows:</p>
+<ul class="simple">
+<li><p>Loop until weights add to 100: 5</p></li>
+<li><p>Average any number of grades in a category: 5</p></li>
+<li><p>One function that is reused and works for the average in each category: 5</p></li>
+<li><p>Print final numerical grade rounded to one decimal place: 2</p></li>
+<li><p>Previous program features still work: 3</p></li>
+<li><p>Style: 5</p></li>
+</ul>
+</section>
+<section id="logs-and-partners">
+<h2>Logs and Partners<a class="headerlink" href="#logs-and-partners" title="Permalink to this heading"></a></h2>
+<p>You may work with a partner, following good pair-programming practice,
+sharing responsibility for all parts.</p>
+<p>Only one of a pair needs to submit the actual programming assignment.
+However <em>both</em> students, <em>independently</em>, should write and
+include a log in their
+Homework submission.  Students working alone should also submit a log,
+with fewer parts.</p>
+<p>Each individual’s log should indicate each of the following clearly:</p>
+<ul class="simple">
+<li><p>Your name and who your partner is (if you have one)</p></li>
+<li><p>Your approximate total number of hours working on the homework</p></li>
+<li><p>Some comment about how it went - what was hard …</p></li>
+<li><p>An assessment of your contribution (if you have a partner)</p></li>
+<li><p>An assessment of your partner’s contribution (if you have a partner).</p></li>
+</ul>
+<p>Just omit the parts about a partner if you do not have one.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Name the log file with the exact file name:
+“log.txt” and make it a plain text file.
+You can create it in a program editor or in a fancy document editor.
+If you use a fancy document editor, be sure to a “Save As…” dialog,
+and select the file format “plain text”,
+usually indicated by the “.txt” suffix.
+It does not work to save a file in the default word processor format, and
+then just change its name (but not its format) in the file system.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="homework-gradecalculation.html" class="btn btn-neutral float-left" title="Homework: Grade Calculation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hw-gradefiles.html" class="btn btn-neutral float-right" title="Homework: Grade File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

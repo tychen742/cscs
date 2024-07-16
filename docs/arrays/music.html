@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musical Scales and Arrays &mdash; Introduction to Computer Science in C# 14 Jul 2024 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear Searching" href="searching.html" />
+    <link rel="prev" title="One Dimensional Arrays" href="onedim.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Introduction to Computer Science in C#
+          </a>
+              <div class="version">
+                14 Jul 2024
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/data.html">C# Data and Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/functions.html">Defining Functions of your Own</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicstringops/basicstringops.html">Basic String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decisions/decisions.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../while/while.html">While Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreach/foreach.html">Foreach Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for/for.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/files.html">Files, Paths, and Directories</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="arrays.html">Arrays</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="onedim.html">One Dimensional Arrays</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Musical Scales and Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">Linear Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sorting.html">Sorting Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binarysearching.html">Binary Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-array1d.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab-searching-arrays-lists-maps.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="twodim.html">Multi-dimensional Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviewarrays.html">Chapter Review Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classes/classes.html">Classes and Object-Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursion/recursion.html">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datastructures/datastructures.html">Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Introduction to Computer Science in C#</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="arrays.html">Arrays</a></li>
+      <li class="breadcrumb-item active">Musical Scales and Arrays</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/arrays/music.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="musical-scales-and-arrays">
+<h1>Musical Scales and Arrays<a class="headerlink" href="#musical-scales-and-arrays" title="Permalink to this heading"></a></h1>
+<p>Music in the western classical tradition uses a twelve-tone <em>chromatic</em>
+scale. Any of the tones in this scale can be the basis of a major scale.
+Most musicians (especially pianists) learn the C-major scale in the early
+days of study, owing to the ability to play this scale entirely with the
+ivory (white) keys.</p>
+<p>The following declaration shows how to initialize an array consisting
+of the twelve tones of the chromatic scale, starting from the C note.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">tones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C#&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;D#&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F&quot;</span><span class="p">,</span>
+<span class="linenos">2</span><span class="w">                          </span><span class="s">&quot;F#&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;G#&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A#&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span>
+<span class="linenos">3</span><span class="w">                        </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Even if you’re not a musician, learning the basic principles is fairly
+straightforward.</p>
+<p>The well-known C-major scale, which is often sung as:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Do</span><span class="w"> </span><span class="n">Re</span><span class="w"> </span><span class="n">Mi</span><span class="w"> </span><span class="n">Fa</span><span class="w"> </span><span class="n">So</span><span class="w"> </span><span class="n">La</span><span class="w"> </span><span class="n">Ti</span><span class="w"> </span><span class="n">Do</span>
+</pre></div>
+</div>
+<p>has the following progression:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="w">  </span><span class="n">D</span><span class="w">  </span><span class="n">E</span><span class="w">  </span><span class="n">F</span><span class="w">  </span><span class="n">G</span><span class="w">  </span><span class="n">A</span><span class="w">  </span><span class="n">B</span><span class="w">  </span><span class="n">C</span>
+</pre></div>
+</div>
+<p>This progression is known as the <em>diatonic major</em> scale. If you look at
+the <code class="docutils literal notranslate"><span class="pre">tones</span></code> array, you can actually figure out the intervals associated
+with this array:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C + 2 = D
+D + 2 = E
+E + 1 = F
+F + 2 = G
+G + 2 = A
+A + 2 = B
+B + 1 = C
+</pre></div>
+</div>
+<p>So given any starting note, the major scale can be <em>generated</em> from the
+intervals (represented as an array).</p>
+<p>So, for example, if you want the F-major scale, you can get it by starting
+at F and applying the steps of 2, 2, 1, 2, 2, 2, 1:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>F + 2 = G
+G + 2 = A
+A + 1 = B&#39; (flat) a.k.a. A#)
+B&#39;+ 2 = C
+C + 2 = D
+D + 2 = E
+E + 1 = F
+</pre></div>
+</div>
+<p>So this is the F-major scale:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span><span class="w"> </span><span class="n">none</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>F G A B’ C D E F</p>
+</div></blockquote>
+<p>We begin by creating a helper function, <code class="docutils literal notranslate"><span class="pre">FindTone()</span></code>, which does a
+linear search to find the key of the scale we want to compute. The
+aim is to make it easy for the user to just specify the key of interest.
+Then we can use this position to compute the scale given the major
+(or minor, covered shortly) interval array.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">FindTone</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tones</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos">4</span><span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="linenos">5</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">6</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
+<span class="linenos">7</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>To see what this function does, pick your favorite key (C and G are very
+common for beginners).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FindTone(&quot;C&quot;)</span></code> gives 0, the first position in the <code class="docutils literal notranslate"><span class="pre">tones</span></code> array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FindTone(&quot;G&quot;)</span></code> gives 8.</p></li>
+</ul>
+<p>For example,
+C is the first note in the array of tones, so <code class="docutils literal notranslate"><span class="pre">FindTone(&quot;C&quot;)</span></code> would give
+us 0. <code class="docutils literal notranslate"><span class="pre">FindTone(&quot;F&quot;)</span></code> would give us 6.</p>
+<p>So let’s take a look at <code class="docutils literal notranslate"><span class="pre">ComputeScale()</span></code> which does the work of
+computing a scale, given a key and an array of steps. The scale array
+is allocated by the <code class="docutils literal notranslate"><span class="pre">Main()</span></code> method, primarily to allow the same
+array to be used repeatedly for calculating other scales.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ComputeScale</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">scale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 2</span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">tonePosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">startTone</span><span class="p">;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="w">   </span><span class="n">startTone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindTone</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">startTone</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">steps</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="o">+</span><span class="m">1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">scale</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="linenos">10</span><span class="w">   </span><span class="n">tonePosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startTone</span><span class="p">;</span>
+<span class="linenos">11</span><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">      </span><span class="n">scale</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tonePosition</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">tones</span><span class="p">.</span><span class="n">GetLength</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">      </span><span class="n">tonePosition</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">14</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">15</span><span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>The first thing to note is the <em>setup</em> of this code. We’re going to
+keep the <code class="docutils literal notranslate"><span class="pre">startTone</span></code> (obtained by calling <code class="docutils literal notranslate"><span class="pre">FindTone()</span></code>) and
+<code class="docutils literal notranslate"><span class="pre">tonePosition</span></code>, which is the note we are presently visiting in
+the <code class="docutils literal notranslate"><span class="pre">tones</span></code> array.</p></li>
+<li><p>Remember that every scale (e.g. C, D, F#, etc.) can always be
+obtained by looking at <code class="docutils literal notranslate"><span class="pre">tones</span></code> and using the appropriate
+intervals (the <code class="docutils literal notranslate"><span class="pre">steps</span></code> parameter) to compute the next note, given
+a current note.</p></li>
+<li><p>We do some simple checks in line 6 (to ensure that a valid key
+was specified by the caller) and in line 8 to ensure that the
+number of steps + 1 is the length of the scale–and the length
+of the scale is 8. (We technically don’t have to limit the scale
+to 8, because scales can keep going until you run out of playable
+notes on the instrument.)</p>
+</li>
+<li><p>We’ll now start at the initial position (where we found the base
+note of the key) and enter a for loop to compute all of the notes
+in the scale. This loop iterates over the entries in the <code class="docutils literal notranslate"><span class="pre">steps</span></code>
+array to decide what the next note is.</p></li>
+<li><p>The next note in the scale, <code class="docutils literal notranslate"><span class="pre">scale[i]</span></code> is computed by taking
+<code class="docutils literal notranslate"><span class="pre">tonePosition</span> <span class="pre">%</span> <span class="pre">tones.GetLength(0)</span></code>. We need to do this, because
+in most scales, you will eventually end up “falling off the end”
+of the <code class="docutils literal notranslate"><span class="pre">tones</span></code> array, which mens that you need to continue
+computing notes from the <em>beginning</em> of the array. You can inspect
+this for yourself by picking a scale (say, B) that is starting at
+the end of the <code class="docutils literal notranslate"><span class="pre">tones</span></code> array. This means you will need to go
+to the beginning of the array to get C# (which is 2 tones away
+from B).</p></li>
+<li><p>The next note is found by adding <code class="docutils literal notranslate"><span class="pre">steps[i]</span></code> to <code class="docutils literal notranslate"><span class="pre">tonePosition</span></code>.</p></li>
+</ol>
+<p>The following function writes the scale out (rather naively) by just
+printing the notes from our existing <code class="docutils literal notranslate"><span class="pre">tones</span></code> array.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">WriteScale</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">scale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">2</span><span class="w">   </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">scale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">3</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tones</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">4</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">5</span><span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">();</span>
+<span class="linenos">6</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>We say that the output is <em>naive</em> because any musician will tell you
+that a scale should be printed in a normalized way. For example, the F-major
+scale (shown above in our earlier explanation) is never written with A# as
+one of its notes. It is written as B-flat. It’s easy to manage the various
+cases by consulting the circle of fifths, which gives us guidance on the
+number of flats/sharps each scale has.</p>
+<p>Lastly, we put this all together.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="linenos"> 2</span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">   </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="m">8</span><span class="p">];</span>
+<span class="linenos"> 4</span><span class="w">   </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 5</span><span class="w">   </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">minor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">};</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="w">   </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">];</span><span class="w">  </span><span class="c1">// need command line tone name</span>
+<span class="linenos"> 8</span><span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} major scale&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="linenos"> 9</span><span class="w">   </span><span class="n">ComputeScale</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">major</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="p">);</span>
+<span class="linenos">10</span><span class="w">   </span><span class="n">WriteScale</span><span class="p">(</span><span class="n">scale</span><span class="p">);</span>
+<span class="linenos">11</span><span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} minor scale&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="linenos">12</span><span class="w">   </span><span class="n">ComputeScale</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">minor</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="p">);</span>
+<span class="linenos">13</span><span class="w">   </span><span class="n">WriteScale</span><span class="p">(</span><span class="n">scale</span><span class="p">);</span>
+<span class="linenos">14</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">Main()</span></code> method shows how to set up the steps for both major
+and minor scales. We’ve already explained how to express the steps of
+a major scale. The minor scale basically drops the 3rd and 7th by a
+semitone (a single step), which gives us a different pattern.</p>
+<p>You can run this program to see the major and minor scales.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="onedim.html" class="btn btn-neutral float-left" title="One Dimensional Arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="searching.html" class="btn btn-neutral float-right" title="Linear Searching" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2012-2021, Andrew N. Harrington and George Thiruvathukal.
+      <span class="lastupdated">Last updated on 14-July-2024 23:01:59.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
