@@ -9,7 +9,6 @@ Build Status
 Viewing and Downloading
 ---------------------------
 
-Web Site - http://introcscs.tychen.us
 
 Building the Book
 --------------------
