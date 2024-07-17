@@ -1,9 +1,12 @@
 Resources Online
 ============================
 
-This book is designed for Comp 170 at Loyola University, Chicago.  
-The materials are available to all on the web.
-Here are some important web links:
+This book is prepared for a class at Missouri University of Science and Technology: 
+IS&T 1551 Implementing Information Systems: User Perspective. The structure of this book 
+is based on the book, Introduction to Computer Science in C#, for Comp 170 at Loyola University, Chicago.  
+This book has different sets of resources prepared but for additional resources, but the authors 
+of the book, Andrew N. Harrington George Thiruvathukal, have made the materials 
+available to all on the web: (v) 
 
 .. index:: book examples download
    examples download
@@ -15,10 +18,6 @@ Here are some important web links:
     introcs-csharp-master-examples.  
     We suggest you *rename the unzipped folder*
     ``examples`` to match later references.  
-    
-    Computer programs are designed to run on a computer and solve problems.  
-    Though the initial problems will be tiny and often silly, 
-    they will serve as learning tools to prepare for substantive problems.
     
 *   http://introcs.cs.luc.edu is an online text version for your web browser.  
     See also :ref:`alt-formats` for pdf and epub versions.

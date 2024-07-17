@@ -3,11 +3,10 @@
 
 .. _sample-program:
     
-A Sample C# Program
+hello, world
 ======================================
 
-As a start let us consider a ridiculously simple problem and a program to solve it.
-Suppose you paint the walls of rooms in one color and the ceiling in another, and
+# Suppose you are painting the walls of rooms in one color and the ceiling in another, and
 you want to calculate the size of the areas to cover with paint.  
 For simplicity ignore doors.
 What data do you need to start with?  Clearly the dimensions of the room.

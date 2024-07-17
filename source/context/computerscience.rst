@@ -2,53 +2,26 @@
 
 .. _computer_science:
 
-Computer Science, Broadly
-================================= 
+Computer Science & Information Systems
+======================================= 
 
-We intend this book as an introduction to computer science, with a focus on 
-creating problem solutions in the C# programming language.  
-We should not jump in too quickly.  You can get lost in our details and
-miss an idea of the much larger breadth of computer science.  
+This book is an introduction to computer science, with a focus on 
+the learning of computational concepts and problem-solving skills using the C# programming language. (v)
 
 .. index:: information processing
 
-Information Processing
+The IPO Model
 ------------------------
 
-Computer Science is the study and practice of information processing.  
-This can take many forms.  Many forms appear in electronic computers, 
-but information processing takes place in many other contexts, too:
+The input–process–output (IPO) model is a widely used approach in systems analysis 
+and software engineering for describing the structure of an information processing 
+task or process. Computers are used to process mathematical calculations, automate 
+business decisions, and analyze textual data to generate language models, and so on. 
+But these tasks all follow the same structure and go through the same stages. For example,
+when performing a Google search, you give an input to the search engine, Google processes it, and 
+return back answers to you. That's what computer systems do: They take in information, 
+process the information, and output the resulted outcome. (v)
 
-In the early days of electronic computers, 
-the information was largely numerical, calculating mathematical functions.
-
-Later analyzing textual information 
-has become much more important, for instance:
-What can you tell about the severity of the current flu outbreak by
-analyzing the phrasing in Google searches? 
-
-Images are analyzed:  What can a satellite image tell you about the
-distribution of drought?  
-
-Sounds:  how do you convert verbal speech accurately
-into written sentences?
-
-DNA holds information that our bodies process into proteins.
-
-Our brain chemicals and
-electronic signals process information.  There is  rich interplay
-between cognitive scientists and computer scientists modeling 
-problem solving in the brain with *neural nets* on a computer, 
-sometimes to better understand brains and 
-sometimes to
-better solve problems on an electronic computer.
-
-Economic systems are becoming better understood in terms of the 
-flow of information.
-
-The *computer* doing computations and processing can be a familiar *electronic* 
-computer, but it can be genes or brain chemicals, 
-or a whole society as its economy adapts.
 
 .. index:: algorithms
 

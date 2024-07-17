@@ -4,40 +4,32 @@
 
 .. _lab-edit-compile-run:
 
-Lab: Editing, Compiling, and Running with Xamarin Studio
+Lab: Visual Studio Code (VSCode)
 ===========================================================================
 
-This first lab is aimed at taking you through the end-to-end process of
-writing and running a basic computer program with the Xamarin Studio
-environment. As with all things in
-life, we will learn in this lab that becoming a programmer requires you
-to learn a number of other things along the way.
+Visual Studio Code (VS Code or VSCode) is a good editor with plenty of features. It has
+turned from a text editor into an integrated development editor (IDE) with the large number of
+extensions available to enhance and enrich its features. A great aspect of using VSCode is that
+once you become familiar with it, it is easy to use it for almost every other languages and technology 
+as long as they involve editing and coding. <v>
 
-In software development/engineering parlance, we typically describe a
-scenario as a *workflow*, which can be thought of as a series of steps
-that are possibly repeated. The workflow of programming can loosely be
-defined as follows:
+The *workflow* that applicaiton developers and software engineers use could include the following steps:
 
-#. Use a text editor to write your source code (human readable).
 
-#. Compile your code using the Software Development Kit (SDK) into
-   object code.
+#. Describing a problem scenario to define the goals and objectives.
 
-#. Link your object code to create an executable. (There are other
-   kinds of results to produce, but we will start with the idea of an
-   executable program to keep things simple.)  The default is to have
-   an executable program created with compilation, automatically.
+#. Plan and organize the features of the computer program that would solve the problem. 
 
-#. Run your program. Even for the most seasoned developers, your
-   program may not work entirely right the first time, so you may end
-   up repeating these steps (debugging).
+#. Writing the source code of the program using code editors.
 
-These steps can all be done with different tools.  Many find it simpler to have
-an integrated tool, like Xamarin Studio, that does them all in the same place,
-and automates the steps that do not need human interaction!  
+#. Compile the source code into object code into a standalone executable program, usually with the help of a Software Development Kit (SDK) for linking with required resources. 
 
-If you are doing this on your own
-machine, make sure you have Mono and Xamarin Studio installed as in
+#. Execute the program and debug to ensure the program runs as intended.
+
+<v>
+
+Tools like VSCode play a central role in walking through this workflow. For tools required in 
+this book such as VSCode and .NET framework  and Xamarin Studio installed as in
 :ref:`development-tools`.
 
 Other tools are available, like

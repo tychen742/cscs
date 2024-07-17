@@ -44,8 +44,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Introduction to Computer Science in C#'
-authors= u'Andrew N. Harrington and George Thiruvathukal'
-copyright = u'2012, Andrew N. Harrington and George Thiruvathukal'
+authors= u'Tsangyao (T.Y.) Chen'
+copyright = u''
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -121,7 +121,8 @@ html_theme_options = {
     #'prev_next_buttons_location': 'bottom',
     "style_external_links": True,
     "vcs_pageview_mode": "edit",
-    'style_nav_header_background': '#922247',
+    # 'style_nav_header_background': '#922247',
+    'style_nav_header_background': '#154734',
     # Toc options
     #'collapse_navigation': True,
     #'sticky_navigation': True,
