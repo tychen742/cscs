@@ -21,5 +21,6 @@ $ pip install -r requirements.txt
 $./bin/get-code-examples.sh && make html latexpdf
 ```
 
-TTTTTTT
+Notes
 -----
+Sphinx 5.3.0 works.
