@@ -23,4 +23,4 @@ $./bin/get-code-examples.sh && make html latexpdf
 
 Notes
 -----
-Sphinx 5.3.0 works.
+Sphinx 5.3.0 + python3.10 work.
