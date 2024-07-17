@@ -23,3 +23,4 @@ $./bin/get-code-examples.sh && make html latexpdf
 Notes
 -----
 Sphinx 5.3.0 + python3.10 work.
+restructuredtext by lextudio for live preview in vscode
