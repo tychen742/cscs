@@ -8,7 +8,6 @@ hello, world
 
 The code below will demonstrate a C# program written in a simple text editor. Start by saving the following code to a text file called hello.cs. [#f1]_
 
-.. [#f1] C# Programming/Introduction - Wikibooks, open books for an open world. (2022). Wikibooks.org. https://en.wikibooks.org/wiki/C_Sharp_Programming/Introduction#Hello,_World!
 
 ‌
 
@@ -363,3 +362,6 @@ whitespace conventions, and expect you to use them.
 
 Next we give you an even simpler program to run in the lab.  After
 that we return to how you can get the painting program to run on your computer.
+
+
+.. [#f1] C# Programming/Introduction - Wikibooks, open books for an open world. (2022). Wikibooks.org. https://en.wikibooks.org/wiki/C_Sharp_Programming/Introduction#Hello,_World!
