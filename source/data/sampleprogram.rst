@@ -6,12 +6,10 @@
 hello, world
 ======================================
 
-# Suppose you are painting the walls of rooms in one color and the ceiling in another, and
-you want to calculate the size of the areas to cover with paint.  
-For simplicity ignore doors.
-What data do you need to start with?  Clearly the dimensions of the room.
-Suppose we consider modern houses where the height of the room is predictably 8 feet, 
-so the new starting data is just the length and width of the room.
+The code below will demonstrate a C# program written in a simple text editor. Start by saving the following code to a text file called hello.cs.[#f1]_
+..[#f1] C# Programming/Introduction - Wikibooks, open books for an open world. (2022). Wikibooks.org. https://en.wikibooks.org/wiki/C_Sharp_Programming/Introduction#Hello,_World!
+
+‌
 
 You need to
 
