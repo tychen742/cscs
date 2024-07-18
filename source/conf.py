@@ -48,8 +48,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Introduction to Computer Science in C#'
-authors= u'Andrew N. Harrington and George Thiruvathukal'
-copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
+authors= u'Tsangyao (T.Y.) Chen'
+# copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -228,8 +228,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'comp170.tex', u'Introduction to Computer Science in C\\#',
-   u'Andrew N. Harrington and George K. Thiruvathukal', 'manual'),
+  ('index', 'ist1551.tex', u'Introduction to Computer Science in C\\#',
+   u'Tsangyao (T.Y.) Chen', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -259,7 +259,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'introcscsharp', u'Introduction to Computer Science in C#',
-     [u'Andrew N. Harrington and George K. Thiruvathukal'], 1)
+     [u'ATsangyao (T.Y.) Chen'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -273,7 +273,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'comp170', u'Introduction to Computer Science in C#',
-   u'Andrew N. Harrington and George K. Thiruvathukal', 'comp170', 
+   u'Tsangyao (T.Y.) Chen', 'ist1551', 
    'C# Notes.',
    'Miscellaneous'),
 ]
