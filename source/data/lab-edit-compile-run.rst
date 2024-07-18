@@ -4,13 +4,13 @@
 
 .. _lab-edit-compile-run:
 
-Lab: Visual Studio Code (VSCode)
+Lab 1.1: Visual Studio Code (VS Code)
 ===========================================================================
 
-Visual Studio Code (VS Code or VSCode) is a good editor with plenty of features. It has
-turned from a text editor into an integrated development editor (IDE) with the large number of
-extensions available to enhance and enrich its features. A great aspect of using VSCode is that
-once you become familiar with it, it is easy to use it for almost every other languages and technology 
+Visual Studio Code (VS Code) is a editor with plenty of features. It has
+turned from a text editor into an integrated development editor (IDE) with a large number of
+extensions available to enhance and enrich its tools and features. A great aspect of using VSCode is that
+once you learn how to use it, you can use it for almost every other languages and technology 
 as long as they involve editing and coding. <v>
 
 The *workflow* that applicaiton developers and software engineers use could include the following steps:
@@ -20,25 +20,16 @@ The *workflow* that applicaiton developers and software engineers use could incl
 
 #. Plan and organize the features of the computer program that would solve the problem. 
 
-#. Writing the source code of the program using code editors.
+#. Writing the *source code* of the program using code editors.
 
-#. Compile the source code into object code into a standalone executable program, usually with the help of a Software Development Kit (SDK) for linking with required resources. 
+#. Compile the source code into object code as a standalone executable program, usually with the help of a Software Development Kit (SDK) for linking with required resources. 
 
-#. Execute the program and debug to ensure the program runs as intended.
+#. Execute the program and debug to ensure the program runs as intended.<v>
 
-<v>
+Tools like VS Code play a central role in walking through this workflow. For tools required in 
+this book such as VS Code and the .NET Framework, see :ref:`development-tools`. <v>
 
-Tools like VSCode play a central role in walking through this workflow. For tools required in 
-this book such as VSCode and .NET framework  and Xamarin Studio installed as in
-:ref:`development-tools`.
 
-Other tools are available, like
-the development environment 
-Visual Studio (from Microsoft, focused on Windows).
-
-Understanding the lower level tools that accomplish each step is important, 
-but we defer
-a discussion to get you going with Xamarin Studio.
 
 Goals
 -----

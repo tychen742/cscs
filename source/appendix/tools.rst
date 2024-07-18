@@ -2,30 +2,60 @@
 
 .. _development-tools:
 
-Development Tools
-=================
+Development Tools 
+===============================
 
-About Software Development Kits (SDKs)
+The tools requred for this book include the `.NET platform <https://>`_, `VS Code <https://code.visualstudio.com/>`_ , 
+and the `C# Dev Kit <https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit>`_ (a 
+VS Code extension). In addition, we will also use the ommand Line Interface (CLI) for certain operations
+from time to time. 
+
+A software development kit (SDK) is a collection of software development tools in one installable package. 
+They facilitate the creation of applications by having a compiler, debugger and sometimes a software framework. 
+They are normally specific to a hardware platform and operating system combination. [#f1]_ The Microsoft .NET 
+(".NET Core" before version 5) platform is an open-sourced, cross-platform development platform. 
+(The .NET predecessor, ".NET Framework", on the other hand, is is a "proprietary software framework developed by 
+Microsoft that runs primarily on Microsoft Windows". _[#f2]) 
+
+Installing Tools
+-----------------
+You should install `VS Code <https://code.visualstudio.com/>`_ on your computer
+(For management and security reasons, it is suggested to use a package manager when installing software applications. 
+There are popular software package managers the common operating systems, e.g., `Homebrew <https://brew.sh/>`_ for 
+macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.)  
+
+
+Command Line Interface (CLI)
+-----------------------------
+Having some knowledge of using the command line interface (CLI) is necessary when learning how to code. 
+Major platforms such as macOS, Windows, and Linux all have CLIs for users to operate the operating 
+system's more advanced features. Users issue text commands in the CLI rather than using the graphical
+user interface (GUI) of the operating system. 
+
+The systems have different CLI applications. For example:
+
+* Windows: PowerShell
+* macOS: Terminal
+* Linux: Terminal/shell 
+
+When you open the CLI application, you are interacting with the computer using the keyboard to issue 
+commands rather than poit-and-click devices with the GUI. When you start a CLI, you see a command prompt,
+which is where you issue the commands. To start navigating around the CLI environment, some of the 
+essential commands include:
+
+* mkdir *dir* (make directory) to create a directory/folder called *dir*
+* cd *path* (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
+* ^+C (hold the Control key and then hit the C key) to terminate a process.
+
+As an exercise, you should do the following steps at the CLI to prepare the environment for learning C#:abbr:
+# Start your CLI application. By default, you would be in your user home directory. 
+# Create a  
+
+<v>
+
+
+Software Development Kits (SDKs)
 --------------------------------------
-
-A software development kit (SDK) is a set of tools for developing in a
-particular programming language (in our class, C#). Developing in a
-language means everything from compiling to running and (when things
-go wrong) to debugging programs. 
-
-The Microsoft SDK is the proprietary implementation of .Net. It runs
-only on Windows and is the primary development framework for all
-things Microsoft.
-
-The Mono Project SDK <http://mono-project.com> is the free/open source
-equivalent implementation of the Microsoft SDK. 
-It runs on all major platforms (including Windows) and is needed in situations 
-where you want to develop .Net applications on non-Windows platforms.
-
-As an interesting aside, the company whose developers lead the work on
-the Mono SDK are working on commercial tools that allow you to
-develop/run applications written in .Net on Apple iOS and Android
-mobile devices (phones and tablets).
 
 Editing and Building Tools
 --------------------------
@@ -291,3 +321,10 @@ since the 1990s when it first appeared, we encourage you to set it up
 perhaps a bit later in the semester or consider running it using
 virtualization software (on Mac or Windows) such as VirtualBox or
 VMware.
+
+
+.. [#f1] Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
+.. [#f2] Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
+
+‌
+‌

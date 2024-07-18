@@ -6,7 +6,7 @@ Appendix
 .. toctree::
    :maxdepth: 2
    
-   monotools
+   tools
    xamarinstudio
    cmdline
    precedence
