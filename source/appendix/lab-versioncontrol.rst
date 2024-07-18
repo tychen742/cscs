@@ -119,7 +119,7 @@ of the list of menu options). You'll see this screen:
 You'll need to fill in or select the following options:
 
 - Name: A short name for your project. You are encouraged to keep this
-  simple.  If you are using this for all of your work in COMP 170
+  simple.  If you are using this for all of your work in IST 1551
   (which is fine) you might name the repository after your
   initials. So if your name is Linus Torvalds, you could give a short
   name like *LinusTorvaldsCOMP170* or *LTCOMP170*.

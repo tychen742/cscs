@@ -230,8 +230,8 @@ cd
   There is no issue with drives.
 
   If you included a space in one or more of the directory names, for
-  example C:\\COMP 170\\hello (a space between COMP and 170) you should
-  enclose the path in quotes like: ``cd "C:\\COMP 170\\hello"``
+  example C:\\IST 1551\\hello (a space between COMP and 170) you should
+  enclose the path in quotes like: ``cd "C:\\IST 1551\\hello"``
 
   **Mac Note**: if you type just *cd* and press Enter you will change back to
   your home directory.  There is also a shorthand name for your home

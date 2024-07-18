@@ -123,7 +123,7 @@ html_theme = 'bootstrap'
 #html_theme_options = { 'collapsiblesidebar' : True }
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "COMP 170",
+    'navbar_title': "IST 1551",
 
     # Global TOC depth for "site" navbar tab. (Default: 1)
     # Switching to -1 shows all levels.
@@ -179,7 +179,7 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = 'C# Intro'
-html_short_title = 'COMP 170'
+html_short_title = 'IST 1551'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.

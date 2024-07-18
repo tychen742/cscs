@@ -143,7 +143,7 @@ result).
 
 This is best illustrated by example.
 
-George is a student in COMP 170. He has the following
+George is a student in SIT 1551. He has the following
 averages for each category to date:
 
 - exams: 50%

@@ -3,9 +3,9 @@ Resources Online
 
 This book is prepared for a class at Missouri University of Science and Technology: 
 IS&T 1551 Implementing Information Systems: User Perspective. The structure of this book 
-is based on the book, Introduction to Computer Science in C#, for Comp 170 at Loyola University, Chicago.  
+is based on the book, Introduction to Computer Science in C#, for IST 1551 at Loyola University, Chicago.  
 This book has different sets of resources prepared, but for additional resources, the authors 
-of the Comp 170 book, Andrew N. Harrington George Thiruvathukal, have made the materials 
+of the IST 1551 book, Andrew N. Harrington George Thiruvathukal, have made the materials 
 available to all on the web: (v) 
 
 .. index:: book examples download
