@@ -10,16 +10,18 @@ and the `C# Dev Kit <https://marketplace.visualstudio.com/items?itemName=ms-dotn
 VS Code extension). In addition, we will also use the ommand Line Interface (CLI) for certain operations
 from time to time. 
 
+Software Development Kits (SDKs)
+--------------------------------------
 A software development kit (SDK) is a collection of software development tools in one installable package. 
 They facilitate the creation of applications by having a compiler, debugger and sometimes a software framework. 
 They are normally specific to a hardware platform and operating system combination. [#f1]_ The Microsoft .NET 
 (".NET Core" before version 5) platform is an open-sourced, cross-platform development platform. 
 (The .NET predecessor, ".NET Framework", on the other hand, is is a "proprietary software framework developed by 
-Microsoft that runs primarily on Microsoft Windows". _[#f2]) 
+Microsoft that runs primarily on Microsoft Windows". [#f2]_) 
 
 Installing Tools
 -----------------
-You should install `VS Code <https://code.visualstudio.com/>`_ on your computer
+You should install `VS Code <https://code.visualstudio.com/>`_ on your computer. 
 (For management and security reasons, it is suggested to use a package manager when installing software applications. 
 There are popular software package managers the common operating systems, e.g., `Homebrew <https://brew.sh/>`_ for 
 macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.)  
@@ -54,8 +56,7 @@ As an exercise, you should do the following steps at the CLI to prepare the envi
 <v>
 
 
-Software Development Kits (SDKs)
---------------------------------------
+
 
 Editing and Building Tools
 --------------------------
