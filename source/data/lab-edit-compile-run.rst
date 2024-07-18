@@ -26,20 +26,16 @@ The *workflow* that applicaiton developers and software engineers use could incl
 
 #. Execute the program and debug to ensure the program runs as intended.<v>
 
-Tools like VS Code play a central role in walking through this workflow. For tools required in 
-this book such as VS Code and the .NET Framework, see :ref:`development-tools`. <v>
-
+Tools like VS Code play a central role in walking through this workflow. For how to isntall VS Code, the .NET SDK, 
+and C# Dev Kit, see :ref:`development-tools`. <v>
 
 
 Goals
 -----
 
-Our primary goal to create and understand an Xamarin Studio setup
-that you can use to do all of
-the remaining homework assignments and labs for this course. 
+To use VS Code to create your first .NET project for C# development.
 
-
-.. index: Xamarin Studio; solution and project
+.. index: VS Code
    
 .. _steps:
 
