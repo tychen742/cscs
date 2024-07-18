@@ -239,7 +239,8 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'comp170doc'
+# htmlhelp_basename = 'comp170doc'
+htmlhelp_basename = 'ist1551doc'
 
 highlight_language = 'csharp'
 
@@ -262,9 +263,13 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
+# latex_documents = [
+#   ('index', 'comp170.tex', u'Introduction to Computer Science in C\\#',
+#    u'Andrew N. Harrington\\\\George K. Thiruvathukal', 'manual'),
+# ]
 latex_documents = [
-  ('index', 'comp170.tex', u'Introduction to Computer Science in C\\#',
-   u'Andrew N. Harrington\\\\George K. Thiruvathukal', 'manual'),
+  ('index', 'ist1551.tex', u'Introduction to Computer Science in C\\#',
+   ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -292,9 +297,13 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
+# man_pages = [
+#     ('index', 'introcscsharp', u'Introduction to Computer Science in C#',
+#      [u'Andrew N. Harrington and George K. Thiruvathukal'], 1)
+# ]
 man_pages = [
     ('index', 'introcscsharp', u'Introduction to Computer Science in C#',
-     [u'Andrew N. Harrington and George K. Thiruvathukal'], 1)
+     1)
 ]
 
 # If true, show URL addresses after external links.
