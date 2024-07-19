@@ -12,7 +12,7 @@ previous background) may prefer using GitHub directly. (See below.)
     :header: "Description", "URL"
     :widths: 15, 30
 
-    "C# Examples (as ZIP)", "https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/releases/latest/"
+    "C# Examples (as ZIP)", "https://github.com/tychen742/introcs-csharp-examples/releases/latest/"
 
 
 We offer the book in HTML, PDF, and EPUB formats. Kindle users should use EPUB, which can be converted
@@ -36,6 +36,6 @@ will acknowledge any helpful and constructive contributions.
     :header: "Description", "URL"
     :widths: 15, 30
 
-    "C# Examples", "https://github.com/LoyolaChicagoBooks/introcs-csharp-examples"
+    "C# Examples", "https://github.com/tychen742/introcs-csharp-examples"
     "Book Source", "https://github.com/LoyolaChicagoBooks/introcs-csharp"
 

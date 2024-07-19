@@ -128,7 +128,7 @@ We have started to refer to whole programs that we have written.  You will
 want to have your own copies to test and modify for related work.
 
 All of our examples are set up in a Xamarin Studio solution in our 
-`zip file that you can download <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/archive/master.zip>`_.
+`zip file that you can download <https://github.com/tychen742/introcs-csharp-examples/archive/master.zip>`_.
 
 The zip file and the folder it unzips to have the long name 
 introcs-csharp-examples-master.  We suggest you *rename the folder* simply
@@ -183,7 +183,7 @@ Running our Xamarin Studio Examples Solution
 If you are just starting Xamarin Studio, and you have *not* run our solution before:
 
 #.  Make sure you have downloaded and unzipped our  
-    `examples <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/archive/master.zip>`_.
+    `examples <https://github.com/tychen742/introcs-csharp-examples/archive/master.zip>`_.
     You get a folder with a mouythfull of a name :file:`introcs-csharp-examples-master`.  We will
     assume you reduce the name of the folder to the much shorter :file:`examples`.
 #.  On the Xamarin Studio Welcome screen select the button Open....

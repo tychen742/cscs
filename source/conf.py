@@ -28,9 +28,6 @@ from datetime import date
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks']
 
-# extlinks = {'repsrc': 
-#               ('https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/%s','')
-#            }
 extlinks = {'repsrc': 
               ('https://github.com/tychen742/introcs-csharp-examples/blob/master/%s','')
            }
