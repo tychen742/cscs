@@ -32,6 +32,10 @@ extlinks = {'repsrc':
               ('https://github.com/tychen742/introcs-csharp-examples/blob/master/%s','')
            }
 
+extensions = ['sphinxcontrib.bibtex']
+bibtex_bibfiles = ['refs.bib']
+
+
 todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
