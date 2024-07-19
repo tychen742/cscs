@@ -3,7 +3,7 @@
 
 .. _array:
 
-10. Arrays
+Arrays
 ######################
 
 .. toctree::
