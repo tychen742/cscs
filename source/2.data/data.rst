@@ -1,4 +1,4 @@
-C# Data and Operations
+Data and Operations
 ######################
 
 .. toctree::

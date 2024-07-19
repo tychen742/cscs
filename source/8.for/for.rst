@@ -3,7 +3,7 @@
 
 .. _For-Loops:
 
-For Loops
+for Loops
 ######################
 
 .. toctree::

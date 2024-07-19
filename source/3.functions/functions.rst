@@ -1,7 +1,7 @@
 
 .. _Defining-Own-Functions:
 
-Defining Functions of your Own
+Functions
 ###############################
 
 .. toctree::

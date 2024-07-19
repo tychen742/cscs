@@ -3,7 +3,7 @@
 
 .. _basic-string-ops:
 
-Basic String Operations
+Strings
 #######################
 
 .. toctree::
