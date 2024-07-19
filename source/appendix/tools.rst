@@ -21,11 +21,12 @@ Microsoft that runs primarily on Microsoft Windows". [#f2]_)
 
 Installing Tools
 -----------------
-#. Install `VS Code <https://code.visualstudio.com/>`_ on your computer. 
-#. From the Extensions View on the Activity Bar of VS Code, search and install , go to the Extension 
-(For management and security reasons, it is suggested to use a package manager when installing software applications. 
-There are popular software package managers the common operating systems, e.g., `Homebrew <https://brew.sh/>`_ for 
-macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.)  
+
+#. Install `VS Code <https://code.visualstudio.com/>`_ on your computer. (For package management reasons, 
+it is suggested to use a package manager when installing software applications: e.g., `Homebrew <https://brew.sh/>`_ 
+for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.) 
+
+#. Click on the Extensions View on the left vertical Activity Bar of VS Code, search and install, go to the Extension  
 
 
 Command Line Interface (CLI)
