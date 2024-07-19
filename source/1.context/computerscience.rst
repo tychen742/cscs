@@ -8,7 +8,7 @@ Computer Science & Information Systems
 This book is an introduction to computer science, with a focus on 
 the learning of computational concepts and problem-solving skills using the C# programming language. (v)
 
-.. index:: information processing
+.. index:: information processing model
 
 The IPO Model
 ------------------------
@@ -22,6 +22,21 @@ when performing a Google search, you give an input to the search engine, Google 
 return back answers to you. That's what computer systems do: They take in information, 
 process the information, and output the resulted outcome. (v)
 
+
+.. index:: on programming
+
+Programming as a way of thinking
+---------------------------------
+Learning to program means learning a new way to think, meaning to "think like a computer scientist," as Allen Downey (:footcite:p:`2024:downey`) puts it. 
+As Downey says, "this way of thinking combines some of the best features of mathematics, 
+engineering, and natural science. Like mathematicians, computer scientists use formal languages to 
+denote ideas – specifically computations. Like engineers, they design things, assembling components 
+into systems and evaluating trade-offs among alternatives. Like scientists, they observe the 
+behavior of complex systems, form hypotheses, and test predictions" (:footcite:p:`2024:downey`).
+
+To learn a programming language, we start with most basic elements of programming such as how computers 
+represents numbers, letters, words, and perform arithmetic operations. Next we follow by learning the 
+vocabulary of programming, including terms like operator, expression, value, and type. 
 
 .. index:: algorithms
 
@@ -333,3 +348,10 @@ Microsoft environment: Xamarin Studio and Mono, which are free,
 open-source software projects that make C# available for multiple platforms:  
 Windows, Mac, or Linux machines.  With a substantial fraction of students having their own
 machine that does  *not* run Windows, this flexibility is important.
+
+
+.. [#f1] Programming as a way of thinking — Think Python, 3rd edition. (2022). Github.io. https://allendowney.github.io/ThinkPython/chap01.html
+
+.. [Ref] Allen Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press.
+
+‌
