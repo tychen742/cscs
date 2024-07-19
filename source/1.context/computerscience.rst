@@ -2,7 +2,7 @@
 
 .. _computer_science:
 
-Computer Science & Information Systems
+About Computer Science 
 ======================================= 
 
 This book is an introduction to computer science, with a focus on 

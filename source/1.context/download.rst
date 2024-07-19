@@ -2,7 +2,7 @@
 
 .. _alt-formats:
     
-Downloading and Reading Options
+Additional Online Resources
 ==================================
 
 C# examples are integrated with the book and most readers should be able to follow the book and 
