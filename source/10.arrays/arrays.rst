@@ -3,7 +3,7 @@
 
 .. _array:
 
-Arrays
+10.Arrays
 ######################
 
 .. toctree::
