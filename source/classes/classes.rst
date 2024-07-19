@@ -3,7 +3,7 @@
 
 .. _Classes:
 
-Classes and Object-Oriented Programming
+Object-Oriented Programming
 ########################################
 
 .. toctree::
