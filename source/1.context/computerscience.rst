@@ -27,16 +27,18 @@ process the information, and output the resulted outcome. (v)
 
 Programming as a way of thinking
 ---------------------------------
-Learning to program means learning a new way to think, meaning to "think like a computer scientist," as Allen Downey (:footcite:p:`2024:downey`) puts it. 
-As Downey says, "this way of thinking combines some of the best features of mathematics, 
+Learning to program means learning a new way to think, meaning to "think like a computer scientist," 
+as Allen Downey [#f1]_ puts it. As Downey says, "this way of thinking combines some of the best features of mathematics, 
 engineering, and natural science. Like mathematicians, computer scientists use formal languages to 
 denote ideas – specifically computations. Like engineers, they design things, assembling components 
 into systems and evaluating trade-offs among alternatives. Like scientists, they observe the 
-behavior of complex systems, form hypotheses, and test predictions" (:footcite:p:`2024:downey`).
+behavior of complex systems, form hypotheses, and test predictions" [#f1]_.
 
-To learn a programming language, we start with most basic elements of programming such as how computers 
-represents numbers, letters, words, and perform arithmetic operations. Next we follow by learning the 
-vocabulary of programming, including terms like operator, expression, value, and type. 
+
+To learn a programming language, we start with the most basic elements of programming such as how 
+computers represents numbers, letters, words, and perform arithmetic operations. Next we learn the 
+vocabulary of programming, including terms like operator, expression, value, and type. Along with 
+learning the *syntax* of a programming language, you will become proficient in speaking that language.  
 
 .. index:: algorithms
 
@@ -350,8 +352,4 @@ Windows, Mac, or Linux machines.  With a substantial fraction of students having
 machine that does  *not* run Windows, this flexibility is important.
 
 
-.. [#f1] Programming as a way of thinking — Think Python, 3rd edition. (2022). Github.io. https://allendowney.github.io/ThinkPython/chap01.html
-
-.. [Ref] Allen Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press.
-
-‌.. footbibliography::
+.. [#f1] Allen Downey (2022). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press.
