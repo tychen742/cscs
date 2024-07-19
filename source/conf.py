@@ -32,7 +32,7 @@ extlinks = {'repsrc':
               ('https://github.com/tychen742/introcs-csharp-examples/blob/master/%s','')
            }
 
-extensions = ['sphinxcontrib-bibtex']
+extensions = ['sphinxcontrib.bibtex']
 bibtex_bibfiles = ['refs.bib']
 
 
