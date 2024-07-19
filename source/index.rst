@@ -5,13 +5,13 @@ Introduction to Computer Science in C#
    :numbered:
    :maxdepth: 2
 
-   context/context
-   data/data
-   functions/functions
-   basicstringops/basicstringops
-   decisions/decisions
-   while/while
-   foreach/foreach
+   1.context/context
+   2.data/data
+   3.functions/functions
+   4.basicstringops/basicstringops
+   5.decisions/decisions
+   6.while/while
+   7.foreach/foreach
    for/for
    files/files
    arrays/arrays
