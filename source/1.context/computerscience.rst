@@ -45,42 +45,13 @@ learning the *syntax* of a programming language, you will become proficient in s
 Algorithms
 ------------
 
-Algorithms are at the heart of traditional problem solving .  An *algorithm*
-is a clearly expressed sequence of steps leading to a result in a 
-finite amount of time.  
+An idea central to computer science is problem solving, meaning "the ability to formulate problems, 
+think creatively about solutions, and express a solution clearly and accurately." In computer science, 
+the solutions to the problems are called *algorithms*, which is a "step by step list of instructions 
+that if followed exactly will solve the problem under consideration" [f#2]_. In computer science, 
+we implement the algorithmic solution using notations from a programming language, and the result is a 
+computer program for us to solve certain problem. 
 
-A recipe for baking a pound cake is an algorithm.  
-
-Such an algorithm has useful concepts that we use later in computer
-programming:
-
-* A named sub-problem: your recipe may include the instruction
-  "Beat 4 eggs."  The recipe probably says no more about it, but this is
-  *shorthand*, a name for a simpler sequence of steps, an
-  algorithm like:
-  
-  .. code-block:: none
-  
-     Beating Any Number of Eggs
-     ---------------------------    
-     1. Get a bowl large enough for the eggs.
-     2. For each egg:
-        a. Crack its shell on the edge of the bowl.
-        b. Add the contents of the shell to the bowl.
-     3. Mix the eggs with a whisk.
-     4. Continue with step 3 until you cannot 
-        distinguish the white and yolks.
-
-* Parameters: The egg beating instructions work, in general, for any number
-  of eggs.  To use these instructions for a *particular* pound cake, 
-  you must supply a specific value to use to make the general instructions
-  become clear.  The pound cake recipe that uses
-  the egg beating instructions, uses the number **4** as the actual data.
-  
-* Repetition: The instructions for cracking an egg are not *written* repeatedly,
-  for every egg.  The instruction is stated once, and we are told how 
-  long to go on: for each egg in step 2.  Step 4 says
-  when to stop repeating step 3.
 
 .. index:: data representation
    Jaquard loom
@@ -352,4 +323,5 @@ Windows, Mac, or Linux machines.  With a substantial fraction of students having
 machine that does  *not* run Windows, this flexibility is important.
 
 
-.. [#f1] Allen Downey (2022). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press.
+.. [#f1] Allen Downey (2022). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
+.. [#f2] Brad Miller & David Ranum (2014). How to Think Like a Computer Scientist: Interactive Edition. (GNU FDL V.1.3)
