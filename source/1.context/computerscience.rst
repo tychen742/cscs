@@ -354,4 +354,4 @@ machine that does  *not* run Windows, this flexibility is important.
 
 .. [Ref] Allen Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press.
 
-‌
+‌.. footbibliography::
