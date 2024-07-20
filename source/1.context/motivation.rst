@@ -25,6 +25,7 @@ C#, .NET, and VS Code
 
 Microsoft has made C# the centeral language for their fast-evolving open-sourced cross-platform 
 .NET ecosystem. C# is a general-purpose, high-level, multiple-paradigm language and is 
-especially widely used in the world of business information systems and game development. 
-Meanwhile, the popularity of the VS Code editor, powered by plenty of extensions, 
+gaining market share as a popular programming language. In recent 
+years, C# has remained widely used especially for building cross-platform applications, web services, 
+and game development. Meanwhile, the popularity of the VS Code editor, powered by plenty of extensions, 
 has made the editor a very powerful tool for coding and programming. 

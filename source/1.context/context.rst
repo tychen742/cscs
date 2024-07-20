@@ -5,10 +5,11 @@ Context
    :maxdepth: 2
 
    motivation
-   intro
 
    computerscience
    reviewcontext
+
+..   intro
 .. download
    
 .. old
