@@ -51,9 +51,8 @@ across probably all programming languages. Those basic constructs include:
 
 .. index:: algorithms
 
-Algorithms
-------------
-
+Problem-solving
+----------------
 Computer science is a scientific discipline, so learning to program could mean learning a new way 
 of thinking; as Allen Downey [#f1]_ puts it, to "think like a computer scientist." 
 As Downey says, "this way of thinking combines some of the best features of mathematics, 
@@ -62,12 +61,19 @@ denote ideas – specifically computations. Like engineers, they design things, 
 into systems and evaluating trade-offs among alternatives. Like scientists, they observe the 
 behavior of complex systems, form hypotheses, and test predictions" [#f1]_.
 
-For most learners, the idea central to computer science and information systems is problem solving, 
+For most learners, the idea central in learning computer science and information systems is problem-solving, 
 meaning "the ability to formulate problems, think creatively about solutions, and express a 
-solution clearly and accurately." In computer science, the solutions to the problems are called *algorithms*, which is a list of step-by-step instructions, 
+solution clearly and accurately," [f#2]_ and we expect to hon our problem-solving skills 
+through learning how to code and, in turn, obtaining a skillset to use and create computer 
+programs and tools to solve problems. 
+
+Algorithms
+------------
+In computer science, the solution to a problem is called *algorithm*, which is a list of step-by-step instructions, 
 much like a recipe for cooking a dish, that will solve the problem under consideration if followed 
-exactly [f#2]_. Programming is the process of implementing an algorithmic solution, using notations 
-from a programming language, to create a computer program for us to solve the certain problem. 
+exactly. Programming is the process of implementing an algorithmic solution. By using notations 
+of a programming language, we create a computer program containing specific instructions to the 
+computer to solve the certain problem. 
 
 
 .. index:: data representation
@@ -141,9 +147,7 @@ for each of the three colors.
 Programming Languages
 --------------------------------
 
-Machine instructions are very elementary, so programming
-was still tedious, and code could not be reused on a 
-machine with a different architecture.  
+Programming languages can 
 
 The next big step past assembler was the advent of
 *high level* languages, with instructions more like normal mathematical or 
@@ -182,10 +186,6 @@ In this approach:
 
 Program source => COMPILER => bytecode => INTERPRETER => execution
 
-.. index:: program development cycle
-
-Program Development Cycle
----------------------------
 
 
 .. index:: computer science; key concepts
@@ -193,24 +193,25 @@ Program Development Cycle
 Key Computer Science Ideas
 -----------------------------
 
+.. index:: compiling vs interpreting
 
+In the early years of computer development, computers only understand low-level lanugages:
+machine code (binary digits) to be read and interpreted directly by a computer, and assembly 
+language, consisting of short words to represent machine code instructions. Over time, 
+high-level languages such C, C++, Perl, and Java were creaerd to make programming more 
+efficient. However, the source code written in hight-level programming languages need to be 
+translated into machine code for execution. The two common types of tools for the translation 
+are *interpreters* and *compilers*.
 
-.. index:: Denning - Peter
-   Miles - Rob
-   C# Yellow Book
+.. figure:: ../images/interpreter.jpg
+   :width: 45%
 
-A detailed discussion of these principles and the breadth of
-importance of computer science can be found at
-http://denninginstitute.com/pjd/GP/GP-site/welcome.html.  
+   An interpreter processes the program a little at a time, alternately reading lines and performing computations.
 
-For an alternate general introduction to programming and the context of C# in particular,
-there is another free online source, 
-Rob Miles'  
-C# Yellow Book, available at
-http://www.csharpcourse.com.
-Note that it is written specifically for Microsoft Windows use, using 
-Visual Studio software development environment, which works only on Windows machines,
-and costs a lot if you are not a student.
+.. figure:: ../images/compiler.jpg
+   :width: 70%
+
+   A compiler translates source code into object code, which is run by a hardware executor.
 
 The :ref:`lab-edit-compile-run` will introduce an alternative to the 
 Microsoft environment: Xamarin Studio and Mono, which are free, 

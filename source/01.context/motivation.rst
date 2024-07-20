@@ -35,6 +35,6 @@ editor a very powerful tool for coding and programming.
 
     Popular Programming Languages (StackOverflow Developer Annual Survey 2023 [#f3]_ )
 
-.. [#f1] According to TIOBE index, C# is one of the top programming languages. https://www.tiobe.com/tiobe-index/ 
+.. [#f1] According to TIOBE index, C# is one of the most-searched programming languages. https://www.tiobe.com/tiobe-index/ 
 .. [#f2] The Stack Overflow Annual Survey 2023 shows that 29.16% of professional developers use C#, which is close to Java.
 .. [#f3] Popular programming languages according to the Stack Overflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof

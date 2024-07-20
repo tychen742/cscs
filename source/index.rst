@@ -7,13 +7,13 @@ Introduction to Computer Science in C#
 
    01.context/context
    02.data/data
-   3.functions/functions
-   4.basicstringops/basicstringops
-   5.decisions/decisions
-   6.while/while
-   7.foreach/foreach
-   8.for/for
-   9.files/files
+   03.functions/functions
+   04.basicstringops/basicstringops
+   05.decisions/decisions
+   06.while/while
+   07.foreach/foreach
+   08.for/for
+   09.files/files
    10.arrays/arrays
    11.lists/lists
    12.dictionaries/dictionaries
