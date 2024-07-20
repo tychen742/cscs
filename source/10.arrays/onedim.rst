@@ -55,7 +55,7 @@ location for the object's data.  For example after ``a`` is initialized:
    :alt: new array
    :align: center
    :width: 300 pt
-
+ 
 The small box beside ``a`` is meant to indicate the memory space allocated when ``a`` is
 declared.  As you can see that space does not actually contain the array, but only a 
 *reference* to the array, pointing to the actual sequence of data for the array.
