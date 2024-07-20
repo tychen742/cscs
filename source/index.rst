@@ -5,8 +5,8 @@ Introduction to Computer Science in C#
    :numbered:
    :maxdepth: 2
 
-   1.context/context
-   2.data/data
+   01.context/context
+   02.data/data
    3.functions/functions
    4.basicstringops/basicstringops
    5.decisions/decisions
