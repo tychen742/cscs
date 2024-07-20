@@ -129,7 +129,7 @@ html_theme_options = {
     #'prev_next_buttons_location': 'bottom',
     "style_external_links": True,
     "vcs_pageview_mode": "edit",
-    'style_nav_header_background': '#922247',
+    # 'style_nav_header_background': '#922247',
     # Toc options
     #'collapse_navigation': True,
     #'sticky_navigation': True,
@@ -212,7 +212,8 @@ html_last_updated_fmt = '%d-%B-%Y %H:%M:%S'
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'comp170doc'
+# htmlhelp_basename = 'comp170doc'
+htmlhelp_basename = '{project}doc'
 
 highlight_language = 'csharp'
 
@@ -295,6 +296,7 @@ texinfo_documents = [
 
 # -- Options for epub output"
 
-epub_basename = 'comp170'
+# epub_basename = 'comp170'
+epub_basename = 'ist1551'
 
 
