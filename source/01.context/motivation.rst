@@ -24,12 +24,17 @@ C#, .NET, and VS Code
 ---------------------
 Microsoft has made C# a centeral language for their fast-evolving open-sourced cross-platform .NET 
 ecosystem. C# is general-purpose, high-level, multiple-paradigm, and is gaining market share 
-as a popular programming language [#f1]_ [#f2]_ [#f3]_. In recent years, C# has remained widely used 
+as a popular programming language [#f1]_ [#f2]_. In recent years, C# has remained widely used 
 especially for building cross-platform applications, web services, and game development. 
 Meanwhile, the popularity of the VS Code editor, powered by plenty of extensions, has made the 
 editor a very powerful tool for coding and programming. 
 
+.. figure:: ../images/stackoverflow_2023_pop_tech.jpg
+    :scale: 60%
+    :alt: Popular programming languages used by professional developers, StackOverflow developer annual survey 2023
+
+    Popular Programming Languages (StackOverflow Developer Annual Survey 2023 [#f3]_ )
+
 .. [#f1] According to TIOBE index, C# is one of the top programming languages. https://www.tiobe.com/tiobe-index/ 
 .. [#f2] The Stack Overflow Annual Survey 2023 shows that 29.16% of professional developers use C#.
-.. [#f3] Popular programming languages according to the Stack Overflow Annual Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof
-.. image:: ../images/stackoverflow_2023_pop_tech.jpg
+.. [#f3] Popular programming languages according to the Stack Overflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof
