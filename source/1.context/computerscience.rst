@@ -2,83 +2,87 @@
 
 .. _computer_science:
 
-About Computer Science 
+Key Ideas in Computer Science
 ======================================= 
 
 This book is an introduction to computer science, with a focus on 
 the learning of computational concepts and problem-solving skills using the C# programming language. (v)
 
-.. index:: information processing model
+.. index:: IPO information processing model
 
 The IPO Model
 ------------------------
 
-The input–process–output (IPO) model is a widely used approach in systems analysis 
+The input–process–output (IPO) model is widely used in systems analysis 
 and software engineering for describing the structure of an information processing 
 task or process. Computers are used to process mathematical calculations, automate 
 business decisions, and analyze textual data to generate language models, and so on. 
-But these tasks all follow the same structure and go through the same stages. For example,
-when performing a Google search, you give an input to the search engine, Google processes it, and 
-return back answers to you. That's what computer systems do: They take in information, 
-process the information, and output the resulted outcome. (v)
+But in a computer system, these tasks all follow the same structure and go through the 
+same stages. For example, when performing a Google search, you give an input to the 
+search engine, Google processes it, and return back answers to you. 
+That's what computer systems do: They take in information, process the information, 
+and output the resulted outcome.
 
 
-.. index:: on programming
+.. index:: programming
 
-Programming as a way of thinking
+Programming Languages
 ---------------------------------
-Learning to program means learning a new way to think, meaning to "think like a computer scientist," 
-as Allen Downey [#f1]_ puts it. As Downey says, "this way of thinking combines some of the best features of mathematics, 
-engineering, and natural science. Like mathematicians, computer scientists use formal languages to 
-denote ideas – specifically computations. Like engineers, they design things, assembling components 
-into systems and evaluating trade-offs among alternatives. Like scientists, they observe the 
-behavior of complex systems, form hypotheses, and test predictions" [#f1]_.
 
+To learn a natural language, we may start with some basic words for daily usage. Similarly, when it 
+comes to programming languages, we also start with the basic elements of programming such as how 
+computers represents numbers, letters, words, and perform arithmetic operations. Next, we learn the 
+vocabulary of programming, including terms like statement, operator, expression, value, and type [#f1]_. 
+We then put the vocabulary together according to the *syntax* of a programming language to give 
+instructions to the computers to do the work for us.
 
-To learn a programming language, we start with the most basic elements of programming such as how 
-computers represents numbers, letters, words, and perform arithmetic operations. Next we learn the 
-vocabulary of programming, including terms like operator, expression, value, and type. Along with 
-learning the *syntax* of a programming language, you will become proficient in speaking that language.  
+A computer program is a set of instructions (written in the specific notations specified by 
+a programming language) given to computers. Interestingly, there are only a small number of ideas 
+that we need to know when learning how to giving instructions to to computers, 
+across probably all programming languages. Those basic constructs include:
+
+- input
+- output
+- math
+- sequence: instructions are executed one after another
+- selection: decision-making; namely choosing between alternative paths of actions within a program
+- iteration: repetition controlled by either count or condition 
+
 
 .. index:: algorithms
 
 Algorithms
 ------------
 
-An idea central to computer science is problem solving, meaning "the ability to formulate problems, 
-think creatively about solutions, and express a solution clearly and accurately." In computer science, 
-the solutions to the problems are called *algorithms*, which is a "step by step list of instructions 
-that if followed exactly will solve the problem under consideration" [f#2]_. In computer science, 
-we implement the algorithmic solution using notations from a programming language, and the result is a 
-computer program for us to solve certain problem. 
+Computer science is a scientific discipline, so learning to program could mean learning a new way 
+of thinking; as Allen Downey [#f1]_ puts it, to "think like a computer scientist." 
+As Downey says, "this way of thinking combines some of the best features of mathematics, 
+engineering, and natural science. Like mathematicians, computer scientists use formal languages to 
+denote ideas – specifically computations. Like engineers, they design things, assembling components 
+into systems and evaluating trade-offs among alternatives. Like scientists, they observe the 
+behavior of complex systems, form hypotheses, and test predictions" [#f1]_.
+
+For most learners, the idea central to computer science and information systems is problem solving, 
+meaning "the ability to formulate problems, think creatively about solutions, and express a 
+solution clearly and accurately." In computer science, the solutions to the problems are called *algorithms*, which is a list of step-by-step instructions, 
+much like a recipe for cooking a dish, that will solve the problem under consideration if followed 
+exactly [f#2]_. Programming is the process of implementing an algorithmic solution, using notations 
+from a programming language, to create a computer program for us to solve the certain problem. 
 
 
 .. index:: data representation
-   Jaquard loom
-   Pascaline
 
 .. _data-representation:
 
 Data Representation
 ---------------------
 
-A recipe represents data by words that get processed by a human reader.
-Machines have used different representations.  One of the earliest
-adding machines, the Pascaline, 
-http://en.wikipedia.org/wiki/Pascal's_calculator,
-represented numbers by the angle of 
-rotation of interlocked gears.  
-An abacus uses the positions of groups of sliding beads to represent digits.
-The Jacquard loom, 
-http://en.wikipedia.org/wiki/Jacquard_weaving, 
-used cards with each row of holes punched in them
-indicating which warp threads are raised and which lowered when a cross
-thread is woven in.  
 
 .. index:: bit
    byte
    binary number system
    base 2
+   hexadecimal number sysetm
 
 In modern electronic computers the most basic bit of data 
 (actually called a *bit*) is held by two-state switches, often 
@@ -134,42 +138,8 @@ for each of the three colors.
    architecture
    
 
-Instruction Representation
-----------------------------
-
-Besides the data, instructions need a representation too, and an agent to
-interpret them.  In the earliest electronic computers the two-state switches
-were relays or later vacuum tubes, and the machine was *manually rewired* when a 
-new set of instructions/program was needed.  It was a great advance in the 1940's
-when the instructions also became symbolic, 
-represented by binary codes that the computer 
-could recognize and act on,
-http://en.wikipedia.org/wiki/Von_Neumann_architecture.
-This code is called *machine language*.
-With machine language the instructions became a form of data that could be stored
-in computer memory.  We distinguish the *hardware* on which programs are run
-from the stored programs, the *software*.  The *architecture* of the
-hardware determines the form and capacities of the machine language, so 
-machines with a different hardware architecture are likely to have distinct
-machine languages.
-
-Biologists have a fair idea of how protein sequence data is encoded in DNA,
-but they are still working on how the DNA instructions are encoded 
-controlling which proteins should be made when.
-
-In this book we will not be writing instructions shown as 
-sequences of 0's and 1's!  
-Some of the earliest programs were to help programmers 
-work with more human-friendly tools, and an early one
-was an *assembler*, a program that took easier to understand instructions
-and automatically translated them into machine language.  An example 
-assembler instruction would be like
-
-.. code-block:: none
-
-   MOV 13, X
-    
-to move the value 13 to a storage location identified by the name X.
+Programming Languages
+--------------------------------
 
 Machine instructions are very elementary, so programming
 was still tedious, and code could not be reused on a 
@@ -217,87 +187,13 @@ Program source => COMPILER => bytecode => INTERPRETER => execution
 Program Development Cycle
 ---------------------------
 
-The easiest way to check your understanding of small new pieces of C# is to write
-a highly specified small program that will be sure to test the new ideas.
-That is totally unlike the real world of programming.  Here is a more realistic
-sequence:
-
-#. Clients have a problem that they want solved.
-#. They connect with software developers.
-#. The clients discuss the needs of their users.
-#. The software developers work with them to make sure they
-   understand the desired deliverables, and work through the
-   design decisions and their tradeoffs.
-#. Software developers start building and testing and showing off the
-   core pieces of the software, and build on out.
-#. The clients may not have a full idea of what they want and the 
-   software developers may not have a full idea of what is feasible, and
-   seeing the latest version leads both sides to have a clearer vision.
-   Then the previous process steps are repeated, iteratively refining
-   the product.
-#. After a production version is out, there may be later versions and error
-   fixes, again cycling back to the earlier steps.
- 
-Note that very important parts of this process are not centered on coding, 
-but on communicating clearly with a possibly non-technical client.
-Communication skills are critical.  
 
 .. index:: computer science; key concepts
 
-Key Computer Science Areas
+Key Computer Science Ideas
 -----------------------------
 
-Most of the introduction so far has been about key concepts that underlie 
-basic programming. Most of the parts so far about electronic computers 
-could have been written decades ago.  Much has emerged since then,
 
-*  the Internet 
-*  the development of economical multi-processor machines 
-   distributing computation into many parallel parts
-*  the massive explosion of the amount of information to be stored
-   from diverse parts of life
-*  the coming *Internet of things*, where sensors are coming to all
-   sorts of previously "dumb" parts of the world, that now can be tracked
-   by GPS and reacted to in real time.
-*  Computers are now embedded in all sorts of devices:  toasters, thermostats,....
-   Automobiles of today have more computing power embedded in various devices 
-   than early mainframe computers. 
-   
-We conclude with a brief discussion of some of the other organizing
-principles of
-computer science.
-
-Communication
-    As the world is criss-crossed with media transmitting gigabytes of
-    data per second, how do we keep the communication reliable and secure?
-
-Coordination 
-    With multiple networked entities, how do we 
-    enhance cooperation, so more work is done in parallel?
-
-Recollection 
-   As the amount of data stored skyrockets, how do we effectively store
-   and efficiently retrieve information?
-
-Evaluation
-    How do we predict the performance and plan the necessary capacity 
-    for computer systems?  The most spectacular recent public failure 
-    in this area was the rollout of the federal Affordable Care
-    website.
-
-Design 
-    How do we design better/faster/cheaper/reliable hardware and software systems?
-    What new programming languages will be more expressive, lead to fewer
-    time-consuming errors, or be useful in proving that a major program never
-    makes a mistake?  Errors in programs controlling machines delivering
-    radiation for cancer treatment have had errors and led to patient death.
-    
-    Hardware changes can be evolutionary or revolutionary:
-    Instead of electric circuits can we use light, quantum particles, DNA...?
-    
-Computation and Automation
-    What can we compute and automate?  Some useful
-    sounding problems have been proven to be unsolvable.  What are the limits?
 
 .. index:: Denning - Peter
    Miles - Rob

@@ -6,9 +6,10 @@ Context
 
    motivation
    intro
-   download
+
    computerscience
    reviewcontext
+.. download
    
 .. old
    milesintro
