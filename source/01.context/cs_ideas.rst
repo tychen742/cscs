@@ -26,7 +26,7 @@ and output the resulted outcome.
 
 .. index:: programming
 
-Programming Languages
+What is a Programming?
 ---------------------------------
 
 To learn a natural language, we may start with some basic words for daily usage. Similarly, when it 
@@ -90,7 +90,11 @@ Number System
    base 2
    hexadecimal number sysetm
 
-In modern electronic computers the most basic bit of data 
+In modern electronic computers are digital systems, meaning they deal with signals (data)
+that are expressed as series of the digits 0 and 1, the values that represent the physical 
+state of electrical votage. 
+
+the most basic bit of data 
 (actually called a *bit*) is held by two-state switches, often 
 in the form of a higher voltage vs. a grounded state.  The symbolic representation
 is often 0 vs. 1.  This symbolism comes from the representation of integers 
@@ -137,29 +141,6 @@ sensitive to three specific colors, red, green, and blue,
 a pixel is represented by a numerical intensity
 for each of the three colors.
 
-.. index:: instruction representation
-   machine language
-   assembler
-   interpreter
-   architecture
-   
-
-Programming Languages
---------------------------------
-
-Programming languages can 
-
-
-Some later languages like Java and C# use a hybrid approach: A compiler, 
-that can run on any machine, does most of the work by 
-translating the high-level language program
-into a low-level *virtual machine*
-language called a *bytecode*.  This is not the machine language for any real machine, 
-but the bytecode is simple 
-enough that writing an interpreter for it is very easy.  
-Again the interpreter for the bytecode must be machine-specific.  
-In this approach:
-
 
 .. index:: computer science; key concepts
 
@@ -180,10 +161,17 @@ application to be run by the operating system. Scripting languages such as Bash 
 are interpreted language. They have an interpreter sitting in between the source code and 
 the OS for translation and does not require compilation. 
 
-.. figure:: ../images/interpreted_vs_compiled.jpg
-   :width: 65%
+.. figure:: ../images/interpreter.jpg
+   :width: 35%
 
-   Interpreted language versus compiled language [#f3]_
+   An interpreter processes the program a little at a time, alternately reading lines and performing computations. [#f3]_
+
+
+.. figure:: ../images/compiler.jpg
+   :width: 50%
+
+   A compiler translates source code into object code, which is run by a hardware executor. [#f3]_
+
 
 Advancement in computing has brought new techniques such as just-in-time (JIT) compilation 
 (dynamic compilation) to combine advantages of traditonal interpretation and compilation. 
@@ -193,10 +181,9 @@ languages, such as all .NET languages (including C#), Java, Python, and PHP use 
 compilers [#f4]_.
 
 
-.. [#f1] Allen Downey (2022). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
+.. [#f1] Allen B. Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
 .. [#f2] Brad Miller & David Ranum (2014). How to Think Like a Computer Scientist: Interactive Edition. (GNU FDL V.1.3)
-.. [#f3] Lim, A., & Tjhi, W. (2015). R high performance programming. Packt Publishing Ltd.
+.. [#f3] Allen B. Downey (2012). Think Python: How to think like a computer scientist, Version 2.0.17. Green Tea Press. (CC BY-NC-SA 4.0)
 .. [#F4] JIT compilaiton is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implentation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
 
-‌ 
-‌
+
