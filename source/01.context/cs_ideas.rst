@@ -80,7 +80,7 @@ computer to solve the certain problem.
 
 .. _data-representation:
 
-Data Representation
+Number System
 ---------------------
 
 
@@ -149,30 +149,6 @@ Programming Languages
 
 Programming languages can 
 
-The next big step past assembler was the advent of
-*high level* languages, with instructions more like normal mathematical or 
-English expressions.  Examples are Fortran (1954) and Cobol (1959).  
-A Fortran statement for calculating a slope like
-
-.. code-block:: none
-
-   S=(Y-V)/(X-U)
-
-might require seven or or more machine code instructions. 
-
-To use a Fortran program required three steps: write it (onto punch cards
-originally), compile it to machine code, and execute the machine code.
-The compiler would still be architecture specific, but the compiler for
-an architecture would only need to be written once, and then any number of
-programs could be compiled and run.
-
-A later variant for executing a high-level language is
-an *interpreter*.  An interpreter translates the high-level language
-into machine code, and immediately executes it, not storing the
-machine code for later
-use, so every time a statement in the code is executed again,
-the translation needs to be redone.  Interpreters are also 
-machine-specific.
 
 Some later languages like Java and C# use a hybrid approach: A compiler, 
 that can run on any machine, does most of the work by 
@@ -184,16 +160,13 @@ enough that writing an interpreter for it is very easy.
 Again the interpreter for the bytecode must be machine-specific.  
 In this approach:
 
-Program source => COMPILER => bytecode => INTERPRETER => execution
-
-
 
 .. index:: computer science; key concepts
 
-Key Computer Science Ideas
------------------------------
+Compilation vs. Interpretation
+-------------------------------
 
-.. index:: compiling vs interpreting
+.. index:: compiling, interpreting, JIT compilation
 
 In the early years of computer development, computers only understand low-level lanugages:
 machine code (binary digits) to be read and interpreted directly by a computer, and assembly 
@@ -201,24 +174,29 @@ language, consisting of short words to represent machine code instructions. Over
 high-level languages such C, C++, Perl, and Java were creaerd to make programming more 
 efficient. However, the source code written in hight-level programming languages need to be 
 translated into machine code for execution. The two common types of tools for the translation 
-are *interpreters* and *compilers*.
+are *interpreters* and *compilers*. C#, as a new member of the C-language family , is a compiled 
+programming language. C# source code therefore needs to be compiled to create an executable 
+application to be run by the operating system. Scripting languages such as Bash and Python 
+are interpreted language. They have an interpreter sitting in between the source code and 
+the OS for translation and does not require compilation. 
 
-.. figure:: ../images/interpreter.jpg
-   :width: 45%
+.. figure:: ../images/interpreted_vs_compiled.jpg
+   :width: 65%
 
-   An interpreter processes the program a little at a time, alternately reading lines and performing computations.
+   Interpreted language versus compiled language [#f3]_
 
-.. figure:: ../images/compiler.jpg
-   :width: 70%
-
-   A compiler translates source code into object code, which is run by a hardware executor.
-
-The :ref:`lab-edit-compile-run` will introduce an alternative to the 
-Microsoft environment: Xamarin Studio and Mono, which are free, 
-open-source software projects that make C# available for multiple platforms:  
-Windows, Mac, or Linux machines.  With a substantial fraction of students having their own
-machine that does  *not* run Windows, this flexibility is important.
+Advancement in computing has brought new techniques such as just-in-time (JIT) compilation 
+(dynamic compilation) to combine advantages of traditonal interpretation and compilation. 
+Source code is compiled into an intermediate code called bytecode to be interpreted by a 
+virtual machine , then compiled into machine code for faster execution. Many contempoary 
+languages, such as all .NET languages (including C#), Java, Python, and PHP use JIT 
+compilers [#f4]_.
 
 
 .. [#f1] Allen Downey (2022). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
 .. [#f2] Brad Miller & David Ranum (2014). How to Think Like a Computer Scientist: Interactive Edition. (GNU FDL V.1.3)
+.. [#f3] Lim, A., & Tjhi, W. (2015). R high performance programming. Packt Publishing Ltd.
+.. [#F4] JIT compilaiton is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implentation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
+
+‌ 
+‌

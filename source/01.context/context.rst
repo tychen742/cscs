@@ -5,8 +5,7 @@ Context
    :maxdepth: 2
 
    motivation
-
-   computerscience
+   cs_ideas
    reviewcontext
 
 ..   intro

@@ -19,9 +19,15 @@ and enhance their concepts and skills in computer science. Basic procedural lang
 be introduced first, followed by basic data structure, algorithm design, and finally class and 
 object-oriented programming and selected topics. 
 
+Although the new AI platforms are becoming strong in automated code generation, the industry 
+will always have good use of strong computer scientists, system engineers, data scientists, 
+and cybersecurty experts, etc. I am sure that people who hold those positions will always 
+need great problem-solving skills and courses and books like this can help with that. 
+
 
 C#, .NET, and VS Code
 ---------------------
+
 Microsoft has made C# a centeral language for their fast-evolving open-sourced cross-platform .NET 
 ecosystem. C# is general-purpose, high-level, multiple-paradigm, and is gaining market share 
 as a popular programming language [#f1]_ [#f2]_. In recent years, C# has remained widely used 
