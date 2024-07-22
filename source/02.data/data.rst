@@ -5,7 +5,6 @@ Data and Operations
    :maxdepth: 2
 
    sampleprogram
-   lab-edit-compile-run
    arithmetic
    variables
    typography
@@ -20,5 +19,5 @@ Data and Operations
    lab-division-sentences
    reviewdataop
    
- 
+
 

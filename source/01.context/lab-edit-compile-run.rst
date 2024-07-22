@@ -1,5 +1,5 @@
-.. index:: Xamarin Studio
-   labs; Xamarin Studio
+.. index:: Visual Studio Code, VS Code
+   labs; VS Code
 
 
 .. _lab-edit-compile-run:

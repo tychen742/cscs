@@ -39,20 +39,17 @@ instructions to the computers to do the work for us.
 A computer program is a set of instructions (written in the specific notations specified by 
 a programming language) given to computers. Interestingly, there are only a small number of ideas 
 that we need to know when learning how to giving instructions to to computers, 
-across probably all programming languages. Those basic constructs include:
+across probably all programming languages. These basic constructs include:
 
-- input
-- output
-- math
 - sequence: instructions are executed one after another
 - selection: decision-making; namely choosing between alternative paths of actions within a program
 - iteration: repetition controlled by either count or condition 
 
 
-.. index:: algorithms
+.. index:: problem-solving, algorithm
 
-Problem-solving
-----------------
+Problem-solving & Algorithm
+----------------------------
 Computer science is a scientific discipline, so learning to program could mean learning a new way 
 of thinking; as Allen Downey [#f1]_ puts it, to "think like a computer scientist." 
 As Downey says, "this way of thinking combines some of the best features of mathematics, 
@@ -67,8 +64,6 @@ solution clearly and accurately," [f#2]_ and we expect to hon our problem-solvin
 through learning how to code and, in turn, obtaining a skillset to use and create computer 
 programs and tools to solve problems. 
 
-Algorithms
-------------
 In computer science, the solution to a problem is called *algorithm*, which is a list of step-by-step instructions, 
 much like a recipe for cooking a dish, that will solve the problem under consideration if followed 
 exactly. Programming is the process of implementing an algorithmic solution. By using notations 
@@ -76,13 +71,12 @@ of a programming language, we create a computer program containing specific inst
 computer to solve the certain problem. 
 
 
-.. index:: data representation
+.. index:: number system
 
 .. _data-representation:
 
 Number Systems
 ---------------------
-
 
 .. index:: bit
    byte
