@@ -26,7 +26,7 @@ and output the resulted outcome.
 
 .. index:: programming
 
-What is a Programming?
+Computer Program
 ---------------------------------
 
 To learn a natural language, we may start with some basic words for daily usage. Similarly, when it 
@@ -80,7 +80,7 @@ computer to solve the certain problem.
 
 .. _data-representation:
 
-Number System
+Number Systems
 ---------------------
 
 
@@ -91,55 +91,22 @@ Number System
    hexadecimal number sysetm
 
 In modern electronic computers are digital systems, meaning they deal with signals (data)
-that are expressed as series of the digits 0 and 1, the values that represent the physical 
-state of electrical votage. 
+that are expressed as series of the digits 0 and 1, the values that represent the 
+state of electrical votage (on or off). A digit has two states, 0 or 1, and is called a bit. 
+The number system is call binary system, or base 2. A standard data unit is the *byte*, 
+which is composed of 8 bits, which can represent 256 (2^8, from 0 to 255) different values.  
+In the ASCII (American Standard Code for Information Interchange) code table, the letter "A", 
+for example, is represented as 0100 0001 in binary number system because it is the 65the 
+symbol in the table. We can translate between the binay and decimal systems as: 
+:math:`(1)2^6 + (0)2^5 + (0)2^4 + (0)2^3 + (0)2^2 + (0)2^1+ (1)2^0 = 64+0+0+0+0+0+1=65`.
 
-the most basic bit of data 
-(actually called a *bit*) is held by two-state switches, often 
-in the form of a higher voltage vs. a grounded state.  The symbolic representation
-is often 0 vs. 1.  This symbolism comes from the representation of integers 
-in *binary notation*, also called *base 2*:  
-It is a place value system, but where each place
-in a numeral is a 0 or a 1 and represents a power of two, so 1101 in binary 
-can be viewed in our decimal system as
-:math:`(1)2^3+(1)2^2+(0)2^1+(1)2^0=8+4+0+1=13`.
+Modern computer architecture uses 64-bit long data unit, allowing more data to be processed 
+in CPU and memories. For example, a 32-bit memory address register in teh CPU  stores the 
+addresses of the instructions to be fetched from memory. Sine 2^32 is 4,294,967,296, a 32-bit
+architecture computer therefore has an upper limit of 4 gigabytes for memory. 
+computer to store and work with larger numbers. A 64-bit address register, for example, 
+can address 2^64 different locations, in contrast to a which is why  
 
-Computer hardware can only handle a limited number of bits at a time, 
-and memory space is limited, so usually integers are stored in a limited
-space, like 8, 16, 32 or 64 bits.  
-We illustrate with the smallest, 8 bits, called a *byte*.  Since
-each bit has two possible states, 8 bits have :math:`2^8=256` possible states.
-Directly considered as binary numerals, they represent 0 through 
-:math:`2^8-1=255`.
-
-We also want to represent negative numbers, and have about half of the available
-codes for them.  An 8-bit signed integer in *twos complement* notation
-represents 0 through :math:`2^7-1` 
-just as the unsigned numbers do.  These are all the 8-bit codes with a leading 0.
-A negative number :math:`n` in the range :math:`-2^7=-128` through -1, 
-is represented by what would be 
-the unsigned notation for :math:`n+2^8`.  These will be all the 
-8-bit codes with a leading 1.
-For example -3 is represented like unsigned 256 - 3 = 253: 11111101 in binary.
-
-.. index:: mantissa and exponent
-
-Limited precision approximation of real numbers are stored in something like
-scientific notation, except in binary,  roughly :math:`\pm(m)2^e`,
-with a sign, mantissa m and exponent e. Both e and m have
-fixed numbers of bits, so the limited options for the 
-mantissa restricts the *precision* of the numbers, and the limited options
-for the exponent restricts the *range*. Data on these limits for 
-different sized numeric codes is in :ref:`value-types`.  
-
-Once you have numbers, all sorts of other kinds of data can be encoded:  
-Characters
-like on your keyboard each have a numerical code associated with each one.  For
-example the unicode for the letter A is 65.  Images are often 
-represented as a sequence of colored pixels.  Since the human eye is only 
-sensitive to three specific colors, red, green, and blue, 
-a pixel is represented by a numerical intensity
-for each of the three colors.
 
 
 .. index:: computer science; key concepts
