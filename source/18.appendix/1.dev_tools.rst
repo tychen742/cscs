@@ -22,9 +22,23 @@ Microsoft that runs primarily on Microsoft Windows". [#f2]_)
 Installing Tools
 -----------------
 
-#. Install `VS Code <https://code.visualstudio.com/>`_ on your computer. (For package management reasons, 
-it is suggested to use a package manager when installing software applications: e.g., `Homebrew <https://brew.sh/>`_ 
+#. Install `VS Code <https://code.visualstudio.com/>`_ on your computer. (For organization and management reasons 
+such as handling versions, dependencies, and uninstallation, it is suggested to use a package 
+manager when installing software applications: e.g., `Homebrew <https://brew.sh/>`_ 
 for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.) 
+
+
+.. figure:: ../images/vscode_interface.jpg
+   :scale: 50%
+
+   The basic elements in VS Code layout include: 
+   - Editor
+   - Primary Side Bar
+   - Status Bar
+   - Activity Bar - 
+   - Panel
+
+
 
 #. Click on the Extensions View on the left vertical Activity Bar of VS Code, search and install, go to the Extension  
 

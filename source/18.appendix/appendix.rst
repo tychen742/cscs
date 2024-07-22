@@ -6,7 +6,7 @@ Appendix
 .. toctree::
    :maxdepth: 2
    
-   tools
+   1.dev_tools
    xamarinstudio
    cmdline
    precedence

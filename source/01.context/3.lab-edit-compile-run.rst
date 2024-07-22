@@ -4,14 +4,14 @@
 
 .. _lab-edit-compile-run:
 
-Lab 1.1: Visual Studio Code (VS Code)
+Lab 1: Visual Studio Code (VS Code)
 ===========================================================================
 
 Visual Studio Code (VS Code) is a editor with plenty of features. It has
 turned from a text editor into an integrated development editor (IDE) with a large number of
-extensions available to enhance and enrich its tools and features. A great aspect of using VSCode is that
-once you learn how to use it, you can use it for almost every other languages and technology 
-as long as they involve editing and coding. <v>
+extensions available to enhance and enrich its tools and features. A great advantage of learning 
+VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for 
+almost every other programming languages and technology as long as they involve editing and coding. <v>
 
 The *workflow* that applicaiton developers and software engineers use could include the following steps:
 
@@ -35,23 +35,17 @@ Goals
 
 To use VS Code to create your first .NET project for C# development.
 
-.. index: VS Code
+.. index: VS Code, solution, project
    
 .. _steps:
 
 Steps
 -----
 
-Xamarin Studio files and interactions 
-are organized hierarchically.  At a low level are
-individual C# source code files.  One, or possibly more, are used for a
-particular *project*.  Multiple projects are gathered together under a single
-*solution*.  Xamarin Studio deals with one solution at a time, though you can
-separately create multiple solutions.  The simplest thing is to create
-a *single solution for this course*, 
-and put each of the projects that you create in that one solution.   
-You can keep adding onto previous efforts without having to start over
-with a new solution each time.
+The .NET platform uses *projects* and *solutions* to organize code itmes in specific structure.
+A solution is a container for one or more projects, and each project would contain source code files. 
+You are encouraged to create a *single solution for this course*, with all the projects that you create 
+in the solution [#f1]_. 
 
 We start by creating a *solution* with a *project* in it.  The images are from
 a Mac.  Windows versions should be similar.
@@ -340,3 +334,6 @@ For further reinforcement
    
    Complete the remaining parts in the same
    way as before, giving a new name for the project.
+
+
+.. [#f1] Visual Studio requires a solution file in order to be run. Although a solution is not required for projects, it offer some benefts such as project configuration and building all projects at once. 
