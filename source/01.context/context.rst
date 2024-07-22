@@ -4,11 +4,11 @@ Context
 .. toctree::
    :maxdepth: 2
 
-   1.motivation
+   1.intro
    2.cs_ideas
    3.review
 
-..   intro
+.. intro
 .. download
    
 .. old
