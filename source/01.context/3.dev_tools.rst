@@ -1,0 +1,98 @@
+.. index:: development tools
+
+.. _development-tools:
+
+Development Tools 
+===============================
+
+The tools requred for this book include the .NET SDK, VS Code, and the C# extension 
+(a VS Code extension). In addition, we will also use the command line interface 
+(CLI, the Command Prompt in Windows or shell in macOS/Linux, or just "the terminal") 
+for certain operations from time to time. 
+
+
+Software Development Kits (SDKs)
+--------------------------------------
+A software development kit (SDK) is a collection of software development tools in one installable package. 
+They facilitate the creation of applications by having a *compiler*, debugger and sometimes a software framework. 
+SDKs are normally specific to a hardware platform and operating system combination. [#f1]_ [#f2]_) 
+
+
+Command Line Interface (CLI)
+-----------------------------
+Having some knowledge of using the command line interface (CLI) is necessary when learning how to code. 
+Major platforms such as macOS, Windows, and Linux all have CLIs for users to operate the operating 
+system's more advanced features. Users issue text commands in the CLI rather than using the graphical
+user interface (GUI) of the operating system. Differnt systems have different CLI applications. 
+For example:
+
+* Windows: PowerShell
+* macOS: Terminal
+* Linux: Terminal/shell 
+
+A *shell* is a command line interpreter program that takes commmads from users for execution in the 
+operting system. The Bourne Again SHell (bash) is the most popular When you open the CLI application, 
+you are working in a shell environment using the keyboard to issue commands rather than the 
+poit-and-click devices with the GUI. When you start a CLI, you see a command prompt, which is 
+where you issue the commands. To start navigating around the CLI environment, some of the 
+essential commands include:
+
+* ``ls`` (list storage) to show the files and directories in the current directory
+* ``mkdir`` *dir* (make directory) to create a directory/folder called *dir*
+* ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
+* ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
+
+In the command line, a file path is used to specify the location of a file in a 
+computer's file system structure. The file system structure begins with the root, with 
+some default first level directories built in. For example, the default location after 
+logging in is the user's home directory, which can be specifed as /home/USER_NAME. Some 
+special characters are commonly used for specifying path:
+
+* ``/`` is the root of the system's file directory tree structure
+* ``~`` is the user's home directory
+* ``..`` means the directory one-level up of the current directory
+* ``.`` means the current directory
+  
+
+Install VS Code and .NET SDK
+-------------------------------
+
+#. Install VS Code: Use a package manager or visit the Visual Studio Code 
+`website <https://code.visualstudio.com/Download>`_ to install the 
+current version of VS Code for your operating system. [#f3]_ 
+An `online version <https://vscode.dev>`_ of VS Code is also available. 
+
+#. Install the .NET SDK: Visit the VS Code's `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ 
+and scroll down to find the ``Install the .NET SDK`` button to go to the .NET `<https://code.visualstudio.com/docs/languages/dotnet>`_
+site to download and install the recent long term support version of .NET SDK.  
+
+
+VS Code UI
+-------------------
+
+The element panes of VS Code include:
+   
+   A. Activity Bar - Where you change the Views. For example, the default view is Explorer and you will click on the Extensions view to manage extensions. 
+   B. Primary Side Bar 
+   C. Editor
+   D. Panel
+   E. Status Bar
+
+
+.. figure:: ../images/vscode_interface.jpg
+   :scale: 50%
+
+   Basic elements in VS Code user interface 
+
+
+.. index:: VS Code exention installation
+
+#. Install the C# Extension
+-----------------------------
+
+Install the Microsfot C# extensions using the VS Code Extension view. 
+
+
+.. [#f1] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
+.. [#f2] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
+.. [#f3] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.

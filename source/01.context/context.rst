@@ -6,8 +6,9 @@
 
    1.intro
    2.cs_ideas
-   3.lab-edit-compile-run
-   4.review
+   3.dev_tools
+   4.lab-edit-compile-run
+   5.review
 
 .. intro
 .. download
