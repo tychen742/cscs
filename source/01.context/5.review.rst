@@ -15,19 +15,3 @@ Chapter Review Questions
         
 #. Is computer science all about writing computer programs? What are some important large areas of concern in computer science?
 
-#. Follow the following steps at the CLI terminal to prepare the environment for learning C#:
-   
-    #. Start your terminal application. By default, you would be in your user home directory. 
-    #. Issue the command ``pwd`` to show your present work path to make sure you are in your user home directory. 
-    #. Issue the ``ls`` command and enter to see what files and directores are in the directory.
-    #. Change to the root folder of the system (``cd /``)
-    #. Use the ``ls`` command to see what files and folders are under the root directory.
-    #. Change back to your home directory (``cd ~``)
-    #. Create a direcotry called "workspace" (``mkdir workspace``).
-    #. Change directory into the workspace directory (``cd workspace``).
-    #. Inside workspace, create a directory ist_1551 (``mkdir ist_1551``)
-    #. Inside workspace, create another directory called tests (``mkdir tests``)
-    #. Go up one level into the workspace directory (``cd ..``)
-    #. ``ls`` to make sure that you have two directories listed: ist_1551 and tests.
-    #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the user's home directory.
-    #. Use the ``exit`` command to leave the terminal.   
