@@ -17,7 +17,7 @@ A software development kit (SDK) is a collection of software development tools i
 They facilitate the creation of applications by having a *compiler*, debugger and sometimes a software framework. 
 SDKs are normally specific to a hardware platform and operating system combination. [#f1]_ [#f2]_ 
 
-- Runtime: A runtime is part of the SDK that executes the code. The .NET runtime is a virtual machine that provides a runtime envrionment, that would, in addition to executing the programs, perfomr services such as exception handling and garbage collection. 
+- *Runtime*: As part of the .NET SDK, the .NET runtime is virtual machine that converts the compiled intemedate code into macine code to be executed on the CPU. In addition, the .NET runtime provides an envrionment, that perfomrs services such as exception handling and garbage collection. 
 
 
 
@@ -57,23 +57,17 @@ special characters are commonly used for specifying path:
 * ``.`` means the current directory
   
 
-Install VS Code and .NET SDK
--------------------------------
+Install VS Code, C# Extension, and .NET SDK
+--------------------------------------------
 
-#. Install VS Code: Use a package manager or visit the Visual Studio Code 
-`website <https://code.visualstudio.com/Download>`_ to install the 
-current version of VS Code for your operating system. [#f3]_ 
-An `online version <https://vscode.dev>`_ of VS Code is also available. 
+#. Install VS Code: 
 
-#. Install the .NET SDK: Visit the VS Code's `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ 
-and scroll down to find the ``Install the .NET SDK`` button to go to the .NET `<https://code.visualstudio.com/docs/languages/dotnet>`_
-site to download and install the recent long term support version of .NET SDK.  
+   Visit the Visual Studio Code 
+   `website <https://code.visualstudio.com/Download>`_ or use a package manager to install the 
+   current version of VS Code for your operating system. [#f3]_ 
+   An `online version <https://vscode.dev>`_ of VS Code is also available. 
 
-
-VS Code UI
--------------------
-
-The element panes of VS Code include:
+  - VS Code UI panes include:
    
    A. Activity Bar - Where you change the Views. For example, the default view is Explorer and you will click on the Extensions view to manage extensions. 
    B. Primary Side Bar 
@@ -82,16 +76,30 @@ The element panes of VS Code include:
    E. Status Bar
 
 
-.. figure:: ../images/vscode_interface.jpg
-   :scale: 50%
+   .. figure:: ../images/vscode_interface.jpg
+      :scale: 50%
 
-   Basic elements in VS Code user interface 
+      Basic elements in VS Code user interface 
 
 
-.. index:: VS Code exention installation
+2. Install the C# extension
 
-#. Install the C# Extension
------------------------------
+Go the the Extension view on the Activity Bar, search for C# and install the C# extension 
+from Microsoft. When the installation is completed, VS Code will prompt that "The .NET 
+Core SDK cannot be located:", click on the "Get the SDK" button 
+
+.. figure:: ../images/dotnet_core_sdk_cannot_be_located.jpg
+   :scale: 25%
+
+Visit VS Code's `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ 
+and scroll down to click on the "Install the .NET SDK" button. You will be redirected to 
+the `.NET <https://code.visualstudio.com/docs/languages/dotnet>`_
+site to download and install the recent long term support version of .NET SDK.  
+
+
+
+
+
 
 Install the Microsfot C# extensions using the VS Code Extension view. 
 
