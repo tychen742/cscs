@@ -1,40 +1,38 @@
 Motivation
 =========================
 
-I was preparing materials for a C# introductory course and found several good resources, among them 
-the Introduction to Computer Science in C# book by Andrew N. Harrington and George and George 
-Thiruvathukal (2012-2021). It is a great source but since it is copyrighted without an open source 
-license, I felt like I should take the chance to prepare my lecture notes to better tailer to the 
-students that I serve. 
+This book serves as a set of lecture notes for an introductory computer programming course: 
+IST 1551 at Missouri S&T. 
 
 I had in mind that most of my students are probably being formally exposed to computer science 
 for the first time. As an introductory textbook, I therefore intend to focus on the essential 
-topics of computer science, while covering some ideas in informatoin systems to provide 
-some real world context to facilitate understanding and learning. 
+topics of computer science, while covering some ideas in informatoin systems when teaching 
+to provide some real world context to facilitate understanding and learning. 
   
-C# is gaining popularity in recent years, but this book covers the common topics as 
+C# is gaining popularity in recent years, but this book is about the common topics of
 a general computer language. For the students who come to the class with background in other 
 computer langues, they will be able to easily associate their prior learning with the covered topics 
 and enhance their concepts and skills in computer science. Basic procedural language skills will 
-be introduced first, followed by basic data structure, algorithm design, and finally class and 
-object-oriented programming and selected topics. 
+be introduced first, followed by introduction to data structure, algorithm design, and finally 
+class and object-oriented programming, plus some selected topics. 
 
 Although the new AI platforms are becoming strong in automated code generation, the industry 
 will always have good use of strong computer scientists, system engineers, data scientists, 
-and cybersecurty experts, etc. I am sure that people who hold those positions will always 
-need great problem-solving skills and courses and books like this can help with that. 
+and cybersecurty experts, etc., and I am sure that people who hold those positions will always 
+need great problem-solving skills. This course and this book aim to serve that need. 
 
 
 C#, .NET, and VS Code
 ---------------------
 
-Albeit the popularity of JavaScript and Python, Java and Microsoft .NET languages remain as strong 
-general-purpose languages. Microsoft has, in recent years, made C# a centeral language for their 
-fast-evolving, open-sourced, and cross-platform .NET ecosystem. C# is general-purpose, high-level, 
-multiple-paradigm, and is gaining market share as a popular programming language [#f1]_ [#f2]_. 
-In recent years, C# is widely used in areas such as building cross-platform applications, web services, 
-and game development. Meanwhile, the popularity of the VS Code editor, powered by plenty of extensions, 
-has made the editor a very powerful tool for coding and programming. 
+Albeit the overall popularity of JavaScript and Python, Java and Microsoft .NET languages 
+remain as strong general-purpose languages. Microsoft has, in recent years, made C# a 
+centeral language for their fast-evolving, open-sourced, and cross-platform .NET ecosystem. 
+C# is general-purpose, high-level, multiple-paradigm, and is gaining market share as a popular 
+programming language [#f1]_ [#f2]_. Specifically, C# is widely used in areas such as building 
+cross-platform applications, web services, and game development. In addition, 
+the Visual Studio Code (VS Code) editor, powered by plenty of extensions, has made the editor 
+a very powerful tool for coding and programming and worth learning. 
 
 .. figure:: ../images/stackoverflow_2023_pop_tech.jpg
     :scale: 60%
