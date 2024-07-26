@@ -66,70 +66,31 @@ special characters are commonly used for specifying path:
 * ``.`` means the current directory
   
 
-VS Code
-----------
+Integrated Development Environment (IDE)
+-----------------------------------------
 
-Visual Studio Code (VS Code) is a editor with plenty of features. It has turned from a text 
+Common integrated development environmnet (IDE) applications usually contains tools such as source-code editor, 
+build automation tools, and a debugger. IDEs play an important role in the software programming workflow. Some 
+IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.
+
+
+
+Visual Studio Code (VS Code) is an editor with plenty of features. It has turned from a text 
 editor into an integrated development editor (IDE) with a large number of
 extensions available to enhance and enrich its tools and features. A great advantage of learning 
 VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for 
-almost every other programming languages and technology as long as they involve editing and coding. <v>
+almost every other programming languages and technology as long as they involve editing and coding. 
 
-Tools like VS Code play a central role in walking the programming workflow. For how to isntall VS Code, the .NET SDK, 
-and C# Dev Kit, see :ref:`development-tools`. 
-
-
-Install VS Code, .NET SDK, and C# Dev Kit Extension 
-----------------------------------------------------
-
-1. Install VS Code: Visit the Visual Studio Code 
-   `website <https://code.visualstudio.com/Download>`_ or use a package manager to install the 
-   current version of VS Code for your operating system. [#f3]_ 
-   An `online version <https://vscode.dev>`_ of VS Code is also available. 
-
-The VS Code user interface include several panes:
-   
-A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
-B. Primary Side Bar 
-C. Editor
-D. Panel
-E. Status Bar
-
-.. figure:: ../images/vscode_interface.jpg
-   :scale: 50%
-
-   Basic elements in VS Code user interface 
-
-
-
-2. Install the .NET SDK: Visit VS Code's 
-`.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click 
-on the "Install the .NET SDK" button. You will be redirected to the 
-`.NET Download <https://dotnet.microsoft.com/en-us/download>`_ page, with OS,  
-architect, and the recent long term support version of .NET SDK pre-seleted for you 
-to start downlaoding.  
-
-The download page also includes instructions for the installation and verification of the SDK. 
-At the end of the installation, you should see a notification that the .NET SDK, along with 
-.NET runtime, ASP.NET Core Runtime, and .NET Windows Desktop Runtime are installed. 
-
-.. figure:: ../images/dotnet_sdk_installation.jpg
+.. figure:: ../images/popular_ide.jpg
    :scale: 25%
 
-
-To verify if .NET SDK is installed correctly, open a new terminal (e.g., PowerShell in Windows or Terminal in 
-macOS) and run the ``dotnet`` command by type ``dotnet`` and then hit the Enter key. If .NET is correctly 
-installed, you should see results as below.
-
-.. figure:: ../images/dotnet_install_verification.jpg
-   :scale: 25%
-
-   Outcome of running the ``dotnet`` command in terminal
+   Visual Studio Code remains the preferred IDE across all developers. [#f4]_
 
 
-3. Install the C# Dev Kit extension:
-Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
-also install the C# extension from Microsoft). 
+
+
+
+
 
 
 .. 
@@ -162,4 +123,4 @@ also install the C# extension from Microsoft).
 
 .. [#f1] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
 .. [#f2] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
-.. [#f3] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
+.. [#f4] StackOverflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools-prof
