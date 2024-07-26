@@ -44,15 +44,22 @@ PowerShell; for macOS it is the Z shell (Zsh); and Linux OS distributions, it is
 Shell (Bash). 
 
 When you open the CLI application, you are working in a shell environment using the 
-keyboard to issue commands rather than the poit-and-click devices with a GUI. In the terminal, 
-you see a command prompt (``user_name@computer_name:~$`` for macOS/Linux or ``C:\Users\user_name>`` for Windows) followed by a 
-cursor, which is where you issue your commands. To start navigating around the CLI environment, some 
-of the essential commands include:
+keyboard to issue commands without a mouse or a GUI. In the terminal, 
+you see a command prompt (``user_name@computer_name:~$`` for macOS/Linux or ``C:\Users\user_name>`` 
+for Windows) followed by a cursor, which is where you issue your commands. 
+
+For Windows users, you may issue ``wsl`` to switch to Windows Subsystem for Linux and use Bash as your shell. Your 
+command prompt will change to ``user_name@computername:/mnt/c/Users/user_name$``. For the purpose of this book, 
+you may use PowerShell and use the Bash commands with a slightly differnt interface. 
+
+To start navigating around the CLI environment, some of the essential commands include:
 
 * ``ls`` (list storage) to show the files and directories in the current directory
 * ``mkdir`` *dir* (make directory) to create a directory/folder called *dir*
 * ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
 * ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
+* ``touch *filename*`` to create an empty file.
+* ``exit`` to exit out of the terminal app.
 
 In the command line, a file path is used to specify the location of a file in a 
 computer's file system structure. The file system structure begins with the root, with 
@@ -64,6 +71,25 @@ special characters are commonly used for specifying path:
 * ``~`` is the user's home directory
 * ``..`` means the directory one-level up of the current directory
 * ``.`` means the current directory
+
+As an example, you may open your terminal app, create a directory called ``test`` in your home 
+directory, then change into directory test, create a empty file called test.txt, and then change 
+your location back to the home directory. The whole process should look similar to this in Windows:
+
+.. code-block:: bash
+   
+   PS C:\Users\username> wsl
+   username@COMPUTER:/mnt/c/Users/username$ mkdir test
+   username@COMPUTER:/mnt/c/Users/username$ cd test
+   username@COMPUTER:/mnt/c/Users/username/test$ touch test.txt
+   username@COMPUTER:/mnt/c/Users/username/test$ ls
+   test.txt
+   username@COMPUTER:/mnt/c/Users/username/test$ cd ..
+   username@COMPUTER:/mnt/c/Users/username$
+
+.. .. image:: ../images/shell_test_windows.jpg
+..    :scale: 25%
+
   
 
 Integrated Development Environment (IDE)

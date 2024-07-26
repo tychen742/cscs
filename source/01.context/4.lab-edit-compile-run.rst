@@ -20,7 +20,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 ----------------------------------------------------
 
 
-#. Install VS Code: 
+1. Install VS Code: 
 
  Visit the Visual Studio Code `website <https://code.visualstudio.com/Download>`_ or use a package manager 
  to install the current version of VS Code for your operating system. [#f3]_ An `online version <https://vscode.dev>`_ of VS Code is also available. 
@@ -38,7 +38,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
    Basic elements in VS Code user interface 
 
-#. Install .NET SDK: 
+2. Install .NET SDK: 
 
    
  Visit the `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click on 
@@ -62,7 +62,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
     Outcome of running the ``dotnet`` command in terminal
 
-#. Install the C# Dev Kit extension:
+3. Install the C# Dev Kit extension:
   
  Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
  also install the C# extension from Microsoft). 
@@ -78,7 +78,8 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
 #. Follow the following steps at the CLI terminal to prepare the environment for learning C#:
    
-  #. Start your terminal application. By default, you would be in your user home directory. 
+  #. Start your terminal application. By default, you would be in your user home directory with a 
+  command prompt. If you are using macOS or Linux, your ``:~$``. If you are using Windows, type ``wsl`` at terminal and hit Enter, and you should see the command prompt ending with ``your_username$``  
   #. Issue the command ``pwd`` to show your present work path to make sure you are in your user home directory. 
   #. Issue the ``ls`` command and enter to see what files and directores are in the directory.
   #. Change to the root folder of the system (``cd /``)
@@ -93,8 +94,9 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
   #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the user's home directory.
   #. Use the ``exit`` command to leave the terminal.   
 
+2. Start VS Code
 
-#. Create a C# Project
+2. Create a C# Project
 
 The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
 A solution is a container for one or more projects, and each project would contain source code files. 
