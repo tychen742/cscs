@@ -51,7 +51,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Introduction to Computer Science in C#'
+project = u'Intro to CS in C#'
 authors= u'Tsangyao (T.Y.) Chen'
 # copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
@@ -150,6 +150,7 @@ html_theme_options = {
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
 #html_title = None
+html_title = 'IS&T 1551 Implementing Information Systems: User Perspective'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = 'C# Intro'
@@ -300,3 +301,5 @@ texinfo_documents = [
 epub_basename = 'ist1551'
 
 
+
+# html_style = 'css/my-styles.css' 

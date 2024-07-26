@@ -1,19 +1,19 @@
 Introduction to Computer Science in C\#
 ===========================================
 
-Build Status
--------------
+<!-- Build Status
+------------- -->
 
-[![GitHub Pages and Release PDF](https://github.com/LoyolaChicagoBooks/introcs-csharp/actions/workflows/main.yml/badge.svg)](https://github.com/LoyolaChicagoBooks/introcs-csharp/actions/workflows/main.yml)
+<!-- [![GitHub Pages and Release PDF](https://github.com/LoyolaChicagoBooks/introcs-csharp/actions/workflows/main.yml/badge.svg)](https://github.com/LoyolaChicagoBooks/introcs-csharp/actions/workflows/main.yml) -->
 
-Viewing and Downloading
----------------------------
+<!-- Viewing and Downloading
+--------------------------- -->
 
 
-Building the Book
+<!-- Building the Book
 --------------------
 
-More details to follow...
+More details to follow... -->
 
 ```
 $ pip install -r requirements.txt

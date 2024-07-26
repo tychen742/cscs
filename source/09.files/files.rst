@@ -2,7 +2,7 @@
 
 .. _files:
 
-Files, Paths, and Directories
+Files & Paths
 ###############################
 
 .. toctree::
