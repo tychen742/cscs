@@ -27,50 +27,57 @@ Terminal & Shell
 -----------------------------
 Having some knowledge of using the command line interface (CLI, often referred to as command prompt in Windows, 
 "shell" in Linux/macOS, or *command line*/*terminal* in general) is necessary when learning how to code. 
-Major operting systems all have CLIs for users to interact with the 
+Major operating systems all have CLIs for users to interact with the 
 operating system by issuing text commands in the terminal rather than using the graphical user interface 
-(GUI). Differnt systems have different default terminal applications (or "terminal emulaters" as they emulate 
-the locally-attached dumb terminals). 
+(GUI). Different operating systems are shipped with different default terminal applications 
+(or "terminal emulators" as they emulate the locally-attached dumb terminals). 
 
 - macOS: Terminal.app (Zsh, Bash)
 - Linux: the shell (usually Bash) 
 - Windows: Terminal (PowerShell, Command Prompt, Bash)
+ 
+When we open a terminal application, a default *shell* program is running as a command line interpreter program 
+that takes commands from users for execution in the operating system. The terminal applications can run 
+different shells and they work similarly. For Windows, the default shell is PowerShell; for macOS it is 
+the Z shell (Zsh); and Linux OS distributions, it is usually the Bourne Again Shell (Bash). 
 
-The terminal applications can run different (but work similarly) shells. 
-For example: 
-When we open a terminal applicatin, a default *shell* program is running as a command line interpreter program 
-that takes commmads from users for execution in the operting system. For Windows, the default shell is 
-PowerShell; for macOS it is the Z shell (Zsh); and Linux OS distributions, it is uaually the Bourne Again 
-Shell (Bash). 
-
-When you open the CLI application, you are working in a shell environment using the 
-keyboard to issue commands without a mouse or a GUI. In the terminal, 
+When you open the CLI application, you use  the keyboard (without a mouse) to issue text commands. In the terminal, 
 you see a command prompt (``user_name@computer_name:~$`` for macOS/Linux or ``C:\Users\user_name>`` 
-for Windows) followed by a cursor, which is where you issue your commands. 
+for Windows) followed by a cursor (maybe blinking), which is where you type to issue your commands. 
 
-For Windows users, you may issue ``wsl`` to switch to Windows Subsystem for Linux and use Bash as your shell. Your 
-command prompt will change to ``user_name@computername:/mnt/c/Users/user_name$``. For the purpose of this book, 
-you may use PowerShell and use the Bash commands with a slightly differnt interface. 
+For Windows users, you may issue ``wsl`` to switch from the default PowerShell to Windows Subsystem for Linux (wsl) 
+to use Bash as your shell. Your command prompt will change to ``user_name@computer_name:/mnt/c/Users/user_name$``. 
+For the purpose of this book, you may use PowerShell and use the Bash commands with a slightly differnt interface.  
 
-To start navigating around the CLI environment, some of the essential commands include:
+Unix-like OSs (such as Unix, macOS, and Linux) system are file-based, meaning the design principle dictates that 
+everything in the system is a file, and the files are organized as a tree-like file system structure. In the 
+command line, a *file path* is then used to specify the location of a file in a the computer's file system structure. 
+The file system structure begins with the root (``/``), with a number of default first level directories representing the 
+funtionalities. For example, oen of the first the default location after logging in is the user's home directory, which is specifed 
+as /home/USER_NAME.
+
+.. figure:: ../images/linux_directory_tree.gif
+   :scale: 50%
+
+   A hypothetical Linux directory tree
+
+
+To start navigating around the file system structure, some of the essential commands include:
 
 * ``ls`` (list storage) to show the files and directories in the current directory
-* ``mkdir`` *dir* (make directory) to create a directory/folder called *dir*
+* ``pwd`` (present working directory) to see the full path of the current directory
+* ``mkdir`` *folder* (make directory) to create a new directory called *folder*
 * ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
 * ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
 * ``touch *filename*`` to create an empty file.
 * ``exit`` to exit out of the terminal app.
 
-In the command line, a file path is used to specify the location of a file in a 
-computer's file system structure. The file system structure begins with the root, with 
-some default first level directories built in. For example, the default location after 
-logging in is the user's home directory, which can be specifed as /home/USER_NAME. Some 
-special characters are commonly used for specifying path:
+ Some special characters are commonly used for specifying path:
 
 * ``/`` is the root of the system's file directory tree structure
 * ``~`` is the user's home directory
-* ``..`` means the directory one-level up of the current directory
-* ``.`` means the current directory
+* ``..`` is the pathname of the directory one-level up of the current directory
+* ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
 
 As an example, you may open your terminal app, create a directory called ``test`` in your home 
 directory, then change into directory test, create a empty file called test.txt, and then change 
@@ -95,11 +102,9 @@ your location back to the home directory. The whole process should look similar 
 Integrated Development Environment (IDE)
 -----------------------------------------
 
-Common integrated development environmnet (IDE) applications usually contains tools such as source-code editor, 
-build automation tools, and a debugger. IDEs play an important role in the software programming workflow. Some 
+Integrated development environmnet (IDE) applications play a critical role in software development workflow and 
+usually contains tools such as source-code editor, build automation tools, and a debugger. 
 IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.
-
-
 
 Visual Studio Code (VS Code) is an editor with plenty of features. It has turned from a text 
 editor into an integrated development editor (IDE) with a large number of
@@ -110,9 +115,20 @@ almost every other programming languages and technology as long as they involve 
 .. figure:: ../images/popular_ide.jpg
    :scale: 25%
 
-   Visual Studio Code remains the preferred IDE across all developers. [#f4]_
+   Visual Studio Code remains the preferred IDE across all developers. [#f]_
 
+As an example, the popular IDE/editor VS Code user interface include several panes:
+   
+ A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
+ B. Primary Side Bar 
+ C. Editor
+ D. Panel
+ E. Status Bar
 
+  .. figure:: ../images/vscode_interface.jpg
+   :scale: 50%
+
+   Basic elements in VS Code user interface 
 
 
 
@@ -149,4 +165,4 @@ almost every other programming languages and technology as long as they involve 
 
 .. [#f1] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
 .. [#f2] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
-.. [#f4] StackOverflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools-prof
+.. [#f] StackOverflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools-prof

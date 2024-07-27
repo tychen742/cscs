@@ -7,8 +7,7 @@
 Lab 1: Environment Setup
 ===========================================================================
 
-Goals
------
+Our goals for this lab include:
 
 #. To setup the development tools needed for C# programming.
 #. To create a C# "hello world" app using the terminal.
@@ -25,21 +24,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
  Visit the Visual Studio Code `website <https://code.visualstudio.com/Download>`_ or use a package manager 
  to install the current version of VS Code for your operating system. [#f3]_ An `online version <https://vscode.dev>`_ of VS Code is also available. 
 
- The VS Code user interface include several panes:
-   
- A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
- B. Primary Side Bar 
- C. Editor
- D. Panel
- E. Status Bar
-
-  .. figure:: ../images/vscode_interface.jpg
-   :scale: 50%
-
-   Basic elements in VS Code user interface 
-
 2. Install .NET SDK: 
-
    
  Visit the `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click on 
  the "Install the .NET SDK" button. You will be redirected to the 
@@ -73,42 +58,63 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
 .. _steps:
 
-"hello, world" Console App in C#
+Create the Workspace
 ----------------------------------
 
-#. Follow the following steps at the CLI terminal to prepare the environment for learning C#:
+#.  Follow the following steps at the terminal to prepare the environment for learning C#:
    
-  #. Start your terminal application. By default, you would be in your user home directory with a 
-  command prompt. If you are using macOS or Linux, your ``:~$``. If you are using Windows, type ``wsl`` at terminal and hit Enter, and you should see the command prompt ending with ``your_username$``  
-  #. Issue the command ``pwd`` to show your present work path to make sure you are in your user home directory. 
-  #. Issue the ``ls`` command and enter to see what files and directores are in the directory.
-  #. Change to the root folder of the system (``cd /``)
-  #. Use the ``ls`` command to see what files and folders are under the root directory.
-  #. Change back to your home directory (``cd ~``)
-  #. Create a direcotry called "workspace" (``mkdir workspace``). ### you may add this folder to the "Trusted Folders & Workspaces" later.
-  #. Change directory into the workspace directory (``cd workspace``).
-  #. Inside workspace, create a directory ist_1551 (``mkdir ist_1551``)
-  #. Inside workspace, create another directory called tests (``mkdir tests``)
-  #. Go up one level into the workspace directory (``cd ..``)
-  #. ``ls`` to make sure that you have two directories listed: ist_1551 and tests.
-  #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the user's home directory.
-  #. Use the ``exit`` command to leave the terminal.   
+    .. note:: You can perform this task using your computer's GUI but this is an important practice, especially if you are new to the terminal/shell. 
+  
+    #. Start your terminal application. By default, you would be in your user home directory with a command prompt.   
+    #. Issue the command ``pwd`` to show your present work path to make sure you are in your user home directory. 
+    #. Issue the ``ls`` command and enter to see what files and directories are in the directory.
+    #. Create a directory called "workspace" (``mkdir workspace``). ### you may add this folder to the "Trusted Folders & Workspaces" later when prompted by VS Code.
+    #. Change directory into the workspace directory (``cd workspace``).
+    #. Inside workspace, create a directory ist_1551 (``mkdir ist_1551``)
+    #. Inside workspace, create another directory called tests (``mkdir tests``)
+    #. ``ls`` to make sure that you have two directories created: ist_1551 and tests.
+    #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the your user home directory.
+    #. Use the ``exit`` command to leave the terminal.   
 
-2. Start VS Code
+    The process should look like this:
 
-2. Create a C# Project
+    .. code-block:: bash
 
-The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
-A solution is a container for one or more projects, and each project would contain source code files. 
-You are encouraged to create a *single solution for this course*, with all the projects that you create 
-in the solution [#f1]_. 
+        tychen@mac:~$
+        tychen@mac:~$ pwd
+        /Users/tychen
+        tychen@mac:~$ mkdir workspace
+        tychen@mac:~$ cd workspace
+        tychen@mac:~/workspace$ mkdir ist_1551
+        tychen@mac:~/workspace$ mkdir tests
+        tychen@mac:~/workspace$ ls
+        ist_1551 tests
+        tychen@mac:~/workspace$ cd ..
+        tychen@mac:~$ exit
+            
+
+#.  Start VS Code 
+
+    There are two ways to start VS Code: 
+ 
+    #. In the terminal, ``cd`` into the folder ("workspace" in this example) that you want to work on and type ``code`` to start VS Code with the folder as the working directory shown in the Explorer view. 
+    #. Open VS Code by clicking on the app icon or using Spotlight (macOS) to search for Visual Studio Code and Enter to open it, then from the File menu, choose Open Folder to open the workspace folder. In our scenario, we assume that the workspace folder is for more than one project so we would create a new project folder and give it a descriptive name.  
+
+    .. note::     
+        A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
+        further configure the project. 
+
+#.  Create a C# Project
+
+    The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
+    A solution is a container for one or more projects, and each project would contain source code files. 
+    You are encouraged to create a *single solution for this course*, with all the projects that you create 
+    in the solution [#f1]_ but we will first practice how to do that. 
 
 We start by creating a *solution* with a *project* in it. The images are from
-a Mac. Windows versions should be similar.
+a Mac but Windows versions should look similar.
 
-#.  Open Xamarin Studio, in the appropriate way for an application in your
-    operating system.  It should be in the Start menu for Windows.
-    Using Spotlight is quick on a Mac.
+#.  
 
 #.  You get a Welcome screen.  Toward the upper left corner is a link for 
     New Solution.  Click on it.  Alternately you can follow the path through the menus:
