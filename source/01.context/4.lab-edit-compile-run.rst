@@ -104,6 +104,40 @@ Create the Workspace
         A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
         further configure the project. 
 
+
+Integrated Development Environment (IDE)
+-----------------------------------------
+
+Integrated development environment (IDE) applications play a critical role in software development workflow and 
+usually contains tools such as source-code editor, build automation tools, and a debugger. 
+IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.
+
+Visual Studio Code (VS Code) is an editor with plenty of features. It has turned from a text 
+editor into an integrated development editor (IDE) with a large number of
+extensions available to enhance and enrich its tools and features. A great advantage of learning 
+VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for 
+almost every other programming languages and technology as long as they involve editing and coding. 
+
+.. figure:: ../images/popular_ide.jpg
+   :scale: 25%
+
+   Visual Studio Code remains the preferred IDE across all developers. [#f]_
+
+As an example, the popular IDE/editor VS Code user interface include several panes:
+   
+ A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
+ B. Primary Side Bar 
+ C. Editor
+ D. Panel
+ E. Status Bar
+
+  .. figure:: ../images/vscode_interface.jpg
+   :scale: 50%
+
+   Basic elements in VS Code user interface 
+
+
+
 #.  Create a C# Project
 
     The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
