@@ -47,37 +47,37 @@ for Windows) followed by a cursor (maybe blinking), which is where you type to i
 
 For Windows users, you may issue ``wsl`` to switch from the default PowerShell to Windows Subsystem for Linux (wsl) 
 to use Bash as your shell. Your command prompt will change to ``user_name@computer_name:/mnt/c/Users/user_name$``. 
-For the purpose of this book, you may use PowerShell and use the Bash commands with a slightly differnt interface.  
+For the purpose of this book, you may use PowerShell and use the Bash commands with a slightly different interface.  
 
 Unix-like OSs (such as Unix, macOS, and Linux) system are file-based, meaning the design principle dictates that 
 everything in the system is a file, and the files are organized as a tree-like file system structure. In the 
 command line, a *file path* is then used to specify the location of a file in a the computer's file system structure. 
 The file system structure begins with the root (``/``), with a number of default first level directories representing the 
-funtionalities. For example, oen of the first the default location after logging in is the user's home directory, which is specifed 
+functionalities. For example, oen of the first the default location after logging in is the user's home directory, which is specified 
 as /home/USER_NAME.
 
-.. figure:: ../images/linux_directory_tree.gif
-   :scale: 50%
+   .. figure:: ../images/linux_directory_tree.gif
+      :scale: 70%
 
-   A hypothetical Linux directory tree
+      A hypothetical Linux directory tree
 
 
 To start navigating around the file system structure, some of the essential commands include:
 
-* ``ls`` (list storage) to show the files and directories in the current directory
-* ``pwd`` (present working directory) to see the full path of the current directory
-* ``mkdir`` *folder* (make directory) to create a new directory called *folder*
-* ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
-* ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
-* ``touch *filename*`` to create an empty file.
-* ``exit`` to exit out of the terminal app.
+  * ``ls`` (list storage) to show the files and directories in the current directory
+  * ``pwd`` (present working directory) to see the full path of the current directory
+  * ``mkdir`` *folder* (make directory) to create a new directory called *folder*
+  * ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
+  * ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
+  * ``touch *filename*`` to create an empty file.
+  * ``exit`` to exit out of the terminal app.
 
- Some special characters are commonly used for specifying path:
+Some special pathname characters are commonly used for specifying paths:
 
-* ``/`` is the root of the system's file directory tree structure
-* ``~`` is the user's home directory
-* ``..`` is the pathname of the directory one-level up of the current directory
-* ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
+  * ``/`` is the root of the system's file directory tree structure
+  * ``~`` is the user's home directory
+  * ``..`` is the pathname of the directory one-level up of the current directory
+  * ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
 
 As an example, you may open your terminal app, create a directory called ``test`` in your home 
 directory, then change into directory test, create a empty file called test.txt, and then change 
@@ -102,7 +102,7 @@ your location back to the home directory. The whole process should look similar 
 Integrated Development Environment (IDE)
 -----------------------------------------
 
-Integrated development environmnet (IDE) applications play a critical role in software development workflow and 
+Integrated development environment (IDE) applications play a critical role in software development workflow and 
 usually contains tools such as source-code editor, build automation tools, and a debugger. 
 IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.
 
@@ -117,52 +117,29 @@ almost every other programming languages and technology as long as they involve 
 
    Visual Studio Code remains the preferred IDE across all developers. [#f]_
 
-As an example, the popular IDE/editor VS Code user interface include several panes:
-   
+As an example, the popular IDE/editor VS Code user interface include several panes:   
+
  A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
  B. Primary Side Bar 
  C. Editor
  D. Panel
  E. Status Bar
 
+In the Activity Bar, you can access different Views such as:
+
+ #. Search - Provides global search and replace across your open folder.
+ #. Source Control - VS Code includes Git source control by default.
+ #. Run - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
+ #. Extensions - Install and manage your extensions within VS Code.
+ #. Custom views - Views contributed by extensions.
+
   .. figure:: ../images/vscode_interface.jpg
    :scale: 50%
 
-   Basic elements in VS Code user interface 
+   Basic elements in VS Code user interface [#]_
 
 
-
-
-
-
-.. 
-   When the installation is completed, VS Code will prompt that "The .NET 
-
-   Core SDK cannot be located:" in the lower right corner. Click on the "Get the SDK" button and 
-   VS Code will ask to open the `external .NET website <https://dotnet.microsoft.com/en-us/download/dotnet/sdk-for-vs-code?utm_source=vs-code&amp;utm_medium=referral&amp;utm_campaign=sdk-install>`_. 
-   Click on your SDK version to start downloading.
-
-   .. figure:: ../images/dotnet_core_sdk_cannot_be_located.jpg
-   :scale: 25%
-
-
-
-
-
-.. In Windows, if you receive an error message as below while verifying, do the following:
-
-.. #. Go to the Windows Taskbar and search for "envrionment variables". 
-.. #. Choose "Edit the system environment variables" to open the System Properties window. 
-.. #. Under the Advanced tab, click on the Environment Variables button to open the window.
-.. #. Click on the Path variable in the User variables pane for *username* then the Edit button. 
-.. #. The last entry in the opened Edit environment variable window should be something like *%ProgramFiles%\dotnet\*. 
-.. #. For this environment variable, all Arm64 versions of .NET are installed to the normal C:\Program Files\dotnet\ folder. 
-.. However, the x64 version of the .NET SDK is installed to the C:\Program Files\dotnet\x64\ folder.
-
-.. .. figure:: ../images/dotnet_path_error.jpg
-..    :scale: 25%
-
-
-.. [#f1] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
-.. [#f2] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
-.. [#f] StackOverflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools-prof
+.. [#] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
+.. [#] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
+.. [#] StackOverflow Annual Developer Survey 2023. https://survey.stackoverflow.co/2023/#most-popular-technologies-new-collab-tools-prof
+.. [#] For a comprehensive introduction to the interface of VS Code, see: https://code.visualstudio.com/docs/getstarted/userinterface

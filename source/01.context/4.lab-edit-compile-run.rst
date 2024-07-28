@@ -19,38 +19,37 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 ----------------------------------------------------
 
 
-1. Install VS Code: 
+#. Install VS Code: 
 
- Visit the Visual Studio Code `website <https://code.visualstudio.com/Download>`_ or use a package manager 
- to install the current version of VS Code for your operating system. [#f3]_ An `online version <https://vscode.dev>`_ of VS Code is also available. 
+   Visit the Visual Studio Code `website <https://code.visualstudio.com/>`_ site or use a package manager 
+   to install the current version of VS Code for your operating system. [#]_ An `online version <https://vscode.dev>`_ of VS Code is also available. 
 
-2. Install .NET SDK: 
+#. Install .NET SDK: 
    
- Visit the `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click on 
- the "Install the .NET SDK" button. You will be redirected to the 
- `.NET Download <https://dotnet.microsoft.com/en-us/download>`_ page, with the OS, architect, and the recent 
- long term support version of .NET SDK pre-seleted for you to start downlaoding.  
-
- The download page also includes instructions for the installation and verification of the SDK. 
- At the end of the installation, you should see a notification that the .NET SDK, along with 
- .NET runtime, ASP.NET Core Runtime, and .NET Windows Desktop Runtime are installed. 
-
- .. figure:: ../images/dotnet_sdk_installation.jpg
-    :scale: 25%
-
+   Visit the `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click on 
+   the "Install the .NET SDK" button. You will be redirected to the 
+   `.NET Download <https://dotnet.microsoft.com/en-us/download>`_ page, with the OS, architect, and the recent 
+   long term support version of .NET SDK pre-seleted for you to start downlaoding.   
+   The download page also includes instructions for the installation and verification of the SDK. 
+   At the end of the installation, you should see a notification that the .NET SDK, along with 
+   .NET runtime, ASP.NET Core Runtime, and .NET Windows Desktop Runtime are installed.  
+  
+   .. figure:: ../images/dotnet_sdk_installation.jpg
+      :scale: 25% 
+ 
  To verify if .NET SDK is installed correctly, open a new terminal (e.g., PowerShell in Windows or Terminal in 
  macOS) and run the ``dotnet`` command by type ``dotnet`` and then hit the Enter key. If .NET is correctly 
- installed, you should see results as below.
+ installed, you should see results as below. 
 
  .. figure:: ../images/dotnet_install_verification.jpg
-    :scale: 25%
+    :scale: 25% 
 
     Outcome of running the ``dotnet`` command in terminal
 
 3. Install the C# Dev Kit extension:
   
- Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
- also install the C# extension from Microsoft). 
+   Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
+   also install the C# extension from Microsoft). 
 
 
 
@@ -58,7 +57,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
 .. _steps:
 
-Create the Workspace
+Create C# Projects
 ----------------------------------
 
 #.  Follow the following steps at the terminal to prepare the environment for learning C#:
@@ -97,58 +96,78 @@ Create the Workspace
 
     There are two ways to start VS Code: 
  
-    #. In the terminal, ``cd`` into the folder ("workspace" in this example) that you want to work on and type ``code`` to start VS Code with the folder as the working directory shown in the Explorer view. 
-    #. Open VS Code by clicking on the app icon or using Spotlight (macOS) to search for Visual Studio Code and Enter to open it, then from the File menu, choose Open Folder to open the workspace folder. In our scenario, we assume that the workspace folder is for more than one project so we would create a new project folder and give it a descriptive name.  
+    #. In the terminal, ``cd`` into the folder ("workspace" in this example) that 
+       you want to work on and type ``code`` to start VS Code with the folder as 
+       the working directory shown in the Explorer view. 
+    #. Open VS Code by clicking on the app icon.   
 
     .. note::     
         A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
-        further configure the project. 
+        further configure the project. Also, checking out the VS Code docs to `get started <https://code.visualstudio.com/docs>`_ with the 
+        first steps of learning how to use VS Code. 
 
 
-Integrated Development Environment (IDE)
------------------------------------------
-
-Integrated development environment (IDE) applications play a critical role in software development workflow and 
-usually contains tools such as source-code editor, build automation tools, and a debugger. 
-IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.
-
-Visual Studio Code (VS Code) is an editor with plenty of features. It has turned from a text 
-editor into an integrated development editor (IDE) with a large number of
-extensions available to enhance and enrich its tools and features. A great advantage of learning 
-VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for 
-almost every other programming languages and technology as long as they involve editing and coding. 
-
-.. figure:: ../images/popular_ide.jpg
-   :scale: 25%
-
-   Visual Studio Code remains the preferred IDE across all developers. [#f]_
-
-As an example, the popular IDE/editor VS Code user interface include several panes:
-   
- A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
- B. Primary Side Bar 
- C. Editor
- D. Panel
- E. Status Bar
-
-  .. figure:: ../images/vscode_interface.jpg
-   :scale: 50%
-
-   Basic elements in VS Code user interface 
-
-
-
-#.  Create a C# Project
+#.  Create a C# Hello World app
 
     The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
     A solution is a container for one or more projects, and each project would contain source code files. 
     You are encouraged to create a *single solution for this course*, with all the projects that you create 
-    in the solution [#f1]_ but we will first practice how to do that. 
+    in the solution [#]_ but we will first create a test project to practice that. We start by creating a *solution* with a *project* in it. The images are from
+    a Mac but Windows versions should look similar.
 
-We start by creating a *solution* with a *project* in it. The images are from
-a Mac but Windows versions should look similar.
+    We will create our first "hello, world" app in the "tests" folder in your 
+    "workspace" folder by going through the following steps: 
+    
+    #. In a newly opened VS Code window (File --> New Window if you are using 
+       VS Code for some other tasks), choose "Create .NET Project" from the Explorer 
+       view and choose "Console App" from the Command Pallette. Alternatively, 
+       Cmd-Shift-P or Win-Shift-P to bring up Command Pallette and then type .NET: 
+       New Project, then select "Console App" as your project template. 
 
-#.  
+    #. Choose the project directory. In our example here, choose the *tests* directory
+       that we created in the workspace directory under the user home directory.  
+    
+    #. Choose a name for your project. In this example, type hello1 as the project name
+       and Enter to confirm the project path. You should see the hello1 project created 
+       along with a test.sln solution file. 
+
+       .. figure:: ../images/hello1_project_created.jpg
+        :scale: 30%
+
+    #. Click to expand the hello1 project directory and you should see the Program.cs 
+       file. Click to open the file in the editor. 
+
+       .. figure:: ../images/hello1_program_cs.jpg
+        :scale: 30%
+       
+    #. To run the hello1 app, you have to run it as part of a project. From the 
+       menu bar, choose Run --> Run without Debugging. Alternatively, you can run 
+       the app by choosing the "Run project associated with this file" option from 
+       the Run Code icon (the ▷ right-pointing triangle in the upper right corner 
+       of the editor menu bar). 
+
+       .. note::   
+
+        If you click on Run Code triangle, you may see an error message in the 
+        Output panel: 
+
+            .. code-block:: bash
+                
+                [Running] scriptcs "/Users/tychen/workspace/tests/hello1/Program.cs"
+                /bin/sh: scriptcs: command not found
+
+                [Done] exited with code=127 in 0.017 seconds
+       
+       
+          
+          
+    
+       
+           
+
+     
+
+
 
 #.  You get a Welcome screen.  Toward the upper left corner is a link for 
     New Solution.  Click on it.  Alternately you can follow the path through the menus:
@@ -432,5 +451,5 @@ For further reinforcement
    way as before, giving a new name for the project.
 
 
-.. [#f1] Visual Studio requires a solution file in order to be run. Although a solution is not required for projects, it offer some benefts such as project configuration and building all projects at once. 
-.. [#f3] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
+.. [#] Visual Studio requires a solution file in order to be run. Although a solution is not required for projects, it offer some benefts such as project configuration and building all projects at once. 
+.. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
