@@ -8,9 +8,9 @@ Key Computing Ideas
 This book is an introduction to computer science, with a focus on the learning of computational concepts and problem-solving skills using the C# programming language.
 
 
-The Workfow
+The Workflow
 --------------
-The *workflow* that applicaiton developers and software engineers use could include 
+The *workflow* that application developers and software engineers use could include 
 the following steps:
 
 #. Describing a problem scenario to define the goals and objectives.
@@ -73,7 +73,7 @@ behavior of complex systems, form hypotheses, and test predictions" [#f1]_.
 For most learners, the idea central in learning computer science and information systems is problem-solving, 
 meaning "the ability to formulate problems, think creatively about solutions, and express a 
 solution clearly and accurately," [f#2]_ and we expect to hon our problem-solving skills 
-through learning how to code and, in turn, obtaining a skillset to use and create computer 
+through learning how to code and, in turn, obtaining a skill set to use and create computer 
 programs and tools to solve problems. 
 
 In computer science, the solution to a problem is called *algorithm*, which is a list of step-by-step instructions, 
@@ -94,16 +94,16 @@ Number Systems
    byte
    binary number system
    base 2
-   hexadecimal number sysetm
+   hexadecimal number system
 
 In modern electronic computers are digital systems, meaning they deal with signals (data)
 that are expressed as series of the digits 0 and 1, the values that represent the 
-state of electrical votage (on or off). A digit has two states, 0 or 1, and is called a bit. 
+state of electrical voltage (on or off). A digit has two states, 0 or 1, and is called a bit. 
 The number system is call binary system, or base 2. A standard data unit is the *byte*, 
 which is composed of 8 bits, which can represent 256 (2^8, from 0 to 255) different values.  
 In the ASCII (American Standard Code for Information Interchange) code table, the letter "A", 
 for example, is represented as 0100 0001 in binary number system because it is the 65the 
-symbol in the table. We can translate between the binay and decimal systems as: 
+symbol in the table. We can translate between the binary and decimal systems as: 
 :math:`(1)2^6 + (0)2^5 + (0)2^4 + (0)2^3 + (0)2^2 + (0)2^1+ (1)2^0 = 64+0+0+0+0+0+1=65`.
 
 Modern computer architecture uses 64-bit long data unit, allowing more data to be processed 
@@ -122,10 +122,10 @@ Compilation vs. Interpretation
 
 .. index:: compiling, interpreting, JIT compilation
 
-In the early years of computer development, computers only understand low-level lanugages:
+In the early years of computer development, computers only understand low-level languages:
 machine code (binary digits) to be read and interpreted directly by a computer, and assembly 
 language, consisting of short words to represent machine code instructions. Over time, 
-high-level languages such C, C++, Perl, and Java were creaerd to make programming more 
+high-level languages such C, C++, Perl, and Java were created to make programming more 
 efficient. However, the source code written in hight-level programming languages need to be 
 translated into machine code for execution. The two common types of tools for the translation 
 are *interpreters* and *compilers*. C#, as a new member of the C-language family , is a compiled 
@@ -147,9 +147,9 @@ the OS for translation and does not require compilation.
 
 
 Advancement in computing has brought new techniques such as just-in-time (JIT) compilation 
-(dynamic compilation) to combine advantages of traditonal interpretation and compilation. 
+(dynamic compilation) to combine advantages of traditional interpretation and compilation. 
 Source code is compiled into an intermediate code called bytecode to be interpreted by a 
-virtual machine , then compiled into machine code for faster execution. Many contempoary 
+virtual machine , then compiled into machine code for faster execution. Many contemporary 
 languages, such as all .NET languages (including C#), Java, Python, and PHP use JIT 
 compilers [#f4]_.
 
@@ -157,6 +157,6 @@ compilers [#f4]_.
 .. [#f1] Allen B. Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
 .. [#f2] Brad Miller & David Ranum (2014). How to Think Like a Computer Scientist: Interactive Edition. (GNU FDL V.1.3)
 .. [#f3] Allen B. Downey (2012). Think Python: How to think like a computer scientist, Version 2.0.17. Green Tea Press. (CC BY-NC-SA 4.0)
-.. [#F4] JIT compilaiton is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implentation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
+.. [#F4] JIT compilation is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implementation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
 
 
