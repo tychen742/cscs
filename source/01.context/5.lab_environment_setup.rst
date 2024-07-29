@@ -13,6 +13,21 @@ Our goals for this lab include:
 #. To create your first .NET project for C# development using VS Code.
 #. To create a C# "hello, world" app using the terminal.
 
+The two projects created are "hello, world" programs. A "hello, world" program 
+is traditionally a simple computer program that outputs a test message similar 
+to "Hello, World!" to show that the program's basic syntax works. Nowadays, it is 
+used as the first program when learning a new programming language. The origin of 
+this convention is known to be from the 1978 book The C Programming Language by 
+Brian Kernighan and Dennis Ritchie, which in turns was inherited from a 1974 
+Bell Laboratories internal memorandum by Brian Kernighan, Programming in C: 
+A Tutorial [#]_. In the book, it says "[t]he only ways to learn 
+a new programming language is by writing programs in it. The first program to write 
+is the same for all languages" is: 
+
+.. code-block:: C
+  
+   Print the words 
+   hello, world. 
 
 
 Install VS Code, .NET SDK, and C# Dev Kit Extension 
@@ -57,10 +72,12 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
 .. _steps:
 
-Create C# Projects
-----------------------------------
+Create C# Projects for "hello, world" Apps
+-------------------------------------------
 
-#.  Follow the following steps at the terminal to prepare the environment for learning C#:
+#.  Create project folders:
+   
+    Follow the following steps at the terminal to prepare the environment for learning C#:
    
     .. note:: You can perform this task using your computer's GUI but this is an important practice, especially if you are new to the terminal/shell. 
   
@@ -96,10 +113,10 @@ Create C# Projects
 
     There are two ways to start VS Code: 
  
-    #. In the terminal, ``cd`` into the folder ("workspace" in this example) that 
-       you want to work on and type ``code`` to start VS Code with the folder as 
-       the working directory shown in the Explorer view. 
-    #. Open VS Code by clicking on the app icon.   
+    #. Open VS Code by clicking on the app icon in your computer.   
+    #. Alternatively, in the terminal, ``cd`` into the project folder ("tests" 
+       in this example) that you want to work on and type ``code`` to start 
+       VS Code with the folder as the working directory shown in the Explorer view. 
 
     .. note::     
         A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
@@ -215,7 +232,13 @@ As you can see, the outcome of running project hello2 is the same as project
 hello1. 
           
     
+github
+-------------
+
 
 
 .. [#] Visual Studio requires a solution file in order to be run. Although a solution is not required for projects, it offer some benefts such as project configuration and building all projects at once. 
 .. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
+.. [#] Wikipedia Contributors. (2024, July 25). “Hello, World!” program. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
+
+‌

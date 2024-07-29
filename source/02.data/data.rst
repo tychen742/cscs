@@ -4,18 +4,21 @@ Data and Operations
 .. toctree::
    :maxdepth: 2
 
+   1.variables
+   2.data_types
+   3.arithmetic
+   4.strings
+   5.input_output
+   6.lab_division
+   7.review
+   
    sampleprogram
-   arithmetic
-   variables
    typography
-   strings1
-   print1
-   programstructure
-   io
-   strings2
+
+
    writeline-substitution
    types-and-conversions
-   learning-to-problem-solve
+  
    lab-division-sentences
    reviewdataop
    

@@ -7,8 +7,9 @@ Introduction
    1.intro
    2.cs_ideas
    3.dev_tools
-   4.lab-edit-compile-run
-   5.review
+   4.program_structure
+   5.lab-edit-compile-run
+   6.review
 
 .. intro
 .. download
