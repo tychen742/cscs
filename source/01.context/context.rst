@@ -8,7 +8,7 @@ Introduction
    2.cs_ideas
    3.dev_tools
    4.program_structure
-   5.lab-edit-compile-run
+   5.lab_environment_setup
    6.review
 
 .. intro
