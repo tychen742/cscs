@@ -11,16 +11,3 @@ Data and Operations
    5.input_output
    6.lab_division
    7.review
-   
-   sampleprogram
-   typography
-
-
-   writeline-substitution
-   types-and-conversions
-  
-   lab-division-sentences
-   reviewdataop
-   
-
-
