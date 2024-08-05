@@ -7,7 +7,7 @@
 
 .. _Variables-and-Assignment:
 
-Variables and Data Types
+Data Types
 =========================
 
 Data types are used when assigning values to variables. In programming, 
@@ -20,19 +20,66 @@ system to achieve more efficient use of memory.
 
 There two kinds of data types is C#: **reference types** and **value types**. Variables of 
 value types contain the data directory while variables of reference types point to 
-data values data values (objects) somewhere else. 
+data values data values (objects) somewhere else. Value types are predefined types 
+and are available in C# as keywords. These keywords are aliases of types defined in the 
+.NET Class Library. For example, the C# keyword int is an alias of a value type defined 
+in the .NET Class Library as System.Int32.
+
+In C#, some of the basic value data types include:
+
+   ========== =====================   ==================================================================
+   Type	      Size	                  Description
+   ========== =====================   ==================================================================
+   ``int``	  4 bytes	              Stores whole numbers from -2,147,483,648 to 2,147,483,647
+   ``long``	  8 bytes	              Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+   ``float``  4 bytes	              Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+   ``double`` 8 bytes	              Stores fractional numbers. Sufficient for storing 15 decimal digits
+   ``bool``	  1 bit	                  Stores true or false values
+   ``char``	  2 bytes	              Stores a single character/letter, surrounded by single quotes
+   ``string`` 2 bytes per character	  Stores a sequence of characters, surrounded by double quotes
+   ========== =====================   ==================================================================
 
 
-In C#, basic dta types include ``string``, ``char``, ``bool``, ``int``, and ``decimal``:abbr:
+The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
+an equal number of positive and negative numbers; whereas An unsigned type uses its bytes to represent 
+only positive numbers. As an example, 
 
-- ``int`` for integers, 
-- ``double`` for numbers allowing a fractional part, approximating more general real numbers.  There are many other numeric types and also non-numeric types, but we can use 
-- ``int`` 
-and ``double`` for examples now.  Data gets stored in computer memory.  Specific 
-locations in memory are associated with the type of data stored there 
-and with a name to refer to it.
+.. code-block:: c#
 
-A program allocates a named storage spot for a particular type of data with a
+    Console.WriteLine("Signed integral types:");
+
+    Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+    Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+    Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+
+    Console.WriteLine("");
+    Console.WriteLine("Unsigned integral types:");
+
+    Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+    Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+    Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+    Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+
+We would see the output as below:
+.. code-block:: 
+    
+    ```Output
+    Signed integral types:
+    sbyte  : -128 to 127
+    short  : -32768 to 32767
+    int    : -2147483648 to 2147483647
+    long   : -9223372036854775808 to 9223372036854775807
+
+    Unsigned integral types:
+    byte   : 0 to 255
+    ushort : 0 to 65535
+    uint   : 0 to 4294967295
+    ulong  : 0 to 18446744073709551615
+    ```
+
+Variables
+===========
+
 *declaration statement*, like::
 
     int width;
