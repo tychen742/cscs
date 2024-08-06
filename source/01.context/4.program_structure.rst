@@ -3,12 +3,138 @@
 
 .. _program-structure:
 
-C# Program Structure
+C# Project Structure
 =====================
 
-We discuss the most basic syntax satisfied by all C# programs, which are plain text files,
-with names ending in ``.cs``.  There will be additions
-later, but any program you can run will include:
+When we generate a "hello, world" console app using either the terminal or vscode, we 
+see that our Program.cs looks simple as below and we can write the executable code 
+directly. 
+
+.. code-block:: c#
+
+   // See https://aka.ms/new-console-template for more information
+   Console.WriteLine("Hello, World!");
+
+
+This is a C# feature called "top-level statements" in which the compiler will: 
+
+   - generate a Program class with an entry point method for the application; and 
+   - adds a set of implicit ``global using`` directives such as Microsoft.NET.Sdk to include the most common namespaces. 
+   
+While this friendly to new users, as we learn more about C# programming, 
+you will need to learn how to structure your code using namespaces and classes. 
+To use the old program style, you can use the ``--use-program-main`` 
+option to create a console app project with Main method. In the example 
+below, we use ``dotnet new console``` to create a new console project in the 
+empty testPrj directory:
+
+.. code-block:: console
+
+   tychen@mac:~/workspace/tests/testPrj$ dotnet new console --use-program-main
+
+This will give us the project files such as:
+
+#. The ``Program.cs`` file
+#. The ``obj`` folder
+#. The ``testPrj.csproj`` file
+#. A ``bin`` directory will be created later after we build and run the application.
+
+.. code-block:: console
+
+   tychen@mac:~/workspace/tests/testPrj$ ls
+   Program.cs     obj            testPrj.csproj
+
+
+The C# Program.cs file
+-----------------------
+
+Opening the Program.cs file created by ``dotnet new console --use-program-main`` 
+and you see the template code as:
+
+.. code-block:: c#
+   :linenos:
+   :emphasize-lines: 5
+
+   namespace testPrj; 
+
+   class Program
+   {
+      static void Main(string[] args)
+      {
+            Console.WriteLine("Hello, World!");
+      }
+   }
+
+Some important concepts that we need to learn from this template code example 
+here so we have better ideas about the basic structure of C#.
+
+#. ``namespace``: 
+   The ``namespace`` keyword is used to declare a scope to organize types. 
+   For example, we may define a namespace as below 
+   to contain unique **reference type** code elements. We are not 
+   going to dive into the reference types now and we only need to observe that 
+   that these types (class, interface, struct, ...) are not **value types** such 
+   as int, float, and string as predefined by .NET for us, but **reference types**.  
+
+   .. code-block:: 
+
+      namespace SampleNamespace
+      {
+          class SampleClass { }
+          interface ISampleInterface { }
+          struct SampleStruct { }
+          enum SampleEnum { a, b }
+          delegate void SampleDelegate(int i);
+          namespace Nested
+          {
+              class SampleClass2 { }
+          }
+      }
+
+#. ``using System;``:  
+
+   Starting .NET 6, ``using System`` is implicit as defined in the csproj file so 
+   now shown in the Program.cs file. We should know that, ``System`` is a namespace that contains basic defined value 
+   and reference types. The ``using`` directive, works like "import", allows you to use the types defined in 
+   a namespace without specifying the fully qualified namespace of that type. 
+   The ``using`` directive imports all the types from a single namespace. For example, 
+   ``Console`` is a class inside the ``System`` namespace and we use the its WriteLine 
+   method to print to the console. The following example would allow the use of the 
+   ``Text`` types such as System.Text.Ascii class and the nested namespace 
+   System.Text.Unicode:
+
+   .. code-block:: 
+
+      using System.Text;
+
+#. ``class``:
+   A class is a blueprint for creating objects, which may include the structure, 
+   behaviors, and attributes of the objects. A class can be thought of a user-defined 
+   data type (reference data type) containing 
+   - attributes (data) and 
+   - methods (actions applied to the data).  
+
+#. The ``Main`` method:
+   The most common entry point of a C# program is static void Main() or static 
+   void Main(String []args). The Main method is the entry point of a program and 
+   therefore the first method invoked when an application is executed. 
+
+#. ``method``:
+   A method is an object-oriented term for function, which is a series of statements 
+   designed to perform certain task. In C#, just like Java, the Main method is the 
+   entry point of the program, meaning it is the first method invoked when a 
+   program is executed. 
+
+#. ``static`` & ``void``:
+   The modifier ``static`` means the Main Method can be called without creating 
+   a new object from the class. ``void`` means the Main method does not return anything. 
+
+#. ``string[] args``:
+   The ``args`` are called "command line arguments" and in this example the type is 
+   string array; meaning when calling this method we send the arguments in and they 
+   are zero-indexed as an array.  
+   
+
 
 | ``using System;`` 
 |
@@ -23,12 +149,7 @@ later, but any program you can run will include:
 
 By convention class names are capitalized.
 
-You can see that both the example program :repsrc:`painting/painting.cs` and the lab program
-:repsrc:`hello/hello.cs` follow this pattern.  The discussion of these parts through 
-line 6 in
-:ref:`sample-program` are about all we have to say at this point.  For now this
-is the boilerplate code.  We will make additions as necessary.  We choose not to
-clutter up the basic setup with features that we are not about to use and discuss. 
+ 
 
 Here is a silly little test illustrating the difference between ``Console.WriteLine``
 and ``Console.Write``, in example :repsrc:`write_test/write_test.cs`:
