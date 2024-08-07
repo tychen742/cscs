@@ -135,38 +135,6 @@ here so we have better ideas about the basic structure of C#.
    are zero-indexed as an array.  
    
 
-Indentation Help
------------------------
-
-Using conventional indentation helps understand a program and find errors, 
-like unmatched braces. When you press return in a C# source file 
-(i.e. a file with name ending in ``.cs``), Xamarin Studio makes a guess at the proper
-indentation of the next line.  The exact reaction can be set in the *options*.
-The simplest approach is to set these options *once* for all new files 
-in a solution, like your work solution:
-
-#. Access the context menu for the *whole solution* (not one project).
-#. Select Options.
-   
-   .. image:: ../images/select_options.png
-      :width: 200 pt
-   
-#. In the popup Solution Options Window, you will see "Code Formatting" 
-   in the left column.  If you do not see "C# source code" and then "Text file"
-   right underneath it
-   click on "Code Formatting" to expand the hierarchy.
-  
-   .. image:: ../images/set_indent.png 
-      :width: 300 pt
-   
-#. Click on **C# source code**, and then the right side should show options.  
-   Adjust them to look like the picture: tab and indent widths 3, 
-   first and last check boxes *checked* 
-   (Convert tabs to spaces. Remove trailing spaces),
-   and have the middle check box (Allow tabs after non-tabs) *unchecked*.
-#. Click OK in the bottom right corner.
- 
-
 Solutions and projects
 -----------------------
 
@@ -178,8 +146,8 @@ differently under different project folders inside the solution directory.
 
 The idea of a project is probably what comes to mind first when beginning with the development 
 of an application. To create a project, you may go to the project directory in command line 
-and simply issue the command of ``dotnet new console`` to create an app project. This will create a 
-project without a solution. 
+and simply issue the command of ``dotnet new console`` to create an app project. This will 
+create your project without a solution. 
 
 On the other hand, the first time you create a project in a folder using vscode's Create .NET 
 Project button in the Explorer view, a solution will be created with the same name as the 
@@ -187,92 +155,6 @@ project. This may not be ideal since we may not want the solution to be named th
 the first project. A better way to create a solution, therefore, may be to create a solution 
 by issuing commands ``dotnet new sln`` in your solution directory. 
 
-
-.. index:: compiler error; explanation link
-
-Compiler Error Help
------------------------
-
-There are an enormous number of possible *syntactic* errors in your source code
-that the compiler
-can detect.  
-
-.. index:: editor error annotations
-   syntax error annotations in editor
-   Xamarin Studio; editor error annotations
-   logical error
-   run-time error
-   
-**Errors shown** *while* **editing**:  If you use an editor like Xamarin Studio, 
-some of these errors are even checked while you type and are
-noted while you are editing.  They may be indicated with a 
-red squiggly underline, and possibly a red comment at the right.  Sometimes
-the squiggle is just because you are in the middle of something, but if it
-is still there after you complete a whole statement, there may well
-be an issue to look at.  Sometimes fixing the issue makes the annotation
-go away, but sometimes your program may really be fixed, 
-even though the error annotation
-does not go away *until you formally compile/build the whole program*.
-This annoying ambiguity leads some people to turn off error annotations,
-and just let
-the system note errors after a complete compile cycle.
-
-After compiling and getting an error, sometimes reading the error description 
-carefully  will help you 
-understand the problem.  Sometimes the error is very cryptic.   In those cases
-it might help to look at the C# .NET error documentation,
-
-   http://msdn.microsoft.com/en-us/library/ms228296.aspx.
-
-Each compiler error you make has a number shown in its description. 
-Many of these error numbers are shown in the left column
-of the linked page.  You can click to get a more complete explanation and 
-examples.
-
-Another important way to learn about the error messages is to leverage your
-experience:  After 
-you have eventually found how to fix your error, *allow the extra time* to
-use your new knowledge,
-look *back* at the original error message,
-and see if the error description text makes more sense now.  
-That should help next time,
-(and there usually is a next time). Even when the error description still 
-makes no particular sense, you may well get into the same situation again,
-with the same error number.  Then 
-remembering the issue you found in a previous time could help.
-
-Debugging can eat up an enormous amount of time, 
-so it is really worth your effort to understand the errors that you tend to make
-and the errors' relation to the error messages that you get.
-
-.. warning::
-   It is certainly helpful that the compiler finds *syntactic* errors for you,
-   but be sure to remember that compiling does *not* mean the program
-   will "work" and correctly do what you desire.  Test your compiled program
-   thoroughly to reduce the chance of *logical* errors remaining, that
-   cause *run-time* errors, or just the wrong results.
- 
-.. index:: sequential execution order
-   execution; sequential order
-   playing computer
- 
-.. _sequential-execution:
-     
-Sequential Execution
-----------------------
-
-A function like ``Main`` involves a sequence of statements to execute.
-The basic order of execution is *sequential*: 
-first statement, then second, ....
-This is the same as the *textual order*, so it is easy to follow.  Later in
-:ref:`Defining-Own-Functions`, :ref:`If-Statements`, and :ref:`While-Loops`,
-we will see more complicated 
-execution orders that do *not* match textual order.
-Whatever the order of execution given by the program, it is important to
-always keep track of the current state of the program, 
-one statement at a time: what statement was just executed,
-what are the values of variables after that statement's execution, 
-and what will be executed next. 
 
 For now consider a small, 
 artificial example program,
