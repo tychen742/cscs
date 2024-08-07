@@ -3,45 +3,105 @@
 
 .. _program-structure:
 
-C# Project Structure
+C# Program Structure
 =====================
 
-When we generate a "hello, world" console app using either the terminal or vscode, we 
-see that our Program.cs looks simple as below and we can write the executable code 
-directly. 
+The .NET templates
+----------------------
 
-.. code-block:: c#
-
-   // See https://aka.ms/new-console-template for more information
-   Console.WriteLine("Hello, World!");
-
-
-This is a C# feature called "top-level statements" in which the compiler will: 
-
-   - generate a Program class with an entry point method for the application; and 
-   - adds a set of implicit ``global using`` directives such as Microsoft.NET.Sdk to include the most common namespaces. 
-   
-While this friendly to new users, as we learn more about C# programming, 
-you will need to learn how to structure your code using namespaces and classes. 
-To use the old program style, you can use the ``--use-program-main`` 
-option to create a console app project with Main method. In the example 
-below, we use ``dotnet new console``` to create a new console project in the 
-empty testPrj directory:
+The .NET SDK comes with built-in templates for creating projects and files, including console apps, 
+class libraries, unit test projects, etc. For learning purposes, we will mainly use the console app 
+template. To see the list of templates, you may issue the ``dotnet new list`` command:
 
 .. code-block:: console
+   :emphasize-lines: 10
 
-   tychen@mac:~/workspace/tests/testPrj$ dotnet new console --use-program-main
 
-This will give us the project files such as:
+   PS C:\Users\tcn85> dotnet new list
+   These templates matched your input:
+   
+   Template Name                                 Short Name                  Language    Tags
+   --------------------------------------------  --------------------------  ----------  --------------------------
+   ASP.NET Core Web App (Model-View-Controller)  mvc                         [C#],F#     Web/MVC
+   ASP.NET Core Web App (Razor Pages)            webapp,razor                [C#]        Web/MVC/Razor Pages
+   Blazor Web App                                blazor                      [C#]        Web/Blazor/WebAssembly
+   Class Library                                 classlib                    [C#],F#,VB  Common/Library
+   Console App                                   console                     [C#],F#,VB  Common/Console
+
+
+We can try out the Console App template, which will give us a "Hello, World" message 
+when executing, by using either the terminal. In the terminal, let us 
+change directory (``cd``) into the test directory and issue command ``dotnet new console``. 
+The .NET SDK will generate a project for us, which will include the following files and 
+directories: 
 
 #. The ``Program.cs`` file
 #. The ``obj`` folder
 #. The ``testPrj.csproj`` file
 #. A ``bin`` directory will also be created.
 
+
+.. code-block:: console
+   :emphasize-lines: 9
+
+   PS C:\Users\tcn85> cd test                                                                                              PS C:\Users\tcn85\test> dotnet new console
+   The template "Console App" was created successfully.
+   .....   
+   PS C:\Users\tcn85\test> ls
+      Directory: C:\Users\tcn85\test
+   Mode                 LastWriteTime         Length Name
+   ----                 -------------         ------ ----
+   d-----          8/7/2024   2:54 PM                obj
+   -a----          8/7/2024   2:54 PM            105 Program.cs
+   -a----          8/7/2024   2:54 PM            252 test.csproj
+   -a----         7/26/2024   5:06 PM              0 test.txt
+   PS C:\Users\tcn85\test>
+
+From the terminal we can open vscode by typing ``code`` and Enter. 
+
 .. code-block:: console
 
-   tychen@mac:~/workspace/tests/testPrj$ ls
+   PS C:\Users\tcn85\test> code
+   PS C:\Users\tcn85\test>
+
+VS Code will open (and may generate some extra solution files). We then choose the 
+Explorer view and click on the Program.cs file. You will see that the Program.cs looks 
+simple as below and we are working the executable code directly. 
+
+.. code-block:: c#
+   :linenos:
+
+   // See https://aka.ms/new-console-template for more information
+   Console.WriteLine("Hello, World!");
+
+
+The template is very succinct because of a C# feature called "top-level statements", with 
+which the compiler automatically performs some tasks later: 
+
+   - generates a Program class with an entry point method for the application; and 
+   - adds a set of implicit ``global using`` directives such as Microsoft.NET.Sdk to include the most common namespaces. 
+   
+
+While this friendly to new users, as we learn more about C# programming, 
+you will need to learn how to structure your code using namespaces and classes. 
+To use the old program style, you can use the ``--use-program-main`` 
+option to create a console app project with ``Main method``. In the example 
+below, we first create a testPrj folder inside the tests folder, then change into the 
+testPrj folder, followed by issuing ``dotnet new console`` with the option ``--use-program-main``
+to create a new console project:
+
+.. code-block:: console
+
+   tychen@mac:~/tests/testPrj$ dotnet new console --use-program-main
+
+This will give us the same project files as running dotnet new console without the "---program-main" 
+option, but the Program.cs file will be different:
+
+
+
+.. code-block:: console
+
+   tychen@mac:~/tests/testPrj$ ls
    Program.cs     obj            testPrj.csproj
 
 

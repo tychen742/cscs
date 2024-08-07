@@ -5,7 +5,7 @@
 Development Tools 
 ===============================
 
-The tools requred for this book include the .NET SDK, VS Code, and the C# extension 
+The tools required for this book include the .NET SDK, VS Code, and the C# extension 
 (a VS Code extension). In addition, we will also use the command line interface 
 (CLI, the Command Prompt in Windows or shell in macOS/Linux, or just "the terminal") 
 for certain operations from time to time. 
@@ -74,28 +74,30 @@ To start navigating around the file system structure, some of the essential comm
 
 Some special pathname characters are commonly used for specifying paths:
 
-  * ``/`` is the root of the system's file directory tree structure
-  * ``~`` is the user's home directory
-  * ``..`` is the pathname of the directory one-level up of the current directory
-  * ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
+* ``/`` is the root of the system's file directory tree structure
+* ``~`` is the user's home directory
+* ``..`` is the pathname of the directory one-level up of the current directory
+* ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
 
 As an example, you may open your terminal app, create a directory called ``test`` in your home 
 directory, then change into directory test, create a empty file called test.txt, and then change 
 your location back to the home directory. The whole process should look similar to this in Windows:
 
 .. code-block:: bash
-   
-   PS C:\Users\username> wsl
-   username@COMPUTER:/mnt/c/Users/username$ mkdir test
-   username@COMPUTER:/mnt/c/Users/username$ cd test
-   username@COMPUTER:/mnt/c/Users/username/test$ touch test.txt
-   username@COMPUTER:/mnt/c/Users/username/test$ ls
+
+   PS C:\Users\username> wsl                              ### start the Windows Subsystem for Linux
+   username@COMPUTER:/mnt/c/Users/username$ mkdir test    ### create the test directory
+   username@COMPUTER:/mnt/c/Users/username$ cd test       ### change into the test directory
+   username@COMPUTER:/mnt/c/Users/username/test$ touch test.txt ### create an empty file
+   username@COMPUTER:/mnt/c/Users/username/test$ ls       ### list storage to see the file
    test.txt
-   username@COMPUTER:/mnt/c/Users/username/test$ cd ..
+   username@COMPUTER:/mnt/c/Users/username/test$ cd ..    ### change to the upper directory
    username@COMPUTER:/mnt/c/Users/username$
 
-.. .. image:: ../images/shell_test_windows.jpg
-..    :scale: 25%
+.. figure:: ../images/shell_test_windows.jpg
+    :scale: 25%
+
+    Creating a test directory and a test file in Windows using wsl. 
 
   
 
@@ -117,36 +119,42 @@ almost every other programming languages and technology as long as they involve 
 
    Visual Studio Code remains the preferred IDE across all developers. [#f]_
 
-As an example, the popular IDE/editor VS Code user interface include several panes:   
+The popular IDE/editor VS Code user interface include several panes:   
 
- A. Activity Bar - Where you change Views. For example, the default view is Explorer and you click on the Extensions view to manage extensions. 
- B. Primary Side Bar 
- C. Editor
- D. Panel
- E. Status Bar
+A. Activity Bar - Where you change Views. For example, the default view is Explorer for managing files. 
+B. Primary Side Bar 
+C. Editor
+D. Panel
+E. Status Bar
 
-In the Activity Bar, you can access different Views such as:
+**Activity Bar**: In the Activity Bar on the left of the window, you can access different 
+Views such as:
 
- #. Search - Provides global search and replace across your open folder.
- #. Source Control - VS Code includes Git source control by default.
- #. Run - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
- #. Extensions - Install and manage your extensions within VS Code.
- #. Custom views - Views contributed by extensions.
+#. Search - Provides global search and replace across your open folder.
+#. Source Control - VS Code includes Git source control by default.
+#. Run - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
+#. Extensions - Install and manage your extensions within VS Code.
+#. Custom views - Views contributed by extensions.
 
   .. figure:: ../images/vscode_interface.jpg
    :scale: 50%
 
    Basic elements in VS Code user interface [#]_
 
- In addition to the UI elements, an important key combination to learn is 
- Ctrl + Shift + P on Windows and Linux, or Shift + Command + P on Mac. Command 
- palette gives access to all the functionality within VS Code. For example, 
- if you type ``.NET`` at the command palette, you get to access the .NET commands 
- and features as follows.
-
- .. figure:: ../images/command_pallette_dontnet.jpg
-   :scale: 25%
+**Terminal**: In the Panel section, you have access to the TERMINAL and other console tabs. The Terminal 
+is the same as your terminal application. When you open a project, the Terminal will be 
+default to the project directory. You may use Cmd+J (Ctl+J) to toggle the Panel sometimes.  
  
+**Command Palette**: In addition to the UI elements, an important key combination to learn is 
+Ctrl + Shift + P on Windows and Linux, or Shift + Command + P on Mac. Command 
+palette gives access to all the functionality within VS Code. For example, 
+if you type ``.NET`` at the command palette, you get to access the .NET commands 
+and features as follows.
+
+.. figure:: ../images/command_pallette_dontnet.jpg
+  :scale: 25%
+
+Using vscode Command Palette
     
 
 
