@@ -66,13 +66,13 @@ as /home/USER_NAME.
 
 To start navigating around the file system structure, some of the essential commands include:
 
-  * ``ls`` (list storage) to show the files and directories in the current directory
-  * ``pwd`` (present working directory) to see the full path of the current directory
-  * ``mkdir`` *folder* (make directory) to create a new directory called *folder*
-  * ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
-  * ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
-  * ``touch *filename*`` to create an empty file.
-  * ``exit`` to exit out of the terminal app.
+* ``ls`` (list storage) to show the files and directories in the current directory
+* ``pwd`` (present working directory) to see the full path of the current directory
+* ``mkdir`` *folder* (make directory) to create a new directory called *folder*
+* ``cd *path*`` (change directory) to change in the *path* directory in the directory tree structure \(path ".." means the upper level directory).
+* ``^+C`` (hold the Control key and then hit the C key) to terminate a process.
+* ``touch *filename*`` to create an empty file.
+* ``exit`` to exit out of the terminal app.
 
 Some special pathname characters are commonly used for specifying paths:
 
@@ -100,7 +100,7 @@ your location back to the home directory. The whole process should look similar 
 If you use macOS, the process should look similar enough:
 
 .. figure:: ../images/shell_create_workspace_tests.jpg
-    :scale: 25%
+    :scale: 35%
 
     Creating a workspace directory, tests subdirectory, and a test file in macOS.
 
@@ -159,7 +159,7 @@ and features as follows.
 .. figure:: ../images/command_pallette_dontnet.jpg
   :scale: 25%
 
-Using vscode Command Palette
+  Using vscode Command Palette
     
 
 
