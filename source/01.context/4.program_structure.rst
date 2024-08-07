@@ -57,11 +57,11 @@ directories:
    -a----         7/26/2024   5:06 PM              0 test.txt
    PS C:\Users\tcn85\test>
 
-From the terminal we can open vscode by typing ``code`` and Enter. 
+From the terminal we can open vscode by typing ``code .`` (the dot ``.`` means the current directory) and Enter. 
 
 .. code-block:: console
 
-   PS C:\Users\tcn85\test> code
+   PS C:\Users\tcn85\test> code .
    PS C:\Users\tcn85\test>
 
 VS Code will open (and may generate some extra solution files). We then choose the 

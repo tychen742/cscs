@@ -19,7 +19,9 @@ SDKs are normally specific to a hardware platform and operating system combinati
 
 - *Runtime*: 
   
-  As part of the .NET SDK, the .NET runtime is a virtual machine that converts the compiled intemedate code into macine code to be executed on the CPU. In addition, the .NET runtime provides an envrionment, that perfomrs services such as exception handling and garbage collection. 
+  As part of the .NET SDK, the .NET runtime is a virtual machine that converts the compiled intermediate code into 
+  machine code to be executed on the CPU. In addition, the .NET runtime provides an environment, that performs 
+  services such as exception handling and garbage collection. 
 
 
 
@@ -85,19 +87,22 @@ your location back to the home directory. The whole process should look similar 
 
 .. code-block:: bash
 
-   PS C:\Users\username> wsl                              ### start the Windows Subsystem for Linux
-   username@COMPUTER:/mnt/c/Users/username$ mkdir test    ### create the test directory
-   username@COMPUTER:/mnt/c/Users/username$ cd test       ### change into the test directory
-   username@COMPUTER:/mnt/c/Users/username/test$ touch test.txt ### create an empty file
-   username@COMPUTER:/mnt/c/Users/username/test$ ls       ### list storage to see the file
+   PS C:\Users\tcn85> mkdir workspace             ### create the workspace directory in user home directory
+   PS C:\Users\tcn85> cd workspace                ### change directory into workspace
+   PS C:\Users\tcn85\workspace> mkdir tests       ### create the tests directory
+   PS C:\Users\tcn85\workspace> cd test           ### change into the test directory
+   PS C:\Users\tcn85\workspace\tests> new-item test.txt   ### create an empty file; use "touch test.txt" if you use macOS. 
+   PS C:\Users\tcn85\workspace\tests> ls          ### list storage to see the file
    test.txt
-   username@COMPUTER:/mnt/c/Users/username/test$ cd ..    ### change to the upper directory
-   username@COMPUTER:/mnt/c/Users/username$
+   PS C:\Users\tcn85\workspace\tests> cd ../..    ### change to the upper directory twice
+   PS C:\Users\tcn85>
 
-.. figure:: ../images/shell_test_windows.jpg
+If you use macOS, the process should look similar enough:
+
+.. figure:: ../images/shell_create_workspace_tests.jpg
     :scale: 25%
 
-    Creating a test directory and a test file in Windows using wsl. 
+    Creating a workspace directory, tests subdirectory, and a test file in macOS.
 
   
 
