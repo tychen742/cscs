@@ -38,7 +38,7 @@ and output the resulted outcome.
 
 .. index:: programming
 
-Programming
+Programming Constructs
 ---------------------------------
 
 To learn a natural language, we may start with some basic words for daily usage. Similarly, when it 
@@ -154,9 +154,23 @@ languages, such as all .NET languages (including C#), Java, Python, and PHP use 
 compilers [#f4]_.
 
 
-Standard Library/Documentation
--------------------------------
+Handling Errors 
+-----------------------
 
+We will surely make mistakes when learning how to program. The three common types of 
+errors in programming and the ways we handle are: 
+
+- Syntax Error: These errors happen when the syntax of a programming language is 
+  not followed correctly. For compiled languages, syntax errors are detected at 
+  compile-time and a program will not compile until all syntax errors are corrected. 
+  Syntax errors therefore are often referred to as compile time errors. 
+- Run-Time Error: These errors occur after a program is compiled successfully and 
+  while a program is running, often due to memory issues or improper data types. This 
+  type of errors are often referred as "bugs". 
+- Logical Error: Also known as semantic errors, these errors occur when the code 
+  is syntactically correct, will not produce a runtime error, but produces 
+  incorrect or unexpected results. This could be due to flawed logic, incorrect 
+  algorithmic implementation, or other issues.
 
 
 

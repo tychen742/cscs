@@ -126,27 +126,30 @@ Create C# Projects for "hello, world" Apps
 
 #.  Create a C# Hello World app project (hello1)
 
-    The .NET platform uses *solutions* and *projects* to organize code items in specific structure.
-    A solution is a container for one or more projects, and each project would contain source code files. 
-    You are encouraged to create a *single solution for this course*, with all the projects that you create 
-    in the solution [#]_ but we will first create a test project to practice that. We start by creating a *solution* with a *project* in it. The images are from
-    a Mac but Windows versions should look similar.
+   You are encouraged to create a *single solution for this course*, with all the projects that you create 
+   in the solution  but we will first create a test project to practice that. We start by creating 
+   a *solution* with a *project* in it. The images are from a Mac but Windows versions should look similar.
 
-    We will create our first "hello, world" app in the "tests" folder in your 
-    "workspace" folder by going through the following steps: 
+    We will create our first "hello, world" app project in the "tests" (the solution) folder 
+    in your "workspace" folder by going through the following steps: 
     
     #. In a newly opened VS Code window (File --> New Window if you are using 
-       VS Code for some other tasks), choose "Create .NET Project" from the Explorer 
-       view and choose "Console App" from the Command Palette. Alternatively, 
-       Cmd-Shift-P, Win-Shift-P, or View --> Command Palette to bring up Command Palette 
-       and then type .NET: New Project, then select "Console App" as your project template. 
+       VS Code for some other tasks), click on the Explorer view and choose 
+       "Create .NET Project" and then "Console App" from the Command Palette dropdown menu. 
+       Alternatively, you may use Cmd-Shift-P, Win-Shift-P, or View --> Command Palette 
+       to bring up Command Palette and then type .NET: New Project, then select 
+       "Console App" as your project template. 
+       
+       .. figure:: ../images/create_dotnet_project.jpg
+         :scale: 30%
+         
 
-    #. Choose the project directory. In our example here, choose the *tests* directory
+    #. Choose the project directory. In our example here, **Open** the *tests* directory
        that we created in the workspace directory under the user home directory.  
     
     #. Choose a name for your project. In this example, type hello1 as the project name
-       and Enter to confirm the project path. You should see the hello1 project created 
-       along with a test.sln solution file. 
+       and Enter to confirm the name and Enter again to confirm the project path. 
+       You should see the hello1 project created along with a test.sln solution file. 
 
        .. figure:: ../images/hello1_project_created.jpg
         :scale: 30%
@@ -237,8 +240,5 @@ github
 
 
 
-.. [#] Visual Studio requires a solution file in order to be run. Although a solution is not required for projects, it offer some benefts such as project configuration and building all projects at once. 
 .. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
 .. [#] Wikipedia Contributors. (2024, July 25). “Hello, World!” program. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
-
-‌

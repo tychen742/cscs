@@ -1,0 +1,203 @@
+Data Types
+=========================
+
+Data types are used when assigning values to variables. In programming, 
+a piece of data refers to a value that is stored in the computer's memory. A number 
+``10``, for example, is stored in the memory as ``1010``. As the number get extremely 
+large or small or complex, or when different types of data such as text are introduced, 
+the designers of the the programming language need to decide how much memory to save 
+for different types of values, hence different data types other than just the binary 
+system to achieve more efficient use of memory. 
+
+There two kinds of data types is C#: **reference types** and **value types**. Variables of 
+value types contain the data directory while variables of reference types point to 
+data values data values (objects) somewhere else. Value types are predefined types 
+and are available in C# as keywords. These keywords are aliases of types defined in the 
+.NET Class Library. For example, the C# keyword int is an alias of a value type defined 
+in the .NET Class Library as System.Int32.
+
+In C#, some of the basic value data types include:
+
+   ========== =====================   ==================================================================
+   Type	      Size	                  Description
+   ========== =====================   ==================================================================
+   ``int``	  4 bytes	              Stores whole numbers from -2,147,483,648 to 2,147,483,647
+   ``long``	  8 bytes	              Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+   ``float``  4 bytes	              Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+   ``double`` 8 bytes	              Stores fractional numbers. Sufficient for storing 15 decimal digits
+   ``bool``	  1 bit	                  Stores true or false values
+   ``char``	  2 bytes	              Stores a single character/letter, surrounded by single quotes
+   ``string`` 2 bytes per character	  Stores a sequence of characters, surrounded by double quotes
+   ========== =====================   ==================================================================
+
+
+The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
+an equal number of positive and negative numbers; whereas An unsigned type uses its bytes to represent 
+only positive numbers. As an example, 
+
+.. code-block:: c#
+
+    Console.WriteLine("Signed integral types:");
+
+    Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
+    Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
+    Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+
+    Console.WriteLine("");
+    Console.WriteLine("Unsigned integral types:");
+
+    Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+    Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+    Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+    Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
+
+We would see the output as below:
+
+.. code-block:: console
+    
+    Signed integral types:
+    sbyte  : -128 to 127
+    short  : -32768 to 32767
+    int    : -2147483648 to 2147483647
+    long   : -9223372036854775808 to 9223372036854775807
+
+    Unsigned integral types:
+    byte   : 0 to 255
+    ushort : 0 to 65535
+    uint   : 0 to 4294967295
+    ulong  : 0 to 18446744073709551615
+
+
+
+
+
+Type Casting 
+----------------
+
+C# has specific types but from time to time we may need our data to switch between 
+the types. This switch may be implicit or explicit, meaning the conversion may 
+happen automatically by C# or explicitly by the programmer.  
+
+Going from ``int`` to ``double`` has no issue:  Any ``int`` can be exactly
+represented as a ``double``.  Code like the following is fine:
+
+.. code-block:: none
+
+    csharp> int i = 33;
+    csharp> double d = i;
+    csharp> double x;
+    csharp> x = 11;
+    csharp> double z = i + 2.5;
+    csharp> ShowVars(); 
+    int i = 33
+    double d = 33
+    double x = 11
+    double z = 35.5
+
+The ``double`` variable ``d`` is initialized with the value of an ``int`` variable.
+The ``double`` variable ``x`` is assigned a value using an ``int`` literal.
+The ``double`` variable ``z`` is initialized with the value of a sum involving
+both an ``int`` variable and a ``double`` literal.  As we have discussed before in 
+:ref:`arithmetic`, the ``int`` is converted to a ``double`` before the addition
+operation is done.
+
+The other direction for conversion is more problematic:
+
+.. code-block:: none
+
+    csharp> double d= 2.7;
+    csharp> int i;
+    csharp> i = d;
+    {interactive}(1,4): error CS0266: Cannot implicitly convert type
+       'double' to 'int'. 
+    An explicit conversion exists (are you missing a cast?)
+
+The ``int`` ``i`` cannot accurately hold the value 2.7.  
+Since the compiler does this checking, looking only at types, not values, this even
+fails if the the ``double`` happens to have an integer value:
+    
+.. code-block:: none
+
+    csharp> double d = 2.0;
+    csharp> int i = d;
+    {interactive}(1,4): error CS0266: Cannot implicitly convert type
+       'double' to 'int'. 
+    An explicit conversion exists (are you missing a cast?)
+
+.. index:: truncate in cast
+    
+If you really want to possibly lose precision and convert a ``double`` to 
+an ``int`` result, you *can* do it, but you must be explicit, using a *cast*
+as the csharp error messages suggest. 
+
+.. code-block:: none
+
+    csharp> double d= 2.7;
+    csharp> int i;
+    csharp> i = (int)d;
+    csharp> i;
+    2
+    
+The desired result type name in parentheses ``(int)`` is a *cast*, telling the compiler
+you really intend the conversion.  Look what is lost!  The cast does not
+*round* to the nearest integer, it *truncates* toward 0, dropping the fractional
+part, .7 here.
+
+.. index:: Round function
+
+Rounding is possible, but if you really want the ``int`` type, it takes two steps,
+because the function ``Math.Round`` does round to a mathematical integer, but leaves
+the type as ``double``!  To round ``d`` to an ``int`` result we could use:
+
+.. code-block:: none
+
+    csharp> i = (int)Math.Round(d); 
+    csharp> i;
+    3
+
+You can also use an explicit cast from int to double.  This is generally not needed,
+because of the automatic conversions, but there is one place where it is 
+important:  if you want ``double`` division but have ``int`` parts.  Here is a 
+quick artificial test:
+
+.. code-block:: none
+
+    csharp> int sum = 14;
+    csharp> int n = 4;
+    csharp> double avg = sum/n;
+    csharp> avg;  
+    3
+    
+Oops, integer division.  Instead, continue with:
+
+.. code-block:: none
+
+    csharp> avg = (double)sum/n;
+    csharp> avg;
+    3.5
+
+We get the right decimal answer.  
+
+This is a bit more subtle than it may appear:  
+The cast to double, ``(double)``
+is an operation in C# and so it has a *precedence* like all operations.  Casting
+happens to have precedence higher than any arithmetic operation, so the expression is 
+equivalent to::
+
+    avg = ((double)sum)/n;
+
+On the other hand, if we switch the order the other way with parentheses around the
+division:
+
+.. code-block:: none
+
+    csharp> avg = (double)(sum/n);
+    csharp> avg;
+    3
+
+then working *one* step at a time, ``(sum/n)`` is *integer* division, 
+with result 3.  It is the 3 that is then cast to a double (too late)!
+
+See the appendix :ref:`precedence`, listing all C# operations discussed in this book. 
+
+

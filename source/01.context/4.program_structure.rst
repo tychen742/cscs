@@ -37,7 +37,7 @@ This will give us the project files such as:
 #. The ``Program.cs`` file
 #. The ``obj`` folder
 #. The ``testPrj.csproj`` file
-#. A ``bin`` directory will be created later after we build and run the application.
+#. A ``bin`` directory will also be created.
 
 .. code-block:: console
 
@@ -73,8 +73,8 @@ here so we have better ideas about the basic structure of C#.
    For example, we may define a namespace as below 
    to contain unique **reference type** code elements. We are not 
    going to dive into the reference types now and we only need to observe that 
-   that these types (class, interface, struct, ...) are not **value types** such 
-   as int, float, and string as predefined by .NET for us, but **reference types**.  
+   that these are the types (class, interface, struct, ...) that C# programmer 
+   create functionalities for the app.  
 
    .. code-block:: 
 
@@ -115,9 +115,9 @@ here so we have better ideas about the basic structure of C#.
    - methods (actions applied to the data).  
 
 #. The ``Main`` method:
-   The most common entry point of a C# program is static void Main() or static 
-   void Main(String []args). The Main method is the entry point of a program and 
-   therefore the first method invoked when an application is executed. 
+   The most common Main methods of a C# program are probably ``static void Main()`` 
+   and ``static void Main(String []args)``. The Main method is the entry point 
+   of a program and therefore the first method invoked when an application is executed. 
 
 #. ``method``:
    A method is an object-oriented term for function, which is a series of statements 
@@ -134,46 +134,6 @@ here so we have better ideas about the basic structure of C#.
    string array; meaning when calling this method we send the arguments in and they 
    are zero-indexed as an array.  
    
-
-
-| ``using System;`` 
-|
-| ``class`` **ClassName** 
-| ``{``
-|    ``static void Main()``
-|    ``{``
-|          program statements go here....
-|
-|    ``}``
-| ``}``
-
-By convention class names are capitalized.
-
- 
-
-Here is a silly little test illustrating the difference between ``Console.WriteLine``
-and ``Console.Write``, in example :repsrc:`write_test/write_test.cs`:
-
-.. literalinclude:: ../../examples/introcs/write_test/write_test.cs
-
-When run, the program prints:
-
-..  code-block:: none
-
-    hellotherehello
-    Another line
-    Starting yet another line
-    
-Do you see how the output shows the differences between ``WriteLine`` and ``Write``?
-If we added another printing statement, where would the beginning of 
-the output appear:
-after the final ``e`` or under the ``S`` of Starting?
-
-.. index:: Xamarin Studio; indentation options setting
-   indentation options in Xamarin Studio
-   tabs changed to spaces
-
-.. _indentation_help:
 
 Indentation Help
 -----------------------
@@ -206,19 +166,27 @@ in a solution, like your work solution:
    and have the middle check box (Allow tabs after non-tabs) *unchecked*.
 #. Click OK in the bottom right corner.
  
-.. note:
-   If you keep all your projects in one solution (like *work*), then you only need to make 
-   this setting once.  Otherwise you need to repeat it for each other solution.
 
-Tabs vs. spaces is not a significant issue inside a consistent environment,
-like Xamarin Studio, but if there are tab characters in a file, 
-they can be expanded different amounts by different display programs.  
-Then particularly if you mix tab characters and spaces you can get 
-something very strange.
-If only spaces are used, there is no ambiguity in different displays.
+Solutions and projects
+-----------------------
 
-The 3 vs. 4 spaces is not a big deal, but 3 appears to be large enough to see 
-easily, and makes lines with nested indentation have more room.
+The .NET platform uses *solutions* and *projects* to organize code items in specific structure. 
+A solution is a container or workspace for one or more projects, and each project would 
+contain source code files [#]_. A web app solution, for example, may include a website project, 
+a database project, and a server-side API project; and each of the project will be named 
+differently under different project folders inside the solution directory.
+
+The idea of a project is probably what comes to mind first when beginning with the development 
+of an application. To create a project, you may go to the project directory in command line 
+and simply issue the command of ``dotnet new console`` to create an app project. This will create a 
+project without a solution. 
+
+On the other hand, the first time you create a project in a folder using vscode's Create .NET 
+Project button in the Explorer view, a solution will be created with the same name as the 
+project. This may not be ideal since we may not want the solution to be named the same as 
+the first project. A better way to create a solution, therefore, may be to create a solution 
+by issuing commands ``dotnet new sln`` in your solution directory. 
+
 
 .. index:: compiler error; explanation link
 
@@ -412,3 +380,4 @@ Line  s         t       Comment
 12  
 ====  ========  ======  =============================
 
+.. [#] Although a solution is not required for projects to execute, it offer some benefits such as project configuration and building all projects at once. 
