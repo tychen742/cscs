@@ -154,7 +154,7 @@ here so we have better ideas about the basic structure of C#.
 #. ``using System;``:  
 
    Starting .NET 6, ``using System`` is implicit as defined in the csproj file so 
-   now shown in the Program.cs file. We should know that, ``System`` is a namespace that contains basic defined value 
+   it is not shown in the Program.cs file. We should know that, ``System`` is a namespace that contains basic defined value 
    and reference types. The ``using`` directive, works like "import", allows you to use the types defined in 
    a namespace without specifying the fully qualified namespace of that type. 
    The ``using`` directive imports all the types from a single namespace. For example, 
