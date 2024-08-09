@@ -1,34 +1,72 @@
 Data Types
 =========================
 
-Data types are used when assigning values to variables. In programming, 
-a piece of data refers to a value that is stored in the computer's memory. A number 
-``10``, for example, is stored in the memory as ``1010``. As the number get extremely 
-large or small or complex, or when different types of data such as text are introduced, 
+A data type specifies the size and type of variable values. In other words, data types 
+are used when assigning values to variables. In programming, "data" refers 
+to a value that is stored in the computer's memory. A number 
+``10``, for example, is stored in the memory as ``1010``. As the number get  
+extremely larger or smaller or complex, or when different types of data such as text are introduced, 
 the designers of the the programming language need to decide how much memory to save 
 for different types of values, hence different data types other than just the binary 
 system to achieve more efficient use of memory. 
 
-There two kinds of data types is C#: **reference types** and **value types**. Variables of 
-value types contain the data directory while variables of reference types point to 
-data values data values (objects) somewhere else. Value types are predefined types 
+There are two kinds of data types in C#: **reference types** and **value types**. 
+Variables of value types contain the data directory while variables of reference types 
+stores reference to the data known as objects. Value types are predefined types 
 and are available in C# as keywords. These keywords are aliases of types defined in the 
 .NET Class Library. For example, the C# keyword int is an alias of a value type defined 
-in the .NET Class Library as System.Int32.
+in the .NET Class Library as System.Int32.[#]_
 
-In C#, some of the basic value data types include:
+Common Data Types in C#
+-----------------------------
 
-   ========== =====================   ==================================================================
-   Type	      Size	                  Description
-   ========== =====================   ==================================================================
-   ``int``	  4 bytes	              Stores whole numbers from -2,147,483,648 to 2,147,483,647
-   ``long``	  8 bytes	              Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
-   ``float``  4 bytes	              Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
-   ``double`` 8 bytes	              Stores fractional numbers. Sufficient for storing 15 decimal digits
-   ``bool``	  1 bit	                  Stores true or false values
-   ``char``	  2 bytes	              Stores a single character/letter, surrounded by single quotes
-   ``string`` 2 bytes per character	  Stores a sequence of characters, surrounded by double quotes
-   ========== =====================   ==================================================================
+C# is a "strongly typed" language, meaning that every variable and constant has a type. 
+Also, types are required for expressions that evaluate to a value, method declarations 
+with names, input parameters, and return values. Some examples of the most common value 
+types are in variable assignment are as follows. 
+
+.. code-block:: console
+
+    int myNum = 5;                  // Integer (whole number)
+    long myNum = 15000000000L;      // Integer 
+    double myDoubleNum = 5.99D;     // Floating point number
+    char myLetter = 'D';            // Character
+    bool myBool = true;             // Boolean
+    string myText = "Hello";        // String
+
+Note that C# requires number suffixes, especially for floating-point types, when assigning 
+numeric literals. The purpose of using suffixes is to help the compiler unambiguously 
+identify the data type of the value/literal. The basic rules for number suffixes are:
+
+- The number literal without suffix or with the d or D suffix is of type double
+- f or F suffix is of type float
+- m or M suffix is of type decimal
+- l or L for long 
+- U or u for unsigned integer
+- UL or ul for unsigned long
+- If an integral literal has no suffix, its type is the first of the following types in 
+  which its value can be represented: int, uint, long, ulong.
+  
+
+To make our code works correctly and more memory-efficient, we need to choose the appropriate 
+data types according to the design requirements of the variable. Different types are therefore 
+designed to meet the needs of the scenario. For example, for financial unit, decimal is a better 
+choice because it is designed for the purpose of holding a larger range of digits with 
+higher precision. Considerations for memory size of types, for example,
+can be seen in the table below. 
+
+============ =====================  =============== ==================================================================
+Type	      Size	                 Precision        Description
+============ =====================  =============== ==================================================================
+``int``	     4 bytes	                              Stores whole numbers from -2,147,483,648 to 2,147,483,647
+``long``     8 bytes	                              Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+``float``    4 bytes	             ~6-9 digits      Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+``double``   8 bytes	             ~15-17 digits    Stores fractional numbers ±1.5 x 10−45 to ±3.4 x 1038. Sufficient for storing 15 decimal digits
+``decimal``  16 bytes                28-29 digits     Stores fractional numbers ±1.0 x 10-28 to ±7.9228 x 1028
+``bool``     1 bit	                                  Stores true or false values
+``char``     2 bytes	                              Stores a single character/letter corresponding to Unicode character set, surrounded by single quotes
+``string``   2 bytes per character                    Stores a sequence of characters, surrounded by double quotes
+============ =====================  =============== ==================================================================
 
 
 The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
@@ -68,49 +106,75 @@ We would see the output as below:
     ulong  : 0 to 18446744073709551615
 
 
+C# has a type system with plenty of types defined. There are 4 reference types:  : class type, 
+interface type, array type, and delegate type. Under class type, types such as string and array 
+are defined. For value types, C# defines a simple types as follows.
+
+simple_type
+    : numeric_type
+    | 'bool'
+    ;
+
+numeric_type
+    : integral_type
+    | floating_point_type
+    | 'decimal'
+    ;
+
+integral_type
+    : 'sbyte'
+    | 'byte'
+    | 'short'
+    | 'ushort'
+    | 'int'
+    | 'uint'
+    | 'long'
+    | 'ulong'
+    | 'char'
+    ;
+
+floating_point_type
+    : 'float'
+    | 'double'
+    ;
 
 
 
-Type Casting 
+
+Type Conversion 
 ----------------
 
 C# has specific types but from time to time we may need our data to switch between 
-the types. This switch may be implicit or explicit, meaning the conversion may 
-happen automatically by C# or explicitly by the programmer.  
+the types. This switch may be implicit or explicit. Implicit conversion means the 
+conversion happens automatically, such as a type int can implicitly be treated 
+as a type long. 
 
-Going from ``int`` to ``double`` has no issue:  Any ``int`` can be exactly
-represented as a ``double``.  Code like the following is fine:
+For integral numeric types, if the destination type can store 
+all values of the source type, the conversion is implicit. Otherwise, you need to 
+use a cast expression to perform an explicit conversion. Other conversions between any floating-point type to any other floating-point type requires 
+For floating-point numeric types, conversion from float to double is implicit. 
+explicit cast.
 
-.. code-block:: none
+Since conversion involves the defined size, conversion (casting) can be understand as:
 
-    csharp> int i = 33;
-    csharp> double d = i;
-    csharp> double x;
-    csharp> x = 11;
-    csharp> double z = i + 2.5;
-    csharp> ShowVars(); 
-    int i = 33
-    double d = 33
-    double x = 11
-    double z = 35.5
+Implicit Casting (automatically) 
+  - converting a smaller type to a larger type size
+    char -> int -> long -> float -> double
 
-The ``double`` variable ``d`` is initialized with the value of an ``int`` variable.
-The ``double`` variable ``x`` is assigned a value using an ``int`` literal.
-The ``double`` variable ``z`` is initialized with the value of a sum involving
-both an ``int`` variable and a ``double`` literal.  As we have discussed before in 
-:ref:`arithmetic`, the ``int`` is converted to a ``double`` before the addition
-operation is done.
+Explicit Casting (manually) 
+  - converting a larger type to a smaller size type
+    double -> float -> long -> int -> char
 
-The other direction for conversion is more problematic:
+For instance,  the conversion from type int to type long is implicit, so expressions of type int 
+can implicitly be treated as type long. On the other hand, The opposite conversion, from type 
+long to type int, is explicit and so an explicit cast is required.
 
-.. code-block:: none
+.. code-block:: c#
 
-    csharp> double d= 2.7;
-    csharp> int i;
-    csharp> i = d;
-    {interactive}(1,4): error CS0266: Cannot implicitly convert type
-       'double' to 'int'. 
-    An explicit conversion exists (are you missing a cast?)
+    int a = 123;
+    long b = a;      // implicit conversion from int to long by reassignment
+    int c = (int) b; // explicit conversion from long to int    
+
 
 The ``int`` ``i`` cannot accurately hold the value 2.7.  
 Since the compiler does this checking, looking only at types, not values, this even
@@ -119,12 +183,12 @@ fails if the the ``double`` happens to have an integer value:
 .. code-block:: none
 
     csharp> double d = 2.0;
+
     csharp> int i = d;
     {interactive}(1,4): error CS0266: Cannot implicitly convert type
        'double' to 'int'. 
     An explicit conversion exists (are you missing a cast?)
 
-.. index:: truncate in cast
     
 If you really want to possibly lose precision and convert a ``double`` to 
 an ``int`` result, you *can* do it, but you must be explicit, using a *cast*
@@ -201,3 +265,7 @@ with result 3.  It is the 3 that is then cast to a double (too late)!
 See the appendix :ref:`precedence`, listing all C# operations discussed in this book. 
 
 
+
+
+.. rubric:: Footnotes
+    [#] For a list of all specified value types, see, for example: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#83-value-types 

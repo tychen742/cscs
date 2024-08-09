@@ -216,4 +216,18 @@ the first project. A better way to create a solution, therefore, may be to creat
 by issuing commands ``dotnet new sln`` in your solution directory. 
 
 
-.. [#] Although a solution is not required for projects to execute, it offer some benefits such as project configuration and building all projects at once. 
+Comments and 
+--------------------
+Comments are important as they make code more readable. C# offers single-line and multiple-line 
+comments:
+
+Single-line Comments
+   Single-line comments start with two forward slashes (//). Any text between // and the end of the line is ignored by C# (will not be executed).
+
+Multi-line Comments
+   Multi-line comments start with /* and ends with \*/. Any text between /* and \*/ will be ignored by C#.
+
+
+
+.. rubric:: Footnotes
+   .. [#] Although a solution is not required for projects to execute, it offer some benefits such as project configuration and building all projects at once. 

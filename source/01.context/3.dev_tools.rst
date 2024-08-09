@@ -162,6 +162,23 @@ and features as follows.
   Using vscode Command Palette
     
 
+Other Development Tools
+------------------------
+
+There are plenty of development tools that are worthy of our time to learn, except that we would 
+not be able to learn all of them in one semester. A short list of those tools would include:
+
+- REPL
+  While VS Code and .NET templates have made coding C# easy, REPL (read–eval–print loop, or 
+  language shell) provides immediate execution and result return, which can be useful 
+  as we get to see immediate feedback of your code. CSharpRepl can be installed by issuing 
+  ``dotnet tool install -g csharprepl`` and activated by typing csharprepl at command line 
+  to enable direct execution of C# code without creating projects and files. 
+- Version Control (GitHub...)
+- Containerization (Docker)
+- Shell Scripting (Bash)
+
+
 
 .. [#] See: Wikipedia Contributors. (2024, July 2). Software development kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Software_development_kit
 .. [#] The Microsoft .NET (".NET Core" before version 5) platform is an open-sourced cross-platform development platform. The .NET predecessor, ".NET Framework", on the other hand, is an SDK for developing software that runs primarily on Microsoft Windows. Wikipedia Contributors. (2024, July 1). .NET Framework. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/.NET_Framework
