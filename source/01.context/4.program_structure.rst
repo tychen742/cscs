@@ -216,8 +216,8 @@ the first project. A better way to create a solution, therefore, may be to creat
 by issuing commands ``dotnet new sln`` in your solution directory. 
 
 
-Comments and 
---------------------
+Statements, Comments, Curly Braces, and Semicolon
+---------------------------------------------------
 Comments are important as they make code more readable. C# offers single-line and multiple-line 
 comments:
 
@@ -227,6 +227,9 @@ Single-line Comments
 Multi-line Comments
    Multi-line comments start with /* and ends with \*/. Any text between /* and \*/ will be ignored by C#.
 
+
+Semicolons work as statement terminator character in C# and are required because they prevent syntax ambiguities. 
+Semicolons after method or accessor block, however, is not allowed. 
 
 
 .. rubric:: Footnotes
