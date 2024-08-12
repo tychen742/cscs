@@ -5,25 +5,10 @@
 Arithmetic
 ==================
 
-We start with the integers and integer arithmetic, not because
-arithmetic is exciting, but because the symbolism should be mostly
-familiar. Of course arithmetic is important in many cases, but
-C# is often used to manipulate text and other
-sorts of data.
-
-
-.. index:: csharp
-
-.. _csharp:
-
-Csharp
----------
-
-Of course we could write programs to demonstrate arithmetic,
-but there is a fair amount of overhead with a full program.
-For just testing little bits, there is another alternative:
-The Mono system comes with a program *csharp*.  Let us
-try it out.
+Arithmetic operations are usually included in learning a programming 
+language because the constructs are similar to computation and therefore 
+easier for the learners to associate. The C# Math class has many 
+methods that allows you to perform arithmetic tasks on numbers.
 
 Open a terminal (Linux or OS X) or :ref:`mono-command-prompt`
 window in Windows, and enter the command ``csharp``.  You should see  :

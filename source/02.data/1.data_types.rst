@@ -15,7 +15,7 @@ Variables of value types contain the data directory while variables of reference
 stores reference to the data known as objects. Value types are predefined types 
 and are available in C# as keywords. These keywords are aliases of types defined in the 
 .NET Class Library. For example, the C# keyword int is an alias of a value type defined 
-in the .NET Class Library as System.Int32.[#]_
+in the .NET Class Library as System.Int32.[#f1]_
 
 Common Data Types in C#
 -----------------------------
@@ -76,7 +76,7 @@ an equal number of positive and negative numbers; whereas an unsigned type (such
 and ``ulong``) uses its bytes to represent only positive numbers. The difference between 
 singed and unsigned numbers can be seen from the example below::
 
-.. code-block:: c#
+.. code-block:: console
 
     Console.WriteLine("Signed integral types:");
 
@@ -110,7 +110,7 @@ We would see the output as below:
 
 
 C# Built-in Types System
-----------------------
+--------------------------
 
 C# has a type system with types defined more than shown in the table above. 
 
@@ -282,7 +282,7 @@ represents a Unicode UTF-16 character. Internally, a ``char`` is an integer, sto
 with the correspondence between numeric codes and characters given by the 
 *Unicode* standard. For example:
 
-.. code-block:: c#
+.. code-block:: console
   
     var chars = new[] {     // an implicitly typed array
         'j',
@@ -328,4 +328,5 @@ as a result of comparing values/variables. For example::
 
 
 .. rubric:: Footnotes
-   [#] For a list of all specified value types, see, for example: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#83-value-types 
+
+.. [#f1] For a list of all specified value types, see, for example: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#83-value-types 
