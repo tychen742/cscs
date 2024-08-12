@@ -30,7 +30,7 @@ template. To see the list of templates, you may issue the ``dotnet new list`` co
 
 
 We can try out the Console App template, which will give us a "Hello, World" message 
-when executing, by using either the terminal. In the terminal, let us 
+when executing. In the terminal, let us 
 change directory (``cd``) into the test directory and issue command ``dotnet new console``. 
 The .NET SDK will generate a project for us, which will include the following files and 
 directories: 
@@ -38,33 +38,44 @@ directories:
 #. The ``Program.cs`` file
 #. The ``obj`` folder
 #. The ``testPrj.csproj`` file
-#. A ``bin`` directory will also be created.
+#. A ``bin`` directory will also be created later.
 
 
 .. code-block:: console
    :emphasize-lines: 9
 
-   PS C:\Users\tcn85> cd test                                                                                              PS C:\Users\tcn85\test> dotnet new console
+   PS C:\Users\tcn85> cd test
+   PS C:\Users\tcn85\test> ls                                                                                              PS C:\Users\tcn85> ls                                                                                              
+   PS C:\Users\tcn85\test>                                                                                               PS C:\Users\tcn85> ls                                                                                              
+   PS C:\Users\tcn85\test> dotnet new console
    The template "Console App" was created successfully.
-   .....   
+
+   
+   Processing post-creation actions...
+   Restoring C:\Users\tcn85\test\test.csproj:
+      Determining projects to restore...
+      Restored C:\Users\tcn85\test\test.csproj (in 175 ms).
+   Restore succeeded.
+   
    PS C:\Users\tcn85\test> ls
       Directory: C:\Users\tcn85\test
-   Mode                 LastWriteTime         Length Name
-   ----                 -------------         ------ ----
-   d-----          8/7/2024   2:54 PM                obj
-   -a----          8/7/2024   2:54 PM            105 Program.cs
-   -a----          8/7/2024   2:54 PM            252 test.csproj
-   -a----         7/26/2024   5:06 PM              0 test.txt
-   PS C:\Users\tcn85\test>
+      Mode                 LastWriteTime         Length Name
+      ----                 -------------         ------ ----
+      d-----          8/7/2024   2:54 PM                obj
+      -a----          8/7/2024   2:54 PM            105 Program.cs
+      -a----          8/7/2024   2:54 PM            252 test.csproj
+      -a----         7/26/2024   5:06 PM              0 test.txt
+      PS C:\Users\tcn85\test>
 
-From the terminal we can open vscode by typing ``code .`` (the dot ``.`` means the current directory) and Enter. 
+From the terminal we can open vscode by typing ``code .`` (the dot ``.`` means the current 
+directory) and Enter.
 
 .. code-block:: console
 
    PS C:\Users\tcn85\test> code .
    PS C:\Users\tcn85\test>
 
-VS Code will open (and may generate some extra solution files). We then choose the 
+VS Code will open. We then choose the 
 Explorer view and click on the Program.cs file. You will see that the Program.cs looks 
 simple as below and we are working the executable code directly. 
 
@@ -76,7 +87,7 @@ simple as below and we are working the executable code directly.
 
 
 The template is very succinct because of a C# feature called "top-level statements", with 
-which the compiler automatically performs some tasks later: 
+which the compiler automatically performs some tasks such as: 
 
    - generates a Program class with an entry point method for the application; and 
    - adds a set of implicit ``global using`` directives such as Microsoft.NET.Sdk to include the most common namespaces. 
@@ -86,13 +97,13 @@ While this friendly to new users, as we learn more about C# programming,
 you will need to learn how to structure your code using namespaces and classes. 
 To use the old program style, you can use the ``--use-program-main`` 
 option to create a console app project with ``Main method``. In the example 
-below, we first create a testPrj folder inside the tests folder, then change into the 
+below, we first create a testPrj folder inside the test2 folder, then change into the 
 testPrj folder, followed by issuing ``dotnet new console`` with the option ``--use-program-main``
 to create a new console project:
 
 .. code-block:: console
 
-   tychen@mac:~/tests/testPrj$ dotnet new console --use-program-main
+   tychen@mac:~/test/testPrj$ dotnet new console --use-program-main
 
 This will give us the same project files as running dotnet new console without the "---program-main" 
 option, but the Program.cs file will be different:
@@ -101,7 +112,7 @@ option, but the Program.cs file will be different:
 
 .. code-block:: console
 
-   tychen@mac:~/tests/testPrj$ ls
+   tychen@mac:~/test/testPrj$ ls
    Program.cs     obj            testPrj.csproj
 
 
@@ -129,12 +140,12 @@ Some important concepts that we need to learn from this template code example
 here so we have better ideas about the basic structure of C#.
 
 #. ``namespace``: 
-   The ``namespace`` keyword is used to declare a scope to organize types. 
+   The ``namespace`` keyword is used to declare a scope to organize types (such as classes). 
    For example, we may define a namespace as below 
-   to contain unique **reference type** code elements. We are not 
-   going to dive into the reference types now and we only need to observe that 
-   that these are the types (class, interface, struct, ...) that C# programmer 
-   create functionalities for the app.  
+   to contain unique **reference type** code elements. If you have some knowledge of 
+   object-oriented programming (OOP), you probably have heard of that OOP programs consists of 
+   classes. In the example below, you see the types (class, interface, struct, ...) are 
+   under a namespace and the types are what we use to create functionalities for the application.  
 
    .. code-block:: 
 
@@ -153,15 +164,14 @@ here so we have better ideas about the basic structure of C#.
 
 #. ``using System;``:  
 
-   Starting .NET 6, ``using System`` is implicit as defined in the csproj file so 
-   it is not shown in the Program.cs file. We should know that, ``System`` is a namespace that contains basic defined value 
-   and reference types. The ``using`` directive, works like "import", allows you to use the types defined in 
-   a namespace without specifying the fully qualified namespace of that type. 
-   The ``using`` directive imports all the types from a single namespace. For example, 
-   ``Console`` is a class inside the ``System`` namespace and we use the its WriteLine 
-   method to print to the console. The following example would allow the use of the 
-   ``Text`` types such as System.Text.Ascii class and the nested namespace 
-   System.Text.Unicode:
+   Starting .NET 6, ``using System`` is implicit as defined in the ``.csproj`` file so 
+   it is not shown in the Program.cs file. We should know that, ``System`` is a namespace 
+   that contains basic defined value and reference types. The ``using`` directive, 
+   allows you to use the types defined in a namespace without specifying the fully 
+   qualified namespace of that type. For example, ``Console`` is a class inside the
+   ``System`` namespace and we use the its ``WriteLine`` method to print to the console. 
+   The following example would allow the use of the ``Text`` types such as the 
+   System.Text.Ascii class and the nested namespace System.Text.Unicode:
 
    .. code-block:: 
 
@@ -204,32 +214,53 @@ contain source code files [#]_. A web app solution, for example, may include a w
 a database project, and a server-side API project; and each of the project will be named 
 differently under different project folders inside the solution directory.
 
-The idea of a project is probably what comes to mind first when beginning with the development 
-of an application. To create a project, you may go to the project directory in command line 
-and simply issue the command of ``dotnet new console`` to create an app project. This will 
-create your project without a solution. 
+To create a solution as a workspace, we use the command ``dotnet new sln`` in the solution 
+(or "workspace") directory. You then create all your project directories in the solution directory, 
+and then use the ``dotnet new console`` command to create a console app project in each of the project 
+directories. 
 
-On the other hand, the first time you create a project in a folder using vscode's Create .NET 
-Project button in the Explorer view, a solution will be created with the same name as the 
-project. This may not be ideal since we may not want the solution to be named the same as 
-the first project. A better way to create a solution, therefore, may be to create a solution 
-by issuing commands ``dotnet new sln`` in your solution directory. 
+If you create a project in a folder using VS Code's Create .NET Project button in the Explorer view, 
+a solution will be created with the same name as the project if no solution file is present. 
+If this is not what you intend to do, you may use the Solution Explorer in VS Code to remove the project.
+Going to the project directory in command line and issue the command ``dotnet new console`` to create 
+an app project will create your project without a solution. 
 
 
-Statements, Comments, Curly Braces, and Semicolon
----------------------------------------------------
+Statements & Expression 
+----------------------------
+
+In programming, an **expression** is something which evaluates to a value; while a 
+statement is a program instruction. 
+
+A statement performs certain action and usually consists a single line of code that ends in a semicolon, 
+or a series of single-line statements in a block. A statement block is enclosed in {} brackets. Common actions include declaring variables, 
+assigning values, calling methods, looping through collections, and branching to one or another block of code, depending on a given condition.
+
+Commonly used statement keywords are:
+
+======================  ================================
+ Selection statements	 if, switch
+ Iteration statements	 do, for, foreach, while
+ Jump statements	       break, continue, goto, return
+======================  ================================
+
+
+Comments, Curly Braces, and Semicolon
+---------------------------------------
+
 Comments are important as they make code more readable. C# offers single-line and multiple-line 
 comments:
 
-Single-line Comments
-   Single-line comments start with two forward slashes (//). Any text between // and the end of the line is ignored by C# (will not be executed).
+**Single-line Comments**: Single-line comments start with two forward slashes (//). Any text between // and the end of the line is ignored by C# (will not be executed).
 
-Multi-line Comments
-   Multi-line comments start with /* and ends with \*/. Any text between /* and \*/ will be ignored by C#.
+**Multi-line Comments**: Multi-line comments start with /* and ends with \*/. Any text between /* and \*/ will be ignored by C#.
 
+The **curly braces {}** in C# mark the beginning and the end of a block of code.
 
-Semicolons work as statement terminator character in C# and are required because they prevent syntax ambiguities. 
+**Semicolons** work as statement terminator character in C# and are required because they prevent syntax ambiguities. 
 Semicolons after method or accessor block, however, is not allowed. 
+
+
 
 
 .. rubric:: Footnotes

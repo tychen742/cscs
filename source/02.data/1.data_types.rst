@@ -34,7 +34,7 @@ types are in variable assignment are as follows.
     bool myBool = true;             // Boolean
     string myText = "Hello";        // String
 
-Note that C# requires number suffixes, especially for floating-point types, when assigning 
+Note that C# requires number **suffixes**, especially for floating-point types, when assigning 
 numeric literals. The purpose of using suffixes is to help the compiler unambiguously 
 identify the data type of the value/literal. The basic rules for number suffixes are:
 
@@ -52,26 +52,29 @@ To make our code works correctly and more memory-efficient, we need to choose th
 data types according to the design requirements of the variable. Different types are therefore 
 designed to meet the needs of the scenario. For example, for financial unit, decimal is a better 
 choice because it is designed for the purpose of holding a larger range of digits with 
-higher precision. Considerations for memory size of types, for example,
-can be seen in the table below. 
+higher precision. Types and their memory size, for example, can be seen in the table below. 
+
 
 ============ =====================  =============== ==================================================================
 Type	      Size	                 Precision        Description
 ============ =====================  =============== ==================================================================
-``int``	     4 bytes	                              Stores whole numbers from -2,147,483,648 to 2,147,483,647
-``long``     8 bytes	                              Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
-``float``    4 bytes	             ~6-9 digits      Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
-``double``   8 bytes	             ~15-17 digits    Stores fractional numbers ±1.5 x 10−45 to ±3.4 x 1038. Sufficient for storing 15 decimal digits
-``decimal``  16 bytes                28-29 digits     Stores fractional numbers ±1.0 x 10-28 to ±7.9228 x 1028
-``bool``     1 bit	                                  Stores true or false values
-``char``     2 bytes	                              Stores a single character/letter corresponding to Unicode character set, surrounded by single quotes
-``string``   2 bytes per character                    Stores a sequence of characters, surrounded by double quotes
+``byte``     1 byte/8 bits                            Integral range 0 to 255 (no negative values)
+``short``    16 bits                                  Integral range -32,768 to 32,767
+``int``	     4 bytes/32 bits                          Integral range -2,147,483,648 to 2,147,483,647
+``long``     8 bytes/64 bits                          Integral range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+``float``    4 bytes/32 bits         ~6-9 digits      Fractional numbers. 
+``double``   8 bytes/64 bits         ~15-17 digits    Fractional numbers ±1.5 x 10−45 to ±3.4 x 1038. 
+``decimal``  16 bytes/128 bits       28-29 digits     Fractional numbers ±1.0 x 10-28 to ±7.9228 x 1028
+``bool``     1 bit	                                  True or false values
+``char``     2 bytes	                              A single character/letter corresponding to Unicode character set, surrounded by single quotes
+``string``   2 bytes per character                    A sequence of characters, surrounded by double quotes
 ============ =====================  =============== ==================================================================
 
 
 The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
-an equal number of positive and negative numbers; whereas An unsigned type uses its bytes to represent 
-only positive numbers. As an example, 
+an equal number of positive and negative numbers; whereas an unsigned type (such as ``ushort``, ``uint``, 
+and ``ulong``) uses its bytes to represent only positive numbers. The difference between 
+singed and unsigned numbers can be seen from the example below::
 
 .. code-block:: c#
 
@@ -106,9 +109,16 @@ We would see the output as below:
     ulong  : 0 to 18446744073709551615
 
 
-C# has a type system with plenty of types defined. There are 4 reference types:  : class type, 
-interface type, array type, and delegate type. Under class type, types such as string and array 
-are defined. For value types, C# defines a simple types as follows.
+C# Built-in Types System
+----------------------
+
+C# has a type system with types defined more than shown in the table above. 
+
+Reference types:
+    There are 4 reference types: class type, interface type, array type, and delegate type. 
+    Under class type, types such as string and array are defined. 
+
+For value types, C# defines a simple types as follows.
 
 simple_type
     : numeric_type
@@ -145,7 +155,10 @@ Type Conversion
 ----------------
 
 C# has specific types but from time to time we may need our data to switch between 
-the types. This switch may be implicit or explicit. Implicit conversion means the 
+the types. For example, when your program takes a user input for age, the input is 
+of string type while it's intended for numeric type. You then need to cast the type 
+to the data type intended. This switch may be implicit or explicit. 
+Implicit conversion means the 
 conversion happens automatically, such as a type int can implicitly be treated 
 as a type long. 
 
@@ -167,105 +180,152 @@ Explicit Casting (manually)
 
 For instance,  the conversion from type int to type long is implicit, so expressions of type int 
 can implicitly be treated as type long. On the other hand, The opposite conversion, from type 
-long to type int, is explicit and so an explicit cast is required.
+long to type int, is explicit and so an explicit cast is required. Observe the example below and 
+you see that an int type variable converts to a long type variable implicitly while a long type 
+variable converting back to int has to be done explicitly. 
+
+When performing type casting, we put the desired result type name in parentheses as a *cast*. In the 
+example below, we are casting the value of variable b into an int type by placing ``(int)`` in 
+front of it. Here we use the GetType() method from the System namespace to get the type of an instance. 
 
 .. code-block:: c#
 
-    int a = 123;
-    long b = a;      // implicit conversion from int to long by reassignment
-    int c = (int) b; // explicit conversion from long to int    
+    > int a = 123;      // variable a is assigned a value of 123
+    > long b = a;       // implicit conversion from int to long by reassignment
+    > int c = (int) b;  // explicit conversion from long to int    
+    > a.GetType()       // use the GetType() function to get the type of the variable
+     int
+    > b.GetType()
+     long
+    > c.GetType()
+     int
 
-
-The ``int`` ``i`` cannot accurately hold the value 2.7.  
-Since the compiler does this checking, looking only at types, not values, this even
-fails if the the ``double`` happens to have an integer value:
-    
-.. code-block:: none
-
-    csharp> double d = 2.0;
-
-    csharp> int i = d;
-    {interactive}(1,4): error CS0266: Cannot implicitly convert type
-       'double' to 'int'. 
-    An explicit conversion exists (are you missing a cast?)
-
-    
-If you really want to possibly lose precision and convert a ``double`` to 
-an ``int`` result, you *can* do it, but you must be explicit, using a *cast*
-as the csharp error messages suggest. 
+When the types are not cast properly, C# will give error messages. For example:
 
 .. code-block:: none
 
-    csharp> double d= 2.7;
-    csharp> int i;
-    csharp> i = (int)d;
-    csharp> i;
+    > double d = 2.0;
+    > int i = d;
+    ┌─────────────────────────────────────────CompilationErrorException─────────────────────────────────────────┐
+    │ (1,9): error CS0266: Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (are │
+    │ you missing a cast?)                                                                                      │
+    └───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+  
+Note that if you choose to agree with the message and perform a type casting, you lose the 
+precision of ``double`` over an ``int``.
+
+.. code-block:: none
+
+    > double d = 2.5;       // create a double type variable d
+    > d                     
+    2.5
+    > int i;                // declare an int without value assignment
+    > i                     // get the (default) value of an int
+    0
+    > i = (int)d;           // explicitly telling the compiler you intend the conversion
+    > i                     // get the value of i; the value .5 is lost
     2
-    
-The desired result type name in parentheses ``(int)`` is a *cast*, telling the compiler
-you really intend the conversion.  Look what is lost!  The cast does not
-*round* to the nearest integer, it *truncates* toward 0, dropping the fractional
-part, .7 here.
+    > 
 
 .. index:: Round function
 
-Rounding is possible, but if you really want the ``int`` type, it takes two steps,
-because the function ``Math.Round`` does round to a mathematical integer, but leaves
-the type as ``double``!  To round ``d`` to an ``int`` result we could use:
+Rounding is similar to casting a floating type to possible as it gives us an ``int`` type.
+The function ``Math.Round`` will round to a mathematical integer, but leaves
+the type unchanged. So we need to perform a type casting after rounding:
 
 .. code-block:: none
 
-    csharp> i = (int)Math.Round(d); 
-    csharp> i;
+    > d
+    2.7
+    > d.GetType()
+    double
+    > d = Math.Round(d);        // rounding and re-assignment
+    > d
     3
+    > d.GetType()               // the type remains 
+    double
+    > i = (int)Math.Round(d);   // casting to int
+    > i
+    3
+    > i.GetType()               // type correct
+    int
 
-You can also use an explicit cast from int to double.  This is generally not needed,
-because of the automatic conversions, but there is one place where it is 
-important:  if you want ``double`` division but have ``int`` parts.  Here is a 
-quick artificial test:
+Casting from int to double is usually not necessary but cause of implicit conversion. 
+A use case for this would be when doing divisions, where ``double`` would work better than 
+``int``. As an example, using csharprepl, we see that:
 
 .. code-block:: none
 
-    csharp> int sum = 14;
-    csharp> int n = 4;
-    csharp> double avg = sum/n;
-    csharp> avg;  
-    3
+    > int denominator = 3;
+    > int numerator = 14;
+    > numerator / denominator               // an integer division 
+    4
+    > (double) numerator / denominator      // intended operation; casting required
+    4.666666666666667
+    > 
     
-Oops, integer division.  Instead, continue with:
 
-.. code-block:: none
+6 Built-in (Simple) C# Types
+------------------------------
 
-    csharp> avg = (double)sum/n;
-    csharp> avg;
-    3.5
+char
+~~~~~~
 
-We get the right decimal answer.  
+The type for an individual character is ``char``.  A ``char`` literal value is
+a *single* character enclosed in *single* quotes, like ``'a'`` or ``'$'``.  
 
-This is a bit more subtle than it may appear:  
-The cast to double, ``(double)``
-is an operation in C# and so it has a *precedence* like all operations.  Casting
-happens to have precedence higher than any arithmetic operation, so the expression is 
-equivalent to::
+Note that when a character is surrounded by double quotation marks, it becomes 
+a string literal, such as ``"A"``.
 
-    avg = ((double)sum)/n;
+Also, the char type keyword is an alias for the .NET System.Char structure type that 
+represents a Unicode UTF-16 character. Internally, a ``char`` is an integer, stored in 16 bits,
+with the correspondence between numeric codes and characters given by the 
+*Unicode* standard. For example:
 
-On the other hand, if we switch the order the other way with parentheses around the
-division:
+.. code-block:: c#
+  
+    var chars = new[] {     // an implicitly typed array
+        'j',
+        '\u006A',
+        '\x006A',
+        (char)106,
+    };
 
-.. code-block:: none
+    Console.WriteLine(string.Join(" ", chars));  // output: j j j j
 
-    csharp> avg = (double)(sum/n);
-    csharp> avg;
-    3
+As seen in the type system, the type char is one of the integral types used to represent 
+characters. We can therefore cast char like below as an example::
 
-then working *one* step at a time, ``(sum/n)`` is *integer* division, 
-with result 3.  It is the 3 that is then cast to a double (too late)!
+    > (int)'A';
+    65
+    > (int)'+';
+    43
 
-See the appendix :ref:`precedence`, listing all C# operations discussed in this book. 
+An we can even perform arithmetical operations on chars like::  
 
+    > Console.WriteLine('A' + '+');
+    108
+
+
+Boolean/bool 
+~~~~~~~~~~~~~~~~~~~~~~
+
+The Boolean data type can only have one of two values and is used in conditional (if)
+statements, which allow us to build logic in our programs:: 
+
+- YES / NO
+- ON / OFF
+- TRUE / FALSE
+
+The type *bool* is an alias for *System.Boolean* with literals of ``true`` and ``false``. 
+A Boolean expression, on the hand, would return a boolean value of ``True`` or ``False`` 
+as a result of comparing values/variables. For example::
+
+    int x = 10;
+    int y = 9;
+    Console.WriteLine(x > y); // returns True, because 10 is higher than 9
 
 
 
 .. rubric:: Footnotes
-    [#] For a list of all specified value types, see, for example: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#83-value-types 
+   [#] For a list of all specified value types, see, for example: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/types#83-value-types 

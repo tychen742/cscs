@@ -26,7 +26,7 @@ from datetime import date
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks', 'sphinx_rtd_theme',]
+extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks', 'sphinx_rtd_theme','sphinx_tabs.tabs',]
 
 extlinks = {'repsrc': 
               ('https://github.com/tychen742/introcs-csharp-examples/blob/master/%s','')

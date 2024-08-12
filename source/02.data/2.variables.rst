@@ -1,540 +1,218 @@
-
-Value Types and Conversions
-===========================
-
-
-
-   
-.. _numeric-type-limits:
-
-Numeric Types and  Limits
---------------------------
-
-The listing below shows how the storage size in bits translates into the limits
-for various numerical types.  We will not discuss or use ``short``,
-``byte`` or ``float`` further.
-
-long
-   64 bits; range -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
-   
-int
-   32 bits; range -2,147,483,648 to 2,147,483,647
-
-short
-   16 bits; range -32,768 to 32,767
-   
-byte
-    8 bits; range 0 to 255 (no negative values)
-
-double
-   64 bits; maximum magnitude: :math:`1.7976931348623157(10^{308})`; 
-   about 15 digits of accuracy
-   
-float
-   32 bits; maximum magnitude: :math:`3.402823(10^{38})`; about 7 digits of accuracy
-
-decimal     
-   128 bits; maximum value: 79228162514264337593543950335; 
-   28 digits of accuracy;  can exactly represents decimal values
-   for financial operations; briefly discussed in *optional*
-   :ref:`Decimal Type <decimal-type>`.
-
-char
-   See :ref:`char as integer <integer-char>`.
-   
-.. index:: cast
-
-.. _cast:
-
-
-
-.. index:: type; char
-   char
-   
-.. _type-char:
-
-Type char
-----------
-
-The type for an individual character is ``char``.  A ``char`` literal value is
-a *single* character enclosed in *single* quotes, like ``'a'`` or ``'$'``.  
-The literal for a
-single quote character itself and the literal for a newline use 
-*escape codes*, like in :ref:`Strings2`:  
-The literals are ``'\''`` and ``'\n'`` respectively.
-
-Be careful to distinguish a ``char`` literal like ``'A'`` 
-from a string literal ``"A"``.
-
-.. index:: Unicode
-
-.. _integer-char:
-
-**Char as integer**:  Though the ``char`` type has character literals 
-and prints as a character,
-internally a ``char`` is a *type of integer*, stored in 16 bits,
-with the correspondence
-between numeric codes and characters given by the *Unicode* standard.  
-Unicode allows special symbol characters and alphabets of many languages.  
-We will stick to the standard American keyboard for these characters.
-
-Besides different alphabets, Unicode also has characters for all sorts of 
-symbols: emoticons, chess pieces, advanced math....  See 
-http://www.unicode.org/charts.  All the symbols can be represented as escape 
-codes in C#, starting with ``\u`` followed by 4 hexadecimal digits.  For example
-``\u262F`` produces a yin-yang symbol.
-
-We mention the ``char`` type being numeric mostly because of errors 
-that you can make that would otherwise be hard to figure out.  This code does
-not concatenate the ``char`` symbols:
-
-.. code-block:: none
-
-    csharp> Console.WriteLine('A' + '-');
-    110
-
-What?  
-We mentioned that modern computers are set up to easily work with the ``int``
-type.  In arithmetic with *smaller* integral types the operands are first
-automatically converted to type ``int``.  
-An ``int`` sum is an ``int``, and that is
-what is printed.  
-
-You can look at the numeric values inside a ``char`` with a cast!
-
-.. code-block:: none
-
-    csharp> (int)'A';
-    65
-    csharp> (int)'-';
-    45
- 
-So the earlier 110 is correct:  65 + 45 = 110.
-
-For completeness: 
-It is also possible to cast from small ``int`` back to ``char``.  
-This may be useful for dealing with the alphabet
-in sequence (or simple classical cryptographic codes):
-
-.. code-block:: none
-
-    csharp> 'A' + 1;       
-    66
-    csharp> (char)('A' + 1);
-    'B'
-
-The capital letter one place after A is B.
-
-.. index::  type; Boolean or bool
-   Boolean or bool
-
-.. _type-boolean:
-
-Type Boolean or bool
----------------------
-
-There is one more very important value type, that we introduce here
-for completeness, though we will not use it until
-:ref:`If-Statements`.
-Logical conditions are either true or false.  The type with just these
-two values is *Boolean*, or *bool* for short.  The
-type is named after George Boole, who invented what we now call
-*Boolean algebra*.  Though it seemed like a useless mathematical curiosity 
-when Boole invented it, a century later Boolean algebra turned out to be
-at the heart of the implementation of computer hardware.
-
-.. note::
-   The Boolean literals are ``true`` and ``false``, with *no* quotes
-   around them.  
-   
-With quotes they would be of type string, not Boolean!
-
-Overflow to Positive Exercise
--------------------------------
-
-We gave an example above in :ref:`type-int`,
-adding two positive ``int`` values and 
-clearly having an error, since the result was negative.  Declare
-and initialize two positive ``int`` variables ``x`` and ``y``.  Experiment
-with the initializations so
-
-i.  Their product is too big to fit in an ``int`` AND
-ii. The wrong overflow result for ``x*y`` is *positive*, not negative.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Variables
 ===========
 
-*declaration statement*, like::
+These names associated with a data storage location are called
+*variables*. In other words, variables represent the locations of 
+objects in memory. Some general rules for C# variables are:
 
-    int width;
-    
-Each declaration must specify a type for the data to be stored and give a name to
-refer to it.  These names associated with a data storage location are called
-*variables*.
+- Every variable has a **type** that determines what values can be stored in the variable.
+- The C# compiler guarantees that values stored in variables are always of the appropriate type. 
+- The value of a variable can be changed through **assignment** or through use of the ++ and -- operators.
+- Variables are either initially assigned or initially unassigned. 
 
-The declaration statement above sets aside a location to store an ``int``, and names
-the location ``width``.  Several variables of the same type can be 
-listed together, like::
+Variables can have local scope or global scope: 
 
-    double x, y, z;
+- Local variables are declared within a method and can only be accessed 
+  within that method. 
+- Global variables typically refer to static fields that are accessible 
+  throughout the class.
 
-identifying three storage locations for variables of type ``double``.
 
-To be useful, data needs to be stored in these locations.  This is done with
-an *assignment statement*.
-For example::
- 
-    width = 5;
+Declaring Local Variables
+---------------------------
 
-A simple schematic diagram with a name for a location in memory (the box):
+A declaration statement declares a new local variable, local constant, or local 
+reference variable. To declare a local variable, specify a type and provide 
+a variable name. You can declare multiple variables of the same type in one 
+statement:
 
-.. image:: ../images/variableDeclaration.png
-   :width: 72 pt
+   type variableName;
 
-Although we are used to reading left to right, an assignment statement works 
-*right to left*.  The value on the right side of the equal sign is calculated 
-and then placed in the memory location associated with the variable on the left
-side of the equal sign, either giving an initial value or 
-*overwriting* any previous value stored there.
+In this syntax, 
 
-.. image:: ../images/variableAssignment.png
-   :width: 72 pt
+- **type** 
+  is a C# type (such as int or string), 
+- **variableName**
+  is the name of the variable (such as x or name) 
+- the semicolon ``;``
+  is the statement terminator.
 
-.. index:: initializer
-   single: =; initializer
-   declaration initializer
-   
-Variables can also be initialized as they are declared::
+For example, you may declare the following variables::
 
-   int width = 5;
-   double x = 12.5, y = 27, z = 0.5;
+   string greeting;
+   int a, b, c;         // declaring multiple variables
+   List<double> xs;     // a reference type variable
 
-or initializations and plain declarations can be mixed::
+In addition, you may want to provide initial value when declaring a variable. 
+The syntax is::
 
-   int width = 5, height, area;
-   height = 7;
+    type variableName = value;
 
-Stylistically the example above is inconsistent, but it illustrates what is 
-possible.  Technically an initialization is not an assignment.  We will see
-some syntax that is legal in initializers, but not in assignment statements.
+For example, ::
 
-We could continue with a further assignment statement::
+   string greeting = "Hello";
+   int a = 3, b = 2, c = a + b;
+   List<double> xs = new();
+
+In this syntax, 
+
+- the equal sign ``=``
+  is the assignment operator (note that it is not the equal sign in mathematics)
+
+
+The ``var`` Keyword
+---------------------
+
+Local variables can be declared without giving an explicit type. The complier 
+will then infer the type of a variable from its initialization expression. 
+Because the compiler is inferring the types, these variables are implicitly-typed. 
+The keyword ``var`` is used in case of this. For example::
+
+   var greeting = "Hello";
+   Console.WriteLine(greeting.GetType());  // output: System.String
+
+   var a = 32;
+   Console.WriteLine(a.GetType());  // output: System.Int32
+
+   var xs = new List<double>();
+   Console.WriteLine(xs.GetType());  // output: System.Collections.Generic.List`1[System.Double]
+
+
+Assignment Statements
+--------------------------
+
+If you need to change 
+the value to the variable, you need to use the **assignment statement**. 
+Note that an assignment statement is read from right to left. For example, if we 
+create a variable "area" and assign the value of "width * height" to it like:: 
 
    area = width * height;
    
-Look at this in detail.  The assignment statement starts by evaluating the
-expression on the right-hand side: ``width * height``.  When variables are
-used in an expression, their current values are substituted, 
-like in evaluating an expression in math, so the value is the same as
+The assignment statement starts by evaluating the **expression** on the right-hand side: ``width * height``. Since width * height is an 
+expression, the expression will be evaluated to a value like when evaluating an 
+expression in math, so the values are substituted as
 
 .. code-block:: none
 
     5 * 7 
     
-which finally evaluates to 35.  In the last step of the assignment statement,
-the value 35 is then assigned to the variable on the left, ``area``.
-
-.. warning::
-   You want *one* spot in memory prepared for *each* variable.  This happens
-   with declaration, not assignment:  Assignment just changes the value
-   at the current location.  Do not *declare* the same variable more than once.
-   You will get an error.  More on the fine points around that in :ref:`Local-Scope`.
-
-.. index:: csharp
-
-.. _more-csharp:
-   
-We continue introducing :ref:`csharp`:
-Remember that in csharp you can just give an expression,
-and csharp responds with a value.  That syntax and reaction is special to 
-csharp.   In csharp you can also test regular C# statements, 
-like declarations and assignments.  The most recent versions of csharp 
-do not require you to end a statement with a semicolon, though we tend to 
-put semicolons after statements in our illustrations (and no semicolon for just
-an expression).
-As in a regular program, statements
-do not give an immediate visible response in csharp.  Still in   
-csharp you can display a variable value easily:
+which is then evaluates to 35 and finally assigned to the variable, ``area``, on the left. 
+The whole block of code could look something like follows. You may notice that we 
+are operating with three variables here. 
 
 .. code-block:: none
 
-    csharp> int width = 5, height, area;
-    csharp> height = 7;
-    csharp> area = width * height;
-    csharp> area
+   > int width = 5, height, area;
+   > height = 7;
+   > area = width * height;
+   > area
     35
     
-In the last line, ``area`` is an expression, and csharp will give back its value,
-which is just the current value of the variable.
+In the example above, 
+``width * height``, as an expression, evaluates to a value; while 
+``int width = 5, height, area;`` is a declaration statement and ``height = 7;`` 
+an assignment statement. 
 
-.. index:: 
-   csharp; help
-   csharp; quit;
-   csharp; ShowVars
+We should also notice that the value of the most *recent* assignment is 
+remembered until reassigned. Also, it is common to use the same variable name 
+when we intend to change the value to the variable without keeping the previous 
+value, and after the initial declaration you don't need to declare type anymore:: 
 
-At this point you should be able to make sense of some more features of csharp.
-You can start with the csharp special help command:
+   int a = 10;
+   a = 100;
 
-.. code-block:: none
+If you need to keep the value to variable a for later use, you would probably choose 
+to assign a to another variable b. For example::
 
-    csharp> help     
-    "Static methods:
-      Describe (object)       - Describes the object's type
-      LoadPackage (package);  - Loads the given Package (like -pkg:FILE)
-      LoadAssembly (assembly) - Loads the given assembly (like -r:ASSEMBLY)
-      ShowVars ();            - Shows defined local variables.
-      ShowUsing ();           - Show active using declarations.
-      Prompt                  - The prompt used by the C# shell
-      ContinuationPrompt      - The prompt for partial input
-      Time(() -> { })         - Times the specified code
-      print (obj)             - Shorthand for Console.WriteLine
-      quit;                   - You'll never believe it - this quits the repl!
-      help;                   - This help text
-      TabAtStartCompletes - Whether tab will complete even on empty lines
-    
-A lot of this is still beyond us but these parts are useful:
+   int a = 10;
+   int b = a;
+   int a = 100;
 
-.. code-block:: none
+To further illustrate how expression and statement work in C#, or in programming 
+languages in general, we can take a look at the example as follows. In this case, 
+we are making two assignment statements: one with a literal value and one with 
+an expression::
 
-      ShowVars ();            - Shows defined local variables.
-      quit;                   - You'll never believe it - this quits the repl!
-      help;                   - This help text
-    
-We can continue the csharp session above and illustrate ShowVars():
-    
-.. code-block:: none
-
-    csharp> ShowVars();
-    int width = 5
-    int height = 7
-    int area = 35
-     
-displaying all the variables currently known to csharp, plus their current values.
-
-We refer to "current values".  An important distinction between variables in math
-and variables in C# is that C# values can *change*.  Follow this csharp sequence:
-
-.. code-block:: none
-
-    csharp> int n = 3;
-    csharp> n
-    3
-    csharp> n = 7;
-    csharp> n
-    7
-    
-showing we can change the value of a variable.  The most *recent* assignment is remembered
-(until the next assignment....)  We can imagine a schematic diagram:
-
-.. image:: ../images/variableChange.png
-   :width: 43.5 pt
-
-We can carry this csharp session one step further,
-illustrating a difference between C# and math:
-
-.. code-block:: none
-
-    csharp> n = n + 1;
-    csharp> n
+   > int n = 7;
+   > n = n + 1;
+   > n
     8
 
-Clearly ``n = n + 1`` is not a true mathematical equation:  It *is* a C# assignment, 
-executing with a 
-specific sequence of steps.  
+In short piece of code above, we have an initial assignment statement (``n = 7``), 
+a variable reassignment (``n = n + 1``) involving an expression ``n + 1``, and 
+finally the *new* value of ``n`` is 8, replacing the old 7. ** note that we are 
+using a REPL and that is why we are able to type the variable name and hit Enter 
+to see the value. 
 
-#.  First the right hand side expression
-    is evaluated, ``n + 1``.  
-#.  This involves looking up the current value of ``n``, 
-    which we set to 7, so the expression is the same as ``7 + 1`` which is 8.  
-#.  *After* this evaluation, an assignment is made to the left hand variable, 
-    which happens to be ``n`` again.
-#.  Then the *new* value of ``n`` is 8, replacing the old 7.
 
-There are many occasions in which such an operation will be useful.
-
-Assignment syntax does have two strikes against it:
-
-#. It appropriates math's equal sign to mean something quite different.
-#.  The right to left operation is counter to the English reading direction.
-
-Still this usage is common to many programming languages.  
-
-..  warning::
-    Remember in an assignment that the sides of the equal sign have totally 
-    different meanings.  You assign to a variable on the left side *after*
-    evaluating the expression on the right.
-    
-We can illustrate a likely mistake in csharp:
-
-.. code-block:: none
-
-    csharp> 3 = n;
-    {interactive}(1,2): error CS0131: The left-hand side of an assignment 
-    must be a variable, a property or an indexer
-
-Students commonly try to assign left to right.  At least in this case you get
-an error message so you see a mistake.  If you mean to assign the value of 
-x to y, and write::
-  
-  x = y;
-  
-you get the opposite effect, changing x rather than y, with *no* error statement.  
-Be careful!
-
-There is some weirdness in csharp because it adds special syntax for expressions
-which does not appear in regular programs, but it also wants to allow syntax
-of regular programs.  Some conflict can occur when trying to display 
-an expression, sometimes leading to csharp giving 
-a strange error for apparently no reason.  In that case, 
-try putting *parentheses* around the expression, which is always legal for an
-expression, but would never start a regular statement:
-
-.. code-block:: none
-
-    csharp> int width = 3;
-    csharp> int height = 5;
-    csharp> width * height
-    {interactive}(1,2): error CS0246: The type or namespace name 'width' could 
-    not be found. Are you missing a using directive or an assembly reference?
-    csharp> (width * height)
-    15
-
-.. index:: literal, identifier
-
-.. _Literals-and-Identifiers:
-
-Literals and Identifiers
-------------------------
+Variable, Identifiers, and Literals
+-----------------------------------------
    
-Expressions like ``27`` or ``32.5`` or ``"hello"`` are called *literals*,
-coming from the fact that they *literally* mean exactly what they
-say. They are distinguished from variables, whose value the compiler *cannot* infer
-directly from the name alone.
+Unlike languages like Python, an **identifier** is different from a 
+variable **name**. An identifier is defined as the name assigned to a 
+type (class, interface, struct, delegate, or enum), member, variable, 
+or namespace. In other words, an identifier refers to names other than 
+local variables. 
 
-The sequence of characters used to form a variable name (and names
-for other C# entities later) is called an *identifier*. It
-identifies a C# variable or other entity.
+**Literals**: Expressions with straight values such as ``7`` or ``1.23`` or ``"hello"`` 
+are called *literals* because they *literally* represent what they are. A ``bool`` 
+variable has two literal values: true or false. An integral numeric type can have 
+three kinds of literals: decimal, hexadecimal, and binary. 
+
+
+Keywords
+-----------
 
 .. index:: keyword
 
-There are some restrictions on the character sequence that make up
-an identifier:
+Keywords are predefined, reserved *identifiers* that have special meanings to the 
+compiler and can not be used as identifiers (including variable names) in your program 
+unless they include @ as a prefix. Current **reserved keywords** are as the table blow. 
+You can see that many of the data type names are reserved keywords.
+   
+==========  ==========  ==========  ==========  ==========  
+abstract    do          in          protected   true
+as          double      int         public      try
+base        else        interface   readonly    typeof
+bool        enum        internal    ref         uint
+break       event       is          return      ulong
+byte        explicit    lock        sbyte       unchecked
+case        extern      long        sealed      unsafe
+catch       false       namespace   short       ushort
+char        finally     new         sizeof      using
+checked     fixed       null        stackalloc  virtual
+class       float       object      static      void
+const       for         operator    string      volatile
+continue    foreach     out         struct      while
+decimal     goto        override    switch
+default     if          params      this
+delegate    implicit    private     throw
+==========  ==========  ==========  ==========  ==========  
+   
 
+   
+C# has another set of keywords called contextual keywords that are keywords with special meaning 
+in specific context and may be used as identifiers outside the program context.
+
+
+Naming Convention of Identifiers
+---------------------------------
 
 -  The characters must all be letters, digits, or underscores ``_``,
-   and must start with a letter. In particular, punctuation and blanks
-   are not allowed.
+   and must start with a letter.
 
--  There are some words that are *keywords* for special use in
-   C#. You may not use these words as your own identifiers. They
-   are easy to recognize in editors like in Xamarin Studio, 
-   that know about C# syntax:  They are colored differently.
+- *Reserved keywords* may not be used to name your own identifiers. Common 
+  IDE's will be able to catch this.
 
-We will only discuss a small fraction of the keywords in this course, but the curious
-may look at the 
-`full list <http://msdn.microsoft.com/en-us/library/x53a06bb.aspx>`_.
-   
-.. index:: case sensitive
+- C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
+  are different. 
 
-C# is case sensitive: The identifiers ``last``, ``LAST``, and
-``LaSt`` are all different. Be sure to be consistent. The compiler
-can usually catch these errors, since it is the version used in the *one*
-declaration that matters.
+- By convention, C# programs use PascalCase for type names, namespaces, 
+  and all public members. 
+  
+- Use PascalCase for class names and method names.
 
+- Use camelCase for method parameters and local variables.
 
-.. index:: identifier; multi-word naming convention
-   camel case
-   
-What is legal is distinct from what is conventional or good
-practice or recommended. Meaningful names for variables are
-important for the humans who are looking at programs, understanding
-them, and revising them. That sometimes means you would like to use
-a name that is more than one word long, like ``price at opening``,
-but blanks are illegal! One poor option is just leaving out the
-blanks, like ``priceatopening``. Then it may be hard to figure out
-where words split. Two practical options are
-
--  underscore separated: putting underscores (which are legal) in
-   place of the blanks, like ``price_at_opening``.
-
--  using *camel-case*: omitting spaces and using all lowercase,
-   except capitalizing all words after the first, like
-   ``priceAtOpening``
-
-
-Use the choice that fits your taste (or the taste or convention of
-the people you are working with).  We will tend to use
-camel-case for variable inside programs, while we use underscores in
-program file names (since different operating systems deal with case
-differently).
-
-Assignment Exercise
-~~~~~~~~~~~~~~~~~~~~~~
-
-*Think* what the result would be in csharp::
-
-   int x = 1;
-   x = x + 1;
-   x = x * 3;
-   x = x * 5;
-   x
-   
-Write your prediction.  Then test.  Can you explain it if you got it wrong?
-
-Another Assignment Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you had trouble with the last, one try this one, too::
-
-   int a = 5;
-   a = a/2;
-   a = a + 1;
-   a = a * 2;
-   a
-   
-
-
-
-Declaration Syntax Options
----------------------------
-
-    **type** **variableName** ``;``
-
-or with initialization:
-
-    **type** **variableName** ``=`` *initialValue* ``;``
-
-or there can be a list of variables of the same type, for instance a list
-of three variables:
-
-    **type** **variableName1** ``,`` **variableName2** ``,`` **variableName3** ``;``
-
-Some or all of the variables in the list could also have initializers.
-
-Space is allocated for each variable named, according to its type.  Where there is
-an initializer, an initial value is set for the variable.
-
-
-.. index:: assignment statement
-   statement; assignment
-
-Assignment Syntax
-------------------
-
-    **variableName** ``=`` *expression* ``;``
-
-The *expression* is evaluated before its value is assigned to **variableName**.
+- Use PascalCase for constant names, both fields and local constants.
+- Use meaningful and descriptive names for variables, methods, and classes.
