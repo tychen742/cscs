@@ -216,13 +216,13 @@ differently under different project folders inside the solution directory.
 
 To create a solution as a workspace, we use the command ``dotnet new sln`` in the solution 
 (or "workspace") directory. You then create all your project directories in the solution directory, 
-and then use the ``dotnet new console`` command to create a console app project in each of the project 
-directories. 
+and then use the ``dotnet new console`` command inside each of the project directories 
+to create a console app project in each of the project directories. 
 
-If you create a project in a folder using VS Code's Create .NET Project button in the Explorer view, 
-a solution will be created with the same name as the project if no solution file is present. 
+If you create a project in a folder using VS Code's "Create .NET Project" button in the Explorer view, 
+a solution will be created with the same name as the project (if no solution file is present already). 
 If this is not what you intend to do, you may use the Solution Explorer in VS Code to remove the project.
-Going to the project directory in command line and issue the command ``dotnet new console`` to create 
+Instead, going to the project directory in command line and issue the command ``dotnet new console`` to create 
 an app project will create your project without a solution. 
 
 
