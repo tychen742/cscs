@@ -17,12 +17,13 @@ More details to follow... -->
 
 ```
 $ pip install -r requirements.txt
-$./bin/get-code-examples.sh && make html latexpdf
+$ ./bin/get-code-examples.sh && make html latexpdf
+$ make html
 ```
 
 Notes
 -----
-Sphinx 5.3.0 + python3.10 work.
-pip install docutils==0.16 
-conf.py: extensions = ['sphinx_tabs.tabs']
-Esbonio v0.11.0 by Swyddfa for live preview in vscode (included in reStructuredText v190.4.1 by LeXtudio)
+- Sphinx 5.3.0 + python3.10 work.
+- ??? pip install docutils==0.16 
+- ??? conf.py: extensions = ['sphinx_tabs.tabs']
+- Esbonio v0.11.0 by Swyddfa for live preview in vscode (included in reStructuredText v190.4.1 by LeXtudio)
