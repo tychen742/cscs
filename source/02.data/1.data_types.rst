@@ -116,6 +116,7 @@ C# Built-in Types System
 --------------------------
 
 C# has a type system with types defined more than shown in the table above. 
+The type system can be briefly described as follows. 
 
 Reference types:
     There are 4 reference types: class type, interface type, array type, and delegate type. 
@@ -159,19 +160,12 @@ Type Conversion
 
 C# has specific types but from time to time we may need our data to switch between 
 the types. For example, when your program takes a user input for age, the input is 
-of string type while it's intended for numeric type. You then need to cast the type 
-to the data type intended. This switch may be implicit or explicit. 
-Implicit conversion means the 
-conversion happens automatically, such as a type int can implicitly be treated 
-as a type long. 
+of string type while it's intended for numeric type. You therefore need to cast the type 
+to the data type intended. This switch may be *implicit* or *explicit*. 
+Implicit conversion means the conversion happens automatically: 
 
-For integral numeric types, if the destination type can store 
-all values of the source type, the conversion is implicit. Otherwise, you need to 
-use a cast expression to perform an explicit conversion. Other conversions between any floating-point type to any other floating-point type requires 
-For floating-point numeric types, conversion from float to double is implicit. 
-explicit cast.
-
-Since conversion involves the defined size, conversion (casting) can be understand as:
+Type conversion involves the size of a data type in memory, conversion (casting) therefore
+can be understand as:
 
 Implicit Casting (automatically) 
   - converting a smaller type to a larger type size
@@ -181,19 +175,22 @@ Explicit Casting (manually)
   - converting a larger type to a smaller size type
     double -> float -> long -> int -> char
 
-For instance,  the conversion from type int to type long is implicit, so expressions of type int 
-can implicitly be treated as type long. On the other hand, The opposite conversion, from type 
-long to type int, is explicit and so an explicit cast is required. Observe the example below and 
-you see that an int type variable converts to a long type variable implicitly while a long type 
-variable converting back to int has to be done explicitly. 
+For instance, the conversion from type int to type long is implicit, so expressions of 
+type int can implicitly be treated as type long. On the other hand, The opposite 
+conversion, from type long to type int, is explicit and so an explicit cast is required. 
+Observe the example below and you see that an int type variable converts to a long type 
+variable implicitly while a long type variable converting back to int has to be done 
+explicitly. 
 
-When performing type casting, we put the desired result type name in parentheses as a *cast*. In the 
-example below, we are casting the value of variable b into an int type by placing ``(int)`` in 
-front of it. Here we use the GetType() method from the System namespace to get the type of an instance. 
+Note that, when performing type casting, we put the desired result type name in 
+parentheses as a *cast*. In the example below, we are casting the value of variable 
+b into an int type by placing ``(int)`` in front of it. Here we use the GetType() 
+method from the System namespace to get the type of an variable. You can test the 
+examples below usign ``csharprepl``.
 
 .. code-block:: c#
 
-    > int a = 123;      // variable a is assigned a value of 123
+    > int a = 123;      // variable a is assigned a value 123
     > long b = a;       // implicit conversion from int to long by reassignment
     > int c = (int) b;  // explicit conversion from long to int    
     > a.GetType()       // use the GetType() function to get the type of the variable
@@ -268,65 +265,65 @@ A use case for this would be when doing divisions, where ``double`` would work b
     > 
     
 
-6 Built-in (Simple) C# Types
-------------------------------
+.. 6 Built-in (Simple) C# Types
+.. ------------------------------
 
-char
-~~~~~~
+.. char
+.. ~~~~~~
 
-The type for an individual character is ``char``.  A ``char`` literal value is
-a *single* character enclosed in *single* quotes, like ``'a'`` or ``'$'``.  
+.. The type for an individual character is ``char``.  A ``char`` literal value is
+.. a *single* character enclosed in *single* quotes, like ``'a'`` or ``'$'``.  
 
-Note that when a character is surrounded by double quotation marks, it becomes 
-a string literal, such as ``"A"``.
+.. Note that when a character is surrounded by double quotation marks, it becomes 
+.. a string literal, such as ``"A"``.
 
-Also, the char type keyword is an alias for the .NET System.Char structure type that 
-represents a Unicode UTF-16 character. Internally, a ``char`` is an integer, stored in 16 bits,
-with the correspondence between numeric codes and characters given by the 
-*Unicode* standard. For example:
+.. Also, the char type keyword is an alias for the .NET System.Char structure type that 
+.. represents a Unicode UTF-16 character. Internally, a ``char`` is an integer, stored in 16 bits,
+.. with the correspondence between numeric codes and characters given by the 
+.. *Unicode* standard. For example:
 
-.. code-block:: console
+.. .. code-block:: console
   
-    var chars = new[] {     // an implicitly typed array
-        'j',
-        '\u006A',
-        '\x006A',
-        (char)106,
-    };
+..     var chars = new[] {     // an implicitly typed array
+..         'j',
+..         '\u006A',
+..         '\x006A',
+..         (char)106,
+..     };
 
-    Console.WriteLine(string.Join(" ", chars));  // output: j j j j
+..     Console.WriteLine(string.Join(" ", chars));  // output: j j j j
 
-As seen in the type system, the type char is one of the integral types used to represent 
-characters. We can therefore cast char like below as an example::
+.. As seen in the type system, the type char is one of the integral types used to represent 
+.. characters. We can therefore cast char like below as an example::
 
-    > (int)'A';
-    65
-    > (int)'+';
-    43
+..     > (int)'A';
+..     65
+..     > (int)'+';
+..     43
 
-An we can even perform arithmetical operations on chars like::  
+.. An we can even perform arithmetical operations on chars like::  
 
-    > Console.WriteLine('A' + '+');
-    108
+..     > Console.WriteLine('A' + '+');
+..     108
 
 
-Boolean/bool 
-~~~~~~~~~~~~~~~~~~~~~~
+.. Boolean/bool 
+.. ~~~~~~~~~~~~~~~~~~~~~~
 
-The Boolean data type can only have one of two values and is used in conditional (if)
-statements, which allow us to build logic in our programs:: 
+.. The Boolean data type can only have one of two values and is used in conditional (if)
+.. statements, which allow us to build logic in our programs:: 
 
-- YES / NO
-- ON / OFF
-- TRUE / FALSE
+.. - YES / NO
+.. - ON / OFF
+.. - TRUE / FALSE
 
-The type *bool* is an alias for *System.Boolean* with literals of ``true`` and ``false``. 
-A Boolean expression, on the hand, would return a boolean value of ``True`` or ``False`` 
-as a result of comparing values/variables. For example::
+.. The type *bool* is an alias for *System.Boolean* with literals of ``true`` and ``false``. 
+.. A Boolean expression, on the hand, would return a boolean value of ``True`` or ``False`` 
+.. as a result of comparing values/variables. For example::
 
-    int x = 10;
-    int y = 9;
-    Console.WriteLine(x > y); // returns True, because 10 is higher than 9
+..     int x = 10;
+..     int y = 9;
+..     Console.WriteLine(x > y); // returns True, because 10 is higher than 9
 
 
 
