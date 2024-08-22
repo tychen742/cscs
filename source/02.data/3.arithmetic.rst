@@ -59,7 +59,8 @@ Now let us do some arithmetic operations:
    operator; *
    single: * multiplication
 
-In Math class you could enter something like 4(10) for multiplication:
+In Math class you could enter something like 4(10) for multiplication, but 
+in C# you need to use the multiplication operator ``*``:
 
 .. code-block:: none
  
@@ -67,44 +68,31 @@ In Math class you could enter something like 4(10) for multiplication:
       ┌─────────CompilationErrorException─────────┐   
       │ (1,1): error CS0149: Method name expected │   
       └───────────────────────────────────────────┘   
+    > 4 * 10
+    40
 
 .. Unfortunately the error messages are not always easy to follow:  
 .. it is hard to guess the
 .. intention of the user making a mistake.
 
-    > 4 * 10
-    40
 
 .. index::
    single:  ( ); grouping
    grouping ( )
-   single: -; negation
-     
-Enter each of the following expressions into csharp, and think what they
-will produce (and then check):    
+   single: -; negation  
 
-.. code-block:: none
- 
-    2*5 
-    2 + 3 * 4 
 
-If you expected the last answer to be 20, think again: C# uses
+C# uses
 the normal *precedence* of arithmetic operations: Multiplications
 divisions, and negations are done before addition and subtraction, unless
 there are parentheses forcing the order: 
 
 .. code-block:: none
- 
-    csharp> -(2+3)*4 
+    > 2 + 3 * 4 
+    14
+    > -(2+3)*4 
     -20 
 
-A sequence of operations with equal precedence also work like in math: 
-left to right in most cases, like for combinations of addition and subtraction:
-
-.. code-block:: none
- 
-    csharp> 10 - 3 + 2 
-    9 
 
 .. index:: 
    single: remainder %
@@ -124,55 +112,40 @@ Division and Remainders
 --------------------------------
 
    
-We started with the almost direct translations from math.  Division is
-more complicated.  We continue in the csharp program:
+Division can be a little tricky in C#. For example:
 
 .. code-block:: none
 
-    csharp> 5.0/2.0;
+    > 5.0/2.0;
     2.5
-    csharp> 14.0/4.0;
+    > 14.0/4.0;
     3.5
 
-So far so good.  Now consider:
+But C# will implicitly turn the following expression to an ``int`` type:
 
 .. code-block:: none
 
-    csharp> 14/4
+    > 14/4
     3
 
-What?  Some explanation is in order.  All data has a *type* in C#.
-When you write an explicit number
-without a decimal point, like 2, 17, or -237,
-it is interpreted as the type of an integer, called ``int`` for short.
+ called ``int`` for short.
 
-When you include a decimal point, the type is ``double``, representing a more
-general real number.  This is true even if the value of the number is an
-integer like 5.0: the type is still ``double``.
-
-Addition, subtraction, and multiplication work as you would expect for
-``double`` values, too:
+Adding a decimal point would inform C# that we are using ``double`` instead of ``int``:
 
 .. code-block:: none
-
-    csharp> 0.5 * (2.0 + 4.5)
+    > 14.0/4.0
+    3.5
+    > 0.5 * (2.0 + 4.5)
     3.25
 
-If one or both
-of the operands to ``/`` is a ``double``, the result is a ``double``, 
-close to the actual quotient.  
-We say close,
-because C# stores 
+Note that C# stores 
 values with only a limited precision, so in fact results are
-only approximate in general.  For example:
+only approximate in general. For example:
 
 .. code-block:: none
 
-    csharp> 1.0/3
+    > 1.0/3
     0.333333333333333
-
-Small errors are also possible with the ``double`` type 
-and the other arithmetic operations.  See :ref:`type-double`.
 
 .. note::
    
