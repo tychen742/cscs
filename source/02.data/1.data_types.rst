@@ -76,7 +76,7 @@ an equal number of positive and negative numbers; whereas an unsigned type (such
 and ``ulong``) uses its bytes to represent only positive numbers. The difference between 
 singed and unsigned numbers can be seen from the example below::
 
-.. code-block:: console
+.. code-block:: C#
 
     Console.WriteLine("Signed integral types:");
 
