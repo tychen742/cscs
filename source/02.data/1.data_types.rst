@@ -93,7 +93,8 @@ singed and unsigned numbers can be seen from the example below::
     Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
     Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
 
-We would see the output as below:
+
+You should see the output as below:
 
 .. code-block:: C# 
     
