@@ -78,7 +78,6 @@ singed and unsigned numbers can be seen from the example below::
 
 
 .. code-block:: C#
-
     Console.WriteLine("Signed integral types:");
 
     Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
