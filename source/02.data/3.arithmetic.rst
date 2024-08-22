@@ -10,29 +10,32 @@ language because the constructs are similar to computation and therefore
 easier for the learners to associate. The C# Math class has many 
 methods that allows you to perform arithmetic tasks on numbers.
 
-Open a terminal (Linux or OS X) or :ref:`mono-command-prompt`
-window in Windows, and enter the command ``csharp``.  You should see  :
+We want to use csharprepl so that we can run some quick-and-dirty C# code, 
+maybe for testing purposes. Open a terminal and enter the command 
+``csharprepl``, You should see:
 
 .. code-block:: none
 
-    Mono C# Shell, type "help;" for help
+    Welcome to the C# REPL (Read Eval Print Loop)!
+    Type C# expressions and statements at the prompt and press Enter to evaluate them.
+    Type help to learn more, exit to quit, and clear to clear your terminal.
 
-    Enter statements below.
-    csharp>  
+    > 
 
-The ``csharp>`` prompt tells you that the C# interpreter has started
-and is awaiting input. This allows you to create small bits of C# 
-and test them, interactively, without having to write a full program! 
+The ``>`` prompt tells you that the C# interpreter has started
+and is awaiting input. This allows you to test C# code interactively 
+without having to create a project, modify it, save it, and run 
+``dotnet run`` to test it. 
 
 .. index::
    single: operator; + with numbers
    single: +; with numbers
 
-Play along with the examples here, entering what comes after the prompt:
+Inside csharprepl, enter what comes after the prompt:
 
 .. code-block:: none
  
-    csharp> 2 + 3
+    > 2 + 3
     5
 
 The csharp program just has a *read, evaluate, and print loop*: the acronym is 

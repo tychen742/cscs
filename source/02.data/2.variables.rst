@@ -26,7 +26,7 @@ reference variable. To declare a local variable, specify a type and provide
 a variable name. You can declare multiple variables of the same type in one 
 statement:
 
-   type variableName;
+   ``type variableName;``
 
 In this syntax, 
 
@@ -113,7 +113,7 @@ In the example above,
 ``int width = 5, height, area;`` is a declaration statement and ``height = 7;`` 
 an assignment statement. 
 
-We should also notice that the value of the most *recent* assignment is 
+You should also notice that the value of the most *recent* assignment is 
 remembered until reassigned. Also, it is common to use the same variable name 
 when we intend to change the value to the variable without keeping the previous 
 value, and after the initial declaration you don't need to declare type anymore:: 
@@ -201,8 +201,8 @@ Naming Convention of Identifiers
 -  The characters must all be letters, digits, or underscores ``_``,
    and must start with a letter.
 
-- *Reserved keywords* may not be used to name your own identifiers. Common 
-  IDE's will be able to catch this.
+- *Reserved keywords* may not be used to name your own identifiers unless 
+  a ``@`` is prefixed. Common IDE's will be able to catch this.
 
 - C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
   are different. 
@@ -210,9 +210,9 @@ Naming Convention of Identifiers
 - By convention, C# programs use PascalCase for type names, namespaces, 
   and all public members. 
   
-- Use PascalCase for class names and method names.
+- Use **PascalCase for class names and method names**.
 
-- Use camelCase for method parameters and local variables.
+- Use **camelCase** for method parameters and **local variables**.
 
-- Use PascalCase for constant names, both fields and local constants.
+- Use PascalCase for constant names, both fields and **local constants**.
 - Use meaningful and descriptive names for variables, methods, and classes.
