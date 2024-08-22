@@ -1,7 +1,7 @@
 Data Types
 =========================
 
-A data type specifies the size and type of variable values. In other words, data types 
+A data **type** specifies the size and kind of variable values. In other words, data types 
 are used when assigning values to variables. In programming, "data" refers 
 to a value that is stored in the computer's memory. A number 
 ``10``, for example, is stored in the memory as ``1010``. As the number get  
@@ -22,8 +22,8 @@ Common Data Types in C#
 
 C# is a "strongly typed" language, meaning that every variable and constant has a type. 
 Also, types are required for expressions that evaluate to a value, method declarations 
-with names, input parameters, and return values. Some examples of the most common value 
-types are in variable assignment are as follows. 
+with names, input parameters, and return values. Examples of the common value 
+types (declared and initiated with value assignment) are as follows. 
 
 .. code-block:: console
 
@@ -34,8 +34,8 @@ types are in variable assignment are as follows.
     bool myBool = true;             // Boolean
     string myText = "Hello";        // String
 
-Note that C# requires number **suffixes**, especially for floating-point types, when assigning 
-numeric literals. The purpose of using suffixes is to help the compiler unambiguously 
+From the above you should notice that C# requires number **suffixes** for numeric types. 
+The purpose of using suffixes is to help the compiler unambiguously 
 identify the data type of the value/literal. The basic rules for number suffixes are:
 
 - The number literal without suffix or with the d or D suffix is of type double
@@ -95,7 +95,7 @@ singed and unsigned numbers can be seen from the example below::
 We would see the output as below:
 
 .. code-block:: console
-    
+
     Signed integral types:
     sbyte  : -128 to 127
     short  : -32768 to 32767
