@@ -59,24 +59,20 @@ Now let us do some arithmetic operations:
    operator; *
    single: * multiplication
 
-In math class you could enter something like 4(10) for multiplication:
+In Math class you could enter something like 4(10) for multiplication:
 
 .. code-block:: none
  
-    csharp> 4(10)
-    {interactive}(1,2): error CS0119: Expression denotes a 'value', 
-    where a 'method group' was expected
+    > 4(10);
+      ┌─────────CompilationErrorException─────────┐   
+      │ (1,1): error CS0149: Method name expected │   
+      └───────────────────────────────────────────┘   
 
-Unfortunately the error messages are not always easy to follow:  
-it is hard to guess the
-intention of the user making a mistake.
+.. Unfortunately the error messages are not always easy to follow:  
+.. it is hard to guess the
+.. intention of the user making a mistake.
 
-The issue here is that the multiplication operator must be *explicit* in
-C#.  Recall that an asterisk is used as a multiplication operator:
-
-.. code-block:: none
- 
-    csharp> 4 * 10
+    > 4 * 10
     40
 
 .. index::
