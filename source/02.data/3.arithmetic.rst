@@ -38,39 +38,22 @@ Inside csharprepl, enter what comes after the prompt:
     > 2 + 3
     5
 
-The csharp program just has a *read, evaluate, and print loop*: the acronym is 
-*repl*.  It evaluated the expression ``2 + 3`` and printed the result, 
-on a line without a prompt.  
-Csharp can evaluate arbitrary C# expressions.  It is very handy for
-testing as you get used to new syntax.
+The *repl* part in csharprepl means *read, evaluate, and print loop*: 
+the acronym is *repl*. It evaluates expressions immediately and prints 
+the result on a line without a prompt. C# can evaluate arbitrary C# 
+expressions. It is very handy for testing as you get used to new syntax.
 
 .. index::
    operator; -
    single: -; subtraction
 
-Subtraction works as you would expect.  
-Blanks are optional around symbols: 
+Now let us do some arithmetic operations: 
 
 .. code-block:: none
  
-    csharp> 10 - 3
+    > 10 - 3
     7
 
-For the binary arithmetic operators, 
-you are encouraged to add blanks to make the expression
-more easily readable by humans.
-
-The csharp program is more line-oriented than the C# language.  
-If you press the return key when what you have entered is a complete expression
-you see the value as a response.
-If your expression is clearly incomplete you get another ``>`` prompt (with no
-"csharp"), until you have entered enough for a full expression.
-
-.. code-block:: none
- 
-    csharp> 10-
-          > 3
-    7
 
 .. index::
    operator; *
