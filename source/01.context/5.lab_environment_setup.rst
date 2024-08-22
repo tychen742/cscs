@@ -133,7 +133,7 @@ Create C# Projects for "hello, world" Apps
    We will create our first "hello, world" app project in the "tests" (the solution) folder 
    in your "workspace" folder by going through the following steps: 
     
-   #. In a newly opened VS Code window, click on the Explorer view and choose 
+    #. In a newly opened VS Code window, click on the Explorer view and choose 
        "Create .NET Project" and then "Console App" from the Command Palette dropdown menu. 
        Alternatively, you may use Cmd-Shift-P, Win-Shift-P, or View --> Command Palette 
        to bring up Command Palette, and then type .NET: New Project, then select 
@@ -143,23 +143,23 @@ Create C# Projects for "hello, world" Apps
          :scale: 30%
          
 
-   #. Choose the project directory. In our example here, **Open** the *tests* directory
+    #. Choose the project directory. In our example here, **Open** the *tests* directory
        that we created in the workspace directory under the user home directory.  
     
-   #. Choose a name for your project. In this example, type hello1 as the project name
+    #. Choose a name for your project. In this example, type hello1 as the project name
        and Enter to confirm the name and Enter again to confirm the project path. 
        You should see the hello1 project created along with a test.sln solution file. 
 
        .. figure:: ../images/hello1_project_created.jpg
         :scale: 30%
 
-   #. Click to expand the hello1 project directory and you should see the Program.cs 
+    #. Click to expand the hello1 project directory and you should see the Program.cs 
        file. Click to open the file in the editor. 
 
        .. figure:: ../images/hello1_program_cs.jpg
         :scale: 30%
        
-   #. To run the hello1 app, you have to run it as part of a project. From the 
+    #. To run the hello1 app, you have to run it as part of a project. From the 
        menu bar, choose Run --> Run without Debugging. Alternatively, you can run 
        the app by choosing the "Run project associated with this file" option from 
        the Run Code icon (the ▷ right-pointing triangle in the upper right corner 
@@ -195,7 +195,7 @@ Create C# Projects for "hello, world" Apps
                 [Done] exited with code=127 in 0.017 seconds
 
 
-#. Create another C# Hello World app project (hello2)
+4. Create another C# Hello World app project (hello2)
    
    Here you will create another project, call it hello2, to output "Hello, World". 
    But this time we are going to do that by issuing commands at 
