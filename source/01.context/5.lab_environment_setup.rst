@@ -130,8 +130,8 @@ Create C# Projects for "hello, world" Apps
    that you create in the solution. We will first practice by creating a *solution* with 
    a *project* in it. 
 
-    We will create our first "hello, world" app project in the "tests" (the solution) folder 
-    in your "workspace" folder by going through the following steps: 
+   We will create our first "hello, world" app project in the "tests" (the solution) folder 
+   in your "workspace" folder by going through the following steps: 
     
     #. In a newly opened VS Code window, click on the Explorer view and choose 
        "Create .NET Project" and then "Console App" from the Command Palette dropdown menu. 
@@ -193,11 +193,12 @@ Create C# Projects for "hello, world" Apps
                 /bin/sh: scriptcs: command not found
 
                 [Done] exited with code=127 in 0.017 seconds
-       
+
+
 #. Create another C# Hello World app project (hello2)
    
-   Here you will create another project, call it hello2, to output "Hello, World" at 
-   the command line. But this time we are going to do that by issuing commands at 
+   Here you will create another project, call it hello2, to output "Hello, World". 
+   But this time we are going to do that by issuing commands at 
    the command line instead of using VS Code as the tool. The process should look as 
    the code block below. We first create (``mkdir``) another project folder called hello2 in the 
    solution folder tests, then ``cd`` into the folder and issued two dotnet commands 
