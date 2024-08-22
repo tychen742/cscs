@@ -74,10 +74,10 @@ Type	      Size	                 Precision        Description
 The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
 an equal number of positive and negative numbers; whereas an unsigned type (such as ``ushort``, ``uint``, 
 and ``ulong``) uses its bytes to represent only positive numbers. The difference between 
-singed and unsigned numbers can be seen from the example below::
+singed and unsigned numbers can be seen from the example below:
 
 
-.. code-block:: C# 
+.. code-block:: C#
     :linenos:  
     
     Console.WriteLine("Signed integral types:");
