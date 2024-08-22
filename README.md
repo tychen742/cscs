@@ -24,6 +24,8 @@ $ make html
 Notes
 -----
 - Sphinx 5.3.0 + python3.10 work.
+- pip install sphinx_rtd_theme
+- pip install sphinx_tabs
 - ??? pip install docutils==0.16 
 - ??? conf.py: extensions = ['sphinx_tabs.tabs']
 - Esbonio v0.11.0 by Swyddfa for live preview in vscode (included in reStructuredText v190.4.1 by LeXtudio)
