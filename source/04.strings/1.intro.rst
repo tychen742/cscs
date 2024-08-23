@@ -1,7 +1,3 @@
-
-Strings
-================
-
 A string in C# is a collection of literal characters used to store text. In C# string 
 must be enclosed in double quotes to delimit the string. To create a variable of type string
  and assign it with a value:
@@ -14,8 +10,7 @@ must be enclosed in double quotes to delimit the string. To create a variable of
     "hello"
     > 
 
-To learn a little about strings, let us observe the two common C# string 
-operations: Concatenation and escape. 
+Common C# string operations 
 
 
 .. index:: string; concatenation with +
@@ -67,8 +62,7 @@ Note to Python programmers:  Unfortunately there is no ``*``
 multiplication operator for strings in C#.
 
 
-Escape
----------
+======================
 
 .. index::
    escape code \
@@ -172,9 +166,3 @@ but no ``@`` to remind you that it is verbatim:
     bc
     
     def"
-
- 
-
-
-
-   
