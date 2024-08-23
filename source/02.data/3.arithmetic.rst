@@ -88,7 +88,7 @@ divisions, and negations are done before addition and subtraction, unless
 there are parentheses forcing the order: 
 
 .. code-block:: C#
-    
+
     > 2 + 3 * 4 
     14
     > -(2+3)*4 
@@ -134,6 +134,7 @@ But C# will implicitly turn the following expression to an ``int`` type:
 Adding a decimal point would inform C# that we are using ``double`` instead of ``int``:
 
 .. code-block:: none
+    
     > 14.0/4.0
     3.5
     > 0.5 * (2.0 + 4.5)
