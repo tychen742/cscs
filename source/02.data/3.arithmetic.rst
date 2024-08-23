@@ -10,12 +10,17 @@ language because the constructs are similar to computation and therefore
 easier for the learners to associate. The C# Math class has many 
 methods that allows you to perform arithmetic tasks on numbers.
 
-We want to use csharprepl so that we can run some quick-and-dirty C# code, 
-maybe for testing purposes. Open a terminal and enter the command 
+
+The C# REPL (``csharprepl``)
+--------------------------------
+We want to use start by using ``csharprepl`` so that we can run some 
+quick-and-dirty C# code for practice and testing purposes. 
+Open a terminal and enter the command 
 ``csharprepl``, You should see:
 
 .. code-block:: none
 
+    tychen@mac:~/workspace/tests$ csharprepl
     Welcome to the C# REPL (Read Eval Print Loop)!
     Type C# expressions and statements at the prompt and press Enter to evaluate them.
     Type help to learn more, exit to quit, and clear to clear your terminal.
@@ -27,21 +32,32 @@ and is awaiting input. This allows you to test C# code interactively
 without having to create a project, modify it, save it, and run 
 ``dotnet run`` to test it. 
 
+When you are done with ``csharprepl``, you can enter ``exit`` to quit the shell.
+
+The *repl* part in csharprepl is an acronym for the *Read-Evaluate-Print Loop* 
+(REPL). A REPL is a language shell provides simple interactive computer programming 
+environment that runs code piecewise. It evaluates expressions immediately and prints 
+the result on a line without a prompt. The REPL can evaluate arbitrary C# 
+expressions. It is very handy for testing as you get used to C# syntax. 
+
+
+
+Addition, Subtraction, and Multiplication
+-------------------------------------------
+
 .. index::
    single: operator; + with numbers
    single: +; with numbers
 
-Inside csharprepl, enter what comes after the prompt:
+Inside csharprepl, enter what comes after the prompt (REPL prints the 
+results directly without having to use the ``Console.WriteLine()`` method):
 
 .. code-block:: none
  
     > 2 + 3
     5
-
-The *repl* part in csharprepl means *read, evaluate, and print loop*: 
-the acronym is *repl*. It evaluates expressions immediately and prints 
-the result on a line without a prompt. C# can evaluate arbitrary C# 
-expressions. It is very handy for testing as you get used to new syntax.
+    > Console.WriteLine(1+1)
+    2
 
 .. index::
    operator; -
@@ -59,8 +75,8 @@ Now let us do some arithmetic operations:
    operator; *
    single: * multiplication
 
-In Math class you could enter something like 4(10) for multiplication, but 
-in C# you need to use the multiplication operator ``*``:
+In the Math class, you could enter something like 4(10) for multiplication, but 
+in C#, you need to use the multiplication operator ``*``:
 
 .. code-block:: none
  
@@ -82,12 +98,11 @@ in C# you need to use the multiplication operator ``*``:
    single: -; negation  
 
 
-C# uses
-the normal *precedence* of arithmetic operations: Multiplications
+C# uses the normal *precedence* of arithmetic operations: Multiplications, 
 divisions, and negations are done before addition and subtraction, unless
 there are parentheses forcing the order: 
 
-.. code-block:: C#
+.. code-block:: none
 
     > 2 + 3 * 4 
     14
@@ -109,7 +124,7 @@ there are parentheses forcing the order:
 
 .. _Division-and-Remainders:
    
-Division and Remainders
+Division 
 --------------------------------
 
    
@@ -129,76 +144,62 @@ But C# will implicitly turn the following expression to an ``int`` type:
     > 14/4
     3
 
- called ``int`` for short.
 
-Adding a decimal point would inform C# that we are using ``double`` instead of ``int``:
+Adding a decimal point would inform C# that you are using ``double`` instead of ``int``:
 
 .. code-block:: none
-    
+
     > 14.0/4.0
     3.5
-    > 0.5 * (2.0 + 4.5)
-    3.25
+    > 14.0 / 4      // one of the operands is double type
+    3.5
+    > 6.0/3.0       // when the remainder is 0, the quotient is an int.
+    2
+    > 
 
-Note that C# stores 
-values with only a limited precision, so in fact results are
-only approximate in general. For example:
+Note that C# stores values with only a limited precision, so the results of 
+mathematical operations are only approximate in general. The following 
+is an example that shows the ``double`` type has a precision of ~15-17 digits:
 
 .. code-block:: none
 
     > 1.0/3
     0.333333333333333
 
-.. note::
-   
-   In C#, the result of the / operator depends on the
-   *type* of the operands, not on the *mathematical value* of the operands.
- 
-Division with ``int`` data is handled completely differently.  
 
-If you think about it, you learned several ways to do division.
-Eventually you learned how to do division resulting in a decimal.
-In the earliest grades, however, you would say
+Remainders
+--------------
 
-    "14 divided by 4 is 3 with a remainder of 2." 
+Remainder is used to check if a number is divisible by another number. 
+The remainder operator ``%`` computes the remainder after dividing its 
+left-hand operand by its right-hand operand. 
 
-Note the quotient is an integer 3, that matches the C# evaluation of 14/4,
-so having a way to generate an integer quotient is not actually too strange.
-The problem here is that the answer from grade school is in *two* parts, 
-the integer quotient 3 and the remainder 2.  
-
-C# has a *separate* operation symbol to generate the remainder part.  
-There is no standard
-single operator character operator for this in regular math, 
-so C# grabs an unused symbol: 
-``%`` is the remainder operator.  
-(This is the same as in many other computer languages.)
-
-Try in the csharp shell:
+Try in the ``csharprepl``:
 
 .. code-block:: none
 
-    csharp> 14 / 4
-    3
-    csharp> 14 % 4
+    > 14 % 7
+    0
+    > 14 % 4
     2
-    
-You see that with the combination of the ``/`` operator and the ``%`` operator,
-you get both the quotient and the remainder from our grade school division.
+    > int x = 0;
+    > x = 7 % 5;  // x now contains 2
+    2
+    > x = 9 % 5;  // x now contains 4
+    4
+    > x = 5 % 5;  // x now contains 0
+    0
+    > x = 4 % 5;  // x now contains 4
+    4
+    > x = -4 % 5; // x now contains -4
+    -4
+    > x = 4 % -5; // x now contains 4
+    4
 
-Now predict and then try each of these expression in csharp:
+Finding remainders can be useful in the future. For example, to count the 
+number of hours in 
 
-.. code-block:: none
-
-    23/5 
-    23%5
-    20%5 
-    6/8
-    6%8
-    6.0/8
-
-Finding remainders will prove more useful than you might think in
-the future!  Remember the strange ``%`` operator.
+!  Remember the strange ``%`` operator.
 
 .. note::
    The precedence of ``%`` is the same as ``/`` and ``*``, and hence
@@ -219,28 +220,26 @@ We have been testing arithmetic expressions, with the word
 an *expression* is any syntax that evaluates to a single value of some type.  
 We will introduce many more types and operations that can be used in expressions. 
 
-Divisible by 17 Exercise
+Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-What is a simple expression that lets you see if an int x is divisible by 17?   
+Unix time is a date and time representation widely used in computing. 
+It measures time by the number of non-leap seconds that have elapsed 
+since 00:00:00 UTC on 1st January 1970, the Unix epoch. 
 
-Mixed Arithmetic Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+In csharprepl, we can find the current time and it's timestamp:
 
-*Think* of the result of one of these at a time; write your prediction, 
-and *then* test, and write the correct answer afterward if you were wrong.
-Then go on to the next.... 
-For the ones you got wrong, can you explain the result after seeing it? ::
+.. code-block:: none
 
-    2 * 5 + 3
-    2 + 5 * 3
-    1.5 * 3
-    7.0/2.0
-    7.0/2
-    7/2.0
-    4.0 * 3 / 8
-    4 * 3 / 8
-    6 * (2.0/3)
-    6 * (2/3)
-    3 + 10 % 6
-    10 % 6 + 3
+    > DateTime.Now
+    8/23/2024 1:43:33 AM
+    > var timeStamp =  new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+
+    > timeStamp
+    1724395921
+    > 
+
+The timestamp above is the number of seconds since the Unix epoch. Use the 
+remainder operator to figure out how many minutes, hours, and days has it 
+been since 00:00:00 UTC on 1st January 1970.    
+
