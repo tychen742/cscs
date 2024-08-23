@@ -87,7 +87,7 @@ the normal *precedence* of arithmetic operations: Multiplications
 divisions, and negations are done before addition and subtraction, unless
 there are parentheses forcing the order: 
 
-.. code-block:: none
+.. code-block:: C#
     > 2 + 3 * 4 
     14
     > -(2+3)*4 
