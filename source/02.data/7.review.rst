@@ -1,46 +1,6 @@
 Chapter Review Questions
 =========================
 
-#.  Most of C# arithmetic is just like normal math.  The exceptions are
-    most important:  What are they?
-    
-#.  What are the consequences of numerical value types each being stored in
-    a fixed amount of memory space?
-    
-#.  What is the order of operations if several of the same level,
-    are chained together like ``x + y + z``?  
-    This can matter in C# (including in a question below).
-    
-#.  Which of these individual 
-    two-line fragments could fit into a legal C# program?  
-    Explain::
-    
-       w = 3;
-       w = 4;
-       
-       x = 3;
-       x = x+1;
-       
-       y = 3;
-       y = "hello";
-       
-       z = 3.5
-       z = 3;
-       
-       q = 3;
-       q + 1 = q;
-       
-#.  For the legal pairs above, what could the type of the variable have been
-    declared?  You can check them in csharp, giving the declaration first.
-
-#.  What are the final values of ``x`` and ``y``  after this fragment? ::
-
-        int x = 3
-        int y = x + 2;
-        x = x + y;
-        y = x + y;
-        
-    Test in csharp after you have decided.
     
 #.  Which of these expressions are legal in C#?  
     Think of the results.

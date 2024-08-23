@@ -2,19 +2,22 @@
 Strings
 ================
 
-A string in C# is a collection of literal characters used to store text. In C# string 
-must be enclosed in double quotes to delimit the string. To create a variable of type string
- and assign it with a value:
+A string in C# is a collection of literal characters used to store text. 
+In C# string must be enclosed in double quotes to delimit the string. 
+
+To create a variable of type string 
+and assign it with a value:
 
 .. code-block:: 
 
     > string greeting = "hello";
 
-    > greeting      // the REPL shell prints the value of the variable
+    > greeting      // the REPL shell prints the value of the variable directly
     "hello"
     > 
 
-To learn a little about strings, let us observe the two common C# string 
+We will learn more about strings, such as string-related methods, in a later chapter. 
+For now, to learn a little about strings, let us observe the two common C# string 
 operations: Concatenation and escape. 
 
 
@@ -28,43 +31,29 @@ operations: Concatenation and escape.
 String Concatenation
 ---------------------
    
-Because everything in C# is typed, C# can give a special meaning to
-operators depending on the types involved,
-as we saw with ``/``.
-We can operate on numbers with arithmetic operators, including ``+``.
-With strings ``+`` has a completely different meaning. Look at the example
-in csharp:
+String concatenation is to join stings together. In C#, the ``+`` operator 
+is used to perform concatenation. Note C# uses the ``+`` operator for both 
+arithmetic addition and concatenation. To concatenate two strings together:
 
 .. code-block:: none
 
-    csharp> "never" + "ending";
-    "neverending"
+    > string firstName = "Tsangyao";    // assign value to variable
+    > string lastName = " Chen";    
 
-The plus operation with strings means *concatenate* the strings: join them
-together end to end.
+    > firstName + lastName              // concatenation
+    "Tsangyao Chen"
+    > 
 
-C# is even a bit smarter.  If you use a ``+`` with a string, presumable you
-are looking to produce a string, so even if the second operand to the ``+`` is
-*not* a string, it is automatically converted to a string representation before
-concatenating:
-
-.. code-block:: none
-
-    csharp> int x = 42;
-    csharp> string result;
-    csharp> result = "We get " + x;
-    csharp> result;
-    "We get 42"
-
-You can chain concatenations.  We could make a full sentence adding a period:
+C# can also concatenate values of different data types. The example below 
+shows you how to concatenate data of different types. 
 
 .. code-block:: none
 
-    csharp> "We get " + x + ".";
-    "We get 42."
+    > int expense = 400;                                
 
-Note to Python programmers:  Unfortunately there is no ``*`` 
-multiplication operator for strings in C#.
+    > "I spent " + expense + " dollars on coffee this week."
+    "I spent 400 dollars on coffee this week."
+    > 
 
 
 Escape
