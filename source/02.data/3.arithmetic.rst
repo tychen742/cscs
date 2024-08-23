@@ -196,29 +196,12 @@ Try in the ``csharprepl``:
     > x = 4 % -5; // x now contains 4
     4
 
-Finding remainders can be useful in the future. For example, to count the 
-number of hours in 
-
-!  Remember the strange ``%`` operator.
 
 .. note::
    The precedence of ``%`` is the same as ``/`` and ``*``, and hence
    higher than addition and subtraction, ``+`` and ``-``. 
 
-When you are *done with csharp*, you can enter the special expression
 
-.. code-block:: none
-
-    quit
-
-There are some more details about numeric types in :ref:`value-types`.
-
-.. index:: expression
-
-We have been testing arithmetic expressions, with the word 
-*expression* used pretty much like with normal math.  More generally in C#
-an *expression* is any syntax that evaluates to a single value of some type.  
-We will introduce many more types and operations that can be used in expressions. 
 
 Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
