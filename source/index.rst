@@ -8,7 +8,7 @@ Intro to Programming in C#
    01.context/context
    02.data/data
    03.functions/functions
-   04.basicstringops/basicstringops
+   04.strings/strings
    05.decisions/decisions
    06.while/while
    07.foreach/foreach

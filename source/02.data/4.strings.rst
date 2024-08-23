@@ -2,16 +2,17 @@
 Strings, Part I
 ================
 
-Enough with numbers for a while. Strings of characters are another
-important type in C#.
+A string in C# is a collection of literal characters used to store text. In C# string 
+must be enclosed in double quotes to delimit the string. To create a variable of type string
+ and assign it with a value:
 
-.. index:: string
-   single: "..." for string literal
+.. code-block:: 
 
-A string in C# is a sequence of characters. For C# to
-recognize a literal sequence of characters, like ``hello``, as a string, it
-must be enclosed in quotes ``"`` to delimit the string: ``"hello"``.  
-Special cases are considered later in :ref:`strings2`.
+    > string greeting = "hello";
+
+    > greeting      // the REPL shell prints the value of the variable
+    "hello"
+    > 
 
 
 .. index:: string; concatenation with +
