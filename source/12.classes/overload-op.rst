@@ -11,6 +11,14 @@ Defining Operators (Optional)
 Operator Overloading
 ----------------------------------------------------
 
+.. "Though each of these uses has the same name, ``Console.WriteLine``, 
+.. they are technically all different functions:  A function is not just recognized
+.. by its name, but by its *signature*, 
+.. which includes the name **and** the number and types of parameters.
+.. The technical term for using the same name with different signatures for different
+.. functions is *overloading* the function (or method)."
+
+
 The Rational class is a fine example of a useful utility class.
 Still, to an experienced user, it has a striking deficiency:
 A Rational is a *number* and we are used to doing arithmetic with 

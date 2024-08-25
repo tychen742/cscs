@@ -2,11 +2,38 @@
 Strings
 ================
 
+
 A string in C# is a collection of literal characters used to store text. 
 In C# string must be enclosed in double quotes to delimit the string. 
 
-To create a variable of type string 
-and assign it with a value:
+Since a string is a series of characters (of the ``char`` type), we can 
+refer to the individual characters by using index numbers, which can be useful 
+when we need to manipulate strings and character level. In the example below, 
+the character f has an index number of 0.
+
++-----------+---+---+---+---+---+---+---+
+| Index     | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
++-----------+---+---+---+---+---+---+---+
+| Character | f | o | r | m | o | s | a |
++-----------+---+---+---+---+---+---+---+
+
+When represented in code, the indexing works like below:
+
+.. code-block:: none
+    > string txt = "ilha formosa";  
+    > txt[3]
+    'a'
+    > 
+
+Note that, in the example above, the output is a character since strings consist of 
+characters and the ``char`` type are created by delimiting the characters by single 
+quotation marks. 
+
+
+Creating a String
+------------------
+
+To create a variable of type string and assign it with a value:
 
 .. code-block:: 
 
@@ -28,12 +55,6 @@ prints out the string rather than REPL.
 
 Since this is a console app, we use the TERMINAL in VS Code to do ``dotnet run``
 to see the project outcome. Make sure you are in the right project directory, though.    
-
-
-
-We will learn more about strings, such as string-related methods, in a later chapter. 
-For now, to get some ideas about strings, let us observe the two common C# string 
-operations: Concatenation and escape. 
 
 
 .. index:: string; concatenation with +
@@ -71,8 +92,8 @@ shows you how to concatenate data of string type and int type:
     > 
 
 
-Escape Characters
------------------
+Escape Special Characters
+---------------------------
 
 .. index::
    escape code \
@@ -107,12 +128,12 @@ Another example would look like the following.
 
 .. code-block:: none
 
-    csharp> Console.WriteLine("Goog morning!");
+    > Console.WriteLine("Goog morning!");
     Goog morning!
-    csharp> Console.WriteLine("He said, \"Goog morning!\".");
+    > Console.WriteLine("He said, \"Goog morning!\".");
     He said, "Goog morning!".
 
-Some common special cases to be escaped are:
+Common special cases to be escaped include:
 
 +------------------+---------------------------------------+
 | Escape character | Result                                |
@@ -146,9 +167,32 @@ print to multiple lines, we use ``\n`` like:
     > 
     
  
+String Properties and Methods
+-----------------------------
+
+Although we use string literals, strings are objects. In object-oriented-programming, 
+objects have *instance properties* and *instance methods*. Some examples of C# string 
+properties and methods are: 
+
+The length of a string can be found using the ``Length`` property::
+
+    string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    Console.WriteLine("The length of the txt string is: " + txt.Length);
+
+
+There are many string methods available[#]_. As examples, ToUpper() and ToLower() 
+return a copy of the string converted to uppercase or lowercase:
+
+.. code-block:: csharp
+
+    string txt = "Hello World";
+    Console.WriteLine(txt.ToUpper());   // Outputs "HELLO WORLD"
+    Console.WriteLine(txt.ToLower());   // Outputs "hello world"
+
+
 
 .. rubric:: Footnotes 
 
-.. [#] You can use verbatim text to achieve multiple line text. See [Verbatim text]("https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim") 
-
+.. [#] You can use `verbatim text <"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim">`_ to achieve multiple line text.
+.. [#] See `String methods <https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0#methods>`_ for a complete list. 
    
