@@ -29,7 +29,7 @@ that can be used directly for multiple programs.  We can create functions
 in project ui's file :repsrc:`uif.cs <ui/uif.cs>`.  
 We explain the namespace line after the code:
 
-.. literalinclude:: ../../examples/introcs/ui/uif.cs
+..  ../../examples/introcs/ui/uif.cs
 
 .. index:: namespace
    IntroCS namespace 
@@ -66,7 +66,7 @@ are all marked ``public``, so that any class can use them.
 We can write a modified example addition program, :repsrc:`addition3/addition3.cs`,
 as an example of using ``UIF``:
 
-.. literalinclude:: ../../examples/introcs/addition3/addition3.cs
+.. ../../examples/introcs/addition3/addition3.cs
 
 To allow access to UIF, we have added the IntroCS namespace for the class.
 To reference the static functions in the different class ``UIF``, we put ``UIF.``
@@ -201,11 +201,11 @@ Try adding a reference yourself.  Follow these instructions:
         An elaborate Project Options dialog window appears.
 
     -   In the left pane under Build, select General.  
-        In the right pane, you problably see Compile Target: Library.
+        In the right pane, you probably see Compile Target: Library.
         Change Library to *Executable*.  
       
     -   Finally finish as in the first error fix discussed in
-        :ref:`xamarinstudio-reminders`, so the Console is used for 
+        `xamarinstudio-reminders`, so the Console is used for 
         input and output.  (You should already have the Project options
         displayed from the steps above.)
     

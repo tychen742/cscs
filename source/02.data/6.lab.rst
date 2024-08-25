@@ -129,12 +129,12 @@ printers, and the network. We already got a glimpse of this access
 when we explored ``Console.WriteLine`` in the first lab exercise.
 
 We have discussed all the syntax and concepts needed in recent sections
-on :ref:`arithmetic`, :ref:`Variables-and-Assignment`,
-:ref:`io`, and :ref:`cast`.  Also you can make things easier for yourself using
-:ref:`substitution-in-writeline` to format output.
+on `arithmetic`, `Variables-and-Assignment`,
+`io`, and `cast`.  Also you can make things easier for yourself using
+`substitution-in-writeline` to format output.
 
 Before writing your final program, you might like to review some of 
-the parts, testing in the :ref:`csharp` program, so you get immediate feedback
+the parts, testing in the `csharp` program, so you get immediate feedback
 for the calculations.
 
 Requirements
@@ -166,11 +166,12 @@ labeled format:
 For this lab the example format ``3 2/4`` is sufficient.
 It would look better as ``3 1/2``, but a general 
 efficient way to reduce fractions to
-lowest terms is not covered until the section on the algorithm :ref:`gcd`.  
+lowest terms is not covered until the section on the algorithm `gcd`.  
 
-To do the part requiring a decimal quotient you are going to need to have a 
-``double`` value, though your original data was of type ``int``.
-You could use the approach in :ref:`cast`, with an explicit cast.
+To do the part requiring a decimal quotient you are going to 
+need to have a ``double`` value, though your original data 
+was of type ``int``.
+You could use the approach in `cast`, with an explicit cast.
 Another approach mentioned in that section was to do the cast implicitly
 in a ``double`` declaration with initialization from an ``int``.  If we
 already had ``int`` variables, ``numerator`` and 
@@ -184,12 +185,11 @@ we could use::
 Remember: at least one operand in a quotient must be ``double`` 
 to get a ``double`` result.
     
-To help you
-get started with your program code, 
+To help you get started with your program code, 
 we provided this simple *stub* in the example file
-:repsrc:`do_the_math_stub/do_the_math.cs`. 
+`do_the_math_stub/do_the_math.cs`. 
 You are encouraged to copy this into your own project as reviewed 
-after the lab in :ref:`xamarinstudio-reminders`.
+after the lab in `xamarinstudio-reminders`.
 
 .. index:: comment
    single: /* ... */ comment
