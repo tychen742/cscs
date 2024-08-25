@@ -8,8 +8,6 @@ For now consider a small, artificial example program,
 :repsrc:`update_vars/update_vars.cs`,
 emphasizing the ability to *reassign* variable values. 
  
-.. literalinclude:: ../../examples/introcs/update_vars/update_vars.cs
-   :linenos:
        
 Can you *predict* the result? Run the program and check.
 Particularly if you did not guess right, it is important to
@@ -67,10 +65,7 @@ Play Computer Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is a similar program,
-:repsrc:`update_vars2/update_vars2.cs`:
- 
-.. literalinclude:: ../../examples/introcs/update_vars2/update_vars2.cs
-   :linenos:
+
 
 Play computer, completing the table
 
