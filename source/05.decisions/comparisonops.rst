@@ -89,7 +89,7 @@ place for a function enclosing the calculation.
 
 *Read* the setup for the function:
 
-.. literalinclude:: ../../examples/introcs/wages1/wages1.cs
+.. :: ../../examples/introcs/wages1/wages1.cs
    :start-after: chunk
    :end-before: {
    :dedent: 6
@@ -103,7 +103,7 @@ solution before going on and examining mine.
 You can try running the complete example program, :repsrc:`wages1/wages1.cs`, 
 also shown below.  
 
-.. literalinclude:: ../../examples/introcs/wages1/wages1.cs
+.. :: ../../examples/introcs/wages1/wages1.cs
    :linenos:
   
 .. index::
@@ -115,7 +115,7 @@ also shown below.
 This program also introduces new notation for 
 displaying decimal numbers:  
 
-.. literalinclude:: ../../examples/introcs/wages1/wages1.cs
+.. :: ../../examples/introcs/wages1/wages1.cs
    :start-after: chunk2
    :end-before: chunk2
    :dedent: 9
@@ -179,7 +179,7 @@ general calculation formula and sets the parameters for the formula
 in the ``if`` statement. There are generally a number of ways you might
 solve the same problem!
 
-.. literalinclude:: ../../examples/introcs/wages2/wages2.cs
+.. :: ../../examples/introcs/wages2/wages2.cs
    :start-after: Include
    :end-before: chunk
    :linenos:
@@ -226,8 +226,7 @@ are needed for graduation.)
 Roundoff Exercise
 ~~~~~~~~~~~~~~~~~
 
-In csharp declare and initialize  non-zero ``double`` variables
-``x`` and ``y``.  Experiment so, according to C# (and csharp):  ``x+y == x``.
+In csharp declare and initialize  non-zero ``double`` variables ``x`` and ``y``.  Experiment so, according to C# (and csharp):  ``x+y == x``.
 In other words, while ``y`` is not 0, adding it to  ``x`` does not
 change ``x``.  (Hints:  Note the approximate number of digits of accuracy
 of a ``double``, and remember the power of 10 notation with ``E``

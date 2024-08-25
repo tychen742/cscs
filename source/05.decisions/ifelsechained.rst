@@ -60,7 +60,7 @@ and note that the ``if`` part after each else is just a *single*
 (possibly very complicated) statement.  This allows the elimination of
 some of the braces:
 
-.. literalinclude:: ../../examples/introcs/grade1/grade1.cs
+.. ../../examples/introcs/grade1/grade1.cs
    :start-after: chunk
    :end-before: chunk
    :dedent: 6

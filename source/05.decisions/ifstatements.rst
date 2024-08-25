@@ -8,7 +8,7 @@ Try it at least twice, with
 inputs: 30 and then 55. As you can see, you get an extra result,
 depending on the input. The main code is:
 
-.. literalinclude:: ../../examples/introcs/suitcase/suitcase.cs
+.. ../../examples/introcs/suitcase/suitcase.cs
    :start-after: chunk
    :end-before: chunk
    :linenos:
@@ -33,7 +33,7 @@ The general C# syntax for a simple ``if`` statement is
 | ``if (`` *condition* ``)`` 
 |     statement  
 
-The condition is an expression that is true or false, of :ref:`type-boolean`.  
+The condition is an expression that is true or false, of ::`type-boolean`.  
 
  
 .. index::

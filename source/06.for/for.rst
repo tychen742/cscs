@@ -9,6 +9,7 @@ for Loops
 .. toctree::
    :maxdepth: 2
    
+   foreach
    forstatements
    forexamples
    lab-nested-loops
