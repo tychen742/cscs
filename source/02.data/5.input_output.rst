@@ -100,10 +100,7 @@ or, in VS Code::
 .. _substitution-in-writeline:
 
 Console.WriteLine() 
-========================================
-
-Print Literal + variable
--------------------------
+-----------------------
 
 The method ``Console.Write()`` does not create a new line when executing. 
 We can make use of this in cases such as reading user input ::
