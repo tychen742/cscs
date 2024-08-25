@@ -10,9 +10,8 @@ Intro to Programming in C#
    03.operators/operators
    04.functions/functions
    05.decisions/decisions
-   06.while/while
-   07.foreach/foreach
-   08.for/for
+   06.for/for
+   07.while/while
    09.files/files
    10.arrays/arrays
    11.lists/lists
