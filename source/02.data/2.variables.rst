@@ -152,10 +152,11 @@ memory location that stores a value or object reference.
 
 **Literals**: Expressions with straight values such as ``7`` or ``1.23`` or ``"hello"`` 
 are called *literals* because they *literally* represent what they are. 
-A ``bool`` variable has two literal values: true or false. 
-An integral numeric type can have three kinds of literals: 
-decimal, hexadecimal, and binary. 
+For example: 
 
+- A ``bool`` variable has two literal values: true or false. 
+- A string literal is a series of characters delimited by double quotes in one line. 
+- An integral numeric type can have three kinds of literals: decimal, hexadecimal, and binary. 
 
 
 Naming Convention of Identifiers
@@ -172,15 +173,18 @@ Some of the common conventions to follow when naming C# identifiers are:
 - C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
   are different. 
 
-- By convention, C# programs use **PascalCase** for type names, namespaces, 
-  and class names and **camelCase** for method parameters 
-  and **local variables**.
+- By convention, C# programs use **PascalCase** for namespace, 
+  class, and method names and **camelCase** for **variable** and 
+  method parameters. [#]_
 
 - Use meaningful and descriptive names for variables, methods, and classes.
 
 - Avoid keywords when naming identifiers. 
 
 
+.. rubric:: Footnotes
+
+.. [#] There are also snake_case, commonly used in Python, and kebab-case, commonly used in CSS. 
 
 
 Keywords
