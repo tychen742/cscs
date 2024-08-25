@@ -37,7 +37,40 @@ Chapter Review Questions
         
       
 
-     
+     Write a program that prompts the user for a name (like Elliot)  and a time
+(like 10AM) and prints out a sentence like:  
+
+.. code-block:: none 
+
+   Elliot has an interview at 10AM.
+
+.. _AdditionProblem:
+
+Exercise for Addition
+~~~~~~~~~~~~~~~~~~~~~~
+
+Write a version, :file:`add3.cs`, that
+prompts the user for three numbers, *not necessarily integers*, 
+and lists all three, and their sum, in
+similar format to :repsrc:`good_sum/good_sum.cs`.
+
+.. _QuotientProblem:
+
+Exercise for Quotients
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Write a program, ``quotient.cs``, that
+prompts the user for two integers, and then prints them out in a
+sentence with an integer division problem like 
+
+.. code-block:: none
+
+   The quotient of 14 and 3 is 4 with a remainder of 2.
+
+Review :ref:`Division-and-Remainders` if you forget the integer
+division or remainder operator.
+
+
     
 
      
