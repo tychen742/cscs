@@ -827,8 +827,6 @@ functions from previous exercises.
 
 .. index:: exercise; nested play computer
 
-Nested Play Computer Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Predict what these code fragments print.  Then check yourself in csharp::
 
