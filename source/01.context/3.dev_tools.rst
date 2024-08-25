@@ -173,7 +173,10 @@ not be able to learn all of them in one semester. A short list of those tools wo
   language shell) provides immediate execution and result return, which can be useful 
   as we get to see immediate feedback of your code. CSharpRepl can be installed by issuing 
   ``dotnet tool install -g csharprepl`` and activated by typing csharprepl at command line 
-  to enable direct execution of C# code without creating projects and files. 
+  to enable direct execution of C# code without creating projects and files. To use 
+  the C# REPL, you can invoke it in the terminal, or better yet, invoke it in the 
+  VS Code terminal. That way, code editing and quick syntax testing are in one place. 
+
 - Version Control (GitHub...)
 - Containerization (Docker)
 - Shell Scripting (Bash)

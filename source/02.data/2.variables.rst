@@ -37,18 +37,23 @@ In this syntax,
 - the semicolon ``;``
   is the statement terminator.
 
-For example, you may declare the following variables::
+For example, you may declare the following variables
 
-   string greeting;
-   int a, b, c;         // declaring multiple variables
-   List<double> xs;     // a reference type variable
+.. code-block:: 
 
-In addition, you may want to provide initial value when declaring a variable. 
+   string greeting;     // declaring one string variable
+   int a, b, c;         // declaring multiple int variables
+   List<double> xs;     // a reference type (double list) variable
+
+
+You can also provide initial values when declaring a variable. 
 The syntax is::
 
     type variableName = value;
 
-For example, ::
+For example, 
+
+.. code-block::
 
    string greeting = "Hello";
    int a = 3, b = 2, c = a + b;
@@ -65,13 +70,12 @@ The ``var`` Keyword
 
 Local variables can be declared without giving an explicit type. The complier 
 will then infer the type of a variable from its initialization expression. 
-Because the compiler is inferring the types, these variables are implicitly-typed. 
 The keyword ``var`` is used in case of this. For example::
 
    var greeting = "Hello";
    Console.WriteLine(greeting.GetType());  // output: System.String
 
-   var a = 32;
+   var a = 100;
    Console.WriteLine(a.GetType());  // output: System.Int32
 
    var xs = new List<double>();
@@ -82,7 +86,7 @@ Assignment Statements
 --------------------------
 
 If you need to change 
-the value to the variable, you need to use the **assignment statement**. 
+the value to a variable, you need to use the **assignment statement**. 
 Note that an assignment statement is read from right to left. For example, if we 
 create a variable "area" and assign the value of "width * height" to it like:: 
 
@@ -119,14 +123,7 @@ when we intend to change the value to the variable without keeping the previous
 value, and after the initial declaration you don't need to declare type anymore:: 
 
    int a = 10;
-   a = 100;
-
-If you need to keep the value to variable a for later use, you would probably choose 
-to assign a to another variable b. For example::
-
-   int a = 10;
-   int b = a;
-   int a = 100;
+   a = 100;       // reassignment
 
 To further illustrate how expression and statement work in C#, or in programming 
 languages in general, we can take a look at the example as follows. In this case, 
@@ -148,16 +145,42 @@ to see the value.
 Variable, Identifiers, and Literals
 -----------------------------------------
    
-Unlike languages like Python, an **identifier** is different from a 
-variable **name**. An identifier is defined as the name assigned to a 
-type (class, interface, struct, delegate, or enum), member, variable, 
-or namespace. In other words, an identifier refers to names other than 
-local variables. 
+In programming languages, an **identifier** is defined as the name assigned to a 
+entity (class, interface, struct, delegate, or enum), member, *variable*, function, 
+method, or namespace, etc. A variable is an identifier/name assigned to a 
+memory location that stores a value or object reference.
 
 **Literals**: Expressions with straight values such as ``7`` or ``1.23`` or ``"hello"`` 
-are called *literals* because they *literally* represent what they are. A ``bool`` 
-variable has two literal values: true or false. An integral numeric type can have 
-three kinds of literals: decimal, hexadecimal, and binary. 
+are called *literals* because they *literally* represent what they are. 
+A ``bool`` variable has two literal values: true or false. 
+An integral numeric type can have three kinds of literals: 
+decimal, hexadecimal, and binary. 
+
+
+
+Naming Convention of Identifiers
+---------------------------------
+
+Some of the common conventions to follow when naming C# identifiers are:
+
+-  The characters must all be letters, digits, or underscores ``_``,
+   and must start with a letter.
+
+- *Reserved keywords* may not be used to name your own identifiers unless 
+  a ``@`` is prefixed. Common IDE's will be able to catch this.
+
+- C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
+  are different. 
+
+- By convention, C# programs use **PascalCase** for type names, namespaces, 
+  and class names and **camelCase** for method parameters 
+  and **local variables**.
+
+- Use meaningful and descriptive names for variables, methods, and classes.
+
+- Avoid keywords when naming identifiers. 
+
+
 
 
 Keywords
@@ -190,29 +213,5 @@ delegate    implicit    private     throw
 ==========  ==========  ==========  ==========  ==========  
    
 
-   
 C# has another set of keywords called contextual keywords that are keywords with special meaning 
 in specific context and may be used as identifiers outside the program context.
-
-
-Naming Convention of Identifiers
----------------------------------
-
--  The characters must all be letters, digits, or underscores ``_``,
-   and must start with a letter.
-
-- *Reserved keywords* may not be used to name your own identifiers unless 
-  a ``@`` is prefixed. Common IDE's will be able to catch this.
-
-- C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
-  are different. 
-
-- By convention, C# programs use PascalCase for type names, namespaces, 
-  and all public members. 
-  
-- Use **PascalCase for class names and method names**.
-
-- Use **camelCase** for method parameters and **local variables**.
-
-- Use PascalCase for constant names, both fields and **local constants**.
-- Use meaningful and descriptive names for variables, methods, and classes.
