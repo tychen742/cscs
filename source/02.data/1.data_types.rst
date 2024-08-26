@@ -69,9 +69,9 @@ Type	      Size	                 Precision        Description
 ``string``   2 bytes per character                    A sequence of characters, surrounded by double quotes
 ============ =====================  =============== ==================================================================
 
-Different types are designed to meet the needs of different use scenarios. For example, 
-for financial unit, the decimal type is a better choice because it is designed for 
-the purpose of holding a larger range of digits with higher precision. 
+Choosing types is a design decision to meet the needs of different use scenarios. 
+For example, for financial unit, the *decimal* type may be a better choice because it 
+is designed for the purpose of holding a larger range of digits with higher precision. 
 
 One attribute of the integral value data types is that they can be either signed or 
 unsigned. A signed type uses its bytes to represent an equal number of positive 

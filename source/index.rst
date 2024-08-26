@@ -1,5 +1,5 @@
-Intro to Programming in C#
-======================================
+Lecture Notes: Intro to Programming in C#
+===========================================
 
 .. toctree::
    :numbered:
