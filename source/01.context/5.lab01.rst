@@ -72,6 +72,7 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 Create C# Projects
 -------------------------------------------
 
+
 #. Create project folders:
    
    Follow the following steps at the terminal to prepare the environment for learning C#:   
@@ -106,6 +107,7 @@ Create C# Projects
    To rename a file or a directory, use the ``mv`` ("move") command. For example: 
    ``mv ist_1551 introcscs`` will rename a folder called ist_1551 to introcscs.
 
+
 #. Start VS Code 
 
    There are two ways to start VS Code:  
@@ -115,10 +117,10 @@ Create C# Projects
       in this example) that you want to work on and type ``code`` to start 
       VS Code with the folder as the working directory shown in the Explorer view. 
    
-   .. note::     
-      A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
-      further configure the project. Also, checking out the VS Code docs to `get started <https://code.visualstudio.com/docs>`_ with the 
-      first steps of learning how to use VS Code. 
+      .. note::     
+         A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
+         further configure the project. Also, checking out the VS Code docs to `get started <https://code.visualstudio.com/docs>`_ with the 
+         first steps of learning how to use VS Code. 
 
 
 #. Create a C# Hello World app project (hello1)
