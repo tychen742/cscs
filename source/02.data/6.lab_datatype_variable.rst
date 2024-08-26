@@ -1,13 +1,39 @@
-.. index::
-   single: labs; division sentences
-
-.. _lab-division:
 
 
-For now consider a small, artificial example program,
-:repsrc:`update_vars/update_vars.cs`,
+Lab 02: Variables and Data Types
+====================================================
+
+Overview
+----------
+
+We have discussed the development environment and tools, 
+the concepts of variables and data types (with some elaborations on arithmetic and 
+strings), along with the basic syntax and program structure. 
+
+You might like to do a quick review of some of 
+the parts, testing in the `csharprepl` program, so you get immediate feedback
+for the statements and expressions.
+
+Variable Reassignment
+------------------------
+
+For now consider a small, artificial example program,::
+   
+   using System;
+
+   class UpdateVars
+   {
+      static void Main()
+      {  // simple sequential code updating two variables
+         int x = 3;
+         int y = x + 2;
+         y = 2 * y;
+         x = y - x;
+         Console.WriteLine (x + " " + y);
+      }
+   }
+
 emphasizing the ability to *reassign* variable values. 
- 
        
 Can you *predict* the result? Run the program and check.
 Particularly if you did not guess right, it is important to
@@ -56,87 +82,10 @@ but it will become very important when we get to other execution sequences.
 We start with the simple sequential numbering now for consistency, as
 we get used to the idea of such a table following execution sequence.
 
-.. index::  playing computer; exercise
-   exercise; playing computer
-
-.. _playing-computer-exercise:
-   
-Play Computer Exercise
-
-
-Here is a similar program,
-
-
-Play computer, completing the table
-
-====  ==  ==  =======================================
-Line  a   b   Comment
-====  ==  ==  =======================================
-5     \-  \-  Start at beginning of Main
-7     5   \-  initialize a
-8     
-9     
-10    
-11    
-12    
-====  ==  ==  =======================================
-
-~~~~
-
-A silly one on the same line:
-:repsrc:`update_vars3/update_vars3.cs`:
- 
-
-Play computer, completing the table
-
-====  ========  ======  =============================
-Line  s         t       Comment
-====  ========  ======  =============================
-5     \-        \-      Start at beginning of Main
-7      
-8     
-9     
-10    
-11    
-12  
-====  ========  ======  =============================
 
 
 
-Lab: Division Sentences
-=======================
-
-Overview
---------
-
-In this lab, we're going to begin to look at what makes computers *do
-their thing* so to speak. 
-
-It is rather insightful to look at how Wikipedia summarizes the
-computer:
-
-    A computer is a programmable machine designed to sequentially and
-    automatically carry out a sequence of arithmetic or logical
-    operations. The particular sequence of operations can be changed
-    readily, allowing the computer to solve more than one kind of
-    problem.
-
-In other words, a computer is a calculator--and much
-more. Furthermore, the definition of a computer goes on to include
-access to storage and peripherals, such as consoles (graphical displays),
-printers, and the network. We already got a glimpse of this access
-when we explored ``Console.WriteLine`` in the first lab exercise.
-
-We have discussed all the syntax and concepts needed in recent sections
-on `arithmetic`, `Variables-and-Assignment`,
-`io`, and `cast`.  Also you can make things easier for yourself using
-`substitution-in-writeline` to format output.
-
-Before writing your final program, you might like to review some of 
-the parts, testing in the `csharp` program, so you get immediate feedback
-for the calculations.
-
-Requirements
+User Input
 ------------
 
 We want to develop a program that can do the following:
@@ -170,9 +119,10 @@ lowest terms is not covered until the section on the algorithm `gcd`.
 To do the part requiring a decimal quotient you are going to 
 need to have a ``double`` value, though your original data 
 was of type ``int``.
-You could use the approach in `cast`, with an explicit cast.
+
+You could use the approach in `cast`, with an explicit cast. 
 Another approach mentioned in that section was to do the cast implicitly
-in a ``double`` declaration with initialization from an ``int``.  If we
+in a ``double`` declaration with initialization from an ``int``. If we
 already had ``int`` variables, ``numerator`` and 
 ``denominator``, that were previously assigned their values, 
 we could use::
@@ -186,14 +136,9 @@ to get a ``double`` result.
     
 To help you get started with your program code, 
 we provided this simple *stub* in the example file
-`do_the_math_stub/do_the_math.cs`. 
-You are encouraged to copy this into your own project as reviewed 
-after the lab in `xamarinstudio-reminders`.
+:repsrc:`do_the_math_stub/do_the_math.cs`. 
+You are encouraged to copy this into your own project folder.
 
-.. index:: comment
-   single: /* ... */ comment
-   single: */ end /* comment
-   single: // comment
 
 The body of ``Main`` presently contains only *comments*, skipped by the compiler.  
 We illustrate two forms (being inconsistent for your information only):

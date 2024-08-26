@@ -9,5 +9,5 @@ Data and Operations
    3.arithmetic
    4.strings
    5.input_output
-   6.lab
+   6.lab_datatype_variable
    7.review
