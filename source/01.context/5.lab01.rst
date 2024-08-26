@@ -34,14 +34,12 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 ----------------------------------------------------
 
 
-Install VS Code: 
-~~~~~~~~~~~~~~~~~~~~~~
+#. Install VS Code: 
 
    Visit the Visual Studio Code `website <https://code.visualstudio.com/>`_ site or use a package manager 
    to install the current version of VS Code for your operating system. [#]_ An `online version <https://vscode.dev>`_ of VS Code is also available. 
 
-Install .NET SDK: 
-~~~~~~~~~~~~~~~~~~~~~~
+#. Install .NET SDK: 
    
    Visit the `.NET page <https://code.visualstudio.com/docs/languages/dotnet>`_ and scroll down to click on 
    the "Install the .NET SDK" button. You will be redirected to the 
@@ -63,11 +61,10 @@ Install .NET SDK:
 
       Outcome of running the ``dotnet`` command in terminal
 
-Install the C# Dev Kit extension:
-~~~~~~~~~~~~~~~~~~~~~~
+#. Install the C# Dev Kit extension:
   
-Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
-also install the C# extension from Microsoft). 
+   Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
+   also install the C# extension from Microsoft). 
 
 
 
@@ -76,8 +73,7 @@ Create C# Projects
 -------------------------------------------
 
 
-Create project folders:
-~~~~~~~~~~~~~~~~~~~~~~~
+#. Create project folders:
    
    Follow the following steps at the terminal to prepare the environment for learning C#:   
    
@@ -243,5 +239,5 @@ Create project folders:
 .. rubric:: Footnotes
 
 
-.. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers include, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
+.. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
 .. [#] Wikipedia Contributors. (2024, July 25). “Hello, World!” program. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
