@@ -38,8 +38,26 @@ Chapter Review Questions
 
 #.  Write a version, :repsrc:`add3.cs`, that prompts the user for 
     three numbers, *not necessarily integers*, and lists all three, 
-    and their sum, in similar format 
-    to :repsrc:`good_sum/good_sum.cs`.
+    and their sum, in similar format to::
+
+    .. :repsrc:`good_sum/good_sum.cs`.
+
+        using System;
+
+    class GoodSum
+    {
+    static void Main()
+    {
+        Console.Write ( "Enter an integer: ");
+        string xString = Console.ReadLine();
+        int x = int.Parse(xString);
+        Console.Write( "Enter another integer: ");
+        string yString = Console.ReadLine();
+        int y = int.Parse(yString);
+        int sum = x + y;
+        Console.WriteLine("They add up to " + sum);
+    }
+    }
  
 #.  Write a program that prompts the user for 
     two integers, and then prints them out in a sentence with 
