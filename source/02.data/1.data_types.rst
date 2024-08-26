@@ -21,9 +21,9 @@ Common Data Types in C#
 -----------------------------
 
 C# is a "strongly typed" language, meaning that every variable and constant has a type. 
-Also, types are required for expressions that evaluate to a value, method declarations 
-with names, input parameters, and return values. Examples of the common value 
-types (declared and initiated with value assignment) are as follows. 
+In addition to variables, types are also required for expressions that evaluate to a 
+value, method declarations with names, input parameters, and return values. Examples 
+of common value types (declared and initiated with value assignment) are as follows. 
 
 .. code-block:: console
 
@@ -34,26 +34,24 @@ types (declared and initiated with value assignment) are as follows.
     bool myBool = true;             // Boolean
     string myText = "Hello";        // String
 
-From the above you should notice that C# requires number **suffixes** for numeric types. 
-The purpose of using suffixes is to help the compiler unambiguously 
-identify the data type of the value/literal. The basic rules for number suffixes are:
+From the list above you may notice that C# requires number **suffixes** for 
+numeric types. The purpose of using suffixes is to help the compiler unambiguously 
+identify the data type of the value/literal. The basic rules for integral 
+literal number suffixes are:
 
-- The number literal without suffix or with the d or D suffix is of type double
-- f or F suffix is of type float
-- m or M suffix is of type decimal
+- If an integral literal has no suffix, its type is the first of the following types in 
+  which its value can be represented: int, uint, long, ulong.
 - l or L for long 
 - U or u for unsigned integer
 - UL or ul for unsigned long
-- If an integral literal has no suffix, its type is the first of the following types in 
-  which its value can be represented: int, uint, long, ulong.
-  
 
-To make our code works correctly and more memory-efficient, we need to choose the appropriate 
-data types according to the design requirements of the variable. Different types are therefore 
-designed to meet the needs of the scenario. For example, for financial unit, decimal is a better 
-choice because it is designed for the purpose of holding a larger range of digits with 
-higher precision. Types and their memory size, for example, can be seen in the table below. 
+For floating-point numeric types:  
+- The number literal without suffix or with the d or D suffix is of type double
+- f or F suffix is of type float
+- m or M suffix is of type decimal
 
+A purpose of defining data types is for memory allocation. Examples of some 
+defined types and their memory size can be seen in the table below. 
 
 ============ =====================  =============== ==================================================================
 Type	      Size	                 Precision        Description
@@ -70,12 +68,15 @@ Type	      Size	                 Precision        Description
 ``string``   2 bytes per character                    A sequence of characters, surrounded by double quotes
 ============ =====================  =============== ==================================================================
 
+Different types are designed to meet the needs of different use scenarios. For example, 
+for financial unit, the decimal type is a better choice because it is designed for 
+the purpose of holding a larger range of digits with higher precision. 
 
-The integral value data types can be either signed or unsigned. A signed type uses its bytes to represent 
-an equal number of positive and negative numbers; whereas an unsigned type (such as ``ushort``, ``uint``, 
+One attribute of the integral value data types is that they can be either signed or 
+unsigned. A signed type uses its bytes to represent an equal number of positive 
+and negative numbers; whereas an unsigned type (such as ``ushort``, ``uint``, 
 and ``ulong``) uses its bytes to represent only positive numbers. The difference between 
 singed and unsigned numbers can be seen from the example below:
-
 
 .. code-block:: C#
     :linenos:  
@@ -115,8 +116,7 @@ You should see the output as below:
 C# Built-in Types System
 --------------------------
 
-C# has a type system with types defined more than shown in the table above. 
-The type system can be briefly described as follows. 
+C# has a type system with types defined that can be briefly described as follows. 
 
 Reference types:
     There are 4 reference types: class type, interface type, array type, and delegate type. 
@@ -158,14 +158,11 @@ floating_point_type
 Type Conversion 
 ----------------
 
-C# has specific types but from time to time we may need our data to switch between 
-the types. For example, when your program takes a user input for age, the input is 
-of string type while it's intended for numeric type. You therefore need to cast the type 
-to the data type intended. This switch may be *implicit* or *explicit*. 
-Implicit conversion means the conversion happens automatically: 
-
-Type conversion involves the size of a data type in memory, conversion (casting) therefore
-can be understand as:
+C# variables have specific types but from time to time we may need our data to 
+switch between the types. For example, when your program takes a user input for age, 
+the input is of string type by default while you are looking for numeric type. 
+You therefore need to cast string type to a numeric type. This switch may 
+be *implicit* or *explicit*:
 
 Implicit Casting (automatically) 
   - converting a smaller type to a larger type size
@@ -175,18 +172,13 @@ Explicit Casting (manually)
   - converting a larger type to a smaller size type
     double -> float -> long -> int -> char
 
-For instance, the conversion from type int to type long is implicit, so expressions of 
-type int can implicitly be treated as type long. On the other hand, The opposite 
-conversion, from type long to type int, is explicit and so an explicit cast is required. 
-Observe the example below and you see that an int type variable converts to a long type 
-variable implicitly while a long type variable converting back to int has to be done 
-explicitly. 
+For instance, the conversion from type int to type long is implicit, so type int 
+can implicitly be treated as type long. On the other hand, to convert from type 
+long to type int, an explicit cast is required. 
+Observe the example below to see that we put the desired result type name in 
+**parentheses** as a *cast*. Also, we can use the ``GetType()`` 
+method to get the type of an variable. You can test the examples below using ``csharprepl``.
 
-Note that, when performing type casting, we put the desired result type name in 
-parentheses as a *cast*. In the example below, we are casting the value of variable 
-b into an int type by placing ``(int)`` in front of it. Here we use the GetType() 
-method from the System namespace to get the type of an variable. You can test the 
-examples below usign ``csharprepl``.
 
 .. code-block:: c#
 
@@ -199,6 +191,7 @@ examples below usign ``csharprepl``.
      long
     > c.GetType()
      int
+
 
 When the types are not cast properly, C# will give error messages. For example:
 
