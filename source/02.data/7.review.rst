@@ -21,9 +21,11 @@ Chapter Review Questions
     on two separate lines, not one.  Accomplish the same thing a second time 
     with fundamentally different syntax.
     
-.. #.  What is printed?  ::
-
-..         Console.WriteLine("{1} {0} {2} {1} {0}", 'B', 2, "or not");
+#. What is printed?
+   
+   .. code-block:: 
+    
+    Console.WriteLine("{1} {0} {2} {1} {0}", 'B', 2, "or not");
     
 #.  Which of these casts is necessary, and which could be left out
     (and be legal and mean the same thing)? Before testing, 
@@ -33,40 +35,24 @@ Chapter Review Questions
         int x= (int)5.8;
         double y = (double)6;
         char c = (char)('a' + 1)
-        int z = (int)'a' + 1;
-        
-      
+        int z = (int)'a' + 1;     
 
-     Write a program that prompts the user for a name (like Elliot)  and a time (like 10AM) and prints out a sentence like:  
 
-.. code-block:: none 
+#. Write a version, :repsrc:`add3.cs`, that prompts the user for 
+   three numbers, *not necessarily integers*, and lists all three, 
+   and their sum, in similar format 
+   to :repsrc:`good_sum/good_sum.cs`.
 
-   Elliot has an interview at 10AM.
 
-.. _AdditionProblem:
-
-Exercise for Addition
-~~~~~~~~~~~~~~~~~~~~~~
-
-Write a version, :file:`add3.cs`, that
-prompts the user for three numbers, *not necessarily integers*, 
-and lists all three, and their sum, in
-similar format to :repsrc:`good_sum/good_sum.cs`.
-
-.. _QuotientProblem:
-
-Exercise for Quotients
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Write a program, ``quotient.cs``, that
-prompts the user for two integers, and then prints them out in a
-sentence with an integer division problem like 
+#. Write a program, ``quotient.cs``, that prompts the user for 
+   two integers, and then prints them out in a sentence with 
+   an integer division problem like 
 
 .. code-block:: none
 
    The quotient of 14 and 3 is 4 with a remainder of 2.
 
-Review :ref:`Division-and-Remainders` if you forget the integer
+Review remainders if you forget the integer
 division or remainder operator.
 
 
