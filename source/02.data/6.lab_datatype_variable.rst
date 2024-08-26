@@ -132,9 +132,38 @@ Remember: at least one operand in a quotient must be ``double``
 to get a ``double`` result.
     
 To help you get started with your program code, 
-we provided this simple *stub* in the example file
-:repsrc:`do_the_math_stub/do_the_math.cs`. 
-You are encouraged to copy this into your own project folder.
+we provided this simple *stub*::
+
+  using System;
+
+  class DoTheMath {   // Lab stub
+    static void Main() {
+        /* Prompt the user for the numerator using
+          Console.Write().
+
+          Convert this text into int numerator using
+          int.Parse().
+
+          Do the same for the denominator.
+
+          Calculate quotient and remainder (as integers)
+          Use Console.WriteLine() to display the labels
+          as illustrated in the sample output in the lab.
+
+          Do the same but using floating point division
+          and not doing the remainder calculation.
+
+          Create the sentence with the mixed fraction.
+          Be careful of the places there are *not* spaces.
+        */
+    }
+  } 
+
+.. in the example file
+.. :repsrc:`do_the_math_stub/do_the_math.cs`. 
+
+You are encouraged to copy this design/algorithm into your 
+project file to help with your coding.
 
 
 The body of ``Main`` presently contains only *comments*, skipped by the compiler.  
