@@ -4,7 +4,7 @@
 
 .. _lab-edit-compile-run:
 
-Lab 1: Environment Setup & Simple Programs
+Lab 01: Environment Setup & Simple Programs
 ====================================================
 
 Our goals for this lab include:
@@ -52,25 +52,22 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
    .. figure:: ../images/dotnet_sdk_installation.jpg
       :scale: 25% 
  
- To verify if .NET SDK is installed correctly, open a new terminal (e.g., PowerShell in Windows or Terminal in 
- macOS) and run the ``dotnet`` command by type ``dotnet`` and then hit the Enter key. If .NET is correctly 
- installed, you should see results as below. 
+   To verify if .NET SDK is installed correctly, open a new terminal (e.g., PowerShell in Windows or Terminal in 
+   macOS) and run the ``dotnet`` command by type ``dotnet`` and then hit the Enter key. If .NET is correctly 
+   installed, you should see results as below. 
 
- .. figure:: ../images/dotnet_install_verification.jpg
-    :scale: 25% 
+   .. figure:: ../images/dotnet_install_verification.jpg
+      :scale: 25% 
 
-    Outcome of running the ``dotnet`` command in terminal
+      Outcome of running the ``dotnet`` command in terminal
 
-3. Install the C# Dev Kit extension:
+#. Install the C# Dev Kit extension:
   
    Click on the the Extension view icon on the Activity Bar, search and install the C# Dev Kit (this should 
    also install the C# extension from Microsoft). 
 
 
 
-.. index: VS Code, solution, project   
-
-.. _steps:
 
 Create C# Projects for "hello, world" Apps
 -------------------------------------------
