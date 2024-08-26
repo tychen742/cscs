@@ -73,7 +73,7 @@ Create C# Projects
 -------------------------------------------
 
 
-1. Create project folders:
+#. Create project folders:
    
    Follow the following steps at the terminal to prepare the environment for learning C#:   
    
@@ -91,7 +91,10 @@ Create C# Projects
    #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the your user home directory.
    #. Use the ``exit`` command to leave the terminal.   
    
-   The process should look like this:::
+   The process should look like this:
+
+   .. code-block:: bash
+
       tychen@mac:~$
       tychen@mac:~$ pwd
       /Users/tychen
@@ -108,7 +111,7 @@ Create C# Projects
    ``mv ist_1551 introcscs`` will rename a folder called ist_1551 to introcscs.
 
 
-2. Start VS Code 
+#. Start VS Code 
 
    There are two ways to start VS Code:  
 
@@ -132,66 +135,58 @@ Create C# Projects
    We will create our first "hello, world" app project in the "tests" (the solution) folder 
    in your "workspace" folder by going through the following steps: 
     
-    #. In a newly opened VS Code window, click on the Explorer view and choose 
-       "Create .NET Project" and then "Console App" from the Command Palette dropdown menu. 
-       Alternatively, you may use Cmd-Shift-P, Win-Shift-P, or View --> Command Palette 
-       to bring up Command Palette, and then type .NET: New Project, then select 
-       "Console App" as your project template. 
+   #. In a newly opened VS Code window, click on the Explorer view and choose 
+      "Create .NET Project" and then "Console App" from the Command Palette dropdown menu. 
+      Alternatively, you may use Cmd-Shift-P, Win-Shift-P, or View --> Command Palette 
+      to bring up Command Palette, and then type .NET: New Project, then select 
+      "Console App" as your project template. 
        
-       .. figure:: ../images/create_dotnet_project.jpg
+      .. figure:: ../images/create_dotnet_project.jpg
          :scale: 30%
          
 
-    #. Choose the project directory. In our example here, **Open** the *tests* directory
-       that we created in the workspace directory under the user home directory.  
+   #. Choose the project directory. In our example here, **Open** the *tests* directory
+      that we created in the workspace directory under the user home directory.  
     
-    #. Choose a name for your project. In this example, type hello1 as the project name
-       and Enter to confirm the name and Enter again to confirm the project path. 
-       You should see the hello1 project created along with a test.sln solution file. 
+   #. Choose a name for your project. In this example, type hello1 as the project name
+      and Enter to confirm the name and Enter again to confirm the project path. 
+      You should see the hello1 project created along with a test.sln solution file. 
 
-       .. figure:: ../images/hello1_project_created.jpg
-        :scale: 30%
+      .. figure:: ../images/hello1_project_created.jpg
+         :scale: 30%
 
-    #. Click to expand the hello1 project directory and you should see the Program.cs 
-       file. Click to open the file in the editor. 
+    #. Click to expand the hello1 project directory and you should see the Program.cs file. Click to open the file in the editor. 
 
-       .. figure:: ../images/hello1_program_cs.jpg
+      .. figure:: ../images/hello1_program_cs.jpg
         :scale: 30%
        
-    #. To run the hello1 app, you have to run it as part of a project. From the 
-       menu bar, choose Run --> Run without Debugging. Alternatively, you can run 
-       the app by choosing the "Run project associated with this file" option from 
-       the Run Code icon (the ▷ right-pointing triangle in the upper right corner 
-       of the editor menu bar). 
+    #. To run the hello1 app, you have to run it as part of a project. From the menu bar, choose Run --> Run without Debugging. Alternatively, you can run the app by choosing the "Run project associated with this file" option from the Run Code icon (the ▷ right-pointing triangle in the upper right corner of the editor menu bar). 
 
-       When run successfully, you should see the building process and the 
-       code execution result in the TERMINAL panel:
+      When run successfully, you should see the building process and the 
+      code execution result in the TERMINAL panel:
 
-       .. code-block:: bash
+      .. code-block:: bash
+         
+         tychen@mac:~/workspace/tests$  /Users/tychen/.vscode/extensions/
+         ms-dotnettools.csharp-2.39.29-darwin-x64/.debugger/x86_64/vsdbg 
+         --interpreter=vscode --connection=/var/folders/6t/bfp06fh96wn60n_mjtxmbhfm0000gn/T/
+         CoreFxPipe_vsdbg-ui-3e9ba55f636d4549b58b7e6499b27762 
+         Hello, World!
 
-        tychen@mac:~/workspace/tests$  /Users/tychen/.vscode/extensions/
-        ms-dotnettools.csharp-2.39.29-darwin-x64/.debugger/x86_64/vsdbg 
-        --interpreter=vscode --connection=/var/folders/6t/bfp06fh96wn60n_mjtxmbhfm0000gn/T/
-        CoreFxPipe_vsdbg-ui-3e9ba55f636d4549b58b7e6499b27762 
-        Hello, World!
-
-       .. figure:: ../images/hello1_world.jpg
-            :scale: 35%
+      .. figure:: ../images/hello1_world.jpg
+         :scale: 35%
        
+      .. note::     
+         
+         If you click on Run Code triangle, you may see an error message in the 
+         OUTPUT panel: 
 
+         .. code-block:: bash
+            
+            [Running] scriptcs "/Users/tychen/workspace/tests/hello1/Program.cs"
+            /bin/sh: scriptcs: command not found
 
-
-       .. note::   
-
-        If you click on Run Code triangle, you may see an error message in the 
-        OUTPUT panel: 
-
-            .. code-block:: bash
-
-                [Running] scriptcs "/Users/tychen/workspace/tests/hello1/Program.cs"
-                /bin/sh: scriptcs: command not found
-
-                [Done] exited with code=127 in 0.017 seconds
+            [Done] exited with code=127 in 0.017 seconds
 
 
 4. Create another C# Hello World app project (hello2)
