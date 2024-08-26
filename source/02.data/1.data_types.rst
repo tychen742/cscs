@@ -5,18 +5,17 @@ A data **type** specifies the allowed size and kind of variable values. Data typ
 are used when assigning values to variables. In programming, a variable is a name 
 that refers to a value of a specific type at a memory location. A number 
 ``10``, for example, is stored in the memory at certain location as ``1010``. 
-As the number get extremely larger or smaller or complex, or when different 
-types of data such as text are introduced, the designers of the the programming 
-language needed to decide how much memory to reserve for different types of values 
-so that computer memories can be effectively used, hence different data types 
-were designed. 
+As values can get extremely large or small or complex, or different in its composition, 
+there is a need to decide how much memory to reserve for different kinds of values 
+so that computer memories can be effectively used, hence the various data types. 
 
-There are two kinds of data types in C#: **reference types** and **value types**. 
-Variables of value types contain the data directory while variables of reference types 
-stores reference to the data known as objects. Value types are predefined types 
-and are available in C# as keywords. These keywords are aliases of types defined in the 
-.NET Class Library. For example, the C# keyword int is an alias of a value type defined 
-in the .NET Class Library as System.Int32. [#f1]_
+There are two catagories of data types in C#: **reference types** and **value types**. 
+Variables of value types contain the data directly (memory address allocated and 
+value assigned) while variables of reference types 
+store reference to the data known as objects. Value types are predefined types 
+and are available in C# to be used as keywords. These keywords are aliases of 
+types defined in the .NET Class Library. For example, the C# keyword int is an 
+alias to a value type defined in the .NET Class Library: System.Int32. [#f1]_
 
 Common Data Types in C#
 -----------------------------
