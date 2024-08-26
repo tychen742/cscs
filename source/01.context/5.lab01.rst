@@ -4,7 +4,7 @@
 
 .. _lab-edit-compile-run:
 
-Lab 01: Environment Setup & Simple Programs
+Lab 01
 ====================================================
 
 Our goals for this lab include:
@@ -69,10 +69,9 @@ Install VS Code, .NET SDK, and C# Dev Kit Extension
 
 
 
-Create C# Projects for "hello, world" Apps
+Create C# Projects
 -------------------------------------------
-
-#.  Create project folders:
+1.  Create project folders:
    
     Follow the following steps at the terminal to prepare the environment for learning C#:
    
@@ -108,7 +107,7 @@ Create C# Projects for "hello, world" Apps
    To rename a file or a directory, use the ``mv`` ("move") command. For example: 
    ``mv ist_1551 introcscs`` will rename a folder called ist_1551 to introcscs.
 
-#.  Start VS Code 
+2.  Start VS Code 
 
     There are two ways to start VS Code: 
  
@@ -123,7 +122,7 @@ Create C# Projects for "hello, world" Apps
         first steps of learning how to use VS Code. 
 
 
-#.  Create a C# Hello World app project (hello1)
+3.  Create a C# Hello World app project (hello1)
 
    You are encouraged to create a *single solution for this course*, with all the projects 
    that you create in the solution. We will first practice by creating a *solution* with 
