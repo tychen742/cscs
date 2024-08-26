@@ -179,14 +179,16 @@ Create C# Projects
       .. note::     
          
          If you click on Run Code triangle, you may see an error message in the 
-         OUTPUT panel: 
+         OUTPUT panel. Just use the terminal : 
 
-         .. code-block:: bash
-            
-            [Running] scriptcs "/Users/tychen/workspace/tests/hello1/Program.cs"
-            /bin/sh: scriptcs: command not found
+      .. code-block:: none 
 
-            [Done] exited with code=127 in 0.017 seconds
+         [Running] scriptcs "/Users/tychen/workspace/tests/hello1/Program.cs"
+         /bin/sh: scriptcs: command not found
+         [Done] exited with code=127 in 0.017 seconds
+
+   Sometimes using VS Code to run projects can be tricky. For now, let us use the terminal 
+   to run our C# projects as follows.
 
 
 #. Create another C# Hello World app project (hello2)
@@ -234,6 +236,8 @@ Create C# Projects
 
 
 
+.. rubric:: Footnotes
 
-.. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers incluce, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
+
+.. [#] For reasons such as handling versions, managing dependencies, and uninstallation, it is suggested that, when possible, you should use a package manager when installing software applications. Common used package managers include, e.g., `Homebrew <https://brew.sh/>`_ for macOS, `Chocolatey <https://chocolatey.org/>`_ for Windows, and apt/snap for Ubuntu Linux.
 .. [#] Wikipedia Contributors. (2024, July 25). “Hello, World!” program. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
