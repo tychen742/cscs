@@ -33,10 +33,10 @@ Chapter Review Questions
    think what the values of the variables will be
    for the first two or three::
 
-   int x= (int)5.8;
-   double y = (double)6;
-   char c = (char)('a' + 1)
-   int z = (int)'a' + 1;     
+    int x= (int)5.8;
+    double y = (double)6;
+    char c = (char)('a' + 1)
+    int z = (int)'a' + 1;     
 
 #. Write a version, :repsrc:`add3.cs`, that prompts the user for 
    three numbers, *not necessarily integers*, and lists all three, 
@@ -44,13 +44,13 @@ Chapter Review Questions
    to :repsrc:`good_sum/good_sum.cs`.
 
 
-#.  Write a program that prompts the user for 
-    two integers, and then prints them out in a sentence with 
-    an integer division problem like::
+#. Write a program that prompts the user for 
+   two integers, and then prints them out in a sentence with 
+   an integer division problem like::
     
-        The quotient of 14 and 3 is 4 with a remainder of 2.
+    The quotient of 14 and 3 is 4 with a remainder of 2.
 
-    Review remainders if you forget the integer division or remainder operator.
+   Review remainders if you forget the integer division or remainder operator.
 
 
     
