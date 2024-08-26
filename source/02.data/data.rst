@@ -1,4 +1,4 @@
-Data and Operations
+Data and Variables
 ######################
 
 .. toctree::
@@ -9,5 +9,5 @@ Data and Operations
    3.arithmetic
    4.strings
    5.input_output
-   6.lab_datatype_variable
+   6.lab
    7.review
