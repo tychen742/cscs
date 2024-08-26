@@ -1,14 +1,15 @@
 Data Types
 =========================
 
-A data **type** specifies the size and kind of variable values. In other words, data types 
-are used when assigning values to variables. In programming, "data" refers 
-to a value that is stored in the computer's memory. A number 
-``10``, for example, is stored in the memory as ``1010``. As the number get  
-extremely larger or smaller or complex, or when different types of data such as text are introduced, 
-the designers of the the programming language need to decide how much memory to save 
-for different types of values, hence different data types other than just the binary 
-system to achieve more efficient use of memory. 
+A data **type** specifies the allowed size and kind of variable values. Data types 
+are used when assigning values to variables. In programming, a variable is a name 
+that refers to a value of a specific type at a memory location. A number 
+``10``, for example, is stored in the memory at certain location as ``1010``. 
+As the number get extremely larger or smaller or complex, or when different 
+types of data such as text are introduced, the designers of the the programming 
+language needed to decide how much memory to reserve for different types of values 
+so that computer memories can be effectively used, hence different data types 
+were designed. 
 
 There are two kinds of data types in C#: **reference types** and **value types**. 
 Variables of value types contain the data directory while variables of reference types 
