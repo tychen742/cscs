@@ -14,7 +14,7 @@ Chapter Review Questions
         "a" + 2 + 3        
         2 + 3 + "a"
         2 + 3 * "a"
-        
+    
     Think first; try in csharprepl; reconsider if necessary.
 
 #.  Write a single ``WriteLine`` statement that would produce output
@@ -37,22 +37,20 @@ Chapter Review Questions
         char c = (char)('a' + 1)
         int z = (int)'a' + 1;     
 
-
 #. Write a version, :repsrc:`add3.cs`, that prompts the user for 
    three numbers, *not necessarily integers*, and lists all three, 
    and their sum, in similar format 
    to :repsrc:`good_sum/good_sum.cs`.
 
-
-#. Write a program, ``quotient.cs``, that prompts the user for 
+#. Write a program that prompts the user for 
    two integers, and then prints them out in a sentence with 
    an integer division problem like 
 
-   .. code-block:: 
+    .. code-block:: 
     
-    The quotient of 14 and 3 is 4 with a remainder of 2.
+        The quotient of 14 and 3 is 4 with a remainder of 2.
 
-   Review remainders if you forget the integer division or remainder operator.
+    Review remainders if you forget the integer division or remainder operator.
 
 
     
