@@ -108,20 +108,20 @@ Create C# Projects
 
 #. Start VS Code 
 
-    There are two ways to start VS Code: 
- 
-    #. Open VS Code by clicking on the app icon in your computer.   
-    #. Alternatively, in the terminal, ``cd`` into the project folder ("tests" 
-       in this example) that you want to work on and type ``code`` to start 
-       VS Code with the folder as the working directory shown in the Explorer view. 
+   There are two ways to start VS Code:  
 
-    .. note::     
-        A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
-        further configure the project. Also, checking out the VS Code docs to `get started <https://code.visualstudio.com/docs>`_ with the 
-        first steps of learning how to use VS Code. 
+   #. Open VS Code by clicking on the app icon in your computer.   
+   #. Alternatively, in the terminal, ``cd`` into the project folder ("tests" 
+      in this example) that you want to work on and type ``code`` to start 
+      VS Code with the folder as the working directory shown in the Explorer view. 
+   
+   .. note::     
+      A VS Code workspace/folder has a ``settings.json`` file in the ``.vscode`` directory for you to 
+      further configure the project. Also, checking out the VS Code docs to `get started <https://code.visualstudio.com/docs>`_ with the 
+      first steps of learning how to use VS Code. 
 
 
-#.  Create a C# Hello World app project (hello1)
+#. Create a C# Hello World app project (hello1)
 
    You are encouraged to create a *single solution for this course*, with all the projects 
    that you create in the solution. We will first practice by creating a *solution* with 
