@@ -162,6 +162,16 @@ here so we have better ideas about the basic structure of C#.
           }
       }
 
+   An example of namespace is the ``System`` namespace in .NET. When we run 
+   ``Console.WriteLine("Hello, World");``, we are actually running 
+   ``System.Console.WriteLine("Hello World!");`` We do not specify "System" because it 
+   is "imported" already and we can use the types within. The System namespace in 
+   .NET contains classes classes that define commonly-used value and reference data types. 
+   System engineers use namespace the same way to organize the functionalities in 
+   applications. [#]_
+   
+
+
 #. ``using System;``:  
 
    Starting .NET 6, ``using System`` is implicit as defined in the ``.csproj`` file so 
@@ -177,6 +187,7 @@ here so we have better ideas about the basic structure of C#.
 
       using System.Text;
 
+   
 #. ``class``:
    A class is a blueprint for creating objects, which may include the structure, 
    behaviors, and attributes of the objects. A class can be thought of a user-defined 
@@ -220,10 +231,9 @@ and then use the ``dotnet new console`` command inside each of the project direc
 to create a console app project in each of the project directories. 
 
 If you create a project in a folder using VS Code's "Create .NET Project" button in the Explorer view, 
-a solution will be created with the same name as the project (if no solution file is present already). 
-If this is not what you intend to do, you may use the Solution Explorer in VS Code to remove the project.
-Instead, going to the project directory in command line and issue the command ``dotnet new console`` to create 
-an app project will create your project without a solution. 
+a solution will be created with the same name as the project. To manage solutions, the Solution Explorer 
+in VS Code can be used. To create a project without creating a solution, create a directory in command line 
+and issue the command ``dotnet new console`` to create a new console app project without creating a new solution. [#]_ 
 
 
 Statements & Expression 
@@ -265,3 +275,5 @@ Semicolons after method or accessor block, however, is not allowed.
 
 .. rubric:: Footnotes
 .. [#] Although a solution is not required for projects to execute, it offer some benefits such as project configuration and building all projects at once. 
+.. [#] To learn more about the .NET System namespace, see the .NET API documentation at https://learn.microsoft.com/en-us/dotnet/api/system?view=net-8.0.  
+.. [#] To manage .NET solutions and projects, see, for example, https://www.linkedin.com/pulse/managing-net-solution-files-dotnet-sln-sukhpinder-singh-arqvc/
