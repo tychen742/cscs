@@ -182,9 +182,6 @@ Some of the common conventions to follow when naming C# identifiers are:
 - Avoid keywords when naming identifiers. 
 
 
-.. rubric:: Footnotes
-
-.. [#] There are also snake_case, commonly used in Python, and kebab-case, commonly used in CSS. 
 
 
 Keywords
@@ -219,3 +216,7 @@ delegate    implicit    private     throw
 
 C# has another set of keywords called contextual keywords that are keywords with special meaning 
 in specific context and may be used as identifiers outside the program context.
+
+.. rubric:: Footnotes
+
+.. [#] There are also snake_case, commonly used in Python, and kebab-case, commonly used in CSS. 
