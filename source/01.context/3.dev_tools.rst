@@ -91,7 +91,7 @@ your location back to the home directory. The whole process should look similar 
    PS C:\Users\tcn85> mkdir workspace             ### create the workspace directory in user home directory
    PS C:\Users\tcn85> cd workspace                ### change directory into workspace
    PS C:\Users\tcn85\workspace> mkdir tests       ### create the tests directory
-   PS C:\Users\tcn85\workspace> cd test           ### change into the test directory
+   PS C:\Users\tcn85\workspace> cd tests           ### change into the test directory
    PS C:\Users\tcn85\workspace\tests> new-item test.txt   ### create an empty file; use "touch test.txt" if you use macOS. 
    PS C:\Users\tcn85\workspace\tests> ls          ### list storage to see the file
    test.txt
