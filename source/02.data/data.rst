@@ -6,8 +6,9 @@ Data and Variables
 
    1.data_types
    2.variables
-   3.arithmetic
-   4.strings
-   5.input_output
-   6.lab02
-   7.review
+   3.operations
+   4.arithmetic
+   5.strings
+   6.input_output
+   7.lab02
+   8.review
