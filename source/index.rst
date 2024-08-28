@@ -7,21 +7,20 @@ Lecture Notes: Intro to Programming in C#
 
    01.context/context
    02.data/data
-   03.operators/operators
-   04.functions/functions
-   05.decisions/decisions
-   06.for/for
-   07.while/while
-   09.files/files
-   10.arrays/arrays
-   11.lists/lists
-   12.dictionaries/dictionaries
-   13.classes/classes
-   14.testing/testing
-   15.interfaces/interfaces
-   16.recursion/recursion
-   17.datastructures/datastructures
-   18.appendix/appendix
+   03.functions/functions
+   04.decisions/decisions
+   05.for/for
+   06.while/while
+   07.files/files
+   08.arrays/arrays
+   09.lists/lists
+   10.dictionaries/dictionaries
+   11.classes/classes
+   12.testing/testing
+   13.interfaces/interfaces
+   14.recursion/recursion
+   15.datastructures/datastructures
+   16.appendix/appendix
    
 :ref:`genindex`
 
