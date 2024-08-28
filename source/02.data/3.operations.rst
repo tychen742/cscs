@@ -1,2 +1,61 @@
-Variables
+Operators
 ===========
+
+Operators in programming languages are symbols that tells the 
+compiler or interpreter to perform specific operations. Common 
+simple operators include *arithmetic* (e.g. addition with +), 
+*comparison* (e.g. "greater than" with >), and *logical* 
+(e.g. AND, also written && in some languages) operators. Additional  
+types of operators include assignment (usually = or :=), 
+field access in a record or object (usually .), and bitwise and 
+shift operators. 
+
+In an operation, an *operand* is the data that is being operated on. 
+The operand combined with the operator makes an operation. 
+Operators can be categorized based on the number of operands 
+required. The three categories of operators based on the 
+number of operands they require are: 
+
+- Unary operators: which require one operand (e.g., ++, !) 
+- Binary operators: which require two operands (e.g., +) 
+- Ternary operators: which require three operands (e.g., condition ? consequent : alternative)
+
+Arithmetic Operators
+---------------------
+
+.. list-table:: Title
+    :widths: 15 20 40 25
+    :header-rows: 1
+
+    * - Operator	
+      - Name	
+      - Description	
+      - Example	
+    * - +	
+      - Addition	
+      - Adds together two values	
+      - x + y	
+    * -	-
+      - Subtraction	
+      - Subtracts one value from another	
+      - x - y	
+    * - *
+      -	Multiplication
+      - Multiplies two values	
+      - x * y	
+    * - /	
+      - Division	
+      - Divides one value by another	
+      - x / y	
+    * - %	
+      - Modulus	
+      - Returns the division remainder	
+      - x % y	
+    * - ++	
+      - Increment	
+      - Increases the value of a variable by 1	
+      - x++	
+    * - --	
+      - Decrement	
+      - Decreases the value of a variable by 1	
+      - x--

@@ -14,8 +14,11 @@ for the statements and expressions.
 Variable Reassignment
 ------------------------
 
-For now consider a small, artificial example program,::
-   
+For now consider a small, artificial example program:
+
+.. code-block:: csharp
+   :linenos:
+
    using System;
 
    class UpdateVars
@@ -36,6 +39,14 @@ Can you *predict* the result? Run the program and check.
 Particularly if you did not guess right, it is important to
 understand what happens, one step at a time. That means keeping
 track of what changes to variables are made by each statement.
+
+
+Implement an Algorithm
+------------------------
+
+Read the following description and create a console app project 
+in your introcscs directory, call it **MathFun**, to generate the final 
+outcome as seen in the table below. 
 
 In the table below, statements are referred to by the numbers labeling
 the lines in the code above. We can track the state of each
@@ -62,7 +73,7 @@ Line  x   y   Comment
 ====  ==  ==  =======================================
 
 The critical point here is to always use the most recently assigned value
-of each variable.  Unlike in math, symbol values change!
+of each variable. Unlike in math, symbol values change!
 
 The order of execution will always be the order of the lines in our
 table. In this simple *sequential* code, that *also* follows the
@@ -81,9 +92,11 @@ we get used to the idea of such a table following execution sequence.
 
 
 
-
 User Input
 ------------
+
+Read the following description and create a console app project 
+in your introcscs directory called **MathDivision** to generate the final outcome.
 
 We want to develop a program that can do the following:
 
@@ -108,7 +121,7 @@ labeled format:
    Floating point division result = 3.5
    The result as a mixed fraction is 3 2/4.
 
-For this lab the example format ``3 2/4`` is sufficient.
+For this lab, the example format ``3 2/4`` is sufficient.
 It would look better as ``3 1/2``, but a general 
 efficient way to reduce fractions to
 lowest terms is not covered until the section on the algorithm `gcd`.  
@@ -166,17 +179,11 @@ You are encouraged to copy this design/algorithm into your
 project file to help with your coding.
 
 
-The body of ``Main`` presently contains only *comments*, skipped by the compiler.  
-We illustrate two forms (being inconsistent for your information only):
+The body of ``Main`` presently contains only *comments*, skipped by 
+the compiler. We illustrate two forms (being inconsistent for your information only):
 
 * ``//`` to the end of the *same* line
 * ``/*`` to ``*/`` through any number of lines.
 
 Again, copy the stub to a project of
 your own and replace the comments with your code to complete it.
-
-
-     
-
-
-    
