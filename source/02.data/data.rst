@@ -6,7 +6,7 @@ Data and Variables
 
    1.data_types
    2.variables
-   3.operations
+   3.operators
    4.arithmetic
    5.strings
    6.input_output
