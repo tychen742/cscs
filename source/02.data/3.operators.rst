@@ -157,10 +157,10 @@ Examples of logical operators are:
 
 .. rubric:: Footnotes
 
-  [#] In C# Reference, ``&&`` is called Conditional logical AND operator, which 
-  is almost the same as & except it performs "short-circuit evaluation": 
-  if the result can be inferred from the first operand, then the second 
-  operand is not evaluated, while logical AND operator ``&`` will always 
-  evaluate both its operands. The same applies to Logical OR operator ``|``. 
-  Also, C# has logical exclusive OR operator ``^``, which computes the same 
-  result as the inequality operator ``!=`` for bool operands. 
+[#] In C# Reference, ``&&`` is called Conditional logical AND operator, which 
+is almost the same as & except it performs "short-circuit evaluation": 
+if the result can be inferred from the first operand, then the second 
+operand is not evaluated, while logical AND operator ``&`` will always 
+evaluate both its operands. The same applies to Logical OR operator ``|``. 
+Also, C# has logical exclusive OR operator ``^``, which computes the same 
+result as the inequality operator ``!=`` for bool operands. 
