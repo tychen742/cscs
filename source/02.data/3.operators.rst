@@ -30,7 +30,7 @@ number of operands they require are:
 Arithmetic Operators
 ---------------------
 
-.. list-table:: Title
+.. list-table:: Arithmetic Operators
     :widths: 15 20 40 25
     :header-rows: 1
 
@@ -76,6 +76,10 @@ their operands (numbers or strings) and return a value of either
 ``True`` (1) or ``False`` (0). These two values are known as Boolean values 
 and are used in conditional statements for decision making.  
 
+.. list-table:: Comparison Operators
+    :widths: 15 20 40 25
+    :header-rows: 1
+    
     * - Operator	
       - Name	
       - Example	
@@ -115,13 +119,17 @@ Examples of comparison operations:
   > 
 
 
-Boolean Logical Operators
+Logical Operators
 ---------------------------
 
 Logical Boolean operators [#]_ are used to determine the logic between variables or values. 
 Just like comparison operators, logical operators return True or False as a result 
 of the evaluation. 
 
+.. list-table:: Logical Operators
+    :widths: 15 20 65
+    :header-rows: 1
+    
     * - Operator	
       - Name	
       - Description	
