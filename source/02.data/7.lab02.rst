@@ -14,14 +14,14 @@ for the statements and expressions.
 Variable Reassignment
 ------------------------
 
-For now consider a small, artificial example program:
+**Think First**: For now consider a small, artificial example program:
 
 .. code-block:: csharp
    :linenos:
 
-   using System;
+   using System;      // this is optional as the compiler will do this automatically
 
-   class UpdateVars
+   class UpdateVars   // class name does not have to be the same as Project/Folder name
    {
       static void Main()
       {  // simple sequential code updating two variables
@@ -35,17 +35,45 @@ For now consider a small, artificial example program:
 
 emphasizing the ability to *reassign* variable values. 
        
-Can you *predict* the result? Run the program and check.
+Can you *predict* the result? 
+
+
+**Test**: 
+
+Create a C# project in your workspace/tests directory called **UpdateVars**, 
+copy the code to the Program.cs file, run the program and check. 
+
+In case you forget how to do this, follow the following steps:
+
+#. Start your terminal (Windows PowerShell or mac Terminal)
+#. ``cd`` into the ``workspace/tests`` directory. ``ls``
+#. ``mkdir UpdateVars`` to create the project folder. ``ls``
+#. ``cd`` into the empty project folder. ``ls``
+#. Execute ``dotnet new console`` to create the C# console app project.  
+#. ``code .`` to use VS Code to open the project folder and edit the ``Program.cs`` file. 
+#. Clean up the editor and copy-n-paste the code (line # 1-13) to the VS Code editor. 
+#. Click on the "Toggle Panel" icon in the upper right corner of VS Code to open terminal.
+#. Execute the C# project by issuing ``dotnet run`` (or ``dotnet build`` to compile but not run). (**Save** the project before running the project)
+
+Please note that the program will run without namespace or class. 
+Namely, you can just copy line # 7 to 11 and the program will run. You are 
+encouraged, though, to copy the whole file to get familiar with the structure of a 
+C# program.
+
 Particularly if you did not guess right, it is important to
 understand what happens, one step at a time. That means keeping
 track of what changes to variables are made by each statement.
+
+
 
 
 Implement an Algorithm
 ------------------------
 
 Read the following description and create a console app project 
-in your introcscs directory, call it **MathFun**, to generate the final 
+in your introcscs directory, call it **MathFun** (this means you will 
+``mkdir`` a directory called MathFun and run ``dotnet new console`` to 
+create the project), to generate the final 
 outcome as seen in the table below. 
 
 In the table below, statements are referred to by the numbers labeling

@@ -164,10 +164,10 @@ Naming Convention of Identifiers
 
 Some of the common conventions to follow when naming C# identifiers are:
 
--  The characters must all be letters, digits, or underscores ``_``,
-   and must start with a letter.
+- The characters must all be letters, digits, or underscores ``_``,
+  and must start with a letter.
 
-- *Reserved keywords* may not be used to name your own identifiers unless 
+.. - *Reserved keywords* may not be used to name your own identifiers unless 
   a ``@`` is prefixed. Common IDE's will be able to catch this.
 
 - C# is case sensitive: The identifiers ``name``, ``NAME``, and ``NaMe`` 
