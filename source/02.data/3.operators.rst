@@ -67,6 +67,21 @@ Arithmetic Operators
       - Decreases the value of a variable by 1	
       - x--
 
+Examples of arithmetic operators:
+
+.. code-block:: 
+
+  > x = 1;
+
+  > x++       // post-increment operator; x++ increments the value of variable x after it's evaluated in an expression
+  1
+  > x
+  2
+
+  > x = 2;
+  > ++x       // pre-increment operator; ++x increments the value of variable x before it's evaluated in an expression
+  3
+
 
 Comparison Operators
 ---------------------
