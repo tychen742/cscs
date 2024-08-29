@@ -2,16 +2,23 @@ Operators
 ===========
 
 Operators in programming languages are symbols that tells the 
-compiler or interpreter to perform specific operations. Common 
-simple operators include *arithmetic* (e.g. addition with +), 
-*comparison* (e.g. "greater than" with >), and *logical* 
-(e.g. AND, also written && in some languages) operators. Additional  
-types of operators include assignment (usually = or :=), 
-field access in a record or object (usually .), and bitwise and 
-shift operators. 
+compiler or interpreter to perform specific operations. The 
+operand combined with the operator makes an operation. In 
+an operation, an *operand* is the data that is being operated on. 
+The position of the operator, with respect to its 
+operands, may be prefix, infix or postfix.
 
-In an operation, an *operand* is the data that is being operated on. 
-The operand combined with the operator makes an operation. 
+
+Common simple operators include 
+
+- *arithmetic* (e.g. addition with +), 
+- *comparison* (e.g. "greater than" with >), and 
+- *logical* (e.g. AND, also written && in some languages) operators. 
+  
+Additional types of operators include assignment (usually = or :=), 
+field access in a record or object (usually .), and bitwise and 
+shift operators.  
+
 Operators can be categorized based on the number of operands 
 required. The three categories of operators based on the 
 number of operands they require are: 
@@ -61,19 +68,99 @@ Arithmetic Operators
       - x--
 
 
+Comparison Operators
+---------------------
 
-temps
+Comparison operators, also known as relational operators, compare 
+their operands (numbers or strings) and return a value of either 
+``True`` (1) or ``False`` (0). These two values are known as Boolean values 
+and are used in conditional statements for decision making.  
+
+    * - Operator	
+      - Name	
+      - Example	
+    * - ==	
+      - Equal to	
+      - x == y	
+    * - !=	
+      - Not equal to	
+      - x != y	
+    * - >	
+      - Greater than	
+      - x > y	
+    * - <	
+      - Less than	
+      - x < y	
+    * - >=	
+      - Greater than or equal to	
+      - x >= y	
+    * - <=	
+      - Less than or equal to	
+      - x <= y	
+
+Examples of comparison operations:
+
+.. code-block:: 
+
+  > int x = 1, y = 2;
+
+  > x == y
+  false
+  
+  > x < y
+  true
+  
+  > x <= y
+  true
+  > 
 
 
+Boolean Logical Operators
+---------------------------
 
-Operators in computer programming languages are symbols 
-defined in programming languages that instruct 
-the compiler or interpreter to perform specific mathematical, 
-relational or logical operations.
+Logical Boolean operators [#]_ are used to determine the logic between variables or values. 
+Just like comparison operators, logical operators return True or False as a result 
+of the evaluation. 
 
-The position of the operator with respect to its 
-operands may be prefix, infix or postfix. 
+    * - Operator	
+      - Name	
+      - Description	
+      - Example	
+    * - !	(unary)
+      - Logical negation operator	
+      - Returns logical negation of its operand	
+      - !true  	// False
+    * -	&&
+      - Logical and	
+      - Returns True if both statements are true	
+      - x < 5 &&  x < 10
+    * - ||
+      -	Logical or
+      - Returns True if one of the statements is true	
+      - x < 5 || x < 4	
+  
+Examples of logical operators are:
 
-Most programming languages support binary operators 
-and a few unary operators, with a few supporting 
-more operands, such as the ?: operator in C, which is ternary. 
+.. code-block:: 
+
+  > int x = 2;                  
+  
+  > x < 5 && x < 10
+  true
+
+  > x < 5 || x < 10
+  true
+
+  > !(x < 5 && x < 10) 
+  false
+
+
+.. rubric:: Footnotes
+
+  [#] In C# Reference, ``&&`` is called Conditional logical AND operator, which 
+  is almost the same as & except it performs "short-circuit evaluation": 
+  if the result can be inferred from the first operand, then the second 
+  operand is not evaluated, while logical AND operator ``&`` will always 
+  evaluate both its operands. The same applies to Logical OR operator ``|``. 
+  Also, C# has logical exclusive OR operator ``^``, which computes the same 
+  result as the inequality operator ``!=`` for bool operands. 
