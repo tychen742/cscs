@@ -51,7 +51,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Intro to CS in C#'
+# project = u'Intro to CS in C#'
+project = u'Lecture Notes IST-1551'
 authors= u'Tsangyao (T.Y.) Chen'
 # copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
