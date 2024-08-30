@@ -7,17 +7,17 @@ Functions
 .. toctree::
    :maxdepth: 2
 
-   firstfunc
-   multfunc
-   funcparam
-   funcparam2
-   funcreturn
-   writerconsumer
-   localscope
-   staticvariables
-   notusereturn
-   libraryclass
-   traceback
-   funcsummary
-   reviewfunc
+   1.firstfunc
+   2.multfunc
+   3.funcparam
+   4.funcparam2
+   5.funcreturn
+   6.writerconsumer
+   7.localscope
+   8.staticvariables
+   9.notusereturn
+   10.libraryclass
+   11.traceback
+   12.funcsummary
+   13.reviewfunc
    
