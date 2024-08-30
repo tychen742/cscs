@@ -22,7 +22,10 @@ Some important characteristics of methods/functions are:
 - Methods will not run until it is **called**. We say we are making a "function call" 
   or "method call" call when we invoke/use the subroutine. 
 - When calling a method/function, we often pass data into the method.
-- The values that are passed to the method is 
+- The data that are passed to the method are called **arguments** and the variables 
+  defined for the argument intake are called **parameters** (although they are often 
+  not differentiated from each others). [#]_
+
 
 If you know it is the birthday of a friend, Emily, you might tell
 those gathered with you to sing "Happy Birthday to Emily".
@@ -162,3 +165,7 @@ be sure to distinguish function **definition** from function **call**.
 If it also happens to be Andre's birthday, we might define a
 function ``HappyBirthdayAndre``, too. Think how to do that before
 going on ....
+
+
+.. [#] In C#, when methods of a type are nested in another member, they are 
+called *local functions*. 
