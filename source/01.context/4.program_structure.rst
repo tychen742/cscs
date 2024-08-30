@@ -191,14 +191,17 @@ here so we have better ideas about the basic structure of C#.
 #. ``class``:
    A class is a blueprint for creating objects, which may include the structure, 
    behaviors, and attributes of the objects. A class can be thought of a user-defined 
-   data type (reference data type) containing 
+   data **type** (reference data type) containing 
    - attributes (data) and 
    - methods (actions applied to the data).  
+  
+   In principle, we design one type per file to make code navigation easy.  
+  
 
 #. The ``Main`` method:
-   The most common Main methods of a C# program are probably ``static void Main()`` 
-   and ``static void Main(String []args)``. The Main method is the entry point 
-   of a program and therefore the first method invoked when an application is executed. 
+   The **Main method** is the **entry point** 
+   of a C# application and therefore the first method invoked when an application 
+   is executed. There is only one entry point in a C# program. 
 
 #. ``method``:
    A method is an object-oriented term for function, which is a series of statements 

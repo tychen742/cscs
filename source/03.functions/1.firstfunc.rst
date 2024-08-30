@@ -4,27 +4,51 @@
 
 .. _A-First-Function:
 
-A First Function Definition
+Function vs. Method
 ==============================
 
-Functions are subroutines in a computer program. When a function is a part of a class, 
+Functions/methods are subroutines in a computer program. When a function is a part of a class, 
 it's called a method. In OOP languages, functions are called methods and they are 
 always declared inside and operated through designated classes. It is, therefore, 
-by definition, accurate to call these subroutines methods in C#. However, when discussing 
-the construct of subroutine in both OOP and non-OOP languages, the term function is 
-more appropriate.
+by definition, accurate to call these subroutines methods rather than function in C# 
+since C# is an OOP language. However, when discussing the construct of subroutine 
+in general, the term function is more appropriate.
 
 Some important characteristics of methods/functions are:
 
-- Methods perform certain actions. 
-- Methods are **reusable** subroutines so that we do not have to write the same/similar 
-  code repetitively when wanting to perform the same certain actions. 
-- Methods will not run until it is **called**. We say we are making a "function call" 
+- We design functions to be **reusable** subroutines perform certain actions so that 
+  we do not have to write the same/similar code repetitively. 
+- Functions will not run until it is **called**. We say we are making a "function call" 
   or "method call" call when we invoke/use the subroutine. 
-- When calling a method/function, we often pass data into the method.
+- When calling a function, we often pass data into the function and we usually 
+  design the function to **return** values when called. 
 - The data that are passed to the method are called **arguments** and the variables 
   defined for the argument intake are called **parameters** (although they are often 
   not differentiated from each others). [#]_
+
+
+A C# Method
+--------------
+
+We understand that there is 
+
+.. code-block:: csharp
+   :linenos: 
+
+   class TryMethods              // this is the same as "internal class TryMethods"
+   {
+   static void Main(string[] args)
+   {
+      MyMethod();
+   }
+
+   static void MyMethod()
+   {
+      Console.WriteLine("aaaaa");
+      Console.WriteLine("bbbbb");
+   }
+
+   }
 
 
 If you know it is the birthday of a friend, Emily, you might tell
