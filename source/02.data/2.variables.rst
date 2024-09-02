@@ -162,7 +162,7 @@ For example:
 Naming Convention of Identifiers
 ---------------------------------
 
-Some of the common conventions to follow when naming C# identifiers are:
+Some of the common conventions [#]_ to follow when naming C# identifiers are:
 
 - The characters must all be letters, digits, or underscores ``_``,
   and must start with a letter.
@@ -218,5 +218,6 @@ C# has another set of keywords called contextual keywords that are keywords with
 in specific context and may be used as identifiers outside the program context.
 
 .. rubric:: Footnotes
-
+.. [#] For C# identifier naming conventions, see: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names. 
+    Also, for coding conventions, see https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#style-guidelines.
 .. [#] There are also snake_case, commonly used in Python, and kebab-case, commonly used in CSS. 

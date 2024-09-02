@@ -4,15 +4,16 @@
 
 .. _A-First-Function:
 
-Function vs. Method
+C# Method 
 ==============================
 
 Functions/methods are subroutines in a computer program. When a function is a part of a class, 
 it's called a method. In OOP languages, functions are called methods and they are 
 always declared inside and operated through designated classes. It is, therefore, 
-by definition, accurate to call these subroutines methods rather than function in C# 
+by definition, more accurate to call these code-blocks methods rather than functions in C# 
 since C# is an OOP language. However, when discussing the construct of subroutine 
-in general, the term function is more appropriate.
+in general, the term function seems more appropriate and you will see people use the term 
+interchangeably from time to time.
 
 Some important characteristics of methods/functions are:
 
@@ -24,158 +25,144 @@ Some important characteristics of methods/functions are:
   design the function to **return** values when called. 
 - The data that are passed to the method are called **arguments** and the variables 
   defined for the argument intake are called **parameters** (although they are often 
-  not differentiated from each others). [#]_
+  not differentiated from each others). [#f1]_
 
 
-A C# Method
---------------
+Method Signatures: The Recipe
+------------------------------
 
-We understand that there is 
+The first method you have encountered in C# is the Main method, the only entry point 
+of a C# application, or, the first method to be invoked in a class [#f2]_, looks like the 
+follows if you generate it with ``dotnet new console --use-program-main``:
 
 .. code-block:: csharp
    :linenos: 
+   :emphasize-lines: 5-8
 
-   class TryMethods              // this is the same as "internal class TryMethods"
+   namespace HelloWorld;
+
+   class Program
    {
-   static void Main(string[] args)
-   {
-      MyMethod();
+      static void Main(string[] args)
+      {
+         Console.WriteLine("Hello, World!");
+      }
    }
 
-   static void MyMethod()
-   {
-      Console.WriteLine("aaaaa");
-      Console.WriteLine("bbbbb");
-   }
+Note that the **Main method** is contained in a **class** (Program), which is a 
+standard arrangement for OOP languages. **Main method** code block. 
+When defining methods, we follow a recipe (standard syntax) 
+and the ingredients to use are called **method signature**. The 
+standard syntax template for method signatures is as follows: [#f4]_
 
-   }
-
-
-If you know it is the birthday of a friend, Emily, you might tell
-those gathered with you to sing "Happy Birthday to Emily".
-
-We can make C# display the song. *Read*, and run if you like,
-the example program :repsrc:`birthday1/birthday1.cs`:
-
-.. :: ../../examples/introcs/birthday1/birthday1.cs
-
-Here the song is just a part of the ``Main`` method that is in 
-every program.  
-
-Note that we are using a function already provided to us, 
-``Console.WriteLine``.  We can use it over and over, wherever we like.
-We can alter its behavior by including a different parameter.
-Now we look further at writing and using your own functions.
-
-If we 
-want this song to be just part of a larger program, and be able to refer
-to it repeatedly and easily, we might like
-to package it separately.
-You would probably not repeat the whole song to let others know
-what to sing. You would give a request to sing via a descriptive
-name like "Happy Birthday to Emily".
-
-In C# we can also give a name like ``HappyBirthdayEmily``, and
-associate the name with whole song by using a new
-*function definition*, also called a *method*. We will see many variations 
-on method definitions.  Later we will see definitions that are
-attached to a particular object.
-For now the simpler cases do not involve creating a type of object, 
-but there is an extra word, ``static``, 
-needed to distinguish a function definition 
-*not* attached to  on object.    
-We will also shortly look at functions more like 
-the functions from math class, that produce or *return* a value.  In 
-this simple case we will not deal with returning a value.  
-This also requires a special word in the heading:  ``void``.  A ``void``
-function will just be a shorthand name for something to do, a procedure
-to follow, in this case
-printing out the Happy Birthday song for Emily.  (Note that 
-the ``Main`` method for a program is also ``static void``.  
-This *does* your whole program and is not attached to an object.)
-
-*Read* for now:
-
-.. :: ../../examples/introcs/birthday2/birthday2.cs
-   :linenos:
-       
-There are several parts of the syntax for a function definition to
-notice:
-
-Line 5: The *heading* starts with ``static void``, the name of the function,
-and then parentheses.  
-
-A more general syntax for functions that just *do*
-something is
-
-| ``static void`` **FunctionName**\ ``()``
-| ``{``
-|    statements in the function body...
-| ``}``
-       
-Recall the conventions in `Syntax-Template-Typography`.
-
-Lines 6-11: The remaining lines form the function *body*.  They are enclosed
-in braces.  By convention the lines inside the braces are indented by a
-consistent amount. Three spaces is a common indentation.
-
-The whole definition does just that: *defines* the meaning of the
-name ``HappyBirthdayEmily``, but it does not do anything else yet -
-for example, the definition itself does not yet make anything be
-printed. This is our first example of altering the order of
-execution of statements from the normal sequential order. This is
-important: the statements in the function *definition* are *not*
-executed as C# first passes over the lines.  
-The only part of a program that is automatically executed is ``Main``.
-Hence ``Main`` better refer to the newly defined function....
-
-Look at the first statement inside Main, line 15::
-
-    HappyBirthdayEmily();
-
-Note that the ``static void`` of the function definition is missing,
-but we still have the function name and parentheses. 
-When ``Main`` is running, C# goes back and looks up
-the definition, and only then, executes the code inside the
-function definition. The term for this action is a *function call*
-or function *invocation*.  In this simple situation the format is
-
-    *FunctionName*\ ``()``
-
-While the convention for variable identifiers is to start with a lowercase
-letter, the convention for function names is to start with a capital letter.
-Hence ``HappyBirthdayEmily``, not ``happyBirthdayEmily``.
-
-Can you predict what the program will do?  Note the two function calls
-to ``HappyBirthdayEmily``.  To see, load and run :repsrc:`birthday2/birthday2.cs`. 
-
-.. index:: function; execution sequence
-   execution sequence; function
+.. code-block:: none
    
-The *execution* sequence for the program is different from the 
-*textual* sequence.  Execution always starts in Main:
+   [Access Modifier] [static modifier] [Return Type] MethodName(Parameter List)
+   {
+      // Method Body
+   }
 
-#. Line 13: Main is where execution starts, and initially proceeds
-   sequentially.
+In this template, the signatures include:
 
-#. Line 15: the function is called while this location is
-   remembered.
+.. list-table:: Method Signatures
+   :widths: 10 90
+   :header-rows: 1
 
-#. Lines 5-11: Jump!  The code of the function is executed for the first
-   time, printing out the song.
+   * - Signature 
+     - Description
+   * - Access Modifier 
+     - This determines visibility of methods between classes, and whether 
+       or not it can instantiate new objects. Since our methods in this chapter are limited 
+       to this class, we will leave them off for now.
+   * - static modifier
+     - Define the method as a static member method of the class. When not defined as 
+       static, it is an instance member. [#f3]_
+   * - Return Type
+     - If the method is returning a value, this indicates what data type it will 
+       be. Not all methods return values. Methods that do not return a value have a return 
+       type of ``void``.
+   * - Method Name
+     - The method’s unique ``identifier``. This is what you use to call your method.
+   * - Parameter List
+     - A parameter is a placeholder for specific data that the method will 
+       act upon. Parameters are optional. In these cases, the ``()`` are still part of the method 
+       call, but remain empty.
+   * - Method Body
+     - This is where you code your method. Note it is contained between ``{}``.
 
-#. End of line 15: Back from the function call; continue on.
 
-#. Line 16:  Just to mix things up, print out a "Hip, hip, hooray".
+With method signatures, you can design methods specifically to your needs. But for now, 
+let us analyze the two methods in class TryMethods below to apply our understanding of signatures:
 
-#. Line 17: the function is called again while this location is
-   remembered.
+.. code-block:: csharp
+   :linenos: 
+   :emphasize-lines: 10-11
 
-#. Lines 5-11: The function is executed again, printing out the song
-   again.
+   using System;                          // the using statement
+   class TryMethods                       // class declaration
 
-#. End of line 17: Back from the function call, but at this point
-   there is nothing more in ``Main``, and execution stops.
+   {
+      static void Main(string[] args)     // static modifier, return modifier, and method name
+      {                                   // static: can be invoked directly; void, no return to caller
+         MyMethod();                      // method MyMethod (line# 9) is called
+      }
+
+      static void MyMethod()              // static modifier, return modifier, and method name 
+      {                                   // static: can be invoked directly; void, no return to caller
+         Console.WriteLine("IST 1551");   // Method body
+         Console.WriteLine("T.Y. Chen");  // Method body
+      }
+
+   }
+
+.. note:: 
+   You have probably noticed that you can prepare this code by making the **MyMethod** 
+   project folder (``mkdir MyMethod``), then creating the project by running ``dotnet new console 
+   --use-program-main`` (or just do ``dotnet new console`` then change the code to include 
+   the ``Main method``). After that, you run ``code .`` from the terminal to open 
+   the project in VS Code and click on Program.cs to edit the source code.
+
+
+Method Calls & Return
+------------------------
+
+In the preceding code, we add a new method, the ``MyMethod`` method in addition to 
+the ``Main`` method. Since the Main method is the 
+first method to be invoked by the .NET common 
+language runtime (CLR) when the application is started. You then **call** (or **invoke**) 
+other methods (making **method calls**) from the Main method. [#f5]_ 
+
+Note that you build your methods outside of the Main method and you make method calls 
+from within the Main method. Namely, you separate the Main method (app the entry point) 
+from other methods (functionalities). The purpose of the Main method, therefore, is to 
+execute your programs inside the class.
+
+An important feature of functions/methods is that they **return** values to their 
+**callers**. In the example below, you see that we can use the Take a look at the sample code below
+
+.. code-block:: csharp
+   
+   using System;
+
+   class MainClass {
+
+      static int SquareTheNumber(int num)
+      {
+         return num * num;
+      }
+
+      public static void Main (string[] args) {
+
+         int digit = 4;
+         int squaredNum = SquareTheNumber(digit);
+         int squaredAndSummed = squaredNum + SquareTheNumber(digit);
+
+         Console.WriteLine(squaredNum);
+         Console.WriteLine(squaredAndSummed);
+         Console.WriteLine(SquareTheNumber(5));
+
+      }
+   }
 
 Functions alter execution order in several ways: by statements not
 being executed as the definition is first read, and then when the
@@ -190,6 +177,18 @@ If it also happens to be Andre's birthday, we might define a
 function ``HappyBirthdayAndre``, too. Think how to do that before
 going on ....
 
+.. rubric:: Footnotes
 
-.. [#] In C#, when methods of a type are nested in another member, they are 
-called *local functions*. 
+.. [#f1] In C#, when methods of a type are nested in another member, they are 
+   called *local functions*. 
+.. [#f2] Note that if you have more than one Main method in you have to use the 
+   `StartupObject <https://learn.microsoft.com/en-us/dotnet/csharp/language
+   -reference/compiler-options/advanced#mainentrypoint-or-startupobject>`_ 
+   compiler option to specify which Main method to use as the entry point. 
+.. [#f3] A class has members such as field, properties, and methods. Static 
+   members of the class can be used without creating a new instance of the class. 
+   For example, we can access the square root method in Math class under the 
+   System namespace directly, ``Console.Write(Math.Sqrt(x));``, without using the 
+   ``new`` keyword to create a new instance of the Math class. 
+.. [#f4] This template and explanation is adopted from https://education.launchcode.org/intro-to-programming-csharp/chapters/methods/method-signatures.html
+.. [#f5] Main methed is required for console and Web apps in .NET.  
