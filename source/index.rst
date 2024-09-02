@@ -7,7 +7,7 @@ Lecture Notes: Intro to Programming in C#
 
    01.context/context
    02.data/data
-   03.functions/functions
+   03.methods/methods
    04.decisions/decisions
    05.for/for
    06.while/while

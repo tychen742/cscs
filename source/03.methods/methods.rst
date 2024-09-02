@@ -7,9 +7,9 @@ Functions
 .. toctree::
    :maxdepth: 2
 
-   1.firstfunc
-   2.multfunc
-   3.funcparam
+   1.intro
+   2.signature_call
+   3.using
    4.funcparam2
    5.funcreturn
    6.writerconsumer
