@@ -54,7 +54,7 @@ will use the parameter as variables to customize the print statements.
          Verse("chicken", "buk");                  // method call
       }
 
-      public static void Verse( String animal, String noise )  // method signature
+      public static void Verse( String animal, String noise )  // method signature; ``parameters with types``
       {
          Console.WriteLine( "Old MacDonald had a farm" );      // method body starting here
          Console.WriteLine( "E-I-E-I-O" );
@@ -157,7 +157,7 @@ A method can call other methods to help it do its job. Consider the following co
 
 .. code-block:: csharp
 
-  public static void inchesToCentimeters(double i)
+  public static void inchesToCentimeters(double i)    // parameter with type
   {
       double c = i * 2.54;
       printInCentimeters(i, c);
