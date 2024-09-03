@@ -1,211 +1,193 @@
-
 .. index:: function; parameter
    parameter
 
-.. _Function-Parameters:
+.. _Method-Parameters:
 
 Method Parameters
 ==============================
 
-As a young child, you probably heard Happy Birthday sung to a
-couple of people, and then you could sing to a new person, say
-Maria, without needing to hear the whole special version with
-Maria's name in it word for word. You had the power of
-*abstraction*. With examples like the versions for Emily and Andre,
-you could figure out what change to make it so the song could be
-sung to Maria!
+As a young child, you probably heard the “Old MacDonald” song. 
+Consider the following two verses:
 
-Unfortunately, C# is not that smart. It needs explicit rules.
-If you needed to explain *explicitly* to someone how Happy Birthday
-worked in general, rather than just by example, you might say
-something like this:
+.. list-table:: Two Verses
+   :widths: 50 50
+   :header-rows: 1
 
-First you have to be *given* a person's name. Then you sing the
-song with the person's name inserted at the end of the third line.
+   * - Verse 1
+     - Verse 2
+   * - Old MacDonald had a farm
+     - Old MacDonald had a farm
+   * - E-I-E-I-O
+     - E-I-E-I-O
+   * - And on that farm he had a cow
+     - And on that farm he had a duck
+   * - E-I-E-I-O
+     - E-I-E-I-O
+   * - With a moo-moo here
+     - With a quack-quack here
+   * - And a moo-moo there
+     - And a quack-quack there
+   * - Here a moo, there a moo
+     - Here a quack, there a quack
+   * - Everywhere a moo-moo
+     - Everywhere a quack-quack
+   * - Old MacDonald had a farm
+     - Old MacDonald had a farm
+   * - E-I-E-I-O
+     - E-I-E-I-O
 
-C# works something like that, but with its own syntax. The term
-"person's name" serves as a stand-in for the actual data that
-will be used, "Emily", "Andre", or "Maria". This is just like
-the association with a variable name in C#. "person's name"
-is not a legal C# identifier, so we will use just ``person`` as
-this stand-in.  It will be a variable in the program, 
-so it needs a type in C#.  The names are strings, 
-so the type of ``person`` is ``string``.
 
-In between the parentheses of the function definition heading, we insert the variable
-name ``person``, preceded  by its type, ``string``.
-Then in the body of the definition
-of the function, ``person`` is used in place of the real data for any
-specific person's name. Read and then run example program
-:repsrc:`birthday4/birthday4.cs`:
+As you can see, the two verses are in most part identical. We can 
+probably create a method named ``Verse`` to abstract the 
+repetitive lines, but the method will need two  **parameters**, 
+which are **placeholders** that allow different values to be **substituted** 
+for the animal and noise when the method is called. The method body 
+will use the parameter as variables to customize the print statements.
 
-.. :: ../../examples/introcs/birthday4/birthday4.cs
-   :linenos:
+.. code-block:: csharp
 
-In the definition heading for ``HappyBirthday``, ``person`` is
-referred to as a *parameter*, or a *formal parameter*. This
-variable name is a *placeholder* for the real name of the person
-being sung to.  In the definition we give instructions for singing
-Happy Birthday *without* knowing the exact name of the person who might be sung to.
+   internal class Program
+   {
+      private static void Main(string[] args)
+      {
+         // Console.WriteLine("Hello, World!");    // this statement is commented out
+         Verse("chicken", "buk");                  // method call
+      }
 
-``Main`` now has two calls to the same function, 
-but between the parentheses, where there was the **placeholder** ``person`` 
-in the definition, now we have the **actual people** being sung to.
-The value between the parentheses here in the function call
-is referred to as an *argument* or *actual parameter* of the
-function call. The argument supplies the actual data to be used in
-the function execution. When the call is made, C# does this by
-associating the **formal** parameter name ``person`` with the **actual**
-parameter data, as in an assignment statement. In the first call,
-this actual data is ``"Emily"``. We say the actual parameter value
-is *passed* to the function for execution.
+      public static void Verse( String animal, String noise )  // method signature
+      {
+         Console.WriteLine( "Old MacDonald had a farm" );      // method body starting here
+         Console.WriteLine( "E-I-E-I-O" );
+         Console.WriteLine( "And on that farm he had a " + animal );
+         Console.WriteLine( "E-I-E-I-O" );
+         Console.WriteLine( "With a " + noise + "-" + noise + " here") ;
+         Console.WriteLine( "And a " + noise + "-" + noise + " there" );
+         Console.WriteLine( "Here a " + noise + ", there a " + noise );
+         Console.WriteLine( "Everywhere a " + noise + "-" + noise );
+         Console.WriteLine( "Old MacDonald had a farm" );
+         Console.WriteLine( "E-I-E-I-O" );
+      }
+   }
 
-The execution in greater detail:
+By now, you should be pretty familiar with the process of creating a project, 
+writing some short code, and test the outcome. As a review, the process should look 
+like the follows.
 
-#. Lines 13: Execution starts in Main.  
+.. code-block:: none
 
-#. Line 15: Call to ``HappyBirthday``, with actual parameter
-   ``"Emily"``.
+   tychen@mac:~/workspace/introcscs$ mkdir Verse
+   tychen@mac:~/workspace/introcscs$ cd Verse/
+   tychen@mac:~/workspace/introcscs/Verse$ dotnet new console --use-program-main
+   The template "Console App" was created successfully.
 
-#. Line 5: ``"Emily"`` is passed to the function, so
-   ``person = "Emily"``.
+   Processing post-creation actions...
+   Restoring /Users/tychen/GoogleDrive/workspaces/workspace/introcscs/Verse/Verse.csproj:
+   Determining projects to restore...
+   Restored /Users/tychen/GoogleDrive/workspaces/workspace/introcscs/Verse/Verse.csproj (in 176 ms).
+   Restore succeeded.
 
-#. Lines 7-10: The song is printed, with ``"Emily"`` used as the
-   value of ``person`` in line 9: printing ::
-       
-       Happy Birthday, dear Emily.
+   tychen@mac:~/workspace/introcscs/Verse$ code .
 
-#. End of line 15 after returning from the function call
+In VS Code, you could edit the code and run it from the terminal in VS Code by issuing 
+``dotnet run``. Alternatively, you may run your code in terminal and even use editors such 
+as ``nano`` to edit your code and run the project in the terminal directly. 
 
-#. Line 16: Call to ``HappyBirthday``, this time with actual
-   parameter ``"Andre"``
+The result of the preceding program should look like the following::
 
-#. Line 5: ``"Andre"`` is passed to the function, so
-   ``person = "Andre"``.
+   Old MacDonald had a farm
+   E-I-E-I-O
+   And on that farm he had a chicken
+   E-I-E-I-O
+   With a buk-buk here
+   And a buk-buk there
+   Here a buk, there a buk
+   Everywhere a buk-buk
+   Old MacDonald had a farm
+   E-I-E-I-O
 
-#. Lines 7-10: The song is printed, with ``"Andre"`` used as the
-   value of ``person`` in line 9: printing ::
-       
-       Happy Birthday, dear Andre.
 
-#. End of line 16 after returning from the function call, 
-   and the program is over.
+In this program, when you call the Verse method, you provide values between the 
+parentheses, called ``arguments``, that are copied into the ``parameters`` 
+(parameter list in the parentheses after the method name) to  
+be used in the method body as ``variables``. If you call the method more than one time 
+and supply different arguments, each method call will be run with the arguments 
+supplied, such as in::
 
-The beauty of this system is that the same function definition can
-be used for a call with a different actual parameter variable, and
-then have a different effect. The value of the variable person is
-used in the third line of ``HappyBirthday``, to put in whatever
-actual parameter value was given.
+   Verse( "cow", "moo" );
+   Verse( "duck", "quack" );
 
-.. index:: abstraction
+The main method will call the verse method twice, once for the cow and once for the duck. 
 
-This is the power of *abstraction*. It is one application of the
-most important principal in programming. Rather than have a number
-of separately coded parts with only slight variations, see where it
-is appropriate to combine them using a function whose parameters
-refer to the parts that are different in different situations. Then
-the code is written to be simultaneously appropriate for the
-separate specific situations, with the substitutions of the right
-parameter values.
+Variable Scope
+---------------
 
-.. note::
+A variable may be available for use in some lines of code, but not others. 
+The ``scope`` of a variable is the region of the program that is visible, 
+which means it is accessible by ``name`` and can be used in the code.
 
-    Be sure you completely understand :repsrc:`birthday4/birthday4.cs`
-    and the sequence of execution!  It illustrates extremely
-    important ideas that many people miss the first time!  It is
-    essential to understand the difference between
+A variable declared inside a method is called a ``local variable``. The scope of 
+a local variable is the ``method body`` in which it is declared. You can’t use 
+a variable before it is declared, so in fact the scope begins on the line that 
+declares the variable and continues until the last line of code in the method or 
+block. The local variable’s memory location is only available while the method is 
+executing. When the method completes, the memory location is released. 
+If you called the method again, the old value is not available.
 
-    1. *Defining* a function (lines 5-11)
-       with the heading including *formal* parameter name and type,
-       where the code is merely instructions to be remembered,
-       not acted on immediately.
+..  note::
+   Only the *value* of the actual parameter is passed, not any
+   variable name, so there is *no need* to have a match between a variable name 
+   used in an argument and the parameter name.
 
-    2. *Calling* a function with an *actual* parameter value to be
-       substituted for the formal parameter, 
-       (with *no* type included!) and have the function
-       code actually *run* when the instruction containing the call
-       is run.  Also note that the function can be
-       called multiple times with different expressions as the
-       actual parameter (line 15 and again in line 16).
+Static Variables
+------------------
 
-We can combine function parameters with user input, and have the
-program be able to print Happy Birthday for anyone. Check out the
-``Main`` method and run :repsrc:`birthday_who/birthday_who.cs`:
+You may define *static variables* (variables defined with the word ``static`` inside the class,
+but *outside* of any method definition). These variables are visible inside all of your methods in the class. 
+Instead of local scope, static variables have *class scope*.
+It is good programming practice generally to avoid defining static variables and
+instead to put your variables inside methods and explicitly pass
+them as parameters where needed. An example for using static variables is constants:
+A *constant* is a name that you give a fixed data value to and you do not expect the value to change 
+(e.g., Pi).
 
-.. :: ../../examples/introcs/birthday_who/birthday_who.cs
-   :linenos:
+Method Tracing
+-------------------
 
-This last version illustrates several important ideas:
+A method can call other methods to help it do its job. Consider the following code: 
 
-#. There are more than one way to get information into a function:
-   
-   #. Have a value passed in through a parameter (from line 18 to line 5).
+.. code-block:: csharp
 
-   #. Prompt the user, and obtain data from the keyboard (lines 16-17).
+  public static void inchesToCentimeters(double i)
+  {
+      double c = i * 2.54;
+      printInCentimeters(i, c);
+  }
 
-#. It is a good idea to separate the *internal* processing of data
-   from the *external* input from the user by the use of distinct
-   functions. Here the user interaction is in ``Main``, and the data
-   is manipulated in ``HappyBirthday``.
+  public static void printInCentimeters(double inches, double centimeters)
+  {
+      Console.WriteLine(inches + "-->" + centimeters);
+  }
 
-#. In the first examples of actual parameters, we used literal
-   values. In general an actual parameter can be an expression. The
-   expression is evaluated before it is passed in the function call.
-   One of the simplest expressions is a plain variable name, which is
-   evaluated by replacing it with its associated value. 
-   Note this important situation in the example:  
-   We have the
-   value of ``userName`` in ``Main`` becoming the value of ``person``
-   in ``HappyBirthday``.  We used different names to illustrate the
-   important fact:  
-   
-   ..  note::
-       Only the *value* of the actual parameter is passed, not any
-       variable name, so there is *no need* to have a match between a variable name 
-       used in
-       an actual parameter and the formal parameter name.
+  public static void main(String[] args)
+  {
+      inchesToCentimeters(10);
+  }
 
-.. comment get this idea in somewhere else?
+What is printed when the main method is run? 
 
-	.. index::
-	   traceback; error in execution
-	
-	Now that we have nested function calls, it is worth looking further
-	at tracebacks from execution errors.  If we add a line to ``Main`` in
-	:repsrc:`birthday4/birthday4.cs`::
-		
-		HappyBirthday(2)
-	
-	as in example file :repsrc:`birthday_bad/birthday_bad.cs`, and then run it, you get
-	something close to:
-	
-	  | Traceback (most recent call last):
-	  | TypeError: Can't convert 'int' object to str implicitly
-	
-	Your file folder is probably different than /hands-on/examples.
-	The last three lines are most important, giving the line number
-	where the error was detected, the text of the line in question,
-	and a description of what problem was found.  Often that is all
-	you need to look at, but this example illustrates that
-	the *genesis* of the problem may be far away from the line
-	where the error was *detected*.  
-	Going further up the traceback, you find the sequence of function
-	calls that led to the line where the error was detected.
-	You can see that in ``main`` we call ``HappyBirthday``
-	with the bad parameter, 2.
 
-.. _BirthdayFunctionEx:
 
-Birthday Function Exercise
+
+Birthday Method Exercise
 ---------------------------
 
 Make your own further change to :repsrc:`birthday4/birthday4.cs` and save it in your
 own project as 
-``birthday_many.cs``: Add a function call
-(but *not* another function *definition*), so Maria gets a verse, in
+``birthday_many.cs``: Add a method call
+(but *not* another method *definition*), so Maria gets a verse, in
 addition to Emily and Andre. Also print a blank line between
 verses. (There are two ways to handle the blank lines: 
 You may *either* do this by adding a print line to the
-function definition, *or* by adding a print line between all calls to
-the function.  Recall that if you give Console.WriteLine an empty
+method definition, *or* by adding a print line between all calls to
+the method.  Recall that if you give Console.WriteLine an empty
 parameter list, it just goes to the next line.)

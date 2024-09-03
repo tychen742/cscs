@@ -115,7 +115,8 @@ An important feature of functions/methods is that they **return** values to thei
 
       static int SquareTheNumber(int num)
       {
-         return num * num;
+         return num * num;    // the value to be returned is given by the expression in the return statement.
+
       }
 
       public static void Main (string[] args) {

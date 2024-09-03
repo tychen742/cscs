@@ -9,8 +9,8 @@ Functions
 
    1.intro
    2.signature_call
-   3.using
-   4.funcparam2
+   3.parameter
+   4.
    5.funcreturn
    6.writerconsumer
    7.localscope

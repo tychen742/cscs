@@ -1,11 +1,11 @@
 Chapter Review Questions
 =========================
 
-#.  Write the function definition heading for a static function called
+#.  Write the method definition heading for a static method called
     ``Q1`` which
     has two ``int`` parameters, ``x`` and ``y``, and returns a ``double``.
     
-#.  The function above must have what kind of a statement in its body?
+#.  The method above must have what kind of a statement in its body?
 
 #.  Each of these lines has a call to the function above, ``Q1``.  Which
     are legal?  Explain::
@@ -23,14 +23,14 @@ Chapter Review Questions
         Q1(10, 20);
 
 #.  Suppose ``Q1`` does nothing except produce the value to return, like
-    most functions returning a ``double``.  Which
+    most methods returning a ``double``.  Which
     line in the previous problem is legal, but has *no* effect?
     
-#.  Write the function definition heading for a static function called
+#.  Write the method header for a static method called
     ``Q4`` which
     has one ``string`` parameter, ``s``, and returns nothing.
     
-#.  Which of these lines with a call to the function above, ``Q4``,
+#.  Which of these lines with a call to the method above, ``Q4``,
     is legal?  Explain::
 
         Q4("hi");
