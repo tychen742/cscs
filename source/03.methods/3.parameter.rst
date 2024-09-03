@@ -106,9 +106,11 @@ The result of the preceding program should look like the following::
    E-I-E-I-O
 
 
-Let us review the standard syntax method signature template::
+Let us review the standard syntax method signature template:
 
-  Access Modifier [static modifier] Return Type MethodName(``Parameter List``)
+.. code-block:: none
+
+  Access Modifier [static modifier] Return Type MethodName(Parameter List)
   {
     Method Body
   }
