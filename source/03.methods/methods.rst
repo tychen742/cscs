@@ -1,7 +1,7 @@
 
 .. _Defining-Own-Functions:
 
-C# Methods
+Methods
 ###############################
 
 .. toctree::
