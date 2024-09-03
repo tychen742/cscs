@@ -25,15 +25,15 @@ how to respond. For example: ::
     
 The user input from keyboard is automatically shown
 in the terminal or console window. For a program to take in the characters typed, 
-another function in the ``Console`` class is used:
+another method in the ``Console`` class is used:
 ``Console.ReadLine``.
 
-The read function reads the data from a line typed at the keyboard by the user.
+The read method reads the data from a line typed at the keyboard by the user.
 When the user presses the Enter (Return) key, the sequence of characters,
-form the string *value* of the read function.
+form the string *value* of the read method.
 
-With any function producing a value, the value is *lost* unless it 
-is *immediately* used. We therefore assign the value from the read function 
+With any method producing a value, the value is *lost* unless it 
+is *immediately* used. We therefore assign the value from the read method 
 to a variable like in ::
 
     string name;                                // declare variable
@@ -68,7 +68,7 @@ strings to the proper kind of number. We cannot convert the string type to
 int implicitly because strings are immutable in C#. Instead, you need to parse 
 the string and assign to the intended data type. 
 
-There are C# built-in functions to do that. ``int.Parse`` takes a string parameter
+There are C# built-in methods to do that. ``int.Parse`` takes a string parameter
 that should be the characters in an ``int``, like "123" or "-25", and 
 produces the corresponding ``int`` value, like 123 or -25: ::
 
@@ -280,17 +280,17 @@ of its evaluation. This is good for test out syntax. In a regular C# program
 run from a file like in you must explicitly give instructions to print to a 
 console/terminal.  
 
-This printing is accomplished through a function with a long name: ``Console.WriteLine``.
-Like with math, you can pass a function a value to work on, by placing it in
-parentheses after the name of the function.
+This printing is accomplished through a method with a long name: ``Console.WriteLine``.
+Like with math, you can pass a method a value to work on, by placing it in
+parentheses after the name of the method.
 
 
 ``Console`` is a C# class maintained by the system, that
 interacts with the terminal or console window where text output 
-appears for the program.  A function defined in that class is ``WriteLine``.
-To refer to a function like ``WriteLine`` in a different class, you must indicate
-the location of the function with the "dot" notation shown:
-class name, then ``.``, then the function.  This  
+appears for the program.  A method defined in that class is ``WriteLine``.
+To refer to a method like ``WriteLine`` in a different class, you must indicate
+the location of the method with the "dot" notation shown:
+class name, then ``.``, then the method.  This  
 gives the more elaborate name needed in the program.
 
 
@@ -298,6 +298,6 @@ gives the more elaborate name needed in the program.
 
 .. index:: Console; Write
 
-The ``Console.WriteLine`` function automatically makes the printing
+The ``Console.WriteLine`` method automatically makes the printing
 position advance to the next line, as when you press the Enter or Return key.
 A variant, ``Console.Write``, prints the parameter exactly, and nothing else.

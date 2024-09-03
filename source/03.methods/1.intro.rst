@@ -47,12 +47,12 @@ Static methods are also referred to as class methods.
 
 Some important characteristics of methods/functions are:
 
-- We design functions to be **reusable** subroutines perform certain actions so that 
+- We design methods to be **reusable** subroutines perform certain actions so that 
   we do not have to write the same/similar code repetitively. 
-- Functions will not run until it is **called**. We say we are making a "function call" 
-  or "method call" call when we invoke/use the subroutine. 
-- When calling a function, we often pass data into the function and we usually 
-  design the function to **return** values when called. 
+- Methods will not run until it is **called**. We say we are making a "function call" 
+  or "method call" when we invoke/use the subroutine. 
+- When calling a method, we often pass data into the method and we usually 
+  design the method to **return** values when called. 
 - The data that are passed to the method are called **arguments** and the variables 
   defined for the argument intake are called **parameters** (although they are often 
   not differentiated from each others). [#f1]_
