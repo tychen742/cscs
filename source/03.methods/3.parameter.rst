@@ -106,6 +106,13 @@ The result of the preceding program should look like the following::
    E-I-E-I-O
 
 
+Let us review the standard syntax method signature template::
+
+  Access Modifier [static modifier] Return Type MethodName(``Parameter List``)
+  {
+    Method Body
+  }
+
 In this program, when you call the Verse method, you provide values between the 
 parentheses, called ``arguments``, that are copied into the ``parameters`` 
 (parameter list in the parentheses after the method name) to  
@@ -178,16 +185,4 @@ What is printed when the main method is run?
 
 
 
-Birthday Method Exercise
----------------------------
 
-Make your own further change to :repsrc:`birthday4/birthday4.cs` and save it in your
-own project as 
-``birthday_many.cs``: Add a method call
-(but *not* another method *definition*), so Maria gets a verse, in
-addition to Emily and Andre. Also print a blank line between
-verses. (There are two ways to handle the blank lines: 
-You may *either* do this by adding a print line to the
-method definition, *or* by adding a print line between all calls to
-the method.  Recall that if you give Console.WriteLine an empty
-parameter list, it just goes to the next line.)

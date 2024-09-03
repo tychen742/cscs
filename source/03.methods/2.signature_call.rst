@@ -101,8 +101,9 @@ from within the Main method. Namely, you separate the Main method (app the entry
 from other methods (functionalities). The purpose of the Main method, therefore, is to 
 execute your programs inside the class.
 
-An important feature of functions/methods is that they **return** values to their 
-**callers**. In the example below, you see that you call the function use the Take a look at the sample code below
+An important feature of functions/methods is that they can **return** values to their 
+**callers**. In the example below, you see that you call the method SquareTheNumber() 
+from the Main() method using the name of the method and with a parameter. 
 
 .. code-block:: csharp
    :linenos:
@@ -147,6 +148,13 @@ In the preceding code, we see that:
   return value to int variable squaredNum.
 - Line# 14 add squaredNum and add it to the return value of the method call with argument value of 4.
 
+Since methods can return data, and all data in C# is typed, 
+there must be a type given for the value returned. Note that in the preceding 
+code the method header does not start with ``static void``.  
+In place of ``void`` is ``int``.  The ``void`` in method headers
+mean nothing was returned. The ``int`` here means that a value *is*
+returned and its type is ``int``.
+
 
 Flow of execution
 -------------------
@@ -154,32 +162,27 @@ Flow of execution
 In terms of the construct of **sequential processing**, functions/methods 
 alter code execution order in several ways: by statements not
 being executed as the definition is first read, and then when the
-function is called during execution, jumping to the function code,
-and back at the the end of the function execution. [#f7]_
+method is called during execution, jumping to the method code,
+and back at the the end of the method execution. [#f7]_
 
 A class can contain multiple methods. It can be tempting to think the 
 methods are executed in the order they appear in the class, but this is 
-not the case. A program always begins at the first statement in the main 
-method. Each statement in the main is executed one at a time until you 
-reach a method call. A method call causes the program execution to jump 
-to the first line of the called method. Each statement in the called 
-method is then executed in order. When the called method is done, 
-the program returns back to the main method. [#f8]_
+not the case. A program always begins at the first statement in the Main 
+method. Each statement in the main is executed sequentially, one at a 
+time, until you reach a method call. A method call causes the program 
+execution to jump to the first line of the called method. 
+Each statement in the called method is then executed in order. 
+When the called method is done, the program returns back to the 
+main method. [#f8]_
 
-The order in which the function definitions are given does not matter
-to C#.  It is a human choice.  For variety I show ``Main`` first.  This 
-means a human reading in order gets an overview of what is happening 
-by looking at Main, but does not know the details until reading the 
-definitions of the birthday functions.
+In other words, the order in which the method definition code blocks does 
+not matter to C#. It is a human choice. One good practice is to show 
+``Main`` first. This means a human reading in order gets an overview 
+of what is happening by looking at Main, but does not know the details 
+until reading the definitions of other methods.
 
 
-Poem Method Exercise
--------------------------
 
-Write a program, call it `PoemFunc.cs`, that defines a method that
-prints a *short* poem or song verse. Give a meaningful name to the
-method. Have the program call the method three times,
-so the poem or verse is repeated three times.
 
 
 	
