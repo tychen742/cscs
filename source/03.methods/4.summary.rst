@@ -12,8 +12,6 @@ This chapter has introduced static methods:  those used in procedural programmin
 as opposed to :ref:`instance-methods` used to 
 implement object-oriented programming. 
 
-References in square brackets link to fully discussions of summary items below.
-
 .. index::  
    ( ); method definition
 
@@ -71,7 +69,7 @@ Method Calls
     evaluating the actual parameter expression.
     In particular, that means the actual parameter values must be allowed
     in an assignment statement for a variable of the formal parameter's type!
-    [:ref:`more-func-param`]
+
     
 #.  If the method has return type ``void``, it can only be used syntactically
     as an entire statement (with a semicolon added). After the method
