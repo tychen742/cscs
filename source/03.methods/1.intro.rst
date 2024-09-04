@@ -49,6 +49,7 @@ Some important characteristics of methods/functions are:
 
 - We design methods to be **reusable** subroutines perform certain actions so that 
   we do not have to write the same/similar code repetitively. 
+- In general, a method should do a **single thing**. You then combine a sequence to perform desired actions. 
 - Methods will not run until it is **called**. We say we are making a "function call" 
   or "method call" when we invoke/use the subroutine. 
 - When calling a method, we often pass data into the method and we usually 
