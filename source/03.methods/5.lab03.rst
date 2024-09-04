@@ -10,6 +10,7 @@ Perform the following for this part of the lab:
 - Run the code
 - Study the code and make sure you understand how **every line** of the code works. 
 - Write brief comments (after //) at the right of each lines to explain what each line is doing 
+- Prepare a screenshot of this piece of code and the result of running the code. 
 
 You probably have used mathematical functions in algebra class, but
 they all had calculated values associated with them. For instance
@@ -28,16 +29,16 @@ following:
 
 .. code-block:: 
 
-   using System;           //
+   using System;                 //
 
-   class Return1           //
+   class Return1                 //
    {
-      static int F(int x)  //
+      static int F(int x)        //
       {
-         return x*x;       //
+         return x*x;             //
       }
 
-      static void Main()   //
+      static void Main()         //
       {
          Console.WriteLine(F(3));         //
          Console.WriteLine(F(3) + F(4));  //
@@ -97,6 +98,7 @@ there can be any number of statements executed before the return
 statement. Read, follow, and run the example program:
 
 .. code-block:: 
+   :linenos:
 
    using System;
 
