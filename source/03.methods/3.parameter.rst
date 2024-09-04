@@ -127,32 +127,37 @@ supplied, such as in::
 
 The main method will call the verse method twice, once for the cow and once for the duck. 
 
-Variable Scope
+Variable Scopes
 ---------------
 
-A variable may be available for use in some lines of code, but not others. 
-The ``scope`` of a variable is the region of the program that is visible, 
-which means it is accessible by ``name`` and can be used in the code.
+A variable may be available for use in some parts of code, but not others. 
+The ``scope`` of a variable is the region of the program that the variable is visible, 
+which means it is accessible by ``name`` and can be used in the part of code.  C# scope rules of variables can be divided into three categories as follows:
 
-A variable declared inside a method is called a ``local variable``. The scope of 
+- Class Level Scope
+- Method Level Scope
+- Block Level Scope.  
+
+A variable declared inside a method is a ``local variable``. The scope of 
 a local variable is the ``method body`` in which it is declared. You can’t use 
 a variable before it is declared, so in fact the scope begins on the line that 
-declares the variable and continues until the last line of code in the method or 
-block. The local variable’s memory location is only available while the method is 
+declares the variable and continues until the last line of code in the method. 
+The local variable’s memory location is only available while the method is 
 executing. When the method completes, the memory location is released. 
 If you called the method again, the old value is not available.
 
 ..  note::
    Only the *value* of the actual parameter is passed, not any
    variable name, so there is *no need* to have a match between a variable name 
-   used in an argument and the parameter name.
+   (arguments) and the parameter name.
+
 
 Static Variables
 ------------------
 
-You may define *static variables* (variables defined with the word ``static`` inside the class,
-but *outside* of any method definition). These variables are visible inside all of your methods in the class. 
-Instead of local scope, static variables have *class scope*.
+You may define ``static variables`` (variables defined with the word ``static`` 
+inside the class, but *outside* of any method definition). These variables are 
+visible inside all of your methods in the class. Instead of local scope, static variables have *class scope*.
 It is good programming practice generally to avoid defining static variables and
 instead to put your variables inside methods and explicitly pass
 them as parameters where needed. An example for using static variables is constants:
