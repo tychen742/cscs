@@ -126,7 +126,7 @@ and return values, do the following:
 
 - Find the line number(s) for each step of code execution of the preceding code 
   as the table below.
-- Write the numbers, comma-separated with one space, as a comment at the end of the code. 
+- Write the line numbers, comma-separated with one space, as a comment at the end of the code. 
   To denote multiple lines, use dash. 
 - Screenshot your code and the result of execution.
 
@@ -185,14 +185,22 @@ and return values, do the following:
 
 
 
-Format method for string
+Return Formatted String
 --------------------------
 
+Perform the following for this part of the lab:
+- Read the description.
+- Copy the code to a project called Addition2a. 
+- Run the code. 
+- Change variable name a and b to num1 and num2. 
+- Run the code.
+- Does changing the variable names affect the code execution? Why? Explain in the last line of the code.
+
 It is common to want to construct and immediately print a string,
-so having ``Console.Write`` is definitely handy when we want it.,
+so having ``Console.Write`` is definitely handy when we want it.
 However, sometimes we just want to have the resulting string returned, 
-so we can do something else with it. We can use 
-the C# library method  ``string.Format``, which does just what we want:  
+so that we can do something else with it. We can use 
+the C# library method ``string.Format``, which does just what we want:  
 The parameters have the same form as for ``Console.Write``, 
 but the formatted string is *returned*.
 
@@ -221,6 +229,7 @@ but the formatted string is *returned*.
          Console.WriteLine(SumProblemString(a, b));
       }
    }
+   // ** explain here **
 
 Note: The only caveat with ``string.Format`` is that
 there is *no* special method corresponding to ``Console.WriteLine``,
