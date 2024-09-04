@@ -1,14 +1,21 @@
 Chapter Review Questions
 =========================
 
-#.  Write the method definition heading for a static method called
-    ``Q1`` which
-    has two ``int`` parameters, ``x`` and ``y``, and returns a ``double``.
-    
-#.  The method above must have what kind of a statement in its body?
+* Prepare this assignment using a Word document. 
+* Write answers under each question.
+* Paste code screenshots when required.  
 
-#.  Each of these lines has a call to the function above, ``Q1``.  Which
-    are legal?  Explain::
+
+#.  Write the method definition for a static method called
+    ``Q1`` which has two ``int`` parameters, ``x`` and ``y``, and returns a ``double``.
+    
+#.  The method above must have what kind of statement in its body? 
+    (see `Statements <https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/statements#types-of-statements>`_ for a 
+    formal description of different types of statements for a formal answer or 
+    just use what you have learned so far to answer this question.)
+
+#.  Each of these lines below has a call to the method above, ``Q1``.  Which
+    are legal? Explain::
 
         double d = Q1(2, 5);
         
@@ -24,7 +31,7 @@ Chapter Review Questions
 
 #.  Suppose ``Q1`` does nothing except produce the value to return, like
     most methods returning a ``double``.  Which
-    line in the previous problem is legal, but has *no* effect?
+    line in the previous problem is legal (does not produce error), but has *no* effect?
     
 #.  Write the method header for a static method called
     ``Q4`` which
@@ -46,17 +53,19 @@ Chapter Review Questions
         Q4(2);
 
 #.  Can you have more than one function/method in the same 
-    class definition with the same name?
+    class definition with the same name? Explain why. (Google this one for an answer. 
+    This question will be covered in the future but is directly related to our topic here.)
+    
     
 #.  What is a function/method signature?  
     Can you have more than one function/method declared in the same 
-    class definition with the same signature?
+    class definition with the same signature? (Same note as above)
         
 #.  In each part, 
     is this a legal program?  If so, what is printed?  If not, why not?
     
-    Each version uses the same code, except for different versions of 
-    ``Main``.  Here is the common code with the body of ``Main`` omitted::
+    For the code blocks below, each version uses the same code, except for different 
+    versions of ``Main``. Here is the common code with the body of ``Main`` omitted::
 
             using System;
             class Local1
