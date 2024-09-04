@@ -19,6 +19,24 @@ replaced during evaluation by the value of the function.
 The corresponding definition and examples in C# would be the
 following:
 
+.. code-block:: 
+
+   using System;
+
+   class Return1
+   {
+      static int F(int x)
+      {
+         return x*x;
+      }
+
+      static void Main()
+      {
+         Console.WriteLine(F(3));
+         Console.WriteLine(F(3) + F(4));
+      }
+   }
+
 The new C# syntax is the **return statement**, with the word
 ``return`` followed by an expression. Functions that return values
 can be used in expressions, just like in math class. When an
