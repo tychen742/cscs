@@ -1,6 +1,10 @@
 Lab 03
 ====================================================
 
+
+* Use a Word file to paste your screenshots.
+* Number the questions clearly (e.g., 3.5.1. Return Statement). 
+
 Return Statement
 -----------------
 
@@ -235,13 +239,13 @@ Note: The only caveat with ``string.Format`` is that
 there is *no* special method corresponding to ``Console.WriteLine``,
 with an automatic terminating newline.
 You can generate a newline with string.Format:  Remember the
-escape code ``"\n"``.  Put it at the end to go on to a new line.
+escape code ``"\n"``. Put it at the end to go on to a new line.
 
 	
 Interview String Return
 ------------------------------------------
 
-Observe the following code:
+Observe the following code (project name: Interview):
 
 .. code-block:: 
    :linenos:
@@ -260,42 +264,59 @@ Observe the following code:
       }
    }
 
-Write a program by that accomplishes the same thing as the preceding code, but 
+Modify the above program so that it accomplishes the same thing as the preceding code, but 
 introduce a method ``InterviewSentence`` that takes name
 and time strings as parameters and returns the interview sentence string.
 
-For practice use ``string.Format`` in the method. With this setup you can 
-manage input from the user and output to the screen entirely in ``Main``, 
-while using ``InterviewSentence`` to generate the sentence that you want 
-to *later* print. 
+Follow the instructions: 
+
+* Use ``string.Format`` in the method. 
+* Manage input from the user and output to the screen entirely in ``Main``.
+* Use ``InterviewSentence()`` to generate the sentence that you want to *later* print. 
+
+Take a screenshot of your code and the result of execution. 
 
 	
-Quotient String Return Exercise
----------------------------------
 
-Create :file:`quotient_return.cs` by modifying :file:`quotient_prob.cs` in
-:ref:`QuotientFunctionEx` so that the program accomplishes the same
-thing, but everywhere: 
-
-* Change the QuotientProblem method into one
-  called ``QuotientString`` that merely *returns* the string rather
-  than printing the string directly. 
-* Have ``Main`` print
-  the result of each call to the ``QuotientString`` method.
-
-Use ``string.Format`` to create the sentence that you return.
-
-
-Birthday Method Exercise
+Birthday Method 
 ---------------------------
 
-Make your own further change to :repsrc:`birthday4/birthday4.cs` and save it in your
-own project as 
-``birthday_many.cs``: Add a method call
-(but *not* another method *definition*), so Maria gets a verse, in
-addition to Emily and Andre. Also print a blank line between
-verses. (There are two ways to handle the blank lines: 
-You may *either* do this by adding a print line to the
-method definition, *or* by adding a print line between all calls to
-the method.  Recall that if you give Console.WriteLine an empty
-parameter list, it just goes to the next line.)
+Observe the following code:
+
+.. code-block:: 
+   :linenos:
+
+   using System;
+
+   class Birthday
+   {
+      static void HappyBirthday(string person)
+      {
+         Console.WriteLine ("Happy Birthday to you!");
+         Console.WriteLine ("Happy Birthday to you!");
+         Console.WriteLine ("Happy Birthday, dear " + person + ".");
+         Console.WriteLine ("Happy Birthday to you!");
+      }
+
+      static void Main()
+      {
+         HappyBirthday("Emily");
+         HappyBirthday("Andre");
+      }
+
+   }
+
+
+Modify the preceding code by saving it as your
+own project as ``BirthdayMany.cs``: 
+
+* Add a method call (but *not* another method *definition*), so Maria gets a verse, 
+  in addition to Emily and Andre. 
+* Also, print a blank line between verses. 
+  (There are two ways to handle the blank lines: You may *either* do this by adding 
+  a print line to the
+  method definition, *or* by adding a print line between all calls to
+  the method. Recall that if you give Console.WriteLine an empty
+  parameter list, it just goes to the next line.)
+
+Take a screenshot of your code and result of execution. 
