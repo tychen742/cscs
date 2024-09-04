@@ -95,21 +95,21 @@ Return Strings
 
 C# methods can return any type of data, not just numbers, and
 there can be any number of statements executed before the return
-statement. Read, follow, and run the example program when ``string`` as 
+statement. Read, follow, and run the example program, which has ``string`` as 
 ``return type``:
 
 .. code-block:: 
    :linenos:
 
-   using System;
+   using System;           
 
-   class Return2
+   class Return2           
    {
-      static string LastFirst(string firstName, string lastName)
+      static string LastFirst(string firstName, string lastName)  
       {
-         string separator = ", ";
-         string result = lastName + separator + firstName;
-         return result;
+         string separator = ", ";                                 
+         string result = lastName + separator + firstName;        
+         return result;                                           
       }
 
       static void Main()
@@ -119,8 +119,14 @@ statement. Read, follow, and run the example program when ``string`` as
       }
    }
 
+   // ** write your answer here **
+
 To make sure you can follow the flow of execution with methods 
-and return values, 
+and return values, do the following:
+
+- find the line number(s) for each step of code execution
+- write the numbers as a comment at the end of the code
+- screenshot your code and result of execution 
 
 .. list-table:: Method Execution and Returns
    :width:10 90
@@ -128,27 +134,27 @@ and return values,
 
    * - line# (s)
      - step
-   * - 
+   * - 1
      - Start at Main
-   * - 
+   * - 2
      - call the function, remembering where to return
-   * - 
+   * - 3
      - pass the parameters: firstName = "Benjamin"; lastName = "Franklin"
-   * - 
+   * - 4
      - Assign the variable separator the value ", "
-   * - 
+   * - 5
      - Assign the variable result the value of lastName + separator + firstName which is "Franklin" + ", " + "Benjamin", which evaluates to "Franklin, Benjamin"
-   * - 
+   * - 6
      - Return "Franklin, Benjamin"
-   * - 
+   * - 7
      - Use the value returned from the function call so the line effectively becomes Console.WriteLine("Franklin, Benjamin");, so print it.
-   * - 
+   * - 8
      - call the function with the new actual parameters, remembering where to return
-   * - 
+   * - 9
      - pass the parameters: firstName = "Andrew"; lastName = "Harrington"
-   * - 
+   * - 10
      - … calculate and return "Harrington, Andrew"
-   * - 
+   * - 11
      - Use the value returned by the function and print "Harrington, Andrew"
 
 
