@@ -13,8 +13,8 @@ if you defined
 then it follows that F(3) is 3\ :sup:`2` = 9, and F(3)+F(4) is
 3\ :sup:`2` + 4\ :sup:`2` = 9 + 16 = 25.
 
-Function calls in expressions get
-replaced during evaluation by the value of the function.
+Method calls in expressions get
+replaced during evaluation by the value of the method.
 
 The corresponding definition and examples in C# would be the
 following:
@@ -38,17 +38,17 @@ following:
    }
 
 The new C# syntax is the **return statement**, with the word
-``return`` followed by an expression. Functions that return values
+``return`` followed by an expression. methods that return values
 can be used in expressions, just like in math class. When an
-expression with a function call is evaluated, the function call is
+expression with a method call is evaluated, the method call is
 effectively replaced temporarily by its returned value. Inside the
-C# function, the value to be returned is given by the
+C# method, the value to be returned is given by the
 expression in the ``return`` statement.
 
-Since the function returns data, and all data in C# is typed, 
+Since the method returns data, and all data in C# is typed, 
 there must be a type given for the value returned.  Note that the 
-function heading does not start with ``static void``.  
-In place of ``void`` is ``int``.  The ``void`` in earlier function headings
+method heading does not start with ``static void``.  
+In place of ``void`` is ``int``.  The ``void`` in earlier method headings
 meant nothing was returned.  The ``int`` here means that a value *is*
 returned and its type is ``int``.
 
