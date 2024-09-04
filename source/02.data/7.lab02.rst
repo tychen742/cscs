@@ -70,11 +70,13 @@ track of what changes to variables are made by each statement.
 Implement an Algorithm
 ------------------------
 
-Read the following description and create a console app project 
-in your introcscs directory, call it **MathFun** (this means you will 
-``mkdir`` a directory called MathFun and run ``dotnet new console`` to 
-create the project), to generate the final 
-outcome as seen in the table below. 
+Read the following description and:
+
+- create a console app project in your introcscs directory, 
+  call it **MathFun** (this means you will ``mkdir`` a directory called 
+  MathFun and run ``dotnet new console`` to create the project)
+- Write the code according to the table below 
+- Take a screenshot of the code and the result of its execution  
 
 In the table below, statements are referred to by the numbers labeling
 the lines in the code above. We can track the state of each
@@ -92,12 +94,13 @@ Line  x   y   Comment
 ====  ==  ==  =======================================
 5     \-  \-  Start at beginning of Main
 7     3   \-  initialize x
-8     3   5   5=3+2, using the value of x from the previous line
-9     3   10  10=2*5 on the right; use the value of y from the
+8             print the value of x
+9     3   5   5=3+2, using the value of x from the previous line
+10    3   10  10=2*5 on the right; use the value of y from the
               previous line
-10    7   10  7=10-3 on the right; use the value of x and y from the
+11    7   10  7=10-3 on the right; use the value of x and y from the
               previous line
-11    7   10  print: 7 10
+12    7   10  print: 7 10
 ====  ==  ==  =======================================
 
 The critical point here is to always use the most recently assigned value
