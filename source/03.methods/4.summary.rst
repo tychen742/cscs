@@ -5,15 +5,12 @@
 
 .. _static-method-summary:
 
-Static Method Summary
+(Static) Method Summary
 ==============================
 
-This chapter has introduced static methods:  those used in procedural programming
+This chapter has introduced static methods: those used in procedural programming
 as opposed to :ref:`instance-methods` used to 
 implement object-oriented programming. 
-
-.. index::  
-   ( ); method definition
 
 
 Method definition
@@ -26,9 +23,9 @@ Method definition
    |    statements in the method body...
    | ``}``
        
-#. The *formal parameter list* can be empty or contain one or more comma separated 
-   *formal parameter* entries.   
-   Each formal parameter entry has the form
+#. The *parameter list* can be empty or contain one or more comma separated 
+   *parameter* entries.   
+   Each parameter entry has the form
  
       **type** **parameterName**
       
