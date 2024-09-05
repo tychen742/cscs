@@ -58,14 +58,14 @@ Method Calls
     A method call makes the method definition be *executed*.
     
 #.  The actual parameter list is a comma separated list of the *same*
-    length as the formal parameter list.  Each entry is an expression.
+    length as the parameter list.  Each entry is an expression.
     The entries in an actual parameter list do *not* include type declarations.
     
     Effectively, the method execution starts by assigning to each
-    formal parameter variable the corresponding value from 
+    parameter variable the corresponding value from 
     evaluating the actual parameter expression.
     In particular, that means the actual parameter values must be allowed
-    in an assignment statement for a variable of the formal parameter's type!
+    in an assignment statement for a variable of the parameter's type!
 
     
 #.  If the method has return type ``void``, it can only be used syntactically
@@ -87,7 +87,7 @@ Scope
 ------
 
 #.  A variable declared inside a method definition is called a *local variable*.
-    This declaration may be in either the formal parameter
+    This declaration may be in either the parameter
     list or in the body of the method.  
     
 #.  A local variable comes into existence after the method is called, and ceases
