@@ -9,12 +9,12 @@ Decisions
 .. toctree::
    :maxdepth: 2
 
-   conditions
-   ifstatements
-   ifelse
-   comparisonops
-   ifelsechained
-   ifpitfalls
-   compoundconditions
-   ifnested
-   reviewdecisions
+   1.conditions
+   2.ifstatements
+   3.ifelse
+   4.comparisonops
+   5.ifelsechained
+   6.ifpitfalls
+   7.compoundconditions
+   8.ifnested
+   9.reviewdecisions

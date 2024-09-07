@@ -51,12 +51,21 @@ instructions to the computers to do the work for us.
 A computer program is a set of instructions (written in the specific notations specified by 
 a programming language) given to computers. Interestingly, there are only a small number of ideas 
 that we need to know when learning how to giving instructions to to computers, 
-across probably all programming languages. These basic constructs include:
+across probably all programming languages. These basic control structure constructs include:
 
-- sequence: instructions are executed one after another
-- selection: decision-making; namely choosing between alternative paths of actions within a program
-- iteration: repetition controlled by either count or condition 
+- sequence: instructions are executed one after another.
+- selection: decision-making/control structure; namely choosing between alternative paths of actions within a program.
+- iteration: code repetition; either count-controlled or condition-controlled.
 
+Supplementing to the three basic programming constructs are constructs such 
+as:
+
+- subroutine: blocks of code in a modular program performing a particular task.
+- nesting: Selection and iteration constructs can be nested within each other.
+- variable: named computer memory location that stores values
+- data type (type): a classification of data values specifying the values and operations on the values.
+- operator: symbols that perform operations on one or more operands.
+- array: storing multiple values of the same data type in a single variable.
 
 .. index:: problem-solving, algorithm
 
