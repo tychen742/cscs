@@ -1,0 +1,78 @@
+.. _Simple-Conditions:
+
+Introduction
+=================================== 
+
+Selection statements, sometimes referred to as conditional statements, 
+are one of the three basic constructs in programming (sequence, selection, iteration). 
+Selection statements provide the logic to perform decision-making: taking different 
+actions based on different conditions. When selecting from possible paths for execution, 
+the decisions are made based on the value of an expression.
+
+C# has the following conditional statements:
+
+- The ``if`` statement specifies a block of code to be executed, only if a provided Boolean 
+  expression evaluates to ``true``. 
+- The ``if-else`` statement allows you to choose which of the two code paths to follow 
+  based on a Boolean expression.
+- The ``else if`` statement specifies a new ``condition`` to ``test``.
+- ``switch`` statement selects from a list of code to execute based on a pattern match with an expression.
+
+The basic syntax for an if statement is:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+  
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+
+Boolean expressions
+---------------------
+
+The parenthesized condition of the if statement is a Boolean expression. 
+Boolean expressions appear within many control flow statements. Their key characteristic 
+is that they always evaluate to true or false. For input < 9 to be allowed as a 
+Boolean expression, it must result in a bool. The compiler disallows x = 42, 
+for example, because this expression assigns x and results in the value that was 
+assigned instead of checking whether the value of the variable is 42.
+In computer programming, you will need a data type that can only have one of 
+two values, like:
+
+YES / NO
+ON / OFF
+TRUE / FALSE
+
+
+The parenthesized condition of the if statement is a Boolean expression.
+
+
+
+
+More syntax for conditions will be introduced later,
+but for now consider simple arithmetic comparisons that directly
+translate from math into C#. First start csharp an enter::
+
+    int x = 11; 
+
+Now think of which of these expressions below are true and which false, 
+and then enter each one into your csharp session to test::
+
+    2 < 5
+    3 > 7
+    x > 10 
+    2*x < x 
+
+You see the C# values, either ``true`` or ``false`` (with no
+quotes!). These are the only possible *Boolean* values (named after
+19th century mathematician George Boole). You can also use the
+abbreviation for the type ``bool``.  It is the type of the
+results of true-false conditions or tests.
+
+The simplest place to use conditions is in a decision made with an 
+``if`` statement. 
+
+We will consider :ref:`More-Conditional-Expressions` later, but this is a 
+quick start with the easiest ones.

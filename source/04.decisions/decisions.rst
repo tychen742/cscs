@@ -9,7 +9,7 @@ Decisions
 .. toctree::
    :maxdepth: 2
 
-   1.conditions
+   1.introduction
    2.ifstatements
    3.ifelse
    4.comparisonops

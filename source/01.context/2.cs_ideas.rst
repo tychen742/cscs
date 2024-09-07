@@ -163,6 +163,46 @@ virtual machine , then compiled into machine code for faster execution. Many con
 languages, such as all .NET languages (including C#), Java, Python, and PHP use JIT 
 compilers [#f4]_.
 
+Statements & Expression 
+----------------------------
+
+In programming, an **expression** is something which evaluates to a value; while a 
+statement is a program instruction. An expression consists of operators and operands 
+as seen in the figure below. 
+
+  .. image:: ../images/expression.jpg
+   
+    Expression [#f5]_
+
+There are different types of expressions in programming. Among 
+them, relational expressions (also called Boolean expressions) and logical expressions are used in 
+selection statements. Relational expressions yield results of 
+type bool which takes a value true or false; while logical 
+expressions combine two or more relational expressions and 
+produces bool type results.
+
+
+  
+  .. image:: ../images/types_of_expressions.jpg
+
+    Types of Expressions
+
+
+
+
+
+A statement performs certain action and usually consists a single line of code that ends in a semicolon, 
+or a series of single-line statements in a block. A statement block is enclosed in {} brackets. Common actions include declaring variables, 
+assigning values, calling methods, looping through collections, and branching to one or another block of code, depending on a given condition.
+
+Commonly used statement keywords are:
+
+======================  ================================
+ Selection statements	 if, switch
+ Iteration statements	 do, for, foreach, while
+ Jump statements	       break, continue, goto, return
+======================  ================================
+
 
 Handling Errors 
 -----------------------
@@ -187,6 +227,6 @@ errors in programming and the ways we handle are:
 .. [#f1] Allen B. Downey (2024). Think Python: How to think like a computer scientist, 3rd edition. Green Tea Press. (CC BY-NC-SA 4.0)
 .. [#f2] Brad Miller & David Ranum (2014). How to Think Like a Computer Scientist: Interactive Edition. (GNU FDL V.1.3)
 .. [#f3] Allen B. Downey (2012). Think Python: How to think like a computer scientist, Version 2.0.17. Green Tea Press. (CC BY-NC-SA 4.0)
-.. [#F4] JIT compilation is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implementation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
-
+.. [#f4] JIT compilation is for increasing runtime performance but its implementation can vary among languages. For an explanation of JIT implementation of C# and .NET, see: What is the difference between C#, .NET, IL and JIT? (2022). Steven-Giesel.com. https://steven-giesel.com/blogPost/aa23a1c9-8ab2-4b05-9bd2-52624af7b684
+.. [#f5] Geeks for Geeks (2019). `What is an Expression and What are the types of Expressions?`<https://www.geeksforgeeks.org/what-is-an-expression-and-what-are-the-types-of-expressions>`_`
 
