@@ -1,7 +1,9 @@
 .. _Simple-Conditions:
 
-Introduction
+Introduction & Boolean
 =================================== 
+
+Selection/Conditional Statement
 
 Selection statements, sometimes referred to as conditional statements, 
 are one of the three basic constructs in programming (sequence, selection, iteration). 
@@ -22,31 +24,165 @@ The basic syntax for an if statement is:
 
 .. code-block:: 
   :caption: Syntax of an if statement
-  
+
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+Note that:
+- The parenthesized condition of the if statement is a Boolean expression.
+
+
+Boolean Data Type
+---------------------
+
+The parenthesized condition of the if statement is a Boolean expression, 
+also referred to as **relational expression**. 
+Boolean expressions are used for control flow statements. In computing, an expression 
+always produce a value. The key characteristic of Boolean expressions 
+is that they always evaluate to either true or false (or Yes vs. No, On vs. Off, or 0 vs. 1). 
+This binary feature is represented as the Boolean binary data type (``bool`` in C# with 
+values of ``true`` or ``false``). 
+
+In csharprepl, we can perform some quick tests on Boolean data:
+
+.. code-block:: 
+
+  > bool isRollaQuiet = true;      
+
+  > bool isChicagoClose = false;
+
+  > isRollaQuiet
+  true
+  > isChicagoClose
+  false
+  > 
+
+You should run a more formal test in VS Code to practice coding. 
+For example, you may create a method for this test like:
+
+.. note::
+  In this example, we are calling the method Rolla() in class BooleanExpression by 
+  issuing ``BooleanExpression.Rolla()`` because it's a static method. 
+
+
+.. code-block:: 
+
+  namespace Program
+  {
+
+    class Program
+    {
+      static void Main(string[] args)
+      {
+        BooleanExpression.Rolla();            // calling static method
+      }
+    }
+
+    internal class BooleanExpression         
+    {
+      internal static void Rolla()
+      {
+        bool isRollaQuiet = true;
+        bool isChicagoClose = false;
+        Console.WriteLine(isRollaQuiet);      // Outputs True
+        Console.WriteLine(isChicagoClose);    // Outputs False
+      }
+    }
+  }
+
+And the output of this code:
+
+.. code-block:: console
+
+  tychen@mac:~/workspaces/workspace/introcscs/Chapter04$ dotnet run
+  True
+  False
+  tychen@mac:~/workspaces/workspace/introcscs/Chapter04$
+
+
+Boolean Expressions
+-------------------
+
+Since a boolean expression would return a boolean value of either ``true`` or ``false``, 
+We can use boolean expressions to return boolean values in ``conditional testing`` to build 
+logic in selection/conditional statements. For that we use ``comparison operators`` (``==``, 
+``!=``, ``>``, ``<``, ``>=``, ``<=``). Note that:
+
+- The ``<`` , ``>`` , ``<=`` , and ``>=`` comparison operators are also known as 
+  ``relational operators`` and are supported by all integral and floating-point 
+  numeric types. 
+- The ``==`` and ``!=`` operators check if their operands are equal or not.
+- The ``char`` type also supports comparison operators by comparing  
+  the corresponding character codes.
+- The ``==`` (equality) and ``!=`` (inequality) operators check if their operands 
+  are equal or not. Value types are equal when their contents are equal. 
+  Reference types are equal when the two variables refer to the same storage. 
+
+Consider the following boolean expressions in the print statements:
+
+.. code-block:: 
+
+  Console.WriteLine(7.0 < 5.1);   // output: False
+  Console.WriteLine(7.0 > 5.1);   // output: True
+  Console.WriteLine(7.0 <= 5.1);   // output: False
+  Console.WriteLine(7.0 >= 5.1);   // output: True
+
+  int a = 1 + 2 + 3;
+  int b = 6;
+  Console.WriteLine(a == b);  // output: True
+
+  char c1 = 'a';
+  char c2 = 'A';
+  Console.WriteLine(c1 == c2);  // output: False
+
+Reference types will be discussed in subsequent chapters but an example is provided 
+here for your reference:
+
+.. code-block:: 
+
+  public class ReferenceTypesEquality
+  {
+      public class MyClass
+      {
+          private int id;
+
+          public MyClass(int id) => this.id = id;
+      }
+
+      public static void Main()
+      {
+          var a = new MyClass(1);
+          var b = new MyClass(1);
+          var c = a;
+          Console.WriteLine(a == b);  // output: False
+          Console.WriteLine(a == c);  // output: True
+      }
+  }
+
+Understanding the boolean expressions above should give you a good sense of how 
+conditional/select statement syntax works:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+
   if (condition) 
   {
     // block of code to be executed if the condition is True
   }
 
 
-Boolean expressions
----------------------
-
-The parenthesized condition of the if statement is a Boolean expression. 
-Boolean expressions appear within many control flow statements. Their key characteristic 
-is that they always evaluate to true or false. For input < 9 to be allowed as a 
+For input < 9 to be allowed as a 
 Boolean expression, it must result in a bool. The compiler disallows x = 42, 
 for example, because this expression assigns x and results in the value that was 
 assigned instead of checking whether the value of the variable is 42.
 In computer programming, you will need a data type that can only have one of 
 two values, like:
 
-YES / NO
-ON / OFF
-TRUE / FALSE
 
 
-The parenthesized condition of the if statement is a Boolean expression.
+
 
 
 

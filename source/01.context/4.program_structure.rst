@@ -239,23 +239,7 @@ in VS Code can be used. To create a project without creating a solution, create 
 and issue the command ``dotnet new console`` to create a new console app project without creating a new solution. [#]_ 
 
 
-Statements & Expression 
-----------------------------
 
-In programming, an **expression** is something which evaluates to a value; while a 
-statement is a program instruction. 
-
-A statement performs certain action and usually consists a single line of code that ends in a semicolon, 
-or a series of single-line statements in a block. A statement block is enclosed in {} brackets. Common actions include declaring variables, 
-assigning values, calling methods, looping through collections, and branching to one or another block of code, depending on a given condition.
-
-Commonly used statement keywords are:
-
-======================  ================================
- Selection statements	 if, switch
- Iteration statements	 do, for, foreach, while
- Jump statements	       break, continue, goto, return
-======================  ================================
 
 
 Comments, Curly Braces, and Semicolon
