@@ -3,6 +3,56 @@
 Simple ``if`` Statements
 ------------------------
 
+The comparison/relational operators _[#f1] (``>``, ``<``, ``>=``, 
+``<=``) are used to evaluate the comparison and 
+comparison/relational expressions to derive a value of either ``true`` or ``false`` in a 
+Boolean expression.  
+
+The ``if`` statement, specifies a block of C# code to be executed if a condition is True:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+.. note::
+   Note that C# is case sensitive so ``If`` is not the same as ``if``. "If" or "IF" will 
+   generate an error. 
+
+
+Consider simple arithmetic comparisons that directly translate from math into C#. 
+First start csharp an enter::
+
+    int x = 11; 
+
+Now think of which of these expressions below are true and which false, 
+and then enter each one into your csharp session to test::
+
+    2 < 5
+    3 > 7
+    x > 10 
+    2*x < x 
+
+You see that the expressions evaluate to either ``true`` or ``false``. These are 
+the only possible *Boolean* values (named after 19th century mathematician 
+George Boole). The name for this type in C# is ``bool``. It is the type of the
+results of true-false conditions or tests.
+
+The simplest place to use conditions is in a decision made with an 
+``if`` statement. For example:: 
+
+   if (20 > 18) 
+   {
+   Console.WriteLine("20 is greater than 18");
+   }
+
+We will consider :ref:`More-Conditional-Expressions` later, but this is a 
+quick start with the easiest ones.
+
+
 Run the example program, :repsrc:`suitcase/suitcase.cs`. 
 Try it at least twice, with
 inputs: 30 and then 55. As you can see, you get an extra result,
@@ -103,3 +153,4 @@ a. Consider::
        Console.WriteLine(x);
 
        
+.. [#f1] 

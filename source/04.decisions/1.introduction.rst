@@ -1,5 +1,3 @@
-.. _Simple-Conditions:
-
 Introduction & Boolean
 =================================== 
 
@@ -30,8 +28,7 @@ The basic syntax for an if statement is:
     // block of code to be executed if the condition is True
   }
 
-Note that:
-- The parenthesized condition of the if statement is a Boolean expression.
+where the parenthesized condition of the if statement is a Boolean expression.
 
 
 Boolean Data Type
@@ -113,14 +110,14 @@ logic in selection/conditional statements. For that we use ``comparison operator
 - The ``<`` , ``>`` , ``<=`` , and ``>=`` comparison operators are also known as 
   ``relational operators`` and are supported by all integral and floating-point 
   numeric types. 
-- The ``==`` and ``!=`` operators check if their operands are equal or not.
+- The ``==`` (equality) and ``!=`` (inequality) operators check if their operands 
+  are equal or not. Value types are equal when their value contents (e.g., numerical 
+  values or string values) are equal. Reference types are equal when the two 
+  variables refer to the same storage. 
 - The ``char`` type also supports comparison operators by comparing  
   the corresponding character codes.
-- The ``==`` (equality) and ``!=`` (inequality) operators check if their operands 
-  are equal or not. Value types are equal when their contents are equal. 
-  Reference types are equal when the two variables refer to the same storage. 
 
-Consider the following boolean expressions in the print statements:
+Consider the following sample boolean expressions in the print statements:
 
 .. code-block:: 
 
@@ -137,8 +134,8 @@ Consider the following boolean expressions in the print statements:
   char c2 = 'A';
   Console.WriteLine(c1 == c2);  // output: False
 
-Reference types will be discussed in subsequent chapters but an example is provided 
-here for your reference:
+Reference types will be discussed in subsequent chapters and the following example 
+is provided here for your reference:
 
 .. code-block:: 
 
@@ -172,43 +169,6 @@ conditional/select statement syntax works:
     // block of code to be executed if the condition is True
   }
 
-
-For input < 9 to be allowed as a 
-Boolean expression, it must result in a bool. The compiler disallows x = 42, 
-for example, because this expression assigns x and results in the value that was 
-assigned instead of checking whether the value of the variable is 42.
-In computer programming, you will need a data type that can only have one of 
-two values, like:
-
-
-
-
-
-
-
-
-More syntax for conditions will be introduced later,
-but for now consider simple arithmetic comparisons that directly
-translate from math into C#. First start csharp an enter::
-
-    int x = 11; 
-
-Now think of which of these expressions below are true and which false, 
-and then enter each one into your csharp session to test::
-
-    2 < 5
-    3 > 7
-    x > 10 
-    2*x < x 
-
-You see the C# values, either ``true`` or ``false`` (with no
-quotes!). These are the only possible *Boolean* values (named after
-19th century mathematician George Boole). You can also use the
-abbreviation for the type ``bool``.  It is the type of the
-results of true-false conditions or tests.
-
-The simplest place to use conditions is in a decision made with an 
-``if`` statement. 
-
-We will consider :ref:`More-Conditional-Expressions` later, but this is a 
-quick start with the easiest ones.
+The ``condition`` is a ``Boolean expression``, which will evaluate to either ``true`` or 
+``false``. The parentheses is a testing construct. If the testing construct results to 
+``true``, then the code block follows will run. 
