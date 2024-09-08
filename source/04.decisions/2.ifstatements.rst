@@ -49,16 +49,44 @@ For example::
    }
 
 
-Run the example program, :repsrc:`suitcase/suitcase.cs`. 
-Try it at least twice, with
+Run the example program below. Try it at least twice, with
 inputs: 30 and then 55. As you can see, you get an extra result,
 depending on the input. The main code is:
 
-   ../../examples/introcs/suitcase/suitcase.cs
-      :start-after: chunk
-      :end-before: chunk
-      :linenos:
-      :dedent: 9
+.. code-block:: 
+   :linenos:
+
+   namespace Program
+   {
+    
+      class Program
+      {
+         static void Main(string[] args)
+         {
+            BooleanExpression.Rolla();
+            Suitcase.Weight();
+         }
+      }
+      
+      public class BooleanExpression
+      {
+         // code here
+      }
+
+      class Suitcase
+      {
+         public static void Weight()
+         {
+            Console.Write("How many pounds does your suitcase weigh? ");
+               double weight = double.Parse(Console.ReadLine());
+               if (weight > 50)
+               {
+                  Console.WriteLine("There is a $25 charge for luggage that heavy.");
+               }
+               Console.WriteLine("Thank you for your business.");
+         }
+      }
+   }
 
 The lines labeled 3-5 are an ``if`` statement. It reads pretty much
 like English. If it is true that the weight is greater than 50,
