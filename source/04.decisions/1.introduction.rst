@@ -28,7 +28,8 @@ The basic syntax for an if statement is:
     // block of code to be executed if the condition is True
   }
 
-where the parenthesized condition of the if statement is a Boolean expression.
+where the parenthesized condition of the if statement is a Boolean expression, named after 19th century mathematician 
+George Boole.
 
 
 Boolean Data Type
@@ -40,7 +41,7 @@ Boolean expressions are used for control flow statements. In computing, an expre
 always produce a value. The key characteristic of Boolean expressions 
 is that they always evaluate to either true or false (or Yes vs. No, On vs. Off, or 0 vs. 1). 
 This binary feature is represented as the Boolean binary data type (``bool`` in C# with 
-values of ``true`` or ``false``). 
+values of ``true`` or ``false``). (). The name for this type in C# is ``bool``.
 
 In csharprepl, we can perform some quick tests on Boolean data:
 

@@ -37,20 +37,16 @@ and then enter each one into your csharp session to test::
     2*x < x 
 
 You see that the expressions evaluate to either ``true`` or ``false``. These are 
-the only possible *Boolean* values (named after 19th century mathematician 
-George Boole). The name for this type in C# is ``bool``. It is the type of the
+the only possible *Boolean* values. It is the type of the
 results of true-false conditions or tests.
 
-The simplest place to use conditions is in a decision made with an 
-``if`` statement. For example:: 
+The simplest place to use conditions is in a decision made with an ``if`` statement. 
+For example:: 
 
    if (20 > 18) 
    {
    Console.WriteLine("20 is greater than 18");
    }
-
-We will consider :ref:`More-Conditional-Expressions` later, but this is a 
-quick start with the easiest ones.
 
 
 Run the example program, :repsrc:`suitcase/suitcase.cs`. 
@@ -58,11 +54,11 @@ Try it at least twice, with
 inputs: 30 and then 55. As you can see, you get an extra result,
 depending on the input. The main code is:
 
-.. ../../examples/introcs/suitcase/suitcase.cs
-   :start-after: chunk
-   :end-before: chunk
-   :linenos:
-   :dedent: 9
+   ../../examples/introcs/suitcase/suitcase.cs
+      :start-after: chunk
+      :end-before: chunk
+      :linenos:
+      :dedent: 9
 
 The lines labeled 3-5 are an ``if`` statement. It reads pretty much
 like English. If it is true that the weight is greater than 50,
