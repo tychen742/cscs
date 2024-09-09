@@ -1,16 +1,129 @@
-.. index:: if; statements nested
-   statement; if nested
-        
-.. _if-nested:
+
 
 Nested ``if`` Statements
 -------------------------------------------
 
-In |if-else| statements the substatements (the if-true and if-false clauses)
-are quite arbitrary statements.  They can be more ``if`` or 
+The problem scenario that you want to model may require 
+complex branching behavior by combining conditionals and, 
+in particular, by nesting conditionals.
+
+As an example, consider the following code::
+
+   int num = 7;
+
+   if (num % 2 == 0)
+   {
+      Console.WriteLine("EVEN");
+   }
+
+   if (num > 0)
+   {
+      Console.WriteLine("POSITIVE");
+   }
+
+We find that the output is POSITIVE, even though 7 is odd and so 
+nothing should be printed. This code doesn’t work as desired because 
+we only want to test for positivity when we already know that the 
+number is even. We can enable this behavior by putting the second 
+conditional inside the first as::
+
+   int num = 7;
+
+   if (num % 2 == 0)
+   {
+      Console.WriteLine("EVEN");
+
+      if (num > 0)
+      {
+         Console.WriteLine("POSITIVE");
+      }
+   }
+
+Notice that when we put one conditional inside another, the body of the 
+nested conditional is indented by two tabs rather than one. This convention 
+provides an easy, visual way to determine which code is part of which conditional.
+
+.. note::  
+   Note that nested if statements can also contain an else statement. When working with 
+   nested statements, the else clause belongs to the last unpaired if. 
+   You can only use an else when you have an if. 
+
+.. code-block:: 
+
+   int num = 7;
+
+   if(num < 9)
+   {
+      if (num % 2 == 0)
+      {
+         Console.WriteLine("EVEN");
+      }
+
+      else
+      {
+         Console.WriteLine("ODD");
+      }
+   }
+
+
+Often you want to distinguish between more than two distinct cases,
+but conditions only have two possible results, ``true`` or ``false``,
+so the only direct choice is between two options. If there are 
+more than two choices, a single test may only reduce the 
+possibilities, but further tests can reduce the possibilities 
+further and further. Since most any kind
+of statement can be placed in the sub-statements in 
+an |if-else| statement, one
+choice is a further ``if`` or |if-else| statement. 
+
+For instance, consider a
+method to convert a numerical grade to a letter grade, 'A', 'B',
+'C', 'D' or 'F', where the cutoffs for 'A', 'B', 'C', and 'D' are
+90, 80, 70, and 60 respectively. One way to write the method
+would be to test for one grade at a time, and resolve all the
+remaining possibilities inside the next ``else`` clause. 
+
+
+
+If we do this consistent with our indentation conventions so far::
+
+   static char LetterGrade(double score)
+   {
+      char letter;
+      if (score >= 90) {
+         letter = 'A'; 
+      }
+      else {   // grade must be B, C, D or F 
+         if (score >= 80) { 
+            letter = 'B'; 
+         }
+         else { // grade must be C, D or F 
+            if (score >= 70) { 
+               letter = 'C'; 
+            }
+            else {   // grade must D or F 
+               if (score >= 60) {
+                  letter = 'D'; 
+               }
+               else { 
+                  letter = 'F';
+               }
+            }   //end else D or F
+         }      // end of else C, D, or F
+      }         // end of else B, C, D or F
+      return letter;
+   }
+
+
+When working with else statements in nested conditionals, remember that 
+the else is paired with the last if that doesn’t have already have an else. 
+In the example above, the else statement in line 10 belongs to the if in line 5. 
+else and else if rules apply the same way within nested conditionals as in unnested ones.
+
+In |if-else| statements, the sub-statements (the if-true and if-false clauses)
+are quite arbitrary statements. They can be more ``if`` or 
 |if-else| statements.  
-In :ref:`Multiple-Tests` 
-we have just illustrated placing an |if-else| statement as the ``else``
+In method LetterGrade() you have seen that placing an |if-else| statement as the ``else``
 clause, and repeating this pattern, to repeatedly test for one more case,
 stopping when the first true condition if reached.  
 To choose one case from multiple cases,

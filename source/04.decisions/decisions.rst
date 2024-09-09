@@ -11,8 +11,7 @@ Decisions
 
    1.intro
    2.ifstatement
-   4.comparisonops
-   5.ifelsechained
+   5.nested_if
    6.ifpitfalls
    7.compoundconditions
    8.ifnested

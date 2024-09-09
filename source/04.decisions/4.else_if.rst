@@ -1,0 +1,109 @@
+.. index:: if-else-if
+        
+.. _Multiple-Tests:
+
+``else-if`` Statements
+======================
+
+Use the else if statement to specify a new condition if the first condition is False. 
+The syntax for the ``else-if`` statement is::
+
+    if (condition1)
+    {
+        // block of code to be executed if condition1 is True
+    } 
+    else if (condition2) 
+    {
+        // block of code to be executed if the condition1 is false and condition2 is True
+    } 
+    else
+    {
+        // block of code to be executed if the condition1 is false and condition2 is False
+    }
+
+An example of else-if statement is::
+
+    int time = 22;
+    if (time < 10) 
+    {
+        Console.WriteLine("Good morning.");
+    } 
+    else if (time < 20) 
+    {
+        Console.WriteLine("Good day.");
+    } 
+    else 
+    {
+        Console.WriteLine("Good evening.");
+    }
+    // Outputs "Good evening."
+
+In the example above, time (22) is greater than 10, 
+so the first condition is False. The next condition, in the else-if 
+statement, is also False, so we move on to the else condition since 
+condition1 and condition2 is both False - and print 
+to the screen "Good evening".
+
+``else-if`` Statements as Switch
+---------------------------------
+
+As seen in the LetterGrade() method, the repeatedly increasing indentation 
+with an ``if`` statement in
+the ``else`` clause can be annoying and distracting. Here is a preferred
+alternative in this situation, that avoids all this further
+indentation:  
+Combine each ``else`` and following ``if`` onto the same line, 
+and note that the ``if`` part after each else is just a *single*
+(possibly very complicated) statement.  This allows the elimination of
+some of the braces:
+
+A program testing the LetterGrade method is in
+example program:
+
+
+As in a basic |if-else| statement, in the general format,
+
+| ``if (`` *condition1* ``) {``
+|      statement-block-run-if-condition1-is-true;       
+| ``}``  
+| ``else if (`` *condition2* ``) {``
+|      statement-block-run-if-condition2-is-the-first-true;       
+| ``}``  
+| ``else if (`` *condition3* ``) {``
+|      statement-block-run-if-condition3-is-the-first-true;       
+| ``}`` 
+| // ...
+| ``else {    //`` *no condition!* 
+|      statement-block-run-if-no condition-is-true;       
+| ``}`` 
+    
+*exactly one* of the statement blocks gets executed:
+If some condition is true,
+the first block following a true condition is executed.
+If no condition is true,
+the ``else`` block is executed.
+
+Here is a variation of the Weight() method. Consider this
+fragment *without* a final ``else``::
+
+    if (weight > 120) {
+        Console.WriteLine("Sorry, we can not take a suitcase that heavy.");
+    }
+    else if (weight > 50) { 
+        Console.WriteLine("There is a $25 charge for luggage that heavy.");
+    }
+    
+This statement only prints one of two lines if there is a
+problem with the weight of the suitcase.  Nothing is printed if 
+there is not a problem.
+
+If the final ``else`` clause is omitted from the general ``if`` ... ``else if`` ...
+pattern above, at most one block after a condition
+is executed:  That is the block after the first true condition.  
+If all the conditions are false, none of the statement blocks 
+will be executed.
+
+It is also possible to embed |if-else| statements inside other ``if`` or
+|if-else| statements in more complicated patterns.
+
+

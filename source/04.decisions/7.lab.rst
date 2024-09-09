@@ -7,6 +7,10 @@ The class name of this project is Chapter04. You will only use the Main()
 method to execute the code and you will prepare methods in the same class to 
 be called from the Main() method. 
 
+If you have problem creating the project, you need to catch up. Please work with 
+the TA of the class during the help sessions.
+
+
 Boolean Expressions
 ----------------------
 
@@ -89,10 +93,10 @@ a. Consider::
 Graduate Exercise
 ----------------------
 
-Write a program, ``graduate.cs``, that prompts students for how
+Write a method, Graduation, that prompts students for how
 many credits they have. Print whether of not they have enough
-credits for graduation. (At Loyola University Chicago 120 credits
-are needed for graduation.)
+credits for graduation. (At M S&T, a minimum of 120 credit hours
+are required for graduation.)
 
 
 Calculate Weekly Wages
@@ -103,9 +107,14 @@ calculate the total pay for the week, taking into account overtime.
 Hours worked over 40 are overtime, paid at 1.5 times the normal rate. 
 This is a natural place for a method enclosing the calculation.
 
+The problem clearly indicates two cases: when no more than 40
+hours are worked or when more than 40 hours are worked. In case
+more than 40 hours are worked, it is convenient to introduce a
+variable overtimeHours. 
+
 Please prepare a method in class Chapter04 called CalcWeeklyWages that 
-would execute successfully when the following execution is performed in the 
-Main() method of class Chapter04::
+would execute successfully and correctly when the following execution 
+is performed in the Main() method of class Chapter04::
 
    // Calculate Wages
    Console.Write("Enter hours worked: ");
@@ -117,6 +126,11 @@ Main() method of class Chapter04::
       "Wages for {0} hours at ${1:F2} per hour are ${2:F2}.",
       hours, wage, total);
 
+Note that: 
 
-https://github.com/mstbit/introcs-csharp-examples/blob/master/wages1/wages1.cs
-
+#. Two complete sample code can be found here:
+   - https://github.com/mstbit/introcs-csharp-examples/blob/master/wages1/wages1.cs
+   - https://github.com/mstbit/introcs-csharp-examples/blob/master/wages2/wages2.cs
+#. When calling from Main(), do not forget to return from the method.
+#. Suffix ``F`` means data type ``float`` and the number followed means decimal 
+   places. 
