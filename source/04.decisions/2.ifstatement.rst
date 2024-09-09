@@ -138,14 +138,17 @@ in the example above is that if an account goes negative, it is
 brought back to 0 by transferring money from a backup account. 
 Note that rhe choice is between **doing something** (if the
 condition is ``true``) or **nothing** (if the condition is ``false``).
-Often there is a choice of two possibilities, only one of which
+Often there is a choice of **two possibilities**, only one of which
 will be done, depending on the truth of a condition.
 
 
 ``if-else`` Statements
 --------------------------
 
-The general C# |if-else| syntax is
+Since we can usually start analyzing a problem by coming up with two possibilities, 
+it makes sense to add the alternative action to the code, which makes the ``if-else`` statements. 
+
+The general C# |if-else| syntax is:
 
 | ``if (`` *condition* ``) {``   
 |    statement(s) for if-true  
@@ -159,11 +162,12 @@ Try it at least twice, with inputs 50 and then 80.
 As you can see, you get different results, depending on the input. 
 
 .. code-block:: 
+   :emphasize-lines: 21-24
 
-   namespace Chapters
+   namespace IntroCSCS
    {
 
-      class Ch04
+      class Chapter04
       {
          static void Main(string[] args)
          {
@@ -189,19 +193,25 @@ As you can see, you get different results, depending on the input.
       }
    }
 
+.. note:: 
+   You may see a warning in VS Code and when running the code as "warning CS8604: 
+   Possible null reference argument for parameter 's' in 'double double.Parse(string s)'." 
+   You can safely disregard the warning message. For more information, see `C# language reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings#possible-null-assigned-to-a-nonnullable-reference>`_
+   Basically, C# compiler produces warning at that line because argument of Parse is marked as "non-nullable" and the compiler determined that the parameter input you are passing to that call can be null at the point of call.
+
 After running the code, you see that the ``if-else`` statement allows you to choose 
 which of the two code paths to follow based on a Boolean expression. 
 In an |if-else| statement, an if statement is followed by an
 ``else`` statement that is only executed when the original ``if`` condition is *false*. 
-In an |if-else| statement, ``exactly one`` of two possible code blocks in braces is executed.
+Note that in an |if-else| statement, ``exactly one`` of two possible code blocks in braces is executed.
 
-A final line is also shown that is not indented, about getting exercise. 
+A final print line is also shown that is not indented, about getting exercise. 
 The ``if`` and ``else`` clauses each 
 only embed a *single* (possibly compound) statement
 as option, so the last statement is not part of the |if-else|
-statement. It is beyond the |if-else| statement; it is
+statement. It is beyond the |if-else| statement. It is
 just a part of the normal ``sequential``
-flow of statements.  
+flow of statements and therefore will be executed as part of the flow.  
 
 .. Scope With Compound Statements
 .. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,7 +251,6 @@ flow of statements.
 .. The following would work:
        
 .. [#f1] `The C# language reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators>`_ 
-         says that "[t]he < (less than), > (greater than), <= (less than or equal), and >= 
-         (greater than or equal) comparison, also known as relational, operators 
-         compare their operands". While "``equality operators``, the == and != 
-         operators check if their operands are equal or not".
+         says that the operators <, >, <= , and >= are comparison, also known as relational, 
+         operators and they compare their operands. While "``equality operators``, the == and != 
+         operators, check if their operands are equal or not.
