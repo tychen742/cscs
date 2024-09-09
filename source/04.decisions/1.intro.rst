@@ -1,11 +1,11 @@
-Introduction
+Intro/Boolean
 =================================== 
 
 Selection/Conditional Statement
 ---------------------------------
 
 Selection statements, sometimes referred to as conditional statements, 
-are one of the three basic constructs in programming (sequence, selection, iteration). 
+are one of the three basic constructs (sequence, selection, iteration) in programming. 
 Selection statements provide the logic to perform decision-making: taking different 
 actions based on different conditions. When selecting from possible paths for execution, 
 the decisions are made based on the value of an expression.
@@ -36,13 +36,13 @@ George Boole.
 Boolean Data Type
 ---------------------
 
-The parenthesized condition of the if statement is a Boolean expression, 
+The parenthesized condition of the if statement is a **Boolean expression**, 
 also referred to as **relational expression**. 
 Boolean expressions are used for control flow statements. In computing, an expression 
 always produce a value. The key characteristic of Boolean expressions 
 is that they always evaluate to either true or false (or Yes vs. No, On vs. Off, or 0 vs. 1). 
-This binary feature is represented as the Boolean binary data type (``bool`` in C# with 
-values of ``true`` or ``false``). (). The name for this type in C# is ``bool``.
+This binary feature is represented as the Boolean binary data type (type ``bool`` in C# with 
+possible values of ``true`` or ``false``). 
 
 In csharprepl, we can perform some quick tests on Boolean data:
 
