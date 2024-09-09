@@ -96,12 +96,11 @@ depending on the input. The main code is:
 
 In this code, 
 
-- #8: The Main() method in the Program class called the Weight() method in Suitcase 
-  class. 
-- #20: the ``if`` statement in the Weight() method test the condition inside the parentheses. 
-- If the condition is true that the weight is greater than 50, then the code block #21-23 would run, 
+- #7: The Main() method in the Chapter04 class called the Weight() method. 
+- #14: the ``if`` statement in the Weight() method test the condition inside the parentheses. 
+- If the condition is true that the weight is greater than 50, then the code block #15-17 would run, 
   printing that there will be a $25 charge. 
-- #24: ``No matter`` whether the if statement (#20-23) runs or not, print the "thank you" message. 
+- #18: ``No matter`` whether the if statement (#14-17) runs or not, print the "thank you" message. 
   
   
 You can see from this code that:
