@@ -1,6 +1,7 @@
 Intro/Boolean
 =================================== 
 
+
 Selection Statements
 ---------------------------------
 
@@ -30,7 +31,9 @@ The basic syntax for an if statement is:
   }
 
 where the parenthesized condition of the if statement is a Boolean expression, named after 19th century mathematician 
-George Boole.
+George Boole. The parentheses in an if statement delimit the boolean expression; that is, to 
+differentiate the boolean expression from the rest of the if statement; whereas parentheses 
+in an arithmetic expression are used to group expressions together. 
 
 
 Boolean Data Type

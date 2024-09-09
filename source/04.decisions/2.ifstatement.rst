@@ -7,11 +7,7 @@
 Simple ``if`` Statements
 ---------------------------
 
-The comparison/relational operators [#f1]_ (``>``, ``<``, ``>=``, 
-``<=``) are used to evaluate the comparison/relational expressions to derive a value of either ``true`` or ``false`` in a 
-Boolean expression.  
-
-The ``if`` statement, specifies a block of C# code to be executed if a condition is True:
+The ``if`` statement specifies a block of C# code to be executed if a condition is True.
 
 .. code-block:: 
   :caption: Syntax of an if statement
@@ -25,6 +21,10 @@ The ``if`` statement, specifies a block of C# code to be executed if a condition
    Note that C# is case sensitive so ``If`` is not the same as ``if``. "If" or "IF" will 
    generate an error. 
 
+In ``if`` statements, the comparison operators [#f1]_ (``>``, ``<``, ``>=``, 
+``<=``, ``==``, and ``!=``) are used to evaluate the comparison expressions to derive a value of 
+either ``true`` or ``false`` from the Boolean expression.  
+
 First step to learn about the ``if`` statement is to perform the following test 
 in ``csharprepl``::
 
@@ -34,6 +34,7 @@ in ``csharprepl``::
    }
 
 with the output::
+   
    20 is greater than 10
 
 When coding, we often play with variables rather than simple values. Observe the 
