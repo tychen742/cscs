@@ -107,8 +107,12 @@ You can see from this code that:
 
 #. The general C# syntax for a simple ``if`` statement is
 
-| ``if (`` *condition* ``)`` 
-|     statement(s)  
+   .. code-block:: none
+
+      ``if ( *condition* )`` 
+      {
+         // statement(s)
+      }
 
 #. If the condition is ``true``, then ``execute`` the statement(s) in braces. If the
    condition is ``not true``, then ``skip`` the statements in braces.
