@@ -175,7 +175,7 @@ conditional/select statement syntax works:
     // block of code to be executed if the condition is True
   }
 
-The ``condition`` is a ``Boolean expression``, which will evaluate to either ``true`` or 
+You should know that the ``condition`` is a ``Boolean expression``, which will evaluate to either ``true`` or 
 ``false``. The parentheses is a testing construct. If the testing construct results to 
 ``true``, then the code block follows will be executed. Otherwise, the code block 
 follows will not be executed. 
