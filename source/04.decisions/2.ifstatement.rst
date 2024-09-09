@@ -18,15 +18,15 @@ The ``if`` statement specifies a block of C# code to be executed if a condition 
   }
 
 .. note::
-   Note that C# is case sensitive so ``If`` is not the same as ``if``. "If" or "IF" will 
+   Note that C# is case sensitive, so ``If`` is not the same as ``if``. "If" or "IF" will 
    generate an error. 
 
 In ``if`` statements, the comparison operators [#f1]_ (``>``, ``<``, ``>=``, 
 ``<=``, ``==``, and ``!=``) are used to evaluate the comparison expressions to derive a value of 
 either ``true`` or ``false`` from the Boolean expression.  
 
-First step to learn about the ``if`` statement is to perform the following test 
-in ``csharprepl``::
+The first step to learn about the ``if`` statements is to perform some tests on the operators 
+in ``csharprepl`` such as::
 
    if (20 > 10) 
    {
@@ -34,7 +34,7 @@ in ``csharprepl``::
    }
 
 with the output::
-   
+
    20 is greater than 10
 
 When coding, we often play with variables rather than simple values. Observe the 
@@ -44,7 +44,7 @@ following code and test it in csharprepl to practice ``if`` statements with vari
    int num2 = 18;
    if (num1 > num2) 
    {
-      Console.WriteLine("x is greater than y");
+      Console.WriteLine("num1 is greater than num2");
    }
 
 
