@@ -123,22 +123,21 @@ You can see from this code that:
    and still print the "thank you" line. 
 
 
-Another code fragment as an example::
+Another code fragment of banking account transaction as an example::
 
-    if (balance < 0) {
-        transfer = -balance; 
-        // transfer enough from the backup account: 
-        backupAccount = backupAccount - transfer;
-        balance = balance + transfer;
-    }
+   if (balance < 0) 
+   {
+      transfer = -balance; 
+      // transfer enough from the backup account: 
+      backupAccount = backupAccount - transfer;
+      balance = balance + transfer;
+   }
 
 The assumption
 in the example above is that if an account goes negative, it is
-brought back to 0 by transferring money from a backup account in
-*several* steps.
-
-In the examples above the choice is between doing something (if the
-condition is ``true``) or nothing (if the condition is ``false``).
+brought back to 0 by transferring money from a backup account. 
+Note that rhe choice is between **doing something** (if the
+condition is ``true``) or **nothing** (if the condition is ``false``).
 Often there is a choice of two possibilities, only one of which
 will be done, depending on the truth of a condition.
 
