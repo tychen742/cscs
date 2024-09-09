@@ -5,7 +5,11 @@
 ``else-if`` Statements
 ======================
 
-Use the else if statement to specify a new condition if the first condition is False. 
+else-if Statements
+---------------------
+
+Comparing with the ``if-else`` statement, the ``else if`` statements specify 
+a new condition if the first condition is False. 
 The syntax for the ``else-if`` statement is::
 
     if (condition1)
@@ -14,12 +18,15 @@ The syntax for the ``else-if`` statement is::
     } 
     else if (condition2) 
     {
-        // block of code to be executed if the condition1 is false and condition2 is True
+        // block of code to be executed if the condition1 is False and condition2 is True
     } 
     else
     {
-        // block of code to be executed if the condition1 is false and condition2 is False
+        // block of code to be executed if the condition1 is False and condition2 is False
     }
+
+Note that the logic of the flow terminate at ``else``: The ``else`` block is the 
+default block when all the conditions are False. 
 
 An example of else-if statement is::
 
@@ -36,20 +43,51 @@ An example of else-if statement is::
     {
         Console.WriteLine("Good evening.");
     }
-    // Outputs "Good evening."
+    // Outputs "Good evening" in this case. 
 
 In the example above, time (22) is greater than 10, 
 so the first condition is False. The next condition, in the else-if 
-statement, is also False, so we move on to the else condition since 
-condition1 and condition2 is both False - and print 
+statement, is also False, so we move on to the ``else`` statement since 
+condition1 and condition2 are both False - and print 
 to the screen "Good evening".
 
 ``else-if`` Statements as Switch
 ---------------------------------
 
+Consider the following code:
+
+.. code-block:: 
+
+    static char LetterGrade(double score)
+    {
+        char letter;
+        if (score >= 90) {
+            letter = 'A'; 
+        }
+        else {   // grade must be B, C, D or F 
+            if (score >= 80) { 
+                letter = 'B'; 
+            }
+            else { // grade must be C, D or F 
+                if (score >= 70) { 
+                letter = 'C'; 
+                }
+                else {   // grade must D or F 
+                if (score >= 60) {
+                    letter = 'D'; 
+                }
+                else { 
+                    letter = 'F';
+                }
+                }   //end else D or F
+            }      // end of else C, D, or F
+        }         // end of else B, C, D or F
+        return letter;
+    }
+
 As seen in the LetterGrade() method, the repeatedly increasing indentation 
-with an ``if`` statement in
-the ``else`` clause can be annoying and distracting. Here is a preferred
+with an ``if`` statement in the ``else`` clause can be annoying and 
+distracting. Here is a preferred
 alternative in this situation, that avoids all this further
 indentation:  
 Combine each ``else`` and following ``if`` onto the same line, 
