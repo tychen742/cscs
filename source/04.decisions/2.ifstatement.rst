@@ -105,11 +105,11 @@ In this code,
   
 You can see from this code that:
 
-#. The general C# syntax for a simple ``if`` statement is
+#. The general C# syntax for a simple ``if`` statement is:
 
    .. code-block:: none
 
-      ``if ( *condition* )`` 
+      if (condition)
       {
          // statement(s)
       }
@@ -119,11 +119,11 @@ You can see from this code that:
 #. The ``condition`` is an ``expression`` that evaluates to either true or false, 
    of type-boolean.  
 #. An ``if`` statement only affects the normal sequential order *inside* the ``if`` 
-   statement itself, e.g., skipping the extra charge block when the condition is not true. 
+   statement itself (e.g., skipping the extra charge block when the condition is not true 
+   and still print the "thank you" line. 
 
-   
 
-Another fragment as an example::
+Another code fragment as an example::
 
     if (balance < 0) {
         transfer = -balance; 
