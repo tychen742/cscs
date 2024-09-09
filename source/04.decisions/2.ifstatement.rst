@@ -49,59 +49,50 @@ following code and test it in csharprepl to practice ``if`` statements with vari
 
 
 Consider simple arithmetic comparisons that directly translate from math into C#. 
-First start csharp an enter::
+In csharprepl, enter::
 
-    int x = 11; 
+    int num = 11; 
 
 Now think of which of these expressions below are true and which false, 
 and then enter each one into your csharp session to test::
 
     2 < 5
     3 > 7
-    x > 10 
-    2*x < x 
+    num > 10 
+    2*x < num 
 
 You see that the expressions evaluate to either ``true`` or ``false``. These are 
-the only possible *Boolean* values. It is the type of the
-results of true-false conditions or tests.
+the only possible *Boolean* values. 
 
 
 Run the example program below. Try it at least twice, with
-inputs: 30 and then 55. As you can see, you get an extra result,
+inputs: 30 and then 55. As you can see, you get different results,
 depending on the input. The main code is:
 
 .. code-block:: 
    :linenos:
 
-   namespace Program
+   namespace IntroCSCS
     
-      class Program
+      class Chapter04
       {
          static void Main(string[] args)
          {
-            BooleanExpression.Rolla();
-            Suitcase.Weight();
+            Weight();
          }
-      }
-      
-      public class BooleanExpression
-      {
-         // code here
       }
 
-      class Suitcase
+      public static void Weight()
       {
-         public static void Weight()
+         Console.Write("How many pounds does your suitcase weigh? ");
+         double weight = double.Parse(Console.ReadLine());
+         if (weight > 50)
          {
-            Console.Write("How many pounds does your suitcase weigh? ");
-            double weight = double.Parse(Console.ReadLine());
-            if (weight > 50)
-            {
-               Console.WriteLine("There is a $25 charge for luggage that heavy.");
-            }
-            Console.WriteLine("Thank you for your business.");
+            Console.WriteLine("There is a $25 charge for luggage that heavy.");
          }
+         Console.WriteLine("Thank you for your business.");
       }
+      
    }
 
 In this code, 
