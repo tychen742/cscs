@@ -1,0 +1,254 @@
+.. _Simple-if-Statements:
+    
+``if`` and ``if-else`` Statements
+====================================
+
+
+Simple ``if`` Statements
+---------------------------
+
+The comparison/relational operators [#f1]_ (``>``, ``<``, ``>=``, 
+``<=``) are used to evaluate the comparison/relational expressions to derive a value of either ``true`` or ``false`` in a 
+Boolean expression.  
+
+The ``if`` statement, specifies a block of C# code to be executed if a condition is True:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+.. note::
+   Note that C# is case sensitive so ``If`` is not the same as ``if``. "If" or "IF" will 
+   generate an error. 
+
+First step to learn about the ``if`` statement is to perform the following test 
+in ``csharprepl``::
+
+   if (20 > 10) 
+   {
+      Console.WriteLine("20 is greater than 10");
+   }
+
+with the output::
+   20 is greater than 10
+
+When coding, we often play with variables rather than simple values. Observe the 
+following code and test it in csharprepl to practice ``if`` statements with variables::
+
+   int num1 = 20;
+   int num2 = 18;
+   if (num1 > num2) 
+   {
+      Console.WriteLine("x is greater than y");
+   }
+
+
+Consider simple arithmetic comparisons that directly translate from math into C#. 
+First start csharp an enter::
+
+    int x = 11; 
+
+Now think of which of these expressions below are true and which false, 
+and then enter each one into your csharp session to test::
+
+    2 < 5
+    3 > 7
+    x > 10 
+    2*x < x 
+
+You see that the expressions evaluate to either ``true`` or ``false``. These are 
+the only possible *Boolean* values. It is the type of the
+results of true-false conditions or tests.
+
+
+Run the example program below. Try it at least twice, with
+inputs: 30 and then 55. As you can see, you get an extra result,
+depending on the input. The main code is:
+
+.. code-block:: 
+   :linenos:
+
+   namespace Program
+    
+      class Program
+      {
+         static void Main(string[] args)
+         {
+            BooleanExpression.Rolla();
+            Suitcase.Weight();
+         }
+      }
+      
+      public class BooleanExpression
+      {
+         // code here
+      }
+
+      class Suitcase
+      {
+         public static void Weight()
+         {
+            Console.Write("How many pounds does your suitcase weigh? ");
+            double weight = double.Parse(Console.ReadLine());
+            if (weight > 50)
+            {
+               Console.WriteLine("There is a $25 charge for luggage that heavy.");
+            }
+            Console.WriteLine("Thank you for your business.");
+         }
+      }
+   }
+
+In this code, 
+
+- #8: The Main() method in the Program class called the Weight() method in Suitcase 
+  class. 
+- #20: the ``if`` statement in the Weight() method test the condition inside the parentheses. 
+- If the condition is true that the weight is greater than 50, then the code block #21-23 would run, 
+  printing that there will be a $25 charge. 
+- #24: ``No matter`` whether the if statement (#20-23) runs or not, print the "thank you" message. 
+  
+  
+You can see from this code that:
+
+#. The general C# syntax for a simple ``if`` statement is
+
+| ``if (`` *condition* ``)`` 
+|     statement(s)  
+
+#. If the condition is ``true``, then ``execute`` the statement(s) in braces. If the
+   condition is ``not true``, then ``skip`` the statements in braces.
+#. The ``condition`` is an ``expression`` that evaluates to either true or false, 
+   of type-boolean.  
+#. An ``if`` statement only affects the normal sequential order *inside* the ``if`` 
+   statement itself, e.g., skipping the extra charge block when the condition is not true. 
+
+   
+
+Another fragment as an example::
+
+    if (balance < 0) {
+        transfer = -balance; 
+        // transfer enough from the backup account: 
+        backupAccount = backupAccount - transfer;
+        balance = balance + transfer;
+    }
+
+The assumption
+in the example above is that if an account goes negative, it is
+brought back to 0 by transferring money from a backup account in
+*several* steps.
+
+In the examples above the choice is between doing something (if the
+condition is ``true``) or nothing (if the condition is ``false``).
+Often there is a choice of two possibilities, only one of which
+will be done, depending on the truth of a condition.
+
+
+``if-else`` Statements
+--------------------------
+
+The general C# |if-else| syntax is
+
+| ``if (`` *condition* ``) {``   
+|    statement(s) for if-true  
+| ``}``
+| ``else {``
+|    statement(s) for if-false 
+| ``}``
+
+Let us start by running the following example code (Clothes() method in Chapter04.cs). 
+Try it at least twice, with inputs 50 and then 80. 
+As you can see, you get different results, depending on the input. 
+
+.. code-block:: 
+
+   namespace Chapters
+   {
+
+      class Ch04
+      {
+         static void Main(string[] args)
+         {
+            // Rolla();
+            // Weight();
+            Clothes();
+         }
+      
+         public static void Clothes()
+         {
+            Console.Write("What is the temperature? ");
+            double temperature = double.Parse(Console.ReadLine());
+            if (temperature > 70)
+            {
+               Console.WriteLine("Wear shorts.");
+            }
+            else
+            {
+               Console.WriteLine("Wear long pants.");
+            }
+            Console.WriteLine("Get some exercise outside.");
+         }
+      }
+   }
+
+After running the code, you see that the ``if-else`` statement allows you to choose 
+which of the two code paths to follow based on a Boolean expression. 
+In an |if-else| statement, an if statement is followed by an
+``else`` statement that is only executed when the original ``if`` condition is *false*. 
+In an |if-else| statement, ``exactly one`` of two possible code blocks in braces is executed.
+
+A final line is also shown that is not indented, about getting exercise. 
+The ``if`` and ``else`` clauses each 
+only embed a *single* (possibly compound) statement
+as option, so the last statement is not part of the |if-else|
+statement. It is beyond the |if-else| statement; it is
+just a part of the normal ``sequential``
+flow of statements.  
+
+.. Scope With Compound Statements
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Just like the local scope in method bodies, 
+.. which happen to be enclosed in braces, making the function body a *compound statement*.
+.. In fact variables declared inside *any* compound statement have their scope restricted
+.. to *inside* that compound statement.
+
+.. As a result the following code makes no sense
+
+..     static int BadBlockScope(int x) 
+..     {
+..        if ( x < 100) {
+..           int val = x + 2;
+..        }
+..        else {
+..           int val = x - 2:
+..        }
+..        return val;
+..     }
+
+.. The |if-else| statement is legal, but useless, 
+.. because whichever compound statement gets executed,
+.. ``val`` ceases being defined after the
+.. closing brace of its compound statement, 
+.. so the ``val`` in the return statement has
+.. not been declared or given a value.  The code
+.. would generate a compiler error. 
+ 
+.. If we want ``val`` be used inside the braces and 
+.. to make sense past the end of the compound statement,
+.. it cannot be declared inside the braces. Instead it must be
+.. declared before the compound statements that are parts of the 
+.. ``if-else`` statement. A local variable in a function declared before a nested compound 
+.. statement is still visible (in scope) *inside*  that compound statement.
+.. The following would work:
+       
+.. [#f1] `The C# language reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators>`_ 
+         says that "[t]he < (less than), > (greater than), <= (less than or equal), and >= 
+         (greater than or equal) comparison, also known as relational, operators 
+         compare their operands". While "``equality operators``, the == and != 
+         operators check if their operands are equal or not".

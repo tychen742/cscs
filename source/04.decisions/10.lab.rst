@@ -1,0 +1,122 @@
+Lab 04
+===============
+
+Create a dotnet console app project called Chapter04. The namespace of this 
+project is not important at this point of time but let us call it IntroCSCS. 
+The class name of this project is Chapter04. You will only use the Main() 
+method to execute the code and you will prepare methods in the same class to 
+be called from the Main() method. 
+
+Boolean Expressions
+----------------------
+
+
+
+int x = 5;
+x;
+x == 5;
+x == 6;
+x;
+x != 6;
+x = 6;
+6 == x;
+6 != x;
+"hi" == "h" + "i";
+"HI" != "hi";
+string s = "Hello";
+string t = "HELLO";
+s == t;
+s.ToUpper() == t;
+
+
+Simple If Exercise
+----------------------
+
+Think of two different inputs you could give that would make the
+execution of the code fragment proceed differently. What would happen in
+each case?  (Assume we have access to the class UIF that prints the prompt line, 
+intake the value, and turn the input into proper data type.) 
+
+a. Consider::
+
+       string v = UIF.PromptLine("Enter a word: ");
+       if (v.Length > 3) {
+          v = v + v;
+       }
+       Console.WriteLine("Now we have " + v);
+
+#. Consider::
+
+       int x = UIF.PromptInt("Enter a integer: ");
+       Console.Write("The magnitude of " + x + " is ");
+       if (x < 0) {
+          x = -x;
+       }
+       Console.WriteLine(x);
+
+
+If-else Exercise
+----------------------
+
+Think of two different inputs you could give that would make the
+execution of the code fragment proceed differently. What would happen in
+each case?  (Assume we have access to the class UIF.) 
+
+a. Consider::
+
+       string v = UIF.PromptLine("Enter a word: ");
+       if (v.Length > 3) {
+          v = v + v;
+          Console.WriteLine("Now we have " + v);
+       }
+       else {
+          Console.WriteLine("We still have " + v);
+       }
+
+#. Consider::
+
+       int x = UIF.PromptInt("Enter a integer: ");
+       Console.Write("The magnitude of " + x + " is ");
+       if (x < 0) {
+          Console.WriteLine(-x);
+       }
+       else {
+          Console.WriteLine(x);
+       }
+
+
+
+Graduate Exercise
+----------------------
+
+Write a program, ``graduate.cs``, that prompts students for how
+many credits they have. Print whether of not they have enough
+credits for graduation. (At Loyola University Chicago 120 credits
+are needed for graduation.)
+
+
+Calculate Weekly Wages
+-------------------------
+
+Given a person’s work hours for the week and regular hourly wage, 
+calculate the total pay for the week, taking into account overtime. 
+Hours worked over 40 are overtime, paid at 1.5 times the normal rate. 
+This is a natural place for a method enclosing the calculation.
+
+Please prepare a method in class Chapter04 called CalcWeeklyWages that 
+would execute successfully when the following execution is performed in the 
+Main() method of class Chapter04::
+
+   // Calculate Wages
+   Console.Write("Enter hours worked: ");
+   double hours = double.Parse(Console.ReadLine());
+   Console.Write("Enter dollars paid per hour: ");
+   double wage = double.Parse(Console.ReadLine());
+   double total = CalcWeeklyWages(hours, wage);
+   Console.WriteLine(
+      "Wages for {0} hours at ${1:F2} per hour are ${2:F2}.",
+      hours, wage, total);
+
+
+https://github.com/mstbit/introcs-csharp-examples/blob/master/wages1/wages1.cs
+

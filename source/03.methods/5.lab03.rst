@@ -145,7 +145,7 @@ and return values, do the following:
    * - 1
      - Start at Main
    * - 2
-     - call the function, remembering where to return
+     - call the method, remembering where to return
    * - 3
      - pass the parameters: firstName = "Benjamin"; lastName = "Franklin"
    * - 4
@@ -155,15 +155,15 @@ and return values, do the following:
    * - 6
      - Return "Franklin, Benjamin"
    * - 7
-     - Use the value returned from the function call so the line effectively becomes Console.WriteLine("Franklin, Benjamin");, so print it.
+     - Use the value returned from the method call so the line effectively becomes Console.WriteLine("Franklin, Benjamin");, so print it.
    * - 8
-     - call the function with the new actual parameters, remembering where to return
+     - call the method with the new actual parameters, remembering where to return
    * - 9
      - pass the parameters: firstName = "Andrew"; lastName = "Harrington"
    * - 10
      - … calculate and return "Harrington, Andrew"
    * - 11
-     - Use the value returned by the function and print "Harrington, Andrew"
+     - Use the value returned by the method and print "Harrington, Andrew"
 
 
 
