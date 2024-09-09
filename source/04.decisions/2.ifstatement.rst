@@ -196,7 +196,7 @@ As you can see, you get different results, depending on the input.
 .. note:: 
    You may see a warning in VS Code and when running the code as "warning CS8604: 
    Possible null reference argument for parameter 's' in 'double double.Parse(string s)'." 
-   You can safely disregard the warning message. For more information, see `C# language reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings#possible-null-assigned-to-a-nonnullable-reference>`_
+   You can safely disregard the warning message. For more information, see `C# language reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings#possible-null-assigned-to-a-nonnullable-reference>`_. 
    Basically, C# compiler produces warning at that line because argument of Parse is marked as "non-nullable" and the compiler determined that the parameter input you are passing to that call can be null at the point of call.
 
 After running the code, you see that the ``if-else`` statement allows you to choose 
