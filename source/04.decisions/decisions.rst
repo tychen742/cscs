@@ -3,7 +3,7 @@
 
 .. _If-Statements:
     
-Decisions
+Selection/Conditional
 ######################
 
 .. toctree::
