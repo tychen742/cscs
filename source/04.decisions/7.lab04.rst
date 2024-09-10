@@ -27,23 +27,23 @@ Boolean Expressions
   prepare the answers.
 - Prepare a screenshot.  
 
-.. code-block:: 
+  .. code-block:: 
 
-   int x = 5;  
-   x;                      //
-   x == 5;                 //
-   x == 6;                 //
-   x;                      //
-   x != 6;                 //
-   x = 6;                  
-   6 == x;                 //
-   6 != x;                 //
-   "hi" == "h" + "i";      //
-   "HI" != "hi";           //
-   string s = "Hello";     
-   string t = "HELLO";     
-   s == t;                 //
-   s.ToUpper() == t;       //
+      int x = 5;  
+      x;                      //
+      x == 5;                 //
+      x == 6;                 //
+      x;                      //
+      x != 6;                 //
+      x = 6;                  
+      6 == x;                 //
+      6 != x;                 //
+      "hi" == "h" + "i";      //
+      "HI" != "hi";           //
+      string s = "Hello";     
+      string t = "HELLO";     
+      s == t;                 //
+      s.ToUpper() == t;       //
 
 
 Simple ``if`` Exercise
