@@ -46,34 +46,34 @@ Boolean Expressions
       s.ToUpper() == t;       //
 
 
-Simple ``if`` Exercise
-----------------------
+.. Simple ``if`` Exercise
+.. ----------------------
 
-Think of two different inputs you could give that would make the
-execution of the code fragment proceed differently. What would happen in
-each case? (Assume we have access to the class UIF that prints the 
-prompt line, intake the value input, and turn the input value into 
-proper data type.) 
+.. Think of two different inputs you could give that would make the
+.. execution of the code fragment proceed differently. What would happen in
+.. each case? (Assume we have access to the class UIF that prints the 
+.. prompt line, intake the value input, and turn the input value into 
+.. proper data type.) 
 
-- Write your answer to your Word document directly under the question 
-  number (e.g., 4.7.3.a).
+.. - Write your answer to your Word document directly under the question 
+..   number (e.g., 4.7.3.a).
 
-a. Consider::
+.. a. Consider::
 
-      string v = UIF.PromptLine("Enter a word: ");
-      if (v.Length > 3) {
-         v = v + v;
-      }
-      Console.WriteLine("Now we have " + v);
+..       string v = UIF.PromptLine("Enter a word: ");
+..       if (v.Length > 3) {
+..          v = v + v;
+..       }
+..       Console.WriteLine("Now we have " + v);
 
-#. Consider::
+.. #. Consider::
 
-      int x = UIF.PromptInt("Enter a integer: ");
-      Console.Write("The magnitude of " + x + " is ");
-      if (x < 0) {
-         x = -x;
-      }
-      Console.WriteLine(x);
+..       int x = UIF.PromptInt("Enter a integer: ");
+..       Console.Write("The magnitude of " + x + " is ");
+..       if (x < 0) {
+..          x = -x;
+..       }
+..       Console.WriteLine(x);
 
 
 ``if-else`` Exercise
