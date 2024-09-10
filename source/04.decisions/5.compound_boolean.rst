@@ -182,7 +182,7 @@ using an if-else statement with nested if-else sub-statements::
    }
 
 The outer |if-else| determines whether the action is important, so the inner
-conditions only need to deal with urgency.  Also note that in executing
+conditions only need to deal with urgency. Also note that in executing
 this version there are never more than two short conditions evaluated.  
 In the first version, you may have to go through all three conditions. 
 Both approaches work. Which is clearer to you?

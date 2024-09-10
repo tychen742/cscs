@@ -2,7 +2,8 @@
 Switch Statement
 =======================
 
-The switch statement is used to select one of many code blocks to be executed.
+The switch statement is used to select one of many code blocks ("cases") 
+to be executed. Logically, it resembles the use of a series of ``else-if`` clauses. 
 
 The syntax for ``switch`` statement is as follows::
 
@@ -21,10 +22,10 @@ The syntax for ``switch`` statement is as follows::
 
 
 Note that:
-- The switch expression is evaluated once
-- The value of the expression is compared with the values of each case
-- If there is a match, the associated block of code is executed
-- The break and default keywords will be described later in this chapter
+- The switch expression is evaluated once.
+- The value of the expression is **compared** with the values of each case.
+- If there is a **match** between the ``expression`` value and the ``case`` value, the associated block of code is executed.
+- The ``break`` and ``default`` keywords will be described later in this chapter.
 
 As an example, we can use the weekday number to figure out weekday name::
 
@@ -54,11 +55,16 @@ As an example, we can use the weekday number to figure out weekday name::
         break;
     }
 
+The outcome of this code will be Thursday. The code will stop 
+executing because of the ``break`` keyword after the print line. 
+Also, there is not ``default case`` in this code block. 
 
-The default Keyword
+
+The ``default`` Keyword
 ----------------------
 
-The default keyword is optional and specifies some code to run if there is no case match::
+The default keyword is optional and it specifies some code to run 
+if there is no case match::
 
     int day = 4;
     switch (day) 
@@ -76,14 +82,22 @@ The default keyword is optional and specifies some code to run if there is no ca
     // Outputs "Looking forward to the Weekend."
 
 
-The break Keyword
+The ``break`` Keyword
 --------------------
 
-When C# reaches a break keyword, it breaks out of the switch block. This will stop the execution of more code and case testing inside the block.
+When a match is found in a switch statement, the job is done, 
+it's time for a break. There is no need for more testing and matching 
+cases. When C# reaches a ``break`` keyword, it breaks out of the 
+switch block. This will stop the further sequential execution of 
+code and case testing inside the block. 
 
-When a match is found, and the job is done, it's time for a break. There is no need for more testing.
 
-A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
+A ``break`` can save execution time because it ignores 
+the execution of all the rest of the code in the switch block. But 
+more importantly, a ``break`` servers as a terminator of the 
+control flow. That also means that you may choose to continue 
+matching cases after one is matched by not placing break at the 
+end of the case block. 
 
 
 .. Dangerous Semicolon
