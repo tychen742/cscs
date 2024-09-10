@@ -34,6 +34,7 @@ Chapter Review Questions
 
 #.  Add parentheses in ``2 < 3 || 4 < 5 && 4 < 3`` to get a different result. 
     
+
 #.  What is printed when the following code executes and x has been set to 0 and y to 3?::
 
       if (x > 0 && (y / x) == 3)
@@ -171,6 +172,26 @@ Chapter Review Questions
            return x;
         if (x > 5)
            y = 1;
+
+#. The following code should print x is greater than 0. However, the code has 
+   errors. Fix the code so that it compiles and runs correctly. Run the program 
+   several times with different values of x to test both if and else branches.::
+
+      public class Test1
+      {
+         public static void Main(String[] args)
+         {
+            int x = 3;
+            if (x > 0
+                  Console.WriteLine("x is greater than 0")
+            else
+                  Console.WriteLine(x is less than or equal 0");
+         }
+      }
+
+   - Copy the code to your Word file and mark your changes in red bold font. 
+   - You use either csharprepl or VS Code to test the code. 
+
 
 
 .. #.  When reading a verbal description of a problem to solve, 
