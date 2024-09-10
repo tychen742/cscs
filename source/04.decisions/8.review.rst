@@ -26,27 +26,26 @@ Chapter Review Questions
         3 < 2 || 4 < 3
         2 < 3 || 4 < 5 && 4 < 3
         
+#.  Assume  ``IsBig(x)`` returns a Boolean value.
+    Remove the redundant part of this statement::
     
+        if (IsBig(x) == true)
+           x = 3;
+
 #.  Add parentheses in ``2 < 3 || 4 < 5 && 4 < 3`` to get a different result. 
     
-#.  What does the code below print?::
-      
-      int a = 7;
+#.  What is printed when the following code executes and x has been set to 0 and y to 3?::
 
-      if (a % 2 == 1)
+      if (x > 0 && (y / x) == 3)
       {
-         Console.WriteLine("Launch");
-      }
-      else if (a > 5)
-      {
-         Console.WriteLine("Code");
+         Console.WriteLine("first case");
       }
       else
       {
-         Console.WriteLine("LaunchCode");
+         Console.WriteLine("second case");
       }
 
-#.  What does the following code print when x has been set to 2000?
+#.  What does the following code print when x has been set to 2000?::
 
       if (x < 0)
       {
@@ -60,13 +59,7 @@ Chapter Review Questions
       {
          Console.WriteLine("x is positive");
       }
-
-#.  Assume  ``IsBig(x)`` returns a Boolean value.
-    Remove the redundant part of this statement::
-    
-        if (IsBig(x) == true)
-           x = 3;
-                        
+                     
            
 #.  Assume ``x`` and ``y`` are local ``int`` variables.  
     Code fragments are separated by a blank line below.  
