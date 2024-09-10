@@ -1,6 +1,10 @@
 Chapter Review Questions
 =========================
 
+- Prepare this assignment using a Word document.
+- Number and write answers under each question.
+- Paste code screenshots when required.
+
 #.  Which of these are Boolean expressions?  Assume the variables are of 
     type ``int``::
 
@@ -22,9 +26,9 @@ Chapter Review Questions
         3 < 2 || 4 < 3
         2 < 3 || 4 < 5 && 4 < 3
         
-#.  Correct the last two entries in the first problem, supposing the user
-    meant "x could be either 2 or 3" and then
-    "y is strictly between 1 and 10".
+.. #.  Correct the last two entries in the first problem, supposing the user
+..     meant "x could be either 2 or 3" and then
+..     "y is strictly between 1 and 10".
     
 #.  Add parentheses in ``2 < 3 || 4 < 5 && 4 < 3`` to get a different result. 
     
@@ -35,13 +39,13 @@ Chapter Review Questions
     Have many times must you have ``if`` followed by
     a condition?
     
-#.  Suppose you have four possible distinct situations in your algorithm, 
-    each requiring a totally
-    different response in your code, 
-    and at most one of the situations will occur, so 
-    possibly nothing will happen that needs a response at all.
-    Have many times must you have ``if`` followed by
-    a condition?
+.. #.  Suppose you have four possible distinct situations in your algorithm, 
+..     each requiring a totally
+..     different response in your code, 
+..     and at most one of the situations will occur, so 
+..     possibly nothing will happen that needs a response at all.
+..     Have many times must you have ``if`` followed by
+..     a condition?
     
 #.  Assume  ``IsBig(x)`` returns a Boolean value.
     Remove the redundant part of this statement::
