@@ -29,21 +29,21 @@ Boolean Expressions
 
 .. code-block:: 
 
-   int x = 5;  
-   x;                      //
-   x == 5;                 //
-   x == 6;                 //
-   x;                      //
-   x != 6;                 //
-   x = 6;                  
-   6 == x;                 //
-   6 != x;                 //
-   "hi" == "h" + "i";      //
-   "HI" != "hi";           //
-   string s = "Hello";     
-   string t = "HELLO";     
-   s == t;                 //
-   s.ToUpper() == t;       //
+      int x = 5;  
+      x;                      //
+      x == 5;                 //
+      x == 6;                 //
+      x;                      //
+      x != 6;                 //
+      x = 6;                  
+      6 == x;                 //
+      6 != x;                 //
+      "hi" == "h" + "i";      //
+      "HI" != "hi";           //
+      string s = "Hello";     
+      string t = "HELLO";     
+      s == t;                 //
+      s.ToUpper() == t;       //
 
 
 Simple ``if`` Exercise
@@ -85,7 +85,7 @@ each case? (Assume we have access to the class UIF. Google if you are
 not aware of what v.Length means.) 
 
 - Write your answer to your Word document directly under the question 
-  number (e.g., 4.7.3.b).
+  number (e.g., 4.7.2.b).
 
 a. Consider::
 
