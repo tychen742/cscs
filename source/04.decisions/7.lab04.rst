@@ -1,45 +1,57 @@
 Lab 04
 ===============
 
-Create a dotnet console app project called Chapter04. The namespace of this 
-project is not important at this point of time but let us call it IntroCSCS. 
-The class name of this project is Chapter04. You will only use the Main() 
-method to execute the code and you will prepare methods in the same class to 
-be called from the Main() method. 
+#. Create a dotnet console app project called Chapter04. 
+#. The namespace of this project is not important at this point of 
+   time but let us call it *IntroCSCS*. 
+#. The class name of this project is *Chapter04*. 
+#. You will only use the Main() method to execute the code, 
+#. You will prepare methods in the same class to be called from the Main() method. 
+#. Use a Word document to paste your screenshots; number and annotate 
+   your answers. 
 
-If you have problem creating the project, you need to catch up. Please work with 
-the TA of the class during the help sessions.
+If you have problem creating the project, you need to catch up. Please 
+work with the TA of the class during the help sessions.
 
 
 Boolean Expressions
 ----------------------
 
+- Use ``csharprepl`` to test the expressions below and write the 
+  resulted output after the single-line comments at the right. 
+- You may copy and paste the code below to VS Code or a Word document to 
+  prepare the answers.
+- Prepare a partial screenshot.  
+
+.. code-block:: 
+
+   int x = 5;  
+   x;                      //
+   x == 5;                 //
+   x == 6;                 //
+   x;                      //
+   x != 6;                 //
+   x = 6;                  
+   6 == x;                 //
+   6 != x;                 //
+   "hi" == "h" + "i";      //
+   "HI" != "hi";           //
+   string s = "Hello";     
+   string t = "HELLO";     
+   s == t;                 //
+   s.ToUpper() == t;       //
 
 
-int x = 5;
-x;
-x == 5;
-x == 6;
-x;
-x != 6;
-x = 6;
-6 == x;
-6 != x;
-"hi" == "h" + "i";
-"HI" != "hi";
-string s = "Hello";
-string t = "HELLO";
-s == t;
-s.ToUpper() == t;
-
-
-Simple If Exercise
+Simple ``if`` Exercise
 ----------------------
 
 Think of two different inputs you could give that would make the
 execution of the code fragment proceed differently. What would happen in
-each case?  (Assume we have access to the class UIF that prints the prompt line, 
-intake the value, and turn the input into proper data type.) 
+each case? (Assume we have access to the class UIF that prints the 
+prompt line, intake the value input, and turn the input value into 
+proper data type.) 
+
+- Write your answer to your Word document directly under the question number. 
 
 a. Consider::
 
@@ -59,12 +71,16 @@ a. Consider::
        Console.WriteLine(x);
 
 
-If-else Exercise
+``if-else`` Exercise
 ----------------------
 
 Think of two different inputs you could give that would make the
 execution of the code fragment proceed differently. What would happen in
-each case?  (Assume we have access to the class UIF.) 
+each case? (Assume we have access to the class UIF. Google if you are 
+not aware of what v.Length means.) 
+
+- Write your answer to your Word document directly under the question 
+  number (e.g., *x*.a).
 
 a. Consider::
 
