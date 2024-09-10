@@ -61,13 +61,30 @@ condition, in the else-if statement, will be tested. If the 2nd condition
 is also False, we then move on to the ``else`` statement, the **default** 
 case, since condition1 and condition2 are both False.
 
-Note that, however, as with a simple if statement, the else clause is optional.
+
+The code below is a variation of the Weight() method. Consider this
+fragment *without* a final ``else``::
+
+    if (weight > 120) {
+        Console.WriteLine("Sorry, we can not take a suitcase that heavy.");
+    }
+    else if (weight > 50) { 
+        Console.WriteLine("There is a $25 charge for luggage that heavy.");
+    }
+    
+As with a simple if statement, the else clause is optional in else-if statements. 
+This code above only prints one of two lines if there is a
+problem with the weight of the suitcase (> 50 or > 120). Nothing is printed if 
+neither of the conditions is met, meaning the weight is not greater than 50. 
 
 
-``else-if`` Statements as Switch
+``else-if`` Statements for Cases
 ---------------------------------
 
-Consider the following code:
+
+Consider the following code, which repetitively nests if statements in 
+the else clauses. The code structure is legal but semantically unsound if 
+we consider the grade letters to be a flat structure:
 
 .. code-block:: 
 
@@ -106,13 +123,7 @@ indentation:
 Combine each ``else`` and following ``if`` onto the same line, 
 and note that the ``if`` part after each else is just a *single*
 (possibly very complicated) statement.  This allows the elimination of
-some of the braces:
-
-A program testing the LetterGrade method is in
-example program:
-
-
-As in a basic |if-else| statement, in the general format,
+some of the braces and make the code more readable and logically clear:
 
 | ``if (`` *condition1* ``) {``
 |      statement-block-run-if-condition1-is-true;       
@@ -128,33 +139,39 @@ As in a basic |if-else| statement, in the general format,
 |      statement-block-run-if-no condition-is-true;       
 | ``}`` 
     
-*exactly one* of the statement blocks gets executed:
-If some condition is true,
-the first block following a true condition is executed.
-If no condition is true,
-the ``else`` block is executed.
+Note that *exactly one* of the statement blocks gets executed:
+- If some condition is true, the first block following a true condition is executed. 
+- If no condition is true, the ``else`` block is executed. 
+  
+We can modify the LetterGrade() method into LetterGrade2() 
+method, which is more readable and semantically sound:
 
-Here is a variation of the Weight() method. Consider this
-fragment *without* a final ``else``::
+    .. code-block:: csharp
 
-    if (weight > 120) {
-        Console.WriteLine("Sorry, we can not take a suitcase that heavy.");
-    }
-    else if (weight > 50) { 
-        Console.WriteLine("There is a $25 charge for luggage that heavy.");
-    }
-    
-This statement only prints one of two lines if there is a
-problem with the weight of the suitcase.  Nothing is printed if 
-there is not a problem.
+        static char LetterGrade2(double score)
+        {
+            char letter;
+            if (score >= 90) {
+                letter = 'A'; 
+            }
+            else if (score >= 80) { 
+                letter = 'B'; 
+                }
+            else if (score >= 70) { 
+                letter = 'C'; 
+            }
+            else if (score >= 60) {
+                letter = 'D'; 
+            }
+            else { 
+                letter = 'F';
+            }
 
-If the final ``else`` clause is omitted from the general ``if`` ... ``else if`` ...
-pattern above, at most one block after a condition
-is executed:  That is the block after the first true condition.  
-If all the conditions are false, none of the statement blocks 
-will be executed.
+            return letter;
+        }
 
-It is also possible to embed |if-else| statements inside other ``if`` or
-|if-else| statements in more complicated patterns.
+
+
+
 
 
