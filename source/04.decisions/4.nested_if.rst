@@ -143,7 +143,7 @@ In |if-else| statements, the sub-statements (the if-true and if-false clauses)
 are quite arbitrary statements. They can be more ``if`` or 
 |if-else| statements.  
 
-In method LetterGrade() above places an |if-else| statement as the ``else``
+In method LetterGrade() above, we place an |if-else| statement as the ``else``
 clause, and repeating this pattern, to repeatedly test for one more case,
 **stopping when the first true condition if reached**. 
 

@@ -5,11 +5,19 @@
 ``else-if`` Statements
 ======================
 
+``if-else`` statements allow us to construct two alternative paths. 
+A single condition determines which path will be followed. 
+We can build more complex conditionals using an else if clause. 
+These allow us to add additional conditions and code blocks, which 
+facilitate more complex branching.
+
+
 else-if Statements
 ---------------------
 
 Comparing with the ``if-else`` statement, the ``else if`` statements specify 
-a new condition if the first condition is False. 
+a new condition to be tested if the first condition is False. 
+
 The syntax for the ``else-if`` statement is::
 
     if (condition1)
@@ -30,26 +38,31 @@ default block when all the conditions are False.
 
 An example of else-if statement is::
 
-    int time = 22;
-    if (time < 10) 
-    {
-        Console.WriteLine("Good morning.");
-    } 
-    else if (time < 20) 
-    {
-        Console.WriteLine("Good day.");
-    } 
-    else 
-    {
-        Console.WriteLine("Good evening.");
-    }
-    // Outputs "Good evening" in this case. 
+    int x = 10;
+    int y = 20;
 
-In the example above, time (22) is greater than 10, 
-so the first condition is False. The next condition, in the else-if 
-statement, is also False, so we move on to the ``else`` statement since 
-condition1 and condition2 are both False - and print 
-to the screen "Good evening".
+    if (x > y)
+    {
+    Console.WriteLine("x is greater than y");
+    }
+    else if (x < y)
+    {
+    Console.WriteLine("x is less than y");
+    }
+    else
+    {
+    Console.WriteLine("x and y are equal");
+    }
+    
+
+In the example above, the logic is that the three conditions can exhaust 
+all possible alternatives. If the first condition is False, the next 
+condition, in the else-if statement, will be tested. If the 2nd condition 
+is also False, we then move on to the ``else`` statement, the **default** 
+case, since condition1 and condition2 are both False.
+
+Note that, however, as with a simple if statement, the else clause is optional.
+
 
 ``else-if`` Statements as Switch
 ---------------------------------
