@@ -1,14 +1,16 @@
 Lab 04
 ===============
 
-#. Create a dotnet console app project called Chapter04. 
+#. Create a dotnet console app project in your introcscs directory 
+   called **Chapter04**. 
 #. The namespace of this project is not important at this point of 
    time but let us call it *IntroCSCS*. 
 #. The class name of this project is *Chapter04*. 
-#. You will only use the Main() method to execute the code, 
-#. You will prepare methods in the same class to be called from the Main() method. 
-#. Use a Word document to paste your screenshots; number and annotate 
-   your answers. 
+#. When executing code, you will only use the Main() method. 
+#. You will prepare methods in the same class to be called from 
+   the Main() method. 
+#. Use a Word document to paste your screenshots; number the questions 
+   and annotate your answers, when appropriate, to show your understanding. 
 
 If you have problem creating the project, you need to catch up. Please 
 work with the TA of the class during the help sessions.
@@ -105,11 +107,14 @@ a. Consider::
        }
 
 
-
 Graduate Exercise
 ----------------------
 
-Write a method, Graduation, that prompts students for how
+- Prepare the code in VS Code.
+- Make sure the code runs (``dotnet run``). 
+- Screenshot the code and paste it in your Word document. 
+
+Write a method, Graduation(), that prompts students for how
 many credits they have. Print whether of not they have enough
 credits for graduation. (At M S&T, a minimum of 120 credit hours
 are required for graduation.)
@@ -176,36 +181,36 @@ that is correct for *some* inputs, but not all.
 
 .. index:: implication operator
 
-Implication Exercise
-~~~~~~~~~~~~~~~~~~~~~~~
+.. Implication Exercise
+.. ----------------------
 
-We have introduced C# Boolean operators for AND, OR, and NOT. 
-There are other Boolean operators important in logic, 
-that are not directly given as a C# operator.  
-One example is "implies", also expressed
-in a logical if-then statement:  If I am expecting rain, then I am carrying an
-umbrella.  Otherwise put:  "I am expecting rain" *implies* 
-"I am carrying an umbrella". The first part is a Boolean expression called the
-*hypothesis*, and the second part is called the *conclusion*.  In general, when
-A and B are Boolean expressions, "A implies B" is also a Boolean expression.  
+.. We have introduced C# Boolean operators for AND, OR, and NOT. 
+.. There are other Boolean operators important in logic, 
+.. that are not directly given as a C# operator.  
+.. One example is "implies", also expressed
+.. in a logical if-then statement:  If I am expecting rain, then I am carrying an
+.. umbrella.  Otherwise put:  "I am expecting rain" *implies* 
+.. "I am carrying an umbrella". The first part is a Boolean expression called the
+.. *hypothesis*, and the second part is called the *conclusion*.  In general, when
+.. A and B are Boolean expressions, "A implies B" is also a Boolean expression.  
 
-Just as the truth of a compound Boolean expression like "A and B" depends on the
-truth value of the two parts, so with *implies*:
-If you are using good logic, and you start with a true assertion, 
-you should only be able to conclude something else true, so it is true that 
-"true implies true".  If you start with garbage you can use that false statement
-in a logical argument and end up with something either false or true:
-"false implies false" and "false implies true" are both true. The only thing
-that should not work is to start with something true and conclude 
-something false.  If that were the case, logical arguments would be useless,
-so "true implies false" is false.  There is no C# operator for "implies", but
-you can check all four cases of Boolean values for A and B to see that 
-"A implies B" is true exactly when "not A or B" is true.  We can 
-express this in C# as ``!A || B``.  
+.. Just as the truth of a compound Boolean expression like "A and B" depends on the
+.. truth value of the two parts, so with *implies*:
+.. If you are using good logic, and you start with a true assertion, 
+.. you should only be able to conclude something else true, so it is true that 
+.. "true implies true".  If you start with garbage you can use that false statement
+.. in a logical argument and end up with something either false or true:
+.. "false implies false" and "false implies true" are both true. The only thing
+.. that should not work is to start with something true and conclude 
+.. something false.  If that were the case, logical arguments would be useless,
+.. so "true implies false" is false.  There is no C# operator for "implies", but
+.. you can check all four cases of Boolean values for A and B to see that 
+.. "A implies B" is true exactly when "not A or B" is true.  We can 
+.. express this in C# as ``!A || B``.  
 
-So here is a silly little exercise illustrating both implication and using
-the C# Boolean operators:  Ask the user whether "I am expecting rain" is true.
-(We have the UI function Agree.)  Then check with the user whether 
-"I am carrying an umbrella."  Then conclude and print out 
-whether the implication "If I am expecting rain, then I am carrying an
-umbrella." is true or not in this situation.
+.. So here is a silly little exercise illustrating both implication and using
+.. the C# Boolean operators:  Ask the user whether "I am expecting rain" is true.
+.. (We have the UI function Agree.)  Then check with the user whether 
+.. "I am carrying an umbrella."  Then conclude and print out 
+.. whether the implication "If I am expecting rain, then I am carrying an
+.. umbrella." is true or not in this situation.
