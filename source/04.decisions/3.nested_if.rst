@@ -1,5 +1,5 @@
 
-Nested conditionals
+Nested Conditionals
 =====================
 
 Nested ``if`` Statements
@@ -137,18 +137,19 @@ If we do this consistently with our indentation conventions so far::
 When working with else statements in nested conditionals, remember that 
 the else is paired with the last if that doesn’t have already have an else. 
 In the example above, the else statement in line 10 belongs to the if in line 5. 
-else and else if rules apply the same way within nested conditionals as in unnested ones.
+else and else if rules apply the same way within nested conditionals as in un-nested ones.
 
 In |if-else| statements, the sub-statements (the if-true and if-false clauses)
 are quite arbitrary statements. They can be more ``if`` or 
 |if-else| statements.  
 
-In method LetterGrade() you have seen that placing an |if-else| statement as the ``else``
+In method LetterGrade() above places an |if-else| statement as the ``else``
 clause, and repeating this pattern, to repeatedly test for one more case,
-stopping when the first true condition if reached.  
-To choose one case from multiple cases,
-each condition separates one case terminal case from all the remaining 
-untested cases.
+**stopping when the first true condition if reached**. 
+
+.. To choose one case 
+.. from multiple cases, each condition separates one case terminal 
+.. case from all the remaining untested cases.
 
 
      
