@@ -32,12 +32,12 @@ is true. A short example function using this would be::
       }
    }
 
-The new C# syntax for the operator ``&&``:
+The C# syntax for the logical operator ``&&`` is:
 
 	*condition1* ``&&`` *condition2*
 
-The compound condition is true if ``both`` of the component conditions
-are true. It is false if ``at least one`` of the conditions is false.
+The compound condition is ``true`` if ``both`` of the component conditions
+are true. It is ``false`` if ``at least one`` of the conditions is false.
 
 Suppose we want a C# condition that is true in the same situations 
 as the mathematical expression: low < val < high. Unfortunately the 
@@ -65,7 +65,7 @@ so a C# expression would be:
 
     val <= low || val >= high
     
-The new C# syntax for the operator ``||``:
+The C# syntax for the logical operator ``||`` is:
 
 	*condition1* ``||`` *condition2*
 
@@ -91,7 +91,7 @@ operator has higher precedence than
 A way to remember this strange *not* operator is to think of the use of ``!``
 in the not-equal operator: ``!=``   
 
-The new C# syntax for the operator ``!``:
+The C# syntax for the operator ``!``:
 
 	``!`` *condition* 
 
@@ -107,27 +107,22 @@ parentheses are also needed:
 
 	``if (!(`` *condition* ``)) {`` 
 	
-We now have a lot of operators!  Most of those in appendix :ref:`precedence`
-have now been considered. There 
-you can see that ``!`` has the high precedence of unary arithmetic operators.
+Note that ``!`` has the high precedence of unary arithmetic operators.
 The operators ``&&`` and ``||`` are almost at the bottom of the operators 
 considered in this book, just above the assignment operators, and below the
-relational operators, with ``&&`` above ``||``.  
-You are encourages to use parentheses to make sure.
+relational operators, with ``&&`` above ``||``. You are encourages to use 
+parentheses to make sure.
 	
-**Compound Overkill**:  Look back to the code converting a score to a letter grade
-in :ref:`Multiple-Tests`.
-The condition before assigning the B grade could have been::
+**Compound Overkill**:  Look back to the code converting a score to a letter 
+grade in the LetterGrade2 method, the condition before assigning the B 
+grade could have been::
 
     (score >= 80 && score < 90)
     
 That would have totally nailed the condition, but it is overly verbose in the
-``if`` .. ``else if`` ... code where it appeared:  
-Since you only get to consider a B as a grade if the grade was *not* already
+``if`` .. ``else if`` ... code where it appeared. Since you only get 
+to consider a B as a grade if the grade was *not* already
 set to A, the second part of the compound condition above is redundant.  
-
-There are a couple more wrinkles with compound Boolean expressions introduced 
-later in :ref:`short-circuit`.
 
 
 Compound test conditions
