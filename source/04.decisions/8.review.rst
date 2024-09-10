@@ -29,39 +29,49 @@ Chapter Review Questions
     
 #.  Add parentheses in ``2 < 3 || 4 < 5 && 4 < 3`` to get a different result. 
     
-#.  Suppose you have four possible distinct situations in your algorithm, 
-    each requiring a totally
-    different response in your code, 
-    and exactly one of the situations is sure to occur.
-    Have many times must you have ``if`` followed by
-    a condition?
+#.  What does the code below print?::
+      
+      int a = 7;
 
+      if (a % 2 == 1)
+      {
+         Console.WriteLine("Launch");
+      }
+      else if (a > 5)
+      {
+         Console.WriteLine("Code");
+      }
+      else
+      {
+         Console.WriteLine("LaunchCode");
+      }
 
-    
+#.  What does the following code print when x has been set to 2000?
+
+      if (x < 0)
+      {
+         Console.WriteLine("x is negative");
+      }
+      else if (x == 0)
+      {
+         Console.WriteLine("x is zero");
+      }
+      else
+      {
+         Console.WriteLine("x is positive");
+      }
+
 #.  Assume  ``IsBig(x)`` returns a Boolean value.
     Remove the redundant part of this statement::
     
         if (IsBig(x) == true)
            x = 3;
                         
-#.  Write an equivalent (and much shorter!) statement with no ``if``:: 
-
-        if (x > 7)  
-           return true;
-        else
-           return false; 
-           
-#.  Write an equivalent (and much shorter!) statement with no ``if``:: 
-
-        if (x > 7)  
-           isSmall = false;
-        else
-           isSmall = true; 
            
 #.  Assume ``x`` and ``y`` are local ``int`` variables.  
     Code fragments are separated by a blank line below.  
     Pairs of the fragments are logically equivalent, but not necessarily with
-    a directly adjacent fragment. Match the pairs.  Be sure you understand
+    a directly adjacent fragment. Match the pairs. Be sure you understand
     when different pairs would behave differently.  Caution: 
     there is some pretty awful code here, that we would *hope* you would never
     write, but you might need to correct/read!  Think of pitfalls.
@@ -169,10 +179,10 @@ Chapter Review Questions
         if (x > 5)
            y = 1;
 
-#.  When reading a verbal description of a problem to solve, 
-    what are some words or phrases that suggest that some version of 
-    an ``if`` statement will be useful?
 
+.. #.  When reading a verbal description of a problem to solve, 
+..     what are some words or phrases that suggest that some version of 
+..     an ``if`` statement will be useful?
 
         
 .. #.  Correct the last two entries in the first problem, supposing the user
@@ -186,3 +196,25 @@ Chapter Review Questions
 ..     possibly nothing will happen that needs a response at all.
 ..     Have many times must you have ``if`` followed by
 ..     a condition?        
+
+
+.. Suppose you have four possible distinct situations in your algorithm, 
+..     each requiring a totally
+..     different response in your code, 
+..     and exactly one of the situations is sure to occur.
+..     Have many times must you have ``if`` followed by
+..     a condition?
+
+.. #.  Write an equivalent (and much shorter!) statement with no ``if``:: 
+
+..         if (x > 7)  
+..            return true;
+..         else
+..            return false; 
+           
+.. #.  Write an equivalent (and much shorter!) statement with no ``if``:: 
+
+..         if (x > 7)  
+..            isSmall = false;
+..         else
+..            isSmall = true; 
