@@ -2,21 +2,28 @@
 Nested Conditionals
 =====================
 
+The problem-solving scenario that you want to model may require 
+complex branching behavior by combining conditionals and, 
+in particular, by nesting conditionals. Namely, we can create more 
+complex branching behavior by nesting conditional blocks. 
+When more than one condition needs to be true and one of the 
+condition is the sub-condition of parent condition, nested if can be used. 
+In other words, when we want to further test certain condition 
+when a condition tested true. 
+
 Nested ``if`` Statements
 -------------------------------------------
 
 The syntax for a nested if statement is as follows:: 
 
-   if( boolean_expression 1) {
+   if( boolean_expression 1) 
+   {
       /* Executes when the boolean expression 1 is true */
-      if(boolean_expression 2) {
+      if(boolean_expression 2) 
+      {
          /* Executes when the boolean expression 2 is true */
       }
    }
-
-The problem-solving scenario that you want to model may require 
-complex branching behavior by combining conditionals and, 
-in particular, by nesting conditionals.
 
 As an example, consider the following code where two separate but 
 related ideas are tested using two independent if statements::
@@ -32,7 +39,6 @@ related ideas are tested using two independent if statements::
    {
       Console.WriteLine("EVEN");
    }
-
 
 We find that the output is POSITIVE, even though 7 is odd and so 
 nothing should be printed in the 2nd if statement. This code 
@@ -58,14 +64,10 @@ Notice that when we put one conditional inside another, the body of the
 nested conditional is indented by two tabs rather than one. This convention 
 provides an easy, visual way to determine which code is part of which conditional.
 
-
-Nested if...else Statement
----------------------------
-
 .. note::  
    Note that nested if statements can also contain an else statement. 
    When working with nested statements, the ``else clause`` belongs to 
-   the last unpaired if. You can only use an else when you have an if:
+   the last unpaired if. You can only use an else when you have an if.
 
 .. code-block:: csharp
    :emphasize-lines: 10-13
@@ -85,24 +87,21 @@ Nested if...else Statement
       }
    }
 
+Nested ``if-else`` Statements
+------------------------------
 
 Often you want to distinguish between more than two distinct cases,
 but conditions only have two possible results, ``true`` or ``false``,
 so the only direct choice is between two options. If there are 
 more than two choices, a single test may only reduce the 
 possibilities, but further tests can reduce the possibilities 
-further and further. Since most any kind
-of statement can be placed in the sub-statements in 
-an |if-else| statement, one
-choice is a further ``if`` or |if-else| statement. 
+further and further until the possibilities are exhausted. Since almost 
+any kind of statement can be placed in the sub-statements in 
+an |if-else| statement, one choice is a further ``if`` or |if-else| statement. 
 
-For instance, consider a
-method to convert a numerical grade to a letter grade, 'A', 'B',
-'C', 'D' or 'F', where the cutoffs for 'A', 'B', 'C', and 'D' are
-90, 80, 70, and 60 respectively. One way to write the method
-would be to test for one grade at a time, and resolve all the
-remaining possibilities inside the next ``else`` clause. 
-
+For instance, consider the LetterGrade() method that you have seen earlier. 
+One way to write the method would be to test for one grade at a time, and 
+resolve all the remaining possibilities inside the next ``else`` clause. 
 
 If we do this consistently with our indentation conventions so far::
 
@@ -140,12 +139,12 @@ In the example above, the else statement in line 10 belongs to the if in line 5.
 else and else if rules apply the same way within nested conditionals as in un-nested ones.
 
 In |if-else| statements, the sub-statements (the if-true and if-false clauses)
-are quite arbitrary statements. They can be more ``if`` or 
-|if-else| statements.  
+are quite arbitrary statements. There can be more ``if`` or 
+|if-else| sub-statements.  
 
 In method LetterGrade() above, we place an |if-else| statement as the ``else``
 clause, and repeating this pattern, to repeatedly test for one more case,
-**stopping when the first true condition if reached**. 
+stopping when the **first true condition if reached**. 
 
 .. To choose one case 
 .. from multiple cases, each condition separates one case terminal 

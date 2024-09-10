@@ -8,39 +8,41 @@
 Compound Boolean Expressions
 ===============================
 
+Logical Operators
+--------------------
+
 To be eligible to graduate from M S&T, you must
 have 120 credits *and* a GPA of at least 2.0. C# does not use the
-word *and*.  Instead it uses ``&&`` (inherited from the C language).  
-Then the requirement 
-translates directly into C# as a *compound condition*::
+word *and*. Instead it uses ``&&`` (inherited from the C language).  
+Then, the requirement translates directly into C# as a *compound condition* 
+using the logical operator ``&&``::
 
-	credits >= 120 && GPA >=2.0      
+	credits >= 120 && GPA >=2.0 
 
-This is true if both ``credits >= 120`` is true and
-``GPA >= 2.0`` is
-true. A short example function using this would be::
+This is true if both ``credits >= 120`` is true and ``GPA >= 2.0`` 
+is true. A short example function using this would be::
 
-    static void checkGraduation(int credits, double GPA) 
-    {
-        if (credits >= 120 && GPA >=2.0) { 
-            Console.WriteLine("You are eligible to graduate!"); 
-        }
-        else { 
-            Console.WriteLine("You are not eligible to graduate."); 
-        }
-    }
+   static void checkGraduation(int credits, double GPA) 
+   {
+      if (credits >= 120 && GPA >=2.0) { 
+         Console.WriteLine("You are eligible to graduate!"); 
+      }
+      else { 
+         Console.WriteLine("You are not eligible to graduate."); 
+      }
+   }
 
-The new C# syntax for the operator ``&&``:
+The new C# syntax for the operator ``&&``:::
 
 	*condition1* ``&&`` *condition2*
 
-The compound condition is true if both of the component conditions
-are true. It is false if at least one of the conditions is false.
+The compound condition is true if ``both`` of the component conditions
+are true. It is false if ``at least one`` of the conditions is false.
 
-Suppose we want a C# condition that is true in the same situations as the mathematical
-expression: low < val < high.  Unfortunately the math is not a
-C# expression.  The C# operator ``<`` is binary.  In C# the statement above is
-equivalent to 
+Suppose we want a C# condition that is true in the same situations 
+as the mathematical expression: low < val < high. Unfortunately the 
+math is not a C# expression. The C# operator ``<`` is binary. 
+In C#, the statement above is equivalent to 
 
     (low < val) < high
 
@@ -128,7 +130,10 @@ There are a couple more wrinkles with compound Boolean expressions introduced
 later in :ref:`short-circuit`.
 
 
-Consider a different situation:  Steven Covey suggested that people classify 
+Compound test conditions
+--------------------------
+
+Consider a different situation: Steven Covey suggested that people classify 
 possible actions on two axes: urgent vs. not urgent and important vs. not
 important, leading to four possible combinations.  
 We could ask a person to classify an activity this way, and them give a
@@ -160,12 +165,9 @@ chain of compound conditions checking for one at a time::
    }
    
 
-
-Compound test conditions
---------------------------
-
-are not necessary if we keep track of partial answers,
-nesting ``if`` statements, thinking about the two aspects separately::
+Compound test conditions are not necessary if we keep track of partial 
+answers by nesting ``if`` statements. Consider the two aspects separately 
+using an if-else statement with nested if-else sub-statements::
 
    if (important) {
       if (urgent) {
@@ -187,9 +189,8 @@ nesting ``if`` statements, thinking about the two aspects separately::
 The outer |if-else| determines whether the action is important, so the inner
 conditions only need to deal with urgency.  Also note that in executing
 this version there are never more than two short conditions evaluated.  
-In the first version,
-you may have to go through all three conditions.  Both approaches work.  
-Which is clearer to you?
+In the first version, you may have to go through all three conditions. 
+Both approaches work. Which is clearer to you?
 
 
 

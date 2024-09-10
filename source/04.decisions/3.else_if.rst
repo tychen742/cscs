@@ -82,7 +82,10 @@ neither of the conditions is met, meaning the weight is not greater than 50.
 ---------------------------------
 
 
-Consider the following code, which repetitively nests if statements in 
+Consider the following code, LetterGrade() method, for converting a 
+numerical grade to a letter grade, 'A', 'B', 'C', 'D' or 'F', where 
+the cutoffs for 'A', 'B', 'C', and 'D' are 90, 80, 70, and 60 
+respectively. We repetitively nests the if statements in 
 the else clauses. The code structure is legal but semantically unsound if 
 we consider the grade letters to be a flat structure:
 
