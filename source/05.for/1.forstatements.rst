@@ -3,11 +3,12 @@
 For-Statement Syntax
 ============================ 
 
-We now introduce the last kind of loop syntax: ``for`` loops.
+The ``for`` loops are one of the three basic computer programming 
+constructs (sequence, selection, iteration).
 
-A ``for`` loop is an example of *syntactic sugar*:  syntax that can simplify
-things for the programmer, but can be immediately translated into an
-equivalent syntax by the compiler.  For example::
+A ``for`` loop is an example of *syntactic sugar*: syntax that can 
+simplify things for the programmer, but can be immediately translated 
+into an equivalent syntax by the compiler. For example::
 
     for (i = 2; i <= n; i++) {
        sum = sum + i;

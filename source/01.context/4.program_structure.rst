@@ -137,7 +137,25 @@ and you see the template code as:
    }
 
 Some important concepts that we need to learn from this template code example 
-here so we have better ideas about the basic structure of C#.
+here so we have better ideas about the basic structure of C# programs. 
+
+.. figure:: ../images/csharp_program_structure.png
+   :width: 50
+
+#. ``using System;``:  
+
+   Starting .NET 6, ``using System`` is implicit as defined in the ``.csproj`` file so 
+   it is not shown in the Program.cs file. We should know that, ``System`` is a namespace 
+   that contains basic defined value and reference types. The ``using`` directive, 
+   allows you to use the types defined in a namespace without specifying the fully 
+   qualified namespace of that type. For example, ``Console`` is a class inside the
+   ``System`` namespace and we use the its ``WriteLine`` method to print to the console. 
+   The following example would allow the use of the ``Text`` types such as the 
+   System.Text.Ascii class and the nested namespace System.Text.Unicode:
+
+   .. code-block:: 
+
+      using System.Text;
 
 #. ``namespace``: 
    The ``namespace`` keyword is used to declare a scope to organize types (such as classes). 
@@ -169,24 +187,6 @@ here so we have better ideas about the basic structure of C#.
    .NET contains classes classes that define commonly-used value and reference data types. 
    System engineers use namespace the same way to organize the functionalities in 
    applications. [#]_
-   
-
-
-#. ``using System;``:  
-
-   Starting .NET 6, ``using System`` is implicit as defined in the ``.csproj`` file so 
-   it is not shown in the Program.cs file. We should know that, ``System`` is a namespace 
-   that contains basic defined value and reference types. The ``using`` directive, 
-   allows you to use the types defined in a namespace without specifying the fully 
-   qualified namespace of that type. For example, ``Console`` is a class inside the
-   ``System`` namespace and we use the its ``WriteLine`` method to print to the console. 
-   The following example would allow the use of the ``Text`` types such as the 
-   System.Text.Ascii class and the nested namespace System.Text.Unicode:
-
-   .. code-block:: 
-
-      using System.Text;
-
    
 #. ``class``:
    A class is a blueprint for creating objects, which may include the structure, 
