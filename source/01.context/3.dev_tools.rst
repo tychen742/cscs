@@ -39,9 +39,9 @@ operating system by issuing text commands in the terminal rather than using the 
 - Windows: Terminal (PowerShell, Command Prompt, Bash)
  
 When we open a terminal application, a default *shell* program is running as a command line interpreter program 
-that takes commands from users for execution in the operating system. The terminal applications can run 
+that takes commands from users for execution. The terminal applications can run 
 different shells and they work similarly. For Windows, the default shell is PowerShell; for macOS it is 
-the Z shell (Zsh); and Linux OS distributions, it is usually the Bourne Again Shell (Bash). 
+the Z shell (Zsh); and for Linux OS distributions, it is usually the Bourne Again Shell (Bash). 
 
 When you open the CLI application, you use  the keyboard (without a mouse) to issue text commands. In the terminal, 
 you see a command prompt (``user_name@computer_name:~$`` for macOS/Linux or ``C:\Users\user_name>`` 
@@ -59,7 +59,7 @@ functionalities. For example, oen of the first the default location after loggin
 as /home/USER_NAME.
 
    .. figure:: ../images/linux_directory_tree.gif
-      :scale: 70%
+      :scale: 80%
 
       A hypothetical Linux directory tree
 
@@ -82,9 +82,23 @@ Some special pathname characters are commonly used for specifying paths:
 * ``..`` is the pathname of the directory one-level up of the current directory
 * ``.`` means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.
 
-As an example, you may open your terminal app, create a directory called ``test`` in your home 
-directory, then change into directory test, create a empty file called test.txt, and then change 
-your location back to the home directory. The whole process should look similar to this in Windows:
+
+Exercise: Creating Directories and Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As an exercise, please:
+#. Terminal application: Open your terminal app (Windows PowerShell or macOS Terminal).
+#. Create directories: 
+
+   #. Create a directory called ``workspace`` in your home directory (``mkdir workspace``), then change directory into the workspace directory (``cd workspace``)
+   #. Create a directory called ``tests`` in the workspace directory ((``mkdir tests``)), then change directory into the tests directory (``cd tests``). 
+
+#. Create a file: Create an empty file called test.txt (``new-item test.txt`` for Windows and ``touch test.txt`` for macOS).
+#. Make sure the files is created: Use the list storage command (``ls`` then Enter) to list the files to make sure the file test.txt is created.
+#. Change directory to your user home directory: Change your location back to the user home directory (``cd ../..``). 
+#. Exit out of terminal app: ``exit`` then Enter to exit. 
+
+The whole process should look similar to this in Windows:
 
 .. code-block:: bash
 
@@ -101,11 +115,17 @@ your location back to the home directory. The whole process should look similar 
 If you use macOS, the process should look similar enough:
 
 .. figure:: ../images/shell_create_workspace_tests.jpg
-    :scale: 35%
+   :scale: 35%
 
-    Creating a workspace directory, tests subdirectory, and a test file in macOS.
+   Creating a workspace directory, tests subdirectory, and a test file in macOS.
 
-  
+Note that:
+- To rename a file or a directory, use the ``mv`` ("move") command. For example: 
+``mv ist_1551 introcscs`` will rename a folder called ist_1551 to introcscs.
+- To remove/delete a file, use ``rm *file_name*``. 
+- To remove an empty directory, use ``rmdir *directory_name*``. 
+- To remove a directory and all its content, use ``rm -rf *directory_name*``.  
+
 
 Integrated Development Environment (IDE)
 -----------------------------------------

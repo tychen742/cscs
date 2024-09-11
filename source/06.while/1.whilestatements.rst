@@ -7,6 +7,38 @@
 While-Statements
 ============================ 
 
+The C# for loop statement syntax is:
+
+| ``for (`` *initialization* ``;`` *condition* ; *update* ``)`` {
+|    statement(s)
+| ``}``
+   
+translates to
+
+| *initialization* ``;`` 
+| ``while (`` *condition* ``)`` {
+|    statement(s)
+|    *update* ``;``
+| ``}``
+
+
+A ``for`` loop is an example of *syntactic sugar*: syntax that can 
+simplify things for the programmer, but can be immediately translated 
+into an equivalent syntax by the compiler. For example::
+
+    for (i = 2; i <= n; i++) {
+       sum = sum + i;
+    }
+   
+is exactly equivalent to this code similar to part of 
+:ref:`SumToN <SumToN>`::
+
+    i= 2;
+    while (i <= n) {
+       sum = sum + i;
+       i++;
+    }
+
 We have seen that the sequential flow of a program 
 can be altered with function calls
 and decisions.  The last important pattern is *repetition* or *loops*.

@@ -3,84 +3,53 @@
 For-Statement Syntax
 ============================ 
 
-The ``for`` loops are one of the three basic computer programming 
-constructs (sequence, selection, iteration).
+Iteration/looping is one of the three basic computer programming 
+constructs (sequence, selection, iteration). Iteration means looping through a block of code. 
+The number of loops is controlled by a counter, so you need to know how many times 
+you want to run the code block to use the for loops.  
 
-A ``for`` loop is an example of *syntactic sugar*: syntax that can 
-simplify things for the programmer, but can be immediately translated 
-into an equivalent syntax by the compiler. For example::
+The ``for`` statement executes a statement or a block of statements 
+while a specified Boolean expression evaluates to true, and such evaluation involves 
+comparing the local loop variable to a counter that increments over every loop. 
 
-    for (i = 2; i <= n; i++) {
-       sum = sum + i;
-    }
-   
-is exactly equivalent to this code similar to part of 
-:ref:`SumToN <SumToN>`::
 
-    i= 2;
-    while (i <= n) {
-       sum = sum + i;
-       i++;
-    }
+The C# for loop statement syntax is:
 
-More generally:
-
-| ``for (`` *initialization* ``;`` *condition* ; *update* ``)`` {
+| ``for (`` *initializer* ``;`` *condition* ; *iterator* ``)`` {
 |    statement(s)
 | ``}``
-   
-translates to
 
-| *initialization* ``;`` 
-| ``while (`` *condition* ``)`` {
-|    statement(s)
-|    *update* ``;``
-| ``}``
+Let us practice in ``csharprepl``::
 
-In the example above, *initialization* is ``i=2``, *condition* is ``i <= n``,
-and *update* is ``i++``.
+   > for (int i = 1; i <= 5; i++) 
+   {                                                                                                                     
+         Console.WriteLine(i);                                                                                             
+   }                                                                                                                     
+   1
+   2
+   3
+   4
+   5
 
-Why bother with this rearrangement?  It is a matter of taste,
-but the heading::
 
-    for (i = 2; i <= n; i++) {
-    
-puts all the information about the variable controlling the loop
-into one place at the top, which may help quickly visualize the overall
-sequence in the loop.  If you use this format, and get used to the
-three parts you are less likely to forget the ``i++`` 
-than when it comes tacked on to the end of a while loop body, after all 
-the specific things you were trying to accomplish.  
+You can see that the ``for`` loop has four parts, a three-section **header** and a body:
 
-Although the ``for`` loop syntax is very general, 
-a strongly recommended convention
-is to only use a ``for`` statement when all the control of variables 
-determining loop repetition are in the heading.  
+- **Initializer**: This section is a **variable declaration statement** that 
+  declares a ``local loop variable``, or the counter, and initialize it with an initial value. 
+- **Condition**: The condition section is a boolean expression that determines 
+  if the next iteration in the loop should be executed. If it evaluates to true, 
+  the next iteration is executed; otherwise, the loop is exited. 
+- **Iterator**: The iterator section that defines what happens to the counter after each 
+  execution of the body of the loop. A common behavior is reassigning 
+  (increment or decrement) the value of the counter. 
+- The body of the loop, which must be a statement or a block of statements.
 
-For example if a ``for``
-loop uses ``i`` in the heading, ``i`` can have a value assigned or 
-reassigned in the heading, but should *not* have its value modified
-anywhere inside the loop body.  
-If you want more complicated behavior, use a ``while`` loop.
+In the example above, *initializer* is ``i = 1``, *condition* is ``i <= n``, 
+and *iterator* is ``i++`` (see :ref:`arithmetic operators <arithmetic-operators>`).
 
-A ``for`` loop can also include variable declaration in the initialization,
-as in::
-
-    for (int i = 2; i <= n; i++) {
-       sum = sum + i;
-    }
-   
-This is close, but not quite equivalent to::
-
-    int i = 2;
-    while (i <= n) {
-       sum = sum + i;
-       i++;
-    }
-
-Variables declared in a ``for`` loop heading are local to the 
-``for`` loop heading and body.  The variable ``i`` declared before
-the ``while`` statement above is still defined after the ``while`` loop.
+Note that the initializer section is executed **only once**, before entering the loop. 
+Also, the declared variable is local to the ``for`` loop heading and 
+the loop body and can not be accessed from outside the for statement. 
 
 The two semicolons are always needed in the ``for`` heading, but any of the
 parts they normally separate may be omitted.  
@@ -90,31 +59,52 @@ terminate due to a ``return`` or :ref:`break statement <break-continue>` in the 
 
 .. index:: execution sequence; for loop
 
-Note the different parts of the heading used at different times (consistent 
-with the positions in the corresponding while loop):
+For the execution sequence of for loops, note that the different parts of 
+the heading are used at different times:
 
 * When starting the whole statement, the initialization is done, and then
   the test.
-* After finishing the body and returning to the heading, the update operations
-  are done, followed by the test. 
+* After finishing the body and returning to the heading, the iteration operations
+  are done, followed by the test.
+
+Note that the arithmetic unary operators (decrement operator ``--`` and 
+increment operator ``++``) are often used in for loops. The common usage is to use them 
+as prefix operators. The result is the value of the local loop variable before the operation. 
+For example::
+
+   > int num = 3;
+
+   > num 
+   3
+   > num++       // with postfix operators, the result is the value before the operation
+   3
+   > num         // i is evaluated again. Now it shows 4. 
+   4
+   > 
+
+This behavior keeps the counter value consistent with the initialization for the 
+loop's first iteration. 
+
+``for`` loops are usually favored for iteration because the   
+all the information about the local loop variable are available in one place at the top, 
+which helps quickly visualize the overall sequence in the loop. 
+
 
 **Other variations**
 
-As in a regular local variable declaration, 
-there may be several variables of the
-same type initialized at the beginning of a ``for`` loop heading, 
-separated by commas.  Also, at the end of the ``for`` loop heading, the
-update portion may include more than one expression, separated by commas.  
+The declaration of a for loop header is flexible. There may be several variables of the
+same type initialized, separated by commas. Also, at the end of the ``for`` loop heading, 
+the iteration portion may include more than one expression, also separated by commas.  
 For example::
 
       for (int i = 0, j = 10; i < j; i = i+2, j++) {
          Console.WriteLine("{0} {1}", i, j);
       }
 
-Guess what this does, and then paste it into csharp to check.
+Guess what this does, and then paste it into csharprepl to check.
 
 The comma separated lists in a ``for`` statement heading 
-are mentioned here for completeness.  Later we will find a situation
+are mentioned here for completeness. Later we will find a situation
 where this is actually useful.
 
 .. index::
@@ -236,3 +226,27 @@ skips the rest of the *body* of the innermost current loop, *this time* through 
 In the simplest situations a ``continue`` statement just avoids an extra ``else`` clause. 
 It can considerable shorten code if the test is inside of complicated, deeply nested 
 ``if`` statements.
+
+
+
+In :ref:`IsDigits <IsDigits>` we use the underlying int Unicode value
+of the characters in comparisons.  
+When printing, you cannot see this code directly,
+since the ``char`` type prints as *characters*!
+To see the underlying code value for a character, ch,
+it can be cast to an int:  ``(int)ch``
+
+We can easily write a loop to print the unicode value of each character in a
+string, ``s``.  We do not need indices here, so a ``foreach`` loop is
+appropriate::
+
+   foreach (char ch in s) {
+       Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+   }
+   
+Try this in csharp.
+
+We will have many more examples after we introduce more kinds of sequences.
+   
+
+

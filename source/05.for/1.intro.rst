@@ -5,7 +5,7 @@ Iteration
 Iteration, or looping, one of the three basic constructs in computer programming, deals 
 repetition. The C# language reference states that iteration statements include 
 ``for``, ``foreach``, ``do``, and ``while`` and that the iteration statements 
-"repeatedly execute a statement or a block of statements": [#iter]_
+"repeatedly execute a statement or a block of statements": [#iteration]_
 
 - The ``for`` statement executes its body while a specified Boolean expression 
   evaluates to true. 
@@ -14,9 +14,10 @@ repetition. The C# language reference states that iteration statements include
 - The ``do`` statement conditionally executes its body one or more times. 
 - The ``while`` statement conditionally executes its body zero or more times.
 
-While performing code repetition, iteration can be either **count**-controlled or 
-**condition**-controlled. When you know exactly how many times you are going to 
-loop through a block of code, you use the ``for`` loop, otherwise, a ``while`` loop is used.
+The basic purpose of iteration is code repetition. While performing code repetition, 
+iteration can be either **count**-controlled or **condition**-controlled. 
+When you know exactly how many times you are going to loop through a 
+block of code, you use the ``for`` loop, otherwise, a ``while`` loop is used.
 
 ``break`` and ``continue``, the two flow control concepts in iteration, give us 
 some control over the iteration. At any point within the body of an iteration statement,
@@ -24,7 +25,6 @@ some control over the iteration. At any point within the body of an iteration st
 - with the ``break`` statement, you can break out of the loop. 
 - with the ``continue`` statement, you can step to the next iteration in the loop.
 
-The basic purpose of iteration if code repetition. 
 
 
 
@@ -40,5 +40,5 @@ The basic purpose of iteration if code repetition.
 
 .. rubric:: Footnotes
 
-.. [#iter] `Iteration statements - for, foreach, do, and while<https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`_
+.. [#iteration] See: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`_
 
