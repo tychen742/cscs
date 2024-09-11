@@ -9,10 +9,11 @@ Iteration: ``for`` Loops
 .. toctree::
    :maxdepth: 2
    
-   1.forstatements
+   0501.intro
+   0502.forstatements
+   0503.foreachintro
+   0504.lab
+   0505.review
    2.forexamples
-   3.foreachintro
    4.foreachexamples
-   5.lab
-   6.review_for
  

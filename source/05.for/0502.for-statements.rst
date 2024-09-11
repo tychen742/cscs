@@ -103,9 +103,9 @@ For example::
 
 Guess what this does, and then paste it into csharprepl to check.
 
-The comma separated lists in a ``for`` statement heading 
-are mentioned here for completeness. Later we will find a situation
-where this is actually useful.
+.. The comma separated lists in a ``for`` statement heading 
+.. are mentioned here for completeness. Later we will find a situation
+.. where this is actually useful.
 
 .. index::
    statement; break
@@ -120,41 +120,43 @@ Break and Continue
 
 This section concerns special *break* and *continue* statements 
 that can *only* occur inside a loop (any kind:  
-``while``, ``for`` or ``foreach``).  
-The syntax is convenient in various circumstances, but not necessary.  You are free
-to use it, but for this course it is an *optional extra*:
+``while``, ``for`` or ``foreach``).
 
 You can already stop a loop in the middle with an ``if`` statement 
 that leads to a choice with a ``return`` statement.
-Of course that forces you to completely leave the current function.  If you only want to
+Of course that forces you to completely leave the current function. If you only want to
 break out of the *innermost current loop*, but *not* out of the whole function, use
 a break statement:
 
   ``break;`` 
   
-in place of return.  Execution continues after the end of the whole innermost
+in place of return. Execution continues after the end of the whole innermost
 currently running loop statement.  
 The ``break`` and ``continue`` statements only 
 make practical sense inside of an ``if`` statement that is inside the loop.
 
-Examples, assuming  ``target`` already has a string value and ``a`` is an array of
+Examples, assuming ``target`` already has a string value and ``a`` is an array of
 strings::
 
     bool found = false;
-    for (int i = 0; i < a.Length; i++) {
+    
+    for (int i = 0; i < a.Length; i++) 
+    {
        if (a[i] == target) {
           found = true;
           break;
        }
     }
-    if (found) {
+    
+    if (found) 
+    {
        Console.WriteLine("Target found at index " + i);
     } else {
        Console.WriteLine("Target not found");
     } 
 
 When an element is reached that matches ``target``, 
-execution goes on *past the loop* with ``if (found)`` ....
+execution goes on *past the loop* with ``if (found)``.
 
 An alternate implementation with a compound condition in the heading and no ``break`` is::
 
