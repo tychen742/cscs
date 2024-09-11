@@ -6,6 +6,22 @@
 
 .. index:: statement; foreach
    foreach; syntax 
+
+
+The ``foreach`` loop is used exclusively to loop through elements in an array 
+(or other data sets). 
+
+Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
+through a string using a ``foreach`` statement. Here we use the underlying int Unicode value 
+of the characters so we can see each the ``char`` type characters easily. for that we are  
+casting each ``char`` to an int:  ``(int)ch``::
+
+   string str = "ABCabc";
+   foreach (char ch in str) {
+       Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+   }
+   
+Try this in csharprepl.
    
 These sections on ``foreach`` loops and the later :ref:`For-Loops`
 introduce new looping statements. 

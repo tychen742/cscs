@@ -161,11 +161,13 @@ execution goes on *past the loop* with ``if (found)``.
 An alternate implementation with a compound condition in the heading and no ``break`` is::
 
     bool found = false;
+    
     for (int i = 0; i < a.Length && !found; i++) {
        if (a[i] == target) {
           found = true;
        }
     }
+    
     if (found) {
        Console.WriteLine("Target found at index " + i);
     } else {
@@ -177,21 +179,23 @@ the ``break`` would be more clearly useful.
 Here is a variant if you do not care about the specific location of the target::
 
     bool found = false;
+    
     foreach (string s in a) {
        if (s == target) {
           found = true;
           break;
        }
     }
+
     if (found) {
        Console.WriteLine("Target found");
     } else {
        Console.WriteLine("Target not found");
     } 
 
-Using ``break`` statements is a matter of taste.  There is some advantage in reading
-and following a loop that has only one exit criteria, 
-which is easily visible in the heading.  On the other hand, in many situations,
+Using ``break`` statements is a matter of taste. There is some advantage in reading
+and following a loop that has only one exit criteria, which is easily visible 
+in the heading. On the other hand, in many situations,
 using a break statement makes the code much less verbose, and hence easier to follow.
 If you *are* reading through the loop, it may be clearer to have an immediate action
 where it is certain that the loop should terminate. 
@@ -199,56 +203,71 @@ where it is certain that the loop should terminate.
 All the modifiers about *innermost* loop are important 
 in a situation like the following::
 
-    for (....) {
-       for (....) {
-          ...
-          if (...) {
-            ...
-            break;
-          }
-          ...
-       }
-    } 
+   for (....) {
+      for (....) {
+         ...
+         if (...) {
+         ...
+         break;
+         }
+         ...
+      }
+   } 
 
-The break statement is in the inner loop.  If it is reached, the inner loop ends,
-but the inner loop is just a single statement inside the outer loop, 
-and the outer loop continues.  
+The break statement is in the inner loop. If it is reached, the inner loop ends,
+but the **inner loop** is just a **single statement** inside the outer loop, 
+and **the outer loop continues**.  
 If the outer loop continuation condition remains true,
 the inner loop will be executed again, 
-and the break may or may not be reached that time, so the inner loop may or may
-not terminate normally....
+and the break may or may not be reached that time. As an example::
+
+  for (int i = 0; i <= 3; i++)
+  {
+      for (int j = 0; j <= 3; j++)
+      {
+
+         if (i == 2)
+         {
+            break;
+         }
+
+         Console.WriteLine("{0} -- {1}", i, j);
+      }
+   }
+
+Can you determine the output of the preceding code? Try it in ``csharprepl`` or a test project 
+in your tests folder. 
+
+
 
 For completeness we mention the much less used ``continue`` statement:
 
   ``continue;``  
 
 It does not break out of the whole loop: 
-It just 
-skips the rest of the *body* of the innermost current loop, *this time* through the loop.  
-In the simplest situations a ``continue`` statement just avoids an extra ``else`` clause. 
+It just skips the rest of the *body* of the innermost current loop, *this time* through the loop.  
+In the simplest situations, a ``continue`` statement just avoids an extra ``else`` clause. 
 It can considerable shorten code if the test is inside of complicated, deeply nested 
-``if`` statements.
+``if`` statements. As an example::
 
+   for (int i = 0; i <= 3; i++)
+   {
+      for (int j = 0; j <= 3; j++)
+      {
+         if (i == 2)
+         {
+              continue;
+         }
 
-
-In :ref:`IsDigits <IsDigits>` we use the underlying int Unicode value
-of the characters in comparisons.  
-When printing, you cannot see this code directly,
-since the ``char`` type prints as *characters*!
-To see the underlying code value for a character, ch,
-it can be cast to an int:  ``(int)ch``
-
-We can easily write a loop to print the unicode value of each character in a
-string, ``s``.  We do not need indices here, so a ``foreach`` loop is
-appropriate::
-
-   foreach (char ch in s) {
-       Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+         Console.WriteLine("{0} -- {1}", i, j);
+      }
    }
-   
-Try this in csharp.
 
-We will have many more examples after we introduce more kinds of sequences.
-   
+Can you determine the output of the preceding code? Try it in ``csharprepl`` or a test project 
+in your tests folder. 
+
+
+
+
 
 

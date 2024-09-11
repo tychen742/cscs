@@ -7,6 +7,11 @@
 While-Statements
 ============================ 
 
+
+Variables declared in a ``for``    The variable ``i`` declared before
+the ``while`` statement above is still defined after the ``while`` loop.
+
+
 The C# for loop statement syntax is:
 
 | ``for (`` *initialization* ``;`` *condition* ; *update* ``)`` {

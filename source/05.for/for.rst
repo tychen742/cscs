@@ -10,8 +10,8 @@ Iteration: ``for`` Loops
    :maxdepth: 2
    
    0501.intro
-   0502.forstatements
-   0503.foreachintro
+   0502.for-statements
+   0503.foreach
    0504.lab
    0505.review
    2.forexamples
