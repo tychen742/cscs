@@ -3,6 +3,7 @@ Lab 04
 
 #. Create a dotnet console app project in your introcscs directory 
    called **Chapter04**. 
+#. Use the file Program.cs to code.    
 #. Prepare your code in VS Code. 
 #. The namespace of this project is not important at this point of 
    time but let us call it *IntroCSCS*. 
@@ -81,8 +82,9 @@ Boolean Expressions
 
 Think of two different inputs you could give that would make the
 execution of the code fragment proceed differently. What would happen in
-each case? (Assume we have access to the class UIF. Google if you are 
-not aware of what v.Length means.) 
+each case? (Assume we have access to the class UIF that prints the prompt 
+line, intake the value input, and turn the input value into proper data type.)
+(Google if you do not know what v.Length means.) 
 
 - Write your answer to your Word document directly under the question 
   number (e.g., 4.7.2.b).
@@ -113,7 +115,9 @@ a. Consider::
 Graduation
 ----------------------
 
-- Prepare the code in VS Code.
+- Prepare a method in class Chapter04 called Graduation.
+- Prepare the code in VS Code. 
+- Call your method Graduation. 
 - Make sure the code runs (``dotnet run``). 
 - Screenshot the code and paste it in your Word document. 
 
@@ -126,6 +130,12 @@ are required for graduation.)
 Calculate Weekly Wages
 -------------------------
 
+- prepare a method in class Chapter04 called CalcWeeklyWages
+- Prepare the code in VS Code. 
+- Call your method Graduation. 
+- Make sure the code runs (``dotnet run``). 
+- Screenshot the code and paste it in your Word document. 
+
 Given a person’s work hours for the week and regular hourly wage, 
 calculate the total pay for the week, taking into account overtime. 
 Hours worked over 40 are overtime, paid at 1.5 times the normal rate. 
@@ -136,8 +146,7 @@ hours are worked or when more than 40 hours are worked. In case
 more than 40 hours are worked, it is convenient to introduce a
 variable overtimeHours. 
 
-Please prepare a method in class Chapter04 called CalcWeeklyWages that 
-would execute successfully and correctly when the following execution 
+Your code would execute successfully and correctly when the following execution 
 is performed in the Main() method of class Chapter04::
 
    // Calculate Wages
