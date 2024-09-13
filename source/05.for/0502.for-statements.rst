@@ -1,22 +1,21 @@
 .. index:: statement; for
 
-For-Statement Syntax
+For-Statement 
 ============================ 
 
-Iteration/looping is one of the three basic computer programming 
-constructs (sequence, selection, iteration). Iteration means looping through a block of code. 
-The number of loops is controlled by a counter, so you need to know how many times 
-you want to run the code block to use the for loops.  
-
 The ``for`` statement executes a statement or a block of statements 
-while a specified Boolean expression evaluates to true, and such evaluation involves 
-comparing the local loop variable to a counter that increments over every loop. 
+while a specified **Boolean expression** evaluates to true. Such evaluation involves 
+comparing the local loop counter variable (an **integer counter** that increments/decrements over every loop) 
+to a preset value. Since the number of loops is controlled by comparing the counter with the preset value, 
+you need to specify the preset value to decide how many times you want to run the code block when defining 
+a ``for`` loop statement.  
 
 
 The C# for loop statement syntax is:
 
-| ``for (`` *initializer* ``;`` *condition* ; *iterator* ``)`` {
-|    statement(s)
+| ``for (`` *initializer* ``;`` *condition* ; *iterator* ``)`` 
+    {
+|    // code block (statements)
 | ``}``
 
 Let us practice in ``csharprepl``::

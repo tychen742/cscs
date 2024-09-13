@@ -3,7 +3,7 @@ Iteration
 ============================ 
 
 Iteration, or looping, is one of the three basic constructs in computer 
-programming. The basic purpose of iteration is code repetition, which 
+programming (see :ref:`programming-constructs`). The basic purpose of iteration is code repetition, which 
 humans usually find difficult but comes very easy for computers. After 
 starting, the repetitive execution of a block of code or a set of 
 instructions/statements will not stop until certain criterion is met. 
@@ -35,9 +35,8 @@ The need for code repetition can be seen from the following code:
               Console.Write("8 ");
               Console.Write("9 ");
               Console.Write("10 ");
-
-              Console.WriteLine();  
               // output: 1 2 3 4 5 6 7 8 9 10 
+              Console.WriteLine();  
           }
       }
   }
@@ -49,9 +48,9 @@ of time for a developer, not to mention the repetition could go for more than 10
 C# Iteration Statements
 -------------------------
 
-The C# language reference states that iteration statements include ``for``, ``foreach``, 
-``do``, and ``while`` and that the iteration statements "repeatedly execute a 
-statement or a block of statements": [#iteration]_
+The C# language reference states that iteration 
+statements include ``for``, ``foreach``, ``do``, and ``while`` and that the iteration 
+statements "repeatedly execute a statement or a block of statements": [#iteration]_
 
 - The ``for`` statement executes its body of an iteration statement while a specified 
   Boolean expression evaluates to true. 
@@ -61,7 +60,8 @@ statement or a block of statements": [#iteration]_
 - The ``while`` statement conditionally executes its body zero or more times.
 
 As a solution to the preceding code repetition problem, a ``for`` loop can be used as below. 
-Comparing the highlighted for statement with the, you can see the need for iteration.  
+Comparing the highlighted for statement with the, you can see the need for iteration. 
+The syntax of the ``for`` loop statement will be explained in a later section. 
 
 .. code-block:: csharp
   :linenos:
