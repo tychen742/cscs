@@ -239,9 +239,6 @@ in VS Code can be used. To create a project without creating a solution, create 
 and issue the command ``dotnet new console`` to create a new console app project without creating a new solution. [#]_ 
 
 
-
-
-
 Comments, Curly Braces, and Semicolon
 ---------------------------------------
 
@@ -252,12 +249,38 @@ comments:
 
 **Multi-line Comments**: Multi-line comments start with /* and ends with \*/. Any text between /* and \*/ will be ignored by C#.
 
-The **curly braces {}** in C# mark the beginning and the end of a block of code.
+The **curly braces { }** in C# mark the beginning and the end of a block of code. 
 
 **Semicolons** work as statement terminator character in C# and are required because they prevent syntax ambiguities. 
 Semicolons after method or accessor block, however, is not allowed. 
 
+Compound Statements (Code Blocks)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A code block (or simply "block"), also referred to as a compound statement, is the grouping of multiple statements into a 
+single statement. While each statement that ends with a semicolon, often it makes sense to see a block of 
+statements as one lexical unit. In C#, a code block is delimited by a pair of curly braces to include 
+a list of statements. For example, the following code shows an if statement, you can see the two highlighted 
+code blocks being compound statements because the statements inside the curly braces. More specifically, 
+line 4-9 is a compound statement of the if statement. 
 
+.. code-block:: 
+   :linenos:
+   :emphasize-lines: 4-9, 11-14
+
+   string temp = Console.ReadLine();
+   radius = double.Parse(temp);
+   if(radius >= 0)
+   {
+      // calculate the area of the circle
+      area = Math.PI * radius * radius;
+      Console.WriteLine(
+         $"The area of the circle is: {area:0.00}");
+   }
+   else
+   {
+      Console.WriteLine(
+         $"{radius} is not a valid radius.");
+   }
 
 
 .. rubric:: Footnotes

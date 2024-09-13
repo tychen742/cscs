@@ -5,7 +5,8 @@
 Key Computing Ideas 
 ======================================= 
 
-This book is an introduction to computer science, with a focus on the learning of computational concepts and problem-solving skills using the C# programming language.
+This book is an introduction to computer science, with a focus on the learning 
+of computational concepts and problem-solving skills using the C# programming language.
 
 
 The Workflow
@@ -163,8 +164,8 @@ virtual machine , then compiled into machine code for faster execution. Many con
 languages, such as all .NET languages (including C#), Java, Python, and PHP use JIT 
 compilers [#f4]_.
 
-Statements & Expression 
-----------------------------
+Expression & Statements
+--------------------------------------
 
 In programming, an **expression** is something which evaluates to a value; while a 
 statement is a program instruction. An expression consists of operators and operands 
@@ -187,17 +188,27 @@ produces bool type results.
 
   Types of Expressions
 
+
+.. index:: statement statements
+
+.. _statements:
+
+Statements
+~~~~~~~~~~~~
+
 A statement performs certain action and usually consists a single line of code that ends in a semicolon, 
 or a series of single-line statements in a block. A statement block is enclosed in {} brackets. Common actions include declaring variables, 
 assigning values, calling methods, looping through collections, and branching to one or another block of code, depending on a given condition.
 
-Commonly used statement keywords are:
+Some commonly used statement keywords in C# include:
 
-======================  ================================
- Selection statements	 if, switch
- Iteration statements	 do, for, foreach, while
- Jump statements	       break, continue, goto, return
-======================  ================================
+========================  ================================
+ Declaration statements
+ Selection statements	    if, switch
+ Iteration statements	    do, for, foreach, while
+ Jump statements	        break, continue, goto, return
+========================  ================================
+
 
 
 Handling Errors 

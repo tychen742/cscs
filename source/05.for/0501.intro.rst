@@ -35,6 +35,13 @@ The need for code repetition can be seen from the following code::
       }
   }
 
+Obviously, to code the print statement repetitively for 10 times is not a efficient use 
+of time for a developer, not to mention the repetition could go for more than 10 times. 
+
+
+C# Iteration Statements
+-------------------------
+
 The C# language reference states that iteration statements include ``for``, ``foreach``, 
 ``do``, and ``while`` and that the iteration statements "repeatedly execute a 
 statement or a block of statements": [#iteration]_
@@ -46,7 +53,12 @@ statement or a block of statements": [#iteration]_
 - The ``do`` statement conditionally executes its body one or more times. 
 - The ``while`` statement conditionally executes its body zero or more times.
 
-``break`` and ``continue``, the two flow control concepts in iteration, give us 
+
+``break`` and ``continue``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``break`` and ``continue`` are two jump statements :ref:`statements` in C# that unconditionally transfer control. 
+the two flow control keywords in iteration, give us 
 some control over the termination of an iteration at any point within the 
 body of an iteration statement. 
 
