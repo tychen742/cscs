@@ -2,21 +2,22 @@
 Iteration
 ============================ 
 
-Iteration, or looping, one of the three basic constructs in computer programming, deals 
-repetition, which humans finds difficult but very easy for computers. The basic purpose 
-of iteration is code repetition: The repetitive execution of a 
-block of code or a set of instructions/statements until certain criterion is met. 
-While controlling the termination of code repetition, the criterion can be either 
-**count**-controlled (for loops) or **condition**-controlled (while loops). In general, 
-when you know exactly how many times you are going to loop through a 
-block of code, you use the ``for`` loop; otherwise, a ``while`` loop is used.
+Iteration, or looping, is one of the three basic constructs in computer 
+programming. The basic purpose of iteration is code repetition, which 
+humans usually find difficult but comes very easy for computers. After 
+starting, the repetitive execution of a block of code or a set of 
+instructions/statements will not stop until certain criterion is met. 
+The termination of iteration can be either **count**-controlled (for loops) 
+or **condition**-controlled (while loops). In general, when you know 
+exactly how many times you are going to loop through a 
+block of code, you use the ``for`` loop; otherwise, you would choose a ``while`` loop.
 
 A example of code repetition can look like this::
 
   using System;
-  namespace ControlFlowDemo
+  namespace IntroCSCS
   {
-      class Program
+      class Chapter05
       {
           static void Main(string[] args)
           {
@@ -30,8 +31,6 @@ A example of code repetition can look like this::
               Console.WriteLine("8");
               Console.WriteLine("9");
               Console.WriteLine("10");
-
-              Console.ReadKey();
           }
       }
   }
