@@ -7,7 +7,7 @@ The ``for`` statement executes a statement or a block of statements
 while a specified **Boolean expression** evaluates to true. Such evaluation involves 
 comparing the local loop counter variable (an **integer counter** that increments/decrements over every loop) 
 to a preset value. Since the number of loops is controlled by comparing the counter with the preset value, 
-you need to specify the preset value to decide how many times you want to run the code block when defining 
+you need to specify the preset value to decide the number of times you want to run the code block when defining 
 a ``for`` loop statement.  
 
 
@@ -31,19 +31,19 @@ Let us practice in ``csharprepl``::
    5
 
 
-You can see that the ``for`` loop has four parts, a three-section **header** and a body:
+You can see that the ``for`` loop has four parts, a three-section **header** and a **body**:
 
 - **Initializer**: This section is a **variable declaration statement** that 
   declares a ``local loop variable``, or the counter, and initialize it with an initial value. 
 - **Condition**: The condition section is a boolean expression that determines 
-  if the next iteration in the loop should be executed. If it evaluates to true, 
+  if the next iteration in the loop should be executed or should the loop be terminated. If it evaluates to true, 
   the next iteration is executed; otherwise, the loop is exited. 
 - **Iterator**: The iterator section that defines what happens to the counter after each 
   execution of the body of the loop. A common behavior is reassigning 
   (increment or decrement) the value of the counter. 
-- The body of the loop, which must be a statement or a block of statements.
+- The **body** of the loop, which must be a statement or a block of statements.
 
-In the example above, *initializer* is ``i = 1``, *condition* is ``i <= n``, 
+In the example above, the *initializer* is ``i = 1``, *condition* is ``i <= n``, 
 and *iterator* is ``i++`` (see :ref:`arithmetic operators <arithmetic-operators>`).
 
 Note that the initializer section is executed **only once**, before entering the loop. 
@@ -67,22 +67,45 @@ the heading are used at different times:
   are done, followed by the test.
 
 Note that the arithmetic unary operators (decrement operator ``--`` and 
-increment operator ``++``) are often used in for loops. The common usage is to use them 
-as prefix operators. The result is the value of the local loop variable before the operation. 
-For example::
+increment operator ``++``) are often used in for loops. The common usage is to use the 
+postfix increment operator. The result of a postfix increment operation is that it 
+increments the value of the local loop variable (i) and still evaluates to the original value 
+as before the operation and will update the value in next iteration. Namely, i++ will retain 
+the old value in the body of the for statement until next next iteration. 
+
+For example, test this in ``csharprepl``::
 
    > int num = 3;
-
    > num 
    3
-   > num++       // with postfix operators, the result is the value before the operation
+   > num++       // postfix expression, the value remains
    3
    > num         // i is evaluated again. Now it shows 4. 
    4
    > 
 
-This behavior keeps the counter value consistent with the initialization for the 
-loop's first iteration. 
+Compare the behavior of postfix and prefix operations, for example, see the difference between the value 
+of ``i++`` and ``++j``:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 5, 12
+   
+   static void PostfixIncrement()
+   {
+      int i = 0;
+      Console.WriteLine("int i == {0}", i);  // i == 0
+      Console.WriteLine("i++ == {0}", i++);  // i++ == 0
+      Console.WriteLine("i == {0}", i);      // i == 1
+   } 
+   
+   {
+      int j = 0;
+      Console.WriteLine("int j == {0}", j);  // j == 0
+      Console.WriteLine("++j == {0}", ++j);  // ++j == 1
+      Console.WriteLine("j == {0}", j);      // j == 1
+   }
+
 
 ``for`` loops are usually favored for iteration because the   
 all the information about the local loop variable are available in one place at the top, 
