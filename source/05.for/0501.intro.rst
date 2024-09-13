@@ -17,20 +17,20 @@ The need for code repetition can be seen from the following code::
   using System;
   namespace IntroCSCS
   {
-      class Chapter05
+      internal class Chapter05
       {
           static void Main(string[] args)
           {
-              Console.WriteLine("1");
-              Console.WriteLine("2");
-              Console.WriteLine("3");
-              Console.WriteLine("4");
-              Console.WriteLine("5");
-              Console.WriteLine("6");
-              Console.WriteLine("7");
-              Console.WriteLine("8");
-              Console.WriteLine("9");
-              Console.WriteLine("10");
+              Console.Write("1 ");
+              Console.Write("2 ");
+              Console.Write("3 ");
+              Console.Write("4 ");
+              Console.Write("5 ");
+              Console.Write("6 ");
+              Console.Write("7 ");
+              Console.Write("8 ");
+              Console.Write("9 ");
+              Console.Write("10 ");
           }
       }
   }
@@ -53,14 +53,44 @@ statement or a block of statements": [#iteration]_
 - The ``do`` statement conditionally executes its body one or more times. 
 - The ``while`` statement conditionally executes its body zero or more times.
 
+As a solution to the preceding code repetition problem, a ``for`` loop can be used as below. 
+Comparing the highlighted for statement with the, you can see the need for iteration.  
+
+.. code-block:: csharp
+  :linenos:
+  :emphasize-lines: 13-16
+
+  using System;
+  namespace IntroCSCS
+  {
+    internal class Chapter05
+    {
+        private static void Main(string[] args)
+        {
+            CountToThen();
+        }
+
+        static void CountToThen()
+        {
+            for (int i = 1; i <= 10; i = i + 1)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+  }
+
+
 
 ``break`` and ``continue``
 ---------------------------
 
-``break`` and ``continue`` are two jump statements (see :ref:`statements`) in C# that unconditionally transfer control. 
-the two flow control keywords in iteration, give us 
-some control over the termination of an iteration at any point within the 
-body of an iteration statement. 
+``break`` and ``continue`` are two jump statements (out of four, see: :ref:`statements`) in C# 
+that transfer the control of code execution flow. The break statement terminates the closest enclosing 
+iteration statement (for, foreach, while, or do loop) or switch statement. 
+The continue statement starts a new iteration of the closest enclosing iteration statement 
+(for, foreach, while, or do loop). 
 
 - with the ``break`` statement, you can break out of the loop. 
 - with the ``continue`` statement, you can step to the next iteration in the loop.
