@@ -37,10 +37,10 @@ and fill in function bodies for each part below:
     
 #.  Complete  
 
-    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-       :start-after: StringOfReps chunk
-       :end-before: body
-       :dedent: 6
+   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+   ..     :start-after: StringOfReps chunk
+   ..     :end-before: body
+   ..     :dedent: 6
 
     Note the distinction from the previous part:  Here the function prints nothing.
     Its work is *returned* as a single string.  You have to build up the final
@@ -51,10 +51,10 @@ and fill in function bodies for each part below:
 #.  Complete ``Factorial``, in a format much like SumToN in example 
     :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
     
-    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-       :start-after: Factorial chunk
-       :end-before: body
-       :dedent: 6
+   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+   ..     :start-after: Factorial chunk
+   ..     :end-before: body
+   ..     :dedent: 6
     
     It is useful to think of the sequence of steps to calculate a 
     concrete example of a factorial, say 6!:
@@ -85,10 +85,10 @@ and fill in function bodies for each part below:
       
 #.  Complete the method
 
-    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-       :start-after: PrintRectangle chunk
-       :end-before: body
-       :dedent: 6
+   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+   ..     :start-after: PrintRectangle chunk
+   ..     :end-before: body
+   ..     :dedent: 6
     
     Here are further examples::
         
@@ -113,10 +113,10 @@ and fill in function bodies for each part below:
 
 #.  Complete the method below.  
 
-    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-       :start-after: PrintTableBorders chunk
-       :end-before: body
-       :dedent: 6
+   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+   ..     :start-after: PrintTableBorders chunk
+   ..     :end-before: body
+   ..     :dedent: 6
     
     Here is further example::
         
