@@ -14,6 +14,6 @@ Iteration: ``for`` Loops
    0503.foreach
    0504.lab
    0505.review
-   2.forexamples
-   4.foreachexamples
+   .. 2.forexamples
+   .. 4.foreachexamples
  
