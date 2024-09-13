@@ -12,7 +12,11 @@ or **condition**-controlled (while loops). In general, when you know
 exactly how many times you are going to loop through a 
 block of code, you use the ``for`` loop; otherwise, you would choose a ``while`` loop.
 
-The need for code repetition can be seen from the following code::
+The need for code repetition can be seen from the following code:
+
+.. code-block:: 
+  :linenos:
+  :emphasize-lines: 8-17
 
   using System;
   namespace IntroCSCS
@@ -31,6 +35,9 @@ The need for code repetition can be seen from the following code::
               Console.Write("8 ");
               Console.Write("9 ");
               Console.Write("10 ");
+
+              Console.WriteLine();  
+              // output: 1 2 3 4 5 6 7 8 9 10 
           }
       }
   }
@@ -76,6 +83,7 @@ Comparing the highlighted for statement with the, you can see the need for itera
             {
                 Console.Write(i + " ");
             }
+            // output: 1 2 3 4 5 6 7 8 9 10 
             Console.WriteLine();
         }
     }
