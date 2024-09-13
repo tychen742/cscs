@@ -3,24 +3,53 @@ Iteration
 ============================ 
 
 Iteration, or looping, one of the three basic constructs in computer programming, deals 
-repetition. The C# language reference states that iteration statements include 
-``for``, ``foreach``, ``do``, and ``while`` and that the iteration statements 
-"repeatedly execute a statement or a block of statements": [#iteration]_
+repetition, which humans finds difficult but very easy for computers. The basic purpose 
+of iteration is code repetition: The repetitive execution of a 
+block of code or a set of instructions/statements until certain criterion is met. 
+While controlling the termination of code repetition, the criterion can be either 
+**count**-controlled (for loops) or **condition**-controlled (while loops). In general, 
+when you know exactly how many times you are going to loop through a 
+block of code, you use the ``for`` loop; otherwise, a ``while`` loop is used.
 
-- The ``for`` statement executes its body while a specified Boolean expression 
-  evaluates to true. 
+A example of code repetition can look like this::
+
+  using System;
+  namespace ControlFlowDemo
+  {
+      class Program
+      {
+          static void Main(string[] args)
+          {
+              Console.WriteLine("1");
+              Console.WriteLine("2");
+              Console.WriteLine("3");
+              Console.WriteLine("4");
+              Console.WriteLine("5");
+              Console.WriteLine("6");
+              Console.WriteLine("7");
+              Console.WriteLine("8");
+              Console.WriteLine("9");
+              Console.WriteLine("10");
+
+              Console.ReadKey();
+          }
+      }
+  }
+
+The C# language reference states that iteration statements include ``for``, ``foreach``, 
+``do``, and ``while`` and that the iteration statements "repeatedly execute a 
+statement or a block of statements": [#iteration]_
+
+- The ``for`` statement executes its body of an iteration statement while a specified 
+  Boolean expression evaluates to true. 
 - The ``foreach`` statement enumerates the elements of a collection and executes 
   its body for each element of the collection. 
 - The ``do`` statement conditionally executes its body one or more times. 
 - The ``while`` statement conditionally executes its body zero or more times.
 
-The basic purpose of iteration is code repetition. While performing code repetition, 
-iteration can be either **count**-controlled or **condition**-controlled. 
-When you know exactly how many times you are going to loop through a 
-block of code, you use the ``for`` loop, otherwise, a ``while`` loop is used.
-
 ``break`` and ``continue``, the two flow control concepts in iteration, give us 
-some control over the iteration. At any point within the body of an iteration statement,
+some control over the termination of an iteration at any point within the 
+body of an iteration statement. 
 
 - with the ``break`` statement, you can break out of the loop. 
 - with the ``continue`` statement, you can step to the next iteration in the loop.
@@ -40,5 +69,5 @@ some control over the iteration. At any point within the body of an iteration st
 
 .. rubric:: Footnotes
 
-.. [#iteration] See: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`_
+.. [#iteration] See: C# Language Reference: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`_
 

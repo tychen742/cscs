@@ -11,6 +11,22 @@
 The ``foreach`` loop is used exclusively to loop through elements in an array 
 (or other data sets). 
 
+In the case of for loop in C#, the loop variable refers to the index of an array whereas, 
+in the case of a for-each loop, the loop variable refers to the values of the array.
+
+the loop variable must be of type int in case of for loop. The reason for this is, 
+here the loop variable is referring to the index position of the array. Coming to 
+the for-each loop, the data type of the loop variable must be the same as the 
+type of the values stored in the array. For example, if you have a string array 
+then the loop variable must be of type string in case of the for-each loop and 
+int in case of a for loop in C#. For a better understanding, please have a look 
+at the following example.
+
+The most important point that you need to keep in mind is that the for loop 
+in C# can be used both for accessing values from an array as well as assigning 
+values to an array whereas the for-each loop in C# can only be used for 
+accessing the values from an array but not for assigning values into an array.
+
 Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
 through a string using a ``foreach`` statement. Here we use the underlying int Unicode value 
 of the characters so we can see each the ``char`` type characters easily. for that we are  
