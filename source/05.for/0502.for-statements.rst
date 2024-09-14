@@ -59,6 +59,21 @@ If the condition part is omitted, the condition is
 interpreted as always true, leading to an infinite loop, that can only
 terminate due to a ``return`` or :ref:`break statement <break-continue>` in the body.  
 
+**Other variations**
+
+The declaration of a for loop header is flexible. There may be several variables of the
+same type initialized, separated by commas. Also, at the end of the ``for`` loop heading, 
+the iteration portion may include more than one expression, also separated by commas.  
+For example::
+
+      for (int i = 0, j = 10; i < j; i = i+2, j++) {
+         Console.WriteLine("{0} {1}", i, j);
+      }
+
+Guess what this does, and then paste it into csharprepl to check.
+
+
+
 .. index:: execution sequence; for loop
 
 Execution sequence
@@ -78,18 +93,7 @@ all the information about the local loop variable are available in one place at 
 which helps quickly visualize the overall sequence in the loop. 
 
 
-**Other variations**
 
-The declaration of a for loop header is flexible. There may be several variables of the
-same type initialized, separated by commas. Also, at the end of the ``for`` loop heading, 
-the iteration portion may include more than one expression, also separated by commas.  
-For example::
-
-      for (int i = 0, j = 10; i < j; i = i+2, j++) {
-         Console.WriteLine("{0} {1}", i, j);
-      }
-
-Guess what this does, and then paste it into csharprepl to check.
 
 .. The comma separated lists in a ``for`` statement heading 
 .. are mentioned here for completeness. Later we will find a situation
@@ -103,17 +107,14 @@ Guess what this does, and then paste it into csharprepl to check.
    
 .. _break-continue:
 
-Break and Continue in ``for`` Loop
-------------------------------------------
+Break and Continue 
+---------------------
 
 This section concerns special *break* and *continue* statements 
 that can occur inside iteration statements (  
 ``while``, ``do``, ``for``, or ``foreach``).
 
-You can already stop a loop in the middle with an ``if`` statement 
-that leads to a choice with a ``return`` statement.
-Of course that forces you to completely leave the current function. If you only want to
-break out of the *innermost current loop*, but *not* out of the whole function, use
+If you only want to break out of the *innermost current loop*, but *not* out of the whole function, use
 a break statement:
 
   ``break;`` 
