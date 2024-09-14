@@ -3,9 +3,27 @@ Examples With ``for`` Statements
 ==================================
 
 Thus far all of our ``for`` loops have used a sequence of successive integers.
-Suppose you want to print the first ``n`` multiples of ``k``, 
-like the first 5 multiples
-of 3:  3, 6, 9, 12, 15.  This could be handled by generating
+You can do a quick test in ``csharprepl`` like::
+
+    > for (int i = 1; i < 5; i++)   
+     {                          
+        Console.WriteLine(i);  
+     }   
+    1
+    2
+    3
+    4
+
+Now let us make the output line neater by using the format string (:ref:`format-strings`) and 
+the ``Console.Write()`` method::
+
+    > for (int i = 1; i < 5; i++)   
+      {                          
+        Console.WriteLine("{0}, ", i);  
+      }   
+    1 2 3 4
+, 
+like the first 5 multiples of 3:  3, 6, 9, 12, 15.  This could be handled by generating
 a sequence ``i`` = 1 through ``n``, and multiply each ``i`` by ``k``::
 
     for (int i = 1; i <= n; i++) {
@@ -327,7 +345,7 @@ observe and explain more properties.
 
 The next example is to make a table of multiplication, mod 7, and later generalize.
 
-Tables generally have row and column labels.  We can aim for something like::
+Tables generally have row and column labels. We can aim for something like::
 
     * | 0 1 2 3 4 5 6 
     -----------------
