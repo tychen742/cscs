@@ -14,6 +14,10 @@ a ``for`` loop statement.
 For Statement Syntax
 ----------------------
 
+``for`` loops are usually favored for iteration because the   
+all the information about the local loop variable are available in one place at the top, 
+which helps quickly visualize the overall sequence in the loop.
+
 The C# for loop statement syntax is:
 
 | ``for (`` *initializer* ``;`` *condition* ; *iterator* ``)`` 
@@ -34,7 +38,8 @@ Let us practice in ``csharprepl``::
    5
 
 
-You can see that the ``for`` loop has four parts, a three-section **header** and a **body**:
+You can see that the ``for`` loop has four parts, a three-section semicolon-separated **header** 
+and a **body**:
 
 - **Initializer**: This section is a **variable declaration statement** that 
   declares a ``local loop variable``, or the counter, and initialize it with an initial value. 
@@ -59,7 +64,7 @@ If the condition part is omitted, the condition is
 interpreted as always true, leading to an infinite loop, that can only
 terminate due to a ``return`` or :ref:`break statement <break-continue>` in the body.  
 
-**Other variations**
+**Header variation**
 
 The declaration of a for loop header is flexible. There may be several variables of the
 same type initialized, separated by commas. Also, at the end of the ``for`` loop heading, 
@@ -82,17 +87,10 @@ Execution sequence
 For the execution sequence of for loops, note that the different parts of 
 the heading are used at different times:
 
-* When starting the whole statement, the initialization is done, and then
-  the test.
+* When starting the statement, the initialization is done, and then
+  the test of condition (boolean expression).
 * After finishing the body and returning to the heading, the iteration operations
   are done, followed by the test.
-
-
-``for`` loops are usually favored for iteration because the   
-all the information about the local loop variable are available in one place at the top, 
-which helps quickly visualize the overall sequence in the loop. 
-
-
 
 
 .. The comma separated lists in a ``for`` statement heading 
@@ -105,44 +103,51 @@ which helps quickly visualize the overall sequence in the loop.
    break statement
    continue statement
    
+
 .. _break-continue:
 
-Break and Continue 
----------------------
+``break`` and ``continue`` Statements
+--------------------------------------
 
-This section concerns special *break* and *continue* statements 
-that can occur inside iteration statements (  
-``while``, ``do``, ``for``, or ``foreach``).
+The basic syntax of the ``for`` statement is simplistic. Here we are using the 
+``break`` and ``continue`` statements to learn the pragmatic coding practice of the ``for`` 
+loops by connecting to our understanding of conditional/selection statements. 
 
-If you only want to break out of the *innermost current loop*, but *not* out of the whole function, use
-a break statement:
+When performing iteration, there will be times that you want to alter the code execution 
+sequence by skipping part or all of the iterations. If you only want to break out of 
+the *enclosing loop*, but *not* out of the whole method or the outer loop (in case of 
+nested looping), use a ``break`` statement
 
   ``break;`` 
   
-in place of return. Execution continues after the end of the whole innermost
-currently running loop statement.  
-The ``break`` and ``continue`` statements only 
-make practical sense inside of an ``if`` statement that is inside the loop.
+in place of ``return``, since return will break out the current method. With the ``break`` 
+statement, execution continues after terminating the enclosing loop statement.  
 
-Examples, assuming ``target`` already has a string value and ``a`` is an array of
+Note that the ``break`` and ``continue`` statements only make practical sense 
+inside of an ``if`` statement that is inside the loop.
+
+Examples, assuming ``target`` already has a string value and ``arr`` is an array of
 strings::
 
-    bool found = false;
+   bool found = false;    
+   
+   for (int i = 0; i < arr.Length; i++) 
+   {
+      if (arr[i] == target) 
+      {
+         found = true;
+         break;
+      }
+   }
     
-    for (int i = 0; i < a.Length; i++) 
-    {
-       if (a[i] == target) {
-          found = true;
-          break;
-       }
-    }
-    
-    if (found) 
-    {
-       Console.WriteLine("Target found at index " + i);
-    } else {
-       Console.WriteLine("Target not found");
-    } 
+   if (found) 
+   {
+      Console.WriteLine("Target found at index " + i);
+   } 
+   else 
+   {
+      Console.WriteLine("Target not found");
+   } 
 
 When an element is reached that matches ``target``, 
 execution goes on *past the loop* with ``if (found)``.

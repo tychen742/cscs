@@ -4,11 +4,11 @@ Data and Variables
 .. toctree::
    :maxdepth: 2
 
-   1.data_types
-   2.variables
-   3.operators
-   4.arithmetic
-   5.strings
-   6.input_output
-   7.lab02
-   8.review
+   0201.data_types
+   0202.variables
+   0203.operators
+   0204.arithmetic
+   0205.strings
+   0206.input_output
+   0207.lab02
+   0208.review
