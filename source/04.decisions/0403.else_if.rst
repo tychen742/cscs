@@ -78,10 +78,10 @@ This code above only prints one of two lines if there is a
 problem with the weight of the suitcase (> 50 or > 120). Nothing is printed if 
 neither of the conditions is met, meaning the weight is not greater than 50. 
 
+.. _else-if-cases:
 
 ``else-if`` Statements for Cases
 ---------------------------------
-
 
 Consider the following code, LetterGrade() method, for converting a 
 numerical grade to a letter grade, 'A', 'B', 'C', 'D' or 'F', where 
@@ -147,32 +147,32 @@ Note that *exactly one* of the statement blocks gets executed:
 - If some condition is true, the first block following a true condition is executed. 
 - If no condition is true, the ``else`` block is executed. 
   
-We can modify the LetterGrade() method into LetterGrade2() 
-method, which is more readable and semantically sound:
 
-    .. code-block:: csharp
+We can modify the LetterGrade() method into **LetterGrade2()** 
+method using ``else if``, which is more readable and semantically sound:
+    
+.. code-block:: csharp
 
-        static char LetterGrade2(double score)
-        {
-            char letter;
-            if (score >= 90) {
-                letter = 'A'; 
-            }
-            else if (score >= 80) { 
-                letter = 'B'; 
-                }
-            else if (score >= 70) { 
-                letter = 'C'; 
-            }
-            else if (score >= 60) {
-                letter = 'D'; 
-            }
-            else { 
-                letter = 'F';
-            }
-
-            return letter;
+    static char LetterGrade2(double score)
+    {
+        char letter;
+        if (score >= 90) {
+            letter = 'A'; 
         }
+        else if (score >= 80) { 
+            letter = 'B'; 
+            }
+        else if (score >= 70) { 
+            letter = 'C'; 
+        }
+        else if (score >= 60) {
+            letter = 'D'; 
+        }
+        else { 
+            letter = 'F';
+        }
+        return letter;
+    }
 
 
 

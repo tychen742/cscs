@@ -180,18 +180,40 @@ and no ``break`` is:
        Console.WriteLine("Target not found");
     } 
 
+As you can see, the code exit because the condition section of the if statement header 
+has an expression ``!found`` (:ref:`logical-operators`), meaning found is not true. 
+The shows that since ``break`` statements rely on the logic of the conditional statement, 
+if the condition can be embedded in the header of the loop, you don't have to use break. 
+However, if you are designing a loop that has multiple exit criteria, using break statements 
+can make the code much less verbose in the header's condition section, and hence easier to 
+follow because the if statement conditions and the immediate break action may be clearly 
+presented. 
 
-Using ``break`` statements is a matter of taste. There is some advantage in reading
-and following a loop that has only one exit criterion, which is easily visible 
-in the header. On the other hand, in many situations,
-using a break statement makes the code much less verbose, and hence easier to follow.
-If you *are* reading through the loop, it may be clearer to have an immediate action
-where it is certain that the loop should terminate. 
 
-All the modifiers about *innermost* loop are important 
-in a situation like the following::
+.. _nested-for-loop:
+
+Nested ``for`` Loop
+-----------------------
+
+There will be times when **nested** loops are are required for the problem scenario. 
+A nested loop can look like this::
+
+   outer-Loop 
+   {
+      // body of outer-loop
+      inner-Loop
+      {
+         // body of inner-loop
+      }
+   ... ... ...
+   }
+
+Continuing with our discussion on ``break``, let's say we are in a situation like the following::
 
    for (....) {
+      
+      // some statements of outer for loop
+      
       for (....) {
          ...
          if (...) {
@@ -200,14 +222,15 @@ in a situation like the following::
          }
          ...
       }
+
+      // some statements of outer for look
    } 
 
 The break statement is in the inner loop. If it is reached, the inner loop ends,
 but the **inner loop** is just a **single statement** inside the outer loop, 
 and **the outer loop continues**.  
 If the outer loop continuation condition remains true,
-the inner loop will be executed again, 
-and the break may or may not be reached that time. As an example::
+the inner loop will be executed again. As an example::
 
   for (int i = 0; i <= 3; i++)
   {
@@ -227,13 +250,17 @@ Can you determine the output of the preceding code? Try it in ``csharprepl`` or 
 in your tests folder. 
 
 
+``continue`` Statement
 
 For completeness we mention the much less used ``continue`` statement:
 
   ``continue;``  
 
-It does not break out of the whole loop: 
-It just skips the rest of the *body* of the innermost current loop, *this time* through the loop.  
+A ``continue`` statement:
+- does not break out of the whole loop statement.
+- break/skips the execution of the rest of the *body* in the current enclosing loop iteration.
+- starts 
+
 In the simplest situations, a ``continue`` statement just avoids an extra ``else`` clause. 
 It can considerable shorten code if the test is inside of complicated, deeply nested 
 ``if`` statements. As an example::

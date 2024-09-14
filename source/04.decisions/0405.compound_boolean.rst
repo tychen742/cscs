@@ -1,4 +1,3 @@
-
 .. index::
    single: &&; boolean operation AND
    and &&
@@ -115,7 +114,7 @@ relational operators, with ``&&`` above ``||``. You are encourages to use
 parentheses to make sure.
 	
 **Compound Overkill**:  Look back to the code converting a score to a letter 
-grade in the LetterGrade2 method, the condition before assigning the B 
+grade in the LetterGrade2 (:ref:`else-if-cases`) method, the condition before assigning the B 
 grade could have been::
 
     (score >= 80 && score < 90)
