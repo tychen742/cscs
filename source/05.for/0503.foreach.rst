@@ -7,6 +7,25 @@
 .. index:: statement; foreach
    foreach; syntax 
 
+With a ``foreach`` loop, which has no explicit continuation condition, 
+the ``break`` would be more clearly useful.
+Here is a variant if you do not care about the specific location of the target::
+
+    bool found = false;
+    
+    foreach (string s in a) {
+       if (s == target) {
+          found = true;
+          break;
+       }
+    }
+
+    if (found) {
+       Console.WriteLine("Target found");
+    } else {
+       Console.WriteLine("Target not found");
+    } 
+
 
 The ``foreach`` loop is used exclusively to loop through elements in an array 
 (or other data sets). 

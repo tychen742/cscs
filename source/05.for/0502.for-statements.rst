@@ -121,26 +121,33 @@ nested looping), use a ``break`` statement
   ``break;`` 
   
 in place of ``return``, since return will break out the current method. With the ``break`` 
-statement, execution continues after terminating the enclosing loop statement.  
+statement, execution continues after terminating the enclosing iteration statement.  
 
 Note that the ``break`` and ``continue`` statements only make practical sense 
-inside of an ``if`` statement that is inside the loop.
+inside of an ``if`` statement that is inside the loop. In the following examples, 
+you see a ``for`` statement with a ``break`` statement enclosed in a 
+``conditional/selection`` statement. 
 
-Examples, assuming ``target`` already has a string value and ``arr`` is an array of
-strings::
+Assuming that variable ``target`` already has a string value and variable ``arr`` is an array of
+strings. With your knowledge about ``arr.Length`` and ``arr[i]`` from :ref:`string`, read 
+the following code:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 5-9
 
    bool found = false;    
    
-   for (int i = 0; i < arr.Length; i++) 
+   for (int i = 0; i < arr.Length; i++)   // loop for arr.Length times
    {
-      if (arr[i] == target) 
+      if (arr[i] == target)               // if one of arr == targe
       {
-         found = true;
-         break;
+         found = true;                    // set found to true
+         break;                           // break out of the enclosing loop
       }
    }
     
-   if (found) 
+   if (found)                             // if found == true (from the previous block)
    {
       Console.WriteLine("Target found at index " + i);
    } 
@@ -149,10 +156,11 @@ strings::
       Console.WriteLine("Target not found");
    } 
 
-When an element is reached that matches ``target``, 
-execution goes on *past the loop* with ``if (found)``.
+When an element in ``arr`` is reached that matches ``target``, execution breaks out 
+of the ``for`` loop and move on to the ``if (found)`` statement block below. 
 
-An alternate implementation with a compound condition in the heading and no ``break`` is::
+Now, observe an alternate implementation with a ``compound condition`` in the heading 
+and no ``break`` is::
 
     bool found = false;
     
@@ -168,28 +176,10 @@ An alternate implementation with a compound condition in the heading and no ``br
        Console.WriteLine("Target not found");
     } 
 
-With a ``foreach`` loop, which has no explicit continuation condition, 
-the ``break`` would be more clearly useful.
-Here is a variant if you do not care about the specific location of the target::
-
-    bool found = false;
-    
-    foreach (string s in a) {
-       if (s == target) {
-          found = true;
-          break;
-       }
-    }
-
-    if (found) {
-       Console.WriteLine("Target found");
-    } else {
-       Console.WriteLine("Target not found");
-    } 
 
 Using ``break`` statements is a matter of taste. There is some advantage in reading
-and following a loop that has only one exit criteria, which is easily visible 
-in the heading. On the other hand, in many situations,
+and following a loop that has only one exit criterion, which is easily visible 
+in the header. On the other hand, in many situations,
 using a break statement makes the code much less verbose, and hence easier to follow.
 If you *are* reading through the loop, it may be clearer to have an immediate action
 where it is certain that the loop should terminate. 
