@@ -159,8 +159,12 @@ the following code:
 When an element in ``arr`` is reached that matches ``target``, execution breaks out 
 of the ``for`` loop and move on to the ``if (found)`` statement block below. 
 
-Now, observe an alternate implementation with a ``compound condition`` in the heading 
-and no ``break`` is::
+Now, observe an alternate implementation with a ``compound condition`` (:ref:`Compound-Boolean-Expressions`) in the heading 
+and no ``break`` is:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 3
 
     bool found = false;
     
