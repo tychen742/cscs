@@ -261,16 +261,19 @@ In addition to simple assignment operator, compound assignment operators are sho
      - bitwise exclusive OR and assignment operator
      - x ^= 3	    
      - x = x ^ 3	
+     - 
    * - 10
      - >>=       	                        
      - Right shift AND assignment operator	
      - x >>= 3	    
      - x = x >> 3	
+     - 
    * - 11
      - <<=      
      - Left shift AND assignment operator	 	                        
      - x <<= 3	    
      - x = x << 3
+     - 
    * - 12
      - =>      
      - Lambda operator	 	                        

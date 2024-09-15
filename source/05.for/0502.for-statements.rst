@@ -42,11 +42,11 @@ You can see that the ``for`` loop has four parts, a three-section semicolon-sepa
 and a **body**:
 
 - **Initializer**: This section is a **variable declaration statement** that 
-  declares a ``local loop variable``, or the counter, and initialize it with an initial value. 
-- **Condition**: The condition section is a boolean expression that determines 
+  declares a ``local loop variable`` (or ``iterator variable`` or the counter) and initialize it with an initial value. 
+- **Condition**: The condition section is a **boolean expression** that determines 
   if the next iteration in the loop should be executed or should the loop be terminated. If it evaluates to true, 
   the next iteration is executed; otherwise, the loop is exited. 
-- **Iterator**: The iterator section that defines what happens to the counter after each 
+- **Iterator**: The iterator (**iteration expression**) section that defines what happens to the counter after each 
   execution of the body of the loop. A common behavior is reassigning 
   (increment or decrement) the value of the counter. 
 - The **body** of the loop, which must be a statement or a block of statements.

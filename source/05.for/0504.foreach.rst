@@ -7,43 +7,28 @@
 .. index:: statement; foreach
    foreach; syntax 
 
-With a ``foreach`` loop, which has no explicit continuation condition, 
-the ``break`` would be more clearly useful.
-Here is a variant if you do not care about the specific location of the target::
-
-    bool found = false;
-    
-    foreach (string s in a) {
-       if (s == target) {
-          found = true;
-          break;
-       }
-    }
-
-    if (found) {
-       Console.WriteLine("Target found");
-    } else {
-       Console.WriteLine("Target not found");
-    } 
-
-
-The ``foreach`` loop is used exclusively to loop through elements in an array 
+A C# ``foreach`` works like a for loop, except it does not use the header 
+(initializer, condition, and iterator) for explicit looping flow control. Instead, 
+the ``foreach`` loop iterates through each element in a given collection of data and 
+runs a set of instructions once for each of the elements. In other words, the 
+``foreach`` loop is used exclusively to loop through elements in an array 
 (or other data sets). 
 
-In the case of for loop in C#, the loop variable refers to the index of an array whereas, 
-in the case of a for-each loop, the loop variable refers to the values of the array.
+In the case of ``for`` loop in C#, the local loop variable refers to the index of an 
+array whereas, in the case of a ``foreach`` loop, the loop variable refers to 
+the ``values`` of the array.
 
 the loop variable must be of type int in case of for loop. The reason for this is, 
 here the loop variable is referring to the index position of the array. Coming to 
-the for-each loop, the data type of the loop variable must be the same as the 
+the ``foreach`` loop, the data type of the loop variable must be the same as the 
 type of the values stored in the array. For example, if you have a string array 
-then the loop variable must be of type string in case of the for-each loop and 
+then the loop variable must be of type string in case of the ``foreach`` loop and 
 int in case of a for loop in C#. For a better understanding, please have a look 
 at the following example.
 
 The most important point that you need to keep in mind is that the for loop 
 in C# can be used both for accessing values from an array as well as assigning 
-values to an array whereas the for-each loop in C# can only be used for 
+values to an array whereas the ``foreach`` loop in C# can only be used for 
 accessing the values from an array but not for assigning values into an array.
 
 Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
@@ -152,3 +137,24 @@ See the advantages of ``foreach`` in these examples:
    
 Of course you can refer to the indices of items in  sequence with a flexible 
 ``while`` loop, or see :ref:`For-Loops`, coming soon....
+
+
+
+With a ``foreach`` loop, which has no explicit continuation condition, 
+the ``break`` would be more clearly useful.
+Here is a variant if you do not care about the specific location of the target::
+
+    bool found = false;
+    
+    foreach (string s in a) {
+       if (s == target) {
+          found = true;
+          break;
+       }
+    }
+
+    if (found) {
+       Console.WriteLine("Target found");
+    } else {
+       Console.WriteLine("Target not found");
+    } 
