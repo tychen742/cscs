@@ -199,81 +199,81 @@ The ``=`` operator is called the simple *assignment operator*, which serves to a
 In addition to simple assignment operator, compound assignment operators are shortcuts that do a *math operation* and *assignment* in one step. [#assign_op]_ : 
 
 .. list-table:: Assignment Operators 
-   :widths: 3 5 50 5 5 3
+   :widths: 2 3 5 5 5 50 
    :header-rows: 1
 
    * - No.
      - Operator                            
-     - Description
      - Example     
      - Same As
      - Output of x == 5
+     - Description
    * - 1
      - =	                                  
-     - Simple assignment operator; assigns values from right operands to left operand
      - x = 5	      
      - x = 5
      - 5	
+     - Simple assignment operator; assigns values from right operands to left operand
    * - 2
      - +=
-     - Add AND assignment operator; adds right operand to the left operand and assign the result to left operand	                             
      - x += 3	   
      - x = x + 3	
      - 8
+     - Add AND assignment operator; adds right operand to the left operand and assign the result to left operand	                             
    * - 3
      - -=	   
-     - Subtract AND assignment operator; subtracts right operand from the left operand and assign the result to left operand	                         
      - x -= 3	   
      - x = x - 3	
      - 2
+     - Subtract AND assignment operator; subtracts right operand from the left operand and assign the result to left operand	                         
    * - 4
      - \*=	                                 
-     - Multiply AND assignment operator; multiplies right operand with the left operand and assign the result to left operand	
      - x \*= 3	     
      - x = x * 3
      - 15	
+     - Multiply AND assignment operator; multiplies right operand with the left operand and assign the result to left operand	
    * - 5
      - /=
-     - Divide AND assignment operator; divides left operand with the right operand and assign the result to left operand		                                
      - x /= 3	    
      - x = x / 3	
      - 1.6666666666666667
+     - Divide AND assignment operator; divides left operand with the right operand and assign the result to left operand		                                
    * - 6
      - %=	          
-     - Modulus AND assignment operator; takes modulus using two operands and assign the result to left operand	
      - x %= 3	    
      - x = x % 3	
      - 2
+     - Modulus AND assignment operator; takes modulus using two operands and assign the result to left operand	
    * - 7
      - &=	               
-     - Bitwise AND assignment operator ([#bitwise_and]_)	                 
      - x &= 3	    
      - x = x & 3	
      - 1
+     - Bitwise AND assignment operator ([#bitwise_and]_)	                 
    * - 8
      - \|=	 
-     - bitwise inclusive OR and assignment operator	                               
      - x \|= 3	    
      - x = x | 3	
      - 
+     - bitwise inclusive OR and assignment operator	                               
    * - 9
      - ^=	                                
-     - bitwise exclusive OR and assignment operator
      - x ^= 3	    
      - x = x ^ 3	
      - 
+     - bitwise exclusive OR and assignment operator
    * - 10
      - >>=       	                        
-     - Right shift AND assignment operator	
      - x >>= 3	    
      - x = x >> 3	
      - 
+     - Right shift AND assignment operator	
    * - 11
      - <<=      
-     - Left shift AND assignment operator	 	                        
      - x <<= 3	    
      - x = x << 3
      - 
+     - Left shift AND assignment operator	 	                        
    * - 12
      - =>      
      - Lambda operator	 	                        
