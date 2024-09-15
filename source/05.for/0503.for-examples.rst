@@ -31,7 +31,7 @@ Step in loop header
 
 ``i++`` is a common pattern and it increments by 1. Also common in the iterator/step section of 
 the loop header is using assignment statement to control stepping::
-    
+
     i = i + k;
 
 or the equivalent short-hand compound assignment operator:: 
@@ -70,8 +70,6 @@ is the same as  ::
    field width formatting
    precision; format
    table formatting
-   example; power_table.cs
-   power_table.cs example
    right justification
    justification; right
    single: { }; format field width and precision
@@ -112,7 +110,7 @@ First we might not need all those digits in the square root approximations.
 We can replace ``{3}`` by ``{3:F4}`` to just show 4 decimal places.
 
 We can adjust the spacing to make nice
-columns by using a further formatting option.  The longest entries are all
+columns by using a further formatting option. The longest entries are all
 in the last row, where they take up, 2, 3, 4, and 6 columns (for 3.1623).
 Change the format string::
 
@@ -136,7 +134,7 @@ and we generate the neater output:
      9  81  729 3.0000
     10 100 1000 3.1623
 
-We are using two new formatting forms:
+We are using two new formatting forms: 
 
    | ``{``\ index\ ``,``\ fieldWidth\ ``}``  and 
    | ``{``\ index\ ``,``\ fieldWidth\ ``:F``\ #\ ``}``   
@@ -145,23 +143,9 @@ where index, fieldWidth, and # are replaces by specific literal integers.
 The new part with the comma (not colon) and fieldWidth, sets the *minimum*
 number of columns used for the substituted string, padding with blanks as needed.
 
-.. warning::
-   There is a *special* language for the
-   characters between the braces in a format string.  
-   The rules are different than in regular C# code, where
-   comma and colon are symbols, 
-   and the parser allows *optional whitespace* around them.
-   This is *not* the case inside the braces of a format string:
-   There cannot be a space after the colon or before the comma.
-   Some blanks are legal; some blanks lead to exceptions being thrown, 
-   and other positions for blanks 
-   just silently give the wrong format. 
-   
-   The safest approach for a programmer is just to have
-   *no* blanks between the braces in a format string.
 
 *If the string to be inserted is wider than the fieldWidth,* 
-then the *whole* string is inserted, *ignoring* the fieldWidth.  Example::
+then the *whole* string is inserted, *ignoring* the fieldWidth. For example::
 
     string s = "stuff";
     Console.WriteLine("123456789");
@@ -180,22 +164,23 @@ generates:
 filling 9, 7, and then 5 columns, by padding with 4, 2, and 0 blanks.  
 *The last line sticks out past the proposed 3-column fieldWidth.*
 
-One more thing to add to our power table is a heading.  We might want:
+One more thing to add to our power table is a heading. We might want:
 
 .. code-block:: none
 
     n   square    cube    root
     
 To make the data line up with the heading titles,
-we can expand the columns, with code in example
-:repsrc:`power_table/power_table.cs`:
+we can expand the columns, with code in example:: csharp
 
-.. literalinclude:: ../../examples/introcs/power_table/power_table.cs
-   :start-after: chunk
-   :end-before: chunk
-   :dedent: 6
+    Console.WriteLine("{0,2}{1,7}{2,5}{3,7}",
+                  "n", "square", "cube", "root");
+    for ( int n = 1; n <= 10; n++) {
+    Console.WriteLine("{0,2}{1,7}{2,5}{3,7:F4}",
+                        n, n*n, n*n*n, Math.Sqrt(n));
+    }
 
-generating:
+generating the output:
 
 .. code-block:: none
 
@@ -218,364 +203,6 @@ of the format string by putting all the substitution expressions in braces
 right beside each other, and generate the space between columns with a 
 larger field width.
 
-.. index:: left justification
-   format; left justification
-   justification; left
-   
-.. _left-justification:
-   
-**Left Justification:**  Though our examples have always right justified in
-a field (padding on the left), for completeness we note this alternative:
-A minus sign in front of the fieldWidth
-places the result left justified (padded on the right).
-For example::
-
-    string s = "stuff";
-    Console.WriteLine("1234567890");
-    Console.WriteLine("{0,-9}|\n{0,-7}|\n{0,-5}|\n{0,-3}|", s);
-
-prints:
-
-.. code-block:: none
-
-    1234567890
-    stuff    |
-    stuff  |
-    stuff|
-    stuff|
-
-where the '|' appears after any blank padding in each line.
-
-.. index:: 
-   ASCII example
-   example; ASCII
-   
-.. _ASCII:
-
-ASCII Codes
-------------
-
-Here is a reverse lookup from the 
-:ref:`Numeric Code of String Characters <codeofstringchar>`:  
-Find the characters for a list of numeric codes. Just as we can cast a
-``char`` to an ``int``, we can cast an ``int`` 0-127 to a ``char``.
-
-The Unicode used
-by C# is an extension of the ASCII codes corresponding to the
-characters on a US keyboard.  The codes were originally 
-used to drive printers,
-and the first 32 codes are non-printable instructions to the printer.
-Characters 32 - 126 yield the 95 characters on a standard US keyboard.
-
-A loop to print each code followed by a space and the corresponding 
-printable character
-would be::
-
-   for (int i = 32; i < 127; i++) {
-      Console.WriteLine("{0,3} {1}", i, (char)i);
-   }
-
-To make all the character line up we added a field width 3 for the code column.
-
-If you run  this in csharp, 
-the first line printed does not appear to have a character:  That is the
-blank character.  All the other characters are visible.
-
-Let us make a more concise table, putting 8 entries per line.
-We can print successive parts using ``Write`` instead of ``WriteLine``,
-but we still need to advance to the next line after every 8th
-entry, for codes 39, 47, 55, ....
-Since they are 8 apart, their remainder when divided by 8 is always
-the same:  
-
-    7 = 39 % 8 = 47 % 8 = 55 % 8 = ....
-
-We can add a newline after each of these is printed.  This requires a test::
-
-   for (int i = 32; i < 127; i++) {
-      Console.Write("{0,3} {1}  ", i, (char)i);
-      if (i % 8 == 7) {
-         Console.WriteLine();
-      }
-   }
-
-Recall that ``Console.WriteLine()`` 
-with no parameters *only* advances to the next line.
-
-Paste that whole code at once into csharp to see the result.
-
-The next csharp> prompt appears right after ``126 ~``.  
-There is no eighth entry on the last line, and hence no advance to the
-next line.  A program printing this table should include an extra 
-``Console.WriteLine()`` after the loop.
-
-.. index:: example; mod_mult_table.cs
-   mod_mult_table.cs example
-   nested loop; table 
-
-.. _modular_mult_table:
-
-Modular Multiplication Table
-------------------------------
-
-We have introduced the remainder operator ``%`` and mentioned that the corresponding
-mathematical term is "mod".  We can extend that to the idea of modular arithmetic 
-systems.  For example, if we only look at remainders mod 7, we can just consider
-numbers 0, 1, 2, 3, 4, 5, and 6.  We can do multiplication and addition and take 
-remainders mod 7 to get answers in the same range.  For example 3 * 5 mod 7 
-is ``(3 * 5) % 7`` in C#, which is 1.  As we look more at this system, we will 
-observe and explain more properties.
-
-The next example is to make a table of multiplication, mod 7, and later generalize.
-
-Tables generally have row and column labels. We can aim for something like::
-
-    * | 0 1 2 3 4 5 6 
-    -----------------
-    0 | 0 0 0 0 0 0 0 
-    1 | 0 1 2 3 4 5 6 
-    2 | 0 2 4 6 1 3 5 
-    3 | 0 3 6 2 5 1 4 
-    4 | 0 4 1 5 2 6 3 
-    5 | 0 5 3 1 6 4 2 
-    6 | 0 6 5 4 3 2 1 
-
-The border labels make the table much more readable, but let us start simpler,
-with just the modular multiplications::
-
-    0 0 0 0 0 0 0 
-    0 1 2 3 4 5 6 
-    0 2 4 6 1 3 5 
-    0 3 6 2 5 1 4 
-    0 4 1 5 2 6 3 
-    0 5 3 1 6 4 2 
-    0 6 5 4 3 2 1 
-
-This is more complicated in some respects than our previous table, so start slow,
-with some pseudocode.  We need a row for each number 0-6, and so a ``for`` loop
-suggests itself::
-
-    for (int r = 0; r < 7; r++) {
-       print row
-    }
-    
-Each individual row also involves a repeated pattern:  
-calculate for the next number.  We can name the second number c for column.  The
-next revision replaces "print row" by a loop:  a *nested* loop, inside the loop for
-separate rows::
-
-    for (int r = 0; r < 7; r++) {
-       for (int c = 0; c < 7; c++) {
-           print modular multiple on same line
-       }
-    }
-
-and the modular multiplication is just regular multiplication followed by
-taking the remainder mod 7, so you might come up with the C# code::
-
-    for (int r = 0; r < 7; r++) {
-       for (int c = 0; c < 7; c++) {
-           int modProd = (r*c) % 7;
-           Console.Write(modProd + " ");
-       }
-    }
-
-You can test this in csharp, and see it is not quite right!  
-Chopped-off output starts::
-
-    0 0 0 0 0 0 0 0 1 2 3 4 5 6 0 2 4 6 1 3 5 0 3 6 2 5 1 4 0...
-    
-Though we want each entry in a row on the same line, we need to go down to the
-next line at the end of each line!  Where do we put in the newline in the code?
-A line is *all* the modular products by r, *followed* by *one* newline.  
-Each modular product for a row is printed in the inner ``for`` loop.  We want to
-advance *after* that, so the newline must be inserted *outside the inner loop*.  
-On the other hand we do want it done for *each* row, so it must be 
-*inside the outer loop*:
-
-..  code-block:: csharp
-    :linenos:
-
-    for (int r = 0; r < 7; r++) {
-       for (int c = 0; c < 7; c++) {
-           int modProd = (r*c) % 7;
-           Console.Write(modProd + " ");
-       }
-       Console.WriteLine();
-    }
-    
-You can copy and test that code in csharp, and it works!
-
-It is important to be able to play computer on nested loops and follow execution,
-statement by statement.  Look more closely at the code above, 
-noting the added line numbers.   
-The basic pattern *is* sequential:  *Complete* one statement before going on to the next.
-*Inside* the execution of a looping statement, there are extra rules, for testing and
-looping through the whole body.  Within a loop body, each *complete*
-statement is executed sequentially. 
- 
-Most new students can get successfully to line 4:
-
-   =====  ==  ==  ==========  =====================
-    line   r   c     modProd  comment
-   =====  ==  ==  ==========  =====================
-       1   0  \-          \-  initialize outer loop
-       2   0   0          \-  initialize inner loop
-       3   0   0           0
-       4   0   0           0  Write 0
-   =====  ==  ==  ==========  =====================
-
-After reaching the bottom of the loop, where do you go?  
-You finish the *innermost* enclosing statement.  
-You are in the inner loop, so the next line is the *inner* loop heading
-where you increment c and continue with the loop since 1 < 7.  This 
-inner loop continues until you reach the bottom of the inner loop,
-line 4, with c = 6, and return to the heading, line 2, and the test fails,
-finishing the inner row loop:
-
-   =====  ==  ==  ==========  =====================
-    line   r   c     modProd  comment
-   =====  ==  ==  ==========  =====================
-       1   0  \-          \-  initialize outer loop
-       2   0   0          \-  0 < 7, enter loop body
-       3   0   0           0  (0*0)%7
-       4   0   0           0  Write 0
-       2   0   1          \-  c=0+1=1,  1 < 7: true
-       3   0   1           0  (0*1)%7
-       4   0   1           0  Write 0
-       2   0   2          \-  c=1+1=2,  2 < 7: true
-     ...                      ... through c = 6
-       4   0   6           0  Write 0
-       2   0   7          \-  c=+1=7,  7 < 7: false
-   =====  ==  ==  ==========  =====================
-   
-At this point the inner loop statement, lines 2-4, has completed,
-and you continue.  You go on to the next statement in the
-same sequential chuck as the inner loop statement in lines 2-4:  
-That sequential chunk is the the outer loop body, lines 2-6.
-The next statement is line 6, advancing printing to the next line.
-That is the last statement of the outer loop, so you
-return to the heading of the outer loop and modify its loop 
-variable r.  The two lines just described are:
-   
-   =====  ==  ==  ==========  =====================
-    line   r   c     modProd  comment
-   =====  ==  ==  ==========  =====================
-       6   0  \-          \-  print a newline
-       1   1  \-          \-  r=s0+1=1, 1 < 7 enter outer loop
-   =====  ==  ==  ==========  =====================
-
-Then you go all the way through the inner loop again, 
-for all columns, with c going from 0 through 6, and exit at c=7, 
-finish the body of the outer loop by advancing to a new print line,
-and return to the outer loop heading, setting r = 2..., until
-all rows are completed.
-
-The common error here is to forget what loop is the innermost one 
-that you are working on, and exit that loop before is is totally finished: 
-It finishes when the test of the condition controlling the loop becomes false.
-
-Look back one more time and make sure the code for this *simpler* table makes
-sense before we continue to the one with labels....
-
-The fancier table has a couple of extra rows at the top.  These two rows
-are unlike the remaining rows in the body of the table, so they need special code.
-
-If we go back to our pseudocode we could add to it::
-
-    print heading row
-    print dash-row
-    for (int r = 0; r < 7; r++) {
-       print body row
-    }
-
-First analyze the heading row:  Some parts are repetitive and
-some are not: Print ``"* |"`` once, and then there is a repetitive pattern printing
-0 - 6, which we can do with a simpler loop than in the table body::
-
-      Console.Write("* | ");
-      for ( int i = 0; i < 7; i++) {
-         Console.Write(i + " ");
-      }
-      Console.WriteLine();
-
-The dashed line can be generated using ``StringOfReps`` from 
-:ref:`lab-loops`.  How many dashes?  A digit and a space for each of
-seven columns and for a row header, 
-so we need
-(7+1)*(1+1) characters, plus one for the '|':  1 + (7+1)*(1+1).  
-Thinking ahead, we will leave that expression unsimplified.
-
-We have done most of the work for the rows of the body of the table in the simpler
-version.  We just 
-have a bit of printing for the initial row label.
-Where does the code go?  It is repeated for each row, so it is inside
-the outer loop, but it is just printed once per row, so it comes *before* the 
-inner column loop.  The row label is r.  
-The whole code is in example :repsrc:`mod7_table/mod7_table.cs` and below:
-
-
-..  literalinclude:: ../../examples/introcs/mod7_table/mod7_table.cs
-    :start-after: chunk
-    :end-before: chunk
-    :dedent: 6
-      
-Besides the 0 row and 0 column in the mod 7 table,
-note that in each line the products are a permutation of all the numbers 1-6.  
-That means it is
-possible to define the *inverse* of the multiplication operation, and mod 7 arithmetic
-actually forms a mathematical *field*.  
-Modular arithmetic (with much larger moduli!) is extremely important in 
-*public key cryptography*, which  
-protects all your online financial transactions....  
-Knowing a lot more math is useful! 
-(But it is not required for this course.)
-
-The inverse operation to multiplication for prime moduli is
-easy to work out by brute force, going through the row of products.
-A much more efficient
-method is needed for cryptography:  That method involves
-an elaboration of :ref:`gcd`.
-
-Finally, let us generalize this table to mod n.  With n up to about 25, 
-it is reasonable to print.
-Most of the changes are just replacing 7 by n.  
-There is a further complication
-with column width, since the numbers can be more than one digit long.  
-We can do formatting with a field width.  
-Unfortunately in C# the field width must be a *literal*
-integer embedded in the format string, 
-but our number of digits in n is *variable*.
-
-Here is a good trick:  Construct the format string inside the program.  
-To get the format for a 
-number and an extra space
-mod 7, we want format string "{0,1} ", but for mod 11, we want "{0,2} ".  
-This 1 or 2 is the number of characters in n as a string, 
-given by  ::
-
-   numberWidth = ("" + n).Length;
-
-We can create the format string 
-with a string concatenation expression::
-
-   string colFormat = "{0," + numberWidth + "}";
-
-or use
-*another* format string and substitution.  This is an excuse to
-illustrate including explicit braces (for the main format string).  
-Recall the explicit braces are doubled.  Check out this version::
-
-    string colFormat = string.Format("{{0,{0}}} ", numberWidth);
-
-which we use in the code for the whole function, below, 
-and in example program
-:repsrc:`mod_mult_table/mod_mult_table.cs`.
-
-..  literalinclude:: ../../examples/introcs/mod_mult_table/mod_mult_table.cs
-    :start-after: chunk
-    :end-before: chunk
-    :dedent: 6
 
 .. index:: string; reverse
    reverse string example; 
@@ -665,5 +292,5 @@ The result is:
 
 We used our new operator ``+=`` to be more concise.
 
-This function and a ``Main`` used to demonstrate it are in 
-:repsrc:`reversed_string/reversed_string.cs`.
+This function and a ``Main`` used to demonstrate it are in `here<
+https://introcs.cs.luc.edu/for/forexamples.html#ascii-codes:~:text=reversed_string/reversed_string.cs>`.
