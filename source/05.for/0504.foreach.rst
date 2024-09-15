@@ -82,40 +82,16 @@ accessing the values from an array.
 Also note that for the for and foreach loops, you could do all the same things 
 with ``while`` loops, which you will learn in subsequent chapters, but there 
 are many situations where ``foreach`` loops and ``for`` loops are more convenient 
-and easier to read.  
-
-
-We have already processed strings a character at a time, with ``while`` loops.
-We took advantage of the fact that strings could be indexed.  Our ``while``
-loops directly controlled the sequence of indices. Then we could
-look up the character at each index of a given string ``s``::
-
-	int i = 0;
-	while (i < s.Length) {
-	   code using the value of s[i]...
-	   i++;
-	}
-
-Examples have been in :ref:`While-Sequence`, like
-
-.. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
-   :start-after: chunk
-   :end-before: chunk
-   :dedent: 6
- 
-In this example we really only care about the characters, not the indices.
-Managing the indices is just a way to get at the 
-underlying sequence of characters.
-
-A conceptually simpler view is just::
+and easier to read. See, for example, a conceptual view of of the preceding code 
+is just::
 
    for each character in s
        use the value of the character
-       
+
+
 To *use* "the character" in C#, we must be able to refer to it.
-We might name the current character ``ch``.
-The following is a variant of ``OneCharPerLine`` with a ``foreach`` 
-loop::
+We might name the current character ``ch`` as the ``local loop variable`` to parse 
+through the string ``s`` with a ``foreach`` loop (note the ``char`` type is required)::
 
     static void OneCharPerLine(string s) 
     {

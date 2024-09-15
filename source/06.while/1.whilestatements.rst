@@ -7,6 +7,28 @@
 While-Statements
 ============================ 
 
+We have already processed strings a character at a time, with ``while`` loops.
+We took advantage of the fact that strings could be indexed.  Our ``while``
+loops directly controlled the sequence of indices. Then we could
+look up the character at each index of a given string ``s``::
+
+	int i = 0;
+	while (i < s.Length) {
+	   code using the value of s[i]...
+	   i++;
+	}
+
+Examples have been in :ref:`While-Sequence`, like
+
+.. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
+   :start-after: chunk
+   :end-before: chunk
+   :dedent: 6
+ 
+In this example we really only care about the characters, not the indices.
+Managing the indices is just a way to get at the 
+underlying sequence of characters.
+
 
 Variables declared in a ``for``    The variable ``i`` declared before
 the ``while`` statement above is still defined after the ``while`` loop.
