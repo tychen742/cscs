@@ -91,35 +91,21 @@ The syntax of the ``for`` loop statement will be explained in a later section.
 
 
 
-``return``, ``break``, and ``continue``
-------------------------------------------
-
-``break``, ``continue``, ``return``, and ``goto`` are the jump statements (see: :ref:`statements`) in 
-C# that transfer the control of code execution flow. 
-
-You can stop a loop in the middle with an ``if`` statement 
-that leads to a choice with a ``return`` statement, which forces you to completely 
-leave the current method block. Note that return breaks the current code execution and continue from 
-where the method is called.
-
-With the ``break`` statement, you exit/break out of the current loop. The ``break`` statement 
-terminates the closest enclosing iteration statement (for, foreach, while, or do loop) 
-or switch statement. 
-
-With the ``continue`` statement, you terminate the current loop and step to the next 
-iteration. The ``continue`` statement stops the current execution flow and starts a new iteration of 
-the closest enclosing iteration statement (for, foreach, while, or do loop). 
-
-
-
-Iterator/Updater
+Iterator/Step
 -----------------
 
-Note that the arithmetic unary operators (decrement operator ``--`` and 
-increment operator ``++``) are often used in for and while loops. The common usage is to use the 
-postfix increment operator. The result of a postfix increment operation is that it 
-increments the value of the local loop variable (i) and still evaluates to the original value 
-as before the operation and will update the value in next iteration. Namely, i++ will retain 
+The iterator, also known as **step**, section can contain zero or more expressions, separated by commas. 
+Commonly used iterators include:
+
+- prefix or postfix increment expression, such as ++i or i++
+- prefix or postfix decrement expression, such as --i or i-- 
+- assignment
+
+The arithmetic unary operators (decrement operator ``--`` and 
+increment operator ``++``) are probably the most common ones used in for and while loops, especially 
+the postfix increment operator. The result of a postfix increment operation is that it 
+increments the value of the local loop variable (``i``) and still evaluates to the original value 
+as before the operation and will update the value in next iteration. Namely, ``i++`` will retain 
 the old value in the body of the for statement until next next iteration. 
 
 For example, test this in ``csharprepl``::
@@ -155,19 +141,45 @@ the difference between the postfix expression and prefix expression:
       Console.WriteLine("j == {0}", j);      // j == 1
    }
 
+When setting a "**step**, you may also use assignment statement (see :ref:`assignment-operators`) to step, which give you 
+more flexibility in stepping. For example, in ``csharprepl``::
+
+  > int n = int.Parse(Console.ReadLine()); 
+    for (var i = 0; i <= n; i += 10) 
+    { 
+        Console.WriteLine(i); 
+    }
+  30
+  0
+  10
+  20
+  30
 
 
 
 
 
+``return``, ``break``, and ``continue``
+------------------------------------------
 
+``break``, ``continue``, ``return``, and ``goto`` are the jump statements (see: :ref:`statements`) in 
+C# that transfer the control of code execution flow. 
 
+You can stop a loop in the middle with an ``if`` statement 
+that leads to a choice with a ``return`` statement, which forces you to completely 
+leave the current method block. Note that return breaks the current code execution and continue from 
+where the method is called.
 
+With the ``break`` statement, you exit/break out of the current loop. The ``break`` statement 
+terminates the closest enclosing iteration statement (for, foreach, while, or do loop) 
+or switch statement. 
 
-
+With the ``continue`` statement, you terminate the current loop and step to the next 
+iteration. The ``continue`` statement stops the current execution flow and starts a new iteration of 
+the closest enclosing iteration statement (for, foreach, while, or do loop). 
 
 
 .. rubric:: Footnotes
 
-.. [#iteration] See: C# Language Reference: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`_
-.. [#c-style-for-loop] The C# for loop is C-style for loop since C# is one of the C-family languages. The ``for (initialization; condition; update) `` for loop is also the only one type of for loop in C language.
+.. [#iteration] See: C# Language Reference: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`.
+.. [#c-style-for-loop] The C# for loop is C-style for loop since C# is one of the C-family languages. The ``for (initialization; condition; update)`` for loop is also the only one type of for loop in C language.

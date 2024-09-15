@@ -12,8 +12,9 @@ operands, may be prefix, infix or postfix.
 Common simple operators include 
 
 - *arithmetic* (e.g. addition with +), 
-- *comparison* (e.g. "greater than" with >), and 
-- *logical* (e.g. AND, also written && in some languages) operators. 
+- *comparison*  (relational) (e.g. "greater than" with >),
+- *logical* (e.g. AND, also written && in some languages), and
+- *assignment* (e.g., =, +=) operators.
   
 Additional types of operators include assignment (usually = or :=), 
 field access in a record or object (usually .), and bitwise and 
@@ -147,7 +148,7 @@ Examples of comparison operations:
 Logical Operators
 ---------------------------
 
-Logical Boolean operators [#]_ are used to determine the logic between variables or values. 
+Logical Boolean operators [#_logical-operators]]_ are used to determine the logic between variables or values. 
 Just like comparison operators, logical operators return True or False as a result 
 of the evaluation. 
 
@@ -188,12 +189,106 @@ Examples of logical operators are:
   false
 
 
+.. _assignment-operators:
+
+Assignment Operators
+----------------------
+
+The ``=`` operator is called the simple *assignment operator*, which serves to assign a value to a variable (note that ``==`` is the *equality test operator* testing if two operands are equal). 
+
+In addition to simple assignment operator, compound assignment operators are shortcuts that do a *math operation* and *assignment* in one step. [#assign_op]_ : 
+
+.. list-table:: Assignment Operators 
+   :widths: 3 5 50 5 5 3
+   :header-rows: 1
+
+   * - No.
+     - Operator                            
+     - Description
+     - Example     
+     - Same As
+     - Output of x == 5
+   * - 1
+     - =	                                  
+     - Simple assignment operator; assigns values from right operands to left operand
+     - x = 5	      
+     - x = 5
+     - 5	
+   * - 2
+     - +=
+     - Add AND assignment operator; adds right operand to the left operand and assign the result to left operand	                             
+     - x += 3	   
+     - x = x + 3	
+     - 8
+   * - 3
+     - -=	   
+     - Subtract AND assignment operator; subtracts right operand from the left operand and assign the result to left operand	                         
+     - x -= 3	   
+     - x = x - 3	
+     - 2
+   * - 4
+     - \*=	                                 
+     - Multiply AND assignment operator; multiplies right operand with the left operand and assign the result to left operand	
+     - x \*= 3	     
+     - x = x * 3
+     - 15	
+   * - 5
+     - /=
+     - Divide AND assignment operator; divides left operand with the right operand and assign the result to left operand		                                
+     - x /= 3	    
+     - x = x / 3	
+     - 1.6666666666666667
+   * - 6
+     - %=	          
+     - Modulus AND assignment operator; takes modulus using two operands and assign the result to left operand	
+     - x %= 3	    
+     - x = x % 3	
+     - 2
+   * - 7
+     - &=	               
+     - Bitwise AND assignment operator ([#bitwise_and]_)	                 
+     - x &= 3	    
+     - x = x & 3	
+     - 1
+   * - 8
+     - \|=	 
+     - bitwise inclusive OR and assignment operator	                               
+     - x \|= 3	    
+     - x = x | 3	
+     - 
+   * - 9
+     - ^=	                                
+     - bitwise exclusive OR and assignment operator
+     - x ^= 3	    
+     - x = x ^ 3	
+   * - 10
+     - >>=       	                        
+     - Right shift AND assignment operator	
+     - x >>= 3	    
+     - x = x >> 3	
+   * - 11
+     - <<=      
+     - Left shift AND assignment operator	 	                        
+     - x <<= 3	    
+     - x = x << 3
+   * - 12
+     - =>      
+     - Lambda operator	 	                        
+     - 	    
+     - 
+
+
+
+
 .. rubric:: Footnotes
 
-.. [#] In C# Reference, ``&&`` is called Conditional logical AND operator, which is almost the same as & except it performs "short-circuit evaluation": if the result can be inferred from the first operand, then the second operand is not evaluated, while logical AND operator ``&`` will always evaluate both its operands. The same applies to Logical OR operator ``|``. Also, C# has logical exclusive OR operator ``^``, which computes the same result as the inequality operator ``!=`` for bool operands. 
+.. [#logical_op] In C# Reference, ``&&`` is called conditional logical AND operator, which is almost the same as & except it performs "short-circuit evaluation": if the result can be inferred from the first operand, then the second operand is not evaluated, while logical AND operator ``&`` will always evaluate both its operands. The same applies to Logical OR operator ``|``. Also, C# has logical exclusive OR operator ``^``, which computes the same result as the inequality operator ``!=`` for bool operands. 
+.. [#assign_op] This table is adapted from `w3schools <https://www.w3schools.com/cs/cs_operators_assignment.php>` and `tutorialspoint <https://www.tutorialspoint.com/csharp/csharp_assignment_operators.htm>`
+
+.. [#bitwise_and] `Bitwise and shift operators<https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators>`
 
 
 
 
-.. Operator Precedence
-.. Truth Tables
+.. // Operator Precedence
+.. // Truth Tables
