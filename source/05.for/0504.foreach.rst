@@ -1,7 +1,7 @@
 
 .. _foreach-syntax:
 
-``foreach`` Syntax 
+``foreach`` Statement 
 =====================
 
 .. index:: statement; foreach
@@ -9,7 +9,7 @@
 
 A C# ``foreach`` works like a for loop, except it does not use the header 
 (initializer, condition, and iterator) for ``conditional`` looping flow control. Instead, 
-the ``foreach`` loop iterates through each element in a given collection of data and 
+the ``foreach`` loop iterates through each element in a given sequence or collection of data and 
 runs a set of instructions once for each of the elements. In other words, the 
 ``foreach`` loop is used exclusively to loop through elements in an array 
 (or other data sets). 
@@ -18,24 +18,21 @@ In the case of ``for`` loop in C#, the local loop variable refers to the index o
 array whereas, in the case of a ``foreach`` loop, the loop variable refers to 
 the ``values`` of the array.
 
-In ``for`` loop, the loop variable must be of type ``int``. The reason for this is, 
-here the loop variable is referring to the index position of the array, which can be 
-of a different type. For the ``foreach`` loop, the ``data type`` of the ``loop variable`` 
-must be the same as the *type of the values stored in the array*. For example, 
-if you have a string array, then the loop variable must be of type string. 
+In ``for`` loop, the loop variable is of type ``int``. The reason for this is, 
+here the ``loop variable`` refers to the index position of the array. For the ``foreach`` 
+loop, the ``data type`` of the ``loop variable`` must be the same as the 
+*type of the values stored in the array*. For example, if you have a string array, 
+then the loop variable must be of type string. 
 
-One thing that you need to keep in mind is that the ``for`` loop 
-in C# can be used both for accessing values from an array as well as assigning 
-values to an array whereas the ``foreach`` loop in C# can only be used for 
-accessing the values from an array.
+The syntax of the foreach loop is::
 
-Note that for the for and foreach loops, you could do all the same things with ``while`` loops,
-but there are many situations where ``foreach`` loops and ``for`` loops 
-are more convenient and easier to read.  
+   foreach (type variableName in arrayName) 
+   {
+      // code block to be executed
+   }
 
-
-
-Observe the following code and test it in csharprepl.::
+Observe the following code and test it in ``csharprepl`` to see how ``foreach`` differs from the ``for`` 
+statement::
 
    > string str = "ABCabc";
      foreach (char ch in str) {
@@ -48,6 +45,24 @@ Observe the following code and test it in csharprepl.::
    Unicode for b is 98.
    Unicode for c is 99. 
 
+To achieve the same results, the C# ``for`` loop code could look like::
+   
+   > string str = "ABCabc";
+   > for (int i = 0; i < 6; i++)  
+     { 
+         Console.WriteLine("Unicode for {0} is {1}", i, (int)str[i]); 
+     }
+   Unicode for 0 is 65
+   Unicode for 1 is 66
+   Unicode for 2 is 67
+   Unicode for 3 is 97
+   Unicode for 4 is 98
+   Unicode for 5 is 99
+
+   > 
+
+
+
 
 Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
 through a string using a ``foreach`` statement. Here we print out the underlying ``int`` 
@@ -57,9 +72,19 @@ each ``char`` to an ``int``::
     (int)ch
    
 
-A ``foreach`` statement
-only works with an object that holds a sequence or collection.
-We will see many more kinds of sequences later.  For now we can illustrate
+One thing that you need to keep in mind is that the ``for`` loop 
+in C# can be used both for accessing values from an array as well as assigning 
+values to an array whereas the ``foreach`` loop in C# can only be used for 
+accessing the values from an array.
+
+Also note that for the for and foreach loops, you could do all the same things with ``while`` loops,
+but there are many situations where ``foreach`` loops and ``for`` loops 
+are more convenient and easier to read.  
+
+
+
+A ``foreach`` statement only works with an object that holds .
+We will see many more kinds of sequences later. For now we can illustrate
 with a string, which is a sequence of characters.
 
 We have already processed strings a character at a time, with ``while`` loops.
