@@ -8,7 +8,7 @@
    foreach; syntax 
 
 A C# ``foreach`` works like a for loop, except it does not use the header 
-(initializer, condition, and iterator) for explicit looping flow control. Instead, 
+(initializer, condition, and iterator) for ``conditional`` looping flow control. Instead, 
 the ``foreach`` loop iterates through each element in a given collection of data and 
 runs a set of instructions once for each of the elements. In other words, the 
 ``foreach`` loop is used exclusively to loop through elements in an array 
@@ -18,37 +18,44 @@ In the case of ``for`` loop in C#, the local loop variable refers to the index o
 array whereas, in the case of a ``foreach`` loop, the loop variable refers to 
 the ``values`` of the array.
 
-the loop variable must be of type int in case of for loop. The reason for this is, 
-here the loop variable is referring to the index position of the array. Coming to 
-the ``foreach`` loop, the data type of the loop variable must be the same as the 
-type of the values stored in the array. For example, if you have a string array 
-then the loop variable must be of type string in case of the ``foreach`` loop and 
-int in case of a for loop in C#. For a better understanding, please have a look 
-at the following example.
+In ``for`` loop, the loop variable must be of type ``int``. The reason for this is, 
+here the loop variable is referring to the index position of the array, which can be 
+of a different type. For the ``foreach`` loop, the ``data type`` of the ``loop variable`` 
+must be the same as the *type of the values stored in the array*. For example, 
+if you have a string array, then the loop variable must be of type string. 
 
-The most important point that you need to keep in mind is that the for loop 
+One thing that you need to keep in mind is that the ``for`` loop 
 in C# can be used both for accessing values from an array as well as assigning 
 values to an array whereas the ``foreach`` loop in C# can only be used for 
-accessing the values from an array but not for assigning values into an array.
+accessing the values from an array.
 
-Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
-through a string using a ``foreach`` statement. Here we use the underlying int Unicode value 
-of the characters so we can see each the ``char`` type characters easily. for that we are  
-casting each ``char`` to an int:  ``(int)ch``::
-
-   string str = "ABCabc";
-   foreach (char ch in str) {
-       Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
-   }
-   
-Try this in csharprepl.
-   
-These sections on ``foreach`` loops and the later :ref:`For-Loops`
-introduce new looping statements. 
-Neither is absolutely necessary:  
-You could do all the same things with ``while`` loops,
+Note that for the for and foreach loops, you could do all the same things with ``while`` loops,
 but there are many situations where ``foreach`` loops and ``for`` loops 
 are more convenient and easier to read.  
+
+
+
+Observe the following code and test it in csharprepl.::
+
+   > string str = "ABCabc";
+     foreach (char ch in str) {
+        Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+     }
+   Unicode for A is 65.
+   Unicode for B is 66.
+   Unicode for C is 67.
+   Unicode for a is 97.
+   Unicode for b is 98.
+   Unicode for c is 99. 
+
+
+Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
+through a string using a ``foreach`` statement. Here we print out the underlying ``int`` 
+Unicode value of the characters of ``char`` type. As you see, to get the values we cast 
+each ``char`` to an ``int``::
+   
+    (int)ch
+   
 
 A ``foreach`` statement
 only works with an object that holds a sequence or collection.
@@ -68,10 +75,10 @@ look up the character at each index of a given string ``s``::
 
 Examples have been in :ref:`While-Sequence`, like
 
-.. .. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
-..    :start-after: chunk
-..    :end-before: chunk
-..    :dedent: 6
+.. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
+   :start-after: chunk
+   :end-before: chunk
+   :dedent: 6
  
 In this example we really only care about the characters, not the indices.
 Managing the indices is just a way to get at the 
