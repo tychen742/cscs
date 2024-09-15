@@ -31,21 +31,12 @@ The syntax of the foreach loop is::
       // code block to be executed
    }
 
-Observe the following code and test it in ``csharprepl`` to see how ``foreach`` differs from the ``for`` 
-statement::
-
-   > string str = "ABCabc";
-     foreach (char ch in str) {
-        Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
-     }
-   Unicode for A is 65.
-   Unicode for B is 66.
-   Unicode for C is 67.
-   Unicode for a is 97.
-   Unicode for b is 98.
-   Unicode for c is 99. 
-
-To achieve the same results, the C# ``for`` loop code could look like::
+A ``foreach`` statement only works with an object that holds .
+We will see many more kinds of sequences later. For now we can illustrate
+with a string, which is a sequence of characters. Now, observe and test the 
+following code and test it in ``csharprepl`` to see how ``foreach`` 
+differs from the ``for`` statement. Say you want to print out some Unicode/ASCII code 
+for certain characters. To achieve that using C# ``for`` loop, the code could look like::
    
    > string str = "ABCabc";
    > for (int i = 0; i < 6; i++)  
@@ -61,31 +52,38 @@ To achieve the same results, the C# ``for`` loop code could look like::
 
    > 
 
-
-
-
 Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
-through a string using a ``foreach`` statement. Here we print out the underlying ``int`` 
-Unicode value of the characters of ``char`` type. As you see, to get the values we cast 
+through a string using a ``foreach`` statement using type ``char``. Here we print out 
+the underlying ``int`` Unicode value of the characters of ``char`` type. As you see, to get the values we cast 
 each ``char`` to an ``int``::
    
-    (int)ch
-   
+    (int)str[i]
+
+Using ``foreach`` loop, the code would look like the following and you cast each ``char`` 
+value to an ``int`` as well::
+
+   > string str = "ABCabc";
+     foreach (char ch in str) {
+        Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+     }
+   Unicode for A is 65.
+   Unicode for B is 66.
+   Unicode for C is 67.
+   Unicode for a is 97.
+   Unicode for b is 98.
+   Unicode for c is 99. 
+
 
 One thing that you need to keep in mind is that the ``for`` loop 
 in C# can be used both for accessing values from an array as well as assigning 
 values to an array whereas the ``foreach`` loop in C# can only be used for 
 accessing the values from an array.
 
-Also note that for the for and foreach loops, you could do all the same things with ``while`` loops,
-but there are many situations where ``foreach`` loops and ``for`` loops 
-are more convenient and easier to read.  
+Also note that for the for and foreach loops, you could do all the same things 
+with ``while`` loops, which you will learn in subsequent chapters, but there 
+are many situations where ``foreach`` loops and ``for`` loops are more convenient 
+and easier to read.  
 
-
-
-A ``foreach`` statement only works with an object that holds .
-We will see many more kinds of sequences later. For now we can illustrate
-with a string, which is a sequence of characters.
 
 We have already processed strings a character at a time, with ``while`` loops.
 We took advantage of the fact that strings could be indexed.  Our ``while``
