@@ -143,9 +143,11 @@ Create a C# Project
    #. Make sure you have created the folder: ``ls`` + Enter and you should see the Hello directory.
    #. Now you need to change into the Hello project directory: ``cd Hello``. 
    #. Check your location: Issue the ``pwd`` + Enter command and you should be in the Hello project 
-      directory::
+      directory:
 
-         *USERNAME*/workspace/tests/Hello$
+      .. code-block:: console
+
+         USERNAME/workspace/tests/Hello$
     
    The whole process would look like this:
 
@@ -163,11 +165,17 @@ Create a C# Project
       /home/tcn85/workspace/tests/Hello$
       tychen@mac:~/workspace/tests/Hello$ 
 
-#. Create and run the .NET C# console app project:
+#. Create and execute the .NET C# console app project:
 
    You just created the project folder (Hello) and now you are ready to create the project:
    
-   #. Make sure you are in your Hello project directory. (``pwd`` should show you something like *USERNAME*/workspace/tests/Hello$) 
+   #. Make sure you are in your Hello project directory. (``pwd`` should show that you are 
+      in the Hello directory:
+
+      .. code-block:: console
+
+      USERNAME/workspace/tests/Hello$
+   
    #. Issue the command ``dotnet new console`` + Enter to create the new project.
    #. Run the project by issuing the ``dotnet run`` command.
       
