@@ -31,11 +31,13 @@ The syntax of the foreach loop is::
       // code block to be executed
    }
 
-A ``foreach`` statement only works with an object that holds .
+A ``foreach`` statement only works with an object that holds a sequence or collection of data.
 We will see many more kinds of sequences later. For now we can illustrate
-with a string, which is a sequence of characters. Now, observe and test the 
-following code and test it in ``csharprepl`` to see how ``foreach`` 
-differs from the ``for`` statement. Say you want to print out some Unicode/ASCII code 
+with a string, which is a sequence of characters. Observe and test the 
+following two pieces of code in ``csharprepl`` to see how ``foreach`` 
+differs from the ``for`` statement. 
+
+Say you want to print out some Unicode/ASCII code 
 for certain characters. To achieve that using C# ``for`` loop, the code could look like::
    
    > string str = "ABCabc";
@@ -52,15 +54,16 @@ for certain characters. To achieve that using C# ``for`` loop, the code could lo
 
    > 
 
-Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
-through a string using a ``foreach`` statement using type ``char``. Here we print out 
-the underlying ``int`` Unicode value of the characters of ``char`` type. As you see, to get the values we cast 
-each ``char`` to an ``int``::
+As you can see, with a ``for`` loop, you refer to the individual characters by its index 
+and then cast it to ``int``::
    
     (int)str[i]
-
-Using ``foreach`` loop, the code would look like the following and you cast each ``char`` 
-value to an ``int`` as well::
+   
+Since strings are considered as arrays consisting of ``char`` type characters, we can loop 
+through a string using a ``foreach`` statement using type ``char`` and *cast* to print out 
+the underlying ``int`` Unicode value of each character. To achieve the same results using 
+the ``foreach`` loop, the code would look like the following (pay attention to the local 
+loop variable ``char ch``; type is required as usual)::
 
    > string str = "ABCabc";
      foreach (char ch in str) {
@@ -73,87 +76,51 @@ value to an ``int`` as well::
    Unicode for b is 98.
    Unicode for c is 99. 
 
+As you can see, in a ``foreach`` loop, we do not rely on array indexing to refer to the 
+elements. Instead, we refer to the elements directly with the local loop variable (``ch``) 
+declared with the type (``char`` in this case). 
 
-One thing that you need to keep in mind is that the ``for`` loop 
-in C# can be used both for accessing values from an array as well as assigning 
-values to an array whereas the ``foreach`` loop in C# can only be used for 
-accessing the values from an array.
-
-Also note that for the for and foreach loops, you could do all the same things 
-with ``while`` loops, which you will learn in subsequent chapters, but there 
-are many situations where ``foreach`` loops and ``for`` loops are more convenient 
-and easier to read. See, for example, a conceptual view of of the preceding code 
-is just::
-
-   for each character in s
-       use the value of the character
+As you see in the preceding example, the ``foreach`` heading feeds us one
+character from ``str`` each time through, using the name ``ch`` 
+to refer to it. Since any new variable name must be declared with a type in C#, 
+so ``ch`` is preceded in the heading by its type, ``char``. Then we can use 
+``ch`` inside the body of the loop. 
 
 
-To *use* "the character" in C#, we must be able to refer to it.
-We might name the current character ``ch`` as the ``local loop variable`` to parse 
-through the string ``s`` with a ``foreach`` loop (note the ``char`` type is required)::
+**``foreach`` vs. for loop**
 
-    static void OneCharPerLine(string s) 
-    {
-       foreach (char ch in s) {
-           Console.WriteLine(ch);
-       }
-    }
+Some of the advantages/disadvantages of ``foreach`` over the ``for`` loop are:
 
-That is all you need! The ``foreach`` heading feeds us one
-character from ``s`` each time through, using the name ``ch`` 
-to refer to it.  
-Of course any new variable name must be declared in C#, so ``ch``
-is preceded in the heading by its type, ``char``.
-Then we can use ``ch`` inside the body of the loop.  
-Advancing to the next element in the sequence is automatic in the next 
-time through the loop.  No ``i++`` to remember; 
-no possibility of an infinite loop!
+- foreach not involve variable setup (iterates over each element of the array).
+- foreach are more concise and readable than the indexing ``for`` statement.
+- foreach performs less well than the for loop because the foreach loop creates a 
+  copy of the collection (instead of referring to it using indices) when 
+  iterating and that uses extra memory.
 
-The general syntax of a ``foreach`` loop is
-
-| ``foreach (`` **type itemName** ``in`` *sequence* ``) {``
-|      statement(s) using **itemName**
-| ``}``
-
-Here is a version of IsDigits::
-
-    static Boolean IsDigits(string s) 
-    {
-       foreach (char ch in s) {
-           if (ch < '0' || ch > '9') {
-              return false;
-           }
-       }
-       return (s.Length > 0);
-    }
-
-See the advantages of ``foreach`` in these examples:
-
-- They are more concise than the indexing versions.
-- They keep the emphasis on the characters, not the secondary indices.
-- The ``foreach`` heading emphasizes that an entire particular sequence is being 
-  processed.
+The foreach loop does have some limitations: [#foreach-limits]_
+- They don’t keep track of the index of the item.
+- They cannot iterate backwards. The loop can only go forward in one step. 
+- If you wish to modify the array, the foreach loop isn’t the most suitable option.
+- The foreach loop cannot execute two-decision statements at once.
 
 .. warning::  
    
    *If* you have explicit need to refer to the indices of the items in the sequence,
-   then a ``foreach`` statement does not work.  Also a ``foreach`` loop supplies the items in 
-   a specific order; if you need a different order, it will not work.
+   then a ``foreach`` statement does not work for you. 
    
-Of course you can refer to the indices of items in  sequence with a flexible 
-``while`` loop, or see :ref:`For-Loops`, coming soon....
 
-
+``break`` in ``foreach``
+--------------------------
 
 With a ``foreach`` loop, which has no explicit continuation condition, 
-the ``break`` would be more clearly useful.
-Here is a variant if you do not care about the specific location of the target::
+the ``break`` could be more clearly useful. Here is a variant if you do not care 
+about the specific location of the target::
 
     bool found = false;
     
     foreach (string s in a) {
-       if (s == target) {
+       if (s == target) 
+       {
           found = true;
           break;
        }
@@ -164,3 +131,12 @@ Here is a variant if you do not care about the specific location of the target::
     } else {
        Console.WriteLine("Target not found");
     } 
+
+
+Note that for the for and foreach loops, you could do all the same things 
+with ``while`` loops, which you will learn in subsequent chapters, but there 
+are many situations where ``foreach`` loops and ``for`` loops are more convenient 
+and easier to read. 
+
+
+.. [#foreach-limits] `Understanding What Is C# Foreach Loop <https://www.simplilearn.com/tutorials/c-sharp-tutorial/c-sharp-foreach>`_
