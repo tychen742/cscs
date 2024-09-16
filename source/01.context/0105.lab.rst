@@ -82,14 +82,18 @@ Create a C# Project
    #. Start your terminal application (Windows PowerSell or macOS Terminal): By default, 
       you would be in your **user home directory** with a command prompt when the terminal app starts.   
    #. Issue the command ``pwd`` to show your present work path to make sure you are in your user home directory. 
-      You should see the terminal showing your current location if you use Windows::
+      You should see the terminal showing your current location if you use Windows:
+
+      .. code-block:: console
 
          PS C:\Users\tcn85> pwd              // type the command and Enter
          Path
          ----
          C:\Users\tcn85                      // tcn85 is my user account name and also the user home directory name
 
-      or, for macOS::    
+      or, for macOS:
+
+      .. code-block:: console
 
          tcn85@mac:~$ pwd
          /Users/tcn85
