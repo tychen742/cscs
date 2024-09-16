@@ -93,11 +93,9 @@ Some of the advantages/disadvantages of ``foreach`` over the ``for`` loop are:
 
 - foreach not involve variable setup (iterates over each element of the array).
 - foreach are more concise and readable than the indexing ``for`` statement.
-- foreach performs less well than the for loop because the foreach loop creates a 
-  copy of the collection (instead of referring to it using indices) when 
-  iterating and that uses extra memory.
 
 The foreach loop does have some limitations: [#foreach-limits]_
+
 - They don’t keep track of the index of the item.
 - They cannot iterate backwards. The loop can only go forward in one step. 
 - If you wish to modify the array, the foreach loop isn’t the most suitable option.
@@ -133,10 +131,12 @@ about the specific location of the target::
     } 
 
 
-Note that for the for and foreach loops, you could do all the same things 
+**Note** that for the for and foreach loops, you could do all the same things 
 with ``while`` loops, which you will learn in subsequent chapters, but there 
 are many situations where ``foreach`` loops and ``for`` loops are more convenient 
 and easier to read. 
 
+.. rubric:: Footnotes
 
-.. [#foreach-limits] `Understanding What Is C# Foreach Loop <https://www.simplilearn.com/tutorials/c-sharp-tutorial/c-sharp-foreach>`_
+.. [#foreach-limits] For a discussion of C# for loop vs foreach loop, see 
+   `Understanding What Is C# Foreach Loop <https://www.simplilearn.com/tutorials/c-sharp-tutorial/c-sharp-foreach>`_

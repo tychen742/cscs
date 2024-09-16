@@ -93,10 +93,6 @@ the heading are used at different times:
   are done, followed by the test.
 
 
-.. The comma separated lists in a ``for`` statement heading 
-.. are mentioned here for completeness. Later we will find a situation
-.. where this is actually useful.
-
 .. index::
    statement; break
    statement; continue
@@ -230,10 +226,13 @@ The break statement is in the inner loop. If it is reached, the inner loop ends,
 but the **inner loop** is just a **single statement** inside the outer loop, 
 and **the outer loop continues**.  
 If the outer loop continuation condition remains true,
-the inner loop will be executed again. As an example::
+the inner loop will be executed again. As an example:
 
-  for (int i = 0; i <= 3; i++)
-  {
+.. code-block:: csharp
+   :linenos:
+
+   for (int i = 0; i <= 3; i++)
+   {
       for (int j = 0; j <= 3; j++)
       {
 
@@ -263,7 +262,10 @@ A ``continue`` statement:
 
 In the simplest situations, a ``continue`` statement just avoids an extra ``else`` clause. 
 It can considerably shorten code if the test is inside of complicated, deeply nested 
-``if`` statements. As an example::
+``if`` statements. As an example:
+
+.. code-block:: csharp
+   :linenos:
 
    for (int i = 0; i <= 3; i++)
    {

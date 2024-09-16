@@ -209,32 +209,57 @@ larger field width.
 
 .. _reverse-string-returned:
   
-Reversed String Returned
+Reversed String
 ----------------------------
 
-In :ref:`reversed-print-example` we discuss iterating through a string's
-indices and characters to print the string reversed.  That might be useful,
-but it logically the joining of two separate ideas:  reversing a string and
-printing it.  We already know how to print a string as a step.  Now consider 
-the first part as its own function:
+Create a method, call it ReverseStringPrint, that, when called with a string, will print 
+the string reversed. 
 
-..  literalinclude:: ../../examples/introcs/reversed_string/reversed_string.cs
-    :start-after: chunk
-    :end-before: {
+We know we could use a ``for`` loop to print the characters in a string reversely. 
+Let us consider the following tools we have:
 
-To go along with this chapter, we will use a ``for`` loop heading rather 
-a ``while`` loop as in :repsrc:`reversed_print/reversed_print.cs`::
+- A string is an array of combined characters with indices. 
+- An array is 0-based. The first character of a string str can be accessed as str[0] 
+- To reverse a string, we need to start from the last indexed character.  
+- The last index number of string ``str`` is related to the length of the string: ``str.Length``. 
+- To process the whole string, we can use the decrement assignment operator (``--``) to start 
+  the printing from the end of the string. 
+
+I managed to come up with some variation of code as below but am running into some errors::
+
+    > string s = "drab"; 
+      for (int i = s.Length; i >= 0; i++)                
+      {                        
+        Console.Write(s[i]); 
+      }
+    bard
+    >
+
+One of the errors I see is the famous Index-Out-Of-Range error::
+
+    ┌──────────IndexOutOfRangeException──────────┐
+    │ Index was outside the bounds of the array. │
+    └────────────────────────────────────────────┘ 
+
+
+ reversed. Logically, you will perform two separate ideas: 
+reversing a string and printing it. Now consider the first part as its own method::
+
+    // this is a method return a string `s` in reverse order.
+    // say, if s is "drab", return "bard".
+    // below is the possible form of the header for the method
+    static string Reverse (string s)
+
+In the Reverse method, use a ``for`` loop::
 
     for (int i = s.Length - 1; i >= 0; i--) {   
 
-A more significant difference is that in 
-the previous example we immediately printed,
-individually, each letter that we wanted.  Now we need to create a single
+A significant idea here is that, instead of immediately printing the ``char``'s, 
+you need to return a reversed string. That means, you need to create a single
 string, with all the characters, before returning the result.
 
-Let us think of the example in the documentation:  If we start with
-``s`` as ``"drab"``, and we go through the letters one at a time in 
-reverse order, b a r d, we build up successively:
+Let us think about this: If you start with ``s`` as ``"drab"``, and you go through 
+the letters one at a time in reverse order, b a r d, you build up successively:
 
 ..  code-block:: none
 
@@ -243,13 +268,9 @@ reverse order, b a r d, we build up successively:
     bar
     bard
 
-We need a loop with variables and operations.  The sequence
-of reversed letters, ``s[i]``, are the 
-last character on the end of each line above.
+You need a loop with variables and operations. The sequence of reversed letters, 
+``s[i]``, are the last character on the end of each line above.
 
-At least lines after the first are constructed from previous parts,
-so, for instance,  ``"bar"``  comes from combining the initial part ``"ba"`` 
-with the latest character ``'r'`` (``s[i]``).
 We need a name for the initial part.  
 I used the name ``rev``.  
 Combining with a string is done with the ``+`` operator. 
@@ -292,4 +313,5 @@ The result is:
 
 We used our new operator ``+=`` to be more concise.
 
-This function and a ``Main`` used to demonstrate it are in `here <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/reversed_string/reversed_string.cs>`_.
+This function and a ``Main`` used to demonstrate it are in 
+`here <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/reversed_string/reversed_string.cs>`_.

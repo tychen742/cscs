@@ -121,14 +121,14 @@ Create a C# Project
       tychen@mac:~/workspace$ ls
       introcscs tests
       tychen@mac:~/workspace$ cd ..
-      tychen@mac:~$ exit   
+      tychen@mac:~$    
 
    Now if you issue ``ls`` in your user home directory, you will see that the *workspace* directory is there. 
 
 
 #. Create a C# Console app project folder
    
-   Here you will create a folder for a test project, call it **Hello** or whatever you like, 
+   Here you will create a folder for a test project, call it **Hello**, 
    to print a "Hello, World" message to the command line. You are going to do that by issuing 
    commands at the command line in your terminal. The specific process 
    should look as the code block below and the steps are explained here:
@@ -136,12 +136,12 @@ Create a C# Project
    #. Start terminal app: You start the terminal application (Windows PowerSell or macOS Terminal). You should 
       be in your user home directory by default.
    #. Change directory (``cd``) into the **tests** directory: The tests directory is inside your 
-      workspace directory, so we have to change into workspace first (``cd workspace``) then ``cd tests``. 
-   #. Make sure you are in *tests*: ``pwd`` + Enter and you should see that you are in the tests directory in workspace/tests. 
+      workspace directory, so we have to change into workspace from your home directory first (``cd workspace``) then ``cd tests``. 
+   #. Make sure you are in *tests*: ``pwd`` + Enter and you should see that you are in the tests directory in *USERNAME*/workspace/tests. 
    #. Create project folder: ``mkdir Hello``.  
    #. Make sure you have created the folder: ``ls`` and you will see the Hello directory.
    #. Now you need to change into the project directory Hello: ``cd Hello``. 
-   #. Check your location: Issue the ``pwd`` command and you should be in the Hello project directory. 
+   #. Check your location: Issue the ``pwd`` command and you should be in the Hello project directory: *USERNAME*/workspace/tests/Hello. 
     
    The whole process would look like this:
 
@@ -159,10 +159,11 @@ Create a C# Project
       /home/tcn85/workspace/tests/Hello$
       tychen@mac:~/workspace/tests/Hello$ 
 
-#. Create and run the .NET C# console app project
+#. Create and run the .NET C# console app project:
+
    You just created the project folder (Hello) and now you are ready to create the project:
    
-   #. Make sure you are in your Hello project directory. 
+   #. Make sure you are in your Hello project directory. (``pwd`` should show you something like *USERNAME*/workspace/tests/Hello$) 
    #. Issue the command ``dotnet new console`` + Enter to create the new project.
    #. Run the project by issuing the ``dotnet run`` command.
       
@@ -183,15 +184,17 @@ Create a C# Project
       tychen@mac:~/workspace/tests/Hello$ 
    
 
-#. Start VS Code from terminal and run the project
+#. Start VS Code from terminal to edit and run the project
 
-   While we usually (and will in the future!) start VS Code by clicking on the application icon, for now, 
-   follow the steps below: 
+   While we usually (and will in the future!) start VS Code by clicking on the application 
+   icon in your device, for now, follow the steps below: 
    
-   #. Change into the project directory. 
-   #. Start VS Code by issuing the command ``code .`` (``code`` is VS Code and the ``.`` means the present location).
-   #. VS Code will start with the folder as the working directory shown in the **Explorer** view.
+   #. Change into the project directory (*USERNAME*/workspace/tests/Hello$). 
+   #. Start VS Code by issuing the command ``code .`` (``code`` is VS Code and the ``.`` means the present location). 
+      (If VS Code is not launching after your issue ``code .``, it may be a PATH issue. See this VS Code `Command Line Interface (CLI) page <https://code.visualstudio.com/docs/editor/command-line#_launching-from-command-line>`_.)  
+   #. VS Code will start with the folder as the working directory shown in the VS Code **Explorer** view.
    #. Click on the file ``Program.cs`` to see the code.  
+   #. Change "``Hello, World!``" to "``Hello, *YOUR_NAME*``".
    #. Click on the **Toggle Panel** icon to show the VS Code panel:
       #. Click on the TERMINAL tab. 
       #. The terminal here is the same as the terminal in your terminal app. 

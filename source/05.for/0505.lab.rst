@@ -7,7 +7,7 @@ Lab: Loops
 
 Goals for this lab:
 
-- Practice with loops.  You are encouraged to use a ``for`` loop where appropriate.
+- Practice with loops. You are encouraged to use a ``for`` loop where appropriate.
 - Use nested loops where appropriate.
 
 Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, 
@@ -145,8 +145,7 @@ and fill in function bodies for each part below:
    
 
 
-Exercises
-----------
+
 
 .. index:: Random; static variable
 
@@ -157,8 +156,8 @@ Exercises
    
 .. _head_tails_exercise:
 
-Head or Tails Exercise
-~~~~~~~~~~~~~~~~~~~~~~
+Head or Tails 
+---------------
 
 Write a program ``heads_tails.cs``. It should include a function ``Flip()``,
 that will just randomly print ``Heads`` or ``Tails`` *once*.
@@ -224,8 +223,8 @@ variable declaration ensures that.
 
 .. index:: exercise; GroupFlips
 
-Group Flips Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Group Flips 
+-------------
 
 Write a program ``format_flips.cs``. It should include the function ``Flip()``
 and the ``static`` ``Random`` declaration 
@@ -252,8 +251,8 @@ The output from the previous exercise would be produced by the call::
 
 .. _reverse-string-foreach:
   
-Reverse String ``foreach`` Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reverse String ``foreach`` 
+---------------------------
 
 We already have discussed :ref:`reverse-string-returned`.
 It used a ``for`` loop to go through the characters in
