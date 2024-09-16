@@ -167,7 +167,8 @@ Create a C# Project
 
 #. Create and execute the .NET C# console app project:
 
-   You just created the project folder (Hello) and now you are ready to create the project:
+   You just created the project folder (Hello) and now you are ready to create the **project** following 
+   the steps as follows.
    
    #. Make sure you are in your Hello project directory. (``pwd`` should show that you are 
       in the Hello directory:
@@ -178,7 +179,7 @@ Create a C# Project
    
    #. Issue the command ``dotnet new console`` + Enter to create the new project.
    #. Run the project by issuing the ``dotnet run`` command.
-      
+
    .. code-block:: console
       :emphasize-lines: 1, 10, 11
 
@@ -196,11 +197,14 @@ Create a C# Project
       tychen@mac:~/workspace/tests/Hello$ 
    
 
-#. Start VS Code from terminal to edit and run the project
+#. Start VS Code from terminal to edit and execute the project
 
    While we usually (and will in the future!) start VS Code by clicking on the application 
    icon in your device, for now, follow the steps below: 
-   
+
+.. |vscode-toggle| image:: ../../source/images/vscode-toggle.jpg
+   :height: 2ex
+
    #. Change into the project directory:: 
       (*USERNAME*/workspace/tests/Hello$)
    #. Start VS Code by issuing the command ``code .`` (``code`` is VS Code and the ``.`` means the present location). 
@@ -208,10 +212,6 @@ Create a C# Project
    #. VS Code will start with the folder as the working directory shown in the VS Code Explorer view.
    #. Click on the file ``Program.cs`` to see the code.  
    #. Change "``Hello, World!``" to "``Hello, YOUR_NAME``".
-   
-   .. |vscode-toggle| image:: ../../source/images/vscode-toggle.jpg
-      :height: 2ex
-
    #. Click on the **Toggle Panel** icon (|vscode-toggle|) to show the VS Code panel:
       
       - Click on the TERMINAL tab. 
@@ -220,7 +220,7 @@ Create a C# Project
    
    #. Issue command ``dotnet run`` at the terminal to see the result:: 
       
-      "Hello, World!".
+      "Hello, YOUR_NAME!".
    
    
    ..    A VS Code project folder (workspace) has a ``settings.json`` file in the ``.vscode`` directory for you to 
