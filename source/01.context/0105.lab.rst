@@ -199,7 +199,10 @@ Create a C# Project
    #. VS Code will start with the folder as the working directory shown in the VS Code **Explorer** view.
    #. Click on the file ``Program.cs`` to see the code.  
    #. Change "``Hello, World!``" to "``Hello, *YOUR_NAME*``".
-   #. Click on the **Toggle Panel** icon to show the VS Code panel:
+   
+   .. |vscode-toggle| image:: ../../images/vscode-toggle.jpg
+
+   #. Click on the **Toggle Panel** icon (|vscode-toggle|) to show the VS Code panel:
       #. Click on the TERMINAL tab. 
       #. The terminal here is the same as the terminal in your terminal app. 
       #. The directory is by default your project directory since you started ``code .`` from there.  
