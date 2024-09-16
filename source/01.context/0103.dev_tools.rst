@@ -145,6 +145,9 @@ almost every other programming languages and technology as long as they involve 
 
    Visual Studio Code remains the preferred IDE across all developers. [#f]_
 
+VS Code
+~~~~~~~~~
+
 The popular IDE/editor VS Code user interface include several panes:   
 
 A. Activity Bar - Where you change Views. For example, the default view is Explorer for managing files. 
@@ -153,19 +156,20 @@ C. Editor
 D. Panel
 E. Status Bar
 
+
 **Activity Bar**: In the Activity Bar on the left of the window, you can access different 
 Views such as:
 
-#. Search - Provides global search and replace across your open folder.
-#. Source Control - VS Code includes Git source control by default.
-#. Run - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
-#. Extensions - Install and manage your extensions within VS Code.
-#. Custom views - Views contributed by extensions.
+   #. Search - Provides global search and replace across your open folder.
+   #. Source Control - VS Code includes Git source control by default.
+   #. Run - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
+   #. Extensions - Install and manage your extensions within VS Code.
+   #. Custom views - Views contributed by extensions.
 
-  .. figure:: ../images/vscode_interface.jpg
-   :scale: 50%
+   .. figure:: ../images/vscode_interface.jpg
+      :scale: 50%
 
-   Basic elements in VS Code user interface [#]_
+      Basic elements in VS Code user interface [#]_
 
 **Terminal**: In the Panel section, you have access to the TERMINAL and other console tabs. The Terminal 
 is the same as your terminal application. When you open a project, the Terminal will be 
