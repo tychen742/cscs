@@ -10,19 +10,19 @@ Lab: for Loops
   and not able to explain/reproduce your work when requested, all your 
   related assignments throughout the semester will be regraded as 0.
 
-#. Create a dotnet console app project (:ref:`create-project`) in your introcscs directory 
+#. Create a dotnet console app project (:ref:`create-project`) in your *USERNAME*/workspace/introcscs directory 
    called **Ch05ForLoop**. 
-#. Use the file Program.cs to code.    
 #. Prepare your code in VS Code. 
+#. Use the file Program.cs to code.    
 #. The namespace of this project is *IntroCSCS*. 
 #. The class name of this project is *Ch05ForLoop*. 
 #. When executing code, you will only use the Main() method in class *Ch05ForLoop*. 
 #. You will prepare methods in the proper class to be called from 
    the Main() method. 
 #. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using //), when appropriate, to show your understanding. 
 #. Paste your screenshots of your code in VS Code (including namespace and class 
-   name) and the results of execution (command prompt and username is part of the execution). 
-#. Number the questions and annotate your answers, when appropriate, to show your understanding. 
+   name) and the results of execution (**command prompt** and **username** are part of the execution). 
 
 
 Goals for this lab:
@@ -37,14 +37,14 @@ Loop Lab
 Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call it 
 "LoopLab" and fill in method bodies for each part below: 
 
-.. .. index:: PrintReps
+.. index:: PrintReps
 
-.. #.  Complete  
+#.  Complete  
 
-   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-   ..     :start-after: PrintReps chunk
-   ..     :end-before: body
-   ..     :dedent: 6
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: PrintReps chunk
+       :end-before: body
+       :dedent: 6
 
     Hint:  How would you do something like the example
     ``PrintReps("Ok", 9)`` or with a higher count by hand?  
@@ -57,14 +57,14 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
     
     This is a counting loop.
     
-    .. index:: StringOfReps
+    index:: StringOfReps
     
-.. #.  Complete  
+#.  Complete  
 
-   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-   ..     :start-after: StringOfReps chunk
-   ..     :end-before: body
-   ..     :dedent: 6
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: StringOfReps chunk
+       :end-before: body
+       :dedent: 6
 
     Note the distinction from the previous part:  Here the function prints nothing.
     Its work is *returned* as a single string.  You have to build up the final
@@ -72,13 +72,13 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
     
     .. index:: Factorial
     
-.. #.  Complete ``Factorial``, in a format much like SumToN in example 
-..     :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
+#.  Complete ``Factorial``, in a format much like SumToN in example 
+    :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
     
-   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-   ..     :start-after: Factorial chunk
-   ..     :end-before: body
-   ..     :dedent: 6
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: Factorial chunk
+       :end-before: body
+       :dedent: 6
     
     It is useful to think of the sequence of steps to calculate a 
     concrete example of a factorial, say 6!:
@@ -99,20 +99,20 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
     allowed values are negative, so the first wrong answer could equally well
     be positive.
     
-.. #.  Modify the function to return a ``long``.  
-..     Then what is the largest value of ``n`` for which the function works?
+#.  Modify the function to return a ``long``.  
+    Then what is the largest value of ``n`` for which the function works?
     
-..     *Remember the values from this part and the previous part*
-..     *to tell the TA's checking out your work.*
+    *Remember the values from this part and the previous part*
+    *to tell the TA's checking out your work.*
 
-..     .. index:: PrintRectangle
+    .. index:: PrintRectangle
       
-.. #.  Complete the method
+#.  Complete the method
 
-   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-   ..     :start-after: PrintRectangle chunk
-   ..     :end-before: body
-   ..     :dedent: 6
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: PrintRectangle chunk
+       :end-before: body
+       :dedent: 6
     
     Here are further examples::
         
@@ -135,12 +135,12 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
     incrementally.
     You might start by just creating the inner rectangle, without the border.
 
-.. #.  Complete the method below.  
+#.  Complete the method below.  
 
-   ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
-   ..     :start-after: PrintTableBorders chunk
-   ..     :end-before: body
-   ..     :dedent: 6
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: PrintTableBorders chunk
+       :end-before: body
+       :dedent: 6
     
     Here is further example::
         
@@ -170,10 +170,7 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
 
 
 
-
 .. index:: Random; static variable
-
-
 .. index:: Random; heads or tails exercise
    exercise; heads or tails
    heads or tails exercise
