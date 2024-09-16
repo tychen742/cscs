@@ -173,11 +173,11 @@ Views such as:
 
 **Terminal**: In the Panel section, you have access to the TERMINAL and other console tabs. The Terminal 
 is the same as your terminal application. When you open a project, the Terminal will be 
-default to the project directory. You may use Cmd+J (Ctl+J) to toggle the Panel sometimes.  
+default to the project directory. You may use Cmd+J (Ctl+J) to toggle the Panel.  
  
 **Command Palette**: In addition to the UI elements, an important key combination to learn is 
-Ctrl + Shift + P on Windows and Linux, or Shift + Command + P on Mac. Command 
-palette gives access to all the functionality within VS Code. For example, 
+``Ctl + Shift + P`` on Windows and Linux, or ``Shift + Command + P`` on Mac. Command 
+palette gives access to all the functionalities within VS Code. For example, 
 if you type ``.NET`` at the command palette, you get to access the .NET commands 
 and features as follows.
 
@@ -194,7 +194,7 @@ There are plenty of development tools that are worthy of our time to learn, exce
 not be able to learn all of them in one semester. A short list of those tools would include:
 
 - **csharprepl**:
-  While VS Code and .NET templates have made coding C# easy, REPL (read–eval–print loop, or 
+  While VS Code and .NET templates have made coding C# easy, REPL (Read–Evaluate–Print-Loop, or 
   language shell) provides immediate execution and result return, which can be useful 
   as we get to see immediate feedback of your code. CSharpRepl can be installed by issuing 
   ``dotnet tool install -g csharprepl`` and activated by typing csharprepl at command line 
@@ -202,7 +202,7 @@ not be able to learn all of them in one semester. A short list of those tools wo
   the C# REPL, you can invoke it in the terminal, or better yet, invoke it in the 
   VS Code terminal. That way, code editing and quick syntax testing are in one place. 
 
-- Version Control (GitHub...)
+- Version Control (such as GitHub)
 - Containerization (Docker)
 - Shell Scripting (Bash)
 

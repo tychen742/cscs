@@ -1,21 +1,25 @@
-.. index:: labs; loops
+.. index:: labs; for loops
 
-.. _lab-loops:
+.. _lab-for-loops:
    
-Lab: Loops
-==========
+Lab: for Loops
+================
 
 Goals for this lab:
 
 - Practice with loops. You are encouraged to use a ``for`` loop where appropriate.
 - Use nested loops where appropriate.
 
+
+Loop Lab
+------------
+
 Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, 
 and fill in function bodies for each part below: 
 
-.. index:: PrintReps
+.. .. index:: PrintReps
 
-#.  Complete  
+.. #.  Complete  
 
    ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
    ..     :start-after: PrintReps chunk
@@ -35,7 +39,7 @@ and fill in function bodies for each part below:
     
     .. index:: StringOfReps
     
-#.  Complete  
+.. #.  Complete  
 
    ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
    ..     :start-after: StringOfReps chunk
@@ -48,8 +52,8 @@ and fill in function bodies for each part below:
     
     .. index:: Factorial
     
-#.  Complete ``Factorial``, in a format much like SumToN in example 
-    :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
+.. #.  Complete ``Factorial``, in a format much like SumToN in example 
+..     :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
     
    ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
    ..     :start-after: Factorial chunk
@@ -75,15 +79,15 @@ and fill in function bodies for each part below:
     allowed values are negative, so the first wrong answer could equally well
     be positive.
     
-#.  Modify the function to return a ``long``.  
-    Then what is the largest value of ``n`` for which the function works?
+.. #.  Modify the function to return a ``long``.  
+..     Then what is the largest value of ``n`` for which the function works?
     
-    *Remember the values from this part and the previous part*
-    *to tell the TA's checking out your work.*
+..     *Remember the values from this part and the previous part*
+..     *to tell the TA's checking out your work.*
 
-    .. index:: PrintRectangle
+..     .. index:: PrintRectangle
       
-#.  Complete the method
+.. #.  Complete the method
 
    ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
    ..     :start-after: PrintRectangle chunk
@@ -111,7 +115,7 @@ and fill in function bodies for each part below:
     incrementally.
     You might start by just creating the inner rectangle, without the border.
 
-#.  Complete the method below.  
+.. #.  Complete the method below.  
 
    ..  .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
    ..     :start-after: PrintTableBorders chunk
