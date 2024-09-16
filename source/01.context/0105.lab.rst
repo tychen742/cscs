@@ -101,13 +101,13 @@ Create a C# Project
 
    #. Type the ``ls`` command + Enter to see the files and directories in your user home directory. 
       You should see the usual folder/directory names.      
-   #. Create a directory called "workspace" (``mkdir workspace``) in your user home directory **if you have not done so**. 
+   #. Create a directory called "workspace" (``mkdir workspace``) in your user home directory if you have not done so. 
    #. Change directory into the workspace directory (``cd workspace``).
    #. Inside workspace, create a directory **introcscs** (``mkdir introcscs``). 
    #. Also inside workspace, create another directory called tests (``mkdir tests``) if you have not done so.
    #. ``ls`` + Enter to make sure that you have two directories created: introcscs and tests.
    #. Change directory up one level (``cd ..``) or just ``cd ~`` to go back to the your user home directory.
-   #. Use the exit command (``exit`` + Enter) to leave the terminal.   
+   #. Use the ``exit`` command (``exit`` + Enter) to leave the terminal.   
    
    The process should look like this:
 
@@ -125,34 +125,25 @@ Create a C# Project
       tychen@mac:~/workspace$ ls
       introcscs tests
       tychen@mac:~/workspace$ cd ..
-      tychen@mac:~$    
+      tychen@mac:~$ exit    
 
-   Now if you issue ``ls`` in your user home directory, you will see that the *workspace* directory is there. 
-
-
-#. Create and change into a project folder:
+#. Create and change directory into a project folder:
    
-   Here you will create a folder for a test project, call it **Hello**, 
-   to print a:: 
-   
-      Hello, World! 
-      
-   message to the command line. You are going to do that by issuing 
-   commands at the command line in your terminal. The specific process 
+   Here you will create a folder for a test project, call it **Hello**. The specific process 
    should look as the code block below and the steps are explained first here:
    
-   #. Start terminal app: You start the terminal application (Windows PowerSell or macOS Terminal). You should 
+   #. Start the terminal app: You start the terminal application (Windows PowerSell or macOS Terminal). You should 
       be in your user home directory by default.
    #. Change directory (``cd``) into the **tests** directory: The tests directory is inside 
       your workspace directory, so you have to change into workspace from your home directory 
-      first (``cd workspace``) then ``cd tests``. 
+      first (``cd workspace``) then ``cd tests``; or, you can issue ``cd workspace/tests``. 
    #. Make sure you are in *tests*: ``pwd`` + Enter and you should see that you are in the 
       tests directory in *USERNAME*/workspace/tests. 
    #. Create the project folder ("Hello" in this case): ``mkdir Hello``.
    #. Make sure you have created the folder: ``ls`` + Enter and you should see the Hello directory.
    #. Now you need to change into the Hello project directory: ``cd Hello``. 
    #. Check your location: Issue the ``pwd`` + Enter command and you should be in the Hello project 
-      directory:: console
+      directory::
 
          *USERNAME*/workspace/tests/Hello$
     
