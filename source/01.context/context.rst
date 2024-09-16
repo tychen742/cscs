@@ -4,12 +4,12 @@ Introduction
 .. toctree::
    :maxdepth: 2
 
-   1.intro
-   2.cs_ideas
-   3.dev_tools
-   4.program_structure
+   0101.intro
+   0102.cs_ideas
+   0103.dev_tools
+   0104.program_structure
    0105.lab
-   6.review
+   0106.review
 
 
 
