@@ -209,7 +209,7 @@ larger field width.
 
 .. _reverse-string-returned:
   
-Reversed String
+Reversed String Print
 ----------------------------
 
 Create a method, call it ReverseStringPrint, that, when called with a string, will print 
@@ -242,7 +242,10 @@ One of the errors I see is the famous Index-Out-Of-Range error::
     └────────────────────────────────────────────┘ 
 
 
- reversed. Logically, you will perform two separate ideas: 
+Reversed String Return
+----------------------------
+
+reversed. Logically, you will perform two separate ideas: 
 reversing a string and printing it. Now consider the first part as its own method::
 
     // this is a method return a string `s` in reverse order.

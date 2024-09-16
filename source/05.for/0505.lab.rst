@@ -5,6 +5,26 @@
 Lab: for Loops
 ================
 
+- Note that the course policy is that you should not use generative AI 
+  without authorization. If you are suspected to have used generative AI 
+  and not able to explain/reproduce your work when requested, all your 
+  related assignments throughout the semester will be regraded as 0.
+
+#. Create a dotnet console app project (:ref:`create-project`) in your introcscs directory 
+   called **Ch05ForLoop**. 
+#. Use the file Program.cs to code.    
+#. Prepare your code in VS Code. 
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch05ForLoop*. 
+#. When executing code, you will only use the Main() method in class *Ch05ForLoop*. 
+#. You will prepare methods in the proper class to be called from 
+   the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Paste your screenshots of your code in VS Code (including namespace and class 
+   name) and the results of execution (command prompt and username is part of the execution). 
+#. Number the questions and annotate your answers, when appropriate, to show your understanding. 
+
+
 Goals for this lab:
 
 - Practice with loops. You are encouraged to use a ``for`` loop where appropriate.
@@ -14,8 +34,8 @@ Goals for this lab:
 Loop Lab
 ------------
 
-Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, 
-and fill in function bodies for each part below: 
+Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call it 
+"LoopLab" and fill in method bodies for each part below: 
 
 .. .. index:: PrintReps
 
