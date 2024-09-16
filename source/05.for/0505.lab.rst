@@ -11,7 +11,7 @@ Lab: for Loops
   related assignments throughout the semester will be regraded as 0.
 
 #. Create a dotnet console app project (:ref:`create-project`) in your *USERNAME*/workspace/introcscs directory 
-   called **Ch05ForLoop**. 
+   called **Ch05ForLoop** (except for 5.5.1. Loop Lab, in which you create another project). 
 #. Prepare your code in VS Code. 
 #. Use the file Program.cs to code.    
 #. The namespace of this project is *IntroCSCS*. 
@@ -31,11 +31,24 @@ Goals for this lab:
 - Use nested loops where appropriate.
 
 
-Loop Lab
-------------
+Loop Lab (in-class)
+--------------------
 
 Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call it 
-"LoopLab" and fill in method bodies for each part below: 
+"Ch05ForLoopLab":
+
+   #. Create your Ch05ForLoopLab project folder in *USERNAME*/workspace/introcscs.
+   #. Create your project (``dotnet new console``) in the Ch05ForLoopLab project folder.
+   #. ``code .`` + Enter from within the Ch05ForLoopLab directory. 
+   #. Go to :repsrc:`loop_lab_stub/loop_lab.cs` and ``Copy raw file``.
+   #. Paste the content of loop_lab.cs to Program.cs. (You do not need the Hello World! code)
+   #. Change the namespace to IntroCSCS. 
+   #. Start working on the methods. 
+   #. Change the #10 ``UI.PromptIntInRange`` method to a prompt line and a Console.ReadLine() user input saving to ``int n``. 
+   #. Change the #11 ``UI.PromptLine`` method to a prompt line and a Console.ReadLine() user input saving to ``string s``. 
+   #. You may find 
+
+Your tasks is to Fill in method bodies for each part below: 
 
 .. index:: PrintReps
 
@@ -57,7 +70,8 @@ Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call
     
     This is a counting loop.
     
-    index:: StringOfReps
+
+    .. index:: StringOfReps
     
 #.  Complete  
 
