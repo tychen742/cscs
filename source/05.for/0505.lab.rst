@@ -8,21 +8,23 @@ Lab: for Loops
 - Note that the course policy is that you should not use generative AI 
   without authorization. If you are suspected to have used generative AI 
   and not able to explain/reproduce your work when requested, all your 
-  related assignments throughout the semester will be regraded as 0.
+  **related assignments throughout the semester will be regraded as 0**.
 
-#. Create a dotnet console app project (:ref:`create-project`) in your *USERNAME*/workspace/introcscs directory 
-   called **Ch05ForLoop** (except for 5.5.1. Loop Lab, in which you create another project). 
+#. Create a dotnet console app project (:ref:`create-project`), if you 
+   have not, in your *USERNAME*/workspace/introcscs directory; called it 
+   **Ch05ForLoop**. 
 #. Prepare your code in VS Code. 
 #. Use the file Program.cs to code.    
 #. The namespace of this project is *IntroCSCS*. 
 #. The class name of this project is *Ch05ForLoop*. 
 #. When executing code, you will only use the Main() method in class *Ch05ForLoop*. 
-#. You will prepare methods in the proper class to be called from 
-   the Main() method. 
+#. You will prepare methods in the same class to be called from the Main() method. 
 #. Use a Word document to prepare your assignment. 
-#. Number the questions and **annotate** your answers (using //), when appropriate, to show your understanding. 
-#. Paste your screenshots of your code in VS Code (including namespace and class 
-   name) and the results of execution (**command prompt** and **username** are part of the execution). 
+#. Number the questions and **annotate** your answers (using // in code when 
+   appropriate) to show your understanding. 
+#. For coding questions, paste your screenshots of your code in VS Code and the 
+   results of the code's execution (**command prompt** and **username** are part 
+   of the execution). 
 
 
 Goals for this lab:
@@ -31,13 +33,13 @@ Goals for this lab:
 - Use nested loops where appropriate.
 
 
-Loop Lab (in-class)
+Loop Lab
 --------------------
 
-Copy example :repsrc:`loop_lab_stub/loop_lab.cs` to a new project of yours, call it 
-"Ch05ForLoopLab":
+This part of the lab comes from :repsrc:`loop_lab_stub/loop_lab.cs`. You may refer to the 
+code while answering the questions here:
 
-   #. Create your Ch05ForLoopLab project folder in *USERNAME*/workspace/introcscs.
+   #. Use the project *USERNAME*/workspace/introcscs/Ch05ForLoop.
    #. Create your project (``dotnet new console``) in the Ch05ForLoopLab project folder.
    #. ``code .`` + Enter from within the Ch05ForLoopLab directory. 
    #. Go to :repsrc:`loop_lab_stub/loop_lab.cs` and ``Copy raw file``.
