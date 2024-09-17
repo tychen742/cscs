@@ -3,7 +3,7 @@
 
 .. _While-Loops:
 
-While Loops
+Iteration: While Loops
 ######################
 
 .. toctree::
