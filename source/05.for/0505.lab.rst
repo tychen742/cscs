@@ -97,15 +97,15 @@ Your tasks is to Fill in method bodies for each part below:
    .. code-block:: none
    
       Start with 1
-      2 *1 = 2
-      3*2 = 6
+      2 * 1 = 2
+      3 * 2 = 6
       4 * 6 = 24
-      5*24 = 120
-      6*120 = 720
+      5 * 24 = 120
+      6 * 120 = 720
    
-   **ALSO** find the largest value of ``n`` for which the function works.
+   **ALSO** find the largest value of ``n`` for which the method works.
    (You might want to add a bit of code further testing Factorial,
-   to make this easier.)  Caution:  although a negative result from the 
+   to make this easier.) Caution: although a negative result from the 
    product of two positive numbers is clearly wrong, only half of the
    allowed values are negative, so the first wrong answer could equally well
    be positive.
