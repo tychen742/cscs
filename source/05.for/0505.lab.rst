@@ -47,7 +47,7 @@ Your tasks is to Fill in method bodies for each part below:
 
 .. index:: PrintReps
 
-#.  Complete  
+#.  Complete method ``PrintReps`` 
 
     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
        :start-after: PrintReps chunk
@@ -68,7 +68,7 @@ Your tasks is to Fill in method bodies for each part below:
 
     .. index:: StringOfReps
     
-#.  Complete  
+#.  Complete method ``StringOfReps``  
 
     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
        :start-after: StringOfReps chunk
@@ -82,8 +82,9 @@ Your tasks is to Fill in method bodies for each part below:
 
     .. index:: Factorial
     
-#.  Complete ``Factorial``, in a format much like SumToN in example 
-    :repsrc:`sum_to_n_test/sum_to_n_test.cs`:  
+#. Complete method ``Factorial``: (A factorial, in mathematics, is the product of 
+    all positive integers less than or equal to a given positive integer and 
+    denoted by that integer and an exclamation point.)
     
     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
        :start-after: Factorial chunk
