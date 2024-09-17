@@ -5,13 +5,18 @@ Chapter Review Questions
 #.  When you have nested ``for`` loops, and you reach the bottom of the *body* of the
     *inner* loop, where does execution go next?
 
+
 #.  May you legally omit the initialization part of a ``for`` loop?
 
-#.  What happens when you omit the condition in a ``for`` loop? Explain and try it 
-    out in csharprepl or VS Code and paste the result here. 
+
+#.  What happens when you omit the condition in a ``for`` loop? 
+    
+    Explain and try it out in csharprepl or VS Code and paste the results here. 
+
 
 #.  In the heading of a ``for`` loop, how do you initialize or update
     several variables?
+
     
 #.  Rewrite ::
    
@@ -25,11 +30,13 @@ Chapter Review Questions
        
     with a statement that only includes ``bigName`` once.
     
+
 #.  Distinguish the effects of these two statements::
 
        x-=2;
        
        x=-2;
+       
        
 #.  What is printed?  ::
 
