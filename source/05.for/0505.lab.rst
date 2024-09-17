@@ -90,15 +90,19 @@ Your tasks is to Fill in method bodies for each part below:
       :start-after: Factorial chunk
       :end-before: body
       :dedent: 6    
+   
    It is useful to think of the sequence of steps to calculate a 
    concrete example of a factorial, say 6!:    
+   
    .. code-block:: none
+   
       Start with 1
       2 *1 = 2
       3*2 = 6
       4 * 6 = 24
       5*24 = 120
       6*120 = 720
+   
    **ALSO** find the largest value of ``n`` for which the function works.
    (You might want to add a bit of code further testing Factorial,
    to make this easier.)  Caution:  although a negative result from the 
