@@ -1,6 +1,17 @@
 Chapter Review Questions
 =========================
+#.  When might you prefer a ``for`` loop in place of a ``while`` loop?
+    What do you gain?
 
+
+
+#. When might you prefer a while loop or a foreach instead of a for loop?
+
+
+#.  Describe in general when a ``foreach`` loop is going to be easier to use 
+    than a ``while`` loop.
+    
+    
 #.  While loops are a very important part of your programming tools.  
     Put in your own words:  when should you think to use a while loop?
     What words or phrases in the description of a problem suggest the use of a loop?

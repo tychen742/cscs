@@ -1,18 +1,14 @@
 Chapter Review Questions
 =========================
 
-#.  When might you prefer a ``for`` loop in place of a ``while`` loop?
-    What do you gain?
-    
-#.  When might you prefer a ``while`` loop or a ``foreach`` instead of 
-    a ``for`` loop?
-    
+   
 #.  When you have nested ``for`` loops, and you reach the bottom of the *body* of the
     *inner* loop, where does execution go next?
 
 #.  May you legally omit the initialization part of a ``for`` loop?
 
-#.  What happens when you omit the condition in a ``for`` loop?
+#.  What happens when you omit the condition in a ``for`` loop? Explain and try it 
+    out in csharprepl or VS Code and paste the result here. 
 
 #.  In the heading of a ``for`` loop, how do you initialize or update
     several variables?
@@ -42,7 +38,10 @@ Chapter Review Questions
             string formatStr = "{0:F" + p + "}";
             Console.WriteLine(formatStr, 1.2345678);
         }
-        
+
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
+
 #.  What is printed?  (Just ",4" has been inserted.) ::
 
         Console.WriteLine("12345678");
@@ -50,6 +49,9 @@ Chapter Review Questions
             string formatStr = "{0,4:F" + p + "}";
             Console.WriteLine(formatStr, 1.2345678);
         }
+    
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
         
 #.  What is printed?  ::
 
@@ -58,9 +60,10 @@ Chapter Review Questions
             string formatStr = "{0," + w + "}|";
             Console.WriteLine(formatStr, "here");
         }
-        
-#.  Describe in general when a ``foreach`` loop is going to be easier to use 
-    than a ``while`` loop.
+
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
+
     
 #.  Even if you want to process every element of a sequence, what would keep
     you from using a ``foreach`` loop?
