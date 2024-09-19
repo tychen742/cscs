@@ -33,7 +33,7 @@ Goals for this lab:
 - Use nested loops where appropriate.
 
 
-Loop Lab
+For Loop Lab
 --------------------
 
 This part of the lab comes from :repsrc:`loop_lab_stub/loop_lab.cs`. You may refer to the 
@@ -47,7 +47,7 @@ Your tasks is to Fill in method bodies for each part below:
 
 .. index:: PrintReps
 
-#.  Complete method ``PrintReps`` 
+#.  Complete method ``PrintReps`` to be called from Main() like:
 
     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
        :start-after: PrintReps chunk
@@ -76,8 +76,9 @@ Your tasks is to Fill in method bodies for each part below:
        :dedent: 6
 
     Note the distinction from the previous part:  Here the method prints nothing.
-    Its work is *returned* as a single string. You have to build up the final
-    string.
+    Its work is *returned* as a single string. You have call the method like:: 
+      
+      Console.WriteLine(StringOfReps("Ok", 9));
     
 
     .. index:: Factorial
@@ -134,9 +135,9 @@ that stays in scope for the whole program so it can be used by various programs.
 One way to do that is to make it* **static**. For our purpose here, just place 
 the random object declaration in your Flip() method::
 
-  static Random r = new Random();
+  Random r = new Random();
 
-*Note that in the future you would place the object inside your class but 
+*Note again that in the future you would place the object inside your class but 
 outside of any method, so you can use ``r`` in any method in your class*.  
 
 For ``int`` variables ``low`` and ``higher``, with ``low < higher``::
@@ -148,6 +149,12 @@ If you select ``low`` and ``higher`` as 0 and 2,
 so there are only two possible values for n,
 then you can choose to print ``Heads`` or ``Tails`` with an
 |if-else| statement based on the result.
+
+In your ``Flip`` method, create a ``for`` loop so you generate a random sequence of 
+10 heads and/or tails. 
+
+Place ``return ""`` in your ``else`` block to avoid a "not all paths return value" warning 
+if you use an else if statement.
 
 .. warning::
 
@@ -169,8 +176,7 @@ then you can choose to print ``Heads`` or ``Tails`` with an
 ..        // tails
 ..     }
     
-In your ``Flip`` method, create a ``for`` loop so you generate a random sequence of 
-10 heads and/or tails. 
+
 
 
 .. index:: exercise; GroupFlips
