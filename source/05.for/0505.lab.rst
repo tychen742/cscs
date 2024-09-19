@@ -39,11 +39,11 @@ For Loop Lab
 This part of the lab comes from :repsrc:`loop_lab_stub/loop_lab.cs`. You may refer to the 
 code while answering the questions here.
 
-   #. From terminal, go to your Ch05ForLoop project folder.
+   #. From the terminal, go to your Ch05ForLoop project folder.
    #. ``code .`` + Enter from within the Ch05ForLoop directory. 
    #. Start working on the methods. 
    
-Your tasks is to Fill in method bodies for each part below: 
+Your task is to Fill in method bodies for each part below: 
 
 .. index:: PrintReps
 
@@ -127,7 +127,7 @@ that will just randomly print ``Heads`` or ``Tails`` *once*.
 Accomplish this by choosing 0 or 1 arbitrarily with a random
 number generator. More details follow.
  
-Use a ``Random`` object, make the ``Random`` object a local variable inside 
+Use a ``Random`` object, and make the ``Random`` object a local variable inside 
 the ``Flip`` method.  
 
 *It is generally a good idea to only create a single ``Random`` object
@@ -151,7 +151,9 @@ then you can choose to print ``Heads`` or ``Tails`` with an
 |if-else| statement based on the result.
 
 In your ``Flip`` method, create a ``for`` loop so you generate a random sequence of 
-10 heads and/or tails. 
+10 heads and/or tails. Print out the heads/tails like::
+
+   Tails Tails Tails Tails Heads Tails Heads Tails Tails Tails 
 
 Place ``return ""`` in your ``else`` block to avoid a "not all paths return value" warning 
 if you use an else if statement.
