@@ -131,7 +131,7 @@ the ``Flip`` method.
 
 *It is generally a good idea to only create a single ``Random`` object
 that stays in scope for the whole program so it can be used by various programs. 
-One way to do that is to make it *static*. For our purpose here, just place 
+One way to do that is to make it* **static**. For our purpose here, just place 
 the random object declaration in your Flip() method::
 
   static Random r = new Random();
