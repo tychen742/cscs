@@ -7,98 +7,44 @@
 While-Statements
 ============================ 
 
-We have already processed strings a character at a time, with ``while`` loops.
-We took advantage of the fact that strings could be indexed.  Our ``while``
-loops directly controlled the sequence of indices. Then we could
-look up the character at each index of a given string ``s``::
 
-	int i = 0;
-	while (i < s.Length) {
-	   code using the value of s[i]...
-	   i++;
-	}
+Just like the ``for`` loops, the while loops deal with iteration (*repetition* or *loops*). 
+The ``while`` loop is **condition-controlled**, as opposing to ``for`` loop , which is 
+**count-controlled**. This means a while loop runs a set of instructions continuously 
+as long as the given **boolean condition** evaluates true, no matter how many loops it takes. 
+Only when the condition is evaluated to NOT true, then the loop terminates. 
 
-Examples have been in :ref:`While-Sequence`, like
+The flowchart of a while loop looks like the graph below, note that 
+the sequential flow of a program is altered with loops, just like with method calls
+and conditional statements: 
 
-.. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
-   :start-after: chunk
-   :end-before: chunk
-   :dedent: 6
- 
-In this example we really only care about the characters, not the indices.
-Managing the indices is just a way to get at the 
-underlying sequence of characters.
+.. figure:: ../images/flowchart-while-loop.jpg
+   :width: 400
+   :alt: flowchart while loop
 
 
-Variables declared in a ``for``    The variable ``i`` declared before
-the ``while`` statement above is still defined after the ``while`` loop.
+The C# while loop syntax is:
 
-
-The C# for loop statement syntax is:
-
-| ``for (`` *initialization* ``;`` *condition* ; *update* ``)`` {
-|    statement(s)
-| ``}``
-   
-translates to
-
-| *initialization* ``;`` 
-| ``while (`` *condition* ``)`` {
-|    statement(s)
-|    *update* ``;``
-| ``}``
-
-
-A ``for`` loop is an example of *syntactic sugar*: syntax that can 
-simplify things for the programmer, but can be immediately translated 
-into an equivalent syntax by the compiler. For example::
-
-    for (i = 2; i <= n; i++) {
-       sum = sum + i;
-    }
-   
-is exactly equivalent to this code similar to part of 
-:ref:`SumToN <SumToN>`::
-
-    i= 2;
-    while (i <= n) {
-       sum = sum + i;
-       i++;
-    }
-
-We have seen that the sequential flow of a program 
-can be altered with function calls
-and decisions.  The last important pattern is *repetition* or *loops*.
-There are several varieties.  The simplest place to start is with
-``while`` loops.
-
-A C#
-``while`` loop behaves quite similarly to common English usage. If
-you hear
-
-    While your tea is too hot, add a chip of ice.
-
-Presumably you would test your tea. If it were too hot, you would
-add a little ice. If you test again and it is still too hot, you
-would add ice again. *As long as* you tested and found it was true
-that your tea was too hot, you would go back and add more ice.
-C# has a similar syntax:
-
-| ``while (`` *condition* ``)`` 
-|   statement 
-
-As with an ``if`` statement we will generally assume a compound statement, 
-after the condition, so the syntax will actually be:
-
-| ``while (`` *condition* ``) {`` 
+| ``while`` ``(`` *condition* ``)`` 
+| ``{`` 
 |    statement(s)
 | ``}``
 
-Setting up the English example as pseudocode in a similar format would be:
+Because that expression is evaluated before each execution of the loop, 
+a while loop can executes **zero** or more times. 
 
-| while ( *your tea is too hot* ) { 
-|     add a chip of ice 
-| }
+As an example, you should test the following code in ``csharprepl``::
+
+   > int n = 0;
+
+   > while (n < 5)   
+   {                                                   
+         Console.Write(n);                                                                                             
+         n++;                                                                                                          
+   }                                                                                                                 
+   01234
+   > 
+
 
 .. index:: playing computer; loop
 
@@ -691,3 +637,63 @@ Important lessons from this humble summation problem:
 
 Further special syntax that only makes sense in any kind of loop is discussed in 
 :ref:`break-continue`, after we introduce the last kind of loop.
+
+
+We have already processed strings a character at a time, with ``while`` loops.
+We took advantage of the fact that strings could be indexed.  Our ``while``
+loops directly controlled the sequence of indices. Then we could
+look up the character at each index of a given string ``s``::
+
+	int i = 0;
+	while (i < s.Length) {
+	   code using the value of s[i]...
+	   i++;
+	}
+
+Examples have been in :ref:`While-Sequence`, like
+
+.. literalinclude:: ../../examples/introcs/char_loop1/char_loop1.cs
+   :start-after: chunk
+   :end-before: chunk
+   :dedent: 6
+ 
+In this example we really only care about the characters, not the indices.
+Managing the indices is just a way to get at the 
+underlying sequence of characters.
+
+
+Variables declared in a ``for``    The variable ``i`` declared before
+the ``while`` statement above is still defined after the ``while`` loop.
+
+
+The C# for loop statement syntax is:
+
+| ``for (`` *initialization* ``;`` *condition* ; *update* ``)`` {
+|    statement(s)
+| ``}``
+   
+translates to
+
+| *initialization* ``;`` 
+| ``while (`` *condition* ``)`` {
+|    statement(s)
+|    *update* ``;``
+| ``}``
+
+
+A ``for`` loop is an example of *syntactic sugar*: syntax that can 
+simplify things for the programmer, but can be immediately translated 
+into an equivalent syntax by the compiler. For example::
+
+    for (i = 2; i <= n; i++) {
+       sum = sum + i;
+    }
+   
+is exactly equivalent to this code similar to part of 
+:ref:`SumToN <SumToN>`::
+
+    i= 2;
+    while (i <= n) {
+       sum = sum + i;
+       i++;
+    }
