@@ -23,24 +23,27 @@ and conditional statements: [#flowchart-while-loop]_
    :alt: flowchart while loop
 
 
-The C# while loop syntax is:
+The while loop, however, starts with an initialization of the variable to be used in the 
+boolean condition, therefore the syntax would look like::
 
-| ``while`` ``(`` *condition* ``)`` 
-| ``{`` 
-|    statement(s)
-| ``}``
+   initialization 
+
+   while ( *condition* )
+   { 
+         statement(s)
+   }
 
 Because that condition (boolean expression) is evaluated before each execution of the loop, 
 a while loop can executes **zero** or more times. 
 
-As an example, you should test the following code in ``csharprepl`` to get familiar with 
-C# while loop::
+You should test the following code, less the comments, in ``csharprepl`` to get familiar with 
+the C# while loop::
 
    > int n = 0;                  // the condition
 
-   > while (n < 5)   
+   > while (n < 5)               // the while loop header
    {                                                   
-         Console.Write(n);                                                                                             
+         Console.Write(n);       // body of while loop                                                                                      
          n++;                                                                                                          
    }                                                                                                                 
    01234
@@ -48,6 +51,9 @@ C# while loop::
 
 
 .. index:: playing computer; loop
+
+The Tea Temperature Example
+-----------------------------
 
 To make things concrete and numerical, suppose the following: The
 tea starts at 115 degrees Fahrenheit. You want it at 112 degrees. A
@@ -67,12 +73,11 @@ We added a final line after the ``while`` loop to remind you that
 execution follows sequentially after a loop completes.
 
 It is extremely important to totally understand how the flow of
-execution works with loops.  One way to follow it
+execution works with loops. One way to follow it
 closely is to make a table with a line for each instruction
 executed, keeping track of all the variables, playing computer.  
 as with ``if`` statements, the executed lines that you show in your table
-will not be in textual order, as in
-:ref:`sequential-execution`.  
+will not be in textual order, as in :ref:`sequential-execution`.  
 While ``if`` statements merely altered execution order 
 by skipping some lines, loops allow the same line in the text of your program
 to be executed repeatedly, and show up in multiple places in your table.

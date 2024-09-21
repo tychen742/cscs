@@ -37,7 +37,10 @@ That's what computer systems do: They take in information, process the informati
 and output the resulted outcome.
 
 
-.. index:: programming constructs
+.. index:: 
+  single: programming constructs; sequential-execution
+
+.. _sequential-execution:
 .. _programming-constructs:
 
 Programming Constructs
@@ -55,7 +58,7 @@ a programming language) given to computers. Interestingly, there are only a smal
 that we need to know when learning how to giving instructions to to computers, 
 across probably all programming languages. These basic control structure constructs include:
 
-- sequence: instructions are executed one after another.
+- sequence: instructions are executed one after another (sequential execution).
 - selection: decision-making/control structure; namely choosing between alternative paths of actions within a program.
 - iteration: code repetition; either count-controlled or condition-controlled.
 
