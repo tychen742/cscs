@@ -235,7 +235,9 @@ I managed to come up with some variation of code as below but am running into so
     bard
     >
 
-One of the errors I see is the famous Index-Out-Of-Range error::
+One of the errors I see is the famous Index-Out-Of-Range error:
+
+.. code-block:: console
 
     ┌──────────IndexOutOfRangeException──────────┐
     │ Index was outside the bounds of the array. │
