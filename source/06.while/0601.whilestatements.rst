@@ -35,7 +35,7 @@ boolean condition, therefore the syntax would look like:
    while ( *condition* )
    { 
          // statement(s)
-         // iteration expression
+         // iterator expression
    }
 
 It is common to initialize a variable (#1) to be used in the condition (#3). Now, because 
@@ -51,7 +51,7 @@ the C# while loop::
    > while (n < 5)               // conditional expression in the while loop header
       {                                                   
          Console.Write(n);       // body of while loop                                                                                      
-         n++;                    // iterator (iteration expression)/update                                                                                      
+         n++;                    // iterator (iterator expression)/update                                                                                      
       }                                                                                                                 
    01234
    > 
@@ -64,9 +64,29 @@ Note that this ``while`` loop code above is just the same as a ``for`` loop::
       }                                                                                                                 
    01234
 
-Both code have ``initializer``, ``conditional expression``, and ``iteration expression`` 
+Both code have ``initializer``, ``conditional expression``, and ``iterator expression`` 
 ( see :ref:`for-loop-header`), except that in ``for loop``, the three sections are 
 placed together in the header, while they are placed in different locations in the ``while`` loop.  
+
+
+Stepping
+~~~~~~~~~~
+
+Test yourself: Follow the code. Figure out what is printed:
+
+.. code-block:: 
+   :linenos:
+
+   int i = 4;
+   while (i < 9) 
+   {
+      Console.WriteLine(i);
+      i = i + 2;
+   }
+
+
+Infinite loops
+~~~~~~~~~~~~~~~~
 
 Just like :ref:`for-statement`, manipulating the header sections will 
 change the behavior of the loop. Test the following code in your ``csharprepl`` and be ready 
@@ -102,6 +122,9 @@ be ready to issue ``Control + C`` to terminate the process::
 After testing the code above, you should get better idea about how boolean expressions 
 controls the code execution in loop.
 
+
+**while (true)**
+
 As an exercise, observe the following code. You should be able to see that the condition 
 section has a value of ``true`` instead of an expression and reason the outcome of the 
 code::
@@ -111,8 +134,16 @@ code::
          Console.Write(0); 
      }
 
+An infinite loop can happen when: 
 
+#. The loop has no terminating condition.
+#. The loop has a terminating condition that cannot be met.
 
+An embedded system such as a cartridge-based video game console typically does not 
+have an ``exit`` condition and the loop runs until the console is powered off. The 
+same infinite loop design can be seen in operating systems or web servers, where the 
+systems keep monitor input and give output and do not halt until crash, turned off, 
+or reset. 
 
 .. index:: playing computer; loop
 
@@ -188,14 +219,10 @@ the ``while`` loop to the next sequential statement.
 
     
 
+Test Yourself
+--------------
 
-How to manage all of this in general is a big deal for beginning students.
-We will see a number of common patterns in lots of practice.  We will use
-the term *successive modification loop* for loops following the pattern
-above.
-
-Test yourself: Follow the code.  Figure out what is printed.
-If it helps, get detailed and play computer:
+Follow the two pieces of code and figure out the difference between them when printed:
 
 .. literalinclude:: ../../examples/introcs/test_while1/test_while1.cs
    :start-after: chunk
@@ -203,27 +230,14 @@ If it helps, get detailed and play computer:
    :linenos:
    :dedent: 6
 
-Check yourself by running the example program :repsrc:`test_while1/test_while1.cs`.
-
-.. note::
-   In C#, ``while`` is not used *quite* like in English. In
-   English you could mean to stop *as soon as* the condition you want
-   to test becomes false. In C# the test is *only* made when
-   execution for the loop starts (or starts again), 
-   *not* in the middle of the loop.
-
-*Predict* what will happen with this slight variation on the
-previous example, switching the order in the loop body. Follow it
-carefully, one step at a time.
-
 .. literalinclude:: ../../examples/introcs/test_while2/test_while2.cs
    :start-after: chunk
    :end-before: chunk
    :linenos:
    :dedent: 6
 
-Check yourself by running the example program 
-:repsrc:`test_while2/test_while2.cs`.
+Check yourself by running the example program at :repsrc:`test_while2/test_while1.cs` 
+and :repsrc:`test_while2/test_while2.cs`.
 
 The line sequence is important. The variable ``i`` is increased before
 it is printed, so the first number printed is 6. Another common
