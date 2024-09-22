@@ -5,7 +5,7 @@ Lecture Notes: Intro to Programming in C#
    :numbered:
    :maxdepth: 2
 
-   01.context/context
+   01.context/01.context
    02.data/data
    03.methods/methods
    04.decisions/decisions
