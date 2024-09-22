@@ -236,8 +236,9 @@ Follow the two pieces of code and figure out the difference between them when pr
    :linenos:
    :dedent: 6
 
-Check yourself by running the example program at :repsrc:`test_while2/test_while1.cs` 
-and :repsrc:`test_while2/test_while2.cs`.
+You may test the code above in ``csharprepl`` or by copying the example programs 
+at :repsrc:`test_while2/test_while1.cs` and :repsrc:`test_while2/test_while2.cs` to 
+your VS Code for executing.
 
 The line sequence is important. The variable ``i`` is increased before
 it is printed, so the first number printed is 6. Another common
