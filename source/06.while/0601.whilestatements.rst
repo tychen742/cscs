@@ -34,24 +34,42 @@ boolean condition, therefore the syntax would look like:
 
    while ( *condition* )
    { 
-         statement(s)
+         // statement(s)
+         // iteration expression
    }
 
-Because that condition (boolean expression) is evaluated before each execution of the loop, 
-a while loop can executes **zero** or more times. 
+It is common to initialize a variable (#1) to be used in the condition (#3). Now, because 
+that condition (boolean expression) is evaluated before each execution of the loop body (#4-6), 
+a while loop can executes **zero** (if the condition evaluates to false immediately) or 
+more times. 
 
 You should test the following code, less the comments, in ``csharprepl`` to get familiar with 
 the C# while loop::
 
-   > int n = 0;                  // the condition
+   > int n = 0;                  // initialization
 
-   > while (n < 5)               // the while loop header
-   {                                                   
+   > while (n < 5)               // conditional expression in the while loop header
+      {                                                   
          Console.Write(n);       // body of while loop                                                                                      
-         n++;                                                                                                          
-   }                                                                                                                 
+         n++;                    // iterator (iteration expression)/update                                                                                      
+      }                                                                                                                 
    01234
    > 
+
+Note that this ``while`` loop code above is just the same as a ``for`` loop::
+
+   > for (int i = 0; i < 5; i++)   
+      {                                                                                           
+         Console.Write(i);                                                                                             
+      }                                                                                                                 
+   01234
+
+Both code have ``initializer``, ``conditional expression``, and ``iteration expression`` 
+( see :ref:`for-loop-header`), except that in ``for loop``, the three sections are 
+placed together in the header, while they are placed in different locations in the ``while`` loop.  
+
+Just like in ``for`` statement :ref:`for-statement`, manipulating the header sections will 
+change the behavior of the loop.  
 
 
 .. index:: playing computer; loop
@@ -126,25 +144,8 @@ the ``while`` loop to the next sequential statement.
    or repeated, the corresponding line numbers may be skipped, repeated, 
    or otherwise out of numerical order.
 
-.. index:: while; rubric
-   pattern for a while loop
-   
-The biggest trick with a loop is to make the same code do the next
-thing you want each time through.  That generally involves 
-the use of variables that are modified for each successive time through
-the loop.  Here is a general pattern:
-
-| initialization
-| ``while (`` *continuationCondition* ``) {`` 
-|     do main action to be repeated 
-|     prepare variables for the next time through the loop
-| ``}``
     
-The simple first example follows this pattern directly.  Note
-that the variables needed for the test of the condition must be
-set up *both* in the initialization *and* inside the loop
-(often at the very end).  Without a change inside the loop, the loop would
-run forever!
+
 
 How to manage all of this in general is a big deal for beginning students.
 We will see a number of common patterns in lots of practice.  We will use
