@@ -205,7 +205,9 @@ Create a C# Project
 
 
    #. Change into the project directory:: 
+
       (*USERNAME*/workspace/tests/Hello$)
+   
    #. Start VS Code by issuing the command ``code .`` (``code`` is VS Code and the ``.`` means the present location). 
       (If VS Code is not launching after your issue ``code .``, it may be a PATH issue. See this VS Code `Command Line Interface (CLI) page <https://code.visualstudio.com/docs/editor/command-line#_launching-from-command-line>`_).  
    #. VS Code will start with the folder as the working directory shown in the VS Code Explorer view.

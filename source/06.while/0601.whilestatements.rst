@@ -90,11 +90,9 @@ Compare the preceding code to the code loop below:
    :linenos:
 
    > int i = 4; while (i < 9)       
-     { 
-         {                     
-            i = i + 2; 
-            Console.WriteLine(i); 
-         } 
+     {                
+         i = i + 2; 
+         Console.WriteLine(i);  
      } 
 
 Do they produce the same result? Now, compare the preceding code with the following:
@@ -169,101 +167,6 @@ have an ``exit`` condition and the loop runs until the console is powered off. T
 same infinite loop design can be seen in operating systems or web servers, where the 
 systems keep monitor input and give output and do not halt until crash, turned off, 
 or reset. 
-
-.. index:: playing computer; loop
-
-The Tea Temperature Example
------------------------------
-
-To make things concrete and numerical, suppose the following: The
-tea starts at 115 degrees Fahrenheit. You want it at 112 degrees. A
-chip of ice turns out to lower the temperature one degree each
-time. You test the temperature each time, and also print out the
-temperature before reducing the temperature. In C# you could
-write and run the code below, saved in example program 
-:repsrc:`cool/cool.cs`:
-
-.. literalinclude:: ../../examples/introcs/cool/cool.cs
-   :start-after: chunk
-   :end-before: chunk
-   :linenos:
-   :dedent: 6
-
-We added a final line after the ``while`` loop to remind you that
-execution follows sequentially after a loop completes.
-
-It is extremely important to totally understand how the flow of
-execution works with loops. One way to follow it
-closely is to make a table with a line for each instruction
-executed, keeping track of all the variables, playing computer.  
-as with ``if`` statements, the executed lines that you show in your table
-will not be in textual order, as in :ref:`sequential-execution`.  
-While ``if`` statements merely altered execution order 
-by skipping some lines, loops allow the same line in the text of your program
-to be executed repeatedly, and show up in multiple places in your table.
-
-.. index:: 
-   double: while; execution sequence
-   
-If you play computer and follow the path of execution, you could
-generate the following table. Remember, that each time you reach
-the end of the block after the ``while`` heading,
-execution returns to the ``while`` heading for another test:
-
-====  ===========  =======
-Line  temperature  Comment
-====  ===========  =======
-1     115
-2                  115 > 112 is true, do loop
-3                  prints 115
-4     114          115 - 1 is 114, loop back
-2                  114 > 112 is true, do loop
-3                  prints 114
-4     113          114 - 1 is 113, loop back
-2                  113 > 112 is true, do loop
-3                  prints 113
-4     112          113 - 1 is 112, loop back
-2                  112 > 112 is false, skip loop
-6                  prints that the tea is cool
-====  ===========  =======
-
-Each time the end of the loop body block is reached, execution
-*goes back* to the ``while`` loop heading for another test. When the
-test is finally false, execution jumps past the indented body of
-the ``while`` loop to the next sequential statement.
-
-.. note::
-   Unless a program is purely sequential, 
-   the numbers under the **Line** column are *not* just in textual, sequential
-   order.  The order of the numbers is the order of *execution*.
-   Each line number in the "playing computer" table is the
-   line *number label* for the next particular line *getting executed*.
-   Since in decisions, loops, and function calls, lines may be reordered
-   or repeated, the corresponding line numbers may be skipped, repeated, 
-   or otherwise out of numerical order.
-
-    
-
-Test Yourself
---------------
-
-Follow the two pieces of code and figure out the difference between them when printed:
-
-.. literalinclude:: ../../examples/introcs/test_while1/test_while1.cs
-   :start-after: chunk
-   :end-before: chunk
-   :linenos:
-   :dedent: 6
-
-.. literalinclude:: ../../examples/introcs/test_while2/test_while2.cs
-   :start-after: chunk
-   :end-before: chunk
-   :linenos:
-   :dedent: 6
-
-You may test the code above in ``csharprepl`` or by copying the example programs 
-at :repsrc:`test_while2/test_while1.cs` and :repsrc:`test_while2/test_while2.cs` to 
-your VS Code for executing.
 
 
 
