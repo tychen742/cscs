@@ -59,6 +59,33 @@ Now we have a variable containing the value for us to operate on.
    int; Parse
    double; Parse
    
+.. _the_ui_class:
+
+User Input: The UI class
+---------------------------
+
+Andrew N. Harrington and George Thiruvathukal (2021) have prepared some useful 
+C# utility methods for convenient user input and the code is available on `github <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/ui/ui.cs>`_. 
+
+To use the code, go to the github repository, and do the following:
+
+#. Make sure the path is ``introcs-csharp-examples/ui/ui.cs`` and the file name is ``ui.cs``. 
+#. Make sure the *Code* tab is selected and you are seeing the source code. 
+#. Use ``copy raw files`` icon or simply highlight the whole code. 
+#. In your project folder, create a new file and name it ``ui.cs``. 
+#. Paste the copied code to the file.
+#. Change the namespace of the file from IntroCS to ``IntroCSCS``.
+
+Alternatively, you may just download ``ui.cs`` as a raw file from github and place it in the 
+project folder with the Program.cs file and change the file's namespace from IntroCS 
+to IntroCSCS. 
+
+Now you can use the input methods in your code. For example, you may use its 
+``PromptInt`` method to prompting a user input of integer type:: 
+
+    a = UI.PromptInt("Enter integer leg: ");
+
+
 
 
 Casting (Type Conversion) in Input
@@ -134,8 +161,9 @@ extending our input code::
 Composite formatting
 -----------------------
 
-Instead of inserting user input with the ``+`` operator, format strings (the 
-"fill-in-the-braces") gives us better control over output using ``Console.WriteLine``.
+Instead of using the ``+`` operator, **composite format** (the 
+"fill-in-the-braces") gives us better control over output using ``Console.WriteLine``
+by using positional **string format index** to separate the string and the data variables.
 
 Observe the last two statements:: 
 
@@ -153,6 +181,43 @@ You can imagine that there would be {1} and {2}... like this::
 
 With composite formatting, we have the flexibility of writing the output string 
 and place the variables anywhere we prefer in the string.  
+
+Format Specifiers
+~~~~~~~~~~~~~~~~~~~
+
+In addition to printing out strings using composite formatting as seen above, a common 
+way to format strings is using the ``string.Format()`` method to save the value of 
+the variable into another string. For example, we may save a format string to a 
+variable::
+
+    var msg = string.Format("There are {0} balls", 3);
+
+C# has **format specifiers** [#format-specifiers]_ for different data types when formatting data. 
+For example, ``D`` for Decimal type::
+
+    int value = 6324;
+    string output = string.Format("{{{0:D}}}", value);
+
+    Console.WriteLine(output);
+    // The example displays the following output:
+    //       {6324}
+
+You may format two strings together. In the example below, the ``{1,6:D}`` 
+format item takes the second item, format it also as a decimal and the 
+string length will be 6 characters (right-aligned and padded with empty strings):: 
+
+    string.Format("{0:D}  {1,6:D}", 634, 868); // result: 634     868
+
+
+``C`` for currency::
+
+    int myNumber = 100;
+    Console.WriteLine("{0:C}", myNumber);
+
+    // The example displays the following output
+    // if en-US is the current culture:
+    //        $100.00
+
 
 
 String interpolation using $
@@ -268,3 +333,8 @@ gives the more elaborate name needed in the program.
 The ``Console.WriteLine`` method automatically makes the printing
 position advance to the next line, as when you press the Enter or Return key.
 A variant, ``Console.Write``, prints the parameter exactly, and nothing else.
+
+
+.. rubric:: Footnotes
+
+.. [#format-specifiers] `.NET Standard numeric format strings <https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings>`_
