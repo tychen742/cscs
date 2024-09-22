@@ -5,12 +5,12 @@
 .. _do-while:
 
 Do-While Loops
-_________________
+=================
 
-The general form of a |do-while| statement is:
+The general form of a |do-while| statement (referred to as the ``do`` statement in 
+C# language reference) is:
 
 .. code-block:: 
-   :caption: do while loop syntax
    :linenos:
    :emphasize-lines: 1
 
@@ -20,19 +20,18 @@ The general form of a |do-while| statement is:
    { 
          // statement(s)
          // iterator expression
-   } while ( *condition* )
+   } while ( *condition* )``;``
 
-The do-while loop is a variation of the while loop. The ``do`` statement executes 
-a statement or a block of statements while a specified Boolean expression 
-evaluates to true. Because that expression is evaluated **after** each execution 
-of the loop, a do loop executes **one or more** times. The do loop differs 
+The ``do-while`` loop is a variation of the ``while loop``. The ``do`` statement executes 
+a statement or a block of statements, followed by a Boolean expression to decide the 
+continuation of the iteration. Because that expression is evaluated **after** each execution 
+of the loop, a do loop executes **one or more** times. The ``do`` loop differs 
 from the *while* loop, which executes *zero or more* times.
 
 Compare the ``do-while`` general syntax with the ``while`` loop below and you should 
 see clearly the difference in logic. 
 
 .. code-block:: 
-   :caption: while loop syntax
    :linenos:
    :emphasize-lines: 1
 
@@ -46,9 +45,9 @@ see clearly the difference in logic.
 
 In a ``while`` loop, if the condition evaluates to false from 
 the very beginning, the body of statements will not be executed at all. 
-In a ``do-while`` statement, the body block of statement(s) is *always* executed at least 
-once, then its continuation of iteration is decided by the condition tested 
-after the loop body is true. This logic can be seen in the flowchart:
+In a ``do-while`` statement, the body statement(s) is *always* executed at least 
+once, then the iteration continues if the followed condition tested true. 
+This logic can be seen in the flowchart:
 
 .. figure:: ../images/flowchart-do-while-loop.jpg
     :width: 250
@@ -81,6 +80,21 @@ As a comparison, the while and do-while loops differ in several ways:
     * - Syntax: 
       - while(condition) { statement(s); }
       - do { statement(s); } while(condition);
+
+
+To get familiar with the do-while loop syntax, you should practice the following code 
+in ``csharprepl``::
+
+    > int n = 0;  do 
+      { 
+          Console.Write(n); 
+          n++; 
+      } while (n < 5); 
+
+    // output: 01234
+    >
+
+
 
 Suppose you want the user to enter three integers for sides of a 
 right triangle.  If they do not make a right triangle, say so

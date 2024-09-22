@@ -52,7 +52,8 @@ the C# while loop::
          Console.Write(n);       // body of while loop                                                                                      
          n++;                    // iterator (iterator expression)/update                                                                                      
       }                                                                                                                 
-   01234
+   
+   // output: 01234
    > 
 
 Note that this ``while`` loop code above is just the same as a ``for`` loop::
@@ -61,7 +62,8 @@ Note that this ``while`` loop code above is just the same as a ``for`` loop::
       {                                                                                           
          Console.Write(i);                                                                                             
       }                                                                                                                 
-   01234
+   
+   // output: 01234
 
 Both code have ``initializer``, ``conditional expression``, and ``iterator expression`` 
 ( see :ref:`for-loop-header`); except that in ``for loop``, the three sections are 
