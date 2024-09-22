@@ -8,7 +8,7 @@ Do-While Loops
 =================
 
 The general form of a |do-while| statement (referred to as the ``do`` statement in 
-C# language reference) is:
+C# language reference [#do-statement]_) is:
 
 .. code-block:: 
    :linenos:
@@ -266,3 +266,8 @@ Insisting on ``decimal`` parameter simplifies the function code.
 This exercise is much more sophisticated than the :ref:`savings_exercise`,
 so it is placed in this section, much later in the chapter.  Use what
 ever form of loop makes the most sense to you.
+
+
+.. rubric:: Footnotes
+
+.. [#do-statement] See: `C# Language Reference <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements#1393-the-do-statement>`_
