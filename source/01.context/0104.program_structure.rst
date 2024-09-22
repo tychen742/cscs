@@ -136,7 +136,7 @@ and you see the template code as:
       }
    }
 
-Some important concepts that we need to learn from this template code example 
+Some important concepts that you need to learn from this template code example 
 here so we have better ideas about the basic structure of C# programs. 
 
 .. figure:: ../images/csharp_program_structure.png
@@ -192,6 +192,7 @@ here so we have better ideas about the basic structure of C# programs.
    A class is a blueprint for creating objects, which may include the structure, 
    behaviors, and attributes of the objects. A class can be thought of a user-defined 
    data **type** (reference data type) containing 
+   
    - attributes (data) and 
    - methods (actions applied to the data).  
   
@@ -199,15 +200,15 @@ here so we have better ideas about the basic structure of C# programs.
   
 
 #. The ``Main`` method:
-   The **Main method** is the **entry point** 
-   of a C# application and therefore the first method invoked when an application 
-   is executed. There is only one entry point in a C# program. 
+   The **Main method** is the **entry point** of a C# application and therefore 
+   the first method invoked when an application is executed. There is only one 
+   entry point in a C# program. 
 
 #. ``method``:
-   A method is an object-oriented term for function, which is a series of statements 
-   designed to perform certain task. In C#, just like Java, the Main method is the 
-   entry point of the program, meaning it is the first method invoked when a 
-   program is executed. 
+   A method (function) is an object-oriented term for function, which is a series 
+   of statements designed to perform certain task. In C#, just like Java, the 
+   *Main method* is the entry point of the program, meaning it is the first 
+   method invoked when a program is executed. 
 
 #. ``static`` & ``void``:
    The modifier ``static`` means the Main Method can be called without creating 
