@@ -22,9 +22,10 @@ and conditional statements: [#flowchart-while-loop]_
    :width: 250
    :alt: flowchart while loop
 
+   A flowchart for while loop
 
-The while loop, however, starts with an initialization of the variable to be used in the 
-boolean condition, therefore the syntax would look like:
+For ``while`` loop, it is common to initialize a variable to be used in the 
+condition, therefore the syntax would look like:
 
 .. code-block:: 
    :linenos:
@@ -38,10 +39,9 @@ boolean condition, therefore the syntax would look like:
          // iterator expression
    }
 
-It is common to initialize a variable (#1) to be used in the condition (#3). Now, because 
-that condition (boolean expression) is evaluated before each execution of the loop body (#4-6), 
-a while loop can executes **zero** (if the condition evaluates to false immediately) or 
-more times. 
+Note that, because the condition (boolean expression) is evaluated before each execution 
+of the loop body (#4-6), a while loop can executes **zero** (if the condition 
+evaluates to false immediately) or more times. 
 
 You should test the following code, less the comments, in ``csharprepl`` to get familiar with 
 the C# while loop::
@@ -65,14 +65,14 @@ Note that this ``while`` loop code above is just the same as a ``for`` loop::
    01234
 
 Both code have ``initializer``, ``conditional expression``, and ``iterator expression`` 
-( see :ref:`for-loop-header`), except that in ``for loop``, the three sections are 
-placed together in the header, while they are placed in different locations in the ``while`` loop.  
+( see :ref:`for-loop-header`); except that in ``for loop``, the three sections are 
+placed together in the header, while they are placed in different locations in 
+the ``while`` loop.  
 
 
-Stepping
-~~~~~~~~~~
+**Stepping**
 
-Test yourself: Follow the code. Figure out what is printed:
+Test yourself: Follow the code below to figure out what is printed:
 
 .. code-block:: 
    :linenos:
@@ -84,6 +84,31 @@ Test yourself: Follow the code. Figure out what is printed:
       i = i + 2;
    }
 
+Compare the preceding code to the code loop below:
+
+.. code-block:: 
+   :linenos:
+
+   > int i = 4; while (i < 9)       
+     { 
+         {                     
+            i = i + 2; 
+            Console.WriteLine(i); 
+         } 
+     } 
+
+Do they produce the same result? Now, compare the preceding code with the following:
+
+.. code-block::
+   :linenos:
+
+   > for (int i = 4; i < 9; i += 2)   
+     {                          
+         Console.WriteLine(i); 
+     }
+
+Make sure you are able to interpret the code correctly and type them in csharprepl or 
+VS Code to test them out. 
 
 Infinite loops
 ~~~~~~~~~~~~~~~~
