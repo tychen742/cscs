@@ -8,7 +8,7 @@ While-Statements
 ============================ 
 
 
-Just like the ``for`` loops, the while loops deal with iteration (*repetition* or *loops*). 
+Just like the ``for`` loop, the while loop deals with iteration (*repetition* or *loops*). 
 The ``while`` loop is **condition-controlled**, as opposing to ``for`` loop , which is 
 **count-controlled**. This means a while loop runs a set of instructions continuously 
 as long as the given **boolean condition** evaluates true, no matter how many loops it takes. 
@@ -22,7 +22,6 @@ and conditional statements: [#flowchart-while-loop]_
    :width: 250
    :alt: flowchart while loop
 
-   A flowchart for while loop
 
 For ``while`` loop, it is common to initialize a variable to be used in the 
 condition, therefore the syntax would look like:
