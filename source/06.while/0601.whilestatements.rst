@@ -68,8 +68,50 @@ Both code have ``initializer``, ``conditional expression``, and ``iteration expr
 ( see :ref:`for-loop-header`), except that in ``for loop``, the three sections are 
 placed together in the header, while they are placed in different locations in the ``while`` loop.  
 
-Just like in ``for`` statement :ref:`for-statement`, manipulating the header sections will 
-change the behavior of the loop.  
+Just like :ref:`for-statement`, manipulating the header sections will 
+change the behavior of the loop. Test the following code in your ``csharprepl`` and be ready 
+to issue ``Control + C`` to terminate the process::
+
+   > int n = 0;
+   > while (n < 5)           
+   { 
+      Console.Write(n); 
+   }   
+   000000000000000000000000000000...
+
+Observing the code, you see that the variable ``n`` is not being updated in the body 
+of the while loop. Since ``n`` is not updated, the value stays as 0, and the boolean 
+condition ``(n < 5>)`` is always evaluated to be ``true``, an infinite loop is therefore 
+formed since (n < 5) will stay true and, while the boolean condition is tested true, the 
+body of the while loop will be executed and print out ``n``. 
+
+If you want the while loop body of the while statement to run at least once, the boolean 
+condition has to be true for the first evaluation. After that, the iterator (e.g., n++) 
+in the body of the while statement needs to work to exit the loop by making the condition 
+section untrue. The preceding code does not have an iterator expression and therefore 
+the loop becomes infinite. 
+
+For your possible interest, you may want to test the following ``for`` statement. Again, 
+be ready to issue ``Control + C`` to terminate the process::
+
+   > for (int i = 0; i < 5;) 
+     { 
+         Console.Write(i); 
+     }   
+   
+After testing the code above, you should get better idea about how boolean expressions 
+controls the code execution in loop.
+
+As an exercise, observe the following code. You should be able to see that the condition 
+section has a value of ``true`` instead of an expression and reason the outcome of the 
+code::
+
+   > while (true) 
+     { 
+         Console.Write(0); 
+     }
+
+
 
 
 .. index:: playing computer; loop
