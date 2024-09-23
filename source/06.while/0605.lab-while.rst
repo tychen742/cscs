@@ -115,7 +115,7 @@ be configured and behave as follows.
       get to the :ref:`classes` chapter. 
    
    * Here is some illustration using a ``Random`` object in ``csharprepl``. 
-      Your answers will not be the same::
+     Your answers will not be the same::
 
          > Random r = new Random();
 
@@ -132,8 +132,8 @@ be configured and behave as follows.
          > 
 
    * Note that, the minimum possible value of the number returned by ``r.Next``
-      is the first parameter, and the value returned is always *less* than
-      the second parameter, *never equal*.  
+     is the first parameter, and the value returned is always *less* than
+     the second parameter, *never equal*.  
 #. As an extra challenge, when the player finally wins, print the number of guesses
    the player made. 
 #. When run, the program should work like (where ``secret`` ended up as 68):
