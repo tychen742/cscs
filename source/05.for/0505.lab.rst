@@ -243,7 +243,10 @@ from the last question to::
    static void GroupFlips(int total, int groupSize)
 
 Complete this method definition and test 
-with a variety of calls to ``GroupFlips`` in ``Main``.  
+with a variety of calls to ``GroupFlips`` in ``Main``. The output from the 
+previous exercise would be produced by the call::
+
+   GroupFlips(10, 1); 
 
     
 .. index:: exercise; reverse string foreach
