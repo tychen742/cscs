@@ -193,7 +193,7 @@ here so we have better ideas about the basic structure of C# programs.
    behaviors, and attributes of the objects. A class can be thought of a user-defined 
    data **type** (reference data type) containing 
    
-   - attributes (data) and 
+   - attributes (data), and 
    - methods (actions applied to the data).  
   
    In principle, we design one type per file to make code navigation easy.  
@@ -211,12 +211,14 @@ here so we have better ideas about the basic structure of C# programs.
    method invoked when a program is executed. 
 
 #. ``static`` & ``void``:
-   The modifier ``static`` means the Main Method can be called without creating 
-   a new object from the class. ``void`` means the Main method does not return anything. 
+   
+   - The modifier ``static`` means the method can be called without creating 
+     a new object from the class. 
+   - ``void`` means the Main method does not return anything. 
 
 #. ``string[] args``:
    The ``args`` are called "command line arguments" and in this example the type is 
-   string array; meaning when calling this method we send the arguments in and they 
+   string array; meaning when calling this method you send the arguments in and they 
    are zero-indexed as an array.  
    
 

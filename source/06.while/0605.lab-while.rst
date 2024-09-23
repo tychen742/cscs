@@ -9,51 +9,34 @@
 Lab: ``while`` Loops
 =======================
 
+- Note that the course policy is that you should not use generative AI (GAI)
+  without authorization. If you are suspected to have used GAI to generate answers 
+  to the assignment questions instead of using it as a learning tool, you may be 
+  called up to explain/reproduce your work. If you fail to demonstrate your 
+  competency, all your **related assignments throughout the semester will be 
+  regraded as 0**. For example, if you fail to produce good code in ``while`` loops 
+  in midterm exam, your *lab06 while loop homework and labs* will be re-evaluated.  
 
-.. rubric:: Loop Planning Rubric
-   
-Looking ahead to more complicated and interesting problems,
-here is a more complete list of questions to ask yourself when
-designing a function with a ``while`` loop (and most will apply to 
-later forms of loops, too):
+#. Create a dotnet console app project (:ref:`create-project`), if you 
+   have not, in your *USERNAME*/workspace/introcscs directory; called it 
+   **Ch06WhileLoop**. 
+#. Prepare your code in VS Code. 
+#. Use the file Program.cs to code.    
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch06WhileLoop*. 
+#. When executing code, you will only use the Main() method in class *Ch06WhileLoop*. 
+#. You will prepare methods in the same class to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // in code when 
+   appropriate) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part 
+   of the execution).
 
--  What data is involved? Make sure you give good variable names.
--  What needs to be initialized and how? This certainly includes any
-   variable tested in the condition.
--  What is the condition that will allow the loop to *continue*?  It
-   may be easier to think of the condition that will *stop* the loop.
-   That is fine - but remember to *negate* it (with ``!``) to turn it
-   into a proper *continuation* condition.
--  Distinguish: What is the code that should only be executed once? 
-   What action do I want to repeat? 
--  How do I write the repeating action so I can modify it for the next time
-   through the loop to work with new data?
--  What code is needed to do modifications to make the same action code work
-   the next time through the loop?
--  Have I thought of variables needed in the middle and declared them;
-   do other things need initialization?
--  Will the continuation condition eventually fail?  
-   *Be sure to think about this!*
--  Separate the actions to be done once before the repetition (code before the
-   loop) from repetitive actions (in the loop) from actions not repeated, but
-   done after the loop (code after the loop). Missing this distinction
-   is a *common error*!
+Easy ``while``
+-----------------
 
-This is quite a sequence of steps!  Particularly looking forward to other forms of loops,
-we can note a more basic split into two parts:
-
-* Writing the code to make sure each desired iteration is reached 
-  (loop dynamics: initialized data for the test condition, the test condition itself, 
-  preparing for the next iteration)
-* Doing the work for a specific item/ireration (most of the body of the loop)
-
-You generally only need to concentrate on one of those at a time.  
-If you set up how to reach all of the repetitions, giving names for the variables
-to be acted on, then you can separately just concentrate on dealing with the the action/code
-to deal with the *current* situation.
-
-
-**Problem**:  Write a program with a ``while`` loop to print:
+Write a program with a ``while`` loop to print:
 
 ..  code-block:: none
 
