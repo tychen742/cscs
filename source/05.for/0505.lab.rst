@@ -196,9 +196,10 @@ In your ``Flip`` method, create a ``for`` loop so you generate a random sequence
 
    Tails Tails Tails Tails Heads Tails Heads Tails Tails Tails 
 
-Place ``return ""`` in your ``else`` block to avoid a "not all paths return value" warning 
-if you use an else if statement.
-
+Place ``return ""`` in your ``else`` block to avoid a "not all paths return value" 
+warning if you use an else if statement (or simply put the return line at the 
+end of the code block).
+ 
 .. warning::
 
    We have discovered some problems with the ``Next()`` implementation
@@ -236,17 +237,15 @@ from the last question. Also include another method::
    /// The last line may contain fewer than groupSize flips 
    /// if total is not a multiple of groupSize.  The last line
    /// should be followed by exactly one newline in all cases.
-   /// For example, GroupFlips(10, 4) *could* produce:
+   /// For example, GroupFlips(3, 4) *could* produce:
    ///   Heads Heads Tails Heads 
    ///   Heads Tails Heads Tails
-   ///   Tails Tails 
+   ///   Tails Tails Heads Heads
    static void GroupFlips(int total, int groupSize)
 
 Complete this method definition and test 
 with a variety of calls to ``GroupFlips`` in ``Main``.  
-The output from the previous exercise would be produced by the call::
 
-    GroupFlips(10, 1);
     
 .. index:: exercise; reverse string foreach
 
