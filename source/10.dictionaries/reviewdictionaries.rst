@@ -1,4 +1,4 @@
-Chapter Review Questions
+Chapter Review 
 =========================
 
 #.  Which is true for a ``Dictionary``: is it mutable or immutable?

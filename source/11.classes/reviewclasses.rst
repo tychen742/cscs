@@ -1,4 +1,4 @@
-Chapter Review Questions
+Chapter Review 
 =========================
 
 #.  Where in a class are instance variables declared?

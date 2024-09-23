@@ -1,4 +1,4 @@
-Chapter Review Questions
+Chapter Review 
 =========================
 
 #.  Distinguish the cases when you would want to use a list instead of an array, or 

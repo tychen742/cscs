@@ -1,4 +1,4 @@
-Chapter Review Questions
+Chapter Review 
 =========================
 
 For these review questions, assume ``Foo`` is an interface type that you
