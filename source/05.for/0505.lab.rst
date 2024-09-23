@@ -228,9 +228,8 @@ end of the code block).
 Group Flips 
 -------------
 
-Write a method ``Flip()``
-with the ``static`` ``Random`` declaration 
-from the last question. Also include another method::
+Write a method ``GroupFlips()`` using the ``Flip()`` method  
+from the last question to::
  
    /// Print out the results from the total number of random flips of a coin.
    /// Group them groupSize per line, each followed by a space.
