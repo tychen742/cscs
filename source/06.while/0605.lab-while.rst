@@ -101,9 +101,6 @@ be configured and behave as follows.
 #. Have the Game method print "In this game you guess a positive number 
    less than 100." It is best if you have the printing statement
    reference the variable ``big``, rather than the literal ``100``.
-
-.. index:: random number generator
-
 #. Have the game generate a *random* number. For your convenience, 
    use the C# code below to generate the random number. Assuming we want a 
    ``secret`` number so :math:`1 \leq secret < big`, we can use the code::
