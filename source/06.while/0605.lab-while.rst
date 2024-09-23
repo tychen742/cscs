@@ -83,7 +83,7 @@ So as an example:
   :math:`26 \leq number < 30`.
 - Andy starts thinking that he is close to knowing the correct answer. He
   decides to guess 29. Andy guesses the correct number. So George
-  says, "Good job! You win."
+  says, "Good job! You win!"
 
 
 The computer code for the game is going to be acting like Person A and should 
@@ -97,12 +97,8 @@ be configured and behave as follows.
 #. You call ``Game()`` from the ``Main`` method.
 #. Prompt the player for a guess. Use ``UI.PromptInt``. 
 #. When the player guesses the right number, print "Good job!  You win!"
-
-In ``Game``:  
-
 #. When the player is incorrect, print "Lower!" or "Higher!" as appropriate.
-#. For now set an ``int`` variable ``big`` to 100. 
-#. Have the Game function print "In this game you guess a positive number 
+#. Have the Game method print "In this game you guess a positive number 
    less than 100." It is best if you have the printing statement
    reference the variable ``big``, rather than the literal ``100``.
 
@@ -110,19 +106,19 @@ In ``Game``:
 
 #. Have the game generate a *random* number. For your convenience, 
    use the C# code below to generate the random number. Assuming we want a 
-   secret number so :math:`1 \leq secret < big`, we can use the code::
+   ``secret`` number so :math:`1 \leq secret < big`, we can use the code::
 
       Random r = new Random();
       int secret = r.Next(1, big);
 
    .. note:: 
       In case you are wondering, we are creating a *new object* 
-      of the *class* ``Random`` which serves as the
-      random number generator. We'll cover this in more detail when we
+      of the *class* ``Random``, which serves as the
+      *random number generator*. We'll cover this in more detail when we
       get to the :ref:`classes` chapter. 
    
-#. Here is some illustration using a ``Random`` object in ``csharprepl``. 
-   Your answers will not be the same::
+   #. Here is some illustration using a ``Random`` object in ``csharprepl``. 
+      Your answers will not be the same::
 
       > Random r = new Random();
 
@@ -138,9 +134,9 @@ In ``Game``:
       67
       > 
 
-#. Note that, the minimum possible value of the number returned by ``r.Next``
-   is the first parameter, and the value returned is always *less* than
-   the second parameter, *never equal*.  
+   #. Note that, the minimum possible value of the number returned by ``r.Next``
+      is the first parameter, and the value returned is always *less* than
+      the second parameter, *never equal*.  
 #. As an extra challenge, when the player finally wins, print the number of guesses
    the player made. 
 #. When run, the program should work like (where ``secret`` ended up as 68):
