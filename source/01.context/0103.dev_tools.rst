@@ -187,20 +187,29 @@ and features as follows.
   Using vscode Command Palette
     
 
+C# REPL (``csharprepl``)
+------------------------------
+
+While VS Code and .NET templates have made coding C# easy, a REPL (Read–Evaluate–Print-Loop, or 
+language shell/interpreter) provides immediate execution and result return, which can be very useful 
+as you get to see immediate feedback of your code. This means direct **execution of C# code 
+without creating projects and files**.  
+
+- Installation: CSharpRepl can be installed by issuing ``dotnet tool install -g csharprepl``.
+- Usage: CSharpRepl is invoked by using the ``csharprepl`` command at terminal/command line.
+  
+CSharpRepl is good for:
+
+-  Rapid experimentation and exploration of C# syntax and features.    
+   invoke it in the VS Code terminal. That way, code editing and quick syntax testing are in one place. 
+
+
+
 Other Development Tools
 ------------------------
 
 There are plenty of development tools that are worthy of our time to learn, except that we would 
 not be able to learn all of them in one semester. A short list of those tools would include:
-
-- **csharprepl**:
-  While VS Code and .NET templates have made coding C# easy, REPL (Read–Evaluate–Print-Loop, or 
-  language shell) provides immediate execution and result return, which can be useful 
-  as we get to see immediate feedback of your code. CSharpRepl can be installed by issuing 
-  ``dotnet tool install -g csharprepl`` and activated by typing csharprepl at command line 
-  to enable direct execution of C# code without creating projects and files. To use 
-  the C# REPL, you can invoke it in the terminal, or better yet, invoke it in the 
-  VS Code terminal. That way, code editing and quick syntax testing are in one place. 
 
 - Version Control (such as GitHub)
 - Containerization (Docker)
