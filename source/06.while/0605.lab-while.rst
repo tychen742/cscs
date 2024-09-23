@@ -134,7 +134,7 @@ be configured and behave as follows.
    * Note that, the minimum possible value of the number returned by ``r.Next``
      is the first parameter, and the value returned is always *less* than
      the second parameter, *never equal*.  
-     
+
 #. As an extra challenge, when the player finally wins, print the number of guesses
    the player made. 
 #. When run, the program should work like (where ``secret`` ended up as 68):
@@ -155,7 +155,7 @@ be configured and behave as follows.
 Sum To ``n``
 ------------
 
-Let us write a function to sum the numbers from 1 to ``n``::
+Let us write a method to sum the numbers from 1 to ``n``::
 
     /// Return the sum of the numbers from 1 through n. 
     static int SumToN(int n) 
@@ -256,9 +256,9 @@ and directly change the value of sum::
       i = i + 1;
    }
 
-Finally this was supposed to fit in a function.  The ultimate purpose
+Finally this was supposed to fit in a method.  The ultimate purpose
 was to *return* the sum, which is the final value of the
-variable ``sum``, so the whole function is::
+variable ``sum``, so the whole method is::
 
   /// Return the sum of the numbers from 1 through n. 
   static int SumToN(int n)     // line 1
@@ -275,14 +275,14 @@ variable ``sum``, so the whole function is::
    range testing
    edge case
    
-The comment before the function definition does not give a clear idea of the 
+The comment before the method definition does not give a clear idea of the 
 range of possible values for ``n``.  How small makes sense for the comment?
-What actually works in the function?  The smallest expression 
-starting with 1 would just be 1: (``n`` is 1).  Does that work in the function?
-You were probably not thinking of that when developing the function!
+What actually works in the method?  The smallest expression 
+starting with 1 would just be 1: (``n`` is 1).  Does that work in the method?
+You were probably not thinking of that when developing the method!
 Now look back now at this *edge case*.  You can play computer on the code
 or directly test it.  In this case the initialization of ``sum`` is 1,
-and the body of the loop *never* runs (2 <= 1 is false).  The function
+and the body of the loop *never* runs (2 <= 1 is false).  The method
 execution jumps right to the return statement, and
 does return 1, and everything is fine.
 
@@ -324,12 +324,12 @@ error is to put the return statement inside the loop, like ::
      }
   }
 
-Recall that *when a return statement is reached, function execution ends*,
+Recall that *when a return statement is reached, method execution ends*,
 *no matter what comes next in the code*.
 (This is a way to break out of a ``while`` loop that we will find useful 
 later.)  In this case however, it is not what we want at all.  The first sum
 is calculated in line 4, so ``sum`` becomes 2 + 1, but when you get to line
-6, the function terminates and never loops back, returning 3.
+6, the method terminates and never loops back, returning 3.
    
 Now about large n....
 
@@ -399,7 +399,7 @@ The point is here that 1 is a constant.  The time is of *constant order*.
    double: pitfall; division
    
 We can write a ridiculously short
-function following Gauss's model.  Here we introduce the variable average,
+method following Gauss's model.  Here we introduce the variable average,
 as in the motivation for Gauss's answer:
 
 .. literalinclude:: ../../examples/introcs/sum_to_n_long_bad/sum_to_n_long_bad.cs
@@ -429,7 +429,7 @@ things should be better::
 
 .. index:: cast
    
-Here is a shot at the whole function:
+Here is a shot at the whole method:
 
 .. literalinclude:: ../../examples/introcs/sum_to_n_long_bad2/sum_to_n_long_bad2.cs
    :start-after: chunk
@@ -443,8 +443,8 @@ try 66000 that messed us up before.  ??? You get an answer that is not
 a multiple of 1000: not what we got before!  What other issues do we have
 between math and C#?
 
-Further analysis:  To make sure the function always worked, it made sense
-to leave the parameter ``n`` an ``int``.  The function would not work
+Further analysis:  To make sure the method always worked, it made sense
+to leave the parameter ``n`` an ``int``.  The method would not work
 with ``n`` as the largest ``long``.  The result can still be big enough
 to only fit in a ``long``, so the return value is a ``long``.  All
 this is reasonable but the C# result is still wrong!  Look deeper.
@@ -636,7 +636,7 @@ Note that the ``rate``, too, is a ``decimal``,
 even though it does not represent money.
 That is important, because arithmetic with a ``decimal`` and a ``double`` is
 forbidden:  A ``double`` would have to be explicitly cast to a ``decimal``.
-Insisting on ``decimal`` parameter simplifies the function code.
+Insisting on ``decimal`` parameter simplifies the method code.
 
 This exercise is much more sophisticated than the :ref:`savings_exercise`,
 so it is placed in this section, much later in the chapter.  Use what
