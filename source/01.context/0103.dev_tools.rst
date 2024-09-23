@@ -171,10 +171,16 @@ Views such as:
 
       Basic elements in VS Code user interface [#]_
 
-**Terminal**: In the Panel section, you have access to the TERMINAL and other console tabs. The Terminal 
-is the same as your terminal application. When you open a project, the Terminal will be 
-default to the project directory. You may use Cmd+J (Ctl+J) to toggle the Panel.  
- 
+**Terminal**: In the Panel section (|vscode-toggle|), you have access to the TERMINAL and other console tabs. Note that:
+
+   - The TERMINAL is exactly the same as your terminal application. 
+   - When you open a project by issuing ``code .`` in the project directory, the terminal will be default 
+     to the project directory. 
+   - You may use Cmd+J (Ctl+J) to toggle the Panel to use the terminal.  
+
+     .. |vscode-toggle| image:: ../../source/images/vscode-toggle.jpg
+       :height: 2ex
+
 **Command Palette**: In addition to the UI elements, an important key combination to learn is 
 ``Ctl + Shift + P`` on Windows and Linux, or ``Shift + Command + P`` on Mac. Command 
 palette gives access to all the functionalities within VS Code. For example, 
