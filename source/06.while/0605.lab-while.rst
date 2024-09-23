@@ -114,7 +114,7 @@ be configured and behave as follows.
       *random number generator*. We'll cover this in more detail when we
       get to the :ref:`classes` chapter. 
    
-   - Here is some illustration using a ``Random`` object in ``csharprepl``. 
+   * Here is some illustration using a ``Random`` object in ``csharprepl``. 
       Your answers will not be the same::
 
          > Random r = new Random();
@@ -131,7 +131,7 @@ be configured and behave as follows.
          67
          > 
 
-   - Note that, the minimum possible value of the number returned by ``r.Next``
+   * Note that, the minimum possible value of the number returned by ``r.Next``
       is the first parameter, and the value returned is always *less* than
       the second parameter, *never equal*.  
 #. As an extra challenge, when the player finally wins, print the number of guesses
