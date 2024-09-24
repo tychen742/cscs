@@ -29,7 +29,7 @@ from datetime import date
 extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks', 'sphinx_rtd_theme','sphinx_tabs.tabs',]
 
 extlinks = {'repsrc': 
-              ('https://github.com/mstbit/introcs-csharp-examples/blob/master/%s','')
+              ('https://github.com/mstbit/introcs-csharp-examples/blob/master/%s','%s')
            }
 
 # extensions = ['sphinxcontrib.bibtex']
