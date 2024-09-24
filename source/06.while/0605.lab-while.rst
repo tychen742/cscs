@@ -371,8 +371,8 @@ initial amount, and the loan would never be paid off.
 
 There are a couple of wrinkles here:  ``double`` values do not hold decimal
 values exactly.  The ``decimal`` type does hold decimal numbers exactly 
-(and in an enormous range, see :ref:`numeric-type-limits`) and
-hence are beter for monetary calculations.  Decimal literals end with m, like
+ and
+hence are better for monetary calculations.  Decimal literals end with m, like
 ``34.56m`` for *exactly* 34.56.    
 
 Though decimals are exact, money only has two decimal places.  We make the 
