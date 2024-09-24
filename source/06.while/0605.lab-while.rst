@@ -9,7 +9,7 @@
 Lab: ``while`` Loops
 =======================
 
-- **GAI**: Note that the course policy is that you should not use generative AI (GAI)
+- **Note on GAI**: Note that the course policy is that you should not use generative AI (GAI)
   without authorization. GAI are great tools and you should learn how to use it, but 
   they are tools and should be used to facilitate but not replace your learning. 
   If you are suspected to have used GAI to generate answers 
@@ -73,7 +73,7 @@ known as the number-guessing game. We suppose two people are playing. The rules 
 So as an example:
 
 - George and Andy play the game.
-- George chooses a positive number less than 100 (29) and puts it in his
+- George chooses a positive number less than 100 (29) and keeps it in his
   head.
 - Andy guesses 50. George says "Lower". Andy now knows that 
   :math:`1 \leq number < 50`.
@@ -131,7 +131,7 @@ be configured and behave as follows.
          67
          > 
 
-   * Note that, the minimum possible value of the number returned by ``r.Next``
+   * Note that, the **minimum** possible value of the number returned by ``r.Next``
      is the first parameter, and the value returned is always *less* than
      the second parameter, *never equal*.  
 
