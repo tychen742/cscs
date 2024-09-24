@@ -31,8 +31,6 @@ extensions = ['sphinx.ext.todo',
               'sphinx.ext.extlinks', 
               'sphinx_rtd_theme',
               'sphinx_tabs.tabs',
-              # 'sphinx.ext.intersphinx',
-              # 'sphinxcontrib.youtube'
     ]
 
 extlinks = {'repsrc': 
