@@ -238,8 +238,6 @@ All together we calculate the sum with::
       i = i + 1;
    }
    
-This exactly follows our general rubric, with preparation for the next time
-through the loop at the end of the loop.  
 We can condense it in this case: Since ``newSum`` is only used
 once, we can do away with this extra variable name, 
 and directly change the value of sum::
@@ -264,7 +262,6 @@ variable ``sum``, so the whole method is::
      }
      return sum;               // 6
   }
-
 
 Also you should check the program in a more general situation, say with ``n`` 
 being 4. You should be able to play computer and generate this table,
@@ -405,3 +402,6 @@ Insisting on ``decimal`` parameter simplifies the method code.
 This exercise is much more sophisticated than the :ref:`savings_exercise`,
 so it is placed in this section, much later in the chapter.  Use what
 ever form of loop makes the most sense to you.
+
+
+
