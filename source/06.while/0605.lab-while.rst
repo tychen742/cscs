@@ -55,6 +55,32 @@ Write a program with a ``while`` loop to print:
      Blastoff!
 
 
+Number in Range [1…100]
+-------------------------
+
+Enter an integer in the range [1 … 100]. If the entered number is invalid, 
+enter it again. In this case, an invalid number will be any number that is not 
+within the specified range. [#number-in-range]_
+
+To solve the problem, we can use the following algorithm:
+
+- We create a num variable to which we assign the integer value obtained from the console input.
+- For a loop condition, we put an expression that is true if the number of the input is not in the range specified in the problem's description.
+- In the body of the loop: we print a message "Invalid number!" on the console, then we assign a new value to num from the console input.
+- Once we have validated the entered number, we print the value of the number outside the body of the loop.
+
+Here's a implementation of the algorithm using a while loop and there are places that 
+need to be fixed in the code::
+
+   var num = int.Parse(Console.WiteLine());
+   while (num < 1 && num > 100)
+   {
+      Console.WriteLine("Invalid number!");
+      num = int.Parse(Console.WriteLine());
+   }
+   Console.WriteLine("The number is: {{10}", num);
+
+Fix the preceding code and make sure the execution performs correctly. 
 
 .. _lab-number-game:
 
@@ -392,4 +418,6 @@ Insisting on ``decimal`` parameter simplifies the method code.
 
 
 
+.. rubric:: Footnotes
 
+   .. [#number-in-range] This question is from `Example: Number in Range [1..100]<https://csharp-book.softuni.org/Content/Chapter-7-1-complex-loops/while-loop/examples/example-number-in-range-1100.html>`
