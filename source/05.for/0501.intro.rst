@@ -156,9 +156,6 @@ more flexibility in stepping. For example, in ``csharprepl``::
   30
 
 
-
-
-
 ``return``, ``break``, and ``continue``
 ------------------------------------------
 
@@ -177,6 +174,50 @@ or switch statement.
 With the ``continue`` statement, you terminate the current loop and step to the next 
 iteration. The ``continue`` statement stops the current execution flow and starts a new iteration of 
 the closest enclosing iteration statement (for, foreach, while, or do loop). 
+
+
+.. _lab-planning-rubric:
+Loop Planning Rubric
+------------------------
+   
+Looking ahead to more complicated and interesting problems,
+here is a list of questions to ask yourself when
+designing a method with a loop:
+
+-  Data & loop variables: What data is involved? Make sure you give good variable names.
+-  Initialization: What needs to be initialized and how? This certainly includes any
+   variable tested in the condition.
+-  Condition: What is the condition that will allow the loop to *continue*? It
+   may be easier to think of the condition that will *stop* the loop.
+   That is fine - but remember to *negate* it (with ``!``) to turn it
+   into a proper *continuation* condition.
+-  Distinguish: What is the code that should only be executed once? 
+   What action do I want to repeat? 
+-  Repetition: How do I write the repeating action so I can modify it for the next time
+   through the loop to work with new data?
+-  Update: What code is needed to do modifications to make the same action code work
+   the next time through the loop?
+-  Locale variables: Have I thought of variables needed in the middle and declared them;
+   do other things need initialization?
+-  Condition: Will the continuation condition eventually fail?  
+   *Be sure to think about this!*
+-  Structure: Separate the actions to be done once before the repetition (code before the
+   loop) from repetitive actions (in the loop) and from actions not repeated, but
+   done after the loop (code after the loop). Missing this distinction
+   is a *common error*!
+
+This is quite a sequence of steps!  Particularly looking forward to other forms of loops,
+we can note a more basic split into two parts:
+
+* Writing the code to make sure each desired iteration is reached 
+  (loop dynamics: initialized data for the test condition, the test condition itself, 
+  preparing for the next iteration)
+* Doing the work for a specific item/iteration (most of the body of the loop)
+
+You generally only need to concentrate on one of those at a time.  
+If you set up how to reach all of the repetitions, giving names for the variables
+to be acted on, then you can separately just concentrate on dealing with the the action/code
+to deal with the *current* situation.
 
 
 .. rubric:: Footnotes

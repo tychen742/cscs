@@ -214,12 +214,12 @@ Since ``n`` is general, we need a loop, and hence we must see a **pattern** in c
 
      sum + i
 
-We need to remember that result, the new sum.  You might first think to introduce
-such a name::
+- We need to remember that result, the new sum.  You might first think to introduce
+  such a name::
 
-    newSum = sum + i;
+     newSum = sum + i;
     
-This will work. We can go through the ``while`` loop rubric:
+This will work. We can go through the :ref:`loop-planning-rubric`:
     
 The variables are ``sum``, ``newSum`` and ``i``.
     
