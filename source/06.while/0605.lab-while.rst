@@ -155,6 +155,9 @@ be configured and behave as follows.
 Sum To ``n``
 ------------
 
+- This lab gives detailed description about the process of arriving at a solution to 
+  the problem. Please read the explanations if you are new to coding and while loops. 
+
 Let us write a method to sum the numbers from 1 to ``n``::
 
     /// Return the sum of the numbers from 1 through n. 
@@ -188,7 +191,7 @@ over we will need changeable variables, with names. We can make the partial
 sum be ``sum`` and we can call the next integer ``i``.  Each addition can be
 in the form::
 
-    sum + i
+   sum + i
 
 We need to remember that result, the new sum.  You might first think to introduce
 such a name::
@@ -367,8 +370,7 @@ assumption that interest will always be calculated as current
 principal*rate, rounded
 to two decimal places:  ``Math.Round(principal*rate, 2)``.
 
-Write :file:`loan_calc.cs``, completing ``LoanTable`` and write a 
-``Main`` testing program::
+Write the ``LoanTable`` method and run it from ``Main``::
 
     /// Print a loan table, showing payment number, principal at the 
     /// beginning of the payment period, interest over the period, and
@@ -376,7 +378,6 @@ Write :file:`loan_calc.cs``, completing ``LoanTable`` and write a
     /// The principal is the initial amount of the loan.
     /// The rate is fraction representing the rate of interest per PAYMENT.
     /// The periodic regular payment is also specified.
-    /// If the payment is insufficient, merely print "payment too low".    
     public static void LoanTable(decimal principal, decimal rate, 
                                  decimal payment)
 
