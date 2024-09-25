@@ -19,15 +19,11 @@ Chapter Review
     More concretely, each sentence below introduces a problem.  
     What words/combinations suggest a loop/repetition?
     
-    Square each number from 1 to n.
-
-    Respond until the user says to stop.
-
-    Repeat the process until the width is < .00001.
-
-    Count the vowels in the sentence that you are given.
-
-    See if there are any double letters in the word that you are given.
+    - Square each number from 1 to n.
+    - Respond until the user says to stop.
+    - Repeat the process until the width is < .00001.
+    - Count the vowels in the sentence that you are given.
+    - See if there are any double letters in the word that you are given.
 
 
 #.  Loops are also among the hardest things for many students --
@@ -44,17 +40,6 @@ Chapter Review
     from the user.  Where do you generally put the code to get more data?
 
 #.  In general, what causes an infinite ``while`` loop?
-
-#.  What is wrong with this statement:  When the condition in a ``while`` loop
-    heading becomes false, the loop statement immediately terminates.
-    
-#.  A ``while`` loop will terminate when the program evaluates the
-    condition in its heading and the value becomes false.  
-    What is the important difference in this statement from the previous
-    incorrect statement?
-    
-#.  When is the next step in a program to evaluate the condition in a ``while`` loop heading? 
-    (There are two situations.)
 
 #.  A ``while`` loop is generally terminated when the program evaluates the
     condition in its heading and it becomes false.  
