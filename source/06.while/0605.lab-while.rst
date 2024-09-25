@@ -303,6 +303,9 @@ Line   i   sum  Comment
 Loan Table 
 -----------------------
 
+This exercise is an extension of the :ref:`savings_exercise`. Different
+forms of iteration may make sense to you but you are encouraged to use the ``while`` or ``do`` loop.
+
 Loans are common with a specified interest rate and with a fixed periodic 
 payment.  Interest is charged at a fixed rate on the amount left in the loan 
 after the last periodic payment (or start of the loan for the first payment).
@@ -387,9 +390,6 @@ That is important, because arithmetic with a ``decimal`` and a ``double`` is
 forbidden:  A ``double`` would have to be explicitly cast to a ``decimal``.
 Insisting on ``decimal`` parameter simplifies the method code.
 
-This exercise is much more sophisticated than the :ref:`savings_exercise`,
-so it is placed in this section, much later in the chapter.  Use what
-ever form of loop makes the most sense to you.
 
 
 
