@@ -193,12 +193,8 @@ Let us write a method to sum the numbers from 1 to ``n``::
     }
 
 For instance, SumToN(5) calculates 1 + 2 + 3 + 4 + 5 and returns 15.
-You know how to generate a sequence of integers, and you 
-know `gaussian summation <https://en.wikipedia.org/wiki/Gauss_sum>`_, 
-which can be used to easily check if the SumToN returns correct value.
-
-To see how this works in steps, let us take a concrete example like the one above for SumToN(5), 
-and write out a detailed sequence of steps like:
+You know how to generate a sequence of integers (using loop header). To see how this works in steps, 
+let us take a concrete example like the one above for SumToN(5), and write out a detailed sequence of steps like:
 
 ..  code-block:: none
 
@@ -207,17 +203,16 @@ and write out a detailed sequence of steps like:
     10 = 6 + 4
     15 = 10 + 5
     
-Since ``n`` is general, we need a loop, and hence we must see a *pattern* in code that we can repeat.
+Since ``n`` is general, we need a loop, and hence we must see a **pattern** in code that we can repeat:
 
-In each calculation the second term in the additions is a successive integer, 
-that we can generate. Starting in the second line, the first number
-in each addition is the sum from the previous line. Of course the next integer and the next
-partial sum change from step to step, so in order to use the same code over and
-over we will need changeable variables, with names. We can make the partial
-sum be ``sum`` and we can call the next integer ``i``.  Each addition can be
-in the form::
+- In each calculation the second term in the additions is a successive integer, that we can generate. 
+- Starting in the second line, the first number in each addition is the sum from the previous line. 
+- The next integer and the next partial sum change from step to step, so in order to use the same code over and
+  over we will need changeable variables, with names. We can make the partial
+  sum be ``sum`` and we can call the next integer ``i``.  Each addition can be
+  in the form::
 
-   sum + i
+     sum + i
 
 We need to remember that result, the new sum.  You might first think to introduce
 such a name::
