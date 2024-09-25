@@ -207,13 +207,12 @@ designing a method with a loop:
    done after the loop (code after the loop). Missing this distinction
    is a *common error*!
 
-This is quite a sequence of steps!  Particularly looking forward to other forms of loops,
-we can note a more basic split into two parts:
+This is quite a sequence of steps. You should at least note a more basic split into two parts:
 
-* Writing the code to make sure each desired iteration is reached 
-  (loop dynamics: initialized data for the test condition, the test condition itself, 
-  preparing for the next iteration)
-* Doing the work for a specific item/iteration (most of the body of the loop)
+#. Writing the code to make sure each desired iteration is reached 
+   (loop dynamics: initialized data for the test condition, the test condition itself, 
+   preparing for the next iteration)
+#. Doing the work for a specific item/iteration (mostly of the body of the loop)
 
 You generally only need to concentrate on one of those at a time.  
 If you set up how to reach all of the repetitions, giving names for the variables
