@@ -44,11 +44,6 @@ Chapter Review
 #.  A ``while`` loop is generally terminated when the program evaluates the
     condition in its heading and it becomes false.  
     How else can a program exit from a ``while`` loop?
-
-#.  We generally construct a loop so its body is a compound statement,
-    composed of a sequence of statements inside.  If this body is a sequence of
-    simple statements, does it make sense for
-    one of them to be a return statement?
     
 #.  When inside a loop,
     a return statement should generally only appear as a *sub-statement*
