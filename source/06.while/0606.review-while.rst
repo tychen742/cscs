@@ -3,14 +3,10 @@ Chapter Review
 #.  When might you prefer a ``for`` loop in place of a ``while`` loop?
     What do you gain?
 
-
-
 #. When might you prefer a while loop or a foreach instead of a for loop?
-
 
 #.  Describe in general when a ``foreach`` loop is going to be easier to use 
     than a ``while`` loop.
-    
     
 #.  While loops are a very important part of your programming tools.  
     Put in your own words:  when should you think to use a while loop?
@@ -60,7 +56,7 @@ Chapter Review
 #.  What is printed?  ::
 
         //          012345678901234567890
-        string s = "Is coding cool?  Yes!"
+        string s = "Is coding cool? Yes!"
         Console.WriteLine(s.Trim()); 
         string t = s.Substring(9, 8);
         Console.WriteLine(t.Replace(" ", "/")); 
