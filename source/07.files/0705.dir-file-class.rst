@@ -2,8 +2,11 @@
 
 .. _directory-class:
 
-Directory Class
+Directory/File Class
 ====================
+
+Directory Class
+----------------
 
 The ``Directory`` class is in the ``System.IO`` namespace.
 Directories in the file system are referenced by :ref:`path-strings`.
@@ -16,7 +19,7 @@ or to check if a path string represents an actual directory.
 .. _file-class:
 
 File Class
-====================
+-------------
 
 We will generally access operating system files using the ``Stream`` abstraction,
 discussed earlier in this chapter.
