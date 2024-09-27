@@ -11,7 +11,7 @@ Lecture Notes: Intro to Programming in C#
    04.decisions/decisions
    05.for/for
    06.while/06.while
-   07.files/files
+   07.files/07.files
    08.arrays/arrays
    09.lists/lists
    10.dictionaries/dictionaries
