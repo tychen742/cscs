@@ -19,8 +19,13 @@ directory path information. A file is stored in your file system, which is part 
 the operating system (OS), and the OS therefore has the information about the file 
 and how to access it. 
 
+
 File Stream
 --------------
+
+In .NET, file and stream I/O (input/output) refers to the transfer of data either to or from a 
+storage medium. The System.IO namespaces contain types that enable reading and writing, 
+both synchronously and asynchronously, on data streams and files, in addition to other file and stream operations. 
 
 You have already read and written streams of 
 characters to the ``Console``. Most of the syntax that we use for files will be very similar, using 
@@ -36,9 +41,14 @@ of bytes of data to a stream associated with a network port connected to the pri
 File handling process
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Different task processes use different type of streams: text files, binary files, 
+For file handling operations, there are two obvious streams: 
+
+#. The **Input Stream** that is used to read data from a file (read operation).
+#. The **Output Stream** that is used to write data into a file (write operation). 
+
+However, different task processes use different type of streams: text files, binary files, 
 strings, and network communications are some of the examples. The basic 
-stream operations include the following:
+stream operations therefore include the following:
 
 #. Creation/Opening
 #. Reading
@@ -47,13 +57,9 @@ stream operations include the following:
 #. Closing
 
 
-The System.IO Namespace
--------------------------
+The ``System.IO`` namespace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For file handling operations, there are two main streams: 
-
-#. The **Input Stream** that is used to read data from a file (read operation).
-#. The **Output Stream** that is used to write data into a file (write operation). 
 
 Files can be handled very differently by different operating systems, but
 C# abstracts away the differences and provides stream interfaces between
@@ -64,18 +70,20 @@ about file and directory structure.
 .. note:: 
    The `System.IO namespace <https://learn.microsoft.com/en-us/dotnet/api/system.io?view=net-8.0>`_ lists all 
    the classes available for use. The `File class <https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=net-8.0>`_ 
-   is one of the classes that provides 
+   is one of the classes that provides static methods for the creation, copying, deletion, moving, and 
+   opening of a single file, and aids in the creation of FileStream objects.
 
-One class that can be used to read and write class is the ``File`` class in the ``System.IO`` namespace. 
-The ``File`` class has several useful methods for file handling. 
+Tow classes that are commonly used to for file handling are the ``File`` class and the ``FileStream`` 
+class in the ``System.IO`` namespace. 
 
 
 Simple File Handling: ``File`` Class 
 --------------------------------------
 
-Among the file handling methods is the convenience class ``File``, which provides static methods for the creation, 
+Among the file handling methods is the convenience class ``File``, which provides ``static methods`` for the creation, 
 copying, deletion, moving, and opening of a single file, and aids in the creation of ``FileStream`` objects. For example, 
-the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations:
+the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations 
+among other methods:
 
 .. list-table:: Methods in File Class 
    :widths: 10 35
@@ -100,6 +108,10 @@ the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perfo
    * - WriteAllText()	
      - Creates a new file and writes the contents to it. If the file already exists, it will be overwritten.
 
+Sine class ``File`` provides ``static methods``, we can ``call`` the methods directly by using the ``dot notation`` 
+without having to create a new instance of the class. For example, with ``File`` class, when you want to write 
+some content to a file, you can simply say ``File.ReadAllText(string path, string content)`` to write the 
+string content to the path file.
 
 You should perform tests such as the following in ``csharprepl`` to get familiar with the methods: 
 
@@ -111,12 +123,13 @@ You should perform tests such as the following in ``csharprepl`` to get familiar
 
 #. Check if a file exists using ``File.Exists``:
 
-  .. code:: 
+   .. code:: 
 
-   > if (File.Exists("MyTest.txt")) {                           
-      Console.WriteLine("MyTest.txt exists"); 
-     }
-   MyTest.txt exists
+     > if (File.Exists("MyTest.txt")) 
+       {                           
+          Console.WriteLine("MyTest.txt exists"); 
+       }
+     MyTest.txt exists
 
 #. Write to a file using ``File.WriteAllText``:
    
