@@ -32,15 +32,19 @@ the file. Streams are how data is read and written to and from files, networks, 
 computer memory. For example, printing data using a printer involves sending a sequence 
 of bytes of data to a stream associated with a network port connected to the printer. 
 
-Different task processes use different type of streams: text files, binary files, 
-strings, and network communications are some of the examples. The basic operations with 
-streams include the following:
 
-#. Creation/Opening: 
-#. Reading: 
-#. Writing: 
-#. Positioning: 
-#. Closing: 
+File handling process
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Different task processes use different type of streams: text files, binary files, 
+strings, and network communications are some of the examples. The basic 
+stream operations include the following:
+
+#. Creation/Opening
+#. Reading
+#. Writing 
+#. Positioning
+#. Closing
 
 
 For file handling operations, there are two main streams: 
@@ -71,11 +75,11 @@ Simple File Handling: ``File`` Class
 --------------------------------------
 
 Among the file handling methods is the convenience class ``File``, which provides static methods for the creation, 
-copying, deletion, moving, and opening of a single file, and aids in the creation of FileStream objects. For example, 
+copying, deletion, moving, and opening of a single file, and aids in the creation of ``FileStream`` objects. For example, 
 the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations:
 
 .. list-table:: Methods in File Class 
-   :width: 10 35
+   :widths: 10 35
    :header-rows: 1
    
    * - Method
