@@ -47,18 +47,17 @@ stream operations include the following:
 #. Closing
 
 
+The System.IO Namespace
+-------------------------
+
 For file handling operations, there are two main streams: 
 
 #. The **Input Stream** that is used to read data from a file (read operation).
 #. The **Output Stream** that is used to write data into a file (write operation). 
 
-
-The System.IO Namespace
--------------------------
-
 Files can be handled very differently by different operating systems, but
 C# abstracts away the differences and provides stream interfaces between
-a C# program and files through the ``System.IO namespace`` (:ref:`namespace`). The System.IO namespace 
+a C# program and files through the ``System.IO namespace`` (:ref:`namespace <namespace>`). The System.IO namespace 
 contains the required classes used to handle the input and output streams and provide information 
 about file and directory structure. 
 
