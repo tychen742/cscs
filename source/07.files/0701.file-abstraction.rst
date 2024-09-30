@@ -6,14 +6,37 @@
 Files As Streams
 ============================ 
 
-Thus far you have been able to save programs, but anything produced
-during the execution of a program has been lost when the program
-ends. Data has not *persisted* past the end of execution. Just as
-programs live on in files, you can generate and read data files in
-C# that persist after your program has finished running.
 
-As far as C# is concerned, a file is just a string (often very
-large!) stored on your file system, that you can read or write,
+In most real world scenarios, especially in business settings, operations carried 
+out with computers and information systems usually involve data processing and  
+may generate new data as a result. To make the data *persistent* past the end of 
+program execution, data are stored  in file system or databases (for structured data). 
+
+A file is a collection of data stored on in a storage device with a name and 
+directory path information. A file is stored in your file system, which is part of 
+the operating system (OS), and the OS therefore has the information about the file 
+and how to access it. 
+
+File Stream
+--------------
+
+When you read/write a file in C# program, the data processed is seen as a **Stream**.
+A stream is a sequence of bytes of data sent between the destination and the source of 
+the file. Streams are how data is read and written to and from files, networks, and 
+computer memory. For example, printing data using a printer involves sending a sequence 
+of bytes of data to a stream associated with a network port connected to the printer. 
+
+Different task processes use different type of streams: text files, binary files, 
+strings, and network communications are some of the examples. The basic operations with 
+streams include the following:
+
+#. Creation/Opening: 
+#. Reading: 
+#. Writing: 
+#. Positioning: 
+#. Closing: 
+
+
 gradually, line by line, or all together.  
 
 C# has the abstraction of a *stream*, 
