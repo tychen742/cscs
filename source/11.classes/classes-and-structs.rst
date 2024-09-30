@@ -8,6 +8,14 @@
 Classes And Structs
 ======================
 
+abstract class
+https://dotnettutorials.net/lesson/file-handling-in-csharp/
+In C#, The System.IO namespace contains the required classes used to handle the input and output 
+streams and provide information about file and directory structure. The parent class of 
+file processing is Stream. Stream is an abstract class used as the parent of the 
+classes that implement the necessary operations.
+
+
 C# has an alternate syntax to a class: a *struct*. 
 Everything we have said so far about classes such an ``Rational`` applies to
 structs also!  In fact you could change ``class`` into ``struct`` in the heading for
