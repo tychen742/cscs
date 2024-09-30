@@ -5,75 +5,36 @@
    
 .. _filewrite:
 
+The ``FileStream`` Class
+===========================
+
+
+To use FileStream Class in C#, first of all, we need to include the System.IO namespace and then we need to create an instance of the FileStream class either to create a new file or to open an existing file.
+
 Writing Files
-==============
-
-Thus far we have only used the Console class for input and output, 
-so we have neither read nor written data from/to files.
-
-By default Xamarin Studio places data files in a place that makes sense for advanced
-projects, but not for our usage.  Thus far it has not mattered, and we
-have left the default directory structure alone.  Now, however, it matters, 
-and will be a lot simpler if we make a small change to the setup of all our projets using
-data files. This will also simplify command-line usage when we get to it.
-
-Try the following:
-
-#.  In Xamarin Studio go to the example project :repsrc:`first_file`.  Double click 
-    on the project line in the Solution pad to open the Options dialog.  
-    (If this does not work for some
-    reason you can also open the drop-down project menu and select Options.)
-
-#.  In the left column of the dialog under Build, the last entry should be Output.  Click on it.
-    The output path entry should end with:
-
-    .. code-block:: none
-
-       examples/first_file
-
-    This is *not* the way Xamarin sets it up by default.  
-    Originally Output Path ended with:
-
-    .. code-block:: none
-
-       examples/first_file/bin/$(Configuration)
-
-    This version has the extra ``/bin/$(Configuration)``.  
-
-..  note::
-    When you create a new project to
-    use data files, make sure the  ``/bin/$(Configuration)`` is *removed*
-    from the end of this Output Path field.
-
-Now let us examine the files here.  
-
-#.  In the dropdown menu for the :repsrc:`first_file` project, select 
-    "Open Containing Folder" on Windows
-    or "Reveal in Finder" on a Mac.  In any event the selection opens the project folder
-    in the operating system, showing all the files, not just the ones you see listed in 
-    Xamarin in the project. 
-
-#.  Look at the folder. You should *not* see a file :file:`sample.txt`.   Keep the folder handy.
-
-#.  Now build (not run yet ) the first_file project.  
-
-#.  Look at the operating system folder again.  You should now see build products,
-    :file:`first_file.exe`, the executable file, and :file:`first_file.exe.mdb`, 
-    extra debugging information if there are errors in execution.
-
-#.  Now run the program.  This program does *not* produce output to the screen,
-    so just close the execution window.
-
-#.  The program did do something:  Look at the operating system folder again. 
-    Now you *should* see a file :file:`sample.txt`. 
-    This is a file created by the program you ran.  
+---------------
 
 Here is the program:
 
-.. literalinclude:: ../../examples/introcs/first_file/first_file.cs
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 10-12
 
-.. index:: . ; part of namespace
-   System.IO namespace
+    using System;
+    using System.IO;
+
+    namespace IntroCSCS
+    {
+        class Ch07File  // basics of file writing
+        {
+            public static void Main()
+            {
+                StreamWriter writer = new StreamWriter("sample.txt");
+                writer.WriteLine("This program is writing to the sample file");
+                writer.Close();
+            }
+        }
+    }
 
 Look at the code.  Note the extra namespace being used at the top.  You will
 always need to be using ``System.IO`` when working with files.  Here is a slightly

@@ -115,13 +115,13 @@ string content to the path file.
 
 You should perform tests such as the following in ``csharprepl`` to get familiar with the methods: 
 
-#. Create a file using ``File.Create``:
+#. Create a file using ``File.Create (path)``:   // path means filename + the file's directory path
    
    .. code:: csharprepl
 
       > File.Create("MyTest.txt");   
 
-#. Check if a file exists using ``File.Exists``:
+#. Check if a file exists using ``File.Exists (path)``:
 
    .. code:: 
 
@@ -131,13 +131,13 @@ You should perform tests such as the following in ``csharprepl`` to get familiar
        }
      MyTest.txt exists
 
-#. Write to a file using ``File.WriteAllText``:
+#. Write to a file using ``File.WriteAllText (path, content)``:
    
    .. code:: csharprepl
 
       > File.WriteAllText("MyTest.txt", "Hello, this is a test.");  
 
-#. Read from a file:
+#. Read from a file using ``File.ReadAllText(path)``:
 
    .. code:: 
 
@@ -166,8 +166,9 @@ also use a variable for the filename:
          {
 
                // create a file
-               string path = "MyTest.txt";     // create the file in this directory
-               // File.Create(path);           // let WriteAllText create the file //
+               string path = "MyTest.txt";      // create the file in this directory
+               // File.Create(path);            // let WriteAllText create the file //
+                                                // File.Create() does not close file; leads to exception 
 
                // test file existence 
                if (File.Exists(path))
@@ -177,15 +178,13 @@ also use a variable for the filename:
 
                // write to the file
                string str = "Hello, I know how to writing files.";
-               File.WriteAllText(path, str);
+               File.WriteAllText(path, str);    // static method WriteAllText() will create the file if not exists
 
 
                // read the file 
-               string s = File.ReadAllText(path);
+               string s = File.ReadAllText(path);  // static method ReadAllText() for reading from file
                Console.WriteLine(s);
 
          }
       }
    }
-
-
