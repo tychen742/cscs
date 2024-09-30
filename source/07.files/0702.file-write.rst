@@ -8,8 +8,8 @@
 The ``FileStream`` Class
 ===========================
 
-
-To use FileStream Class in C#, first of all, we need to include the System.IO namespace and then we need to create an instance of the FileStream class either to create a new file or to open an existing file.
+The ``FileStream`` class provides a ``Stream`` for a file, supporting both synchronous and asynchronous 
+read and write operations. To use FileStream Class in C#, first of all, we need to include the System.IO namespace and then we need to create an instance of the FileStream class either to create a new file or to open an existing file.
 
 Writing Files
 ---------------
