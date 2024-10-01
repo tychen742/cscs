@@ -74,6 +74,17 @@ Look at the code:
   Console.WriteLine writes to the console/terminal, whereas StreamWriter.WriteLine writes 
   out a data stream to a file followed by a newline character. 
 
+  .. index:: StreamWriter; format string
+   StreamWriter; Write
+   
+  .. note:: 
+    Just as you can use a :ref:`Format-Strings` with 
+    functions ``Write`` and ``WriteLine`` of the ``Console`` class, 
+    you can also use a format string with the corresponding methods of a 
+    ``StreamWriter``, and embed fields by using braces in 
+    the format string.
+
+
 - writer.Close():
   The Close() method closes the current StreamWriter object and the underlying stream. 
   The Close() method is important for cleaning up. Until this line, this C# program 
@@ -97,12 +108,3 @@ If you do not use any operating system directory separators in the name
 **current directory**. For example, you may create a ``data``  
 
 
-.. index:: StreamWriter; format string
-   StreamWriter; Write
-   
-.. note:: 
-    Just as you can use a :ref:`Format-Strings` with 
-    functions ``Write`` and ``WriteLine`` of the ``Console`` class, 
-    you can also use a format string with the corresponding methods of a 
-    ``StreamWriter``, and embed fields by using braces in 
-    the format string.
