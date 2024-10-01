@@ -125,8 +125,7 @@ You may test this in the Xamarin Studio example project copy_upper:
     You can open it and see that it holds an upper case version of the contents
     of :file:`text.txt`.
 
-This is another case where the ``ReadToEnd`` function could have eliminated the loop. 
-[#finalNewline]_  ::
+This is another case where the ``ReadToEnd`` function could have eliminated the loop::
 
     string contents = reader.ReadToEnd();
     writer.Write(contents.ToUpper());

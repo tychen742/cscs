@@ -109,11 +109,11 @@ Path strings are used by the :ref:`directory-class` and by the :ref:`file-class`
 You can look at the ``Path`` class in the C# Language Reference  
 for many other operations with path strings.
 
-Directory Class
-----------------
+The Directory Class
+----------------------
 
 The ``Directory`` class is in the ``System.IO`` namespace.
 Directories in the file system are referenced by :ref:`path-strings`.
-You can look at the MSDN documentation for a wide variety of functions in the
+You can look at the C# language reference for a wide variety of functions in the
 ``Directory`` class including ones to list all the files in a directory 
 or to check if a path string represents an actual directory.
