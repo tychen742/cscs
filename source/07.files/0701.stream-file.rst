@@ -73,8 +73,11 @@ about file and directory structure.
    is one of the classes that provides static methods for the creation, copying, deletion, moving, and 
    opening of a single file, and aids in the creation of FileStream objects.
 
-Tow classes that are commonly used to for file handling are the ``File`` class and the ``FileStream`` 
-class in the ``System.IO`` namespace. 
+Classes that are commonly used to for file handling include: 
+- The ``FileStream`` class
+- Convenience class: ``File`` class
+- Helper class: ``StreamWriter``
+- Helper class: ``StreamReader`` 
 
 
 Simple File Handling: ``File`` Class 
