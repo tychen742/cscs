@@ -120,7 +120,7 @@ You should perform tests such as the following in ``csharprepl`` to get familiar
 
 #. Create a file using ``File.Create (path)``:   // path means filename + the file's directory path
    
-   .. code:: csharprepl
+   .. code::
 
       > File.Create("MyTest.txt");   
 
@@ -136,7 +136,7 @@ You should perform tests such as the following in ``csharprepl`` to get familiar
 
 #. Write to a file using ``File.WriteAllText (path, content)``:
    
-   .. code:: csharprepl
+   .. code:: 
 
       > File.WriteAllText("MyTest.txt", "Hello, this is a test.");  
 
