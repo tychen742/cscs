@@ -49,12 +49,12 @@ Look at the code:
      different use of a dot, ``.``, to indicate a *subsidiary* namespace. Under System.IO, 
      there are plenty of classes (with methods defined inside) for system IO operations, 
      such as: 
-      - File, 
-      - StreamWriter, 
-      - FileStream, 
-      - StreamReader,  
-      - Directory, 
-      - Path, etc.
+     - File, 
+     - StreamWriter, 
+     - FileStream, 
+     - StreamReader,  
+     - Directory, 
+     - Path, etc.
  
 - The StreamWriter Class: 
     - variable: The first line of the body of ``Main`` creates a ``StreamWriter`` 
