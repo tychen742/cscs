@@ -42,19 +42,19 @@ Here is the program:
 Look at the code:
 
 - The ``System.IO`` namespace: 
-  - Namespace: Note the ``using System.IO`` namespace being used at the top. It gives the program 
-    access to the functionalities in the System.IO namespace. For your current concern, 
-    this means a number of classes that contains many **methods** that you use. 
-  - You will always need to be using ``System.IO`` when working with files. Here is a slightly
-    different use of a dot, ``.``, to indicate a *subsidiary* namespace. Under System.IO, 
-    there are plenty of classes (with methods defined inside) for system IO operations, 
-    such as: 
-    - File, 
-    - StreamWriter, 
-    - FileStream, 
-    - StreamReader,  
-    - Directory, 
-    - Path, etc.
+   - Namespace: Note the ``using System.IO`` namespace being used at the top. It gives the program 
+     access to the functionalities in the System.IO namespace. For your current concern, 
+     this means a number of classes that contains many **methods** that you use. 
+   - You will always need to be using ``System.IO`` when working with files. Here is a slightly
+     different use of a dot, ``.``, to indicate a *subsidiary* namespace. Under System.IO, 
+     there are plenty of classes (with methods defined inside) for system IO operations, 
+     such as: 
+      - File, 
+      - StreamWriter, 
+      - FileStream, 
+      - StreamReader,  
+      - Directory, 
+      - Path, etc.
  
 - The StreamWriter Class: 
     - variable: The first line of the body of ``Main`` creates a ``StreamWriter`` 
