@@ -5,19 +5,25 @@
    
 .. _filewrite:
 
-The ``FileStream`` Class
-===========================
+Writing Files with ``StringWriter``
+======================================
 
-The ``FileStream`` class provides a ``Stream`` for a file, supporting both synchronous 
-and asynchronous read and write operations. To use FileStream class in C#, first of all, 
+The ``FileStream`` class provides a ``stream`` of bytes[] of data for file operations, supporting both synchronous 
+and asynchronous read and write operations. To use the FileStream class in C#, first of all, 
 you need to include the ``System.IO namespace`` and then you need to create an 
 ``instance`` of the FileStream class in order to use its functionalities to, for example, 
 create a new file or to open an existing file.
 
+For handling files, the ``StreamWriter`` class is more popular in writing files 
+and it is very helpful in writing text data into a file. It is easy to use and provides 
+a complete set of constructors [#constructor]_ and methods to work on it. Specifically, 
+the ``StreamWriter`` class in C# is used for writing characters to stream in a particular format. 
+
+
 Writing Files
 ---------------
 
-Here is the program:
+Observe the following program (``first_file.cs``):
 
 .. code-block:: csharp
    :linenos:
@@ -33,7 +39,8 @@ Here is the program:
             public static void Main()
             {
                 StreamWriter writer = new StreamWriter("sample.txt");
-                writer.WriteLine("This program is writing to the sample file");
+                writer.WriteLine("This program is writing");
+                writer.WriteLine("our first file.");
                 writer.Close();
             }
         }
@@ -105,6 +112,10 @@ Directory path
 
 If you do not use any operating system directory separators in the name 
 (``'\'`` or ``'/'``, depending on your operating system), then the file will lie in the
-**current directory**. For example, you may create a ``data``  
+**current directory**. For example, you may create a ``data`` directory under your 
+introcscs directory and place all data files in it. 
 
 
+.. rubric:: Footnotes
+.. [#constructor] The concept and use of constructor will be covered in subsequent chapters 
+   regarding object-oriented programming. 

@@ -1,0 +1,137 @@
+Lab: Files
+=======================
+
+
+.. index:: example; sum_files.cs
+   sum_files.cs example
+       
+Example: Sum Numbers in File
+-------------------------------
+
+We have summed the numbers from 1 to ``n``.  In that case we generated
+the next number ``i`` automatically using ``i++``.  We could also read numbers
+from a file containing one number per line (plus possible white space)::
+
+      static int CalcSum(string filename)
+      {
+         int sum = 0;
+         var reader = new StreamReader(filename);
+         while (!reader.EndOfStream) {
+            string sVal = reader.ReadLine().Trim();
+            sum += int.Parse(sVal);
+         }
+         reader.Close();
+         return sum;
+      }
+
+.. index:: File class; Exists
+   Exists - File class method
+
+Below and in :repsrc:`sum_file/sum_file.cs` is a more elaborate, complete example,
+that also exits gracefully if you give a bad file name.
+If you give a good file name, it skips lines that contain only whitespace.  
+
+.. literalinclude:: ../../examples/introcs/sum_file/sum_file.cs
+
+A useful function used in ``Main`` for avoiding filename typo errors 
+is ``File.Exists`` in the ``System.IO`` namespace :: 
+
+    bool File.Exists(string filenamePath) 
+
+It is true if the named files exists in the operating system's file structure.  
+
+You should see the files :repsrc:`sum_file/numbers.txt` and
+:repsrc:`sum_file/numbers2.txt` in the Xamarin Studio project.  You can test
+with them.  It is important to test all paths through the program: also do
+put in a bad name and see that the program exits gracefully, as intended.
+
+For files in the current folder, you can just use the plain file name.  
+For other folders see :ref:`path-strings`.
+
+.. bin/debug
+    It is in the right form for the program.  If you run the program and enter the
+    response:
+
+    .. code-block:: none
+
+       numbers.txt
+
+    you should be told that the file does not exist.  Recall that the executable
+    created by Xamarin Studio is two directories down through :file:`bin` 
+    to :file:`Debug`.  This is the default 
+    *current directory* when Xamarin Studio runs the program.
+    You can refer to
+    a file that is not in the current directory.  
+    A full description is in the next section, but briefly, what we need now:
+    The symbol for the parent directory is ``..``.  
+    The hierarchy of folders and files are separated by
+    ``\`` in Windows and ``/`` on a Mac,  so you can test the program successfully
+    if you use the file name:
+    ``..\..\numbers.txt`` in Windows and ``../../numbers.txt`` on a Mac.  On a Mac, running 
+    the program looks like:
+
+    .. code-block:: none
+
+       Enter the name of a file of integers: ../../numbers.txt
+       The sum is 16
+    
+.. bin/Debug
+    In :ref:`fio` we will discuss a more flexible way of finding files to open, 
+    that works well in Xamarin Studio and many other situations.
+ 
+.. index:: exercise; safe sum
+   safe sum exercise 
+   
+.. _safe_sum_file_ex:
+
+Safe Sum File Exercise
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+a.  Copy :file:`sum_file.cs` to a file :file:`safe_sum_file.cs` in a new project of yours. 
+    *Be sure to modify the Output path option to just refer to the project folder!* 
+    Modify the program: Write
+    a new function with the heading below.  Use it in ``Main``, in place of the ``if`` 
+    statement that checks (only once) for a legal file::         
+   
+      // Prompt the user to enter a file name to open for reading.
+      // Repeat until the name of an existing file is given.
+      // Open and return the file.
+      public static StreamReader PromptFile(string prompt)
+
+b.  A user who completely forgot the file name could be stuck in an infinite loop!
+    Elaborate the function and program, so that an empty line entered means
+    "give up", and ``null`` (no object) should be returned.  The main program needs to
+    test for this and quit gracefully in that case.
+    
+Example Copy to Upper Case
+--------------------------
+
+Here is a simple fragment from example file :repsrc:`copy_upper/copy_upper.cs`.
+It copies a file line by line to a new file in upper case:
+
+.. literalinclude:: ../../examples/introcs/copy_upper/copy_upper.cs
+   :start-after: chunk
+   :end-before:  chunk
+   :dedent: 9
+
+You may test this in the Xamarin Studio example project copy_upper:  
+
+#.  Expand the copy_upper project in the Solution pad.  The project
+    includes the input file.  You may not see it at first.  You need to expand the folder
+    for :file:`bin` and then :file:`Debug`.  You see :file:`text.txt`.  
+#.  To see
+    what else is in the project directory, 
+    select
+    "Open Containing Folder" or "Open in Finder" on a Mac.  
+    You should see project file :file:`text.txt` but not :file:`upper_text.txt`.
+    Leave that operating system file folder open.  
+#.  Go back to Xamarin Studio and run the project.  Now look at the
+    operating system folder again.  You should see :file:`upper_text.txt`.
+    You can open it and see that it holds an upper case version of the contents
+    of :file:`text.txt`.
+
+This is another case where the ``ReadToEnd`` function could have eliminated the loop. 
+[#finalNewline]_  ::
+
+    string contents = reader.ReadToEnd();
+    writer.Write(contents.ToUpper());
