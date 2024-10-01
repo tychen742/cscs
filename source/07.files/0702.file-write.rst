@@ -8,8 +8,11 @@
 The ``FileStream`` Class
 ===========================
 
-The ``FileStream`` class provides a ``Stream`` for a file, supporting both synchronous and asynchronous 
-read and write operations. To use FileStream Class in C#, first of all, we need to include the System.IO namespace and then we need to create an instance of the FileStream class either to create a new file or to open an existing file.
+The ``FileStream`` class provides a ``Stream`` for a file, supporting both synchronous 
+and asynchronous read and write operations. To use FileStream class in C#, first of all, 
+you need to include the ``System.IO namespace`` and then you need to create an 
+``instance`` of the FileStream class in order to use its functionalities to, for example, 
+create a new file or to open an existing file.
 
 Writing Files
 ---------------
@@ -36,65 +39,70 @@ Here is the program:
         }
     }
 
-Look at the code.  Note the extra namespace being used at the top.  You will
-always need to be using ``System.IO`` when working with files.  Here is a slightly
-different use of a dot, ``.``, to indicate a *subsidiary* namespace.
+Look at the code:
+
+- The ``System.IO`` namespace: 
+  - Namespace: Note the ``using System.IO`` namespace being used at the top. It gives the program 
+    access to the functionalities in the System.IO namespace. For your current concern, 
+    this means a number of classes that contains many **methods** that you use. 
+  - You will always need to be using ``System.IO`` when working with files. Here is a slightly
+    different use of a dot, ``.``, to indicate a *subsidiary* namespace. Under System.IO, 
+    there are plenty of classes (with methods defined inside) for system IO operations, 
+    such as: 
+    - File, 
+    - StreamWriter, 
+    - FileStream, 
+    - StreamReader,  
+    - Directory, 
+    - Path, etc.
  
-The first line of ``Main`` creates a ``StreamWriter`` object assigned to the
-variable  ``writer``.  A ``StreamWriter`` 
-links C# to your
-computer's file system for writing, not reading. 
-Files are objects, like a Random, and use the ``new`` syntax to create a new one. 
-The parameter in the constructor
-gives the name of the file to connect to the program, ``sample.txt`` - the same
-as the file name we saw created by the program. 
+- The StreamWriter Class: 
+    - variable: The first line of the body of ``Main`` creates a ``StreamWriter`` 
+      object assigned to the variable  ``writer``. 
+    - A ``StreamWriter`` links C# to your computer's file system for writing, not reading. 
+    - Files are objects, like a Random, and you use the ``new`` syntax to create a new one. 
+    - The StreamWriter class parameter ("constructor", to be covered in later chapters) 
+      gives the name of the  file to connect to the program, ``sample.txt``, which is the 
+      same as the file name we saw created by the program. 
 
-..  warning::
-    If the file already existed,  the old contents are
-    *destroyed* silently by creating a ``StreamWriter``.
+    ..  warning::
+      If the file already existed, the old contents are *destroyed* silently by creating a ``StreamWriter``.
 
-If you do not use
-any operating system directory separators in the name (``'\'`` or ``'/'``,
-depending on your operating system), then the file will lie in the
-*current directory*, discussed more shortly.  The Xamarin Studio default is for this
-current directory to be the bin/Debug subdirectory.  Our change to the output path
-converts it so the *current directory* is the main project folder.
+- writer.WriteLine(): 
+  The writer variable is of data type (or just type) StreamWriter and 
+  StreamWriter has method WriteLine() just like the Console class. The difference is that 
+  Console.WriteLine writes to the console/terminal, whereas StreamWriter.WriteLine writes 
+  out a data stream to a file followed by a newline character. 
 
-The second and third lines of ``Main`` write the specified strings to lines in the file.
-Note that the ``StreamWriter`` object ``writer``, not ``Console``, 
-comes before the dot and ``WriteLine``.  
-This is yet another variation on the use of a dot, ``.``:  between an object and
-a function tied to this object.  In this situation the function tied to an object
-is more specifically called a *method*, in object-oriented terminology.  All the
-uses of a dot (except for a numerical literal value) share a common idea, indicating
-a named part or attribute of a larger thing.
+- writer.Close():
+  The Close() method closes the current StreamWriter object and the underlying stream. 
+  The Close() method is important for cleaning up. Until this line, this C# program 
+  controls the file, and nothing may be actually written to the operating system file 
+  yet: Since initiating a file operation is thousands of times slower than memory 
+  operations, C# *buffers* data, saving small amounts and writing a larger chunk all at once.
+  
+  ..  warning::
+    The call to the ``Close`` method is essential for C# to make sure everything is really
+    written, and to relinquish control of the file for use by other programs. It is a common bug
+    to write a program where you have the code to add all the data you
+    want to a file, but the program does not end up creating a file.
+    Usually this means you forgot to close the file!
 
-The last line of ``Main`` is important for cleaning up. Until this line, this
-C# program controls the file, and nothing may be actually
-written to the operating system file yet:  Since initiating a file operation
-is thousands of times
-slower than memory operations, C# *buffers* data, saving small
-amounts and writing a larger chunk all at once.
 
-..  warning::
-    The call to the ``Close`` method
-    is essential for C# to make sure everything is really
-    written, and to relinquish control of the file for use by
-    other programs.
+Directory path
+~~~~~~~~~~~~~~~
 
-It is a common bug
-to write a program where you have the code to add all the data you
-want to a file, but the program does not end up creating a file.
-Usually this means you forgot to close the file!
+If you do not use any operating system directory separators in the name 
+(``'\'`` or ``'/'``, depending on your operating system), then the file will lie in the
+**current directory**. For example, you may create a ``data``  
 
-If you were to run the program from the command line instead of from Xamarin Studio, 
-the file would appear in the current directory.
 
 .. index:: StreamWriter; format string
    StreamWriter; Write
    
-Just as you can use a :ref:`Format-Strings` with 
-functions ``Write`` and ``WriteLine`` of the ``Console`` class, 
-you can also use a format string with the corresponding methods of a 
-``StreamWriter``, and embed fields by using braces in 
-the format string.
+.. note:: 
+    Just as you can use a :ref:`Format-Strings` with 
+    functions ``Write`` and ``WriteLine`` of the ``Console`` class, 
+    you can also use a format string with the corresponding methods of a 
+    ``StreamWriter``, and embed fields by using braces in 
+    the format string.
