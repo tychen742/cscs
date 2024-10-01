@@ -138,8 +138,7 @@ a file specified by the user, one line at a time:
    We could have used this syntax long ago, but as the type names become longer, 
    it is more useful!
 
-Note that ``print_file_lines.cs`` uses the ``UI`` class. We can simply copy the file 
-``ui.cs`` to the project folder. 
+
 
 You can run this program. You need an existing file to read.  An obvious file is
 the source file itself:  :file:`print_file_lines.cs`. Or, if you have implemented/tested 

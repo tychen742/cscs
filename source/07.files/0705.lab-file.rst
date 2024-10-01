@@ -41,6 +41,9 @@ is ``File.Exists`` in the ``System.IO`` namespace ::
 It is true if the named files exists in the operating system's file structure. 
 For files in the current folder, you can just use the plain file name.  
 
+Note that ``sum_file.cs`` uses the ``UI`` class. We can simply copy the file 
+``ui.cs`` to the project folder. 
+
 
 .. bin/debug
     It is in the right form for the program.  If you run the program and enter the
