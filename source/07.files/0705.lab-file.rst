@@ -114,7 +114,7 @@ It copies a file line by line to a new file in upper case:
    :dedent: 9
 
 
-This is another case where the ``ReadToEnd`` function could have eliminated the loop::
+This is another case where the ``ReadToEnd`` method could have eliminated the loop::
 
     string contents = reader.ReadToEnd();
     writer.Write(contents.ToUpper());

@@ -18,5 +18,5 @@ Chapter Review
     wrong with the following::
     
         if (inFile.ReadLine().Contains("!")) {
-           Console.WriteLine(inFile.ReadLine() + "\n contains the symbol !"
+           Console.WriteLine(inFile.ReadLine() + "\n contains the symbol !")
         }  
