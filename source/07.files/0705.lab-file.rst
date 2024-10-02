@@ -9,7 +9,7 @@ Example: Sum Numbers in File
 -------------------------------
 
 We have summed the numbers from 1 to ``n``.  In that case we generated
-the next number ``i`` automatically using ``i++``.  We could also read numbers
+the next number ``i`` automatically using ``i++``. We could also read numbers
 from a file containing one number per line (plus possible white space)::
 
       static int CalcSum(string filename)
@@ -27,7 +27,7 @@ from a file containing one number per line (plus possible white space)::
 .. index:: File class; Exists
    Exists - File class method
 
-Below is a more elaborate, complete example,
+Below is a more elaborate, complete example with some data quality control,
 that also exits gracefully if you give a bad file name.
 If you give a good file name, it skips lines that contain only whitespace.  
 
