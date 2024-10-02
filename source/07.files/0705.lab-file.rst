@@ -31,10 +31,10 @@ Below is a more elaborate, complete example with some data quality control,
 that also exits gracefully if you give a bad file name.
 If you give a good file name, it skips lines that contain only whitespace.  
 
-.. note:: 
+    .. note:: 
 
-    Note that this example uses the ``UI`` class. You can simply copy the file 
-    ``ui.cs`` to the project folder like before. 
+        Note that this example uses the ``UI`` class. You can simply copy the file 
+        ``ui.cs`` to the project folder like before. 
 
 .. literalinclude:: ../../examples/introcs/sum_file/sum_file.cs
 
