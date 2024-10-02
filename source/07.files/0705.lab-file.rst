@@ -31,6 +31,11 @@ Below is a more elaborate, complete example with some data quality control,
 that also exits gracefully if you give a bad file name.
 If you give a good file name, it skips lines that contain only whitespace.  
 
+.. note:: 
+
+    Note that this example uses the ``UI`` class. You can simply copy the file 
+    ``ui.cs`` to the project folder like before. 
+
 .. literalinclude:: ../../examples/introcs/sum_file/sum_file.cs
 
 A useful method used in ``Main`` for avoiding filename typo errors 
@@ -40,9 +45,6 @@ is ``File.Exists`` in the ``System.IO`` namespace ::
 
 It is true if the named files exists in the operating system's file structure. 
 For files in the current folder, you can just use the plain file name.  
-
-Note that ``sum_file.cs`` uses the ``UI`` class. We can simply copy the file 
-``ui.cs`` to the project folder. 
 
 
 .. bin/debug
@@ -84,10 +86,10 @@ Note that ``sum_file.cs`` uses the ``UI`` class. We can simply copy the file
 Safe Sum File 
 ----------------
 
-a.  Copy :download:`../../examples/introcs/sum_file/sum_file.cs` to a file :file:`safe_sum_file.cs` in a new project of yours. 
-    *Be sure to modify the Output path option to just refer to the project folder!* 
+a.  Copy :download:`../../examples/introcs/sum_file/sum_file.cs` to a file :file:`safe_sum_file.cs` 
+    in your project of the chapter. 
     Modify the program: Write
-    a new function with the heading below.  Use it in ``Main``, in place of the ``if`` 
+    a new method with the header below. Use it in ``Main``, in place of the ``if`` 
     statement that checks (only once) for a legal file::         
    
       // Prompt the user to enter a file name to open for reading.
