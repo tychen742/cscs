@@ -86,9 +86,9 @@ For files in the current folder, you can just use the plain file name.
 Safe Sum File 
 ----------------
 
-a.  Download :download:`../../examples/introcs/sum_file/sum_file.cs`, copy the method CalcSum 
+a.  From :repsrc:`../../examples/introcs/sum_file/sum_file.cs`, copy the method CalcSum 
     and the logic in the Main to your project Program.cs of the chapter to make sure it works. 
-    Write a new method with the header below. Use it in ``Main``, in place of the ``if`` 
+    Afterwards, write a new method with the header below. Use it in ``Main``, in place of the ``if`` 
     statement that checks (only once) for a legal file::         
    
       // Prompt the user to enter a file name to open for reading.
@@ -113,21 +113,6 @@ It copies a file line by line to a new file in upper case:
    :end-before:  chunk
    :dedent: 9
 
-You may test this in the Xamarin Studio example project copy_upper:  
-
-#.  Expand the copy_upper project in the Solution pad.  The project
-    includes the input file.  You may not see it at first.  You need to expand the folder
-    for :file:`bin` and then :file:`Debug`.  You see :file:`text.txt`.  
-#.  To see
-    what else is in the project directory, 
-    select
-    "Open Containing Folder" or "Open in Finder" on a Mac.  
-    You should see project file :file:`text.txt` but not :file:`upper_text.txt`.
-    Leave that operating system file folder open.  
-#.  Go back to Xamarin Studio and run the project.  Now look at the
-    operating system folder again.  You should see :file:`upper_text.txt`.
-    You can open it and see that it holds an upper case version of the contents
-    of :file:`text.txt`.
 
 This is another case where the ``ReadToEnd`` function could have eliminated the loop::
 
