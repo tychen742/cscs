@@ -86,7 +86,7 @@ For files in the current folder, you can just use the plain file name.
 Safe Sum File 
 ----------------
 
-a.  From :repsrc:`../../examples/introcs/sum_file/sum_file.cs`, copy the method CalcSum 
+a.  From :repsrc:`sum_file/sum_file.cs`, copy the method CalcSum 
     and the logic in the Main to your project Program.cs of the chapter to make sure it works. 
     Afterwards, write a new method with the header below. Use it in ``Main``, in place of the ``if`` 
     statement that checks (only once) for a legal file::         
