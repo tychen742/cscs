@@ -8,16 +8,25 @@ Lab: Files
 Example: Sum Numbers in File
 -------------------------------
 
-We have summed the numbers from 1 to ``n``.  In that case we generated
-the next number ``i`` automatically using ``i++``. We could also read numbers
-from a file containing one number per line (plus possible white space)::
+- StreamReader
+- .EndOfStream
+- .Close()
+- negation
+- ReadLine
+- .Trim()
+- int.Parse()
+  
+You have summed the numbers from 1 to ``n``.  In that case you generated
+the next number ``i`` automatically using ``i++``.  We could also write a 
+method to read numbers from a file containing one number per line 
+(plus possible white space)::
 
       static int CalcSum(string filename)
       {
          int sum = 0;
          var reader = new StreamReader(filename);
          while (!reader.EndOfStream) {
-            string sVal = reader.ReadLine().Trim();
+            string sVal = reader.ReadLine().Trim();     // Trim(()
             sum += int.Parse(sVal);
          }
          reader.Close();
