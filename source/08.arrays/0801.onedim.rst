@@ -8,48 +8,82 @@ One Dimensional Arrays
 
 .. index::
    array; [ ] declaration
-   
-Basic Syntax
----------------
 
-A string is an immutable sequence of characters.  Arrays provide more general sequences, 
-with the same indexing notation, but with free choice of the type of the items in the
-sequence, and the ability to change the elements in the sequence.
+An array is a ``data structure`` that contains a number of variables that are accessed 
+through computed indices. The variables contained in an array, also called the 
+``elements`` of the array, are all of the same type, and this type is called the 
+``element type`` of the array. [#arr-microsoft]_
 
-For example, if we want the type for an array with ``int`` elements, it is ``int[]``.
-In general for any element type, the type for an array of the element type is
+In C#, an array is a structure representing a fixed length ordered collection of 
+values or objects with the same type. Arrays make it easier to organize and 
+operate on large amounts of data. For example, rather than creating 100 integer 
+variables, you can just create one array that stores all those integers and access 
+them using array indices. [#arr-codeacademy]_
 
-    **type**\ ``[]``
+You have learned that a string is an immutable ``sequence`` of characters and how to 
+loop through the sequence. Arrays provide more general sequences, with the 
+same indexing notation, but with free choice of the ``type`` of the items in the 
+sequence, and the ability to ``change`` the elements in the sequence.
 
-so ::
+
+Creating Arrays
+-----------------
+
+A C# ``array variable`` is declared similarly to a non-array variable, with the 
+addition of square brackets (``[]``) after the ``type`` specifier to denote it as an array. 
+So, the general form for declaring an array variable of the element type is:
+
+    **type**\ ``[]`` variableName;
+
+For example, if you want to create an array called ``a`` with the type ``int`` 
+for elements, you declare the array variable as::
 
    int[] a;
 
-declares ``a`` to refer to an array containing ``int`` elements.  You do *not*
-know how many elements will be allowed in this array from this declaration.  
-We must give further information to create the corresponding array object.  
-A new object can be created using the ``new`` syntax.  An array must get a definite
-length, which can be a literal integer or any integer expression.  For example ::
+In this declaration, you do *not* know how many elements will be in this array 
+from the preceding declaration. You must give further information to create the 
+corresponding ``array object``. A new object can be created using the ``new`` 
+syntax. An array must get a definite length, which can be a literal integer or 
+any integer expression. For example ::
 
    int[] a;
    a = new int[4];
    
-or combined with the declaration, ::
+or, you may combine with the declaration, ::
 
    int[] a = new int[4];
 
-creates an array that holds 4 integers.  The elements of the array must get initial values.
-Numerical arrays get initialized to all 0's with this syntax.
+to creates an array that holds 4 integers. After specifying the number of the elements
+of the array, the default initial values are also assigned. For example, numerical 
+arrays get initialized to all 0's with this syntax by default, so when you loop 
+through the array variable::
 
-For a variety of reasons, including bookkeeping by the compiler, the actual data for
-an array is *not* stored directly in the memory location allocated by the declaration.
-The array could have any number of items, and hence the memory requirements are not known
-at compile time.  Like all other object (as opposed to primitive) types,
-what is actually stored at the memory location declared for ``a`` is a *reference* to the
-actual place where the data for the array is stored.  
-In actual compiler implementation this reference is an address in memory.
-In diagrams we will illustrate object references with an arrow *pointing* to the actual 
-location for the object's data.  For example after ``a`` is initialized:
+   > foreach (int i in a)      
+     {                                                
+         Console.Write(i);                            
+     }                                                
+   0000
+   > 
+
+An **array initializer** consists of a sequence of variable initializers, 
+enclosed by "``{``” and "``}``" tokens and separated by "``,``" tokens. 
+An array initializer can be used in a variable declaration::
+
+   int[] a = {0, 2, 4, 6, 8};
+
+which is a shorthand for the equivalent ``array creation expression``::
+
+   int[] a = new int[] {0, 2, 4, 6, 8};
+
+
+Note that the actual data for an array is *not* stored directly in the memory location 
+allocated by the declaration. The array could have any number of items, and hence 
+the memory requirements are not known at compile time. Like all other object 
+(as opposed to primitive) types, what is actually stored at the memory location declared 
+for ``a`` is a *reference* to the actual place where the data for the array is stored. 
+In actual compiler implementation, this reference is an address in memory. In the diagram 
+below, you see the object references with an arrow *pointing* to the actual location 
+for the object's data after ``a`` is initialized:
 
 .. image:: ../images/newArray1.png
    :alt: new array
@@ -57,10 +91,10 @@ location for the object's data.  For example after ``a`` is initialized:
    :width: 300 pt
  
 The small box beside ``a`` is meant to indicate the memory space allocated when ``a`` is
-declared.  As you can see that space does not actually contain the array, but only a 
+declared. As you can see that space does not actually contain the array, but rather a 
 *reference* to the array, pointing to the actual sequence of data for the array.
-To make it easy to refer to the elements in the diagram, we also label the indices 
-associated with each element, though they are not actual a part of what is stored in memory.
+Also, in the diagram you see the indices associated with each element, though they 
+are not actual a part of what is stored in memory.
 
 The general syntax to create a  new array is
 
@@ -68,6 +102,11 @@ The general syntax to create a  new array is
    
 After the type, there are square brackets enclosing an expression for the length
 of the array - this length is unchangeable after creation.
+
+
+Accessing Array Elements
+--------------------------
+
 
 .. index::
    single: [ ]; array indexing
@@ -106,8 +145,7 @@ in a *declaration*, not in a later assignment statement.
 Technically it is an initializer, not an array literal.
 
 Individual array elements can *both* be used in expressions, and be assigned to. 
-Continuing with the
-earlier example code::
+Continuing with the earlier example code::
 
     a[2] = 4*a[1] - a[3];
 
@@ -117,20 +155,31 @@ Arrays, like strings, have a ``Length`` property::
 
     Console.WriteLine(b.Length); // prints 4
 
-Just as we saw that using a variable for an index was useful with
-strings, in practice array elements are almost always referred to with an index
-variable.  A very common pattern is to deal with each element in sequence,
-and the syntax is the same as for a string.  Print all elements of array ``b``::
+just like with strings. In practice array elements are almost always referred 
+to with an index variable. A very common pattern is to deal with each element 
+in sequence, and the syntax is the same as for a string. Print all elements 
+of array ``b``::
 
     for (int i= 0; i < b.Length, i++) { 
        Console.WriteLine(b[i]); 
     }
     
-You could also use ``while`` syntax.  The ``foreach`` syntax would be::
+The ``foreach`` syntax would be::
 
-   foreach( int x in b) {
+   foreach ( int x in b) {
       Console.WriteLine(x);
    }
+
+while the ``while`` loop syntax would be::
+
+   > int[] a = { 1, 2, 3, 4, 5 }; 
+   > int i = 0;                
+   > while ( i < a.Length){ 
+      Console.Write(a[i]); 
+      i++; 
+     }
+   12345
+   > 
 
 The ``int`` type for ``x`` matches the element type of the array ``b``.
 
@@ -143,14 +192,14 @@ For example, to print only the first *3* elements of b::
 
 but the ``foreach`` syntax would not work, since it must process *all* elements.
 
-Also use the ``for`` syntax to assign new values to the array elements, 
+Also, you may use the ``for`` syntax to assign new values to the array elements, 
 rather than just use the values in expressions::
 
    for(int i= 0; i < b.Length; i++) {
       b[i] = 5*i;
    }
    
-Now the array ``b`` of our earlier examples (of length 4) would contain 0, 5,
+Now the array ``b`` of our earlier examples (of length 4) would now contain 0, 5,
 10, and 15.  
 
 .. warning::
@@ -1038,3 +1087,9 @@ parameter limits are important, too; test them::
    ///   4  16  64 256 1024
    public static void PowerTable(int nMax, int powerMax) 
 
+
+
+.. rubric:: Footnotes
+
+.. [#arr-microsoft] `Arrays https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/arrays`_
+.. [#arr-codeacademy] `C# Arrays <https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-arrays/cheatsheet>`_

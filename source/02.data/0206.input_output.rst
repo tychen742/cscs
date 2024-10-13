@@ -163,9 +163,13 @@ Composite formatting
 
 Instead of using the ``+`` operator, **composite format** (the 
 "fill-in-the-braces") gives us better control over output using ``Console.WriteLine``
-by using positional **string format index** to separate the string and the data variables.
+by using positional **string format index** to separate the string and the data variables. 
 
-Observe the last two statements:: 
+In composite formatting, you use two arguments: 1) a composite format **string** with 
+**parameter specifier** (``format item`` index) and 2) an **object list**. When printing, 
+the objects (variables or literal values) substitute the parameter specifiers one by one. 
+
+Observe the last two statements::
 
     string firstName;
 
@@ -175,24 +179,61 @@ Observe the last two statements::
     Console.WriteLine("Hiya, " + firstName + "!");
     Console.WriteLine("Hiya, {0}!", firstName);
 
-You can imagine that there would be {1} and {2}... like this::
+You can imagine that there would be {1}, {2}... like this::
 
-        Console.WriteLine("My first name is {0} and my last name is {1}.", firstName, lastName);
+        Console.WriteLine("Hiya, {0} {1}!", firstName, lastName);
 
 With composite formatting, we have the flexibility of writing the output string 
 and place the variables anywhere we prefer in the string.  
+
+A more elaborate silly examples that you could test in csharp would be::
+
+    string first = "Peter";
+    string last = "Piper";
+    string what = "pick";
+    Console.WriteLine("{0} {1}, {0} {1}, {2}.", first, last, what);
+    
+It would print::
+
+    Peter Piper, Peter Piper, pick.
+    
+where parameter 0 is ``first`` (value ``"Peter"``), 
+parameter 1 is ``last`` ( value ``"Piper"``), and
+parameter 2 is ``what`` (value ``"pick"``).  
+
+
+As an example, try the following in csharprepl::
+
+    int x = 7;
+    int y = 5;
+    Console.WriteLine("{0} plus {1} is {2}; {0} times {1} is {3}.", x, y, x+y, x*y);
+    
+to see it prints::
+
+    7 plus 5 is 12; 7 times 5 is 35.
+    
+Note the following features of the parameters after the first string:
+
+- These parameters can be any expression, 
+  and the expressions get evaluated before printing.
+- These parameters to be substituted can be of any type. 
+- These parameters are automatically converted to a string form, just as in the
+  use of the string ``+`` operation.  
+  
+In fact the simple use of format strings shown so far can be completed replaced by 
+long expressions with ``+``, if that is your taste.
 
 Format Specifiers
 ~~~~~~~~~~~~~~~~~~~
 
 In addition to printing out strings using composite formatting as seen above, a common 
-way to format strings is using the ``string.Format()`` method to save the value of 
-the variable into another string. For example, we may save a format string to a 
-variable::
+way to format strings is using the string.Format() method to save the value of the 
+variable into another string. For example, we may save a format string to a variable::
 
     var msg = string.Format("There are {0} balls", 3);
 
-C# has **format specifiers** [#format-specifiers]_ for different data types when formatting data. 
+Also, C# has **format specifiers** [#format-specifiers]_ for different data types when 
+formatting data. 
 For example, ``D`` for Decimal type::
 
     int value = 6324;
@@ -204,7 +245,8 @@ For example, ``D`` for Decimal type::
 
 You may format two strings together. In the example below, the ``{1,6:D}`` 
 format item takes the second item, format it also as a decimal and the 
-string length will be 6 characters (right-aligned and padded with empty strings):: 
+string length will be 6 characters (right-aligned and padded with empty strings;
+the 6 here is the ``alignment component``):: 
 
     string.Format("{0:D}  {1,6:D}", 634, 868); // result: 634     868
 
@@ -222,85 +264,25 @@ string length will be 6 characters (right-aligned and padded with empty strings)
 
 String interpolation using $
 ------------------------------
-The remaining parameters, after the initial string, 
-give the values to be substituted.  To
-know *which* further parameter to substitute, the parameters after the
-initial string are implicitly numbered,
-*starting from 0*.  
-Starting with 0 is consistent with other numbering sequences in C#.
-So here, where there is just one value to substitute (``name``), it gets the index 0,
-and where it is substituted, the braces get 0 inside, to indicate
-that parameter with index 0 is to be substituted.
 
-Everything in the initial string that is *outside* the braces is just
-*repeated verbatim*.  In particular, if the only parameter is a string 
-with no braces, it is printed completely
-verbatim (reducing to the situations where we have used ``Console.WriteLine`` before).
+The ``$`` character identifies a string literal as an **interpolated string**. An interpolated 
+string is a string literal that might contain interpolation expressions. When an 
+interpolated string is resolved to a result string, the compiler replaces items with 
+interpolation expressions by the string representations of the expression results. 
+String interpolation provides a more readable, convenient syntax to format strings. 
+To identify a string literal as an interpolated string, prepend it with the ``$`` symbol. 
 
-A more elaborate silly examples that you could test in csharp would be::
+Compare **composite formatting** and **string interpolation**::  
 
-    string first = "Peter";
-    string last = "Piper";
-    string what = "pick";
-    Console.WriteLine("{0} {1}, {0} {1}, {2}.", first, last, what);
-    
-It would print::
+    var name = "Mark";
+    var date = DateTime.Now;
 
-    Peter Piper, Peter Piper, pick.
-    
-where parameter 0 is ``first`` (value ``"Peter"``), 
-parameter 1 is ``last`` ( value ``"Piper"``), and
-parameter 2 is ``what`` (value ``"pick"``).  
-
-Make sure you see why the given output is exactly what is printed.
-
-Or try in csharprepl: ::
-
-    int x = 7;
-    int y = 5;
-    Console.WriteLine("{0} plus {1} is {2}; {0} times {1} is {3}.", x, y, x+y, x*y);
-    
-and see it print:
-
-.. code-block:: none
-
-    7 plus 5 is 12; 7 times 5 is 35.
-    
-Note the following features of the parameters after the first string:
-
-- These parameters can be any expression, 
-  and the expressions get evaluated before printing.
-- These parameters to be substituted can be of any type. 
-- These parameters are automatically converted to a string form, just as in the
-  use of the string ``+`` operation.  
-  
-In fact the simple use of format strings
-shown so far can be completed replaced by long expressions with ``+``,
-if that is your taste.  We later discusses fancier formatting in :ref:`tables`,
-that *cannot* be duplicated with a simple string ``+`` operation.
-We will use the simple numbered substitutions for now just  
-to get used to the idea of substitution.
-
-.. index:: format; literal {}
-    
-A technical point: Since braces have special meaning in a format
-string, there must be a special rule if you want braces to actually
-be included in the final *formatted* string. The rule is to double
-the braces: ``"{{"`` and ``"}}"``. The fragment ::
-
-    int a = 2, b = 3;
-    Console.WriteLine("The set is {{{0}, {1}}}.", a, b);
-
-produces
-
-.. code-block:: none
-
-    The set is {2, 3}.
-
-Note:  Braces only get their special meaning if there are at least two
-parameters (forcing the first parameter to be a format string).
-If there is just a single parameter, 
-braces are interpreted as regular characters.
+    // Composite formatting:
+    Console.WriteLine("Hello, {0}! Today is {1}, it's {2:HH:mm} now.", name, date.DayOfWeek, date);
+    // String interpolation:
+    Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
+    // Both calls produce the same output that is similar to:
+    // Hello, Mark! Today is Wednesday, it's 19:40 now.
 
 
    
@@ -309,13 +291,12 @@ Writing to the Console
    
 In csharprepl, you can type an expression and immediately see the result 
 of its evaluation. This is good for test out syntax. In a regular C# program 
-run from a file like in you must explicitly give instructions to print to a 
+run from a file like in VS Code, you must explicitly give instructions to print to a 
 console/terminal.  
 
 This printing is accomplished through a method with a long name: ``Console.WriteLine``.
 Like with math, you can pass a method a value to work on, by placing it in
 parentheses after the name of the method.
-
 
 ``Console`` is a C# class maintained by the system, that
 interacts with the terminal or console window where text output 
@@ -324,9 +305,6 @@ To refer to a method like ``WriteLine`` in a different class, you must indicate
 the location of the method with the "dot" notation shown:
 class name, then ``.``, then the method.  This  
 gives the more elaborate name needed in the program.
-
-
-
 
 .. index:: Console; Write
 
