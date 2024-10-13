@@ -214,23 +214,21 @@ which is the most common case in practice, but in fact what appears
 inside the square braces can be any ``int`` *expression*.
 Like parentheses, square brackets *delimit*
 the inside expression, which gets evaluated first, before the array value is
-looked up.  Consider this csharp sequence:
+looked up. Consider this csharprepl sequence:
 
 ..  code-block:: none
 
-    csharp> int[] a = {5, 9, 15, -4};
-    csharp> int i = 2;
-    csharp> a[i];
-    15
+   > int[] a = {5, 9, 15, -4};
+   > int i = 2;
+   > a[i];
+   15
 
-This should be clear.  Now think first, what should ``a[i+1]`` be?
-
-...
+This should be clear. Now think first, what should ``a[i+1]`` be?
 
 ..  code-block:: none
 
-    csharp> a[i+1];
-    -4
+   > a[i+1];
+   -4
 
 In steps:  ``a[i+1]`` is ``a[2+1]`` is ``a[3]`` is -4. Be careful,
 ``a[i+1]`` is *NOT* ``a[i] + 1`` (which would be 16). 
@@ -243,9 +241,9 @@ In steps:  ``a[i+1]`` is ``a[2+1]`` is ``a[3]`` is -4. Be careful,
 
 The code above to print each element of an array performs a 
 unified and possibly useful operation, so it would make sense to
-encapsulate it into a function.  A function can take any type as a
-parameter, so an array type is perfectly reasonable!  Above we
-printed each element of an array of integers.  This time let's choose strings,
+encapsulate it into a function. A function can take any type as a
+parameter, so an array type is perfectly reasonable! Above we
+printed each element of an array of integers. This time let's choose strings,
 so the formal parameter is an array of strings:  ``string[]``.
 
 .. literalinclude:: ../../examples/introcs/string_array/string_array.cs
