@@ -255,27 +255,6 @@ number of *exchanges* is O(N). The comparisons are a non-trivial cost,
 however, and do show
 in our own performance experiments with randomly-generated data. 
 
-.. index:: Shuffle exercise
-   exercise; Shuffle
-   
-Shuffle Exercise
-~~~~~~~~~~~~~~~~~
-
-Complete the ``Shuffle`` function and add a ``Main`` method to test it::
-
-    /// Shuffle the elements of an array into random positions, 
-    /// changing the array.  An array containing 
-    /// 2, 5, 7, 7, 7, 9 *might* end up in the order 
-    /// 7, 7, 2, 9, 7, 5.
-    static void Shuffle(int[] a)
-
-Use a Random and do something close to a reverse of selection sort, using 
-``Exchange`` with a random position.
-
-.. index:: sorting; insertion sort
-   algorithms; insertion sort
-   nested loop
-   insertion sort
 
 
 Insertion Sort
@@ -539,210 +518,210 @@ overall, you can state and prove the simpler *loop invariant* expressed
 in the comments above the loop, lines 7-10.  This allows the conclusion
 after the loop in comment lines 21-24.
 
-.. index::
-   Random
-   seed
-   regenerate random numbers
+.. .. index::
+..    Random
+..    seed
+..    regenerate random numbers
    
-Random Data Generation
-------------------------
+.. Random Data Generation
+.. ------------------------
 
-Now it is time to talk about how we are going to check the performance in 
-a real-world situation. We're going to start by modeling the situation when
-the data are in random order.
+.. Now it is time to talk about how we are going to check the performance in 
+.. a real-world situation. We're going to start by modeling the situation when
+.. the data are in random order.
 
-The following code generates a random array:
+.. The following code generates a random array:
 
-.. literalinclude:: ../../examples/introcs/sorting/sorting.cs
-   :start-after: chunk-random-begin
-   :end-before: chunk
-   :linenos:
-   :dedent: 6
+.. .. literalinclude:: ../../examples/introcs/sorting/sorting.cs
+..    :start-after: chunk-random-begin
+..    :end-before: chunk
+..    :linenos:
+..    :dedent: 6
 
 
-There are a few things to note in this code:
+.. There are a few things to note in this code:
 
-#. We use the random number generator option to include a *seed*. Random numbers
-   aren't truly random. The particular sequence is just determined by a seed.
-   The simplest way to create a Random object uses a seed taken from the system clock.
-#. In order to regenerate a particular example, we actually need the random sequence to be 
-   consistent, so we know that each of the sorting algorithms is being tested
-   using the same random data.  
-#. Because the sorting algorithms *modify* the data that are passed to it, we 
-   need to have a way of regenerating the sequence for the next test. 
-   Hence we specify the same seed each time.
-   (We could also copy the data, but it is kind of a waste of memory.)
+.. #. We use the random number generator option to include a *seed*. Random numbers
+..    aren't truly random. The particular sequence is just determined by a seed.
+..    The simplest way to create a Random object uses a seed taken from the system clock.
+.. #. In order to regenerate a particular example, we actually need the random sequence to be 
+..    consistent, so we know that each of the sorting algorithms is being tested
+..    using the same random data.  
+.. #. Because the sorting algorithms *modify* the data that are passed to it, we 
+..    need to have a way of regenerating the sequence for the next test. 
+..    Hence we specify the same seed each time.
+..    (We could also copy the data, but it is kind of a waste of memory.)
 
-This completes the discussion of the ``Sorting`` class in 
-:repsrc:`sorting/sorting.cs`.
+.. This completes the discussion of the ``Sorting`` class in 
+.. :repsrc:`sorting/sorting.cs`.
 
-.. index:: Stopwatch
-   performance - Stopwatch and TimeSpan
-   timing
+.. .. index:: Stopwatch
+..    performance - Stopwatch and TimeSpan
+..    timing
    
-Timing
--------
+.. Timing
+.. -------
 
-Separate from the basic sorts is the idea of checking their performance.
-The rest of the code is in the driver class in
-:repsrc:`sorting/sorting_demo.cs`. 
+.. Separate from the basic sorts is the idea of checking their performance.
+.. The rest of the code is in the driver class in
+.. :repsrc:`sorting/sorting_demo.cs`. 
 
-We need the ability to time the various sorting algorithms. Luckily, the 
-.Net framework/library gives us a
-way of doing so through its ``Stopwatch`` class. This class supports methods that you
-would expect if you've ever used a stopwatch (the kind found in sports):
+.. We need the ability to time the various sorting algorithms. Luckily, the 
+.. .Net framework/library gives us a
+.. way of doing so through its ``Stopwatch`` class. This class supports methods that you
+.. would expect if you've ever used a stopwatch (the kind found in sports):
 
-- Reset: Resets the elapsed time to zero. We need this so we can use the same Stopwatch
-  for each sorting algorithm.
-- Start: Starts the stopwatch. Will keep recording time until stopped.
-- Stop: Stops the stopwatch.
-- ElapsedMilliseconds: Not really a method but a property (like a variable). We'll use this to
-  get the total time that has elapsed between pairs of Start/Stop events in milliseconds.
-
-
-So let's take a look at the ``Main()``
-method's code to see how we compare the sorting algorithms. 
-The ``Main()`` method should be thought of as an *experiment* that tests the performance
-of each of the sorting algorithms.
-As all of the tests follow the same pattern, 
-we're going to look at the basic variable setup first, and then one test.
-
-.. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
-   :start-after: chunk-drivervars-begin
-   :end-before: chunk
-   :dedent: 6
+.. - Reset: Resets the elapsed time to zero. We need this so we can use the same Stopwatch
+..   for each sorting algorithm.
+.. - Start: Starts the stopwatch. Will keep recording time until stopped.
+.. - Stop: Stops the stopwatch.
+.. - ElapsedMilliseconds: Not really a method but a property (like a variable). We'll use this to
+..   get the total time that has elapsed between pairs of Start/Stop events in milliseconds.
 
 
-The variables declared here are to set up the apparatus:
+.. So let's take a look at the ``Main()``
+.. method's code to see how we compare the sorting algorithms. 
+.. The ``Main()`` method should be thought of as an *experiment* that tests the performance
+.. of each of the sorting algorithms.
+.. As all of the tests follow the same pattern, 
+.. we're going to look at the basic variable setup first, and then one test.
 
-- ``arraySize``: The size of the array where we wish to test the performance. We will
-  use this to create an array with ``arraySize`` random values.
-
-- ``randomSeed``: This allows the user to vary the seed that is used to create
-  the random array. We often want to do this to determine whether our performance
-  results are stable when run a large number of times with different distributions.
-  We won't go into too much detail here but consider it an important part of building
-  good performance benchmarks.
-
-- ``watch``: The stopwatch object we're using to do the timings of all experiments.
-
-- ``data``:  The array to be sorted.
-
-.. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
-   :start-after: chunk-driverparameters-begin
-   :end-before: chunk
-
-This code is designed so we can accept the parameters ``arraySize`` and ``randomSeed``
-from the command line or by prompting the user. When programmers design benchmarks, they
-often try to make it possible to run them with minimal user interaction. For the purposes
-of teaching, we wanted to make it possible to run it with or without command-line parameters.
+.. .. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
+..    :start-after: chunk-drivervars-begin
+..    :end-before: chunk
+..    :dedent: 6
 
 
-.. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
-   :start-after: chunk-driverapparatus-begin
-   :end-before: chunk
-   :dedent: 6
+.. The variables declared here are to set up the apparatus:
+
+.. - ``arraySize``: The size of the array where we wish to test the performance. We will
+..   use this to create an array with ``arraySize`` random values.
+
+.. - ``randomSeed``: This allows the user to vary the seed that is used to create
+..   the random array. We often want to do this to determine whether our performance
+..   results are stable when run a large number of times with different distributions.
+..   We won't go into too much detail here but consider it an important part of building
+..   good performance benchmarks.
+
+.. - ``watch``: The stopwatch object we're using to do the timings of all experiments.
+
+.. - ``data``:  The array to be sorted.
+
+.. .. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
+..    :start-after: chunk-driverparameters-begin
+..    :end-before: chunk
+
+.. This code is designed so we can accept the parameters ``arraySize`` and ``randomSeed``
+.. from the command line or by prompting the user. When programmers design benchmarks, they
+.. often try to make it possible to run them with minimal user interaction. For the purposes
+.. of teaching, we wanted to make it possible to run it with or without command-line parameters.
 
 
-This code fragment is one of the tests in ``Main``.  All of the tests set up 
-for timing first, run the desired sorting algorithm (bubble sort in this case),
-and report the timing results.  Since the timing setup and reporting is 
-always done the same way, they actions are placed in helping methods:
+.. .. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
+..    :start-after: chunk-driverapparatus-begin
+..    :end-before: chunk
+..    :dedent: 6
 
-.. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
-   :start-after: chunk timing
-   :end-before: chunk
-   :dedent: 6
+
+.. This code fragment is one of the tests in ``Main``.  All of the tests set up 
+.. for timing first, run the desired sorting algorithm (bubble sort in this case),
+.. and report the timing results.  Since the timing setup and reporting is 
+.. always done the same way, they actions are placed in helping methods:
+
+.. .. literalinclude:: ../../examples/introcs/sorting/sorting_demo.cs
+..    :start-after: chunk timing
+..    :end-before: chunk
+..    :dedent: 6
  
 
-``TimeSetup``:
+.. ``TimeSetup``:
 
-#. Creates the 'random' array of ``data``, based on ``randomSeed``.
-#. Resets the ``Stopwatch`` object to zero.
-#. Starts the ``Stopwatch``.
+.. #. Creates the 'random' array of ``data``, based on ``randomSeed``.
+.. #. Resets the ``Stopwatch`` object to zero.
+.. #. Starts the ``Stopwatch``.
 
-After the sort, ``TimeResult``:
+.. After the sort, ``TimeResult``:
 
-#. Stops the ``Stopwatch`` and get the elapsed time (``watch.ElapsedMilliseconds``). 
-   The value  
-   is an integer (long) number of
-   milliseconds (thousandths of a second).
-#. Prints the performance results in seconds.
+.. #. Stops the ``Stopwatch`` and get the elapsed time (``watch.ElapsedMilliseconds``). 
+..    The value  
+..    is an integer (long) number of
+..    milliseconds (thousandths of a second).
+.. #. Prints the performance results in seconds.
 
 
-You can see all of the tests in :repsrc:`sorting/sorting_demo.cs`. 
+.. You can see all of the tests in :repsrc:`sorting/sorting_demo.cs`. 
 
-Running the Code
-----------------------
+.. Running the Code
+.. ----------------------
 
-Here's the output of a trial run on one of our computers. The results will vary
-depending on your computer's CPU, among other factors.
+.. Here's the output of a trial run on one of our computers. The results will vary
+.. depending on your computer's CPU, among other factors.
 
-..  code-block:: none
+.. ..  code-block:: none
 
-    bin/Debug$ mono Sorting.exe 1000 12
-    Quick Sort: 0.000
-    Naive Shell Sort: 0.000
-    Better Shell Sort: 0.000
-    Insertion Sort: 0.001
-    Selection Sort: 0.002
-    Bubble Sort: 0.003
-    bin/Debug$ mono Sorting.exe 1000 55
-    Quick Sort: 0.000
-    Naive Shell Sort: 0.000
-    Better Shell Sort: 0.000
-    Insertion Sort: 0.001
-    Selection Sort: 0.002
-    Bubble Sort: 0.003
-    bin/Debug$ mono Sorting.exe 10000 2
-    Quick Sort: 0.001
-    Naive Shell Sort: 0.019
-    Better Shell Sort: 0.002
-    Insertion Sort: 0.134
-    Selection Sort: 0.174
-    Bubble Sort: 0.321
-    bin/Debug$ mono Sorting.exe 50000 2
-    Quick Sort: 0.006
-    Naive Shell Sort: 0.441
-    Better Shell Sort: 0.015
-    Insertion Sort: 3.239
-    Selection Sort: 4.172
-    Bubble Sort: 8.028
-    bin/Debug$ mono Sorting.exe 100000 2
-    Quick Sort: 0.014
-    Naive Shell Sort: 1.794
-    Better Shell Sort: 0.034
-    Insertion Sort: 13.158
-    Selection Sort: 16.736
-    Bubble Sort: 31.334
+..     bin/Debug$ mono Sorting.exe 1000 12
+..     Quick Sort: 0.000
+..     Naive Shell Sort: 0.000
+..     Better Shell Sort: 0.000
+..     Insertion Sort: 0.001
+..     Selection Sort: 0.002
+..     Bubble Sort: 0.003
+..     bin/Debug$ mono Sorting.exe 1000 55
+..     Quick Sort: 0.000
+..     Naive Shell Sort: 0.000
+..     Better Shell Sort: 0.000
+..     Insertion Sort: 0.001
+..     Selection Sort: 0.002
+..     Bubble Sort: 0.003
+..     bin/Debug$ mono Sorting.exe 10000 2
+..     Quick Sort: 0.001
+..     Naive Shell Sort: 0.019
+..     Better Shell Sort: 0.002
+..     Insertion Sort: 0.134
+..     Selection Sort: 0.174
+..     Bubble Sort: 0.321
+..     bin/Debug$ mono Sorting.exe 50000 2
+..     Quick Sort: 0.006
+..     Naive Shell Sort: 0.441
+..     Better Shell Sort: 0.015
+..     Insertion Sort: 3.239
+..     Selection Sort: 4.172
+..     Bubble Sort: 8.028
+..     bin/Debug$ mono Sorting.exe 100000 2
+..     Quick Sort: 0.014
+..     Naive Shell Sort: 1.794
+..     Better Shell Sort: 0.034
+..     Insertion Sort: 13.158
+..     Selection Sort: 16.736
+..     Bubble Sort: 31.334
 
-At least based on randomly-generated arrays, the performance can be summarized 
-as follows:
+.. At least based on randomly-generated arrays, the performance can be summarized 
+.. as follows:
 
-- Bubble Sort is rather unimpressive as expected. In fact, this algorithm is never
-  used in practice but is of historical interest. Like the brute-force style of
-  searching, it does way too much work to come up with the right answer!
+.. - Bubble Sort is rather unimpressive as expected. In fact, this algorithm is never
+..   used in practice but is of historical interest. Like the brute-force style of
+..   searching, it does way too much work to come up with the right answer!
 
-- Selection Sort and Insertion Sort are also rather unimpressive on their own. Even though 
-  Selection Sort can in theory do a lot less data movement, it must make a large
-  number of comparisons to find the minimum value to be moved. Again it is way too much work.
-  Insertion Sort, while unimpressive, fares a bit better and turns out to be a 
-  nice building block (if modified) for the Shell Sort. Varying the interval size
-  drastically reduces the amount of data movement (and the distance it has to move).
+.. - Selection Sort and Insertion Sort are also rather unimpressive on their own. Even though 
+..   Selection Sort can in theory do a lot less data movement, it must make a large
+..   number of comparisons to find the minimum value to be moved. Again it is way too much work.
+..   Insertion Sort, while unimpressive, fares a bit better and turns out to be a 
+..   nice building block (if modified) for the Shell Sort. Varying the interval size
+..   drastically reduces the amount of data movement (and the distance it has to move).
 
-- Shell Sort does rather well, especially when we pick the right intervals. 
-  In practice, the intervals also need to be adjusted based on the size of the
-  array, which is what we do as larger array sizes are considered. This is no trivial
-  task but a great deal of work has already been done in the past to determine
-  functions that generate good intervals. 
+.. - Shell Sort does rather well, especially when we pick the right intervals. 
+..   In practice, the intervals also need to be adjusted based on the size of the
+..   array, which is what we do as larger array sizes are considered. This is no trivial
+..   task but a great deal of work has already been done in the past to determine
+..   functions that generate good intervals. 
 
-- The Quicksort is generally fastest on random data.  It is by far the
-  most commonly used sorting algorithm. Yet there are signs that Shell sort
-  is making a comeback in embedded systems, because it concise to code
-  and is still quite fast.  See
-  [WikipediaShellSort]_, where it is mentioned that
-  the [uClibc]_ library makes use of Shell sort in its ``qsort()`` implementation,
-  rather than implementing the library sort with the more common quicksort.
+.. - The Quicksort is generally fastest on random data.  It is by far the
+..   most commonly used sorting algorithm. Yet there are signs that Shell sort
+..   is making a comeback in embedded systems, because it concise to code
+..   and is still quite fast.  See
+..   [WikipediaShellSort]_, where it is mentioned that
+..   the [uClibc]_ library makes use of Shell sort in its ``qsort()`` implementation,
+..   rather than implementing the library sort with the more common quicksort.
 
 .. [WirthADP] Niklaus Wirth, Algorithms + Data Structures = Programs, Prentice Hall, 1976.
 
