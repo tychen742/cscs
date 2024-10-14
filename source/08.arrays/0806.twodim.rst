@@ -87,32 +87,22 @@ that we knew.  We need something more general.  For one dimensional
 arrays we had the Length property, but now there are more than one
 lengths!  
 
-The following csharp sequence illustrates the syntax needed::
+The following csharprepl sequence illustrates the syntax needed::
 
-    csharp> int[, ] table = { {2, 4,  7, 55}, 
-          >                   {3, 1,  8, 10}, 
-          >                   {6, 0, 49, 12} };
-    csharp> table.Length;
-    12
-    csharp> table.GetLength(0);
-    3
-    csharp> table.GetLength(1);
-    4
-    csharp> foreach (int n in table) {
-          >    Console.WriteLine(n);
-          > }
-    2
-    4
-    7
-    55
-    3
-    1
-    8
-    10
-    6
-    0
-    49
-    12
+   > int[, ] table = { {2, 4,  7, 55}, 
+   >                   {3, 1,  8, 10}, 
+   >                   {6, 0, 49, 12} };
+   > table.Length;
+   12
+   > Console.WriteLine(table.GetLength(0));    //Array.GetLength(Int32) method
+   3
+   > Console.WriteLine(table.GetLength(1));
+   4
+   > foreach (int n in table) {
+   >    Console.Write($"{n} ");
+   > }
+   2 4 7 55 3 1 8 10 6 0 49 12
+   >
 
 Note:
 
@@ -126,6 +116,7 @@ Note:
 - The ``foreach`` statement behavior is consistent with the ``Length`` property, giving *all*
   the elements, row by row.  More generally, the rightmost indices vary most rapidly
   as the ``foreach`` statement iterates through all elements.
+- The Console.Write($"{n} ") uses :ref:`string interpolation`. 
 
 Just replacing 3 and 4 by ``table.GetLength(0)`` and ``table.GetLength(1)`` in the
 table printing code would make it general.
