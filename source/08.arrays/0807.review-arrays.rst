@@ -137,58 +137,58 @@ Chapter Review
      b.  Does each row have a type ``double[]`` ? 
 
 
-Follow Array Loop Exercise/Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Follow Array Loop Exercise/Example
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-a.  What is printed by this program?  Play computer first
-    to figure out.  
+.. a.  What is printed by this program?  Play computer first
+..     to figure out.  
 
-    .. literalinclude:: ../../examples/introcs/array_loop1/array_loop1.cs
-       :linenos:
+..     .. literalinclude:: ../../examples/introcs/array_loop1/array_loop1.cs
+..        :linenos:
 
-    Then you can run example 
-    :repsrc:`array_loop1/array_loop1.cs` to check the results and see our 
-    table from playing computer included in the project,
-    :repsrc:`array_loop1/play_computer1.txt`.
+..     Then you can run example 
+..     :repsrc:`array_loop1/array_loop1.cs` to check the results and see our 
+..     table from playing computer included in the project,
+..     :repsrc:`array_loop1/play_computer1.txt`.
 
-#.  What is printed by this program?  Play computer first
-    to figure out.  Be careful to keep the data current! 
+.. #.  What is printed by this program?  Play computer first
+..     to figure out.  Be careful to keep the data current! 
 
-    .. literalinclude:: ../../examples/introcs/array_loop2/array_loop2.cs
-       :linenos:
+..     .. literalinclude:: ../../examples/introcs/array_loop2/array_loop2.cs
+..        :linenos:
 
-    Then you can run example 
-    :repsrc:`array_loop2/array_loop2.cs` to check the results and see our 
-    table from playing computer included in the project,
-    :repsrc:`array_loop2/play_computer2.txt`.
-
-
-#.  What is printed by this program?  Play computer first
-    to figure out.   
-
-    .. literalinclude:: ../../examples/introcs/array_loop3/array_loop3.cs
-       :linenos:
-
-    Then you can run example 
-    :repsrc:`array_loop3/array_loop3.cs` to check the results and see our 
-    table from playing computer included in the project,
-    :repsrc:`array_loop3/play_computer3.txt`.
+..     Then you can run example 
+..     :repsrc:`array_loop2/array_loop2.cs` to check the results and see our 
+..     table from playing computer included in the project,
+..     :repsrc:`array_loop2/play_computer2.txt`.
 
 
-.. _sign-array-exercise:
+.. #.  What is printed by this program?  Play computer first
+..     to figure out.   
 
-Sign Array Exercise/Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..     .. literalinclude:: ../../examples/introcs/array_loop3/array_loop3.cs
+..        :linenos:
 
-Complete the code for this function:
-
-.. literalinclude:: ../../examples/introcs/sign_array1/sign_array1.cs
-   :start-after: chunk
-   :end-before: chunk
-   :dedent: 3
+..     Then you can run example 
+..     :repsrc:`array_loop3/array_loop3.cs` to check the results and see our 
+..     table from playing computer included in the project,
+..     :repsrc:`array_loop3/play_computer3.txt`.
 
 
-and place it in a program with a main function that demonstrates it.
+.. .. _sign-array-exercise:
 
-You can compare your solution with ours in
-:repsrc:`sign_array1/sign_array1.cs`.
+.. Sign Array Exercise/Example
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Complete the code for this function:
+
+.. .. literalinclude:: ../../examples/introcs/sign_array1/sign_array1.cs
+..    :start-after: chunk
+..    :end-before: chunk
+..    :dedent: 3
+
+
+.. and place it in a program with a main function that demonstrates it.
+
+.. You can compare your solution with ours in
+.. :repsrc:`sign_array1/sign_array1.cs`.
