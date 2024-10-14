@@ -5,8 +5,8 @@ Searching
 ===================================
 
 In this section, we'll take a look at how to search for a value in an
-array.  Although a fairly straightforward topic, it is one that comes
-up repeatedly in programming.
+array. You will learn about **linear search** and **binary search**. 
+
 
 .. index:: algorithms; linear search
    search; linear
@@ -15,8 +15,9 @@ up repeatedly in programming.
 Linear Search
 ------------------
 
-By far, one of the most common searches you will see in typical
-programs. It also happens to be one of the more *misused* searches,
+Although a fairly straightforward topic, linear search is one that comes
+up repeatedly in programming. Linear search is one of the most common searches 
+you will see in typical programs. It also happens to be one of the more *misused* searches,
 which is another reason you want to know about it.
 
 Here is the code from example :repsrc:`searching/searching.cs` 
