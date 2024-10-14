@@ -71,7 +71,7 @@ use the result of the :ref:`intsfromstring_exercise` that we put in
 
 To allow easy termination of the testing loop, we do not use ``PromptInt``
 for ``searchItem``, because any
-``int`` could be the search target.  By using ``PromptLine``, we can allow an empty
+``int`` could be the search target. By using ``PromptLine``, we can allow an empty
 string as the response, and we test for that to terminate the loop.
 
 The rest is mostly self-explanatory.
