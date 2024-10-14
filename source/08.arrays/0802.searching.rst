@@ -185,22 +185,22 @@ It also references previous example projects: functions from files
    :dedent: 6 
    
 
-Elaborated Binary Search Exercise
-----------------------------------
+.. Elaborated Binary Search Exercise
+.. ----------------------------------
 
-Even if you do not find ``item`` in a binary search, it is sometimes useful to know
-where ``item`` lies in relation to the array elements.  It could be
-before the first element, in between two elements, or after the last element.
-Suppose ``N`` is the (positive) array length.
-Instead of just returning -1 if ``item`` is not in the array, return 
+.. Even if you do not find ``item`` in a binary search, it is sometimes useful to know
+.. where ``item`` lies in relation to the array elements.  It could be
+.. before the first element, in between two elements, or after the last element.
+.. Suppose ``N`` is the (positive) array length.
+.. Instead of just returning -1 if ``item`` is not in the array, return 
 
-* -1 if ``item < data[0]``
-* ``-(k+1)`` if ``data[k-1] < item < data[k]`` 
-* ``-(N+1)`` if ``data[N-1] < item``
+.. * -1 if ``item < data[0]``
+.. * ``-(k+1)`` if ``data[k-1] < item < data[k]`` 
+.. * ``-(N+1)`` if ``data[N-1] < item``
 
-Modify :repsrc:`binary_searching/binary_searching.cs` into 
-:file:`binary_searching2.cs` so this extra information is returned
-(and indicated clearly in a main testing program derived from
-:repsrc:`binary_searching/binary_searching_demo.cs`).
-This should *not* require a change to the ``while`` loop, *nor* 
-require any added loop. 
+.. Modify :repsrc:`binary_searching/binary_searching.cs` into 
+.. :file:`binary_searching2.cs` so this extra information is returned
+.. (and indicated clearly in a main testing program derived from
+.. :repsrc:`binary_searching/binary_searching_demo.cs`).
+.. This should *not* require a change to the ``while`` loop, *nor* 
+.. require any added loop. 
