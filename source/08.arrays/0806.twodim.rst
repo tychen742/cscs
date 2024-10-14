@@ -166,50 +166,50 @@ for the row of dashes setting off the column sums:
    :end-before: chunk
 
 
-.. index:: exercise; row and column numbering
-   row and column numbering exercise
+.. .. index:: exercise; row and column numbering
+..    row and column numbering exercise
 
-.. _row-col-number-exercise:
+.. .. _row-col-number-exercise:
 
-Row and Column Numbering Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Row and Column Numbering Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Write a function that sets the values in a given
-rectangular array to 10 \* (row index +1) + column index + 1, with the
-normal row and column indices, starting from 0. For example
-an array with two rows
-and five columns would end up with values below. Your method should set
-the values in the array, not print them out::
+.. Write a function that sets the values in a given
+.. rectangular array to 10 \* (row index +1) + column index + 1, with the
+.. normal row and column indices, starting from 0. For example
+.. an array with two rows
+.. and five columns would end up with values below. Your method should set
+.. the values in the array, not print them out::
 
-     11 12 13 14 15
-     21 22 23 24 25 
+..      11 12 13 14 15
+..      21 22 23 24 25 
 
-If there are no more than 9 rows or columns, this display gives row and
-column numbers neatly for the normal human counting system, starting from 1.
+.. If there are no more than 9 rows or columns, this display gives row and
+.. column numbers neatly for the normal human counting system, starting from 1.
 
-.. index:: exercise; varying column width
-   varying column width exercise
+.. .. index:: exercise; varying column width
+..    varying column width exercise
 
-.. _varying-width-columns-exercise:
+.. .. _varying-width-columns-exercise:
 
-Varying Column Width Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Varying Column Width Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy the project file :repsrc:`print_table/print_table.cs` to a file
-:file:`print_varying_width_table.cs` in a projet of yours. 
-Edit it so that *each* column
-is only as wide as it needs to be: the width for the widest entry in
-that column.  
-The earlier data would now print as::
+.. Copy the project file :repsrc:`print_table/print_table.cs` to a file
+.. :file:`print_varying_width_table.cs` in a projet of yours. 
+.. Edit it so that *each* column
+.. is only as wide as it needs to be: the width for the widest entry in
+.. that column.  
+.. The earlier data would now print as::
 
-      2 4  7 55 |  68
-      3 1  8 10 |  22
-      6 0 49 12 |  67
-     ----------------
-     11 5 64 77 | 157
+..       2 4  7 55 |  68
+..       3 1  8 10 |  22
+..       6 0 49 12 |  67
+..      ----------------
+..      11 5 64 77 | 157
 
-Calculate each of these widths *only once*.
-Hint: Create an array of widths and an array of format strings.
+.. Calculate each of these widths *only once*.
+.. Hint: Create an array of widths and an array of format strings.
 
 
 .. index::
