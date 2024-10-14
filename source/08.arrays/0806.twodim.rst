@@ -116,7 +116,7 @@ Note:
 - The ``foreach`` statement behavior is consistent with the ``Length`` property, giving *all*
   the elements, row by row.  More generally, the rightmost indices vary most rapidly
   as the ``foreach`` statement iterates through all elements.
-- The Console.Write($"{n} ") uses :ref:`string interpolation`. 
+- The Console.Write($"{n} ") uses :ref:`string-interpolation`. 
 
 Just replacing 3 and 4 by ``table.GetLength(0)`` and ``table.GetLength(1)`` in the
 table printing code would make it general.
