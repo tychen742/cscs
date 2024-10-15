@@ -346,14 +346,12 @@ Command Line Adder Exercise
 Write a method ``Adder`` that calculates and prints the sum of 
 command line parameters taken from user input:: 
 
-..  code-block:: none
-
     2 5 22
 
 then the program prints 29.
 
-Going down to the bin/Debug directory from the command line, you will find the executables,
-not a Mono file, so you can run
+Going down to the bin/Debug directory from the command line, you will find the executables, 
+so you can run
     
 ..  code-block:: none
 
