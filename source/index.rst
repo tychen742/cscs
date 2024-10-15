@@ -19,7 +19,7 @@ Lecture Notes: Intro to Programming in C#
    12.testing/testing
    13.interfaces/interfaces
    14.recursion/recursion
-   15.datastructures/datastructures
+   15.datastructure/15.datastructure
    16.appendix/16.appendix
    
 :ref:`genindex`
