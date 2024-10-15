@@ -370,94 +370,94 @@ but on a Mac you need to run with mono:
    
 .. _Split:
 
-String Method Split
----------------------
+.. String Method Split
+.. ---------------------
 
-A string method producing an array:
+.. A string method producing an array:
 
-``string[] Split(char`` **separator** ``)``   
-    Returns an array of substrings from *this* string.  They are the pieces left
-    after chopping out the separator character from the string. 
-    A piece may be the empty string. 
-    Example: 
+.. ``string[] Split(char`` **separator** ``)``   
+..     Returns an array of substrings from *this* string.  They are the pieces left
+..     after chopping out the separator character from the string. 
+..     A piece may be the empty string. 
+..     Example: 
 
-    ..  code-block:: none
+..     ..  code-block:: none
     
-		> var fruitString = "apple pear banana";
-		> string[] fruit = fruitString.Split(' ');
-		> fruit;
-		{ "apple", "pear", "banana" }
-		> fruit[1];
-		"pear"
-		> var s = "  extra   spaces ";
-		> s.Split(' ');
-		{ "", "", "extra", "", "", "spaces", "" }
+.. 		> var fruitString = "apple pear banana";
+.. 		> string[] fruit = fruitString.Split(' ');
+.. 		> fruit;
+.. 		{ "apple", "pear", "banana" }
+.. 		> fruit[1];
+.. 		"pear"
+.. 		> var s = "  extra   spaces ";
+.. 		> s.Split(' ');
+.. 		{ "", "", "extra", "", "", "spaces", "" }
 		
-Note: The response with the list in braces is a purely *csharprepl* convention for displaying
-sequences for the user.  There is no corresponding string displayed by C# Write commands.
-Also see that the string is split at *each* ``separator``, 
-even if that produces empty strings.
+.. Note: The response with the list in braces is a purely *csharprepl* convention for displaying
+.. sequences for the user.  There is no corresponding string displayed by C# Write commands.
+.. Also see that the string is split at *each* ``separator``, 
+.. even if that produces empty strings.
 
-.. index:: IntsFromString1
-   index; parallel arrays
+.. .. index:: IntsFromString1
+..    index; parallel arrays
 
-.. _ints_from_string1:
+.. .. _ints_from_string1:
 
-``Split`` is useful for parsing a line with several parts.  You might get a group of 
-integers on a line of text, for instance from::
+.. ``Split`` is useful for parsing a line with several parts.  You might get a group of 
+.. integers on a line of text, for instance from::
 
-         string input = UI.PromptLine(
-            "Please enter some integers, separated by single spaces: ");
+..          string input = UI.PromptLine(
+..             "Please enter some integers, separated by single spaces: ");
 
-To extract the numbers, you want to the separate the entries in the string
-with ``Split``, *and* you probably want further processing: 
-If you want them as integers, not strings, you must convert each one separately.
+.. To extract the numbers, you want to the separate the entries in the string
+.. with ``Split``, *and* you probably want further processing: 
+.. If you want them as integers, not strings, you must convert each one separately.
 
-It is useful to put this idea in a function.
-See the type returned.  It is an array ``int[]`` for the int results::
+.. It is useful to put this idea in a function.
+.. See the type returned.  It is an array ``int[]`` for the int results::
 
-      /// Return ints taken from space separated integers in a string.
-      public static int[] IntsFromString1(string input)
-      {
-         string[] integers = input.Split(' ');
-         int[] data = new int[integers.Length];
-         for (int i=0; i < data.Length; i++)
-            data[i] = int.Parse(integers[i]);
-         return data;
-      }
+..       /// Return ints taken from space separated integers in a string.
+..       public static int[] IntsFromString1(string input)
+..       {
+..          string[] integers = input.Split(' ');
+..          int[] data = new int[integers.Length];
+..          for (int i=0; i < data.Length; i++)
+..             data[i] = int.Parse(integers[i]);
+..          return data;
+..       }
       
-In a call to ``IntsFromString1("2 5 22")``,  ``integers`` would be 
-an array containing strings ``"2"``, ``"5"``, and ``"22"``.  
-We need the conversions to ``int`` to go in a new array that we call ``data``.
-We must set its length, which will clearly be the same as for ``integers``,
-``integers.Length``.
-To assign elements into ``data`` we need a loop providing indices,
-like the ``for`` loop provided.  Then for each index, we parse a
-string in ``integers`` into an ``int``, 
-and place the ``int`` in the corresponding location in ``data``.  We need to return
-``data`` at the end to make it accessible to the caller.
+.. In a call to ``IntsFromString1("2 5 22")``,  ``integers`` would be 
+.. an array containing strings ``"2"``, ``"5"``, and ``"22"``.  
+.. We need the conversions to ``int`` to go in a new array that we call ``data``.
+.. We must set its length, which will clearly be the same as for ``integers``,
+.. ``integers.Length``.
+.. To assign elements into ``data`` we need a loop providing indices,
+.. like the ``for`` loop provided.  Then for each index, we parse a
+.. string in ``integers`` into an ``int``, 
+.. and place the ``int`` in the corresponding location in ``data``.  We need to return
+.. ``data`` at the end to make it accessible to the caller.
 
-Again we use the basic pattern for returning an array.  
+.. Again we use the basic pattern for returning an array.  
 
-Dealing with arrays is hard for many students for several reasons:
+.. Dealing with arrays is hard for many students for several reasons:
 
-*  You have new array declaration and creation syntax.
-*  Array are compound objects, so there is a lot to think about.
-*  Loops are hard for many people, and you almost always deal with loops.
-*  You usually must deal with index variables, and there are many 
-   patterns.
+.. *  You have new array declaration and creation syntax.
+.. *  Array are compound objects, so there is a lot to think about.
+.. *  Loops are hard for many people, and you almost always deal with loops.
+.. *  You usually must deal with index variables, and there are many 
+..    patterns.
 
-The last point is significant, 
-so it is important to note the special pattern in the example above:
+.. The last point is significant, 
+.. so it is important to note the special pattern in the example above:
 
-.. note::
-   The use of the same index variable for more than one array is 
-   a standard way to have 
-   *related* entries in *corresponding* positions in the arrays.
+.. .. note::
+..    The use of the same index variable for more than one array is 
+..    a standard way to have 
+..    *related* entries in *corresponding* positions in the arrays.
 
-We will introduce a refinement of this function in the
-:ref:`intsfromstring_exercise`.  It will rely on a more complicated
-index-handling pattern.
+.. We will introduce a refinement of this function in the
+.. :ref:`intsfromstring_exercise`.  It will rely on a more complicated
+.. index-handling pattern.
 
 
   
