@@ -60,7 +60,8 @@ or, you may combine with the declaration, ::
 
 to creates an array that holds 4 integers. After specifying the number of the elements
 of the array, the default initial values are also assigned. For example, numerical 
-arrays get initialized to all 0's with this syntax by default, so when you loop 
+arrays get initialized to all 0's (false for boolean, the character with Unicode 
+number zero for char, and null for objects and string) with this syntax by default, so when you loop 
 through the array variable::
 
    > foreach (int i in a)      
