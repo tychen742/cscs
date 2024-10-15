@@ -44,7 +44,12 @@ In this declaration, you do *not* know how many elements will be in this array
 from the preceding declaration. You must give further information to create the 
 corresponding ``array object``. A new object can be created using the ``new`` 
 syntax. An array must get a definite length, which can be a literal integer or 
-any integer expression. For example ::
+any integer expression. The general syntax to create a  new array is
+
+   ``new`` **type**\ ``[`` *length* ``]``
+   
+After the type, there are square brackets enclosing an expression for the length
+of the array - this length is unchangeable after creation. For example ::
 
    int[] a;
    a = new int[4];
@@ -96,12 +101,6 @@ declared. As you can see that space does not actually contain the array, but rat
 Also, in the diagram you see the indices associated with each element, though they 
 are not actual a part of what is stored in memory.
 
-The general syntax to create a  new array is
-
-   ``new`` **type**\ ``[`` *length* ``]``
-   
-After the type, there are square brackets enclosing an expression for the length
-of the array - this length is unchangeable after creation.
 
 
 Accessing Array Elements
