@@ -51,12 +51,12 @@ Chapter Review
     
 #.  What is an alias?  Why is understanding aliases important with arrays?
 
-#.  If I have a function declared  ::
+#.  If I have a method declared::
 
         static void f(int num)
         //...
         
-    and I call it from my ``Main`` function ::
+    and I call it from my ``Main`` method::
     
         int v = 7;
         f(v);
@@ -66,12 +66,12 @@ Chapter Review
     in ``Main``?
     If so, write a one-line body for ``f`` that does it.
     
-#.  If I have a function declared  ::
+#.  If I have a method declared  ::
 
         static void f(int[] nums)
         //...
         
-    and I call it from my ``Main`` function ::
+    and I call it from my ``Main`` method::
     
         int[] v = {7, 8, 9};
         f(v);
