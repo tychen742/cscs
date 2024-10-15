@@ -181,7 +181,7 @@ while the ``while`` loop syntax would be::
    12345
    > 
 
-The ``int`` type for ``x`` matches the element type of the array ``b``.
+In the ``foreach`` loop, the ``int`` type for ``x`` matches the element type of the array ``b``.
 
 The shorter ``foreach`` syntax is not as general as the ``for`` syntax.  
 For example, to print only the first *3* elements of b::
