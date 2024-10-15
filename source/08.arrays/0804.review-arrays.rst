@@ -99,12 +99,6 @@ Chapter Review
        b[2] = 9;
        Console.WriteLine("" + a[0] + a[1] + a[2]);
 
-.. #.  If my only use for variable ``temp`` is to set up this call to ``f``::
-
-..        int[] temp = {1, 2, 3};
-..        f(temp);
-       
-..     how could I rewrite it with an anonymous array?
     
 #.  After this line, what is the value of ``a[2]``?  ::
     
@@ -192,3 +186,10 @@ Chapter Review
 
 .. You can compare your solution with ours in
 .. :repsrc:`sign_array1/sign_array1.cs`.
+
+..  #.  If my only use for variable ``temp`` is to set up this call to ``f``::
+
+..        int[] temp = {1, 2, 3};
+..        f(temp);
+       
+..     how could I rewrite it with an anonymous array?
