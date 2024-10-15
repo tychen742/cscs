@@ -99,12 +99,12 @@ Chapter Review
        b[2] = 9;
        Console.WriteLine("" + a[0] + a[1] + a[2]);
 
-#.  If my only use for variable ``temp`` is to set up this call to ``f``::
+.. #.  If my only use for variable ``temp`` is to set up this call to ``f``::
 
-       int[] temp = {1, 2, 3};
-       f(temp);
+..        int[] temp = {1, 2, 3};
+..        f(temp);
        
-    how could I rewrite it with an anonymous array?
+..     how could I rewrite it with an anonymous array?
     
 #.  After this line, what is the value of ``a[2]``?  ::
     
@@ -117,24 +117,24 @@ Chapter Review
            Console.WriteLine(s.Length);
         }
       
-#.   If you get a data sequence from a ``Random`` object, 
-     is it really random?
+.. #.   If you get a data sequence from a ``Random`` object, 
+..      is it really random?
      
-#.   Explain the significance of a *seed* for a ``Random`` object.
+.. #.   Explain the significance of a *seed* for a ``Random`` object.
 
-#.   Suppose I create an object ``table`` of type ``double[,]``,
-     and I think of the first index as referring to a row and the second
-     index as referring to a column.
+.. #.   Suppose I create an object ``table`` of type ``double[,]``,
+..      and I think of the first index as referring to a row and the second
+..      index as referring to a column.
         
-     a.  Must each row be the same length? 
-     b.  Does each row have a type ``double[]`` ? 
+..      a.  Must each row be the same length? 
+..      b.  Does each row have a type ``double[]`` ? 
 
-#.   (Optional) Suppose I create an object ``table`` of type ``double[][]``,
-     and I think of the first index as referring to a row and the second
-     index as referring to a column.
+.. #.   (Optional) Suppose I create an object ``table`` of type ``double[][]``,
+..      and I think of the first index as referring to a row and the second
+..      index as referring to a column.
         
-     a.  Must each each row be the same length? 
-     b.  Does each row have a type ``double[]`` ? 
+..      a.  Must each each row be the same length? 
+..      b.  Does each row have a type ``double[]`` ? 
 
 
 .. Follow Array Loop Exercise/Example
