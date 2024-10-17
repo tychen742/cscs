@@ -150,7 +150,7 @@ values. The second will be convenient to set up tests for this lab.
       :end-before: PrintRuns chunk
 
 #. Given two arrays, ``a`` and ``b`` that represent vectors. Write a
-   function that computes the vector dot product of these two
+   method that computes the vector dot product of these two
    floating point arrays. The vector dot product (in mathematics) is defined  
    as the sum of ``a[i] * b[i]`` (for all i). Here's an example of how it
    should work::
