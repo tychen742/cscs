@@ -6,16 +6,41 @@
 Lab: Arrays
 ==================================
 
-**Overview**
+- **Notes on GAI**: Note that the course policy is that you should not use generative AI (GAI)
+  without authorization. GAI's are great tools and you should learn how to use it, but 
+  they are tools and should be used to facilitate but not replace your learning. 
+  If you are suspected to have used GAI tools to generate answers 
+  to the assignment questions instead of using it as a learning tool, you may be 
+  called up to explain/reproduce your work. If you fail to demonstrate your 
+  competency, all your **related assignments throughout the semester will be 
+  regraded as 0**. For example, if you fail to produce good code in ``while`` loops 
+  in midterm exam, your *lab06 while loop homework and labs* will be re-evaluated.  
 
+#. Create a dotnet console app project (see :ref:`create-project` if you need to) in your 
+   ``introcscs`` directory (``C:\Users\*USERNAME*\workspace\introcscs`` for Windows or ``COMPUTER:introcscs USERNAME$`` 
+   for macOS) ; call it **Ch08ArrayLab**. 
+#. Inside the folder, issue the command ``dotnet new console`` to create the project in the folder. 
+#. Still inside the project directory, type ``code .`` to start VS Code with the folder as the default folder. 
+#. Prepare your code in VS Code using the file Program.cs to code unless otherwise specified.
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch08ArraysLab*. 
+#. When executing code, you will only use the Main() method in class *Ch08ArraysLab*. 
+#. You will prepare methods in the same class to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // when appropriate) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part of the execution).
+
+
+**Overview**
 
 In this lab, we'll practice working with arrays. Arrays are
 fundamental to computer science, especially when it comes to
 formulating various *algorithms*. We've already learned a bit about
-arrays through the ``string`` data type. In many ways, a character
-string reveals the secrets of arrays:
+arrays through the ``string`` data type. In many ways, a **character
+string** reveals the secrets of arrays:
 
-- each element of a string is a common type (char)
+- each element of a string is a common **type** (char)
 - we can use indexing to find any given character, e.g. ``s[i]`` gives
   us the character at position ``i``.
 - we know that the string has a finite length, e.g. ``s.Length``.
@@ -23,26 +48,18 @@ string reveals the secrets of arrays:
 So you've already learned these *concepts*. But practice is useful
 creating and manipulating arrays with different kinds of data.
 
-**Goals**
-
-In this lab, we're going to practice:
-
-- creating arrays that hold numerical data
-- populating an array with data
-- using the tools of loops and decisions to do something interesting with the data
-- printing the data
 
 **Tasks**
 
-Copy the example file :repsrc:`array_lab_stub/array_lab.cs` to
-a new project of yours.
-Complete the body of a function
-for each main part, and call each function in ``Main`` several times with
+Go to the example file :repsrc:`array_lab_stub/array_lab.cs` and download the file 
+(``Download raw file``) and move it to the project folder. 
+Complete the body of a method
+for each main part, and call each method in ``Main`` several times with
 actual parameters chosen to test it well.  To label your illustrations, make
-liberal use of the first function, ``PrintNums``, to display and label inputs 
-and outputs.  Where several tests are appropriate for the same function, 
-you might want to write a separate testing function that prints 
-and labels inputs, passes the data on to the function being tested,
+liberal use of the first method, ``PrintNums``, to display and label inputs 
+and outputs.  Where several tests are appropriate for the same method, 
+you might want to write a separate testing method that prints 
+and labels inputs, passes the data on to the method being tested,
 and prints results.
 
 Recall that you can declare an array in two ways::
@@ -55,7 +72,7 @@ all zeroes. The second creates an
 array where the elements are taken from the bracketed list of
 values. The second will be convenient to set up tests for this lab.
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: PrintInts chunk
@@ -65,28 +82,28 @@ values. The second will be convenient to set up tests for this lab.
    on the same line, but a later label can start with ``\n`` 
    to advance to the next line.
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: ReadInts chunk
       :end-before: Minimum chunk
 
-   This will allow user tests.  The earlier input utility functions
+   This will allow user tests.  The earlier input utility methods
    are included at the end of the class.
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: Minimum chunk
       :end-before: CountEven chunk
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: CountEven chunk
       :end-before: PairwiseAdd chunk
    
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: PairwiseAdd chunk
@@ -100,7 +117,7 @@ values. The second will be convenient to set up tests for this lab.
    This section is a warm-up for the next one.  It is not required
    if you do the next one:
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: NewPairwiseAdd chunk
@@ -108,7 +125,7 @@ values. The second will be convenient to set up tests for this lab.
       
    See how this is different from the previous part!
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: IsAscending chunk
@@ -119,14 +136,14 @@ values. The second will be convenient to set up tests for this lab.
    a "short-circuit" loop.  What do you need to find to be
    immediately sure you know the answer?
    
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: PrintAscendingValues chunk
       :end-before: PrintRuns chunk
 
 
-#. Complete and test the function with documentation and heading:
+#. Complete and test the method with documentation and heading:
 
    .. literalinclude:: ../../examples/introcs/array_lab_stub/array_lab.cs
       :start-after: PrintRuns chunk
@@ -170,7 +187,7 @@ values. The second will be convenient to set up tests for this lab.
 ..       num = 10 * 196 + 7 = 1967
 ..       done!
 
-..    Write a function that converts the array of digits representing
+..    Write a method that converts the array of digits representing
 ..    a base 10 number to its ``int`` value 
 ..    (or for really long integers, you are encouraged to use
 ..    a ``long`` data type). Note that we only allow single digit
@@ -182,7 +199,7 @@ values. The second will be convenient to set up tests for this lab.
 ..    but other bases are important.  Now make the base a parameter.
 ..    Here we consider bases no bigger than 10, so we can continue to use
 ..    only digits for place value symbols.
-..    Write a function (or revise the
+..    Write a method (or revise the
 ..    previous solution) to return the int or long represented.
 ..    For example if {1, 0, 0, 1, 1} represents a base 2 number,
 ..    :math:`1(2^4)+0(2^3)+0(2^2)+1(2^1)+1(2^0)=19`
@@ -194,7 +211,7 @@ values. The second will be convenient to set up tests for this lab.
 .. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Modify a copy of :repsrc:`print_param/print_param.cs` to contain the earlier
-.. example function :ref:`PrintStrings <printstrings>`, and call it.
+.. example method :ref:`PrintStrings <printstrings>`, and call it.
 
 .. .. index:: exercise; command line adder
 ..    command line adder exercise
@@ -216,7 +233,7 @@ values. The second will be convenient to set up tests for this lab.
 ..    :dedent: 6
 
 
-.. and write a ``Main`` driver to demonstrate it.  Use the example function
+.. and write a ``Main`` driver to demonstrate it.  Use the example method
 .. :ref:`PrintStrings <printstrings>` in your demonstration.
 
 
@@ -225,7 +242,7 @@ values. The second will be convenient to set up tests for this lab.
 .. AllToUpper Exercise
 .. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Complete the function with this heading:
+.. Complete the method with this heading:
 
 .. .. literalinclude:: ../../examples/introcs/string_array/string_array.cs
 ..    :start-after: chunk AllToUpper
@@ -233,14 +250,14 @@ values. The second will be convenient to set up tests for this lab.
 ..    :dedent: 6
 
 
-.. Write a ``Main`` method to demonstrate it.  Use the example function
+.. Write a ``Main`` method to demonstrate it.  Use the example method
 .. :ref:`PrintStrings <printstrings>` to show off your result.
 
 
 .. Sign Array II Exercise/Example
 .. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Create a variation on :ref:`sign-array-exercise` with a function 
+.. Create a variation on :ref:`sign-array-exercise` with a method 
 .. with heading
 
 .. .. literalinclude:: ../../examples/introcs/sign_array2/sign_array2.cs
@@ -249,7 +266,7 @@ values. The second will be convenient to set up tests for this lab.
 ..    :dedent: 3
 
 
-.. and a main function to demonstrate it.
+.. and a main method to demonstrate it.
 
 .. You can compare your solution with ours in
 .. :repsrc:`sign_array2/sign_array2.cs`.
