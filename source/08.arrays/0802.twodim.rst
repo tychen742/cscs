@@ -7,10 +7,23 @@ Multi-dimensional Arrays
 .. index:: array; two dimensional
    two dimensional array
 
+
+An array can have any number of dimensions. For example, one-dimension (1D), 2-dimension 
+(2D), 3-dimension (3D) as shown below [#multi-d-arrays]_. 
+
+ .. image:: ../images/multi-d-arrays
+   :width: 400
+
+
+Since arrays use indices to access the elements, find a value, you must specify the 
+position within the array. In a 1d array you specify just the index, in a 2d array, 
+you specify row and column, and in a 3d array you specify plane, row, and column. 
+You can have higher dimension arrays, they are just difficult to imagine.
+
 Rectangular Arrays (Two Dimensional)
 --------------------------------------
 
-You should be familiar with one dimensional arrays. The data in arrays
+You have learned about one dimensional arrays. The data in arrays
 may be any type. While a one dimensional array
 works for a sequence of data, 
 we need something more for a two dimensional table,
@@ -46,7 +59,7 @@ To assign the 8 in the table above, consider that it is in the second
 row in normal counting, but we start array indices at 0, so there are
 rows 0, 1, and 2, and the 8 has row index 1. 
 Again starting with index 0 for columns, the 8 is at index
-2. We can assign a value to that position with ::
+1. We can assign a value to that position with ::
 
    table[1, 2] = 8;
 
@@ -259,3 +272,11 @@ With ``tri`` constructed as above:
 - ``tri[3][3]`` would refer to an element.
 - ``tri[1][3]`` would given a run-time out-of-bounds error.
   since ``tri[1]`` is an array of length 2.
+
+
+
+.. rubric:: Footnotes
+
+   .. [#multi-d-arrays] Note this `figure<https://indianaiproduction.com/python-numpy-array/>`_ is an illustration of arrays for NumPy 
+      and in C# you use curly braces or square braces (collection expression) 
+      to initialize arrays. 

@@ -14,8 +14,8 @@ through computed indices. The variables contained in an array, also called the
 ``elements`` of the array, are all of the same type, and this type is called the 
 ``element type`` of the array. [#arr-microsoft]_
 
-In C#, an array is a structure representing a fixed length ordered collection of 
-values or objects with the same type. Arrays make it easier to organize and 
+In C#, an array is a structure representing a **fixed length** ``ordered`` collection of 
+values or objects with the **same type**. Arrays make it easier to organize and 
 operate on large amounts of data. For example, rather than creating 100 integer 
 variables, you can just create one array that stores all those integers and access 
 them using array indices. [#arr-codeacademy]_
