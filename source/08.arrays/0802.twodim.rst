@@ -15,18 +15,17 @@ An array can have any number of dimensions. For example, one-dimension (1D), 2-d
    :width: 400
 
 
-Since arrays use indices to access the elements, find a value, you must specify the 
-position within the array. In a 1d array you specify just the index, in a 2d array, 
+Since arrays use indices to access the elements, you must specify the 
+indexing position within the array for data manipulation. 
+In a 1d array you specify just the index, in a 2d array, 
 you specify row and column, and in a 3d array you specify plane, row, and column. 
-You can have higher dimension arrays, they are just difficult to imagine.
+You can have higher dimension arrays, but they are just difficult to imagine.
 
 Rectangular Arrays (Two Dimensional)
 --------------------------------------
 
-You have learned about one dimensional arrays. The data in arrays
-may be any type. While a one dimensional array
-works for a sequence of data, 
-we need something more for a two dimensional table,
+While a one-dimensional array works for a sequence of data, 
+you need something more for a two dimensional table,
 where data values vary over both row and column.  
 
 If we have a table of integers, for instance with three
@@ -105,11 +104,11 @@ The following csharprepl sequence illustrates the syntax needed::
    > int[, ] table = { {2, 4,  7, 55}, 
    >                   {3, 1,  8, 10}, 
    >                   {6, 0, 49, 12} };
-   > table.Length;
+   > table.Length;                           // get the total of elements
    12
-   > Console.WriteLine(table.GetLength(0));    //Array.GetLength(Int32) method
+   > Console.WriteLine(table.GetLength(0));  // get number of elements of the 1st dimension (row) of array
    3
-   > Console.WriteLine(table.GetLength(1));
+   > Console.WriteLine(table.GetLength(1));  // get length of the 2nd dimension (column) of array
    4
    > foreach (int n in table) {
    >    Console.Write($"{n} ");
