@@ -230,14 +230,32 @@ Since you can have an array of any type, it is also possible to have an
 
 
 You could create a table with shape like the initial example 
-in :ref:`2D-arrays`::
+in :ref:`2D-arrays` less the last two elements to show the jagged array::
 
-   int[][] table2 = new array[3][4];
+   // declare the array of three elements
+   int[][] table2 = new int[3][];
    
-and refer to an element still by row and column index:::
+   // initialize the array elements
+   table2[0] = new int[4] {2, 3, 7, 55}
+   table2[1] = new int[4] {3, 1, 8, 10}
+   table2[2] = new int[2] {6, 0}
 
-   table2[1][2] = 4;
-   
+   // access an element by row and column index
+   Console.WriteLine(table2[0][3]);    // output 55
+
+   //
+   // Display the array elements:
+   for (int i = 0; i < table2.Length; i++)
+   {
+      System.Console.Write("Element [" + i + "] Array: ");
+      for (int j = 0; j < table2[i].Length; j++)
+            Console.Write(arr[i][j] + " ");
+      Console.WriteLine();
+   }     // output:
+         // Element [0] Array: 2 3 7 55 
+         // Element [1] Array: 3 1 8 10 
+         // Element [2] Array: 6 0  
+
 The notational difference so far is just that each index in enclosed in
 separate square brackets, with no commas.
 
