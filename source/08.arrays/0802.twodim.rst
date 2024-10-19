@@ -21,6 +21,8 @@ In a 1d array you specify just the index, in a 2d array,
 you specify row and column, and in a 3d array you specify plane, row, and column. 
 You can have higher dimension arrays, but they are just difficult to imagine.
 
+.. _2D-arrays:
+
 Rectangular Arrays (Two Dimensional)
 --------------------------------------
 
@@ -228,7 +230,7 @@ Since you can have an array of any type, it is also possible to have an
 
 
 You could create a table with shape like the initial example 
-in :ref:`multi-dimensional-arrays`  ::
+in :ref:`2D-arrays`::
 
    int[][] table2 = new array[3][4];
    
