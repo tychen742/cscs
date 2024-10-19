@@ -157,9 +157,10 @@ width, and then go through again and print data using a column
 width that is just large enough for the longest numbers.
 When looking through the data for string lengths, the row and column
 structure is not important, so the code illustrates ``foreach`` loops
-to chug through all the data.  We use the earlier trick in
-:ref:`modular_mult_table`, creating a custom format string to make columns
-the right width.
+to chug through all the data.  
+
+.. We use the earlier trick in :ref:`modular_mult_table`, creating a custom format string to make columns
+.. the right width.
 
 The code refers once to the earlier ``StringOfReps`` in :ref:`lab-loops` 
 for the row of dashes setting off the column sums:
