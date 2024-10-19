@@ -194,11 +194,11 @@ when writing. Here we can use the ``Write`` method instead of ``WriteLine``.
 
 
 
-.. [#readclose]
+.. .. [#readclose]
    If, for some reason, you want to reread this same file while the
    same program is running, you need to close it and reopen it.
 
-.. [#finalNewline]
+.. .. [#finalNewline]
    Besides the speed and efficiency of this second approach, 
    there is also a technical improvement:  There may or may not be
    a newline at the end of the very last line of the file.  The ``ReadLine``
