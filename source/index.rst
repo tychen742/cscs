@@ -13,8 +13,7 @@ Lecture Notes: Intro to Programming in C#
    06.while/06.while
    07.files/07.files
    08.arrays/08.arrays
-   09.lists/lists
-   10.dictionaries/dictionaries
+   09.collections/09.collections
    11.classes/classes
    12.testing/testing
    13.interfaces/interfaces
