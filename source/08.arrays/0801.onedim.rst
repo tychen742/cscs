@@ -578,14 +578,15 @@ of objects always get a specific value, not random data.  Here are the defaults:
 LINQ Methods
 --------------
 
-All the arrays in C# are derived from an abstract base class `System.Array <https://learn.microsoft.com/en-us/dotnet/api/system.array?view=netframework-4.7.2>`_. 
-The Array class implements the IEnumerable interface, so you can LINQ 
-extension methods such as Max(), Min(), Sum(), reverse(), etc on arrays. 
-
 .. note:: 
 
    Language-Integrated Query (LINQ) is the name for a set of technologies based 
    on the integration of query capabilities directly into the C# language. 
+   
+All the arrays in C# are derived from an abstract base class `System.Array <https://learn.microsoft.com/en-us/dotnet/api/system.array?view=netframework-4.7.2>`_. 
+The Array class implements the IEnumerable interface, so you can LINQ 
+extension methods such as Max(), Min(), Sum(), reverse(), etc on arrays. 
+
 
 .. code-block:: 
    
