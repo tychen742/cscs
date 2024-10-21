@@ -354,11 +354,11 @@ Going down to your project's bin/Debug/net8.0 directory from the command line, y
 find the executables (the ``.dll`` or ``.exe`` files) that you can execute. In 
 ``Windows``, it should look like::
     
-   PS C\:Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> ``Ch08Arrays.exe 2 5 22``
+   PS C\\:Users\\[username]\\workspace\\introcscs\\Ch08Arrays\\bin\\Debug\\net8.0> ``Ch08Arrays.exe 2 5 22``
     
 and you will see the output. You can also run the project by issuing::
    
-   PS C\:Users\[username]\workspace\introcscs\Ch08Arrays> ``dotnet run 2 5 22``
+   PS C\:Users\\[username]\\workspace\\introcscs\\Ch08Arrays> ``dotnet run 2 5 22``
 
 and you will see the same output. In macOS, you run this with ``dotnet run`` in your 
 project folder at command line with the arguments::
@@ -373,7 +373,7 @@ and you will see the output of the sum of the integers.
 
 This shows that the ``string[] args`` in the Main method is a string array taking its 
 elements from the command line when the project is executed.
- 
+
 
 .. index:: string; Split
    Split method for strings
