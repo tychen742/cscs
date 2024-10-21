@@ -3,9 +3,14 @@ Collections
 =============
 
 .. note:: 
-    Some background descriptions in this chapter would require knowledge in classes and 
-    object-oriented programming to make sense. For now, just focus on the two 
-    collection types: list and dictionary. 
+    Some descriptions in this chapter use the term classes. They refer to 
+    existing code and tools provided in C# for you to use.  
+
+When it comes to the creation and management of groups of items, there are two ways to 
+handle the items: arrays and collections. In terms of data structures, collections are 
+similar to arrays, but they are designed to be more effective in the organization, store, 
+and modification of data. For example, adding, deleting, discovering, and inserting 
+of data into the collections are parts of the data manipulation of collection classes.
 
 The .NET runtime provides many collection types that store and manage groups of 
 related objects. Some of the collection types, such as ``System.Array``, are 
