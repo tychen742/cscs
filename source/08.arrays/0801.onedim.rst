@@ -343,25 +343,37 @@ This should print for you::
 Command Line Adder Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Write a method ``Adder`` that calculates and prints the sum of 
-command line parameters taken from user input:: 
+Write a code block in the Main method of your project that calculates and prints 
+the sum of three command line parameters taken from user input:: 
 
-    2 5 22
+   2 5 22
 
 then the program prints 29.
 
-Going down to the bin/Debug directory from the command line, you will find the executables, 
-so you can run
+Going down to your project's bin/Debug/net8.0 directory from the command line, you will 
+find the executables (the ``.dll`` or ``.exe`` files) that you can execute. In 
+``Windows``, it should look like::
     
-..  code-block:: none
-
-    adder 2 5 22
+   PS C\:Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> ``Ch08Arrays.exe 2 5 22``
     
-but on a Mac you need to run with mono:
+and you will see the output. You can also run the project by issuing::
+   
+   PS C\:Users\[username]\workspace\introcscs\Ch08Arrays> ``dotnet run 2 5 22``
 
-..  code-block:: none
+and you will see the same output. In macOS, you run this with ``dotnet run`` in your 
+project folder at command line with the arguments::
 
-    mono adder.exe 2 5 22
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
+
+or in more current version of macOS:: 
+
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ ``dotnet Ch08Arrays.dll 2 5 22``     
+   
+and you will see the output of the sum of the integers.
+
+This shows that the ``string[] args`` in the Main method is a string array taking its 
+elements from the command line when the project is executed.
+ 
 
 .. index:: string; Split
    Split method for strings
@@ -584,7 +596,7 @@ LINQ Methods
    on the integration of query capabilities directly into the C# language. 
 
 All the arrays in C# are derived from an abstract base class `System.Array <https://learn.microsoft.com/en-us/dotnet/api/system.array?view=netframework-4.7.2>`_. 
-The Array class implements the IEnumerable interface, so you can LINQ 
+The Array class implements the ``IEnumerable interface``, so you can LINQ 
 extension methods such as Max( ), Min( ), Sum( ), reverse( ), etc on arrays::
 
    int[] nums = new int[5]{ 10, 15, 16, 8, 6 };

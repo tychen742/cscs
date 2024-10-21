@@ -1,3 +1,29 @@
 
 Collections
 =============
+
+.. note:: 
+    Some background descriptions in this chapter would require knowledge in classes and 
+    object-oriented programming to make sense. For now, just focus on the two 
+    collection types: list and dictionary. 
+
+The .NET runtime provides many collection types that store and manage groups of 
+related objects. Some of the collection types, such as ``System.Array``, are 
+recognized in the C# language. In addition, interfaces like 
+System.Collections.Generic.IEnumerable<T> are recognized in the language for 
+enumerating the elements of a collection.
+
+Collections provide a flexible way to work with groups of objects. You can 
+classify different collections by these characteristics:
+
+- **Element access**: Every collection can be ``enumerated`` to access each element in 
+  order. You choose between these collection types based on how your app accesses elements:
+    - **Index**: Some collections access elements by *index*, the element's position in an 
+      ordered collection. The most common example is list (System.Collections.Generic.List<T>). 
+    - **Key**: Other collections access elements by *key*, where a value is associated 
+      with a single key. The most common example is dictionary 
+      (System.Collections.Generic.Dictionary<TKey,TValue>). 
+- **Performance profile**: Every collection has different performance profiles for 
+  actions like adding an element, finding an element, or removing an element. You can pick a collection type based on the operations used most in your app.
+- **Grow and shrink dynamically**: Most collections support adding or removing 
+  elements dynamically. Notably, Array doesn't.
