@@ -35,13 +35,11 @@ The type for an ``int`` list is ::
 
     List<int>
 
-In general the new generic syntax allows a type (or several, comma separated) in angle
-brackets after a class (i.e., List) name. Lists are an example that depends on just
-one included type. We will see more shortly.
-
-There is a namespace for the generics for collections, including List:
-``System.Collections.Generic``. You used to have to use the ``using`` directive to 
-*import* the features offered by the class but C# now does it automatically. 
+In general, the new generic syntax allows a type in angle
+brackets after a class (e.g., List) name. There is a namespace for the generics 
+for collections, including List: ``System.Collections.Generic``. You used to have 
+to use the ``using`` directive to *import* the features offered by the class but 
+C# now does it automatically. 
 
 We will use several generic library classes, though we will not write the definitions of 
 new generic classes ourselves.
@@ -58,23 +56,20 @@ new generic classes ourselves.
 List Constructors and Methods
 -------------------------------
 
-We can play with some ``List`` methods in csharp.  
-Note that csharp informally displays the
-value of a ``List`` with a list of elements inside braces.  
-This is *not* a legal
-way to assign values to lists.   
+We can play with some ``List`` methods in csharprepl. Note that csharprepl 
+informally displays the value of a ``List`` with a list of elements inside braces.  
+This is *not* a legal way to assign values to lists.   
 
-The blocks below are all from one csharp session, 
-with our comments breaking up the sequence.
-
-With the no-parameter constructor, the ``List`` is empty to start:
+The blocks below are all from one csharprepl session, with our comments 
+breaking up the sequence. With the no-parameter constructor, 
+the ``List`` is empty to start:
 
 ..  code-block:: none
 
-	csharp> List<string> words = new List<string>();
-	csharp> words;
-	{  }
-	csharp> words.Count;
+	> List<string> words = new List<string>();
+	> words;
+	List<string>(0)
+	> words.Count
 	0
 	
 You can add elements, and keep count with the ``Count`` property 
@@ -82,43 +77,74 @@ as the size changes:
 
 ..  code-block:: none
 
-	csharp> words.Add("up");
-	csharp> words;
-	{ "up" }
-	csharp> words.Add("down");
-	csharp> words;             
-	{ "up", "down" }
-	csharp> words.Add("over"); 
-	csharp> words;             
-	{ "up", "down", "over" }
-	csharp> words.Count;
+	> words.Add("Apple");
+	> words
+	List<string>(1)
+	┌──────┬─────────┬────────┐
+	│ Name │ Value   │ Type   │
+	├──────┼─────────┼────────┤
+	│ [0]  │ "Apple" │ string │
+	└──────┴─────────┴────────┘
+	> words.Add("Banana");
+	> words             
+	List<string>(2)
+	┌──────┬──────────┬────────┐
+	│ Name │ Value    │ Type   │
+	├──────┼──────────┼────────┤
+	│ [0]  │ "Apple"  │ string │
+	│ [1]  │ "Banana" │ string │
+	└──────┴──────────┴────────┘
+	> words.Add("Cherry"); 
+	> words             
+	List<string>(3)
+ 	┌──────┬──────────┬────────┐
+ 	│ Name │ Value    │ Type   │
+ 	├──────┼──────────┼────────┤
+ 	│ [0]  │ "Apple"  │ string │
+ 	│ [1]  │ "Banana" │ string │
+ 	│ [2]  │ "Cherry" │ string │
+ 	└──────┴──────────┴────────┘
+	> words.Count;
+	┌───────────────────────────────────────────CompilationErrorException────────────────────────────────────────────┐
+	│ (1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be     │
+	│ used as a statement                                                                                            │
+	└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+	> words.Count
 	3
 	
 .. index::  list; index [ ]
    single: [ ]; list index
    
-You can reference and change elements by index, like with arrays:
+You can reference and change elements by index, like with ``arrays``:
 
 ..  code-block:: none
 
-	csharp> words[0];
-	"up"
-	csharp> words[2];
-	"over"
-	csharp> words[2] = "in";
-	csharp> words;
-	{ "up", "down", "in" }	
+	> words[0];
+	"Apple"
+	> words[2];
+	"Cherry"
+	> words[2] = "Coconut";
+	> words;
+	List<string>(3)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Apple"   │ string │
+	│ [1]  │ "Banana"  │ string │
+	│ [2]  │ "Coconut" │ string │
+	└──────┴───────────┴────────┘
 	
 You can use ``foreach`` like with arrays or other sequences:
 
 ..  code-block:: none
-	
-	csharp> foreach (string s in words) {      
-		  >    Console.WriteLine(s.ToUpper()); 
-		  > }
-	UP
-	DOWN
-	ON
+
+	> foreach (string s in words) 
+å  	{ 
+      	Console.WriteLine(s.ToUpper()); 
+  	}    
+	APPLE
+	BANANA
+	COCONUT
 
 .. index:: List; Console.WriteLine useless
 	
@@ -127,27 +153,27 @@ you try to use ``Console.WriteLine`` to print a ``List`` *object*:
 
 ..  code-block:: none
 
-    csharp> Console.WriteLine(words)
+    > Console.WriteLine(words)
     System.Collections.Generic.List`1[System.Int32]
 
-Next compare ``Remove``, which finds the first matching element and removes it,
-and ``RemoveAt``, which removes the element at a specified index.
-``Remove`` returns whether the List has been changed:
+	Next compare ``Remove``, which finds the first matching element and removes it,
+	and ``RemoveAt``, which removes the element at a specified index.
+	``Remove`` returns whether the List has been changed:
 
 ..  code-block:: none
 
-	csharp> words.Remove("down");  
+	> words.Remove("down");  
 	true
-	csharp> words;
+	> words;
 	{ "up", "in" }
-	csharp> words.Remove("around"); // no change
+	> words.Remove("around"); // no change
 	false
-	csharp> words.Add("out");
-	csharp> words.Add("on");
-	csharp> words;
+	> words.Add("out");
+	> words.Add("on");
+	> words;
 	{ "up", "in", "out", "on" }
-	csharp> words.RemoveAt(2); // "out" is at index 2
-	csharp> words;
+	> words.RemoveAt(2); // "out" is at index 2
+	> words;
 	{ "up", "in", "on" }
 	
 Removing does not leave a "hole" in the ``List``:  The list closes up,
@@ -155,26 +181,26 @@ so the index decreases for the elements after the removed one:
 
 ..  code-block:: none
 
-	csharp> words[2];
+	> words[2];
 	"on"
-	csharp> words.Count;
+	> words.Count;
 	3
 	
 You can check for membership in a ``List`` with ``Contains``:
 
 ..  code-block:: none
 
-	csharp> words.Contains("in");
+	> words.Contains("in");
 	true
-	csharp> words.Contains("into");
+	> words.Contains("into");
 	false
 
 You can also remove all elements at once:
 
 ..  code-block:: none
 
-	csharp> words.Clear();
-	csharp> words.Count;
+	> words.Clear();
+	> words.Count;
 	0
 
 .. index::
@@ -187,8 +213,8 @@ specified with an explicit sequence in braces:
 
 ..  code-block:: none
 
-	csharp> List<int> nums = new List<int>(new[]{5, 3, 7, 4});
-	csharp> nums;
+	> List<int> nums = new List<int>(new[]{5, 3, 7, 4});
+	> nums;
 	{ 5, 3, 7, 4 }
 
 We have been using the explicit declaration syntax, but generic types tend to get long,
