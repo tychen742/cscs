@@ -156,7 +156,9 @@ you try to use ``Console.WriteLine`` to print a ``List`` *object*::
 
 Next, compare ``Remove``, which finds the first matching element and removes it,
 and ``RemoveAt``, which removes the element at a specified index.
-``Remove`` returns whether the List has been changed::
+``Remove`` returns whether the List has been changed:
+
+.. code-block:: none
 
 	> words.Remove("Apple");  
 	true
@@ -204,12 +206,16 @@ and ``RemoveAt``, which removes the element at a specified index.
 	└──────┴───────────┴────────┘
 	
 Removing does not leave a "hole" in the ``List``:  The list closes up,
-so the index decreases for the elements after the removed one::
+so the index decreases for the elements after the removed one:
+
+.. code-block:: none
 
 	> words.Count;
 	3
 	
-You can check for membership in a ``List`` with ``Contains``::
+You can check for membership in a ``List`` with ``Contains``:
+
+.. code-block:: none
 
 	> words.Contains("Apple")
 	false
@@ -217,7 +223,9 @@ You can check for membership in a ``List`` with ``Contains``::
 	true
 	> 
 
-You can also remove all elements at once::
+You can also remove all elements at once:
+
+.. code-block:: none
 
 	> words.Clear()
 	
