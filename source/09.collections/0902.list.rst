@@ -149,7 +149,9 @@ You can use ``foreach`` like with arrays or other sequences:
 .. index:: List; Console.WriteLine useless
 	
 Note:  Unfortunately C# is not user-friendly if 
-you try to use ``Console.WriteLine`` to print a ``List`` *object*::
+you try to use ``Console.WriteLine`` to print a ``List`` *object*:
+
+.. code-block:: none
 
 	> Console.WriteLine(words)
 	System.Collections.Generic.List`1[System.Int32]
