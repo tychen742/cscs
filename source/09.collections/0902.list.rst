@@ -238,14 +238,24 @@ You can also remove all elements at once:
    
 Here is a List containing ``int`` elements.
 Though more verbose than for an array, you can initialize a ``List``
-with another collection, including an anonymous array,
-specified with an explicit sequence in braces:
+with another collection, including an ``anonymous array``,
+specified with an explicit sequence in curly braces:
 
 ..  code-block:: none
 
-	> List<int> nums = new List<int>(new[]{5, 3, 7, 4});
-	> nums;
-	{ 5, 3, 7, 4 }
+	> List<int> nums = new List<int>(new[] { 1, 2, 3, 4, 5 });
+
+	> nums
+	List<int>(5)
+	┌──────┬───────┬──────┐
+	│ Name │ Value │ Type │
+	├──────┼───────┼──────┤
+	│ [0]  │ 1     │ int  │
+	│ [1]  │ 2     │ int  │
+	│ [2]  │ 3     │ int  │
+	│ [3]  │ 4     │ int  │
+	│ [4]  │ 5     │ int  │
+	└──────┴───────┴──────┘
 
 We have been using the explicit declaration syntax, but generic types tend to get long,
 so ``var`` is handy with them::
@@ -255,26 +265,22 @@ so ``var`` is handy with them::
 When initializing a generic object, you still need to remember both the angle braces 
 around the type *and* the parentheses for the parameter list after that.    
 
-.. index:: side effect
+.. .. index:: side effect
 
-An aside on the ``Remove`` method:  It both causes a side effect, 
-changing the list,
-*and* it returns a value.  If a function returns a value, 
-we typically use the function call as an 
-expression in a larger statement.  This is not necessary, as described in
-:ref:`not-using-ret-val`.  In that section we discussed the *mistake* of not
-using return values.  The ``Remove`` method illustrates that this is 
-not always a mistake:  If you just want the side effect, trying to remove an element,
-whether or not it is in the list, then there is no need to check for the return value.
-This complete C# statement is fine::
+.. An aside on the ``Remove`` method: It both causes a side effect, 
+.. changing the list, *and* it returns a value. If a function returns a value, 
+.. we typically use the method call as an expression in a larger statement. The 
+.. ``Remove`` method illustrates that this is 
+.. not always a mistake: If you just want the side effect, trying to remove an element,
+.. whether or not it is in the list, then there is no need to check for the return value.
+.. This complete C# statement is fine::
 
-  someList.Remove(element);
+..   someList.Remove(element);
 
-You should generally think carefully before *defining* a function 
-that both has a side effect 
-and a return value.  Most functions that return a value do not have a side effect.  
-If you see a function used in the normal way as an expression, it is easy to forget that
-it was *also* producing some side effect.
+.. You should generally think carefully before *defining* a method 
+.. that both has a side effect and a return value. Most methods that return a value 
+.. do not have a side effect. If you see a function used in the normal way as an 
+.. expression, it is easy to forget that it was *also* producing some side effect.
   
 .. index:: example; ReadLines
    ReadLines example
@@ -283,8 +289,9 @@ it was *also* producing some side effect.
 Interactive List Example
 -------------------------
 
-Lists are handy when you do not know how much data there will be.  
-A simple example would be reading in lines from the user interactively::
+As in contrast to ``array``, ``lists`` are handy when you do not know how much 
+data there will be. A simple example would be reading in lines from the user 
+interactively::
 
     /// Return a List of lines entered by the user in response
     /// to the prompt.  Lines in the List will be nonempty, since an
