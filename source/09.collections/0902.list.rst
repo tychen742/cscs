@@ -149,59 +149,81 @@ You can use ``foreach`` like with arrays or other sequences:
 .. index:: List; Console.WriteLine useless
 	
 Note:  Unfortunately C# is not user-friendly if 
-you try to use ``Console.WriteLine`` to print a ``List`` *object*:
+you try to use ``Console.WriteLine`` to print a ``List`` *object*::
 
-..  code-block:: none
+	> Console.WriteLine(words)
+	System.Collections.Generic.List`1[System.Int32]
 
-    > Console.WriteLine(words)
-    System.Collections.Generic.List`1[System.Int32]
+Next, compare ``Remove``, which finds the first matching element and removes it,
+and ``RemoveAt``, which removes the element at a specified index.
+``Remove`` returns whether the List has been changed::
 
-	Next compare ``Remove``, which finds the first matching element and removes it,
-	and ``RemoveAt``, which removes the element at a specified index.
-	``Remove`` returns whether the List has been changed:
-
-..  code-block:: none
-
-	> words.Remove("down");  
+	> words.Remove("Apple");  
 	true
+	> words.Remove("Apple")
+	true
+	> words.Remove("Apple");
+
 	> words;
-	{ "up", "in" }
-	> words.Remove("around"); // no change
-	false
-	> words.Add("out");
-	> words.Add("on");
-	> words;
-	{ "up", "in", "out", "on" }
-	> words.RemoveAt(2); // "out" is at index 2
-	> words;
-	{ "up", "in", "on" }
+	┌───────────────────────────────────────────CompilationErrorException────────────────────────────────────────────┐
+	│ (1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be     │
+	│ used as a statement                                                                                            │
+	└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+	> words 
+	List<string>(2)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	└──────┴───────────┴────────┘
+
+	> 
+	> words.Add("Avocado");
+	> words.Add("Durian");
+	> words
+	List<string>(4)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	│ [2]  │ "Avocado" │ string │
+	│ [3]  │ "Durian"  │ string │
+	└──────┴───────────┴────────┘
+	> words.RemoveAt(3)
+	> words
+	List<string>(3)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	│ [2]  │ "Avocado" │ string │
+	└──────┴───────────┴────────┘
 	
 Removing does not leave a "hole" in the ``List``:  The list closes up,
-so the index decreases for the elements after the removed one:
+so the index decreases for the elements after the removed one::
 
-..  code-block:: none
-
-	> words[2];
-	"on"
 	> words.Count;
 	3
 	
-You can check for membership in a ``List`` with ``Contains``:
+You can check for membership in a ``List`` with ``Contains``::
 
-..  code-block:: none
-
-	> words.Contains("in");
-	true
-	> words.Contains("into");
+	> words.Contains("Apple")
 	false
+	> words.Contains("Banana")
+	true
+	> 
 
-You can also remove all elements at once:
+You can also remove all elements at once::
 
-..  code-block:: none
-
-	> words.Clear();
-	> words.Count;
-	0
+	> words.Clear()
+	
+	> words        
+	List<string>(0)
+	> 
 
 .. index::
    single: List; constructor with sequence
