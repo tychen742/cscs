@@ -26,8 +26,8 @@ provided by C# from .NET.
 Generics
 -----------
 
-.NET 4.0 introduced one new form of syntax that can apply to all sorts of
-classes, *generics*. There is a namespace for the generics 
+Since .NET 4.0, the one new form of syntax that can apply to all sorts of
+classes, *generics* is introduced. There is a namespace for the generics 
 for collections, including List: ``System.Collections.Generic``. You used to have 
 to use the ``using`` directive to *import* the features offered by the class but 
 C# now does it automatically. 
@@ -35,11 +35,12 @@ C# now does it automatically.
 In general, the new generic syntax allows a type in angle
 brackets after a class (e.g., List) name. 
 
-The type for a list of strings is ::
+The type for a generic list collection is::
 
-    List<string>
+    List<T>
 
-To create a string list variable, an example looks like::
+To create a list, you specify a type parameter for the type of data 
+the variable will store. For example, to create a list of string type::
 
 	List<string> myNames = new List<string>();
 
@@ -56,11 +57,12 @@ To loop through a list, you may use the foreach loop::
 	    Console.WriteLine(name);
 	}
 
-Similarly, The type for an ``int`` list is ::
-
-    List<int>
-
-and you can follow similar fashion to add elements to and loop through the list. 
+Similarly, to create a list of integer type::
+List<int> primeNumbers = new List<int>();
+primeNumbers.Add(2); // adding elements using add() method
+primeNumbers.Add(3);
+primeNumbers.Add(5);
+primeNumbers.Add(7);
 
 We will use several generic library classes, though we will not write the definitions of 
 new generic classes ourselves. 
@@ -78,7 +80,7 @@ List Constructors and Methods
 -------------------------------
 
 We can play with some ``List`` methods in csharprepl. Note that csharprepl 
-informally displays the value of a ``List`` with a list of elements inside braces.  
+informally displays the value of a ``List`` with a list of elements in a table.  
 This is *not* a legal way to assign values to lists.   
 
 The blocks below are all from one csharprepl session, with our comments 
