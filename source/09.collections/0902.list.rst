@@ -12,11 +12,11 @@ Then you create your array with that length, and you are all set.
 If you want a variable sized container, you are likely to want a ``List``.  
 As with arrays, you might want a collection of any particular type. 
 Unfortunately, you cannot use the simple notation of arrays to specify
-the type of element in a ``List``.  Array syntax is
-*built into* the language.  Lists are handled in the *library* of types
-provided by C# from the .Net framework.  There are all sorts of
-situations where you might want a general idea to have a version for each of
-many kinds of objects.  There is *not* a new syntax for *each* one.
+the type of element in a ``List``. Array syntax is
+*built into* the language. Lists are handled in the *library* of types
+provided by C# from .NET. There are all sorts of situations where you might want 
+a general idea to have a version for each of many kinds of objects. 
+
 
 .. index:: generics
    < > for generics
@@ -24,7 +24,7 @@ many kinds of objects.  There is *not* a new syntax for *each* one.
 Generics
 -----------
 
-Instead .Net 4.0 introduced one new form of syntax that can apply to all sorts of
+.NET 4.0 introduced one new form of syntax that can apply to all sorts of
 classes, *generics*.
 
 The type for a list of strings is ::
@@ -36,11 +36,12 @@ The type for an ``int`` list is ::
     List<int>
 
 In general the new generic syntax allows a type (or several, comma separated) in angle
-brackets after a class name.  Lists are an example that depends on just
-one included type.  We will see more shortly.
+brackets after a class (i.e., List) name. Lists are an example that depends on just
+one included type. We will see more shortly.
 
 There is a namespace for the generics for collections, including List:
-System.Collections.Generic.
+``System.Collections.Generic``. You used to have to use the ``using`` directive to 
+*import* the features offered by the class but C# now does it automatically. 
 
 We will use several generic library classes, though we will not write the definitions of 
 new generic classes ourselves.

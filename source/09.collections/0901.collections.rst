@@ -6,19 +6,24 @@ Collections
     Some descriptions in this chapter use the term classes. They refer to 
     existing code and tools provided in C# for you to use.  
 
+
+
 When it comes to the creation and management of groups of items, there are two ways to 
 handle the items: arrays and collections. In terms of data structures, collections are 
 similar to arrays, but they are designed to be more effective in the organization, store, 
-and modification of data. For example, adding, deleting, discovering, and inserting 
-of data into the collections are parts of the data manipulation of collection classes.
+and modification of data. In other words, collections are specialized classes that 
+store series of values or objects for better operational performance such as when 
+adding, deleting, discovering, and inserting of data into the collections.
 
 The .NET runtime provides many collection types that store and manage groups of 
 related objects. Some of the collection types, such as ``System.Array``, are 
 recognized in the C# language. In addition, interfaces like 
-System.Collections.Generic.IEnumerable<T> are recognized in the language for 
-enumerating the elements of a collection.
+``System.Collections.Generic.IEnumerable<T>`` are recognized in the language for 
+enumerating the elements of a collection. 
 
-Collections provide a flexible way to work with groups of objects. You can 
+There are two broad types of collections in C#: generic and non-generic.
+
+Collections provide a flexible way to work with groups of values and objects. You can 
 classify different collections by these characteristics:
 
 - **Element access**: Every collection can be ``enumerated`` to access each element in 
@@ -29,8 +34,29 @@ classify different collections by these characteristics:
   - **Key**: Other collections access elements by *key*, where a value is associated 
     with a single key. The most common example is dictionary 
     (System.Collections.Generic.Dictionary<TKey,TValue>). 
-    
+
 - **Performance profile**: Every collection has different performance profiles for 
   actions like adding an element, finding an element, or removing an element. You can pick a collection type based on the operations used most in your app.
 - **Grow and shrink dynamically**: Most collections support adding or removing 
   elements dynamically. Notably, Array doesn't.
+
+Common types of collections include arrays, lists, dictionaries, sets, queues, 
+and stacks, each with their specific use cases:
+
+- Arrays are useful when you have a fixed number of elements, and you need to 
+  access them by their indices.
+- Lists are flexible arrays; they are best when you have an unknown number of 
+  elements to store, and you need to perform various operations like adding or 
+  removing items.
+- Dictionaries are great when you need to associate keys with values and retrieve 
+  values quickly based on their keys.
+- Sets, specifically HashSets, are beneficial when you need to ensure that all 
+  elements are unique and need to check whether an element is in the collection quickly.
+- Queues and Stacks are used when you need special kinds of insertion 
+  and retrieval orders (FIFO for queues and LIFO for stacks). [#common-collections]_
+
+
+
+.. rubric:: Footnotes
+
+.. [#common-collections] `Essential Collections in C# <https://medium.com/@fairushyn/essential-collections-in-c-4ec7e90598ff#:~:text=Common%20types%20of%20collections%20include,access%20them%20by%20their%20indices>`_
