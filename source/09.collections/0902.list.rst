@@ -1,7 +1,7 @@
 .. index:: list
 
 
-.. _listsyntax:
+.. _list:
 
 List
 ===============
@@ -10,12 +10,14 @@ Arrays are fine if you know ahead of time how long your sequence of items is.
 Then you create your array with that length, and you are all set.
 
 If you want a variable sized container, you are likely to want a ``List``.  
+List is a type of collection that is used when the number of elements is unknown.
 As with arrays, you might want a collection of any particular type. 
 Unfortunately, you cannot use the simple notation of arrays to specify
 the type of element in a ``List``. Array syntax is
 *built into* the language. Lists are handled in the *library* of types
-provided by C# from .NET. There are all sorts of situations where you might want 
-a general idea to have a version for each of many kinds of objects. 
+provided by C# from .NET. 
+.. There are all sorts of situations where you might want 
+.. a general idea to have a version for each of many kinds of objects. 
 
 
 .. index:: generics
@@ -25,24 +27,43 @@ Generics
 -----------
 
 .NET 4.0 introduced one new form of syntax that can apply to all sorts of
-classes, *generics*.
-
-The type for a list of strings is ::
-
-    List<string>
-    
-The type for an ``int`` list is ::
-
-    List<int>
-
-In general, the new generic syntax allows a type in angle
-brackets after a class (e.g., List) name. There is a namespace for the generics 
+classes, *generics*. There is a namespace for the generics 
 for collections, including List: ``System.Collections.Generic``. You used to have 
 to use the ``using`` directive to *import* the features offered by the class but 
 C# now does it automatically. 
 
+In general, the new generic syntax allows a type in angle
+brackets after a class (e.g., List) name. 
+
+The type for a list of strings is ::
+
+    List<string>
+
+To create a string list variable, an example looks like::
+
+	List<string> myNames = new List<string>();
+
+Examples of adding elements to a list::
+
+	myNames.Add("Alice");
+	myNames.Add("Bob");
+	myNames.Add("Charles");
+
+To loop through a list, you may use the foreach loop::
+
+	foreach (string name in myNames)
+	{
+	    Console.WriteLine(name);
+	}
+
+Similarly, The type for an ``int`` list is ::
+
+    List<int>
+
+and you can follow similar fashion to add elements to and loop through the list. 
+
 We will use several generic library classes, though we will not write the definitions of 
-new generic classes ourselves.
+new generic classes ourselves. 
 
 
 .. index::

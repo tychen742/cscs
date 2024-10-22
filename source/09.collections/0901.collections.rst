@@ -4,27 +4,27 @@ Collections
 
 .. note:: 
     Some descriptions in this chapter use the term class. In object-oriented 
-    programming,, a class is a template that defines the methods and variables 
+    programming, a class is a template that defines the methods and variables 
     for a type of object. For example, in ``Console.WriteLine()``, `Console 
     <https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0>`_ is 
     a class and WriteLine is a method defined in the class. 
 
+Collections are specialized classes that 
+store series of values or objects for better operational performance in actions 
+such as when adding, deleting, discovering, and inserting of data into the collections.
 
+.. When it comes to the creation and management of groups of items, there are two ways to 
+.. handle the items: arrays and collections. 
 
-When it comes to the creation and management of groups of items, there are two ways to 
-handle the items: arrays and collections. In terms of data structures, collections are 
+In terms of data structures, collections are 
 similar to arrays, but they are designed to be more effective in the organization, store, 
-and modification of data. In other words, collections are specialized classes that 
-store series of values or objects for better operational performance such as when 
-adding, deleting, discovering, and inserting of data into the collections.
+and modification of data. 
 
 The .NET runtime provides many collection types that store and manage groups of 
 related objects. Some of the collection types, such as ``System.Array``, are 
 recognized in the C# language. In addition, interfaces like 
-``System.Collections.Generic.IEnumerable<T>`` are recognized in the language for 
+``System.Collections.Generic.IEnumerable<T>`` are also recognized in the language for 
 enumerating the elements of a collection. 
-
-There are two broad types of collections in C#: generic and non-generic.
 
 Collections provide a flexible way to work with groups of values and objects. You can 
 classify different collections by these characteristics:
@@ -58,7 +58,7 @@ and stacks, each with their specific use cases:
 - Queues and Stacks are used when you need special kinds of insertion 
   and retrieval orders (FIFO for queues and LIFO for stacks). [#common-collections]_
 
-
+In this chapter, we will discuss two commonly used collections: lists and dictionaries. 
 
 .. rubric:: Footnotes
 
