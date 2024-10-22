@@ -139,7 +139,7 @@ You can use ``foreach`` like with arrays or other sequences:
 ..  code-block:: none
 
 	> foreach (string s in words) 
-å  	{ 
+  	{ 
       	Console.WriteLine(s.ToUpper()); 
   	}    
 	APPLE
