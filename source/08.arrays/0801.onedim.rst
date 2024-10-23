@@ -290,51 +290,51 @@ This code follows a standard pattern for functions returning an array:
 
 
 
-.. index::
-   command line; parameter
-   parameter; command line to Main
-   Main; parameters
+.. .. index::
+..    command line; parameter
+..    parameter; command line to Main
+..    Main; parameters
 
-.. _command-line-param:
+.. .. _command-line-param:
 
-Parameters to Main
----------------------
+.. Parameters to Main
+.. ---------------------
 
-The ``Main`` function may take an array of strings as parameter, as in example 
-:repsrc:`print_param/print_param.cs`:
+.. The ``Main`` function may take an array of strings as parameter, as in example 
+.. :repsrc:`print_param/print_param.cs`:
 
-.. literalinclude:: ../../examples/introcs/print_param/print_param.cs
-   :start-after: chunk
-   :end-before: chunk
-   :dedent: 3
+.. .. literalinclude:: ../../examples/introcs/print_param/print_param.cs
+..    :start-after: chunk
+..    :end-before: chunk
+..    :dedent: 3
 
 
-By convention, the formal parameter for ``Main`` is called ``args``, 
-short for arguments.  
+.. By convention, the formal parameter for ``Main`` is called ``args``, 
+.. short for arguments.  
 
-Compile and run the program from the command line.
-Run it again with some things at the end of the line like:
+.. Compile and run the program from the command line.
+.. Run it again with some things at the end of the line like:
 
-..   code-block:: none
+.. ..   code-block:: none
 
-     dotnet run hi there 123
+..      [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
 
-This should print for you:
+.. This should print for you:
 
-..  code-block:: none
+.. ..  code-block:: none
 
-    There are 3 command line parameters.
-    hi
-    there
-    123
+..     There are 3 command line parameters.
+..     hi
+..     there
+..     123
 
-See what quoted strings do.  Use command line parameters (with the quotes)  
-``"hi there" 123``.
-This should print for you::
+.. See what quoted strings do.  Use command line parameters (with the quotes)  
+.. ``"hi there" 123``.
+.. This should print for you::
 
-    There are 2 command line parameters.
-    hi there
-    123
+..     There are 2 command line parameters.
+..     hi there
+..     123
 
 
 
