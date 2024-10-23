@@ -312,14 +312,18 @@ The ``Main`` function may take an array of strings as parameter, as in example
 By convention, the formal parameter for ``Main`` is called ``args``, 
 short for arguments.  
 
-Compile and run the program from the command line.
-Run it again with some things at the end of the line like:
+Compile (``dotnet build``) and run (``dotnet run``) the program from the command line.
+Run it with some things at the end of the line in ``macOS`` like:
 
 ..   code-block:: none
 
      [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
 
-This should print for you:
+or in ``Windows`` like::
+
+      PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
+
+and it should print for you:
 
 ..  code-block:: none
 
@@ -328,9 +332,8 @@ This should print for you:
     there
     123
 
-See what quoted strings do.  Use command line parameters (with the quotes)  
-``"hi there" 123``.
-This should print for you::
+See what quoted strings do. Use command line parameters (with the quotes)  
+``"hi there" 123``. This should print for you::
 
     There are 2 command line parameters.
     hi there
