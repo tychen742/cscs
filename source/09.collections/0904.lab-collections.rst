@@ -75,11 +75,13 @@ Put a blank line after a paragraph to mark its end.  As you can see, that is how
 Steps
 -----------------
 
-All of the additions you need to make are in bodies of function 
-definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
-see how the functions from ``FileUtil`` are actually used:  The 
-``StreamReader`` is set up to read from the right file.  The the ``FileUtil`` functions
-``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
+All of the additions you need to make are in the bodies of method 
+.. definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
+definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help`` to
+see how the methods from ``FileUtil`` are actually used: 
+
+- The ``StreamReader`` is set up to read from the right file.  
+- The the ``FileUtil`` methods ``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
 the text data needed. 
 
 ReadParagraph
