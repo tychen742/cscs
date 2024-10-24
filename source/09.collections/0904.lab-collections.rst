@@ -1,4 +1,4 @@
-Lab: File Data and Collections
+Lab: Collections
 ===================================
 
 Goals for this lab:
@@ -6,8 +6,8 @@ Goals for this lab:
 
 -  Read a text file.
 -  Work with loops.
--  Work with a Dictionary and a List.
--  Retrieve a random entry.
+.. -  Work with a Dictionary and a List.
+.. -  Retrieve a random entry.
 
 Overview
 ~~~~~~~~~~
@@ -17,9 +17,9 @@ Download files from :repsrc:`dict_lab_stub` and other projects to your own proje
 #. fake_help.cs
 #. file_util.cs
 #. help_not_defaults.txt
-#. help_not_responses.txt
-#. help_not_responses2.txt
-#. fake_help_verbose ():repsrc:`fake_help_verbose`) (Change the ``Main``() to something else such as ``main`` as you are allowed to have only one Main in a project.)
+.. #. help_not_responses.txt
+.. #. help_not_responses2.txt
+#. fake_help_verbose (:repsrc:`fake_help_verbose`) (Change one of the ``Main``() methods in fake_help.cs and fake_help_verbose.cs to something else such as ``main`` as you are allowed to have only one Main in a project.)
 #. Also, the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
 
 Note that there are data files (\*.txt) in the project directory. 
@@ -44,7 +44,7 @@ that you have downloaded):
 
 - It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
   using more general functions that you need to fill in.
-- The stubs for these new versions are put in the class ``FileUtil`` for easy reuse. 
+- The stubs are put in the class ``FileUtil`` for easy reuse. 
 - The ``Main`` calls these methods and chooses the files to read.
 - The results will look the same as the original program to the user, but the second version will 
   be easier for a programmer to read and generalize: It will be easier in other situations 
@@ -57,7 +57,7 @@ You will need to complete very short versions of methods
 :repsrc:`file_util.cs <dict_lab_stub/file_util.cs>`
 and now take a ``StreamReader`` as parameter (note that the StreamReader variable ``reader`` is created 
 by reading in some .txt file before being passed as argument to the FileUtil class in ``file_util.cs``. 
-The argument-passing part is the same as method tracing except it happens across files.
+The argument-passing part is the same as method tracing except it happens across files.)
 The files that they read will contain the basic data.  
 You can look in the lab project at the first data file:
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>`, 
@@ -79,7 +79,7 @@ Steps
 -----------------
 
 All of the additions you need to make are in the bodies of method 
-definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help`` to
+definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help.cs`` to
 see how the methods from ``FileUtil`` are actually used: 
 
 .. definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
