@@ -396,9 +396,10 @@ or in more current versions of ``macOS``:
    
 and you will see the output of the sum of the integers.
 
-This shows that the ``string[] args`` in the Main method is a ``string array`` taking its 
-elements from the command line when the project is executed in the command line with 
-arguments provided.
+Just like the preceding section, this shows that the ``string[] args`` in the Main method is a ``string array`` taking its 
+elements from the command line when the project is executed in the command line with arguments provided.
+
+Also, this code execution shows us the location of the executable files in the project. 
  
 
 .. index:: string; Split
