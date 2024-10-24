@@ -12,10 +12,16 @@ Goals for this lab:
 Overview
 ~~~~~~~~~~
 
-Copy project :repsrc:`dict_lab_stub` to your own project.  
-Note that there are data files in the project directory.  
-Make sure your project, 
-like this stub, sets the Output Path to the project folder.
+Copy project files from :repsrc:`dict_lab_stub` to your own project:
+
+#. fake_help.cs
+#. file_util.cs
+#. help_not_defaults.txt
+#. help_not_responses.txt
+#. help_not_responses2.txt
+
+Note that there are data files (\*.txt) in the project directory. Also, download the UI class (:repsrc:`dict_lab_stub`) 
+into the same project folder so you don't have to write the user input methods. 
 
 This lab provides a replacement file 
 :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>` for an improved
