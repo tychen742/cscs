@@ -39,9 +39,8 @@ you to write the string data itself into a text file, with the only
 overhead being a few extra newlines. Minor further adaptations could
 save time later in a project, too.
 
-Look in your copy of 
+Look in your copy of ``fake_help.cs`` (where the project ``Main()`` method resides): 
 .. :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>`.  
-``fake_help.cs`` (where the project ``Main()`` method resides): 
 
 - It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
   using more general functions that you need to fill in.
