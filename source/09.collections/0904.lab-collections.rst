@@ -12,22 +12,20 @@ Goals for this lab:
 Overview
 ~~~~~~~~~~
 
-Download project files from :repsrc:`dict_lab_stub` to your own project:
+Download files from :repsrc:`dict_lab_stub` and other projects to your own project folder:
 
 #. fake_help.cs
 #. file_util.cs
 #. help_not_defaults.txt
 #. help_not_responses.txt
 #. help_not_responses2.txt
-#. :repsrc:`GetParagraphs`
-#. Also, download the UI class (``ui.cs`` at :repsrc:`ui`) 
-   into the same project folder so you don't have to write the user input methods. 
+#. fake_help_verbose ():repsrc:`fake_help_verbose`)
+#. Also, the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
 
 Note that there are data files (\*.txt) in the project directory. 
 
-This lab provides a replacement file 
-:repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>` for an improved
-project.  The project still needs some additions in a helper class.
+This lab provides a file :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>` for an project. The project still needs 
+some additions in a helper class (e.g., ``file_uitl.cs``).
 
 Before we get there, open the comparison program
 :repsrc:`fake_help_verbose/fake_help_verbose.cs` and
@@ -42,21 +40,17 @@ overhead being a few extra newlines. Minor further adaptations could
 save time later in a project, too.
 
 Look in your copy of 
-:repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>`.  
-It creates the ``List`` ``guessList`` and the
-``Dictionary`` ``responses`` using more general functions that you need to fill in. 
-The stubs for these new versions are put in 
-the class ``FileUtil`` for easy reuse.  ``Main`` calls these functions 
-and chooses the files to read.
-The results will look the same as the original program to the user, 
-but the second version will be easier 
-for a programmer to read and generalize:  It will be easier in other situations 
-where you want lots of canned data 
-in your program (like in a game you might write soon).
-
-The stub should run as is
-(mostly saying things are not implemented).
-Test out your work at every stage!
+.. :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>`.  
+``fake_help.cs`` (where the ``Main( )`` resides): 
+- It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
+  using more general functions that you need to fill in.
+- The stubs for these new versions are put in the class ``FileUtil`` for easy reuse. 
+- The ``Main`` calls these methods and chooses the files to read.
+- The results will look the same as the original program to the user, but the second version will 
+  be easier for a programmer to read and generalize: It will be easier in other situations 
+  where you want lots of canned data in your program (like in a game you might write).
+- The stub should run as is (mostly saying things are not implemented).
+- Test out your work at every stage!
 
 You will need to complete very short versions of functions
 ``GetParagraphs`` and ``GetDictionary`` that have been moved to
