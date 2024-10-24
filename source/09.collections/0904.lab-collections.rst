@@ -15,18 +15,18 @@ Overview
 
 Download files from :repsrc:`dict_lab_stub` and other projects to your own project folder:
 
-#. fake_help.cs
-#. file_util.cs
-#. help_not_defaults.txt
-#. fake_help_verbose (:repsrc:`fake_help_verbose`) (Change one of the ``Main``() methods in fake_help.cs and fake_help_verbose.cs to something else such as ``main`` as you are allowed to have only one Main in a project.)
-#. Also, the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
+#. ``fake_help.cs``
+#. ``file_util.cs``
+#. ``help_not_defaults.txt``
+#. ``fake_help_verbose`` (:repsrc:`fake_help_verbose`) (Change one of the ``Main``() methods in fake_help.cs and fake_help_verbose.cs to something else such as ``main`` as you are allowed to have only one Main in a project.)
+#. the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
 
 .. #. help_not_responses.txt
 .. #. help_not_responses2.txt
 
 Note that there are data files (\*.txt) in the project directory. 
 
-This lab provides a file :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>` for an project. The project still needs 
+This lab provides a file :repsrc:`fake_help.cs` for an project. The project still needs 
 some additions in a helper class (e.g., ``file_uitl.cs``).
 
 Before we get there, open the comparison program
