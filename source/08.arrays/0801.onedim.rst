@@ -315,13 +315,15 @@ short for arguments.
 Compile (``dotnet build``) and run (``dotnet run``) the program from the command line.
 Run it with some things at the end of the line in ``macOS`` like:
 
-..   code-block:: none
+.. code-block:: none
 
-     [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
 
-or in ``Windows`` like::
+or in ``Windows`` like:
 
-      PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
+.. code-block:: none
+
+   PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
 
 and it should print for you:
 
@@ -367,11 +369,15 @@ Here we are using the ``arg`` array directly just like the preceding section.
 
 To run the code this time, go down to your project's bin/Debug/net8.0 directory 
 from the command line, and run ``ls``. You will find the executables (the ``.dll`` or ``.exe`` 
-files) that you can execute. In ``Windows``, it should look like::
+files) that you can execute. In ``Windows``, it should look like:
+
+.. code-block:: none
     
    PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> Ch08Arrays.exe 2 5 22
     
-and you will see the output. You can also run the project by issuing::
+and you will see the output. You can also run the project by issuing:
+
+.. code-block:: 
    
    PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
 
