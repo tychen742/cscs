@@ -39,7 +39,8 @@ you to write the string data itself into a text file, with the only
 overhead being a few extra newlines. Minor further adaptations could
 save time later in a project, too.
 
-Look in your copy of ``fake_help.cs`` (where the project ``Main()`` method resides) :repsrc:`fake_help.cs``: 
+Look in your copy of ``fake_help.cs`` (where the project ``Main()`` method resides) (the :repsrc:`fake_help.cs`
+that you have downloaded): 
 
 - It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
   using more general functions that you need to fill in.
@@ -56,7 +57,7 @@ You will need to complete very short versions of methods
 :repsrc:`file_util.cs <dict_lab_stub/file_util.cs>`
 and now take a ``StreamReader`` as parameter (note that the StreamReader variable ``reader`` is created 
 by reading in some .txt file before being passed as argument to the FileUtil class in ``file_util.cs``. 
-This is the same as method tracing except it happens across files).
+The argument-passing part is the same as method tracing except it happens across files.
 The files that they read will contain the basic data.  
 You can look in the lab project at the first data file:
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>`, 
@@ -78,9 +79,10 @@ Steps
 -----------------
 
 All of the additions you need to make are in the bodies of method 
-.. definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
 definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help`` to
 see how the methods from ``FileUtil`` are actually used: 
+
+.. definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
 
 - The ``StreamReader`` is set up to read from the right file.  
 - The the ``FileUtil`` methods ``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
