@@ -300,7 +300,7 @@ This code follows a standard pattern for functions returning an array:
 Parameters to Main
 ---------------------
 
-The ``Main`` function may take an array of strings as parameter, as in example 
+The ``Main`` method may take an array of strings as parameter, as in example 
 :repsrc:`print_param/print_param.cs`:
 
 .. literalinclude:: ../../examples/introcs/print_param/print_param.cs
@@ -343,19 +343,31 @@ See what quoted strings do. Use command line parameters (with the quotes)
 
 .. _command-line-adder-exercise:
 
-Command Line Adder Exercise
+Command Line Adder 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Write a code block in the Main method of your project that calculates and prints 
+A code block in the Main method of your project that calculates and prints 
 the sum of three command line parameters taken from user input:: 
 
    2 5 22
 
 then the program prints 29.
 
-Going down to your project's bin/Debug/net8.0 directory from the command line, you will 
-find the executables (the ``.dll`` or ``.exe`` files) that you can execute. In 
-``Windows``, it should look like::
+The code could look like this::
+
+   ////////// args array from command line.
+   int sum = 0;
+   for (int i = 0; i < args.Length; i++)
+   {
+         sum = sum + int.Parse(args[i]);
+   }
+   Console.WriteLine(sum);
+
+Here we are using the ``arg`` array directly just like the preceding section. 
+
+To run the code this time, go down to your project's bin/Debug/net8.0 directory 
+from the command line, and run ``ls``. You will find the executables (the ``.dll`` or ``.exe`` 
+files) that you can execute. In ``Windows``, it should look like::
     
    PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> Ch08Arrays.exe 2 5 22
     
@@ -363,12 +375,12 @@ and you will see the output. You can also run the project by issuing::
    
    PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
 
-and you will see the same output. In macOS, you run this with ``dotnet run`` in your 
-project folder at command line with the arguments::
+as before to see the same output. In earlier version of ``macOS``, you run this 
+with ``dotnet run`` in your project folder at command line with the arguments::
 
    [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
 
-or in more current version of macOS:: 
+or in more current versions of ``macOS``:: 
 
    [username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
    
