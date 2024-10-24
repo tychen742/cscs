@@ -377,16 +377,20 @@ files) that you can execute. In ``Windows``, it should look like:
     
 and you will see the output. You can also run the project by issuing:
 
-.. code-block:: 
+.. code-block:: none
    
    PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
 
 as before to see the same output. In earlier version of ``macOS``, you run this 
-with ``dotnet run`` in your project folder at command line with the arguments::
+with ``dotnet run`` in your project folder at command line with the arguments:
+
+.. code-block:: none
 
    [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
 
-or in more current versions of ``macOS``:: 
+or in more current versions of ``macOS``:
+
+.. code-block:: none
 
    [username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
    
