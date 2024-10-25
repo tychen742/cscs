@@ -14,8 +14,8 @@ Overview
 
 This project has a program called ``We-Give-Answer!`` as in :repsrc:`fake_help_verbose/fake_help_verbose.cs` 
 that has some fake AI/virtual assistant capacity. The program is working but all the response texts are 
-hard-coded in the program and that that is not ideal for maintenance. Your team want to use external text 
-files so that we have manage/add response texts with ease. For that your colleagues have prepared a file 
+hard-coded in the program and that is not ideal for maintenance. Your team want to use external text 
+files so that you can manage response texts with ease. For that your colleagues have prepared a file 
 called ``fake_help.cs``. **Your job is to complete this new program**. 
 
 Your team has designed this new program to be structured a little differently from the verbose version. 
@@ -23,6 +23,91 @@ A helper class ``file_util.cs`` (:repsrc:`file_util.cs <dict_lab_stub/file_util.
 contain the functionalities of handling files. You need to work on the file to provide such functionalities. 
 You will need to complete short versions of methods ``GetParagraphs`` and ``GetDictionary`` in ``file_util.cs``. 
 
+
+Steps
+-----------------
+
+Download files
+~~~~~~~~~~~~~~~~
+
+Download the following files by going to the github repositories and use the download raw files to download 
+individual files and move them to the project folder:
+
+#. fake_help_verbose (:repsrc:`fake_help_verbose`), 
+#. fake_help.cs (:repsrc:`dict_lab_stub`) along with the following files:
+#. file_util.cs
+#. help_not_defaults.txt
+#. help_not_responses.txt
+#. help_not_responses2.txt, and 
+#. the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
+
+Note that some of the files are data files (\*.txt). 
+
+.. note:: 
+
+   For now, you may keep the namespace ``IntroCS`` and change them later for organization purpose. 
+
+
+fake_help_verbose.cs
+~~~~~~~~~~~~~~~~~~~~~~
+
+Open the working program, the downloaded take_help_verbose.cs (:repsrc:`fake_help_verbose/fake_help_verbose.cs`) and
+look at how the methods ``Main``, ``Response``, ``GetParagraphs()`` and ``GetDictionary()`` work together 
+to provide the **Fake Help** functionality.
+
+.. note:: 
+   To run the program, you need to change the ``Main``() methods in fake_help.cs to something else such as ``main`` 
+   as you are allowed to have only one Main in a program and both fake_help.cs and fake_help_verbose have a ``Main`` 
+   method.
+
+All the strings for the responses are pre-coded for you there, but if
+you were writing your own methods, it would be a pain. There is all the
+repetitious code to make multiline strings and then to add to the
+``List`` and ``Dictionary``. You will later provide simple versatile methods to
+fill a ``List<string>`` or a ``Dictionary<string, string>`` so that you only need
+you to write the string data itself into a text file, with the only
+overhead being a few extra newlines. 
+
+For now, run the program to see how this fake AI/virtual would look like::
+
+   PS C:\Users\tcn85\workspace\introcscs\Ch09CollectionLab> dotnet run
+
+   Welcome to We-Give-Answers!
+   What do you have to say?
+
+   Enter 'bye' to end our session.
+   > 
+
+Look back into the code, in the ``Main`` method, you see that:: 
+
+   public static void Main(string[] args)
+      {
+         List<string> guessList = GetParagraphs();                ### create a filled string list
+         Dictionary<string, string> responses = GetDictionary();  ### create a filled dictionary
+
+         string prompt = "\n> ";                                  ### create a string variable and initialize it
+         Console.WriteLine(@"Welcome to We-Give-Answers!          ### prompt user input; 
+What do you have to say?");                                       ### the @ means the string is a verbatim string literal; escape sequence is ignored
+         Console.Write("\nEnter 'bye' to end our session.");      ### \n means print a new line
+
+         string fromUser;                                         ### create another string variable
+         do {                                                     ### use do-while loop to loop at least once and keep looping
+            fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
+            if (fromUser != "bye") {                              ### condition required here because this is first run
+               string answer = Response(fromUser, guessList, responses);  ### throw the args to Response()
+               Console.WriteLine('\n' + answer);
+            }
+         } while (fromUser != "bye");
+
+          Console.WriteLine(@"
+We-Give-Answers
+thanks you for your patronage.
+Call again if we can help you
+with any other problem!");
+      }
+
+fake_help.cs
+~~~~~~~~~~~~~~~
 
 You can look in the lab project at the first data file:
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>`, 
@@ -37,53 +122,13 @@ and goodbye strings followed by all the data to go in the ``List`` of random ans
 
 One complication is that many of these strings take up several lines, in what we call
 a *paragraph*.  We follow a standard convention for putting paragraphs into plain text: 
-Put a blank line after a paragraph to mark its end.  As you can see, that is how 
+Put a blank line after a paragraph to mark its end. As you can see, that is how 
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>` is set up. 
-
-Steps
------------------
 
 - The ``StreamReader`` is set up to read from the right file.  
 - The the ``FileUtil`` methods ``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
   the text data needed. 
 
-Download files:
-
-#. fake_help_verbose (:repsrc:`fake_help_verbose`), 
-#. fake_help.cs (:repsrc:`dict_lab_stub`) along with the following files:
-#. file_util.cs
-#. help_not_defaults.txt
-#. help_not_responses.txt
-#. help_not_responses2.txt, and 
-#. the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
-
-Note that some of the files are data files (\*.txt). 
-
-
-fake_help_verbose.cs
-~~~~~~~~~~~~~~~~~~~~~~
-
-Open the working program downloaded take_help_verbose.cs (:repsrc:`fake_help_verbose/fake_help_verbose.cs`) and
-look at how the methods ``Main``, ``Response``, ``GetParagraphs()`` and ``GetDictionary()`` work together 
-to provide the **Fake Help** functionality.
-
-.. note:: 
-   To run the program, you need to change the ``Main``() methods in fake_help.cs to something else such as ``main`` 
-   as you are allowed to have only one Main in a program and both fake_help.cs and fake_help_verbose have a ``Main`` 
-   method.
-
-All the strings for the responses are pre-coded for you there, but if
-you were writing your own methods, it would be a pain. There is all the
-repetitious code to make multiline strings and then to add to the
-List and Dictionary. This lab will provide simple versatile methods to
-fill a ``List<string>`` or a ``Dictionary<string, string>``: You only need
-you to write the string data itself into a text file, with the only
-overhead being a few extra newlines. Minor further adaptations could
-save time later in a project, too.
-
-
-fake_help.cs
-~~~~~~~~~~~~~~~
 
 All of the additions you need to make are in the bodies of method 
 definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help.cs`` to
