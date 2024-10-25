@@ -18,7 +18,7 @@ Download files from :repsrc:`dict_lab_stub` and other projects to your own proje
 #. ``fake_help.cs``
 #. ``file_util.cs``
 #. ``help_not_defaults.txt``
-#. ``fake_help_verbose`` (:repsrc:`fake_help_verbose`) (Change one of the ``Main``() methods in fake_help.cs and fake_help_verbose.cs to something else such as ``main`` as you are allowed to have only one Main in a project.)
+#. ``fake_help_verbose`` (:repsrc:`fake_help_verbose`) 
 #. the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
 
 .. #. help_not_responses.txt
@@ -29,30 +29,8 @@ Note that there are data files (\*.txt) in the project directory.
 This lab provides a file :repsrc:`fake_help.cs <dict_lab_stub/fake_help.cs>`. The project still needs 
 some additions in a helper class (e.g., ``file_uitl.cs``).
 
-Before we get there, open the comparison program
-:repsrc:`fake_help_verbose/fake_help_verbose.cs` and
-look at the methods ``GetParagraphs()`` and ``GetDictionary()``.
-All the strings for the responses are pre-coded for you there, but if
-you were writing your own methods, it would be a pain. There is all the
-repetitious code to make multiline strings and then to add to the
-List and Dictionary. This lab will provide simple versatile methods to
-fill a ``List<string>`` or a ``Dictionary<string, string>``: You only need
-you to write the string data itself into a text file, with the only
-overhead being a few extra newlines. Minor further adaptations could
-save time later in a project, too.
-
-Look in your copy of ``fake_help.cs`` (where the project ``Main()`` method resides) (the :repsrc:`fake_help.cs`
-that you have downloaded): 
-
-- It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
-  using more general functions that you need to fill in.
-- The stubs are put in the class ``FileUtil`` for easy reuse. 
-- The ``Main`` calls these methods and chooses the files to read.
-- The results will look the same as the original program to the user, but the second version will 
-  be easier for a programmer to read and generalize: It will be easier in other situations 
-  where you want lots of canned data in your program (like in a game you might write).
-- The stub should run as is (mostly saying things are not implemented).
-- Test out your work at every stage!
+Change one of the ``Main``() methods in fake_help.cs and fake_help_verbose.cs to something else such as ``main`` as 
+   you are allowed to have only one Main in a project.
 
 You will need to complete very short versions of methods
 ``GetParagraphs`` and ``GetDictionary`` that have been moved to
@@ -89,6 +67,39 @@ see how the methods from ``FileUtil`` are actually used:
 - The ``StreamReader`` is set up to read from the right file.  
 - The the ``FileUtil`` methods ``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
   the text data needed. 
+
+
+fake_help_verbose
+~~~~~~~~~~~~~~~~~~
+
+Before we get there, open the comparison program
+:repsrc:`fake_help_verbose/fake_help_verbose.cs` and
+look at the methods ``GetParagraphs()`` and ``GetDictionary()``.
+All the strings for the responses are pre-coded for you there, but if
+you were writing your own methods, it would be a pain. There is all the
+repetitious code to make multiline strings and then to add to the
+List and Dictionary. This lab will provide simple versatile methods to
+fill a ``List<string>`` or a ``Dictionary<string, string>``: You only need
+you to write the string data itself into a text file, with the only
+overhead being a few extra newlines. Minor further adaptations could
+save time later in a project, too.
+
+
+fake_help.cs
+~~~~~~~~~~~~~~~
+
+Look in your copy of ``fake_help.cs``: 
+
+- It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
+  using more general functions that you need to fill in.
+- The stubs are put in the class ``FileUtil`` for easy reuse. 
+- The ``Main`` calls these methods and chooses the files to read.
+- The results will look the same as the original program to the user, but the second version will 
+  be easier for a programmer to read and generalize: It will be easier in other situations 
+  where you want lots of canned data in your program (like in a game you might write).
+- The stub should run as is (mostly saying things are not implemented).
+- Test out your work at every stage!
+  
 
 ReadParagraph
 ~~~~~~~~~~~~~~
@@ -134,6 +145,7 @@ run the program and test ``ReadParagraph``:  It is called to read in the welcome
 and the goodbye string for the program, so if those come correctly to the screen, you
 can advance to the next two parts.  
 
+
 GetParagraphs
 ~~~~~~~~~~~~~~~~
 
@@ -156,6 +168,7 @@ into the few lines!
 
 **Testing**: After writing ``GetParagraphs``, the random
 responses in the lab project program should work as the user enters lines in the program.
+
 
 GetDictionary
 ~~~~~~~~~~~~~~~
