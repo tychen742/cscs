@@ -84,7 +84,7 @@ Look back into the code, in the ``Main`` method, you see that:
 .. code-block:: none
 
    public static void Main(string[] args)
-      {
+   {
          List<string> guessList = GetParagraphs();                ### create a filled string list guessList from GetParagraph
          Dictionary<string, string> responses = GetDictionary();  ### create a filled dictionary response from GetDictionary
 
@@ -118,30 +118,36 @@ thing: **To add texts to the List/Dictionary variables**:
 
 .. code-block:: none
 
-      public static List<string> GetParagraphs()          ### when called, return a string list
-      {
-         List<string> all = new List<string>();          ### create the new "all" string list variable 
-         all.Add(@"No other customer has ever complained ### add string to the variable using "Add()"
-about this before.  What is your system
-configuration?");
-         all.Add(@"That sounds odd. Could you describe   ### add string to the variable using "Add()"
-that problem in more detail?");
-         ...
-         all.Add("Could you elaborate on that?");        ### add string to the variable using "Add()"   
-         return all;                                     ### return the string list variable all
+   public static List<string> GetParagraphs()          ### when called, return a string list
+   {
+      List<string> all = new List<string>();          ### create the new "all" string list variable 
+      all.Add(@"No other customer has ever complained ### add string to the variable using "Add()"
+   about this before.  What is your system
+   configuration?");
+      all.Add(@"That sounds odd. Could you describe   ### add string to the variable using "Add()"
+   that problem in more detail?");
+      // ...
+      all.Add("Could you elaborate on that?");        ### add string to the variable using "Add()"   
+      return all;                                     ### return the string list variable all
 
 
 **The GetDictionary method:** 
 
 .. code-block:: 
 
-      public static Dictionary<string, string> GetDictionary()
-      {
-         Dictionary<string, string> d = new Dictionary<string, string>();
-         d["crash"] = @"Well, it never crashes on our system.
-It must have something to do with your system.
-Tell me more about your configuration.";
-         d["slow"] = @"I think this has to do with your hardware.
+   public static Dictionary<string, string> GetDictionary()
+   {
+      Dictionary<string, string> d = new Dictionary<string, string>();
+      d["crash"] = @"Well, it never crashes on our system.
+   It must have something to do with your system.
+   Tell me more about your configuration.";
+      d["slow"] = @"I think this has to do with your hardware.
+      // ...
+      d["linux"] = @"We take Linux support very seriously.
+   But there are some problems.
+   Most have to do with incompatible glibc versions.
+   Can you be a bit more precise?";
+      return d;
 
 
 **The ``Response`` method:**
