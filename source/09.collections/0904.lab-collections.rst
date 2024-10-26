@@ -95,9 +95,9 @@ What do you have to say?");                                       ### the @ mean
             fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
             if (fromUser != "bye") {                              ### condition required here because this is first run
                string answer = Response(fromUser, guessList, responses);  ### throw the args to Response()
-               Console.WriteLine('\n' + answer);
+               Console.WriteLine('\n' + answer);                  ### print returned string from Response in a new line
             }
-         } while (fromUser != "bye");
+         } while (fromUser != "bye");                             ### when user input == "bye", terminate t while loop
 
           Console.WriteLine(@"
 We-Give-Answers
@@ -105,6 +105,24 @@ thanks you for your patronage.
 Call again if we can help you
 with any other problem!");
       }
+
+
+The ``Response`` method
+
+   public static string Response(string fromUser, List<string> guessList,
+                                    Dictionary<string, string> responses)
+   {
+      char[] sep = "\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray();
+      string[] words = fromUser.ToLower().Split(sep);
+      foreach (string word in words) {
+         if (responses.ContainsKey(word)) {
+            return responses[word];            }         }
+      // if the user does not input a word in "response", guess
+      return guessList[rand.Next(guessList.Count)];
+
+   }
+
+
 
 fake_help.cs
 ~~~~~~~~~~~~~~~
