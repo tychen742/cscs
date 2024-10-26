@@ -94,8 +94,8 @@ Look back into the code, in the ``Main`` method, you see that:
          Console.Write("\nEnter 'bye' to end our session.");      ### \n means print a new line
 
          string fromUser;                                         ### create another string variable
-         do 
-         {                                                        ### use do-while loop to loop at least once and keep looping
+         do                                                       ### use do-while loop to loop at least once and keep looping
+         {                                                        ### until the condition is met
             fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
             if (fromUser != "bye") {                              ### condition required here because this is first run
                string answer = Response(fromUser, guessList, responses);  ### call Response(); throw the args to Response()
