@@ -72,13 +72,13 @@ For now, run the program to see how this fake AI/virtual would look like:
 
    .. code-block:: none
 
-   PS C:\Users\tcn85\workspace\introcscs\Ch09CollectionLab> dotnet run
+      PS C:\Users\tcn85\workspace\introcscs\Ch09CollectionLab> dotnet run
 
-   Welcome to We-Give-Answers!               ### this is the prompt for user action
-   What do you have to say?
+      Welcome to We-Give-Answers!               ### this is the prompt for user action
+      What do you have to say?
 
-   Enter 'bye' to end our session.           ### input "bye" to escape the loop
-   > 
+      Enter 'bye' to end our session.           ### input "bye" to escape the loop
+      > 
 
 Look back into the code, in the ``Main`` method, you see that:
 
@@ -115,7 +115,7 @@ Look back into the code, in the ``Main`` method, you see that:
 The ``Response`` method:
 
 .. code-block:: none
-   
+
    public static string Response(string fromUser, List<string> guessList,
                                     Dictionary<string, string> responses)
    {
