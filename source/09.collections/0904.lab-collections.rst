@@ -80,7 +80,9 @@ For now, run the program to see how this fake AI/virtual would look like:
    Enter 'bye' to end our session.           ### input "bye" to escape the loop
    > 
 
-Look back into the code, in the ``Main`` method, you see that:: 
+Look back into the code, in the ``Main`` method, you see that:
+
+.. code-block:: none
 
    public static void Main(string[] args)
       {
