@@ -115,6 +115,7 @@ Look back into the code, in the ``Main`` method, you see that:
 The ``Response`` method:
 
 .. code-block:: none
+   
    public static string Response(string fromUser, List<string> guessList,
                                     Dictionary<string, string> responses)
    {
