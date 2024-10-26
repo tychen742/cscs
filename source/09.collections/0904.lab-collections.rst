@@ -68,7 +68,7 @@ fill a ``List<string>`` or a ``Dictionary<string, string>`` so that you only nee
 you to write the string data itself into a text file, with the only
 overhead being a few extra newlines. 
 
-For now, run the program to see how this fake AI/virtual would look like:
+For now, run the program to see how this fake AI/virtual look like:
 
 .. code-block:: none
 
@@ -114,7 +114,11 @@ Look back into the code, in the ``Main`` method, you see that:
 Both the ``GetParagraphs()`` and ``GetDictionary()`` in this class actually does one 
 thing: **To add texts to the List/Dictionary variables**:
 
-   - public static List<string> GetParagraphs()          ### when called, return a string list
+**The GetParagraph() method:** returns a string list of paragraphs. 
+
+.. code-block:: none
+
+      public static List<string> GetParagraphs()          ### when called, return a string list
       {
          List<string> all = new List<string>();          ### create the new "all" string list variable 
          all.Add(@"No other customer has ever complained ### add string to the variable using "Add()"
@@ -126,7 +130,21 @@ that problem in more detail?");
          all.Add("Could you elaborate on that?");        ### add string to the variable using "Add()"   
          return all;                                     ### return the string list variable all
 
-The ``Response`` method:
+
+**The GetDictionary method:** 
+
+.. code-block:: 
+
+      public static Dictionary<string, string> GetDictionary()
+      {
+         Dictionary<string, string> d = new Dictionary<string, string>();
+         d["crash"] = @"Well, it never crashes on our system.
+It must have something to do with your system.
+Tell me more about your configuration.";
+         d["slow"] = @"I think this has to do with your hardware.
+
+
+**The ``Response`` method:**
 
 .. code-block:: none
 
