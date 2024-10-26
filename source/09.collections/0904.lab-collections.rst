@@ -88,7 +88,7 @@ Look back into the code, in the ``Main`` method, you see that:
          List<string> guessList = GetParagraphs();                ### create a filled string list
          Dictionary<string, string> responses = GetDictionary();  ### create a filled dictionary
 
-         string prompt = "\n> ";                                  ### create a string variable and initialize it
+         string prompt = "\n> ";                                  ### create a string variable and initialize it as prompt
          Console.WriteLine(@"Welcome to We-Give-Answers!          ### prompt user input; 
    What do you have to say?");                                       ### the @ means the string is a verbatim string literal; escape sequence is ignored
          Console.Write("\nEnter 'bye' to end our session.");      ### \n means print a new line
