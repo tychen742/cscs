@@ -70,7 +70,7 @@ overhead being a few extra newlines.
 
 For now, run the program to see how this fake AI/virtual look like:
 
-.. code-block:: none
+.. code-block:: 
 
    PS C:\Users\tcn85\workspace\introcscs\Ch09CollectionLab> dotnet run
    Welcome to We-Give-Answers!               ### this is the prompt for user action
@@ -79,9 +79,9 @@ For now, run the program to see how this fake AI/virtual look like:
    Enter 'bye' to end our session.           ### input "bye" to escape the loop
    > 
 
-**The Main() method**: Look back into the code, in the ``Main`` method, you see that:
+**The Main method**: Look back into the code, in the ``Main`` method, you see that:
 
-.. code-block:: none
+.. code-block:: 
 
    public static void Main(string[] args)
    {
@@ -114,9 +114,9 @@ For now, run the program to see how this fake AI/virtual look like:
 Both the ``GetParagraphs()`` and ``GetDictionary()`` in this class actually does one 
 thing: **To add texts to the List/Dictionary variables**:
 
-**The GetParagraph() method**: The ``GetParagraph()`` method, taking no arguments, returns a string list of paragraphs. 
+**The GetParagraph method**: The ``GetParagraph()`` method, taking no arguments, returns a string list of paragraphs:
 
-.. code-block:: none
+.. code-block:: 
 
    public static List<string> GetParagraphs()          ### when called, return a string list
    {
@@ -131,11 +131,12 @@ thing: **To add texts to the List/Dictionary variables**:
       return all;                                     ### return the string list variable all
 
 
-**The GetDictionary method:** 
+**The GetDictionary method**: The ``GetDictionary()`` method, taking no arguments, 
+create and returns a dictionary of keyword:paragraph (key:value) pairs: 
 
 .. code-block:: 
 
-   public static Dictionary<string, string> GetDictionary()
+   public static Dictionary<string, string> GetDictionary() ### the method returns a Dictionary<string, string> type
    {
       Dictionary<string, string> d = new Dictionary<string, string>();
       d["crash"] = @"Well, it never crashes on our system.
