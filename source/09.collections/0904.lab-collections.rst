@@ -80,6 +80,7 @@ For now, run the program to see how this fake AI/virtual look like:
    > 
 
 **The Main() method**: 
+
 Look back into the code, in the ``Main`` method, you see that:
 
 .. code-block:: none
@@ -115,7 +116,9 @@ Look back into the code, in the ``Main`` method, you see that:
 Both the ``GetParagraphs()`` and ``GetDictionary()`` in this class actually does one 
 thing: **To add texts to the List/Dictionary variables**:
 
-**The GetParagraph() method:** returns a string list of paragraphs. 
+**The GetParagraph() method**: 
+
+The ``GetParagraph()`` method, taking no arguments, returns a string list of paragraphs. 
 
 .. code-block:: none
 
