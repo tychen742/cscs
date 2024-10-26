@@ -63,7 +63,7 @@ to provide the **Fake Help** functionality.
 All the strings for the responses are pre-coded for you there, but if
 you were writing your own methods, it would be a pain. There is all the
 repetitious code to make multiline strings and then to add to the
-``List`` and ``Dictionary``. You will later provide simple versatile methods to
+``List`` and ``Dictionary``. That's why you will later provide simple versatile methods to
 fill a ``List<string>`` or a ``Dictionary<string, string>`` so that you only need
 you to write the string data itself into a text file, with the only
 overhead being a few extra newlines. 
