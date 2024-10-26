@@ -97,11 +97,12 @@ For now, run the program to see how this fake AI/virtual look like:
          do                                                       ### use do-while loop to loop at least once and keep looping
          {                                                        ### until the condition is met
             fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
-            if (fromUser != "bye") {                              ### condition required here because this is first run
+            if (fromUser != "bye")                                ### condition: if user does not enter 'bye'...
+            {                              
                string answer = Response(fromUser, guessList, responses);  ### call Response(); throw the args to Response()
                Console.WriteLine('\n' + answer);                  ### print returned string from Response in a new line
             }
-         } while (fromUser != "bye");                             ### when user input == "bye", terminate t while loop
+         } while (fromUser != "bye");                             ### condition: when user input "bye", terminate the while loop
 
           Console.WriteLine(@"                                    ### Good bye with verbatim string literal
    We-Give-Answers
@@ -138,20 +139,24 @@ create and returns a dictionary of keyword:paragraph (key:value) pairs:
 
    public static Dictionary<string, string> GetDictionary() ### the method returns a Dictionary<string, string> type
    {
-      Dictionary<string, string> d = new Dictionary<string, string>();
-      d["crash"] = @"Well, it never crashes on our system.
+      Dictionary<string, string> d = new Dictionary<string, string>();  ### create Dictionary variable d
+      d["crash"] = @"Well, it never crashes on our system.              ### add key:value pair to d
    It must have something to do with your system.
    Tell me more about your configuration.";
-      d["slow"] = @"I think this has to do with your hardware.
-      // ...
+      d["slow"] = @"I think this has to do with your hardware.          ### add key:value pair to d
+      // ...                                                            ### keep adding...
       d["linux"] = @"We take Linux support very seriously.
    But there are some problems.
    Most have to do with incompatible glibc versions.
    Can you be a bit more precise?";
-      return d;
+      return d;                                                         ### return dictionary d to caller
 
 
-**The ``Response`` method:**
+**The ``Response`` method**: ``Response()`` takes three arguments and returns:
+
+   #. a paragraph value from the **responses** dictionary (created by ``GetDictionary()``) if 
+      the user input matches the paragraph's key; or 
+   #. a **random** paragraph from the string list **guessList** (created by ``GetParagraphs()``). 
 
 .. code-block:: none
 
@@ -171,7 +176,7 @@ create and returns a dictionary of keyword:paragraph (key:value) pairs:
 fake_help.cs
 ~~~~~~~~~~~~~~~
 
-You can look in the lab project at the first data file:
+**help_not_defaults.txt**: First, look into your lab project for the first data file:
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>`, 
 and the beginning is shown below:  
 
@@ -179,13 +184,50 @@ and the beginning is shown below:
    :language: none
    :lines: 1-15
 
-You can see that it includes the data for the welcome
-and goodbye strings followed by all the data to go in the ``List`` of random answers.
+You can see that it includes the data for the welcome and goodbye strings, as seen in 
+``FakeHelpVerbose (fake_help_verbose.cs)``, followed by all the data to go in 
+the list variable ``guessList`` of random answers.
 
 One complication is that many of these strings take up several lines, in what we call
-a *paragraph*.  We follow a standard convention for putting paragraphs into plain text: 
+a *paragraph*. We follow a standard convention for putting paragraphs into plain text: 
 Put a blank line after a paragraph to mark its end. As you can see, that is how 
 :repsrc:`help_not_defaults.txt <dict_lab_stub/help_not_defaults.txt>` is set up. 
+
+Now look in your copy of the class FakeHelp (``fake_help.cs``), you will see that it is 
+very similar to class FakeHelpVerbose in ``fake_help_verbose.cs``: 
+
+.. code-block:: 
+   :lineno-start: 11
+
+   public static void main()
+   {
+      StreamReader reader = new StreamReader("help_not_defaults.txt");
+      // special data is in the first two paragraphs
+      string welcome = FileUtil.ReadParagraph(reader);
+      string goodbye = FileUtil.ReadParagraph(reader);
+      List<string> guessList =                  // rest of the file gives a
+         FileUtil.GetParagraphs(reader); //  list of random responses
+      reader.Close();
+      reader = new StreamReader("help_not_responses.txt");
+      Dictionary<string, string> responses =
+         FileUtil.GetDictionary(reader);
+      reader.Close();
+      Console.Write(welcome);
+      string prompt = "\n> ";
+      Console.WriteLine("Enter 'bye' to end our session.");
+      string fromUser;
+      do
+      {
+         fromUser = UI.PromptLine(prompt).ToLower().Trim();
+         if (fromUser != "bye")
+         {
+            string answer = Response(fromUser, guessList, responses);
+            Console.Write("\n" + answer);
+         }
+      } while (fromUser != "bye");
+      Console.Write("\n" + goodbye);
+   }
+
 
 - The ``StreamReader`` is set up to read from the right file.  
 - The the ``FileUtil`` methods ``ReadParagraph``, ``GetParagraphs``, and ``GetDictionary`` are used to provide
@@ -197,8 +239,6 @@ definitions in the class ``FileUtil``.  Look back to ``Main`` in ``fake_help.cs`
 see how the methods from ``FileUtil`` are actually used: 
 .. definitions in the class ``FileUtil``.  Look back to ``Main`` in ``FakeAdvise`` to
 
-
-Look in your copy of ``fake_help.cs``: 
 
 - It creates the ``List`` ``guessList`` and the ``Dictionary`` ``responses`` 
   using more general functions that you need to fill in.
