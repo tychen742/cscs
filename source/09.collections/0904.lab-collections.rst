@@ -73,7 +73,6 @@ For now, run the program to see how this fake AI/virtual would look like:
 .. code-block:: none
 
    PS C:\Users\tcn85\workspace\introcscs\Ch09CollectionLab> dotnet run
-   
    Welcome to We-Give-Answers!               ### this is the prompt for user action
    What do you have to say?
    
@@ -99,17 +98,22 @@ Look back into the code, in the ``Main`` method, you see that:
          {                                                        ### use do-while loop to loop at least once and keep looping
             fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
             if (fromUser != "bye") {                              ### condition required here because this is first run
-               string answer = Response(fromUser, guessList, responses);  ### throw the args to Response()
+               string answer = Response(fromUser, guessList, responses);  ### call Response(); throw the args to Response()
                Console.WriteLine('\n' + answer);                  ### print returned string from Response in a new line
             }
          } while (fromUser != "bye");                             ### when user input == "bye", terminate t while loop
 
-          Console.WriteLine(@"
+          Console.WriteLine(@"                                    ### Good bye with verbatim string literal
    We-Give-Answers
    thanks you for your patronage.
    Call again if we can help you
    with any other problem!");
       }
+
+
+Both the ``GetParagraphs()`` and ``GetDictionary()`` in this class actually does one 
+thing: **To add texts to the List/Dictionary** 
+
 
 
 The ``Response`` method:
@@ -119,14 +123,12 @@ The ``Response`` method:
    public static string Response(string fromUser, List<string> guessList,
                                     Dictionary<string, string> responses)
    {
-      char[] sep = "\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray();
-      string[] words = fromUser.ToLower().Split(sep);
-      foreach (string word in words) {
-         if (responses.ContainsKey(word)) {
-            return responses[word];            }         }
-      // if the user does not input a word in "response", guess
-      return guessList[rand.Next(guessList.Count)];
-
+      char[] sep = "\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray(); ### define separators
+      string[] words = fromUser.ToLower().Split(sep);                ### make fromUser lower case and split the words
+      foreach (string word in words) {                               ### loop through the words
+         if (responses.ContainsKey(word)) {                          ### if a word (keyword) matches a "responses" dictionary key
+            return responses[word];            }         }           ### return the value (msg) by that key
+      return guessList[rand.Next(guessList.Count)];                  ### if the word is not a key in "response", return a random "guess" 
    }
 
 
