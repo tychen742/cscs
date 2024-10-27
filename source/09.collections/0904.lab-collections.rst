@@ -326,7 +326,7 @@ GetDictionary
 The last stub to complete in :repsrc:`file_util.cs <dict_lab_stub/file_util.cs>` 
 is ``GetDictionary``.  Its
 stub also takes a ``StreamReader`` as parameter.  In 
-``Main`` this function is called to read from
+``Main`` this method is called to read from
 :repsrc:`help_not_responses.txt <dict_lab_stub/help_not_responses.txt>`.  
 Here are the first few lines:
 
@@ -343,22 +343,20 @@ Here is the stub of the function to complete, reading such data:
 
 **Testing**: 
 When you complete this function, the program should behave 
-just like the earlier
-verbose version with the hard-coded data, using a dictionary value
-if it finds the right key, 
-or choosing a random response if there is no key match.
+just like the earlier **verbose** version with the hard-coded data: Using a **dictionary value**
+if it finds the right **key**, or choosing a **random response** if there is no key match.
 
-Be careful to distinguish the data file 
-:repsrc:`help_not_responses.txt <dict_lab_stub/help_not_responses.txt>` 
-from
-:repsrc:`help_not_responses2.txt <dict_lab_stub/help_not_responses2.txt>`, 
-used in the extra credit option.
+.. Be careful to distinguish the data file 
+.. :repsrc:`help_not_responses.txt <dict_lab_stub/help_not_responses.txt>` 
+.. from
+.. :repsrc:`help_not_responses2.txt <dict_lab_stub/help_not_responses2.txt>`, 
+.. used in the extra credit option.
 
 This should also be an extremely short amount of coding!  
 Think of following through the data file, and get the corresponding 
 sequence of instructions to handle the data in the exact same sequence. 
 
-Show the program output to a TA (after the extra credit if you like).
+.. Show the program output to a TA (after the extra credit if you like).
 
 .. Extra credit 
 .. ~~~~~~~~~~~~~~~~~~~~~~
