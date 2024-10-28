@@ -51,6 +51,15 @@ A helper class ``file_util.cs`` (:repsrc:`file_util.cs <dict_lab_stub/file_util.
 contain the functionalities of handling files. You need to work on the file to provide such functionalities. 
 You will need to complete short versions of methods ``GetParagraphs`` and ``GetDictionary`` in ``file_util.cs``. 
 
+**Testing**: 
+When you complete this function, the program should behave 
+just like the earlier **verbose** version with the hard-coded data: Using a **dictionary value**
+if it finds the right **key**, or choosing a **random response** if there is no key match.
+
+
+This should also be an extremely short amount of coding!  
+Think of following through the data file, and get the corresponding 
+sequence of instructions to handle the data in the exact same sequence. 
 
 Steps
 -----------------
@@ -370,10 +379,6 @@ Here is the stub of the function to complete, reading such data:
    :end-before: chunk
    :dedent: 6
 
-**Testing**: 
-When you complete this function, the program should behave 
-just like the earlier **verbose** version with the hard-coded data: Using a **dictionary value**
-if it finds the right **key**, or choosing a **random response** if there is no key match.
 
 .. Be careful to distinguish the data file 
 .. :repsrc:`help_not_responses.txt <dict_lab_stub/help_not_responses.txt>` 
@@ -381,9 +386,6 @@ if it finds the right **key**, or choosing a **random response** if there is no 
 .. :repsrc:`help_not_responses2.txt <dict_lab_stub/help_not_responses2.txt>`, 
 .. used in the extra credit option.
 
-This should also be an extremely short amount of coding!  
-Think of following through the data file, and get the corresponding 
-sequence of instructions to handle the data in the exact same sequence. 
 
 .. Show the program output to a TA (after the extra credit if you like).
 
