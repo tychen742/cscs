@@ -58,6 +58,7 @@ To loop through a list, you may use the foreach loop::
 	}
 
 Similarly, to create a list of integer type::
+
 List<int> primeNumbers = new List<int>();
 primeNumbers.Add(2); // adding elements using add() method
 primeNumbers.Add(3);
@@ -80,12 +81,19 @@ List Constructors and Methods
 -------------------------------
 
 We can play with some ``List`` methods in csharprepl. Note that csharprepl 
-informally displays the value of a ``List`` with a list of elements in a table.  
-This is *not* a legal way to assign values to lists.   
+informally displays the values of a ``List`` with Name and Type in a table like::
+
+	> words
+	List<string>(1)
+	┌──────┬─────────┬────────┐
+	│ Name │ Value   │ Type   │
+	├──────┼─────────┼────────┤
+	│ [0]  │ "Apple" │ string │
+	└──────┴─────────┴────────┘
 
 The blocks below are all from one csharprepl session, with our comments 
-breaking up the sequence. With the no-parameter constructor, 
-the ``List`` is empty to start:
+breaking up the sequence. With the no-parameter constructor (the parentheses at the 
+end of the variable declaration), the ``List`` is empty to start:
 
 ..  code-block:: none
 
@@ -187,15 +195,6 @@ and ``RemoveAt``, which removes the element at a specified index.
 
 	> words.Remove("Apple");  
 	true
-	> words.Remove("Apple")
-	true
-	> words.Remove("Apple");
-
-	> words;
-	┌───────────────────────────────────────────CompilationErrorException────────────────────────────────────────────┐
-	│ (1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be     │
-	│ used as a statement                                                                                            │
-	└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 	> words 
 	List<string>(2)
@@ -230,7 +229,7 @@ and ``RemoveAt``, which removes the element at a specified index.
 	│ [2]  │ "Avocado" │ string │
 	└──────┴───────────┴────────┘
 	
-Removing does not leave a "hole" in the ``List``:  The list closes up,
+Removing does not leave a "hole" in the ``List``: The list closes up,
 so the index decreases for the elements after the removed one:
 
 .. code-block:: none
@@ -283,12 +282,18 @@ specified with an explicit sequence in curly braces:
 	└──────┴───────┴──────┘
 
 We have been using the explicit declaration syntax, but generic types tend to get long,
-so ``var`` is handy with them::
+so the keyword ``var`` for implicitly-typed variable creation is handy with them::
 
    var stuff = new List<string>();
 
 When initializing a generic object, you still need to remember both the angle braces 
-around the type *and* the parentheses for the parameter list after that.    
+around the type *and* the parentheses for the parameter list after that. Or, you can 
+try initializing a collection object with *collection initialization*:: 
+
+	List<int> digits = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	List<int> digits2 = new List<int> { 0 + 1, 12 % 3, MakeInt() };
+
+
 
 .. .. index:: side effect
 
