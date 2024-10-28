@@ -24,6 +24,10 @@ C# generalization, the possible types of key and value are much more extensive.
 Hence the generic ``Dictionary`` type requires you to specify 
 *both a type for the key and a type for the value*.
     
+    
+Creating a Dictionary
+-----------------------
+
 We can initialize an English-Spanish dictionary ``e2sp`` with ::
 
     Dictionary<string, string> e2sp = new Dictionary<string, string>();
@@ -62,8 +66,7 @@ reference is through a key, not a sequential index, as in::
     e2sp["two"] = "dos";
     
 csharprepl displays dictionaries in its own special form, 
-as a sequence of pairs {key, value}. Again, this is *special* to csharprepl.  
-Here is a longer csharprepl sequence, broken up with our comments:
+as a table showing the {key, value} pairs and type. Here is a longer csharprepl sequence:
 
 ..  code-block:: none
 

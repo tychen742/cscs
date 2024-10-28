@@ -65,9 +65,9 @@ individual files and move them to the project folder:
 #. fake_help.cs (:repsrc:`dict_lab_stub`) along with the following files:
 #. file_util.cs
 #. help_not_defaults.txt
-#. help_not_responses.txt
-#. help_not_responses2.txt, and 
+#. help_not_responses.txt, and 
 #. the UI class (``ui.cs`` at :repsrc:`ui`) so you don't have to write the user input code. 
+.. #. help_not_responses2.txt, and 
 
 Note that some of the files are data files (\*.txt). 
 
@@ -76,8 +76,8 @@ Note that some of the files are data files (\*.txt).
    For now, you may keep the namespace ``IntroCS`` and change them later for organization purpose. 
 
 
-fake_help_verbose.cs
-~~~~~~~~~~~~~~~~~~~~~~
+FakeHelpVerbose (fake_help_verbose.cs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open the working program, the downloaded take_help_verbose.cs (:repsrc:`fake_help_verbose/fake_help_verbose.cs`) and
 look at how the methods ``Main``, ``Response``, ``GetParagraphs()`` and ``GetDictionary()`` work together 
@@ -104,7 +104,7 @@ For now, run the program to see how this fake AI/virtual look like:
    Welcome to We-Give-Answers!               ### this is the prompt for user action
    What do you have to say?
    
-   Enter 'bye' to end our session.           ### input "bye" to escape the loop
+   Enter 'bye' to end our session.           ### input "bye" to escape the while loop and exit
    > 
 
 **The Main method**: Look back into the code, in the ``Main`` method, you see that:
@@ -180,7 +180,7 @@ create and returns a dictionary of keyword:paragraph (key:value) pairs:
       return d;                                                         ### return dictionary d to caller
 
 
-**The ``Response`` method**: ``Response()`` takes three arguments and returns:
+**The Response method**: ``Response()`` takes three arguments and returns:
 
    #. a paragraph value from the **responses** dictionary (created by ``GetDictionary()``) if 
       the user input matches the paragraph's key; or 
