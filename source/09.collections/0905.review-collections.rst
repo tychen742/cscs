@@ -45,13 +45,19 @@ Chapter Review
     
 #.  What syntax is there for a ``Dictionary`` that matches that for a ``List``?
 
-#.  How is a ``Dictionary`` like an array?  How is it different?
-
+#. In VS Code, create a method call SortFruits. When called with a string array 
+   argument that contains three fruit names, the method: 
+   
+   - turns the fruits into a string list, 
+   - print out the data type of the list (use .GetType()), 
+   - sort the fruits alphabetically, and 
+   - iterate through the list and print out the sorted fruit names, but 
+   - does not return anything to the caller.
 
 #. In csharprepl, create a dictionary of key-value <string, string>, call it fruits, 
    that contains three fruits and their corresponding color. Iterate through 
-   the dictionary and output as "<fruit>" : "<color>". Afterwards, print your full name 
-   in a separate line. 
+   the dictionary and output each entry in one line formatted as "<fruit>" : "<color>". 
+   Afterwards, print your full name in a separate line. 
 
 
 .. #.  ``Dictionary`` values are of arbitrary type. What is the restriction on 
