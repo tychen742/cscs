@@ -38,19 +38,19 @@ Chapter Review
     
 #.  What syntax is there for a ``Dictionary`` that matches that for a ``List``?
 
-#. You have been using csharprepl and it shows the following::
+#. You have been using csharprepl and it currently shows the following::
 
-.. code-block:: none
-    
-    > words
-    List<string>(3)
-    ┌──────┬──────────┬────────┐
-    │ Name │ Value    │ Type   │
-    ├──────┼──────────┼────────┤
-    │ [0]  │ "Apple"  │ string │
-    │ [1]  │ "Banana" │ string │
-    │ [2]  │ "Cherry" │ string │
-    └──────┴──────────┴────────┘
+    .. code-block:: none
+        
+        > words
+        List<string>(3)
+        ┌──────┬──────────┬────────┐
+        │ Name │ Value    │ Type   │
+        ├──────┼──────────┼────────┤
+        │ [0]  │ "Apple"  │ string │
+        │ [1]  │ "Banana" │ string │
+        │ [2]  │ "Cherry" │ string │
+        └──────┴──────────┴────────┘
 
     What would words.Count return?
 
