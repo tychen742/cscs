@@ -24,7 +24,7 @@ C# generalization, the possible types of key and value are much more extensive.
 Hence the generic ``Dictionary`` type requires you to specify 
 *both a type for the key and a type for the value*.
     
-    
+
 Creating a Dictionary
 -----------------------
 
@@ -32,15 +32,16 @@ We can initialize an English-Spanish dictionary ``e2sp`` with ::
 
     Dictionary<string, string> e2sp = new Dictionary<string, string>();
     
-That is quite a mouthful! The C# ``var`` syntax is handy to shorten it::
+That is quite a mouthful! The C# ``var`` keyword (implicitly-typed local variable) syntax 
+is handy to shorten it as you do not have to repeat the type name::
 
     var e2sp = new Dictionary<string, string>();
 
-The general generic type syntax therefore is 
+The general generic type syntax therefore is: 
 
    ``Dictionary<`` **keyType**\ ``,`` **valueType** ``>``
    
-If you are counting the number of repetitions of words in a document, you are 
+For example, if you are counting the number of repetitions of words in a document, you are 
 likely to want a ``Dictionary`` mapping each word to its number of repetitions so far::
 
     var wordCount = new Dictionary<string, int>();
@@ -57,7 +58,10 @@ restriction on the key type: it should be **immutable**.
 .. index::
    dictionary; key lookup [ ]
    single: [ ]; dictionary key lookup
-   
+
+Accessing Data in Dictionary
+------------------------------
+
 Similar to an array or ``List``, you can assign and reference elements of 
 a ``Dictionary``, using square bracket notation. The difference is that the 
 reference is through a key, not a sequential index, as in::
@@ -65,6 +69,11 @@ reference is through a key, not a sequential index, as in::
     e2sp["one"] = "uno";
     e2sp["two"] = "dos";
     
+or, you can use the Dictionary.``Add()`` method::
+
+   e2sp.Add("three", "tres");
+
+
 csharprepl displays dictionaries in its own special form, 
 as a table showing the {key, value} pairs and type. Here is a longer csharprepl sequence:
 
@@ -77,8 +86,8 @@ as a table showing the {key, value} pairs and type. Here is a longer csharprepl 
     
    > e2sp["one"] = "uno";
    > e2sp["two"] = "dos"; 
-   > e2sp["three"] = "tres";
-   > e2sp.Count
+   > e2sp.Add("three", "tres");
+   > e2sp.Count                     // the Count property gives the length of the dictionary
    3   
    > e2sp;                
    Dictionary<string, string>(3)
@@ -92,6 +101,7 @@ as a table showing the {key, value} pairs and type. Here is a longer csharprepl 
     
     > Console.WriteLine("{0}, {1}; {2}", e2sp["one"], e2sp["two"], e2sp["three"])
          uno, dos; tres
+
 
 .. index:: dictionary; Keys
    Keys property
