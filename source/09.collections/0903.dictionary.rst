@@ -69,7 +69,7 @@ reference is through a key, not a sequential index, as in::
     e2sp["one"] = "uno";
     e2sp["two"] = "dos";
     
-or, you can use the Dictionary.``Add()`` method::
+or, you can use the Dictionary.Add() method::
 
    e2sp.Add("three", "tres");
 
@@ -102,6 +102,10 @@ as a table showing the {key, value} pairs and type. Here is a longer csharprepl 
     > Console.WriteLine("{0}, {1}; {2}", e2sp["one"], e2sp["two"], e2sp["three"])
          uno, dos; tres
 
+As you can see, we using the key to refer to the value of a dictionary entry. If a key-value 
+pair already exists, you may not Add() a value to the key, but you can update date it using the 
+Item[] property (the indexer[] square brackets) such as dict["aaa"] = "AAA";
+
 
 .. index:: dictionary; Keys
    Keys property
@@ -118,6 +122,16 @@ with ``foreach`` and the property ``Keys``:
    two
    three
     
+To loop through the dictionary and access both the key and value in each entry, you may do::
+
+   > foreach (var entry in e2sp.Keys) {
+   >    Console.WriteLine("{0} : {1}", entry.Key, entry.Value);
+   > }
+
+In this example, we use an implicitly-typed variable ``entry`` to ask the compiler to infer the type. 
+We then use the .Key and .Value properties to refer to the data. 
+
+
 The documentation for ``Dictionary`` says
 that you cannot depend on the order of processing with ``foreach``, though the present 
 implementation remembers the order in which keys were added.
@@ -127,6 +141,12 @@ implementation remembers the order in which keys were added.
    dictionary; ContainsKey example
    ContainsKey example
 
+
+Properties and Methods in Dictionary
+--------------------------------------
+
+There are plenty of properties and methods built in in the Dictionary class in addition to 
+.Add() and .Count, .Key, .Value as aforementioned. 
 
 It is often useful to know if a key is already in a ``Dictionary``:
 Note the method ``ContainsKey``:
@@ -138,7 +158,8 @@ Note the method ``ContainsKey``:
     > e2sp.ContainsKey("three")
     true
 
-The method Remove takes a key as parameter.  Like a ``List`` and other
+
+The method ``Remove`` takes a key as parameter.  Like a ``List`` and other
 collections, a ``Dictionary`` has a ``Clear`` method:
 
 ..  code-block:: none
@@ -155,8 +176,6 @@ collections, a ``Dictionary`` has a ``Clear`` method:
    > e2sp.Count
    2
    
-   > e2sp.Clear
-   Action
    > e2sp              
    Dictionary<string, string>(2)
    ┌──────┬─────────────────────┬──────────────────────────────┐
