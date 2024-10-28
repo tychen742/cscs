@@ -1,6 +1,34 @@
 Lab: Collections
 ===================================
 
+Notes on Assignments:
+
+- **Notes on GAI**: Note that the course policy is that you should not use generative AI (GAI)
+  without authorization. GAI's are great tools and you should learn how to use it, but 
+  they are tools and should be used to facilitate but not replace your learning. 
+  If you are suspected to have used GAI tools to generate answers 
+  to the assignment questions instead of using it as a learning tool, you may be 
+  called up to explain/reproduce your work. If you fail to demonstrate your 
+  competence, all your **related assignments throughout the semester will be 
+  regraded as 0**. For example, if you fail to produce good code in ``while`` loops 
+  in midterm exam, your *lab06 while loop homework and lab* will be re-evaluated.  
+
+#. Create a dotnet console app project (see :ref:`create-project` if you need to) in your 
+   ``introcscs`` directory (``C:\Users\*USERNAME*\workspace\introcscs`` for Windows or ``COMPUTER:introcscs USERNAME$`` 
+   for macOS) ; call it **Ch09CollectionsLab**. 
+#. Inside the folder, issue the command ``dotnet new console`` to create the project in the folder. 
+#. Still inside the project directory, type ``code .`` to start VS Code with the folder as the default folder. 
+#. Prepare your code in VS Code using the file ``Program.cs`` to code unless otherwise specified.
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch09CollectionsLab*. 
+#. When executing code, you will start with the Main() method in a designated class/file. 
+#. You will prepare methods in the same class or project to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // in code) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part of the execution).
+
+
 Goals for this lab:
 ----------------------
 
