@@ -14,7 +14,7 @@ but there is no meaning to the index beyond the sequence order.
 Sometimes, we want to look up data based on a more meaningful key, as in a 
 dictionary: given a word, you can look up the definition.
 
-C# uses the type name ``Dictionary``, but with greater generality than in
+C# uses the type name ``Dictionary``<https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-8.0>_, but with greater generality than in
 nontechnical use. In a regular dictionary, you start with a word, 
 and look up the definition. The generalization is to have some piece of
 data that leads you to (or *maps* to) another piece of data.  
