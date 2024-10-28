@@ -29,19 +29,12 @@ Chapter Review
     
         words.Clear()
         
-        words = new List<string>();   
-        
+        words = new List<string>();     
     
 #.  If you delete an element from the middle of a list, what happens to the
     spot where you removed the element?
 
 #.  Which is true for a ``Dictionary``: is it mutable or immutable?
-
-#.  Though for some collections, like arrays and lists,
-    you can fairly easily replace a ``foreach`` 
-    loop with a ``for`` loop, that is not the case if you want to iterate
-    through a ``Dictionary``.  How do you go through all the keys in
-    a ``Dictionary``?
     
 #.  What syntax is there for a ``Dictionary`` that matches that for a ``List``?
 
@@ -60,6 +53,12 @@ Chapter Review
    Afterwards, print your full name in a separate line. 
 
 
+
+.. #.  Though for some collections, like arrays and lists,
+..     you can fairly easily replace a ``foreach`` 
+..     loop with a ``for`` loop, that is not the case if you want to iterate
+..     through a ``Dictionary``.  How do you go through all the keys in
+..     a ``Dictionary``?
 .. #.  ``Dictionary`` values are of arbitrary type. What is the restriction on 
 ..     key types?
 
