@@ -14,7 +14,7 @@ Lecture Notes: Intro to Programming in C#
    07.files/07.files
    08.arrays/08.arrays
    09.collections/09.collections
-   11.classes/classes
+   10.classes/10.classes
    12.testing/testing
    13.interfaces/interfaces
    14.recursion/recursion
