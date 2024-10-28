@@ -10,7 +10,7 @@ Chapter Review
 #. Here is one way to put five particular elements into a list:
 
     .. code-block:: 
-        
+
         var words = new List<string>();
         string[] temp = {"a", "an", "the", "on", "of"};
         foreach(string s in temp) {
@@ -47,8 +47,15 @@ Chapter Review
 
 #.  How is a ``Dictionary`` like an array?  How is it different?
 
-#.  ``Dictionary`` values are of arbitrary type. What is the restriction on 
-    key types?
+
+#. In csharprepl, create a dictionary of key-value <string, string>, call it fruits, 
+   that contains three fruits and their corresponding color. Iterate through 
+   the dictionary and output as "<fruit>" : "<color>". Afterwards, print your full name 
+   in a separate line. 
+
+
+.. #.  ``Dictionary`` values are of arbitrary type. What is the restriction on 
+..     key types?
 
     
    
