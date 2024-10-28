@@ -38,6 +38,20 @@ Chapter Review
     
 #.  What syntax is there for a ``Dictionary`` that matches that for a ``List``?
 
+#. You have been using csharprepl and it shows the following::
+
+    > words
+    List<string>(3)
+    ┌──────┬──────────┬────────┐
+    │ Name │ Value    │ Type   │
+    ├──────┼──────────┼────────┤
+    │ [0]  │ "Apple"  │ string │
+    │ [1]  │ "Banana" │ string │
+    │ [2]  │ "Cherry" │ string │
+    └──────┴──────────┴────────┘
+
+    What would words.Count return?
+
 #. In VS Code, create a method call SortFruits. When called with a string array 
    argument that contains three fruit names, the method: 
    
