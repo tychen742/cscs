@@ -154,11 +154,8 @@ an *instance variable*, that is the particular data for an *individual* Contact,
 for an individual instance of the class.  
 This is our new place to store data:
 
-We declare these *in* the class and *outside* any method declaration. 
-(This is in the same place as we would store :ref:`Static-Variables`).
-
-They are *fields* of the class.  As we will
-discuss more in terms of safety and security, 
+We declare these *in* the class and *outside* any method declaration. They are 
+*fields* of the class.  As we will discuss more in terms of safety and security, 
 we add the word "private" at the beginning::
 
     public class Contact
