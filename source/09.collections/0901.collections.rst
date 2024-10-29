@@ -5,13 +5,31 @@ Collections
 .. note:: 
     Some descriptions in this chapter use the term class. In object-oriented 
     programming, a class is a template that defines the methods and variables 
-    for a type of object. For example, in ``Console.WriteLine()``, `Console 
+    for a type. For example, in ``Console.WriteLine()``, `Console 
     <https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0>`_ is 
     a class and WriteLine is a method defined in the class. 
 
-Collections are specialized classes that 
-store series of values or objects for better operational performance in actions 
-such as when adding, deleting, discovering, and inserting of data into the collections.
+In addition to the ``value types`` such as int, float, bool, C# provides ``reference types`` 
+that store references to their data (objects). 
+
+.. note:: 
+  With reference types, two variables can reference the same object; therefore, 
+  operations on one variable can affect the object referenced by the other variable. 
+  With value types, each variable has its own copy of the data, and it's not possible 
+  for operations on one variable to affect the other. 
+
+Collections are specialized ``classes`` that store series of values or objects for better 
+operational performance in actions such as when adding, deleting, discovering, and 
+inserting of data into the collections. [#collection-definition]_
+
+
+Collections can be divided into two groups: 
+
+- **Indexable collections**: Collection elements are accessed using index such as the 
+  ``List<T>`` class, the most common indexable collection. 
+- **Key/value pair collections**: Key/value pair collections, such as 
+  the Dictionary<TKey,TValue> class, enable access to collection elements through 
+  the ``key`` of each element.
 
 .. When it comes to the creation and management of groups of items, there are two ways to 
 .. handle the items: arrays and collections. 
@@ -20,8 +38,7 @@ In terms of data structures, collections are
 similar to arrays, but they are designed to be more effective in the organization, store, 
 and modification of data. 
 
-The .NET runtime provides many collection types that store and manage groups of 
-related objects. Some of the collection types, such as ``System.Array``, are 
+Some of the collection types, such as ``System.Array``, are 
 recognized in the C# language. In addition, interfaces like 
 ``System.Collections.Generic.IEnumerable<T>`` are also recognized in the language for 
 enumerating the elements of a collection. 
@@ -62,4 +79,6 @@ In this chapter, we will discuss two commonly used collections: lists and dictio
 
 .. rubric:: Footnotes
 
+.. [#collection-definition] By definition, a collection within .NET is a class that, at a minimum, implements IEnumerable. This interface is critical because implementing the methods of IEnumerable is the minimum needed to 
+    support iterating over the collection. See `essentialcsharp.com <https://essentialcsharp.com/what-makes-a-class-a-collection-ienumerable#what-makes-a-class-a-collection-ienumerable>`_
 .. [#common-collections] `Essential Collections in C# <https://medium.com/@fairushyn/essential-collections-in-c-4ec7e90598ff#:~:text=Common%20types%20of%20collections%20include,access%20them%20by%20their%20indices>`_
