@@ -7,6 +7,23 @@
 A First Example of Class Instances: Contact 
 ============================================
 
+- **Class Instance**: In C#, an ``object`` is an ``instance`` of a class. An object can be created from a class using 
+  the ``new`` keyword.
+- **Members**: In C#, a class contains members, which define the kind of data stored in a class and the behaviors 
+  a class can perform.
+- The **this** Keyword: In C#, the this keyword refers to the current instance of a class.
+- **Field**: In C#, a field stores a piece of data within an object. It acts like a variable and may have a different 
+  value for each instance of a type.
+- **Parameterless Constructor**: If no constructors are specified in a class, the compiler 
+  automatically creates a parameterless constructor.
+- **Constructor**: In C#, Whenever an instance of a class is created: 
+    - its constructor is called. 
+    - It must have the same name as the enclosing class. Like other methods, 
+    - a constructor can be overloaded. 
+    
+
+
+
 Making a Datatype
 --------------------
 
