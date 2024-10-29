@@ -53,17 +53,13 @@ with two ways to get information in and out of methods:
 We have stored and passed around built-in types of object using this model.  
 
 We have alternatives for storing and accessing data in the methods within
-a new class that we write.  
-Now we have the idea of an object that has *internal* state
+a new class that we write. Now we have the idea of an object that has *internal* state
 (like a contact with a name, phone, and email).  We shall see that
-this state is *not* 
-stored in local variables and does *not* need to be passed through parameters for 
-methods *within* the class.  
-Pay careful attention as we introduce this new location for data and the new ways
-of interacting with it.
+this state is *not* stored in local variables and does *not* need to be passed 
+through parameters for methods *within* the class. Pay careful attention as we introduce 
+this new location for data and the new ways of interacting with it.
 
-This is quite a shift.
-*Do not take it lightly.*  
+This is quite a shift. *Do not take it lightly.*  
 
 .. index:: OOP; constructor
    constructor
