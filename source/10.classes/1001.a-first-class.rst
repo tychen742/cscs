@@ -15,10 +15,10 @@ everything we might want to use.  We start with a very simple example of
 building your own new type of object:  Contact information for a person 
 involves several pieces of data, and they are all unified by the fact
 that they are for one person, so we would like to store them together
-as a unit.  For simplicity, let us just consider the contact information to be
-name, phone number, and email address.
+as a unit.  
 
-You could always keep three independent string variables, 
+For simplicity, let us just consider the contact information to be
+name, phone number, and email address. You could always keep three independent string variables, 
 but conceptually the main idea is *the* contact.  It just happens
 to have parts.  
 
@@ -28,11 +28,11 @@ This way we can have a single
 variable refer to a ``Contact`` object.  Such an object is an *instance* of the
 class.
 
-It is important to distinguish between a class and an instance of a class:
+It is important to distinguish between a ``class`` and an ``instance`` of a class:
 A class provides a template or instructions to make new instance objects.  A 
 common comparison is that a class is like a cookie cutter while an
 instance of the class is like a cookie.  
-You might consider constructor parameters as being for different decorations
+You might consider ``constructor parameters`` as being for different decorations
 on different cookies, so not all cookies must end up completely the same.
 
 Later we will see an example for rational
@@ -40,12 +40,12 @@ numbers, :ref:`rational`,
 where the parts of the class are more tightly integrated, but that is more
 complicated, so we defer it.
 
-We have already considered built-in types with internal state, like a ``List``:   
+We have already considered built-in types with internal state (values stored in memory), like a ``List``:   
 Each ``List`` can contain different data, and the internal data can be changed.
  
 The idea of creating a new type of object opens new ground for managing data.  
-Thus far we have stored data as local variables, and we have called functions,
-with two ways to get information in and out of functions:
+Thus far we have stored data as local variables, and we have called methods,
+with two ways to get information in and out of methods:
 
 #. In through parameters and out through returned data.
 #. Directly via the user: in through the keyboard and out to the screen.
@@ -331,12 +331,13 @@ print all the contact information with labels.
 
 Again, we use the instance variable names, plugging them into a format string.  
 Remember the ``@`` syntax
-for multiline strings from :ref:`Strings2`.
+for multiline strings gives us verbatim string literals that are interpreted literally 
+without escape sequences.
 
 You can see and see the entire Contact class 
 in :repsrc:`contact1/contact1.cs`.
 
-This is our first complete class defining a new type of object.  
+This is your first complete class defining a new type of object.  
 Look carefully to get used to the features introduced, before we add
 more ideas:
 
