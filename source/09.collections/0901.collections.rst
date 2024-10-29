@@ -18,47 +18,21 @@ that store references to their data (objects).
   With value types, each variable has its own copy of the data, and it's not possible 
   for operations on one variable to affect the other. 
 
-Collections are specialized ``classes`` that store series of values or objects for better 
-operational performance in actions such as when adding, deleting, discovering, and 
-inserting of data into the collections. [#collection-definition]_
-
+When it comes to the creation and management of groups of items, there are two ways to 
+handle the items: arrays and collections. Collections are specialized ``classes`` 
+[#collection-definition]_ that store series of values or objects. 
+In terms of data structures, collections are similar to arrays, but they are designed 
+to be more effective in the organization, store, and modification of data such as 
+when adding, deleting, discovering, and inserting of data into the collections. Most collections 
+support adding or removing elements (resizing) dynamically. Notably, Array doesn't.
 
 Collections can be divided into two groups: 
 
 - **Indexable collections**: Collection elements are accessed using index such as the 
   ``List<T>`` class, the most common indexable collection. 
 - **Key/value pair collections**: Key/value pair collections, such as 
-  the Dictionary<TKey,TValue> class, enable access to collection elements through 
+  the ``Dictionary<TKey,TValue>`` class, enable access to collection elements through 
   the ``key`` of each element.
-
-.. When it comes to the creation and management of groups of items, there are two ways to 
-.. handle the items: arrays and collections. 
-
-In terms of data structures, collections are 
-similar to arrays, but they are designed to be more effective in the organization, store, 
-and modification of data. 
-
-Some of the collection types, such as ``System.Array``, are 
-recognized in the C# language. In addition, interfaces like 
-``System.Collections.Generic.IEnumerable<T>`` are also recognized in the language for 
-enumerating the elements of a collection. 
-
-Collections provide a flexible way to work with groups of values and objects. You can 
-classify different collections by these characteristics:
-
-- **Element access**: Every collection can be ``enumerated`` to access each element in 
-  order. You choose between these collection types based on how your app accesses elements:
-  
-  - **Index**: Some collections access elements by *index*, the element's position in an 
-    ordered collection. The most common example is list (System.Collections.Generic.List<T>). 
-  - **Key**: Other collections access elements by *key*, where a value is associated 
-    with a single key. The most common example is dictionary 
-    (System.Collections.Generic.Dictionary<TKey,TValue>). 
-
-- **Performance profile**: Every collection has different performance profiles for 
-  actions like adding an element, finding an element, or removing an element. You can pick a collection type based on the operations used most in your app.
-- **Grow and shrink dynamically**: Most collections support adding or removing 
-  elements dynamically. Notably, Array doesn't.
 
 Common types of collections include arrays, lists, dictionaries, sets, queues, 
 and stacks, each with their specific use cases:
@@ -81,4 +55,4 @@ In this chapter, we will discuss two commonly used collections: lists and dictio
 
 .. [#collection-definition] By definition, a collection within .NET is a class that, at a minimum, implements IEnumerable. This interface is critical because implementing the methods of IEnumerable is the minimum needed to 
     support iterating over the collection. See `essentialcsharp.com <https://essentialcsharp.com/what-makes-a-class-a-collection-ienumerable#what-makes-a-class-a-collection-ienumerable>`_
-.. [#common-collections] `Essential Collections in C# <https://medium.com/@fairushyn/essential-collections-in-c-4ec7e90598ff#:~:text=Common%20types%20of%20collections%20include,access%20them%20by%20their%20indices>`_
+.. [#common-collections] See: `Essential Collections in C# <https://medium.com/@fairushyn/essential-collections-in-c-4ec7e90598ff#:~:text=Common%20types%20of%20collections%20include,access%20them%20by%20their%20indices>`_
