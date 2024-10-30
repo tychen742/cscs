@@ -7,32 +7,63 @@
 A First Example of Class Instances: Contact 
 ============================================
 
-- **Class Instance**: In C#, an ``object`` is an ``instance`` of a class. An object can be created from a class using 
-  the ``new`` keyword.
-- **Members**: In C#, a class contains members, which define the kind of data stored in a class and the behaviors 
-  a class can perform.
-- The **this** Keyword: In C#, the this keyword refers to the current instance of a class.
+Overview
+~~~~~~~~~~
+
+Some important basic concepts about class and object-oriented programming (OOP) include: 
+
+- **Class**: A class is a blueprint, prototype, or template. 
+- **Class Members**: In C#, a class contains members, which include **fields**, properties, **methods**, and events.
+- **Class Instance**: An ``object`` is an ``instance`` of a class. Namely, an object is created based on a 
+  class and is an instance of that class. An object can be created from a class using the ``new`` keyword. 
+
+
+There are related terminology that you will see about class and OOP:
+
 - **Field**: In C#, a field stores a piece of data within an object. It acts like a variable and may have a different 
-  value for each instance of a type.
-- **Parameterless Constructor**: If no constructors are specified in a class, the compiler 
+  value for each instance of a type. [#field-property]_
+- **Property**: Properties expose fields. Fields should (almost always) be kept private to a class and accessed via 
+  get and set properties. 
+- The **this** Keyword: In C#, the this keyword refers to the current instance of a class.
+- **Reference Types**: A type that is defined as a class is a reference type. Other types include: interface, struct, delegate, or enum.
+- **Constructor**: In C#, a constructor is called when an object is created to set default values. A constructor must have the 
+  **same name** as the enclosing class. Using constructor is not obligatory in C#. If no constructors are specified in a class, the compiler 
   automatically creates a parameterless constructor.
-- **Constructor**: In C#, Whenever an instance of a class is created: 
-    - its constructor is called. 
-    - It must have the same name as the enclosing class. Like other methods, 
-    - a constructor can be overloaded. 
+
     
 
-
-
-Making a Datatype
+Declaring Classes
 --------------------
 
-C# comes with lots of built-in data types, but not
-everything we might want to use.  We start with a very simple example of
-building your own new type of object:  Contact information for a person 
-involves several pieces of data, and they are all unified by the fact
-that they are for one person, so we would like to store them together
-as a unit.  
+To declare a class, you need to use the ``class`` keyword and give a unique ``identifier`` (name) to the class. For example, 
+you want to create a customer class to include some data and methods in one unit::
+
+   //[access modifier] - [class] - [identifier]
+   public class Customer
+   {
+      // Fields, properties, methods and events go here...
+   }
+
+Attributes to be considered when creating a class include:
+
+- Access Modifiers: The default access for a class type is internal. Basic levels of access for a class include [#access-levels]_ :
+    - **public**: Access is not restricted.
+    - **protected**: Access is limited to the containing class or types derived from the containing class.
+    - **internal**: Access is limited to the current assembly. [#internal-assembly]_
+    - **private**: Access is limited to the containing type.
+- Class Identifier: An identifier is the name you assign to a type (class, interface, struct, delegate, or enum), 
+  member, variable, or namespace. An identifier begins with a letter or underscore. Use PascalCase for class names and method names.
+- Class Body: The class body is surrounded by { }. 
+- Base Class or Super Class: 
+- Interfaces: 
+  
+
+Because public is used in this case, anyone can create instances of this class. The name of the class follows the class keyword. The name of the class must be a valid C# identifier name. The remainder of the definition is the class body, where the behavior and data are defined. Fields, properties, methods, and events on a class are collectively referred to as class members.
+
+C# comes with lots of built-in data types, but not everything we might want to use. That is why we build classes to 
+represent the types. Assume that we want to build a code template (class) for managing **Contact** information that 
+involves several pieces of data, and they are all unified by the fact that they are for one person, so we would 
+like to store them together as a unit (a class).  
 
 For simplicity, let us just consider the contact information to be
 name, phone number, and email address. You could always keep three independent string variables, 
@@ -641,3 +672,11 @@ Be careful to distinguish lifetime and scope.  Either a local variable or
 an instance variable can be temporarily out of scope, but still be alive.
 Can you construct an example to illustrate that?  One of ours is
 :repsrc:`lifetime_scope/lifetime_scope.cs`.
+
+
+
+.. rubric:: footnote
+
+.. [#access-levels] `Accessibility Levels (C# Reference) <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels>`_.
+.. [#field-property] See the answer at `What is the difference between a field and a property? <https://stackoverflow.com/questions/295104/what-is-the-difference-between-a-field-and-a-property>`_
+.. [#internal-assembly] See `internal <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/internal>`_
