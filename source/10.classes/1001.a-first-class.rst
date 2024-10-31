@@ -19,8 +19,9 @@ To understand class and object-oriented programming (OOP), some important basic 
 
 There are related terminology that you will see about class and OOP:
 
-- **Field**: In C#, a field stores a piece of data within an object. It acts like a variable and may have a different 
-  value for each instance of a type. [#field-property]_
+- **Field**: A field is a variable of any type that is declared directly in a class or struct. Fields are 
+  members of their containing type. A field stores a piece of data within an object. It acts like a 
+  variable and may have a different value for each instance of a type. [#field-property]_
 - **Property**: Properties expose fields. Fields should (almost always) be kept private to a class and accessed via 
   get and set properties. 
 - The **this** Keyword: In C#, the this keyword refers to the current instance of a class.
@@ -138,15 +139,40 @@ The constructor is a special method in the class:
    :start-after: constructor 
    :end-before: getter
 
-While the local variables in the formal parameters 
-disappear after the constructor terminates,
-we want the data to live on as the state of the object.
-In order to remember state after the constructor terminates, 
-we must *make sure the information gets into the instance variables* 
-for the object.
-This is the basic operation of most constructors: Copy desired formal
+While the local variables in the formal parameters disappear after the constructor terminates,
+we want the data to live on as the state of the object. In order to remember state after the 
+constructor terminates, we must *make sure the information gets into the instance variables* 
+for the object. This is the basic operation of most constructors: Copy desired formal
 parameters in to initialize the state in the fields. That is all our simple
 code above does.
+
+To further explain how constructors work, take a look at the following code::
+
+   internal class Program
+   {
+      static void Main(string[] args)
+      {
+         CheckID check = new CheckID("taylor swift");
+         check.PrintResult();   // output "Username {userName} is valid!"
+      }
+   }
+
+   class CheckID
+   {
+      public string name;           // this is an instance field (variable)
+      public CheckID(string name)
+      {
+         this.name = name;          // The "this" keyword refers to the current instance of the class
+      }
+
+      public void PrintResult()
+      {
+         // ... if ID for this name exists ...
+         Console.WriteLine($"{name} has an existing ID!"); // using the "name" variable in method
+      }                             // output "taylor swift has an existing ID!"
+      // ....
+      // ....
+   }
 
 .. Note that ``name``, ``phone`` and ``email`` are *not* declared as 
 .. local variables.  They refer to the *instance* variables, but we are *not* using 
@@ -351,7 +377,7 @@ class. You can use the math methods directly in your code by referring to the st
 ..    :start-after: SetEmail
 ..    :end-before: chunk
 
-.. Now we can alter the contents of a Contact::
+.. Now we can alter the contents of a Contact:
 
 ..      Contact c1 = new Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu");
 ..      c1.SetEmail ("maria.ortiz@gmail.com");
