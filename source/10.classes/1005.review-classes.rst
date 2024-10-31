@@ -43,6 +43,14 @@ Chapter Review
 #.  If we want users to be able to see the value of a private instance variable
     from outside of the class, how do we do it?
 
+#.  Does the following code define a public or private class?
+
+    .. code-block:: 
+
+        class Customer
+        {
+            // Fields, properties, methods and events go here...
+        }
 
 .. #.  What is the general name of the category of public methods whose sole purpose
 ..     is to set a part of instance state to a new specified value?    
