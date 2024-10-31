@@ -12,17 +12,17 @@ Chapter Review
 
 #.  How do you create an instance of the following class?
 
-.. code-block:: 
+    .. code-block:: 
 
-    class DoMath
-    {
-        public int Sum(int num1, int num2)
+        class DoMath
         {
-            var total = num1 + num2;
-            return total;
+            public int Sum(int num1, int num2)
+            {
+                var total = num1 + num2;
+                return total;
+            }
         }
-    }
-  
+    
 
 #.  If you want to use an instance variable (field) in a method, should you declare
     that instance variable in the method?
