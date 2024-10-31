@@ -236,14 +236,16 @@ class. You can use the math methods directly in your code by referring to the st
 
 .. _getters:
 
-Getters
---------
 
-In instance methods you have an extra way of getting data in and out of the method: Reading or setting instance variables.  
-(As we have just pointed out, in execution there will always be a current object 
-with its specific state.)
-The simplest methods do nothing but reading or setting instance variables.  
-We start with those:
+properties
+------------
+
+Getters
+~~~~~~~~~
+
+In instance methods you have an extra way of getting data in and out of the method: 
+Reading or setting instance variables (fields). The simplest methods do nothing but reading 
+or setting instance variables. We start with those:
 
 The ``private`` in front
 of the field declarations was important to keep code outside the
@@ -297,7 +299,7 @@ more ideas:
 
 
 This Object
--------------
+~~~~~~~~~~~~~
 
 We will be making an elaboration on the Contact class from here on.  We introduce
 new parts individually, but the whole code is in 
@@ -351,8 +353,9 @@ instance variable, not the local variable.  Our alternate constructor is:
    :start-after: constructor 
    :end-before: getter
 
+
 Setters
----------
+~~~~~~~~~
 
 The original version of Contact makes a Contact object be
 *immutable*: Once it is created with the constructor, there is no way
