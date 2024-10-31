@@ -381,7 +381,7 @@ other setter:
    :start-after: SetEmail
    :end-before: chunk
 
-Now we can alter the contents of a Contact:
+Now we can alter the contents of a Contact::
 
      Contact c1 = new Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu");
      c1.SetEmail ("maria.ortiz@gmail.com");
