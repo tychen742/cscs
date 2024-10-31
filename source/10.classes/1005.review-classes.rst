@@ -30,16 +30,15 @@ Chapter Review
 #.  What does the ``this`` keyword do in the context of this chapter?
 
 #. How do you instantiate the following class? 
+    .. code-block:: 
 
-.. code-block:: 
-
-    static class SomeMath
-    {
-        public static int Sum(int a, int b)
+        static class SomeMath
         {
-            return a + b;
+            public static int Sum(int a, int b)
+            {
+                return a + b;
+            }
         }
-    }
 
 #.  If we want users to be able to see the value of a private instance variable
     from outside of the class, how do we do it?
