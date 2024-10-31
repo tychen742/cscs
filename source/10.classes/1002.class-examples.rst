@@ -260,7 +260,7 @@ Then modify the two files as discussed below.
     
    * An Animal can ``Excrete`` 
      (removing and printing what was *first* in the gut List). 
-     Recall the method ``RemoveAt`` in :ref:`listsyntax`.  Print the
+     Recall the method ``RemoveAt`` in `List`.  Print the
      empty string, "", if the ``gut``
      *was already empty*.  Following the
      Froggy example above, Froggy could ``Excrete``, 
@@ -436,18 +436,18 @@ for a simple illustration of combining user-defined types this way,
 and a ``RolloverCounter`` is a clear unified
 concept that can be used in other situations.  See an upcoming exercise.
 
-Alternate Clock Constructor Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Alternate Clock Constructor Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Make a small change to :repsrc:`clock/clock_demo.cs`, so the second
-constructor is tested.
+.. Make a small change to :repsrc:`clock/clock_demo.cs`, so the second
+.. constructor is tested.
 
-Clock With Seconds Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Clock With Seconds Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Modify the project :repsrc:`clock`, assuming the Tick is for each second, and
-the time also show the seconds, like 55 seconds before midnight would be
-23:59:05.
+.. Modify the project :repsrc:`clock`, assuming the Tick is for each second, and
+.. the time also show the seconds, like 55 seconds before midnight would be
+.. 23:59:05.
 
 .. index:: model-view-controller pattern
 
