@@ -236,161 +236,161 @@ class. You can use the math methods directly in your code by referring to the st
 
 .. _getters:
 
-.. Getters
-.. --------
+Getters
+--------
 
-.. In instance methods you have an extra way of getting data in and out of the method: Reading or setting instance variables.  
-.. (As we have just pointed out, in execution there will always be a current object 
-.. with its specific state.)
-.. The simplest methods do nothing but reading or setting instance variables.  
-.. We start with those:
+In instance methods you have an extra way of getting data in and out of the method: Reading or setting instance variables.  
+(As we have just pointed out, in execution there will always be a current object 
+with its specific state.)
+The simplest methods do nothing but reading or setting instance variables.  
+We start with those:
 
-.. The ``private`` in front
-.. of the field declarations was important to keep code outside the
-.. class from messing with the values.  On the other hand we do want
-.. others to be able to *inspect* the name, phone and email,
-.. so how do we do that?  Use **public methods**. 
+The ``private`` in front
+of the field declarations was important to keep code outside the
+class from messing with the values.  On the other hand we do want
+others to be able to *inspect* the name, phone and email,
+so how do we do that?  Use **public methods**. 
 
-.. Since the fields are accessible anywhere *inside* the class's instance methods, 
-.. and public methods can be used from *outside* the class, we can simply code
+Since the fields are accessible anywhere *inside* the class's instance methods, 
+and public methods can be used from *outside* the class, we can simply code
 
-.. .. literalinclude:: ../../examples/introcs/contact1/contact1.cs
-..    :start-after: getter
-..    :end-before: labels
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: getter
+   :end-before: labels
 
-.. These methods allow one-way communication of the name, phone and email 
-.. values out from the object.
-.. These are examples
-.. of a simple category of methods:  A *getter* simply returns the value of a part
-.. of the object's state, without changing the object at all.  
+These methods allow one-way communication of the name, phone and email 
+values out from the object.
+These are examples
+of a simple category of methods:  A *getter* simply returns the value of a part
+of the object's state, without changing the object at all.  
 
-.. Note again that there is no ``static`` in the method heading.  
-.. The field value for the *current* Contact is returned.
+Note again that there is no ``static`` in the method heading.  
+The field value for the *current* Contact is returned.
 
-.. A standard convention that we are following:
-.. Have getter methods names start with "Get", 
-.. followed by the name of the data to be returned. 
+A standard convention that we are following:
+Have getter methods names start with "Get", 
+followed by the name of the data to be returned. 
 
-.. In this first simple version of Contact we add one further method, to
-.. print all the contact information with labels.
+In this first simple version of Contact we add one further method, to
+print all the contact information with labels.
 
-.. .. literalinclude:: ../../examples/introcs/contact1/contact1.cs
-..    :start-after: labels
-..    :end-before: chunk
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: labels
+   :end-before: chunk
 
-.. Again, we use the instance variable names, plugging them into a format string.  
-.. Remember the ``@`` syntax
-.. for multiline strings gives us verbatim string literals that are interpreted literally 
-.. without escape sequences.
+Again, we use the instance variable names, plugging them into a format string.  
+Remember the ``@`` syntax
+for multiline strings gives us verbatim string literals that are interpreted literally 
+without escape sequences.
 
-.. You can see and see the entire Contact class 
-.. in :repsrc:`contact1/contact1.cs`.
+You can see and see the entire Contact class 
+in :repsrc:`contact1/contact1.cs`.
 
-.. This is your first complete class defining a new type of object.  
-.. Look carefully to get used to the features introduced, before we add
-.. more ideas:
+This is your first complete class defining a new type of object.  
+Look carefully to get used to the features introduced, before we add
+more ideas:
 
-.. .. index:: example; Contact version 2
+.. index:: example; Contact version 2
 
-.. .. index:: OOP; this
-..    this instance 
+.. index:: OOP; this
+   this instance 
 
 
-.. This Object
-.. -------------
+This Object
+-------------
 
-.. We will be making an elaboration on the Contact class from here on.  We introduce
-.. new parts individually, but the whole code is in 
-.. :repsrc:`contact2/contact2.cs`.
+We will be making an elaboration on the Contact class from here on.  We introduce
+new parts individually, but the whole code is in 
+:repsrc:`contact2/contact2.cs`.
 
-.. The current object is *implicit* inside a constructor or instance method definition,
-.. but it can be referred to *explicitly*.  It is called ``this``.  
-.. In a constructor or instance method, ``this`` is automatically a legal
-.. local variable to reference.  
-.. You usually do not need to 
-.. use it explicitly, but you could.   For example the current ``Contact`` object's
-.. ``name`` field could be referred to as either ``this.name`` or the shorter plain ``name``.
-.. In our next version of the Contact class we will see several places where 
-.. an explicit ``this`` is useful.
+The current object is *implicit* inside a constructor or instance method definition,
+but it can be referred to *explicitly*.  It is called ``this``.  
+In a constructor or instance method, ``this`` is automatically a legal
+local variable to reference.  
+You usually do not need to 
+use it explicitly, but you could.   For example the current ``Contact`` object's
+``name`` field could be referred to as either ``this.name`` or the shorter plain ``name``.
+In our next version of the Contact class we will see several places where 
+an explicit ``this`` is useful.
 
-.. In the first version of the constructor, repeated here,
+In the first version of the constructor, repeated here,
 
-.. .. literalinclude:: ../../examples/introcs/contact1/contact1.cs
-..    :start-after: constructor 
-..    :end-before: getter
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: constructor 
+   :end-before: getter
 
-.. we used different names for the instance variables and the formal
-.. parameter names that we used to initialize the instance variables.  We
-.. chose reasonable names, but we are adding extra names that we are not going
-.. to use later, and it can be confusing.  The most obvious names for the formal
-.. parameters that will initialize the instance variables are the *same* names.
+we used different names for the instance variables and the formal
+parameter names that we used to initialize the instance variables.  We
+chose reasonable names, but we are adding extra names that we are not going
+to use later, and it can be confusing.  The most obvious names for the formal
+parameters that will initialize the instance variables are the *same* names.
 
-.. If we are not careful, there is a problem with that.  An instance variable,
-.. however named, and a local variable are not the same.  This is 
-.. nonsensical::
+If we are not careful, there is a problem with that.  An instance variable,
+however named, and a local variable are not the same.  This is 
+nonsensical::
 
-..       public Contact(string name, string phone, string email) 
-..       {
-..          name = name; // ????
-..          ...
+      public Contact(string name, string phone, string email) 
+      {
+         name = name; // ????
+         ...
 
-.. Logically we want this pseudo-code in the constructor:
+Logically we want this pseudo-code in the constructor:
 
-..        instance variable ``name``  ``=`` local variable ``name`` 
+       instance variable ``name``  ``=`` local variable ``name`` 
 
-.. We have to disambiguate the two uses.  The compiler always looks for
-.. *local* variable identifiers *first*, so plain ``name`` will refer to the local 
-.. variable ``name`` declared in the formal parameter list.  
-.. This local variable identifier  *hides* the matching instance variable
-.. identifier.  We have to do something else to refer to the instance variable.
-.. The explicit ``this`` object comes to the rescue:  ``this.name`` refers to 
-.. a part of this object.  It must refer to the 
-.. instance variable, not the local variable.  Our alternate constructor is:
+We have to disambiguate the two uses.  The compiler always looks for
+*local* variable identifiers *first*, so plain ``name`` will refer to the local 
+variable ``name`` declared in the formal parameter list.  
+This local variable identifier  *hides* the matching instance variable
+identifier.  We have to do something else to refer to the instance variable.
+The explicit ``this`` object comes to the rescue:  ``this.name`` refers to 
+a part of this object.  It must refer to the 
+instance variable, not the local variable.  Our alternate constructor is:
 
-.. .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
-..    :start-after: constructor 
-..    :end-before: getter
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: constructor 
+   :end-before: getter
 
-.. Setters
-.. ---------
+Setters
+---------
 
-.. The original version of Contact makes a Contact object be
-.. *immutable*: Once it is created with the constructor, there is no way
-.. to change its internal state.  The only assignments to the private
-.. instance variables are the ones in the constructor.  In real life
-.. people can change their email address.  We might like to allow that
-.. with our Contact objects.  Users can read the data in a Contact with the 
-.. *getter* methods.  Now we need *setter* methods.  The naming conventions
-.. are similar:  start with "Set".  In this case we must supply the new data,
-.. so setter methods need a parameter:
+The original version of Contact makes a Contact object be
+*immutable*: Once it is created with the constructor, there is no way
+to change its internal state.  The only assignments to the private
+instance variables are the ones in the constructor.  In real life
+people can change their email address.  We might like to allow that
+with our Contact objects.  Users can read the data in a Contact with the 
+*getter* methods.  Now we need *setter* methods.  The naming conventions
+are similar:  start with "Set".  In this case we must supply the new data,
+so setter methods need a parameter:
 
-.. .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
-..    :start-after: setter methods
-..    :end-before: chunk
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: setter methods
+   :end-before: chunk
 
-.. In ``SetPhone``, like in our original constructor, we illustrate using a
-.. *new* name for the parameter that sets the instance variable.  For 
-.. comparison we use the alternate identifier matching approach in the 
-.. other setter:
+In ``SetPhone``, like in our original constructor, we illustrate using a
+*new* name for the parameter that sets the instance variable.  For 
+comparison we use the alternate identifier matching approach in the 
+other setter:
 
-.. .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
-..    :start-after: SetEmail
-..    :end-before: chunk
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: SetEmail
+   :end-before: chunk
 
-.. Now we can alter the contents of a Contact:
+Now we can alter the contents of a Contact:
 
-..      Contact c1 = new Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu");
-..      c1.SetEmail ("maria.ortiz@gmail.com");
-..      c1.SetPhone("555-555-5555");
-..      c1.Print(); 
+     Contact c1 = new Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu");
+     c1.SetEmail ("maria.ortiz@gmail.com");
+     c1.SetPhone("555-555-5555");
+     c1.Print(); 
 
-.. would print
+would print
 
-.. ..  code-block:: none
+..  code-block:: none
 
-..     Name:  Marie Ortiz
-..     Phone: 555-555-5555
-..     Email: maria.ortiz@gmail.com
+    Name:  Marie Ortiz
+    Phone: 555-555-5555
+    Email: maria.ortiz@gmail.com
 
 
 
