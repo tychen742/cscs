@@ -1,0 +1,117 @@
+Lab: Classes
+===================================
+
+Notes on Assignments:
+
+- **Notes on GAI**: Note that the course policy is that you should not use generative AI (GAI)
+  without authorization. GAI's are great tools and you should learn how to use it, but 
+  they are tools and should be used to facilitate but not replace your learning. 
+  If you are suspected to have used GAI tools to generate answers 
+  to the assignment questions instead of using it as a learning tool, you may be 
+  called up to explain/reproduce your work. If you fail to demonstrate your 
+  competence, all your **related assignments throughout the semester will be 
+  regraded as 0**. For example, if you fail to produce good code in ``while`` loops 
+  in midterm exam, your *lab06 while loop homework and lab* will be re-evaluated.  
+
+#. Create a dotnet console app project (see :ref:`create-project` if you need to) in your 
+   ``introcscs`` directory (``C:\Users\*USERNAME*\workspace\introcscs`` for Windows or ``[COMPUTER]:introcscs [USERNAME]$`` 
+   for macOS) ; call it **Ch10ClassesLab**. 
+#. Inside the folder, issue the command ``dotnet new console`` to create the project in the folder. 
+#. Still inside the project directory, type ``code .`` to start VS Code with the folder as the default folder. 
+#. Prepare your code in VS Code using the file ``Program.cs`` to code unless otherwise specified.
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch10ClassesLab*. 
+#. When executing code, you will mostly start with the Main() method in a designated class/file. 
+#. You will prepare methods in the same class or project mainly to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // in code) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part of the execution).
+
+
+.. index:: class; convert static game to instance
+
+Converting A Static Game To A Game Instance
+----------------------------------------------
+
+For a comparison of procedural and object-oriented coding,
+consider converting :ref:`lab-number-game` so that a GuessGame
+is an object, an instance of the GuessGame class.
+
+While our earlier example, Contact, is a simple but practical 
+use of object-oriented programming, GuessGame is somewhat more artificial.  
+We create it hoping that highlighting the differences between procedural 
+and object-oriented presentation is informative.  Also, we will see 
+with :ref:`interface` that
+there are C# language features that require an
+object rather than just a function and data.  
+In :ref:`igame-interface-exercise` you can use a Game object.
+
+Here is a procedural game version, example file 
+:repsrc:`static_version/static_version.cs`
+
+.. literalinclude:: ../../examples/introcs/static_version/static_version.cs
+   :start-after:  chunk
+   :end-before: chunk
+
+The project also refers to the library class UI, 
+with the functions we use for safe
+keyboard input.  It is all static methods.  
+
+Is there any reason to make this UI class have its own own instances?
+
+**No**.  There is no state to remember between UI method calls.  
+What comes in through
+the keyboard goes out through a return value, 
+and then you are completely done with it.  
+A simple static function works fine each time.  
+*Do not get fancy for nothing*.
+
+What state would a game hold?  We might set it up so the user
+chooses the size of the range of choices just once, and remember it 
+for possibly multiple plays of the GuessGame.  The variable was
+``big`` before, we can keep the name.  
+If we are going to remember it inside our GuessGame instance, 
+then ``big`` needs to become an instance variable, and it will be something
+we can set in a constructor.
+
+What actions/methods will this object have?  Only one - playing a GuessGame.
+The GuessGame could be played multiple times, and that action, play, 
+makes sense as a method, Play, which will look a lot like the current 
+static function. 
+
+In the procedural version there are several other important variables:
+
+- Random rand:  That was static before, for good reason: 
+  We only need one Random number generator for the whole
+  time the program is running, so one static variable makes sense.
+- The central number in the procedural Game 
+  and our future Play method is ``secret``.
+  Should that be an instance variable?  It would work, but it would
+  be unhelpful and misleading:  Secret is reset every time the game is played,
+  and it has no meaning after a Play function would be finished.  
+  There is nothing to
+  remember *between* time you Play.  This is the
+  perfect place for a local variable *as we have now*.  
+  
+A common newbie error is to make things
+into instance variables, just because you can, when an old-fashioned
+local variable is all that you need.  It is good to have variables leave the
+programmer's consciousness when they are no longer needed, 
+as a local variable does.  
+An instance variable lingers on, leaving extra places to make errors.
+
+This introductory discussion could get you going, making a transformation.  
+Go ahead and make the changes as far as you can: 
+create project GuessGame inside the current solution.
+Have a class GuessGame for the GuessGame instance, 
+with instance variable ``big`` and method ``Play``.
+
+You still need a static ``Main`` method to first create the GuessGame object.  
+You could prompt the user for the value for ``big`` to send to the constructor.  
+Once you have an object, you can call *instance method* ``Play``.  
+What about parameters? What needs to change from the procedural version?
+
+There is also a video for this section that 
+follows all the way through the steps.
+A possible final result is in :repsrc:`instance_version/guess_game.cs`.

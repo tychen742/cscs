@@ -146,8 +146,9 @@ Several things to note:
 
 The code for both classes is in project :repsrc:`averager`.
 
+
 Statistics Exercise
-~~~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Modify the project :repsrc:`averager` so the ``Averager`` class is
 converted to ``Statistics``.  Besides having methods to calculate the count
@@ -165,8 +166,9 @@ Modify the demonstration program to show the standard deviation, too.
 
 .. _unneeded-constructor-code-exercise:
 
+
 Unneeded Constructor Code Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 Recall that objects are always initialized. Each instance variable
 has a default value assigned before a constructor is even run.  
