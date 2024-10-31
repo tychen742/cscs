@@ -270,3 +270,52 @@ concept that can be used in other situations.
 .. Modify the project :repsrc:`clock`, assuming the Tick is for each second, and
 .. the time also show the seconds, like 55 seconds before midnight would be
 .. 23:59:05.
+
+
+
+.. index:: model-view-controller pattern
+
+Twelve Hour Time Exercise
+--------------------------
+
+Modify the project :repsrc:`clock` so a ``GetTimeString12`` method returns
+the 12 hour time with AM or PM, like 11:05PM or 3:45AM. (The hours do
+not have a leading 0 in this format.) 
+This could be done modifying a lot of things:
+keeping the actual hours and minutes that you will display 
+and remembering AM or PM (with the hours 
+being more complicated, not starting at 0).  We suggest something else instead:
+
+This is a good place to note a very useful pattern for programming, called
+*model-view-controller*.  The *model* is the way chosen to store the state internally.
+The *controller* has the logic to modify the model as it needs to evolve.  
+A *view* of a part of
+the model is something shown to the user that 
+does not need to be in the exact same form as the model itself:  
+A view just needs to be something that can be *easily calculated* 
+from the model, and presumably is desired by the user.
+
+In this case a simple (and already coded!) way to store and control 
+the time model data
+is the minutes and up to 23 hours that do happen to directly correspond 
+to the 24 hour clock view. 
+
+The main control is to advance the time, 
+and with just two 0-based counts we have the
+very simple remainder formulas.
+
+So the suggestion is to keep the *internal* data the same way as before.  
+Just in the method to create the desire 12-hour view have the logic to do the 
+*conversion* of the internal 24-hour model data.
+
+You could leave in the method to provide the time in the
+24 hour format, giving the ``Clock`` class user the option to use either view
+of the shared model data.
+To be symmetrical in the naming, 
+you might change the original name ``GetTimeString`` to 
+``GetTimeString24``.
+
+
+
+
+
