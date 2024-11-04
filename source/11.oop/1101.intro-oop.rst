@@ -1,0 +1,74 @@
+Introduction: OOP
+=============================
+
+Many computer programming languages, such as Java, C++, C#, and Python, are general 
+purpose high-level computer programming language and they supports multiple 
+programming **paradigms**; which means you can use C# to develop computer programs using 
+different styles such as:
+
+- procedural programming: (focused on procedures and functions), 
+- object-oriented programming (based on objects and classes), and
+- functional programming (emphasizing mathematical functions and immutability).
+
+Object-oriented programming (OOP) is one of the popular programming paradigms. 
+The core concept of OOP is **separation of concerns** achieved by using classes and 
+objects. Separation of concerns is a design principle to separate a computer program 
+into different sections with each section addresses a separate concern. For OOP design, 
+the concerns are separated into objects. Further, architectural design patterns like 
+`MVC <https://en.wikipedia.org/wiki/Separation_of_concerns>`_ separate presentation and 
+data-processing from content.
+
+The most popular model of OOP is a class-based model. In OOP, a class is a 
+**template** for creating objects, and an **object** entity is 
+an instance of a class. When the individual objects are created, they inherit all 
+the **properties and methods** from the class that can be used. In C#, some classes 
+(e.g., Console) are defined in the language and users can also define classes (e.g., UI). 
+
+While procedural programming is about writing procedures or methods that perform 
+operations on the data, object-oriented programming (OOP) provides a clear structure 
+for the code to reduce **complexity** and to make the programs **reusable**. 
+
+The four basic principles of object-oriented programming are:
+
+- **Abstraction**: Modeling the relevant attributes and interactions of entities as classes 
+  to define an abstract representation of a system.
+- **Encapsulation**: Hiding the internal state and functionality of an object and only 
+  allowing access through a public set of functions.
+- **Inheritance**: Ability to create new abstractions based on existing abstractions; which  
+  enables code **reusability**.
+- **Polymorphism**: Ability to implement inherited properties or methods in different 
+  ways across multiple abstractions.
+
+
+To further explain the four pillars of OOP [#oop-techtarget]_: 
+The **encapsulation** principle states that all important information is contained inside 
+an object and only select information is exposed. The implementation and state of 
+each object are privately held inside a defined class. Other objects do not have access 
+to this class or the authority to make changes. They are only able to call a list of 
+public functions or methods. This characteristic of data hiding provides greater program 
+security and avoids unintended data corruption.
+
+The **abstraction** principle states that objects only reveal internal mechanisms that 
+are relevant for the use of other objects, hiding any unnecessary implementation code. 
+The derived class can have its functionality extended. This concept can help developers 
+more easily make additional changes or additions over time.
+
+The **inheritance** principle states that classes can reuse code and properties from 
+other classes. Relationships and subclasses between objects can be assigned, 
+enabling developers to reuse common logic, while still maintaining a unique hierarchy. 
+Inheritance forces more thorough data analysis, reduces development time and ensures 
+a higher level of accuracy.
+
+The **polymorphism** principle states that objects are designed to share behaviors, 
+and they can take on more than one form. The program determines which meaning or 
+usage is necessary for each execution of that object from a parent class, reducing 
+the need to duplicate code. A child class is then created, which extends the 
+functionality of the parent class. Polymorphism enables different types of objects 
+to pass through the same interface.
+
+
+
+
+.. rubric:: Footnotes
+
+.. [#oop-techtarget] `Definition: Object-oriented programming (OOP) <https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP#:~:text=Object%2Doriented%20programming%20(OOP)%20is%20a%20computer%20programming%20model,has%20unique%20attributes%20and%20behavior>`_ 
