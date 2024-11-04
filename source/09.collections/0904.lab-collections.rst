@@ -113,10 +113,10 @@ For now, run the program to see how this fake AI/virtual look like:
 .. code-block:: bash
 
    PS C:\Users\[username]\workspace\introcscs\Ch09CollectionLab> dotnet run
-   Welcome to We-Give-Answers!               ### this is the prompt for user action
+   Welcome to We-Give-Answers!               // this is the prompt for user action
    What do you have to say?
    
-   Enter 'bye' to end our session.           ### input "bye" to escape the while loop and exit
+   Enter 'bye' to end our session.           // input "bye" to escape the while loop and exit
    > 
 
 **The Main method**: Look back into the code, in the ``Main`` method, you see that:
@@ -125,26 +125,26 @@ For now, run the program to see how this fake AI/virtual look like:
 
    public static void Main(string[] args)
    {
-         List<string> guessList = GetParagraphs();                ### create a filled string list guessList from GetParagraph
-         Dictionary<string, string> responses = GetDictionary();  ### create a filled dictionary response from GetDictionary
+         List<string> guessList = GetParagraphs();                // create a filled string list guessList from GetParagraph
+         Dictionary<string, string> responses = GetDictionary();  // create a filled dictionary response from GetDictionary
 
-         string prompt = "\n> ";                                  ### create a string variable and initialize it as prompt
-         Console.WriteLine(@"Welcome to We-Give-Answers!          ### prompt user input; 
-   What do you have to say?");                                       ### the @ means the string is a verbatim string literal; escape sequence is ignored
-         Console.Write("\nEnter 'bye' to end our session.");      ### \n means print a new line
+         string prompt = "\n> ";                                  // create a string variable and initialize it as prompt
+         Console.WriteLine(@"Welcome to We-Give-Answers!          // prompt user input; 
+   What do you have to say?");                                    // the @ means the string is a verbatim string literal; escape sequence is ignored
+         Console.Write("\nEnter 'bye' to end our session.");      // \n means print a new line
 
-         string fromUser;                                         ### create another string variable
-         do                                                       ### use do-while loop to loop at least once and keep looping
-         {                                                        ### until the condition is met
-            fromUser = UI.PromptLine(prompt).ToLower().Trim();    ### user UI's PromptLine to read user input and save it to fromUser
-            if (fromUser != "bye")                                ### condition: if user does not enter 'bye'...
+         string fromUser;                                         // create another string variable
+         do                                                       // use do-while loop to loop at least once and keep looping
+         {                                                        // until the condition is met
+            fromUser = UI.PromptLine(prompt).ToLower().Trim();    // user UI's PromptLine to read user input and save it to fromUser
+            if (fromUser != "bye")                                // condition: if user does not enter 'bye'...
             {                              
-               string answer = Response(fromUser, guessList, responses);  ### call Response(); throw the args to Response()
-               Console.WriteLine('\n' + answer);                  ### print returned string from Response in a new line
+               string answer = Response(fromUser, guessList, responses);  // call Response(); throw the args to Response()
+               Console.WriteLine('\n' + answer);                  // print returned string from Response in a new line
             }
-         } while (fromUser != "bye");                             ### condition: when user input "bye", terminate the while loop
+         } while (fromUser != "bye");                             // condition: when user input "bye", terminate the while loop
 
-          Console.WriteLine(@"                                    ### Good bye with verbatim string literal
+          Console.WriteLine(@"                                    // Good bye with verbatim string literal
    We-Give-Answers
    thanks you for your patronage.
    Call again if we can help you
@@ -159,17 +159,17 @@ thing: **To add texts to the List/Dictionary variables**:
 
 .. code-block:: 
 
-   public static List<string> GetParagraphs()          ### when called, return a string list
+   public static List<string> GetParagraphs()         // when called, return a string list
    {
-      List<string> all = new List<string>();          ### create the new "all" string list variable 
-      all.Add(@"No other customer has ever complained ### add string to the variable using "Add()"
+      List<string> all = new List<string>();          // create the new "all" string list variable 
+      all.Add(@"No other customer has ever complained // add string to the variable using "Add()"
    about this before.  What is your system
    configuration?");
-      all.Add(@"That sounds odd. Could you describe   ### add string to the variable using "Add()"
+      all.Add(@"That sounds odd. Could you describe   // add string to the variable using "Add()"
    that problem in more detail?");
       // ...
-      all.Add("Could you elaborate on that?");        ### add string to the variable using "Add()"   
-      return all;                                     ### return the string list variable all
+      all.Add("Could you elaborate on that?");        // add string to the variable using "Add()"   
+      return all;                                     // return the string list variable all
 
 
 **The GetDictionary method**: The ``GetDictionary()`` method, taking no arguments, 
@@ -177,19 +177,19 @@ create and returns a dictionary of keyword:paragraph (key:value) pairs:
 
 .. code-block:: 
 
-   public static Dictionary<string, string> GetDictionary() ### the method returns a Dictionary<string, string> type
+   public static Dictionary<string, string> GetDictionary()             // the method returns a Dictionary<string, string> type
    {
-      Dictionary<string, string> d = new Dictionary<string, string>();  ### create Dictionary variable d
-      d["crash"] = @"Well, it never crashes on our system.              ### add key:value pair to d
+      Dictionary<string, string> d = new Dictionary<string, string>();  // create Dictionary variable d
+      d["crash"] = @"Well, it never crashes on our system.              // add key:value pair to d
    It must have something to do with your system.
    Tell me more about your configuration.";
-      d["slow"] = @"I think this has to do with your hardware.          ### add key:value pair to d
-      // ...                                                            ### keep adding...
+      d["slow"] = @"I think this has to do with your hardware.          // add key:value pair to d
+      // ...                                                            // keep adding...
       d["linux"] = @"We take Linux support very seriously.
    But there are some problems.
    Most have to do with incompatible glibc versions.
    Can you be a bit more precise?";
-      return d;                                                         ### return dictionary d to caller
+      return d;                                                         // return dictionary d to caller
 
 
 **The Response method**: ``Response()`` takes three arguments and returns:
@@ -203,12 +203,12 @@ create and returns a dictionary of keyword:paragraph (key:value) pairs:
    public static string Response(string fromUser, List<string> guessList,
                                     Dictionary<string, string> responses)
    {
-      char[] sep = "\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray(); ### define separators
-      string[] words = fromUser.ToLower().Split(sep);                ### make fromUser lower case and split the words
-      foreach (string word in words) {                               ### loop through the words
-         if (responses.ContainsKey(word)) {                          ### if a word (keyword) matches a "responses" dictionary key
-            return responses[word];            }         }           ### return the value (msg) by that key
-      return guessList[rand.Next(guessList.Count)];                  ### if the word is not a key in "response", return a random "guess" 
+      char[] sep = "\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray(); // define separators
+      string[] words = fromUser.ToLower().Split(sep);                // make fromUser lower case and split the words
+      foreach (string word in words) {                               // loop through the words
+         if (responses.ContainsKey(word)) {                          // if a word (keyword) matches a "responses" dictionary key
+            return responses[word];            }         }           // return the value (msg) by that key
+      return guessList[rand.Next(guessList.Count)];                  // if the word is not a key in "response", return a random "guess" 
    }
 
 
