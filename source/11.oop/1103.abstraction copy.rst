@@ -43,7 +43,7 @@ from it::
     
 You will receive an error message like (in macOS):
 
-.. code-block:: shell
+.. code-block:: bash
 
     tcn85@mac:~/workspace/introcscs/Ch11OOP$ dotnet run
     /Users/tcn85/workspace/introcscs/Ch11OOP/Vehicle.cs(29,23): error CS0144: Cannot create an 
@@ -51,9 +51,13 @@ You will receive an error message like (in macOS):
 
     The build failed. Fix the build errors and run again.
 
+<<<<<<< HEAD:source/11.oop/1103.abstraction copy.rst
 or in Windows::
+=======
+or in Windows:
+>>>>>>> 74e7e86d (committed @ 2024-1104-160428):source/11.OOP/1103.abstraction.rst
 
-.. code-block:: shell
+.. code-block:: bash
 
     PS C:\Users\tcn85\workspace\introcscs\Ch11OOP> dotnet run
     C:\Users\tcn85\workspace\introcscs\Ch11OOP\Vehicle.cs(29,23): error CS0144: Cannot create an 
@@ -134,4 +138,43 @@ As another example, see the abstract class and methods defined and executed as f
             myPig.sleep();                      // Call the regular method
         }                                       // output: Zzz
         
+    }
+
+
+Abstraction is a powerful technique that allows for a **separation of concerns** between the 
+interface and implementation of a class. It helps to reduce complexity and improve 
+maintainability by allowing changes to be made to the implementation without affecting 
+the overall behavior of the class. In this example below, you see that this time a ``Rectangle`` 
+class is created to inherit the **abstract class** ``Shape`` and two **abstract methods** are 
+implemented in the ``Rectangle`` class. 
+
+.. code-block:: csharp
+    :linenos:
+
+    abstract class Shape
+    {
+        public abstract double GetArea();
+        public abstract double GetPerimeter();
+    }
+
+    class Rectangle : Shape
+    {
+        private double width;
+        private double height;
+
+        public Rectangle(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+
+        public override double GetArea()
+        {
+            return width * height;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 2 * (width + height);
+        }
     }
