@@ -4,46 +4,49 @@ Inheritance
 While the design of OOP inheritance can be complex, the basic idea of inheritance is 
 to **inherit fields and methods** from one class to another (reusability). 
 
-To achieve inheritance, you design a **base class** and **derived classes**.
+To achieve inheritance, you design a **base class** and **derived classes**:
 
-- **Derived Class (child)**: the class that inherits from another class
-- **Base Class (parent)**: the class being inherited from
+    - **Derived Class (child)**: the class that inherits from another class
+    - **Base Class (parent)**: the class being inherited from
 
 To inherit from a class, use the ``:`` symbol.
 
-In the example below, the Car class (child) inherits the fields and methods from 
-the Vehicle class (parent): [#inheritance-w3schools]_ 
+In the example below, the ``Car`` class (child) inherits the fields and methods from 
+the ``Vehicle`` class (parent) and the Car class can access the data and actions defined 
+in the Vehicle class: [#inheritance-w3schools]_ 
 
-.. code-block:: 
+.. code-block:: csharp
     :linenos:
-    :emphasize-lines: 10
+    :emphasize-lines: 11
 
-    class Vehicle  // base class (parent) 
+    class Vehicle                               // base class (parent) 
     {
-        public string brand = "Ford";  // Vehicle field
-        public void honk()             // Vehicle method 
+        public string brand = "Ford";           // Vehicle field
+        public void honk()                      // Vehicle method 
         {
             Console.WriteLine("Tuut, tuut!");
         }
     }
 
-    class Car : Vehicle  // derived class (child)
+
+    class Car : Vehicle                         // derived class (child)
     {
-        public string modelName = "Mustang";  // Car field
+        public string modelName = "Mustang";    // Car field
     }
+
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args)         // the Main method
         {
-            // Create a myCar object
-            Car myCar = new Car();
+            Car myCar = new Car();              // Create a myCar object using the ""new" keyword 
 
-            // Call the honk() method (From the Vehicle class) on the myCar object
-            myCar.honk();
+            myCar.honk();                       // Call the honk() method (From the Vehicle class) 
+                                                // on the myCar object
 
-            // Display the value of the brand field (from the Vehicle class) and the value of the modelName from the Car class
             Console.WriteLine(myCar.brand + " " + myCar.modelName);
+                                                // Display the value of the brand field (from the Vehicle class) 
+                                                // and the value of the modelName from the Car class
         }
     }
 
@@ -53,10 +56,9 @@ want to create a class ``Car`` that would share the same information and actions
 of repeating the code, you ``inherit`` the information and actions from Vehicle. Namely, 
 you are creating a ``child`` class ``Car`` to reuse the code from the ``parent`` class. 
 
-As you can imagine, you may inherit from Vehicle again when you want to create other 
-similar 
-
-
+As you can imagine, you may **reuse** ``Vehicle`` by inheriting it again when you want to 
+create similar ``child`` class such as ``Truck``. That way, you only need to define the fields 
+and methods once in the parent class once, and use them in all the child classes. 
 
 
 
