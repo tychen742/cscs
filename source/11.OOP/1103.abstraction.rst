@@ -41,7 +41,9 @@ from it::
     
     Shape shape = new Shape();
     
-You will receive an error message like (in macOS)::
+You will receive an error message like (in macOS):
+
+.. code-block:: shell
 
     tcn85@mac:~/workspace/introcscs/Ch11OOP$ dotnet run
     /Users/tcn85/workspace/introcscs/Ch11OOP/Vehicle.cs(29,23): error CS0144: Cannot create an 
@@ -50,6 +52,8 @@ You will receive an error message like (in macOS)::
     The build failed. Fix the build errors and run again.
 
 or in Windows::
+
+.. code-block:: shell
 
     PS C:\Users\tcn85\workspace\introcscs\Ch11OOP> dotnet run
     C:\Users\tcn85\workspace\introcscs\Ch11OOP\Vehicle.cs(29,23): error CS0144: Cannot create an 
