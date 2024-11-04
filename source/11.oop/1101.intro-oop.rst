@@ -28,7 +28,7 @@ While procedural programming is about writing procedures or methods that perform
 operations on the data, object-oriented programming (OOP) provides a clear structure 
 for the code to reduce **complexity** and to make the programs **reusable**. 
 
-The four basic principles of object-oriented programming are:
+The four basic principles of object-oriented programming are: [#oop-microsoft]_
 
 - **Abstraction**: Modeling the relevant attributes and interactions of entities as classes 
   to define an abstract representation of a system.
@@ -39,6 +39,9 @@ The four basic principles of object-oriented programming are:
 - **Polymorphism**: Ability to implement inherited properties or methods in different 
   ways across multiple abstractions.
 
+Note that in OOP practice, instead of the **Abstraction** listed above, we are talking 
+about **Data Abstraction** instead, which means hiding the implementation and showing only essential 
+information and is achieved by using the abstract classes and interfaces.
 
 To further explain the four pillars of OOP [#oop-techtarget]_: 
 The **encapsulation** principle states that all important information is contained inside 
@@ -71,4 +74,5 @@ to pass through the same interface.
 
 .. rubric:: Footnotes
 
+.. [#oop-microsoft] `Object-Oriented Programming (C#) <https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop>`_
 .. [#oop-techtarget] `Definition: Object-oriented programming (OOP) <https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP#:~:text=Object%2Doriented%20programming%20(OOP)%20is%20a%20computer%20programming%20model,has%20unique%20attributes%20and%20behavior>`_ 
