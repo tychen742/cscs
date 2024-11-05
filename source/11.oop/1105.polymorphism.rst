@@ -1,2 +1,181 @@
 Polymorphism
 ================
+
+Polymorphism means "many forms", and it occurs when we have classes that are 
+related to each other by inheritance. Polymorphism refers to the ability of a single 
+interface to be used to refer to multiple **implementations** of a particular behavior. 
+In C#, polymorphism can be achieved through inheritance, interfaces, and virtual methods.
+
+Polymorphism is an extension of inheritance. Inheritance allows us inheriting fields and 
+methods from another class. Polymorphism further allows the use of those methods to 
+perform different tasks.
+
+For example, think of a base class called ``Animal`` that has a method called 
+``animalSound()``. Derived classes of Animals could be ``Pigs``, ``Cats``, ``Dogs``, 
+``Birds`` - and they also have their own implementation of the same animalSound 
+(the pig oinks, and the cat meows, etc.):
+
+.. code-block:: 
+    :linenos:
+
+    class Animal                // Base class (parent) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+
+    class Pig : Animal          // Derived class (child) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+    class Dog : Animal          // Derived class (child) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+    }
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            Animal myAnimal = new Animal(); // Create a Animal object
+            Animal myPig = new Pig();       // Create a Pig object
+            Animal myDog = new Dog();       // Create a Dog object            
+            myAnimal.animalSound();         // The animal makes a sound
+            myPig.animalSound();            // The animal makes a sound
+            myDog.animalSound();            // The animal makes a sound
+        }
+    }    
+
+The virtual/override keyword
+-----------------------------
+
+The code output above is not what you expected. Different animals should make different 
+sounds, but here Pig and Dog are making the same sound. This happens because the 
+base class method overrides the derived class method, when they share the same name.
+
+For the derived (child) to override the base class method, you need to 
+
+#. add the ``virtual`` keyword to the method in the base class; and 
+#. use the ``override`` keyword for each derived class methods. 
+
+.. code-block:: csharp
+    :linenos:
+
+    class Animal                            // Base class (parent) 
+    {
+        public virtual void animalSound()   // virtual
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+
+    class Pig : Animal                      // Derived class (child) 
+    {
+        public override void animalSound()  // override
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+
+    class Dog : Animal                      // Derived class (child) 
+    {
+        public override void animalSound()  // override
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+    }
+
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            Animal myAnimal = new Animal(); // Create a Animal object
+            Animal myPig = new Pig();       // Create a Pig object
+            Animal myDog = new Dog();       // Create a Dog object
+
+            myAnimal.animalSound();         // The animal makes a sound
+            myPig.animalSound();            // The pig says: wee wee
+            myDog.animalSound();            // The dog says: bow wow
+        }
+    }
+
+
+The base/sealed keyword
+--------------------------
+
+.. note:: 
+
+    The content in this section discuss advanced scenarios and is here for your reference. 
+
+
+In C#, there are a few rules to follow when using polymorphism: [#polymorphism-codewithhonor]_
+
+#. A class can *only inherit from a single base class*, but it can implement multiple 
+   interfaces.
+#. A method marked as ``virtual`` in the base class can be overridden in a derived 
+   class using the ``override`` keyword.
+#. If a derived class wants to call the implementation of a virtual method from 
+   the base class, it can use the ``base`` keyword.
+#. If a derived class wants to prevent a virtual method from being overridden 
+   in further derived classes, it can use the ``sealed`` keyword.
+#. If a derived class wants to provide its own implementation of a virtual method, 
+   but also wants to call the implementation from the base class, it can use 
+   the ``base`` keyword in the implementation.
+
+.. code-block:: csharp
+    :linenos:
+
+    public class Shape
+    {
+        public virtual void Draw()
+        {
+            Console.WriteLine("Drawing a shape");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        public override void Draw()
+        {
+            base.Draw();                    // Call the implementation in the base class
+            Console.WriteLine("Drawing a circle");
+        }
+    }
+
+    public class Rectangle : Shape
+    {
+        public sealed override void Draw()  // note the "sealed" keyword
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+
+    public class Triangle : Shape
+    {
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a triangle");
+        }
+    }
+
+    public class Square : Rectangle
+    {
+        // This will cause a compile-error because the Draw method is sealed in the Rectangle class
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a square");
+        }
+    }
+
+    
+
+.. rubric:: Footnotes
+
+.. [#polymorphism-codewithhonor] `C# Polymorphism <https://medium.com/@CodeWithHonor/c-polymorphism-91b5b348c19f>`_
