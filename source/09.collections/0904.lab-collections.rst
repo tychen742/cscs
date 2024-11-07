@@ -96,9 +96,9 @@ look at how the methods ``Main``, ``Response``, ``GetParagraphs()`` and ``GetDic
 to provide the **Fake Help** functionality.
 
 .. note:: 
-   To run the program, you need to change the ``Main``() methods in fake_help.cs to something else such as ``main`` 
-   as you are allowed to have only one Main in a program and both fake_help.cs and fake_help_verbose have a ``Main`` 
-   method.
+   To run the program (take_help_verbose.cs), you need to change the ``Main`` method in fake_help.cs to something 
+   else such as ``main`` as you are allowed to have only one Main in a program and both fake_help.cs and 
+   fake_help_verbose.cs have a ``Main`` method. You have to rename or comment out one of them to run the other.
 
 All the strings for the responses are pre-coded for you there, but if
 you were writing your own methods, it would be a pain. There is all the
