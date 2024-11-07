@@ -416,13 +416,14 @@ would print
 ToString Override
 ---------------------
 
-We created the ``Print`` method for a Contact, and it is helpful to
-assemble all the data for display *and* print it.   The issue there is that
-the method does two *separate* clear things:  combining the string data
-and printing it.  You might want the same string but put in a file or 
-used some other way.  Our ``Print`` method will not help.  
+.. We created the ``Print`` method for a Contact, and it is helpful to
+.. assemble all the data for display *and* print it.   The issue there is that
+.. the method does two *separate* clear things:  combining the string data
+.. and printing it.  You might want the same string but put in a file or 
+.. used some other way.  Our ``Print`` method will not help.  
 
-A good design decision is to separate the different actions:  the first is
+When it comes to string operations, a good design decision is to separate the 
+different actions: the first is
 to generate the 3-line string showing the full state of the object.  Once
 we have this string, we can easily print it or write it to a file or ....
 Hence we want a method to generate a descriptive string.
@@ -430,7 +431,7 @@ Hence we want a method to generate a descriptive string.
 Think more generally about string representations:  
 All the built-in types can be concatenated into strings with the '+' operator,
 or displayed with ``Console.Write``.  
-We would like that behavior with our custom types, too.  How can the compiler
+We would like that behavior with our custom types, too. How can the compiler
 know how to handle types that were *not invented* when the compiler was written?
 
 The answer is to have common features among all objects.  
