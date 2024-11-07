@@ -19,10 +19,11 @@ Notes on Assignments:
 #. Inside the folder, issue the command ``dotnet new console`` to create the project in the folder. 
 #. Still inside the project directory, type ``code .`` to start VS Code with the folder as the default folder. 
 #. Prepare your code in VS Code using the file ``Program.cs`` to code unless otherwise specified.
-#. The namespace of this project is *IntroCSCS*. 
-#. The class name of this project is *Ch10ClassesLab*. 
-#. When executing code, you will mostly start with the Main() method in a designated class/file. 
-#. You will prepare methods in the same class or project mainly to be called from the Main() method. 
+#. The namespace of this project is *IntroCSCS* but you may use something else such as *IntroCS* as long as 
+   it is consistent among classes. 
+#. The class name of this project is *Ch10ClassesLab* if program.cs is used. 
+#. When executing code, you will *mostly* start with the Main() method in a designated class/file. 
+#. You will prepare methods in the same class or project *mainly* to be called from the Main() method. 
 #. Use a Word document to prepare your assignment. 
 #. Number the questions and **annotate** your answers (using // in code) to show your understanding. 
 #. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
@@ -33,6 +34,9 @@ Notes on Assignments:
 
 Converting A Static Game To A Game Instance
 ----------------------------------------------
+
+- *Study this lab to get yourself familiarized with object-oriented programming*. 
+- Remember that you can only have one Main method in the project. 
 
 For a comparison of ``procedural`` and ``object-oriented`` coding,
 consider converting :ref:`lab-number-game` so that a GuessGame
@@ -55,44 +59,39 @@ Here is a procedural game version, example file
    :start-after:  chunk
    :end-before: chunk
 
-The project also refers to the library class UI, 
-with the functions we use for safe
-keyboard input.  It is all static methods.  
+The project also refers to the library ``class UI``, with the functions we use to save
+keyboard input. It is all static methods. **copy ui.cs** to your project folder. 
 
 Is there any reason to make this UI class have its own own instances?
 
 **No**.  There is no state to remember between UI method calls.  
-What comes in through
-the keyboard goes out through a return value, 
+What comes in through the keyboard goes out through a return value, 
 and then you are completely done with it.  
-A simple static function works fine each time.  
-*Do not get fancy for nothing*.
+A simple static function works fine each time. *Do not get fancy for nothing*.
 
-What state would a game hold?  We might set it up so the user
+What state would a game hold? We might set it up so the user
 chooses the size of the range of choices just once, and remember it 
-for possibly multiple plays of the GuessGame.  The variable was
+for possibly multiple plays of the GuessGame. The variable was
 ``big`` before, we can keep the name.  
 If we are going to remember it inside our GuessGame instance, 
-then ``big`` needs to become an instance variable, and it will be something
+then ``big`` needs to become an **instance variable**, and it will be something
 we can set in a constructor.
 
-What actions/methods will this object have?  Only one - playing a GuessGame.
+What actions/methods will this object have? Only one - playing a GuessGame.
 The GuessGame could be played multiple times, and that action, play, 
 makes sense as a method, Play, which will look a lot like the current 
 static function. 
 
-In the procedural version there are several other important variables:
+In the ``procedural`` version there are several other important variables:
 
-- Random rand:  That was static before, for good reason: 
+- ``Random rand``: That was static before, for good reason: 
   We only need one Random number generator for the whole
   time the program is running, so one static variable makes sense.
-- The central number in the procedural Game 
-  and our future Play method is ``secret``.
+- The central number in the procedural Game and our future Play method is ``secret``.
   Should that be an instance variable?  It would work, but it would
   be unhelpful and misleading:  Secret is reset every time the game is played,
   and it has no meaning after a Play function would be finished.  
-  There is nothing to
-  remember *between* time you Play.  This is the
+  There is nothing to remember *between* time you Play. This is the
   perfect place for a local variable *as we have now*.  
   
 A common newbie error is to make things
@@ -108,7 +107,7 @@ create project GuessGame inside the current solution.
 Have a class GuessGame for the GuessGame instance, 
 with instance variable ``big`` and method ``Play``.
 
-You still need a static ``Main`` method to first create the GuessGame object.  
+You still need a static ``Main`` method to first create the GuessGame object. 
 You could prompt the user for the value for ``big`` to send to the constructor.  
 Once you have an object, you can call *instance method* ``Play``.  
 What about parameters? What needs to change from the procedural version?
@@ -320,49 +319,49 @@ A possible final result is in :repsrc:`instance_version/guess_game.cs`.
 
 
 
-ForceMatch Exercise
-----------------------
+.. ForceMatch Exercise
+.. ----------------------
 
-Suppose we have a class::
+.. Suppose we have a class::
 
-   class Pair
-   {
-      private int x,y;
+..    class Pair
+..    {
+..       private int x,y;
       
-      public Pair(int x, int y)
-      {
-          this.x = x; this.y = y;
-      }
+..       public Pair(int x, int y)
+..       {
+..           this.x = x; this.y = y;
+..       }
       
-      ///Mutate the parameter so its instance variables match this object
-      public void ForceMatch(Pair p)
-      {
-         // need code ...
-      }
+..       ///Mutate the parameter so its instance variables match this object
+..       public void ForceMatch(Pair p)
+..       {
+..          // need code ...
+..       }
       
-      public override string ToString()
-      {
-         return string.Format("({0}, {1})", x, y);
-      }
-   }
+..       public override string ToString()
+..       {
+..          return string.Format("({0}, {1})", x, y);
+..       }
+..    }
     
-A test would be code in another class::
+.. A test would be code in another class::
 
-    Pair first = new Pair(3, 7);
-    Pair second = new Pair(1, 9)
-    Console.WriteLine(second);  // prints (1, 9)
-    first.ForceMatch(second);
-    Console.WriteLine(second);  // prints (3, 7)
+..     Pair first = new Pair(3, 7);
+..     Pair second = new Pair(1, 9)
+..     Console.WriteLine(second);  // prints (1, 9)
+..     first.ForceMatch(second);
+..     Console.WriteLine(second);  // prints (3, 7)
     
-a.  Would this code work?  If not, explain why not::
+.. a.  Would this code work?  If not, explain why not::
 
-      public void ForceMatch(Pair p)
-      {
-         p = new Pair(x, y);
-      }
+..       public void ForceMatch(Pair p)
+..       {
+..          p = new Pair(x, y);
+..       }
       
-    If you do not see it, 
-    do a graphical play-computer like in the last section.
+..     If you do not see it, 
+..     do a graphical play-computer like in the last section.
 
-b.  Complete the body of ``ForceMatch`` correctly.    
+.. b.  Complete the body of ``ForceMatch`` correctly.    
       
