@@ -118,6 +118,87 @@ A possible final result is in :repsrc:`instance_version/guess_game.cs`.
 
 
 
+
+
+.. _animal-lab:
+
+Animal Class Lab
+------------------
+
+**Objectives**:
+Complete a simple (silly) class, with constructor and methods,
+including a ``ToString`` method, and a separate testing class.
+
+Make an animal_lab project in your solution, 
+and copy in the files from the example
+project :repsrc:`animal_lab_stub`.  
+Then modify the two files as discussed below.
+
+#. Complete the simple class Animal in your copy of the file 
+   :repsrc:`animal.cs <animal_lab_stub/animal.cs>`.  
+   The bullets below
+   name and describe the instance variables, constructor, 
+   and methods you need to write:
+
+   * An Animal has a ``name`` and a ``gut``.  
+     In our version the ``gut`` is a List of strings 
+     describing the contents, in the order eaten.  
+     A newly created Animal gets a ``name`` from a parameter
+     passed to the constructor, while the ``gut`` always starts off *empty*.
+    
+   * An Animal has a ``Greet`` method, so an animal named "Froggy" would say 
+     (that is, print) 
+        
+        Hello, my name is Froggy.
+    
+   * An Animal can ``Eat`` a string naming the food, 
+     adding the food to the ``gut``.
+     If Froggy eats "worm" and then "fly", its ``gut`` list contains
+     "worm" and "fly".
+    
+   * An Animal can ``Excrete`` 
+     (removing and printing what was *first* in the gut List). 
+     Recall the method ``RemoveAt`` in `List`.  Print the
+     empty string, "", if the ``gut``
+     *was already empty*.  Following the
+     Froggy example above, Froggy could ``Excrete``, 
+     and "worm" would be printed.
+     Then its ``gut`` would contain only "fly". 
+      
+   * A ``ToString`` method: 
+     Remember the ``override`` keyword.  Make it return a string in the format
+     shown below for Froggy, including the Animal's name: 
+      
+         "Animal: Froggy"
+         
+     Try this first, and note the extra credit version below.
+         
+   * All the methods that print should be void.  
+     Which need a parameter, of what type?
+
+#. Complete the file :repsrc:`test_animal.cs <animal_lab_stub/test_animal.cs>` 
+   with its class ``TestAnimal`` containing the 
+   ``Main`` method, testing the class Animal: 
+   Create a couple of Animals and visibly test all the methods, 
+   with enough explanation that someone running the test program, 
+   but *not* looking at the code of either file, can see that everything works.
+
+#. 20% EXTRA CREDIT:  Elaborate ``ToString`` so if Froggy had "worm", "fly"
+   and "bug" in the gut, the string would be:
+   
+       "Animal: Froggy ate worm, fly and bug"  
+       
+   with a comma separated list of the gut contents, except use proper English,
+   so the last separator
+   is " and ", not ", ". 
+   If the gut has nothing in it, list the contents as "nothing":
+    
+       "Animal: Froggy ate nothing"  
+       
+
+
+
+
 .. .. index:: class; user class as instance
 ..    example; clock
 
