@@ -182,10 +182,10 @@ Then modify the two files as discussed below.
    with enough explanation that someone running the test program, 
    but *not* looking at the code of either file, can see that everything works.
 
-#. 20% EXTRA CREDIT:  Elaborate ``ToString`` so if Froggy had "worm", "fly"
-   and "bug" in the gut, the string would be:
+.. #. 20% EXTRA CREDIT:  Elaborate ``ToString`` so if Froggy had "worm", "fly"
+..    and "bug" in the gut, the string would be:
    
-       "Animal: Froggy ate worm, fly and bug"  
+..        "Animal: Froggy ate worm, fly and bug"  
        
    with a comma separated list of the gut contents, except use proper English,
    so the last separator
