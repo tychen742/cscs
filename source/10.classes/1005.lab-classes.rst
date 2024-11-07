@@ -34,18 +34,19 @@ Notes on Assignments:
 Converting A Static Game To A Game Instance
 ----------------------------------------------
 
-For a comparison of procedural and object-oriented coding,
+For a comparison of ``procedural`` and ``object-oriented`` coding,
 consider converting :ref:`lab-number-game` so that a GuessGame
 is an object, an instance of the GuessGame class.
 
-While our earlier example, Contact, is a simple but practical 
-use of object-oriented programming, GuessGame is somewhat more artificial.  
-We create it hoping that highlighting the differences between procedural 
-and object-oriented presentation is informative.  Also, we will see 
-with :ref:`interface` that
-there are C# language features that require an
-object rather than just a function and data.  
-In :ref:`igame-interface-exercise` you can use a Game object.
+.. While our earlier example, Contact, is a simple but practical 
+.. use of object-oriented programming, GuessGame is somewhat more artificial.  
+
+.. The game is create it hoping that highlighting the differences between procedural 
+.. and object-oriented presentation is informative.  Also, we will see 
+.. with :ref:`interface` that
+.. there are C# language features that require an
+.. object rather than just a function and data.  
+.. In :ref:`igame-interface-exercise` you can use a Game object.
 
 Here is a procedural game version, example file 
 :repsrc:`static_version/static_version.cs`
