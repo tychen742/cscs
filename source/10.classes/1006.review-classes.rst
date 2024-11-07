@@ -1,14 +1,21 @@
 Chapter Review 
 =========================
 
+- Follow the lab assignment format to prepare this assignment. 
+- Create a project folder called ``Ch10Classes`` to include the code for this 
+  project.
+- Question  
+
+#.  What is the keyword used to create an instance of a class? 
 
 #. Can you create an object from a class resides in another file?
 
 #.  What is the purpose of a constructor?
     
-#.  How is the heading of a constructor different from a regular method?
+#.  Describe the process of implementing inheritance in polymorphism. 
 
-#.  What is the keyword used to create an instance of a class? 
+#.  If you want to use an instance variable (field) in a method, should you declare
+    that instance variable in the method? Why?
 
 #.  How do you create an instance of the following class?
 
@@ -23,13 +30,10 @@ Chapter Review
             }
         }
     
+.. #.  What does the ``this`` keyword do in the context of this chapter?
 
-#.  If you want to use an instance variable (field) in a method, should you declare
-    that instance variable in the method?
-    
-#.  What does the ``this`` keyword do in the context of this chapter?
-
-#.  How do you use the following class to use the Sum method for summing up two integers?
+#.  How do you use the following class to use the Sum method for summing up two integers? Prepare  
+    your code in your Program.cs Main method. 
     
     .. code-block:: csharp
 
@@ -41,10 +45,16 @@ Chapter Review
             }
         }
 
-#.  Define a ``Math`` class, when instantiated, offer the functionality of a subtraction 
-    method. For example, ClassName.Subtract(5, 3) would return 2. 
+#.  Define a ``Math`` class, when **instantiated**, offer the functionality of two 
+    summing methods with the same name Sum that would take 2 and 3 arguments, 
+    respectively, and sum them up and return the results. 
 
-#.  Does the following code define a public or private class?
+#. Change the preceding code to allow the passing of an unspecified number of integer arguments 
+   (see, e.g., https://stackoverflow.com/questions/1996426/pass-multiple-optional-parameters-to-a-c-sharp-function). 
+   Save the file in the project folder,call it SumManyArgs.cs and use SumManyArgs as the class name. 
+
+#.  Does the following code define a public or private class? Add an access modifier without 
+    changing the existing accessibility level. Show your changed code and explain why. 
 
     .. code-block:: 
 
