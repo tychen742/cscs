@@ -129,7 +129,7 @@ Animal Class Lab
 Complete a simple (silly) class, with constructor and methods,
 including a ``ToString`` method, and a separate testing class.
 
-Make use of your project folder, copy in the files from the example
+Make use of your project folder, copy in the .cs files from the example
 project :repsrc:`animal_lab_stub`.  
 Then modify the two files as discussed below.
 
@@ -170,10 +170,10 @@ Then modify the two files as discussed below.
       
          "Animal: Froggy"
          
-     Try this first, and note the extra credit version below.
-         
    * All the methods that print should be void.  
      Which need a parameter, of what type?
+     
+    ..  Try this first, and note the extra credit version below.
 
 #. Complete the file :repsrc:`test_animal.cs <animal_lab_stub/test_animal.cs>` 
    with its class ``TestAnimal`` containing the 
