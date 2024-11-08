@@ -466,7 +466,7 @@ For example:
 
 .. code-block:: csharp
    :linenos:
-   :emphasize-lines: 6, 18
+   :emphasize-lines: 6, 17
 
    class Employee
    {
@@ -485,7 +485,8 @@ For example:
       {
          Employee employee = new Employee { Name = "John", Salary = 100000 };
          Console.WriteLine(employee.ToString());   ///// print: Employee: John 100000
-         Console.WriteLine(employee);              ///// print: Employee: John 100000
+         Console.WriteLine(employee);              ///// print: Employee: John 100000 
+                                                   /////        as ToString is the default output
 
       }
    }
@@ -509,7 +510,7 @@ method ``ToString`` for the *same* object::
    }
 
 
-Now take a look at the output::
+Now take a look at the test and output::
 
    Employee employee = new Employee { Name = "John", Salary = 100000 };
    Console.WriteLine(employee.ToString());
@@ -518,7 +519,7 @@ Now take a look at the output::
 
 
 .. code-block:: bash
-   
+
    tcn85@mac:~/workspace/introcscs/Ch10ClassesLab$ dotnet run
    Employee: John 100000
    Employee: John 100000
