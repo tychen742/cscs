@@ -433,12 +433,13 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
    {
       class Animal
       {
-            public string name;
-            public Animal(string name)
-            {
-               this.name = name;
-            }
+         public string name;
+         public Animal(string name)
+         {
+            this.name = name;            }
+         }
       }
+      
       public class TestAnimal
       {
          public static void Main()
