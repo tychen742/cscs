@@ -445,9 +445,7 @@ your type, with its own specific instance variables.
 You need to have that version used *in place of* the default:
 You need to *override* the default.  To emphasize the *change*
 in meaning, the word ``override`` *must* be in the heading:
-
 .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
-   
    :start-after: ToString chunk
    :end-before: chunk
    :dedent: 6
