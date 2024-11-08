@@ -416,31 +416,84 @@ would print
 ToString Override
 ---------------------
 
-.. We created the ``Print`` method for a Contact, and it is helpful to
-.. assemble all the data for display *and* print it.   The issue there is that
-.. the method does two *separate* clear things:  combining the string data
-.. and printing it.  You might want the same string but put in a file or 
-.. used some other way.  Our ``Print`` method will not help.  
+All object in C# have a ``ToString`` method because all types inherit from the base class 
+System.Object. It converts an object to its string representation for display. It is used 
+to perform internal string concatenation and Write. 
 
-When it comes to customizing a ``Print()`` method to print out strings, a good design 
-decision is to separate the different actions: the first is to generate the showing 
-the full state of the object. Once we have this string, we can easily print it or 
-write it to a file. Hence we want a method to generate a descriptive string.
+Default ToString behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ToString returns returns the ``fully qualified name`` of the type of the Object. For example::
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 17
+
+   namespace IntroCSCS
+   {
+      class Animal
+      {
+            public string name;
+            public Animal(string name)
+            {
+               this.name = name;
+            }
+      }
+      public class TestAnimal
+      {
+         public static void Main()
+         {
+            Animal frog = new Animal("Froggy");
+
+            Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
+            Console.WriteLine(frog.name);          ///// print: Froggy 
+         }
+      }
+   }
+
+Overriding ToString
+~~~~~~~~~~~~~~~~~~~~~
 
 Think more generally about string representations:  
 All the built-in type values can be concatenated into strings with the '+' operator,
 or displayed with ``Console.Write``. We would like that behavior with our custom types, 
-too. How can the compiler know how to handle types that were *not invented* when the compiler was written?
+too. 
 
-The answer is to have common features among all objects.  
-All object in C# have a ``ToString`` method because all types inherit from System.Object, 
-and that method is used implicitly when an object is used with string concatenation, and also for ``Write``.
-The default version supplied by the system is not very useful for a new object 
-that it knows nothing about! You need to define your own version, 
-one that knows how you have defined your type, with its own specific instance variables. 
-You need to have that version used *in place of* the default:
-You need to *override* the default. To emphasize the *change*
-in meaning, the word ``override`` *must* be in the heading:
+Types frequently ``override`` the Object.ToString method to provide a more suitable string 
+representation or display of a particular type instead of the default fully qualified type name. 
+For example:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 6, 18
+
+   class Employee
+   {
+      public string Name { get; set; }
+      public int Salary { get; set; }
+
+      public override string ToString()
+      {
+         return "Employee: " + Name + " " + Salary;      ///// returns object data  
+      }
+   }
+
+   class Test
+   {
+      public static void Main()
+      {
+         Employee employee = new Employee { Name = "John", Salary = 100000 };
+         Console.WriteLine(employee.ToString());   ///// print: Employee: John 100000
+         Console.WriteLine(employee);              ///// print: Employee: John 100000
+
+      }
+   }
+
+Print() Customization 
+~~~~~~~~~~~~~~~~~~~~~
+
+You can further customize ToString override. For example, in addition to the following ``ToString`` 
+override with format:
 
 .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
    :language: csharp
@@ -448,70 +501,28 @@ in meaning, the word ``override`` *must* be in the heading:
    :end-before: chunk
    :dedent: 6
 
-See what the method does: it uses the object state (e.g., the values of variables name, phone, and 
-email in this case) to create and *return* a single string representation of the object.  
+See what the ToString method does now: it uses the object state (e.g., the values of variables name, phone, and 
+email in this case) and implicitly covert and *return* a single string representation of the object. 
 
-For any kind of new object that you create and want to be able to implicitly convert to
-a string, you need a ``ToString`` method with the *exact* same heading 
-as the ``ToString`` for a Contact.
-
-A more complete discussion of ``override`` 
-would lead us into class hierarchies and 
-inheritance, which we are not emphasizing in this book.
-
-We still might like to have a convenience method ``Print``.  It now can 
-be written much more easily, using our latest ``ToString``.  
-
-We want one instance method,
-``Print`` to call another instance method ``ToString`` for the *same* object.
-How does this work?  It is like when instance method ``GetName`` 
-refers to an instance variable
-``name`` without using dot notation.  Then ``name`` is assumed to refer to
-this object associated with the call to ``GetName``.  We can change our
-``Print`` definition to::
+We might like to have a convenience method ``Print`` using ``ToString``. We want one instance 
+method, ``Print`` to call another instance method ``ToString`` for the *same* object::
 
       public void Print()  
       {
          Console.WriteLine(ToString()); 
+         .. Console.WriteLine(this);
       }
 
-Here ``ToString()`` is a method called without dot notation explicitly 
-attaching it to an object.
-As with instance variables, it is implicitly attached to this object, the one
-attached to the call to ``Print``.
- 
-Again, the whole code for the elaborated Contact is in example
-:repsrc:`contact2/contact2.cs`.
-
-New testing code is in :repsrc:`contact2/test_contact2.cs`.  Run the project
-and check that it does what you would expect.  There are several new 
-features illustrated in the testing code:
 
 .. literalinclude:: ../../examples/introcs/contact2/test_contact2.cs
    :start-after: main chunk
    :end-before: chunk
    :dedent: 6
 
-Contact is now a type we can use with other types.  ``Main`` ends creating
-a ``List<Contact>`` and an array of Contacts, and processes Contacts in the
-``List`` with a ``foreach`` loop.
 
-We mentioned that this particular signature in the
-``ToString`` heading means that the system recognizes it in string
-concatenation and in substitutions into a ``Write`` or ``WriteLine`` 
-format string.  Find both in ``Main``.
 
-The ``ToString`` override also means that the body of our ``Print`` 
-definition in the Contact class could have been
-even shorter, using the object ``this``::
-
-      public void Print() 
-      {
-         Console.WriteLine(this); 
-      }
-
-When we use ``Console.WriteLine`` on this current object, which is *not*
-already a string, there is an automatic call to ``ToString``.
+.. When we use ``Console.WriteLine`` on this current object, which is *not*
+.. already a string, there is an automatic call to ``ToString``.
 
 
 
