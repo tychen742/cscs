@@ -426,12 +426,9 @@ Default ToString behavior
 By default, ToString returns returns the ``fully qualified name`` of the type of the Object. For example::
 
 .. code-block:: csharp
-   
    :linenos:
    :emphasize-lines: 17
 
-   namespace IntroCSCS
-   {
    class Animal
    {
       public string name;
@@ -439,19 +436,19 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
       {
          this.name = name;            }
       }
+
    }
    
-
    public class TestAnimal
+   {
+      public static void Main()
       {
-         public static void Main()
-         {
-            Animal frog = new Animal("Froggy");
-            Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
-            Console.WriteLine(frog.name);          ///// print: Froggy 
-         }
+         Animal frog = new Animal("Froggy");
+         Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
+         Console.WriteLine(frog.name);          ///// print: Froggy 
       }
    }
+   
 
 Overriding ToString
 ~~~~~~~~~~~~~~~~~~~~~
