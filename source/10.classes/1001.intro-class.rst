@@ -450,7 +450,7 @@ in meaning, the word ``override`` *must* be in the heading:
    :language: csharp
    :start-after: ToString chunk
    :end-before: chunk
-   :dedent: 6
+   .. :dedent: 6
 
 See what the method does:  it uses the object state to create and
 *return* a single string representation of the object.  
