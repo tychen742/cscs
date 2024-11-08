@@ -432,7 +432,7 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
 
    namespace IntroCSCS
    {
-      class Animal
+   class Animal
       {
          public string name;
          public Animal(string name)
@@ -442,7 +442,7 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
       }
    
 
-      public class TestAnimal
+   public class TestAnimal
       {
          public static void Main()
          {
