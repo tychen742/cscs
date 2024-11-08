@@ -426,11 +426,11 @@ Default ToString behavior
 By default, ToString returns returns the ``fully qualified name`` of the type of the Object. For example::
 
 .. code-block:: csharp
-    :linenos:
-    :emphasize-lines: 17
+   :linenos:
+   :emphasize-lines: 17
 
-   namespace IntroCSCS {
-
+   namespace IntroCSCS 
+   {
       class Animal
       {
          public string name;
