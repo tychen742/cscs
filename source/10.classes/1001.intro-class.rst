@@ -490,32 +490,36 @@ For example:
       }
    }
 
+See what the ToString method does now: it uses the object state (e.g., the values of variables name and 
+salary in this case) and implicitly covert and *return* a single string representation of the object. 
+
+
 Print() Customization 
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can further customize ToString override. For example, in addition to the following ``ToString`` 
-override with format:
+You can further customize the ToString overriding. For example, in the preceding ``Employee`` class, 
+in addition to the following ``ToString`` override, you might like to have a convenience method 
+``Print`` using ``ToString``. We want one instance method, ``Print`` to call another instance 
+method ``ToString`` for the *same* object::
 
-.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
-   :language: csharp
-   :start-after: ToString chunk
-   :end-before: chunk
-   :dedent: 6
+   public void Print()  
+   {
+      Console.WriteLine(ToString()); 
+      // Console.WriteLine(this);         ///// "this" returns the same as ToString()
+   }
 
-See what the ToString method does now: it uses the object state (e.g., the values of variables name, phone, and 
-email in this case) and implicitly covert and *return* a single string representation of the object. 
+Now take a look at the output::
 
-We might like to have a convenience method ``Print`` using ``ToString``. We want one instance 
-method, ``Print`` to call another instance method ``ToString`` for the *same* object::
+   Employee employee = new Employee { Name = "John", Salary = 100000 };
+   Console.WriteLine(employee.ToString());
+   Console.WriteLine(employee);
+   employee.Print();
 
-      public void Print()  
-      {
-         Console.WriteLine(ToString()); 
-         // Console.WriteLine(this);         ///// "this" returns the same as ToString()
-      }
-
-
-
+.. code-block:: bash
+   tcn85@mac:~/workspace/introcscs/Ch10ClassesLab$ dotnet run
+   Employee: John 100000
+   Employee: John 100000
+   Employee: John 100000
 
 
 
