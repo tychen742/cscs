@@ -154,7 +154,6 @@ To further explain how constructors work, take a look at the following code::
       static void Main(string[] args)
       {
          CheckID check = new CheckID("taylor swift");
-         check.PrintResult();   // output "Username {userName} is valid!"
       }
    }
 
@@ -448,6 +447,7 @@ You need to *override* the default.  To emphasize the *change*
 in meaning, the word ``override`` *must* be in the heading:
 
 .. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   
    :start-after: ToString chunk
    :end-before: chunk
    :dedent: 6
