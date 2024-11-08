@@ -429,26 +429,29 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
    :linenos:
    :emphasize-lines: 17
 
-   class Animal
-   {
-      public string name;
-      public Animal(string name)
-      {
-         this.name = name;            }
-      }
+   namespace IntroCSCS {
 
-   }
-   
-   public class TestAnimal
-   {
-      public static void Main()
+      class Animal
       {
-         Animal frog = new Animal("Froggy");
-         Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
-         Console.WriteLine(frog.name);          ///// print: Froggy 
+         public string name;
+         public Animal(string name)
+         {
+            this.name = name;            }
+         }
+
+      }
+      
+      public class TestAnimal
+      {
+         public static void Main()
+         {
+            Animal frog = new Animal("Froggy");
+            Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
+            Console.WriteLine(frog.name);          ///// print: Froggy 
+         }
       }
    }
-   
+
 
 Overriding ToString
 ~~~~~~~~~~~~~~~~~~~~~
