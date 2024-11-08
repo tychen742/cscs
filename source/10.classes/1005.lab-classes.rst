@@ -156,7 +156,7 @@ Then modify the two files as discussed below.
      "worm" and "fly".
     
    * An Animal can ``Excrete`` 
-     (removing and printing what was *first* in the gut List). 
+     (printing abd removing what was *first* in the gut List). 
      Recall the method ``RemoveAt`` in `List`.  Print the
      empty string, "", if the ``gut``
      *was already empty*.  Following the

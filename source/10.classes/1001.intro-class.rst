@@ -128,12 +128,13 @@ Constructors
 
 The constructor is a special method in the class: 
 
-#. Its name is the same as the object being constructed. For example, if we create a class named ``Contact``, then the 
+#. Its ``name`` is the same as the name of its type. For example, if we create a class named ``Contact``, then the 
    constructor method is also called ``Contact``.
-#. It has *no return type* (and *no* ``static``). Implicitly you are creating a default object from the class.
+#. Its method ``signature`` includes only an optional access modifier, the method name, and its parameter list
+#. Its method ``signature`` has ``no return type`` (and *no* ``static``). Implicitly you are creating a default object from the class.
 #. The constructor can have parameters like a regular method. That means giving values to its fields. For example, 
-   we may want to store this *state* (the current condition of a system, such as the values of the variables) in 
-   instance variables ``name``, ``phone`` and ``email``:  
+   you may want to store this *state* (the current condition of a system, such as the values of the variables) in 
+   instance variables ``name``, ``phone`` and ``email`` if you are creating a Contact type:  
 
 .. literalinclude:: ../../examples/introcs/contact1/contact1.cs
    :start-after: constructor 
