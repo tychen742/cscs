@@ -508,12 +508,14 @@ method ``ToString`` for the *same* object::
       // Console.WriteLine(this);         ///// "this" returns the same as ToString()
    }
 
+
 Now take a look at the output::
 
    Employee employee = new Employee { Name = "John", Salary = 100000 };
    Console.WriteLine(employee.ToString());
    Console.WriteLine(employee);
    employee.Print();
+
 
 .. code-block:: bash
    tcn85@mac:~/workspace/introcscs/Ch10ClassesLab$ dotnet run
