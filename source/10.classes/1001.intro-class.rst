@@ -439,7 +439,7 @@ By default, ToString returns returns the ``fully qualified name`` of the type of
             this.name = name;            }
          }
       }
-      
+
       public class TestAnimal
       {
          public static void Main()
@@ -511,14 +511,11 @@ method, ``Print`` to call another instance method ``ToString`` for the *same* ob
       public void Print()  
       {
          Console.WriteLine(ToString()); 
-         .. Console.WriteLine(this);
+         // Console.WriteLine(this);
       }
 
 
-.. literalinclude:: ../../examples/introcs/contact2/test_contact2.cs
-   :start-after: main chunk
-   :end-before: chunk
-   :dedent: 6
+
 
 
 
