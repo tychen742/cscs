@@ -5,8 +5,9 @@ Abstraction is achieved by ignoring implementation details while focusing on
 essential features. Abstraction can be achieved through the use of either 
 **abstract classes** or **interfaces**. 
 
-The most common form of abstraction in OOP is data abstraction. A set of abstract 
-operations fully defines the behavior of an abstract data object. Note that: [#abstract-class_vs_interface]_  
+The most common form of abstraction in OOP is data abstraction, which means a set of 
+abstract operations fully defines the behavior of an abstract data object. 
+Note that, in general: [#abstract-class_vs_interface]_  
 
 - An abstract class defines what something is (description). Abstract classes can 
   contain implementation of methods, fields, constructors, etc.
@@ -19,7 +20,7 @@ A class can implement multiple interfaces, but it can only inherit one class
 (abstract or otherwise). 
 
 
-Abstract classes
+Abstract Classes
 ------------------
 
 In C#, the ``abstract`` keyword is used to create abstract classes and abstract methods:
@@ -32,7 +33,8 @@ In C#, the ``abstract`` keyword is used to create abstract classes and abstract 
 Important characteristics of abstract classes include: 
 
 - Members: An abstract class can contain both **abstract** and **non-abstract** members.
-- ``override``: Derived classes that implement abstract methods must use the override keyword.
+- ``override``: Derived classes that implement ``abstract`` methods must use the 
+  ``override`` keyword.
 - **Use**: An abstract class cannot be instantiated using a ``new`` keyword; it must be inherited by a 
   derived (child) class in order to be used. 
 - **Abstract members**: Abstract members of an abstract class may include methods, properties, or events that 
@@ -52,7 +54,7 @@ Here is an example of an abstract class that contains an abstract method in C#:
         public abstract double GetArea();
     }
 
-Note that, since an abstract cannot be instantiated, C# will give you an error message if you try to create an object 
+Note that, since an abstract cannot be instantiated, if you try to create an object 
 from it::
     
     Shape shape = new Shape();
@@ -78,9 +80,9 @@ or in Windows:
     The build failed. Fix the build errors and run again.
     PS C:\Users\tcn85\workspace\introcscs\Ch11OOP> 
 
-This abstract class represents a shape, and has a single abstract method called GetArea() that 
+This abstract class represents a shape, and has a single abstract method called ``GetArea()`` that 
 returns the area of the shape. From Shape, you can define different classes inheriting Shape (such as Circle, 
-Square, Triangle...) and each class would implement the ``GetArea`` method differently since this method is 
+Square, Triangle...). Each child class would implement the ``GetArea()`` method differently since this method is 
 abstract and therefore it does not have an implementation and must be implemented in a derived class.
 
 Here is an example of a derived class that implements the GetArea() method:
@@ -147,18 +149,18 @@ As another example, see the abstract class and methods defined and executed as f
             Pig myPig = new Pig();              // Create a Pig object
             myPig.animalSound();                // Call the implemented abstract method: 
                                                 // output The pig says: wee wee
-            myPig.sleep();                      // Call the regular method
+            myPig.sleep();                      // Call the regular method (in base class)
         }                                       // output: Zzz
         
     }
 
 
-Abstraction is a powerful technique that allows for a **separation of concerns** between the 
-interface and implementation of a class. It helps to reduce complexity and improve 
-maintainability by allowing changes to be made to the implementation without affecting 
-the overall behavior of the class. In this example below, you see that this time a ``Rectangle`` 
-class is created to inherit the **abstract class** ``Shape`` and two **abstract methods** are 
-implemented in the ``Rectangle`` class. 
+Abstraction is a powerful modular design that allows for a **separation of concerns** 
+between the interface/abstract class and the implementation of a class. It helps to 
+reduce complexity and improve maintainability by allowing changes to be made to the 
+implementation without affecting the overall behavior of the class. In this example 
+below, you see that this time a ``Rectangle`` class is created to inherit the 
+**abstract class** ``Shape`` and two **abstract methods** are implemented. 
 
 .. code-block:: csharp
     :linenos:
