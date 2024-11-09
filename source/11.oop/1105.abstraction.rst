@@ -229,14 +229,14 @@ For example:
 
     interface IAnimal 
     {
-      void animalSound();           // interface method (does not have a body)
+      void animalSound();       // interface method (does not have a body)
     }
     
     
-    class Pig : IAnimal             // Pig "implements" the IAnimal interface
+    class Pig : IAnimal         // Pig "implements" the IAnimal interface
     {
       public void animalSound() 
-      {                             // The body of animalSound() is provided here
+      {                         // The body of animalSound() is provided here
         Console.WriteLine("The pig says: wee wee");
       }
     }
@@ -245,8 +245,8 @@ For example:
     {
       static void Main(string[] args) 
       {
-        Pig myPig = new Pig();      // Create a Pig object
-        myPig.animalSound();        // use the implemented abstract method
+        Pig myPig = new Pig();  // Create a Pig object
+        myPig.animalSound();    // use the implemented abstract method
       }
     }
 
