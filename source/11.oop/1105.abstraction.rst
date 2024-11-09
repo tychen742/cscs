@@ -6,28 +6,28 @@ essential features. Abstraction can be achieved through the use of either
 **abstract classes** or **interfaces**. 
 
 The most common form of abstraction in OOP is data abstraction. A set of abstract 
-operations fully defines the behavior of an abstract data object. Note that: 
+operations fully defines the behavior of an abstract data object. Note that: [#abstract-class_vs_interface]_  
 
-- Abstract class can contain implementation of methods, fields, constructors, etc, while an 
-- Interface only contains method and property prototypes. 
+- An abstract class defines what something is (description). Abstract classes can 
+  contain implementation of methods, fields, constructors, etc.
+- An interface defines that something can do (behavior). Therefore, they only contains 
+  method and property prototypes. For example, the interface ``IEnumerable`` 
+  means that anything implements IEnumerable is enumerable and its behavior is it 
+  can be enumerated.
 
 A class can implement multiple interfaces, but it can only inherit one class 
-(abstract or otherwise). However, the most important difference between Interfaces and 
-Abstract Classes is the semantic difference: [#abstract-class_vs_interface]_  
-
-- An Interface defines what something can do (how it behaves). For example, the interface 
-  IEnumerable means that anything implements IEnumerable is enumerable and its behavior is 
-  it can be enumerated.  
-- an Abstract Class defines what something is.
+(abstract or otherwise). 
 
 
-In C#, abstraction is implemented using abstract classes and methods. The ``abstract`` keyword 
-is used to create abstract classes and abstract methods:
+Abstract classes
+------------------
+
+In C#, the ``abstract`` keyword is used to create abstract classes and abstract methods:
 
 - **Abstract class**: is a restricted class that cannot be used to create objects; instead, 
   it must be **inherited** from a child class to be used.
-- **Abstract method**: can **only** be used in an abstract class, and it **does not have a body**. 
-  The body is provided by the derived (child) class.
+- **Abstract method**: can **only** be used in an abstract class, and it **does not have a 
+  body**. The body is provided by the derived (child) class.
 
 Important characteristics of abstract classes include: 
 
