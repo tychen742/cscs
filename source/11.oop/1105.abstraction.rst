@@ -1,9 +1,25 @@
 Abstraction
 =================
 
-**Abstraction** is achieved by hiding implementation details of a class and showing only 
-essential information to the user. Abstraction can be achieved with either **abstract** classes 
-or **interfaces** (which you will learn more about in a later section). 
+**Abstraction** is achieved by ignoring implementation details while focusing on 
+essential features. Abstraction can be achieved through the use of either 
+**abstract classes** or **interfaces**. 
+
+The most common form of abstraction in OOP is data abstraction. A set of abstract 
+operations fully defines the behavior of an abstract data object. Note that: 
+
+- Abstract class can contain implementation of methods, fields, constructors, etc, while an 
+- Interface only contains method and property prototypes. 
+
+A class can implement multiple interfaces, but it can only inherit one class 
+(abstract or otherwise). However, the most important difference between Interfaces and 
+Abstract Classes is the semantic difference [#abstract-class_vs_interface]_ : 
+
+- An Interface defines what something can do (how it behaves). For example, the interface 
+  IEnumerable means that anything implements IEnumerable is enumerable and its behavior is 
+  it can be enumerated.  
+- an Abstract Class defines what something is.
+
 
 In C#, abstraction is implemented using abstract classes and methods. The ``abstract`` keyword 
 is used to create abstract classes and abstract methods:
@@ -174,3 +190,18 @@ implemented in the ``Rectangle`` class.
             return 2 * (width + height);
         }
     }
+
+
+    interfaces
+    -------------
+
+
+
+
+
+
+
+
+.. rubric:: Footnotes
+
+.. [#abstract-class_vs_interface] See this question at `StackOverflow <https://stackoverflow.com/questions/15178219/whats-the-difference-between-an-abstract-class-and-an-interface>`_. 
