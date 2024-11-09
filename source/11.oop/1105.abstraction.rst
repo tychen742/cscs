@@ -223,15 +223,15 @@ For example:
 
 .. code-block:: csharp
     :linenos:
-    :emphasize-lines:
+    :emphasize-lines: 1, 3, 7, 20
 
     interface IAnimal 
     {
       void animalSound();                   // interface method (does not have a body)
     }
     
-    // Pig "implements" the IAnimal interface
-    class Pig : IAnimal 
+    
+    class Pig : IAnimal                     // Pig "implements" the IAnimal interface
     {
       public void animalSound() 
       {                                     // The body of animalSound() is provided here
