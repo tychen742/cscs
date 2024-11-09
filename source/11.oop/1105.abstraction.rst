@@ -1,19 +1,18 @@
 Abstraction
 =================
 
-**Abstraction** is achieved by ignoring implementation details while focusing on 
+Abstraction is achieved by ignoring implementation details while focusing on 
 essential features. Abstraction can be achieved through the use of either 
 **abstract classes** or **interfaces**. 
 
 The most common form of abstraction in OOP is data abstraction. A set of abstract 
 operations fully defines the behavior of an abstract data object. Note that: 
-
 - Abstract class can contain implementation of methods, fields, constructors, etc, while an 
 - Interface only contains method and property prototypes. 
 
 A class can implement multiple interfaces, but it can only inherit one class 
 (abstract or otherwise). However, the most important difference between Interfaces and 
-Abstract Classes is the semantic difference [#abstract-class_vs_interface]_ : 
+Abstract Classes is the semantic difference: [#abstract-class_vs_interface]_  
 
 - An Interface defines what something can do (how it behaves). For example, the interface 
   IEnumerable means that anything implements IEnumerable is enumerable and its behavior is 
