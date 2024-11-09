@@ -194,11 +194,59 @@ below, you see that this time a ``Rectangle`` class is created to inherit the
     }
 
 
-    interfaces
-    -------------
+interfaces
+-------------
 
+Interfaces [#interfaces-w3school]_ is another way of achieving abstraction in C#. An interface is a completely 
+"abstract class", which can only contain abstract methods and properties 
+(with empty bodies) without any implementation. For example, the following code is 
+an interface definition that does not have any method implementation (body, ``{}``)::
 
+    interface Animal 
+    {
+        void animalSound();     ///// interface method (does not have a body)
+        void run();             ///// interface method (does not have a body)
+    }
 
+Note that: 
+
+#. It is considered good practice to start with the letter "``I``" at the beginning of an 
+   interface name to note that it is an interface rather than a class.
+#. Interfaces can contain properties and methods, but not fields.
+#. By default, members of an interface are ``abstract`` and ``public``.
+#. To use the interface methods, the interface must be "implemented" 
+   (kinda like inherited) by a child class using the ``:`` symbol (just like with 
+   inheritance).  
+#. You do not have to use the override keyword when implementing an interface.
+
+For example:
+
+.. code-block:: csharp
+    :linenos:
+    :emphasize-lines:
+
+    interface IAnimal 
+    {
+      void animalSound();                   // interface method (does not have a body)
+    }
+    
+    // Pig "implements" the IAnimal interface
+    class Pig : IAnimal 
+    {
+      public void animalSound() 
+      {                                     // The body of animalSound() is provided here
+        Console.WriteLine("The pig says: wee wee");
+      }
+    }
+    
+    class Program 
+    {
+      static void Main(string[] args) 
+      {
+        Pig myPig = new Pig();              // Create a Pig object
+        myPig.animalSound();                // use the implemented abstract method
+      }
+    }
 
 
 
