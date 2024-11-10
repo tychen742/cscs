@@ -258,56 +258,68 @@ Difference Between Abstract Class and Interface in C#
 There are 
 
 .. list-table:: Abstract Class vs. Interface
-    :widths: 25 30 30
+    :widths: 20 30 30 20
     :header-rows: 1
 
   * - Feature
     - Abstract Class
     - Interface
+    - 
 
   * - Inheritance
     - Can only be inherited from one class 
     - Can implement multiple interfaces
+    - 
 
   * - Default Implementation 
     - Can provide a default implementation
     - Cannot provide a default implementation (until C# 8.0, where default methods are allowed)
+    - 
 
   * - Access Modifiers
     - Can have access modifiers for its members
     - Members are public by default
+    - 
 
   * - Constructors
     - Can have constructors
     - Cannot have constructors
+    - 
 
   * - Fields
     - Can contain fields
     - It cannot contain fields
+    - 
 
   * - Method Definition
     - Can have defined, abstract, or virtual methods
     - Only contains method signatures (until C# 8.0)
+    - 
 
   * - State or Data
     - Can hold state (fields)
     - Cannot hold state
+    - 
 
   * - Inheritance vs Implementation
     - Inherits from another class (abstract or concrete)
     - Implements an interface
+    - 
 
   * - Type of Methods
     - Can have static, abstract, virtual methods
     - Only abstract methods (until C# 8.0)
+    - 
 
   * - Compatibility
     - Suitable for classes with closely related functionality
     - Suitable for classes with unrelated functionalities
+    - 
 
   * - Versioning
     - Easier to add new methods without breaking existing implementations
     - Adding new methods can break existing implementations
+    - 
 
 
 .. rubric:: Footnotes
