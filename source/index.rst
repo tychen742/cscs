@@ -16,10 +16,10 @@ Lecture Notes: Intro to Programming in C#
    09.collections/09.collections
    10.classes/10.classes
    11.oop/11.oop
-   12.testing/testing
-   13.interfaces/interfaces
+   12.datastructure/12.datastructure
+   13.testing/testing
    14.recursion/recursion
-   15.datastructure/15.datastructure
+   15.selected-topics/selected-topics
    16.appendix/16.appendix
    
 :ref:`genindex`
