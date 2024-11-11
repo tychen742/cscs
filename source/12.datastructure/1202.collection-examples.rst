@@ -28,17 +28,15 @@ in Chapter 8. Basic operations and examples with arrays include:
   numbers.Length;
 - Iterating through an array:
   
-    .. code-block:: csharp
-        
-        for (int i = 0; i < numbers.Length; i++)    // Using for loop
-        {
-            Console.WriteLine(numbers[i]);
-        }
-
-        foreach (int num in numbers)                // Using foreach loop
-        {
-            Console.WriteLine(num);
-        }
+.. code-block:: csharp        
+    for (int i = 0; i < numbers.Length; i++)    // Using for loop
+    {
+        Console.WriteLine(numbers[i]);
+    }
+    foreach (int num in numbers)                // Using foreach loop
+    {
+        Console.WriteLine(num);
+    }
 
 Lists
 ~~~~~~~~
@@ -67,21 +65,18 @@ not known in advance or may change over time.
 
 - Iterating through a List:
     
-    .. code-block:: csharp
-
-        List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
-
-        // Using for loop
-        for (int i = 0; i < names.Count; i++)
-        {
-            Console.WriteLine(names[i]);
-        }
-
-        // Using foreach loop
-        foreach (string name in names)
-        {
-            Console.WriteLine(name);
-        }
+.. code-block:: csharp
+    List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
+    // Using for loop
+    for (int i = 0; i < names.Count; i++)
+    {
+        Console.WriteLine(names[i]);
+    }
+    // Using foreach loop
+    foreach (string name in names)
+    {
+        Console.WriteLine(name);
+    }
 
 
 To remove elements from a List, use methods like Remove, RemoveAt, or Clear:
@@ -153,7 +148,9 @@ The ``Pop()`` method is used to remove and return the top element from the stack
     └──────┴───────┴──────┘
 
 
-The ``Peek`` method is used to view the top element of the stack without removing it::
+The ``Peek`` method is used to view the top element of the stack without removing it:
+
+.. code-block:: bash
 
     > stack      
     Stack<int>(2)
