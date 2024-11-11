@@ -175,7 +175,7 @@ Queues
 Queues are another fundamental data structure commonly used in computer science 
 that follows the **First In, First Out** (``FIFO``) principle. In C#, the Queue<T> class, 
 found in the System.Collections.Generic namespace, provides a collection that 
-allows adding and removing elements in a first-in-first-out manner. 
+allows adding and removing elements in a first-in-first-out manner. [#professional]
 
 To declare a queue using the Queue<T> class::
 
@@ -236,7 +236,5 @@ Also, to check if a queue is empty, use the ``Count()`` method::
     {
         Console.WriteLine("Queue is empty");
     }
-
-
 
 
