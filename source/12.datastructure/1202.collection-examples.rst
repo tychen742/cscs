@@ -29,6 +29,7 @@ in Chapter 8. Basic operations and examples with arrays include:
 - Iterating through an array:
   
 .. code-block:: csharp        
+    
     for (int i = 0; i < numbers.Length; i++)    // Using for loop
     {
         Console.WriteLine(numbers[i]);
