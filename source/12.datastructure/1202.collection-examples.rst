@@ -67,19 +67,22 @@ not known in advance or may change over time.
 
 - Iterating through a List:
     
-    List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
+    .. code-block:: csharp
 
-    // Using for loop
-    for (int i = 0; i < names.Count; i++)
-    {
-        Console.WriteLine(names[i]);
-    }
+        List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
 
-    // Using foreach loop
-    foreach (string name in names)
-    {
-        Console.WriteLine(name);
-    }
+        // Using for loop
+        for (int i = 0; i < names.Count; i++)
+        {
+            Console.WriteLine(names[i]);
+        }
+
+        // Using foreach loop
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+
 
 To remove elements from a List, use methods like Remove, RemoveAt, or Clear:
 
