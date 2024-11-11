@@ -1,0 +1,242 @@
+Examples of Collections 
+=========================
+
+For the purpose of this chapter to expose you to the ideas of data structures/collections, 
+six built-in data structures/collections in C# will be introduced:
+
+- Arrays
+- Stack
+- Queue
+- Hashtable
+- Dictionary
+- Linked List
+
+Arrays
+~~~~~~~~
+
+In C#, arrays are among the most fundamental and basic data structures. They offer a 
+straightforward method for storing a sequential collection of pieces of the same 
+kind in a given size. Since arrays are the basis for many other intricate data 
+structures and algorithms, it is imperative that you understand them as discussed 
+in Chapter 8. Basic operations and examples with arrays include:
+
+- Declaring an array: int[] numbers = new int[5];
+- Initializing an array: int[] numbers = { 1, 2, 3, 4, 5 };
+- Accessing array elements: numbers[0]   ///// 1
+- Modifying elements: numbers[2] = 10; // Modifies the third element to be 10
+- The Length property: The Length property provides the number of elements in the array::
+  numbers.Length;
+- Iterating through an array:
+  
+    .. code-block:: csharp
+        
+        for (int i = 0; i < numbers.Length; i++)    // Using for loop
+        {
+            Console.WriteLine(numbers[i]);
+        }
+
+        foreach (int num in numbers)                // Using foreach loop
+        {
+            Console.WriteLine(num);
+        }
+
+Lists
+~~~~~~~~
+
+Lists in C# are dynamic data structures that provide flexibility in managing 
+collections of elements. Unlike arrays, lists can grow or shrink in size 
+dynamically, making them suitable for scenarios where the number of elements is 
+not known in advance or may change over time.
+
+- Declaration and Initialization::
+  
+    // Declaration and initialization of a list
+    List<int> numbers = new List<int>(); // Creates an empty list of integers
+
+    // Initialization of a list with initial values
+    List<string> names = new List<string>() { "Alice", "Bob", "Charlie" }; // Creates a list of strings with initial values
+- Adding elements: 
+    List<int> numbers = new List<int>();
+    numbers.Add(1); // Adds 1 to the list
+    numbers.Add(2); // Adds 2 to the list
+
+- Accessing elements::
+
+    List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
+    string firstElement = names[0]; // Accesses the first element ("Alice")
+
+- Iterating through a List:
+    
+    List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
+
+    // Using for loop
+    for (int i = 0; i < names.Count; i++)
+    {
+        Console.WriteLine(names[i]);
+    }
+
+    // Using foreach loop
+    foreach (string name in names)
+    {
+        Console.WriteLine(name);
+    }
+
+To remove elements from a List, use methods like Remove, RemoveAt, or Clear:
+
+
+Stacks
+~~~~~~~~
+
+Stacks:
+Stacks are a fundamental data structure in computer science that follows the 
+Last In, First Out (**LIFO**) principle. In C#, the Stack<T> class, found 
+in the System.Collections.Generic namespace, provides a collection that allows 
+adding and removing elements in a ``last-in-first-out`` manner.
+
+To **declare** a stack using the Stack<T> class::
+
+    Stack<int> stack = new Stack<int>();
+
+To ``push`` to **add elements** to the ``top`` of the stack::
+
+    stack.Push(1);
+    stack.Push(2);
+    stack.Push(3);
+
+After the operations, the stack will contain {3, 2, 1} as shown below::
+
+    > Stack<int> stack = new Stack<int>();
+
+    > stack.Push(1); 
+      stack.Push(2); 
+      stack.Push(3);
+
+    > stack
+    Stack<int>(3)
+    ┌──────┬───────┬──────┐
+    │ Name │ Value │ Type │
+    ├──────┼───────┼──────┤
+    │ [0]  │ 3     │ int  │
+    │ [1]  │ 2     │ int  │
+    │ [2]  │ 1     │ int  │
+    └──────┴───────┴──────┘
+
+The ``Pop()`` method is used to remove and return the top element from the stack 
+(remember stacks are ``first-in-last-out``)::
+
+    > stack
+    Stack<int>(3)
+    ┌──────┬───────┬──────┐
+    │ Name │ Value │ Type │
+    ├──────┼───────┼──────┤
+    │ [0]  │ 3     │ int  │
+    │ [1]  │ 2     │ int  │
+    │ [2]  │ 1     │ int  │
+    └──────┴───────┴──────┘
+
+    > stack.Pop()
+    3                       ///// returned
+    > stack      
+    Stack<int>(2)
+    ┌──────┬───────┬──────┐
+    │ Name │ Value │ Type │
+    ├──────┼───────┼──────┤
+    │ [0]  │ 2     │ int  │
+    │ [1]  │ 1     │ int  │
+    └──────┴───────┴──────┘
+
+
+The ``Peek`` method is used to view the top element of the stack without removing it::
+
+    > stack      
+    Stack<int>(2)
+    ┌──────┬───────┬──────┐
+    │ Name │ Value │ Type │
+    ├──────┼───────┼──────┤
+    │ [0]  │ 2     │ int  │
+    │ [1]  │ 1     │ int  │
+    └──────┴───────┴──────┘
+
+    > stack.Peek()
+    2
+    > 
+
+Also, you can use the ``Count`` method to check if a stack is empty::
+
+    if (stack.Count == 0)
+    {
+        Console.WriteLine("Stack is empty");
+    }
+
+
+Queues
+~~~~~~~~
+
+Queues are another fundamental data structure commonly used in computer science 
+that follows the **First In, First Out** (``FIFO``) principle. In C#, the Queue<T> class, 
+found in the System.Collections.Generic namespace, provides a collection that 
+allows adding and removing elements in a first-in-first-out manner. 
+
+To declare a queue using the Queue<T> class::
+
+    Queue<string> queue = new Queue<string>();
+
+To add elements to a queue collection, you use ``Enqueue`` method::
+
+    queue.Enqueue("Task 1");
+    queue.Enqueue("Task 2");
+    queue.Enqueue("Task 3");
+
+as see in csharprepl::
+
+    > Queue<string> queue = new Queue<string>();
+
+    > queue.Enqueue("Task 1"); 
+      queue.Enqueue("Task 2"); 
+      queue.Enqueue("Task 3");
+
+    > queue
+    Queue<string>(3)
+    ┌──────┬──────────┬────────┐
+    │ Name │ Value    │ Type   │
+    ├──────┼──────────┼────────┤
+    │ [0]  │ "Task 1" │ string │
+    │ [1]  │ "Task 2" │ string │
+    │ [2]  │ "Task 3" │ string │
+    └──────┴──────────┴────────┘
+
+In contrast to ``Enqueue``, the ``Dequeue`` method is used to remove and return the 
+front element from the queue::
+
+    > queue
+    Queue<string>(3)
+    ┌──────┬──────────┬────────┐
+    │ Name │ Value    │ Type   │
+    ├──────┼──────────┼────────┤
+    │ [0]  │ "Task 1" │ string │
+    │ [1]  │ "Task 2" │ string │
+    │ [2]  │ "Task 3" │ string │
+    └──────┴──────────┴────────┘
+
+    > queue.Dequeue()     
+    "Task 1"
+    > 
+    > queue
+    Queue<string>(2)
+    ┌──────┬──────────┬────────┐
+    │ Name │ Value    │ Type   │
+    ├──────┼──────────┼────────┤
+    │ [0]  │ "Task 2" │ string │
+    │ [1]  │ "Task 3" │ string │
+    └──────┴──────────┴────────┘
+
+Also, to check if a queue is empty, use the ``Count()`` method::
+
+     if (queue.Count == 0)
+    {
+        Console.WriteLine("Queue is empty");
+    }
+
+
+
+
