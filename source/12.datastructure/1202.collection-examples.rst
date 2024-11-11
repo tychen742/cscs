@@ -67,7 +67,7 @@ not known in advance or may change over time.
 - Iterating through a List:
     
 .. code-block:: csharp
-    
+
     List<string> names = new List<string>() { "Alice", "Bob", "Charlie" };
     // Using for loop
     for (int i = 0; i < names.Count; i++)
@@ -193,7 +193,9 @@ To add elements to a queue collection, you use ``Enqueue`` method::
     queue.Enqueue("Task 2");
     queue.Enqueue("Task 3");
 
-as see in csharprepl::
+as see in csharprepl:
+
+.. code-block:: bash
 
     > Queue<string> queue = new Queue<string>();
 
