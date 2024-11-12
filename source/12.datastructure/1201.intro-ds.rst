@@ -94,7 +94,7 @@ a key and a value. These types include:
 - ConcurrentDictionary<TKey,TValue>
 
 While these collection types (classes) are implemented in C#, you should note that 
-they are based on common data structures: [#data_structure-wiki]_
+they are based on common data structures: [#data_structure-wiki]_ 
 
 - Array: An array is a number of elements in a specific order, typically all of 
   the same type.
@@ -122,10 +122,10 @@ they are based on common data structures: [#data_structure-wiki]_
 
 .. rubric:: Footnotes
 
-.. [#data-structure-wiki] See, e.g., the Data structure `Wikipedia entry <https://en.wikipedia.org/wiki/Data_structure>`_. 
+.. [#data_structure-wiki] See, e.g., the Data structure `Wikipedia entry <https://en.wikipedia.org/wiki/Data_structure>`_. 
 .. [#data_structure-vs-collection] See a Q&A discussion at `Microsoft <https://learn.microsoft.com/en-us/answers/questions/1522979/difference-between-data-structure-and-collection-i>`_
 .. [#microsoft-collections-and-data_structure] In the .NET fundamentals documentation, the term "data structures" only appears in the article title `Collections and Data Structure <https://learn.microsoft.com/en-us/dotnet/standard/collections/>`_ 
 .. [#csharp-collections] See C# language reference: `Collections <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/collections>`_
 .. [#selecting-collection-class] .NET fundamentals documentation: `Selecting a Collection Class <https://learn.microsoft.com/en-us/dotnet/standard/collections/selecting-a-collection-class>`_
 .. [#commonly-used-types] .NET fundamentals documentation: 'Commonly used collection types <https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types>'_
-.. [#generic-non_generic-collections] See `C# Generic & Non-generic Collections<https://www.tutorialsteacher.com/csharp/csharp-collection#:~:text=C%23%20includes%20specialized%20classes%20that,generic%20collections%20and%20generic%20collections.>`_
+.. [#generic-non_generic-collections] See `C# Generic & Non-generic Collections <https://www.tutorialsteacher.com/csharp/csharp-collection#:~:text=C%23%20includes%20specialized%20classes%20that,generic%20collections%20and%20generic%20collections.>`_
