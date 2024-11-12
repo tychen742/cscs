@@ -184,11 +184,11 @@ that follows the **First In, First Out** (``FIFO``) principle. In C#, the Queue<
 found in the System.Collections.Generic namespace, provides a collection that 
 allows adding and removing elements in a first-in-first-out manner. [#professional]
 
-To declare a queue using the Queue<T> class::
+- To declare a queue using the Queue<T> class::
 
     Queue<string> queue = new Queue<string>();
 
-To add elements to a queue collection, you use ``Enqueue`` method::
+- To add elements to a queue collection, you use ``Enqueue`` method::
 
     queue.Enqueue("Task 1");
     queue.Enqueue("Task 2");
@@ -214,7 +214,7 @@ as see in csharprepl:
     │ [2]  │ "Task 3" │ string │
     └──────┴──────────┴────────┘
 
-In contrast to ``Enqueue``, the ``Dequeue`` method is used to remove and return the 
+- In contrast to ``Enqueue``, the ``Dequeue`` method is used to remove and return the 
 front element from the queue:
 
 .. code-block:: console
@@ -241,7 +241,7 @@ front element from the queue:
     │ [1]  │ "Task 3" │ string │
     └──────┴──────────┴────────┘
 
-Also, to check if a queue is empty, use the ``Count()`` method::
+- Also, to check if a queue is empty, use the ``Count()`` method::
 
      if (queue.Count == 0)
     {
