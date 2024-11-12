@@ -204,7 +204,7 @@ Hints
    get the input from a file instead
    of the Console. The parameter syntax will be the same. 
 
-#. For each file line you'll want to use the :ref:`Split`, 
+#. For each file line you'll want to use the `Split`, 
    and then the ``Trim``
    method from :ref:`more-string-methods` on each part to
    remove surrounding spaces. Then 
