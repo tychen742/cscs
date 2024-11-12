@@ -7,6 +7,12 @@ Searching
 In this section, we'll take a look at how to search for a value in an
 array. You will learn about **linear search** and **binary search**. 
 
+.. note:: 
+
+  Note that to use the example files downloaded from GitHub, you need to keep the namespace 
+  consistent. It is recommended to use IntroCSCS (or IntroCS) and you have to check every 
+  file to make sure they are consistent. Failing to do so will incur an error "error CS0103: 
+  The name '*CLASS*' does not exist in the current context".
 
 .. index:: algorithms; linear search
    search; linear
@@ -199,7 +205,7 @@ Of course we generally would be searching in an array with multiple elements.
 It is still important to check *edge cases*:  Check that the code correctly 
 returns -1 if the array has length 0 (a legal length).
 
-Similar to linear searching, we provide a main program that tests it out.  
+Similar to linear searching, we provide a main program that tests it out 
 in :repsrc:`binary_searching/binary_searching_demo.cs`.  It uses 
 an elaboration of binary search that prints
 out the steps visually, as in the introduction to this section. 
