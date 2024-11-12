@@ -61,28 +61,30 @@ Here's what it does:
   to continue searching from where we left off. It might look
   something like the following:
 
-  .. code-block:: csharp
 
-      public static int IntArrayLinearSearch(int[] data, int item,
-                                             int start)
-      {
-         int N=data.Length;
-         if (start < 0) {
-            return -1;
-         }
-         for (int i=start; i < N; i++) {
-            if (data[i] == item) {
-               return i;
-            }
-         }
-         return -1;
-      }
+  .. literalinclude:: ../../examples/introcs/searching/searching.cs
+    :start-after: chunk-linearsearchfrom-begin
+    :end-before: chunk
+    :linenos:
+    :dedent: 6
 
-  .. .. literalinclude:: ../../examples/introcs/searching/searching.cs
-  ..   :start-after: chunk-linearsearchfrom-begin
-  ..   :end-before: chunk
-  ..   :linenos:
-  ..   :dedent: 6
+
+  .. .. code-block:: csharp
+
+  ..     public static int IntArrayLinearSearch(int[] data, int item,
+  ..                                            int start)
+  ..     {
+  ..        int N=data.Length;
+  ..        if (start < 0) {
+  ..           return -1;
+  ..        }
+  ..        for (int i=start; i < N; i++) {
+  ..           if (data[i] == item) {
+  ..              return i;
+  ..           }
+  ..        }
+  ..        return -1;
+  ..     }
 
 
 The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
