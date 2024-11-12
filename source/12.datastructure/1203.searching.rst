@@ -65,11 +65,29 @@ Here's what it does:
 The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
 demonstrates how to use the linear search: 
 
-.. literalinclude:: ../../examples/introcs/searching/searching_demo.cs
-   :start-after: chunk
-   :end-before: chunk
-   :linenos:
-   :dedent: 9
+.. .. literalinclude:: ../../examples/introcs/searching/searching_demo.cs
+..    :start-after: chunk
+..    :end-before: chunk
+..    :linenos:
+..    :dedent: 9
+
+.. code-block:: csharp
+
+      public static int IntArrayLinearSearch(int[] data, int item,
+                                             int start)
+      {
+         int N=data.Length;
+         if (start < 0) {
+            return -1;
+         }
+         for (int i=start; i < N; i++) {
+            if (data[i] == item) {
+               return i;
+            }
+         }
+         return -1;
+      }
+
 
 In this example, we ask the user to enter all the data for the array
 on one line. To convert the string to an int array we
