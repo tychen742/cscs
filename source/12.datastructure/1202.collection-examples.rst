@@ -94,11 +94,11 @@ Last In, First Out (**LIFO**) principle. In C#, the Stack<T> class, found
 in the System.Collections.Generic namespace, provides a collection that allows 
 adding and removing elements in a ``last-in-first-out`` manner.
 
-To **declare** a stack using the Stack<T> class::
+- To **declare** a stack using the Stack<T> class::
 
     Stack<int> stack = new Stack<int>();
 
-To ``push`` to **add elements** to the ``top`` of the stack::
+- To ``push`` to **add elements** to the ``top`` of the stack::
 
     stack.Push(1);
     stack.Push(2);
@@ -124,8 +124,8 @@ After the operations, the stack will contain {3, 2, 1} as shown below:
     │ [2]  │ 1     │ int  │
     └──────┴───────┴──────┘
 
-The ``Pop()`` method is used to remove and return the top element from the stack 
-(remember stacks are ``first-in-last-out``):
+- The ``Pop()`` method is used to remove and return the top element from the stack 
+  (remember stacks are ``first-in-last-out``):
 
 .. code-block:: bash
 
@@ -151,7 +151,7 @@ The ``Pop()`` method is used to remove and return the top element from the stack
     └──────┴───────┴──────┘
 
 
-The ``Peek`` method is used to view the top element of the stack without removing it:
+- The ``Peek`` method is used to view the top element of the stack without removing it:
 
 .. code-block:: bash
 
@@ -168,7 +168,7 @@ The ``Peek`` method is used to view the top element of the stack without removin
     2
     > 
 
-Also, you can use the ``Count`` method to check if a stack is empty::
+- Also, you can use the ``Count`` method to check if a stack is empty::
 
     if (stack.Count == 0)
     {
