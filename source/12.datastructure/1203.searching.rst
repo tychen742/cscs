@@ -66,7 +66,7 @@ demonstrates how to use the linear search:
 
 In this example, we ask the user to enter all the data for the array
 on one line. To convert the string to an int array we
-use the result of the :ref:`intsfromstring_exercise` that we put in
+use the IntsFromString() method in class ExtractFromString in
 :repsrc:`searching/extract_from_string.cs`.
 
 To allow easy termination of the testing loop, we do not use ``PromptInt``
