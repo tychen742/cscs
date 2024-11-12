@@ -55,6 +55,7 @@ not known in advance or may change over time.
     // Initialization of a list with initial values
     List<string> names = new List<string>() { "Alice", "Bob", "Charlie" }; // Creates a list of strings with initial values
 - Adding elements:: 
+  
     List<int> numbers = new List<int>();
     numbers.Add(1); // Adds 1 to the list
     numbers.Add(2); // Adds 2 to the list
