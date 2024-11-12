@@ -194,10 +194,10 @@ below, you see that this time a ``Rectangle`` class is created to inherit the
     }
 
 
-interfaces
+Interfaces
 -------------
 
-Interfaces is another way of achieving abstraction in C#. An interface is a completely 
+Interface is another way of achieving abstraction in C#. An interface is a completely 
 "abstract" class, which can only contain abstract methods and properties 
 (with empty bodies) without any implementation. For example, the following code is 
 an interface definition that does not have any method implementation (body, ``{}``): [#interfaces-w3school]_ 
