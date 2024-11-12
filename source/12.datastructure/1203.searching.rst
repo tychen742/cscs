@@ -55,11 +55,11 @@ Here's what it does:
   to continue searching from where we left off. It might look
   something like the following:
 
-.. literalinclude:: ../../examples/introcs/searching/searching.cs
-   :start-after: chunk-linearsearchfrom-begin
-   :end-before: chunk
-   :linenos:
-   :dedent: 6
+  .. literalinclude:: ../../examples/introcs/searching/searching.cs
+    :start-after: chunk-linearsearchfrom-begin
+    :end-before: chunk
+    :linenos:
+    :dedent: 6
 
 
 The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
