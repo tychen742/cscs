@@ -23,11 +23,11 @@ used to store sets of data, including arrays. [#data_structure-vs-collection]_
 Microsoft, from the implementation perspective, equates collections as data structure by 
 saying that: [#microsoft-collections-and-data_structure]_
 
--- Similar data can often be handled more efficiently when stored and 
--- manipulated as a collection. You can use the System.Array class or the classes 
--- in the System.Collections, System.Collections.Generic, System.Collections.Concurrent, 
--- and System.Collections.Immutable namespaces to add, remove, and modify either 
--- individual elements or a range of elements in a collection.
+  Similar data can often be handled more efficiently when stored and 
+  manipulated as a collection. You can use the System.Array class or the classes 
+  in the System.Collections, System.Collections.Generic, System.Collections.Concurrent, 
+  and System.Collections.Immutable namespaces to add, remove, and modify either 
+  individual elements or a range of elements in a collection.
 
 
 C# Collections
@@ -35,11 +35,11 @@ C# Collections
 
 According to the C# language reference, [#csharp-collections]_
 
-| The .NET runtime provides many collection types that store and manage groups of 
-| related objects. Some of the collection types, such as System.Array, System.Span<T>, 
-| and System.Memory<T> are recognized in the C# language. In addition, interfaces 
-| like System.Collections.Generic.IEnumerable<T> are recognized in the language for 
-| enumerating the elements of a collection.
+  The .NET runtime provides many collection types that store and manage groups of 
+  related objects. Some of the collection types, such as System.Array, System.Span<T>, 
+  and System.Memory<T> are recognized in the C# language. In addition, interfaces 
+  like System.Collections.Generic.IEnumerable<T> are recognized in the language for 
+  enumerating the elements of a collection.
 
 Collection types represent different ways to collect data, such as hash tables, queues, 
 stacks, bags, dictionaries, and lists. Commonly used collection types may be grouped 
