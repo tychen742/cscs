@@ -20,6 +20,12 @@ up repeatedly in programming. Linear search is one of the most common searches
 you will see in typical programs. It also happens to be one of the more *misused* searches,
 which is another reason you want to know about it.
 
+.. note:: 
+
+  You need to download several files in the GitHub introcs-csharp-examples/searching/ 
+  directory to successfully run the linear search operations: searching.cs, 
+  extract_from_string.cs, searching_demo.cs, in addition to ui.cs.
+
 Here is the code from example :repsrc:`searching/searching.cs` 
 to perform a linear search for an integer in an 
 array:
