@@ -56,12 +56,17 @@ Here's what it does:
   something like the following:
 
 .. literalinclude:: ../../examples/introcs/searching/searching.cs
-   :start-after: chunk-linearsearchfrom-begin
+   :start-after: chunk
+   :end-before: chunk
    :linenos:
    :dedent: 6
 
+  ..  :start-after: chunk-linearsearchfrom-begin
   ..  :end-before: chunk
-  
+  ..  :linenos:
+  ..  :dedent: 6
+
+
 The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
 demonstrates how to use the linear search: 
 
