@@ -55,23 +55,7 @@ Here's what it does:
   to continue searching from where we left off. It might look
   something like the following:
 
-  .. literalinclude:: ../../examples/introcs/searching/searching.cs
-    :start-after: chunk-linearsearchfrom-begin
-    :end-before: chunk
-    :linenos:
-    :dedent: 6
-
-
-The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
-demonstrates how to use the linear search: 
-
-.. .. literalinclude:: ../../examples/introcs/searching/searching_demo.cs
-..    :start-after: chunk
-..    :end-before: chunk
-..    :linenos:
-..    :dedent: 9
-
-.. code-block:: csharp
+  .. code-block:: csharp
 
       public static int IntArrayLinearSearch(int[] data, int item,
                                              int start)
@@ -87,6 +71,24 @@ demonstrates how to use the linear search:
          }
          return -1;
       }
+
+  .. .. literalinclude:: ../../examples/introcs/searching/searching.cs
+  ..   :start-after: chunk-linearsearchfrom-begin
+  ..   :end-before: chunk
+  ..   :linenos:
+  ..   :dedent: 6
+
+
+The following code in ``Main`` of :repsrc:`searching/searching_demo.cs`
+demonstrates how to use the linear search: 
+
+.. literalinclude:: ../../examples/introcs/searching/searching_demo.cs
+   :start-after: chunk
+   :end-before: chunk
+   :linenos:
+   :dedent: 9
+
+
 
 
 In this example, we ask the user to enter all the data for the array
