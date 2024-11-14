@@ -53,9 +53,9 @@ Review Questions
    #. Implement the method so that Triangle and Rectangle are able to calculate the areas respectively. 
    #. Prepare the three classes in a file called Shape.cs and run the code from the method in Program.cs. 
    #. Note that in the derived classes you may need to design fields in addition to implementing the method. 
-
    
   .. code-block:: csharp  
+
     public abstract class Shape
     {
         public abstract double GetArea();
