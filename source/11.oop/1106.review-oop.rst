@@ -25,12 +25,16 @@ Review Questions
 #. In the preceding code, if you uncomment student2 and student3 (line# 10, 11), 
    will the code execute without error?
 
-#. Inherit from the following class Shape to create two derived classes: Triangle and Rectangle. 
-   
-.. code-block:: csharp
+#. Perform the following tasks:
+   #. Inherit from the following abstract class Shape to create two derived classes: Triangle and Rectangle. 
+   #. Implement the method so that Triangle and Rectangle are able to calculate the areas respectively. 
+   #. Prepare the three classes in a file called Shape.cs and run the code from the method in Program.cs. 
+   #. Note that in the derived classes you may need to design fields in addition to implementing the method. 
 
-       public abstract class Shape
-    {
-        public abstract double GetArea();
-        public abstract void Draw();
-    }
+   
+    .. code-block:: csharp
+
+        public abstract class Shape
+        {
+            public abstract double GetArea();
+        }
