@@ -1,14 +1,27 @@
 Review Questions
 ====================
 
-#. What is the relationship between "student1" (line# 9) and class Student? 
+#. What is the relationship between "student1" and class Student in the following code? 
 
     .. code-block:: csharp
         :linenos:
 
         using System;
         public class Student {
-            public string name;
+            private string studentName;   
+            private int studentAge;        
+
+            public string Name             
+            {
+                get { return studentName; }
+                set { studentName = value; }
+            }
+
+            public int Age                  // getter/setter to access Age
+            {
+                get { return studentAge; }
+                set { studentAge = value; }
+            }
         }
 
         public class GFG {
@@ -22,8 +35,19 @@ Review Questions
             }
         }
 
-#. In the preceding code, if you uncomment student2 and student3 (line# 10, 11), 
-   will the code execute without error?
+#. In the preceding code, if you uncomment student2 and student3, will the code 
+   execute without error?
+
+#. In the preceding code, if the content of the Main method is changed to the following, 
+   what would the output be?
+
+  .. code-block:: csharp
+
+    Student obj = new Student();
+    obj.Name = "TY Chen";
+    obj.Age = 35;
+    Console.WriteLine(" Name : " + obj.Name);
+    Console.WriteLine(" Age : " + obj.Age); 
 
 #. Perform the following tasks:
    #. Inherit from the following abstract class Shape to create two derived classes: Triangle and Rectangle. 
