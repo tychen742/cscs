@@ -19,12 +19,13 @@ Lab & Review Questions
       {
           get { return studentName; }
           set { studentName = value; } 
-  
+      }
       public int Age 
       {
           get { return studentAge; }
           set { studentAge = value; }
       }
+    }
     
     public class GFG {
       static public void Main()
