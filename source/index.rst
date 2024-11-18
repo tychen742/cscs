@@ -17,7 +17,7 @@ Lecture Notes: Intro to Programming in C#
    10.classes/10.classes
    11.oop/11.oop
    12.datastructure/12.datastructure
-   13.selected-topics/selected-topics
+   13.selected-topics/13.selected-topics
    14.appendix/14.appendix
    
 :ref:`genindex`
