@@ -56,16 +56,97 @@ depicted as the figure below:
 
 .. figure:: ../images/tdd.png
    :align: center
-   :width: 250px
+   :width: 300px
 
 
-We will be introducing parts of file :repsrc:`rational_nunit/rational_unit_tests.cs`.
+As an example, you can prepare test cases such as the code below. Note that the forth method 
+will fail. 
+
+.. code-block:: 
+   :linenos:
+
+   public class BasicMaths 
+   {
+      public double Add(double num1, double num2) {
+         return num1 + num2;
+      }
+      public double Subtract(double num1, double num2) {
+         return num1 - num2;
+      }
+      public double divide(double num1, double num2) {
+         return num1 / num2;
+      }
+      public double Multiply(double num1, double num2) {
+         // To trace error while testing, writing + operator instead of * operator.
+         return num1 + num2;
+      }
+   }
+
+
+After the test cases are prepared, a test framework (e.g., xUnit, NUnit, or MSTest) is 
+added to the project. From the, for NUnit, you can run the following command to add NUnit 
+to your test project (xUnit and MSTest follow similar syntax) [#test-with-csharp-dev-kit]:: 
+
+   dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+
+
+The method test code would look like the follows::
+
+   using System;
+   using Microsoft.VisualStudio.TestTools.UnitTesting;
+   using BasicMath;
+   namespace BasicMathTest {
+
+   [TestClass]
+   public class UnitTest1 {
+      [TestMethod]
+      public void Test_AddMethod() {
+               BasicMaths bm = new BasicMaths();
+               double res = bm.Add(10, 10);
+               Assert.AreEqual(res, 20);
+         }
+         [TestMethod]
+      public void Test_SubstractMethod() {
+               BasicMaths bm = new BasicMaths();
+               double res = bm.Substract(10, 10);
+               Assert.AreEqual(res, 0);
+         }
+         [TestMethod]
+      public void Test_DivideMethod() {
+               BasicMaths bm = new BasicMaths();
+               double res = bm.divide(10, 5);
+               Assert.AreEqual(res, 2);
+         }
+         [TestMethod]
+      public void Test_MultiplyMethod() {
+         BasicMaths bm = new BasicMaths();
+         double res = bm.Multiply(10, 10);
+         Assert.AreEqual(res, 100);
+      }
+   }}
+
+Note that, in the test code,
+
+- The method must be defined with the [TestMethod] attribute just above method name.
+- The method must having return type void.
+- The method cannot have any parameters.
+
+
+Testing "Rational"
+--------------------
+
+** This section is kept here for your reference. 
+
+With the Rational class from a previous section, we will be introducing parts of 
+file :repsrc:`rational_nunit/rational_unit_tests.cs` for testing.
 
 .. index:: testing; assertion 
    assertion testing
 
+
+
 Assertions
--------------
+~~~~~~~~~~~~
 
 A key notion of testing is the ability to make a logical assertion about something
 that generally must hold *true* if the test is to pass. 
@@ -102,7 +183,7 @@ what is being tested is true or false.
    single: [ ]; attribute
    
 Attributes
--------------
+~~~~~~~~~~~
 
 Besides assertions, a building block of testing (in C# and beyond) comes in the form
 of attributes. Attributes are an additional piece of information that can be attached 
@@ -137,7 +218,7 @@ Our strategy will be as follows:
 Let's get started.
 
 Testing the Constructor
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/introcs/rational_nunit/rational_unit_tests.cs
    :start-after: snip-ConstructorTest-begin
@@ -167,7 +248,7 @@ We'll look at how to actually run our tests in a bit but let's continue taking a
 at how the rest of our testing is done. 
 
 Testing Rational Comparisons
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/introcs/rational_nunit/rational_unit_tests.cs
    :start-after: snip-BasicComparisonTests-begin
@@ -190,7 +271,7 @@ arithmetic tests, which rely on the ability to test whether a *computed result* 
 an *expected result* (e.g. 1/4 + 2/4 == 3/4).
 
 Testing Rational Arithmetic
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/introcs/rational_nunit/rational_unit_tests.cs
    :start-after: snip-BasicArithmeticTest-begin 
@@ -230,7 +311,7 @@ The remaining tests are fairly straightforward. We'll more or less present them 
 minimal explanation as they are in many ways variations on the theme.
 
 Testing Rational Conversions (to other types)
--------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/introcs/rational_nunit/rational_unit_tests.cs
    :start-after: snip-BasicConversionTests-begin
@@ -244,7 +325,7 @@ For example, Rational(3/6) is 1/2, which is 0.5 (both in its floating-point and 
 representations.
 
 Testing the Parsing Feature
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../../examples/introcs/rational_nunit/rational_unit_tests.cs
    :start-after: snip-ParseTest-begin
@@ -271,7 +352,7 @@ into an actual (reduced) rational number. We test three general cases:
 .. _running-nunit-tests:
 
 Running the NUnit Tests
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In Xamarin Studio, select the rational_nunit project. 
 #. In the main Xamarin Studio menu click "Run" and select "Run Unit Tests" 
@@ -328,31 +409,32 @@ would normally come from the command line.  See the small project
 .. index:: String Replace NUnit Exercise
    exercise; String Replace NUnit
    
-String Replace NUnit Test Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. String Replace NUnit Test Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you completed the program from the stub 
-:repsrc:`string_manip_stub/string_manip.cs`,
-then add a testing class using NUnit that tests ``ReplaceFirst`` 
-with the same parameters as used in the original file's ``Main``.  
-If you did the elaboration of ``ReplaceFirst`` that just returns the original
-string when the target is not found, then add tests for that, too.
-Remember the necessary library reference and try it out.
+.. If you completed the program from the stub 
+.. :repsrc:`string_manip_stub/string_manip.cs`,
+.. then add a testing class using NUnit that tests ``ReplaceFirst`` 
+.. with the same parameters as used in the original file's ``Main``.  
+.. If you did the elaboration of ``ReplaceFirst`` that just returns the original
+.. string when the target is not found, then add tests for that, too.
+.. Remember the necessary library reference and try it out.
 
-.. index:: Grade File NUnit Exercise'
-   exercise; Grade File NUnit test
+.. .. index:: Grade File NUnit Exercise'
+..    exercise; Grade File NUnit test
    
-Grade File NUnit Test Exercise
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Grade File NUnit Test Exercise
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add a testing class using NUnit to :ref:`hw-gradefiles`.  
-Remember the necessary library reference.
-Sample data files and files for testing the results
-are included in the project.  Just test 
-using command line parameters (so there is no Console input).  
-Test with both comp170 and comp150.  
+.. Add a testing class using NUnit to :ref:`hw-gradefiles`.  
+.. Remember the necessary library reference.
+.. Sample data files and files for testing the results
+.. are included in the project.  Just test 
+.. using command line parameters (so there is no Console input).  
+.. Test with both comp170 and comp150.  
 
 
 .. rubric:: Footnotes
 .. [#developer-ecosys-testing] The State of Developer Ecosystem 2023, `Testing <https://www.jetbrains.com/lp/devecosystem-2023/testing/>`_ 
 .. [#unit-testing-aws] `What is unit testing? <https://aws.amazon.com/what-is/unit-testing/#:~:text=Unit%20testing%20is%20the%20process,test%20for%20each%20code%20unit.>`_
+.. [#test-with-csharp-dev-kit] `Testing with C# Dev Kit <https://code.visualstudio.com/docs/csharp/testing>`_
