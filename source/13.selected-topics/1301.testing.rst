@@ -2,18 +2,25 @@
 
 .. _testing:
 
-Testing
+Unit Testing
 ============
 
-Now that we have learned a bit about classes, we're going to use the same feature
-to support *unit testing*. Unit testing is a concept that will become part of just
-about everything you do in future programming-focused courses, so we want to make sure
-that you understand the idea and begin to make use of it in all of your work.
+Testing is a critical part of software development. In JetBrain's The State of 
+Developer Ecosystem 2023 survey [#developer-ecosys-testing]_, for example, 80% of the 
+respondents say that "testing plays an integral role in their software development 
+projects." Also, 63% of respondents say they use **Unit testing** in their projects while 
+47% say they use Integration testing. While 41% of respondents say they have less 
+than 1 tester/Quality Assurance Engineer per 10 developers, 32% of the respondents say 
+that they have 1-3 testers/QA per 10 software developers. Testing, especially Unit Testing, 
+therefore, is a common practice in real world software development. 
+
+Unit testing is usually done by using testing frameworks. For C#, popular testing 
+frameworks include: MSTest, NUnit, and xUnit. 
 
 The notion of unit testing is straightforward in principle. When you write a program
 in general, the program comprises what are properly known as units of development. 
 Each language has its own definition of what units are but most modern programming
-languages view the *class* concept as the core unit of testing. Once we have a class,
+languages view the **class** concept as the core unit of testing. Once we have a class,
 we can test it and all of the parts associated with it, especially its methods.
 
 We will be introducing parts of file :repsrc:`rational_nunit/rational_unit_tests.cs`.
@@ -309,3 +316,6 @@ are included in the project.  Just test
 using command line parameters (so there is no Console input).  
 Test with both comp170 and comp150.  
 
+
+.. rubric:: Footnotes
+.. [#developer-ecosys-testing] The State of Developer Ecosystem 2023, `Testing <https://www.jetbrains.com/lp/devecosystem-2023/testing/>`_ 
