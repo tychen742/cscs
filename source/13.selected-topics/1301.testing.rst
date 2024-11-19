@@ -20,7 +20,8 @@ frameworks include: MSTest, NUnit, and xUnit.
 The notion of unit testing is straightforward in principle. When you write a program
 in general, the program comprises what are properly known as units of development. 
 Each language has its own definition of what units are but most modern programming
-languages view the **class** concept as the core unit of testing. Once we have a class,
+languages view the **class** concept as the core unit of testing, although it can be done 
+at lower level such as **method** and higher level such as package. Once we have a class,
 we can test it and all of the parts associated with it, especially its methods.
 
 We will be introducing parts of file :repsrc:`rational_nunit/rational_unit_tests.cs`.
