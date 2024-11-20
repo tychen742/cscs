@@ -1,13 +1,13 @@
 Lab: Unit Test
 ==================
 
-Create a lab folder, call it Ch13TopicsLab. Its location is \workspace\introcscs\. 
+Create a lab folder, call it Ch13TopicsLab. Its location is \\workspace\\introcscs\\. 
 
 The process of creating a unit test involves several steps:
 
 #. Create a solution
    #. Inside your Ch13TopicsLab, create a folder, call it UnitTestProject1 (`mkdir UnitTestProject1`).
-#. Create an application project folder (new here but can be existing), call it `MathApp` and 
+#. Create an **application project** folder (new here but can be existing), call it `MathApp` and 
    a **test project** folder, call it `MathAppTest`:
    #. `mkdir MathApp` inside UnitTestProject1.
    #. `mkdir MathAppTest` inside UnitTestProject1.
