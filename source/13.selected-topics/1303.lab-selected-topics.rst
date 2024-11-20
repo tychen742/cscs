@@ -1,13 +1,18 @@
 Lab: Unit Test
 ==================
 
-Create a lab folder, call it Ch13TopicsLab. Its location is [USERNAME]\\workspace\\introcscs\\. 
+Create a lab folder, call it Ch13SelectedTopicsLab. Its location is inside [USERNAME]\\workspace\\introcscs\\. 
 
 The process of creating a unit test involves several steps:
 
 #. Create a solution folder:
    
-   #. Inside your Ch13TopicsLab, create a folder, call it UnitTestProject1 (``mkdir UnitTestProject1``).
+   #. Inside your Ch13SelectedTopicsLab, create a folder, call it UnitTestProject1 (``mkdir UnitTestProject1``).
+
+    To make this folder a solution, run::
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
+        The template "Solution File" was created successfully.
 
 #. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
    a **test project** folder, call it ``MathAppTest``:
@@ -21,11 +26,23 @@ The process of creating a unit test involves several steps:
 
    #. Inside the MathApp folder, do ``dotnet new console``.
    #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here but you can use other tools such as NUnit or xUnit).
-
+   
 #. Make MathApp a project of the MathAppTest test project:
 
    #. ``dotnet add`` [foldername of the Test project csproj file] ``reference`` [foldername of the App project csproj file]
 
+#. Add both projects to solution:
+
+   #. Add MathApp to solution::
+    
+    tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
+    Project `MathApp/MathApp.csproj` added to the solution.
+
+   #. Add MathAppTest to solution::
+      
+      tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
+      Project `MathAppTest/MathAppTest.csproj` added to the solution.
+      
 In your application folder, we know there is a default Program.cs file created when we run 
 ``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
 automatically for you to use. Now revise the content of the two files. 
@@ -37,13 +54,13 @@ filled with a class ``BasicMath`` containing 4 basic arithmetic operation method
     namespace SomeMath
     {
     
-        // internal class Program
-        //     {
-        //         private static void Main(string[] args)
-        //         {
-        //             Console.WriteLine("Hello, World!");
-        //         }
-        //     }
+        internal class Program
+        {
+            private static void Main(string[] args)
+            {
+                Console.WriteLine("Hello, World!");
+            }
+        }
         
         public class BasicMath
         {
@@ -65,13 +82,14 @@ filled with a class ``BasicMath`` containing 4 basic arithmetic operation method
             public double Multiply(double num1, double num2)
             {
                 // To trace error while testing, writing + operator instead of * operator.
-                return num1 + num2;
+                return num1 + num2;         ///// this will fail!!!!!
             }
         }
     }
 
 The content of the ``UnitTest1`` file in the MathAppTest folder, on the other hand, should 
-look like this::
+look like this (note the ``Assert`` method works in debug compilation to take in a Boolean condition 
+as a parameter, and shows the error dialog if the condition is false)::
 
     using SomeMath;             ///// we want to talk to the BasicMath class 
 
@@ -113,6 +131,17 @@ look like this::
         }
     }
 
+After the two projects are created, run ``dotnet build`` in each folder to make sure there is 
+no errors::
+
+    dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+
+For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see::
+
+    tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
+    Reference `..\MathApp\MathApp.csproj` added to the project.
+
+
 Now if you run ``dotnet test``, you should see the results like:
 
 .. code-block:: bash
@@ -138,3 +167,5 @@ Now if you run ``dotnet test``, you should see the results like:
 
 
     Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
+
+
