@@ -15,21 +15,24 @@ The process of creating a unit test involves several steps:
    #. ``mkdir MathApp`` inside UnitTestProject1.
    #. ``mkdir MathAppTest`` inside UnitTestProject1.
 
+   Now if you ``ls``, you should see both folders.
+
 #. Make MathApp a console app project and MathAppTest a MSTest project:
 
    #. Inside the MathApp folder, do ``dotnet new console``.
-   #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here).
+   #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here but you can use other tools such as NUnit or xUnit).
 
 #. Make MathApp a project of the MathAppTest test project:
 
    #. ``dotnet add`` [foldername of the Test project csproj file] ``reference`` [foldername of the App project csproj file]
 
 In your application folder, we know there is a default Program.cs file created when we run 
-``dotnet new console``. When we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
+``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
 automatically for you to use. Now revise the content of the two files. 
 
-The content of Program.cs in your MathApp folder should look like the code below, 
-filled with a class ``BasicMath`` containing 4 basic arithmetic operation methods::
+The content of the console app ``Program.cs`` in your MathApp folder should look like the code below, 
+filled with a class ``BasicMath`` containing 4 basic arithmetic operation methods 
+(note that the namespace is critical for the test project to access this app project)::
 
     namespace SomeMath
     {
@@ -67,7 +70,7 @@ filled with a class ``BasicMath`` containing 4 basic arithmetic operation method
         }
     }
 
-The content of the UnitTest1 file in the MathAppTest folder, on the other hand, should 
+The content of the ``UnitTest1`` file in the MathAppTest folder, on the other hand, should 
 look like this::
 
     using SomeMath;             ///// we want to talk to the BasicMath class 
@@ -109,3 +112,29 @@ look like this::
             Assert.AreEqual(res, 100);
         }
     }
+
+Now if you run ``dotnet test``, you should see the results like:
+
+.. code-block:: bash
+
+    tychen@mac:~/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1$ dotnet test
+    Determining projects to restore...
+    All projects are up-to-date for restore.
+    MathApp -> /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathApp/bin/Debug/net8.0/MathApp.dll
+    MathAppTest -> /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/bin/Debug/net8.0/MathAppTest.dll
+    Test run for /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/bin/Debug/net8.0/MathAppTest.dll (.NETCoreApp,Version=v8.0)
+    Microsoft (R) Test Execution Command Line Tool Version 17.9.0 (x64)
+    Copyright (c) Microsoft Corporation.  All rights reserved.
+
+    Starting test execution, please wait...
+    A total of 1 test files matched the specified pattern.
+    Failed Test_MultiplyMethod [42 ms]
+    Error Message:
+        Assert.AreEqual failed. Expected:<20>. Actual:<100>. 
+    Stack Trace:
+        at MathAppTest.UnitTest1.Test_MultiplyMethod() in /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/UnitTest1.cs:line 37
+        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+        at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+
+    Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
