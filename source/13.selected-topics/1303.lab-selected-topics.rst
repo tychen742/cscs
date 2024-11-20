@@ -12,10 +12,10 @@ in VS Code but it can be easier from time to time with the terminal:
 
     To make this folder a solution, run:
 
-        .. code-block:: bash
+    .. code-block:: bash
 
-            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
-            The template "Solution File" was created successfully.
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
+        The template "Solution File" was created successfully.
 
 #. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
    a **test project** folder, call it ``MathAppTest``:
@@ -38,17 +38,17 @@ in VS Code but it can be easier from time to time with the terminal:
 
    #. Add MathApp to solution:
     
-        .. code-block:: bash
-        
-            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
-            Project `MathApp/MathApp.csproj` added to the solution.
+    .. code-block:: bash        
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
+        Project `MathApp/MathApp.csproj` added to the solution.
 
    #. Add MathAppTest to solution:
 
-        .. code-block:: bash
-      
-            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
-            Project `MathAppTest/MathAppTest.csproj` added to the solution.
+    .. code-block:: bash      
+        
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
+        Project `MathAppTest/MathAppTest.csproj` added to the solution.
 
 #. After the two projects are created, add the app project to the test project as one of the projects to be tested::
 
