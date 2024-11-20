@@ -9,10 +9,12 @@ The process of creating a unit test involves several steps:
    
    #. Inside your Ch13SelectedTopicsLab, create a folder, call it UnitTestProject1 (``mkdir UnitTestProject1``).
 
-    To make this folder a solution, run::
+    To make this folder a solution, run:
 
-        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
-        The template "Solution File" was created successfully.
+        .. code-block:: bash
+
+            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
+            The template "Solution File" was created successfully.
 
 #. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
    a **test project** folder, call it ``MathAppTest``:
@@ -140,10 +142,12 @@ no errors::
 
     dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
 
-For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see::
+For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see:
 
-    tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
-    Reference `..\MathApp\MathApp.csproj` added to the project.
+    .. code-block:: bash
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
+        Reference `..\MathApp\MathApp.csproj` added to the project.
 
 
 Now if you run ``dotnet test``, you should see the results like:
