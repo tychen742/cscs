@@ -95,8 +95,8 @@ you will need more cases and your Program.cs will become disorganized. This is w
 established tooling comes in. 
 
 
-Unit Testing Process
------------------------
+The Unit Testing Process
+--------------------------
 
 One of the fundamental principles of adopting unit testing is to follow a 
 TDD (Test Driven Development) approach where you have to write tests case first, 
@@ -134,7 +134,7 @@ will fail.
 
 After the test cases are prepared, a test framework (e.g., xUnit, NUnit, or MSTest) is 
 added to the project. From the, for NUnit, you can run the following command to add NUnit 
-to your test project (xUnit and MSTest follow similar syntax) [#test-with-csharp-dev-kit]:: 
+to your test project (xUnit and MSTest follow similar syntax) [#test-with-csharp-dev-kit]_:: 
 
    dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
 
