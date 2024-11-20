@@ -49,6 +49,19 @@ The process of creating a unit test involves several steps:
             tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
             Project `MathAppTest/MathAppTest.csproj` added to the solution.
 
+#. After the two projects are created, add the app project to the test project as one of the projects to be tested::
+
+        dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+
+   For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see:
+
+    .. code-block:: bash
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
+        Reference `..\MathApp\MathApp.csproj` added to the project.
+
+
+
 In your application folder, we know there is a default Program.cs file created when we run 
 ``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
 automatically for you to use. Now revise the content of the two files. 
@@ -92,6 +105,10 @@ filled with a class ``BasicMath`` containing 4 basic arithmetic operation method
             }
         }
     }
+
+You would want to run ``dotnet build`` in the project folder to make sure there is no errors::
+
+    dotnet build
 
 The content of the ``UnitTest1`` file in the MathAppTest folder, on the other hand, should 
 look like this (note the ``Assert`` method works in debug compilation to take in a Boolean condition 
@@ -137,20 +154,11 @@ as a parameter, and shows the error dialog if the condition is false)::
         }
     }
 
-After the two projects are created, run ``dotnet build`` in each folder to make sure there is 
-no errors::
+You would want to run ``dotnet build`` in the project folder to make sure there is no errors::
 
-    dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+    dotnet build
 
-For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see:
-
-    .. code-block:: bash
-
-        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
-        Reference `..\MathApp\MathApp.csproj` added to the project.
-
-
-Now if you run ``dotnet test``, you should see the results like:
+Now if you run ``dotnet test`` inside UnitTestProject1, you should see the results like:
 
 .. code-block:: bash
 
@@ -177,3 +185,6 @@ Now if you run ``dotnet test``, you should see the results like:
     Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
 
 
+You should also be able to run the test using VS Code for better visualization of the tests. You may need to 
+install an extension for the purpose and build/rebuild the test project in Test Explorer to make the tests show 
+up in the test extension. 
