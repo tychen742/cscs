@@ -1,6 +1,11 @@
 Lab: Unit Test
 ==================
 
+Note that the idea of TDD is to write tests first, so that you will be focused with the requirements and not 
+to be distracted by your coding. That's why we start with simple test cases in the test project to test the 
+units in the application project. After you make sure the application tests can pass, you then improve the 
+units (methods, classes) in the application project. 
+
 Create a lab folder, call it Ch13SelectedTopicsLab. Its location is inside [USERNAME]\\workspace\\introcscs\\. 
 
 The process of creating a unit test involves several steps. Most, if not all, of the steps can be performed 
@@ -46,7 +51,7 @@ in VS Code but it can be easier from time to time with the terminal:
    #. Add MathAppTest to solution:
 
     .. code-block:: bash      
-        
+
         tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
         Project `MathAppTest/MathAppTest.csproj` added to the solution.
 
