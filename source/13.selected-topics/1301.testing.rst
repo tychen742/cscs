@@ -45,6 +45,55 @@ we can test it and all of the parts associated with it, especially its methods.
 Unit testing is usually done by using testing frameworks. For C#, popular testing 
 frameworks include: MSTest, NUnit, and xUnit. 
 
+Simple Unit Testing
+---------------------
+
+Assuming that you have a killer app like::
+
+   namespace IntroCSCS
+   {
+      public class Calculator
+      {
+         public int Add(int x, int y)
+         {
+            return x + y;
+         }
+      }
+   }
+
+Let's say you want to know that this app is doing what you intend for it to do. The best 
+way to achieve that validation is probably by providing a set of validation code 
+that does nothing but running the app to **test** if the results come out right, such as the 
+following:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 9-12
+
+   namespace IntroCSCS 
+   {
+      internal class Program
+      {
+         static void Main(string[] args)
+         {
+            var calculator = new Calculator();
+
+            if (calculator.Add(15, 20) != 35)
+            {
+                  throw new InvalidOperationException();
+            }
+            // else
+            // {
+            //     Console.WriteLine("OK");
+            // }
+         }
+      }
+   }
+
+Currently, there is only one method (Add) in the Calculator class. As you add more methods, 
+you will need more cases and your Program.cs will become disorganized. This is where the 
+established tooling comes in. 
+
 
 Unit Testing Process
 -----------------------
