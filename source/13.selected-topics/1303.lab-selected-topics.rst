@@ -5,31 +5,31 @@ Create a lab folder, call it Ch13TopicsLab. Its location is [USERNAME]\\workspac
 
 The process of creating a unit test involves several steps:
 
-#. Create a solution
+#. Create a solution folder:
    
-   #. Inside your Ch13TopicsLab, create a folder, call it UnitTestProject1 (`mkdir UnitTestProject1`).
+   #. Inside your Ch13TopicsLab, create a folder, call it UnitTestProject1 (``mkdir UnitTestProject1``).
 
-#. Create an **application project** folder (new here but can be existing), call it `MathApp` and 
-   a **test project** folder, call it `MathAppTest`:
+#. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
+   a **test project** folder, call it ``MathAppTest``:
 
-   #. `mkdir MathApp` inside UnitTestProject1.
-   #. `mkdir MathAppTest` inside UnitTestProject1.
+   #. ``mkdir MathApp`` inside UnitTestProject1.
+   #. ``mkdir MathAppTest`` inside UnitTestProject1.
 
 #. Make MathApp a console app project and MathAppTest a MSTest project:
 
-   #. Inside the MathApp folder, do `dotnet new console`.
-   #. Inside the MathAppTest folder, do `dotnet new mstest` (we are using MSTest here).
+   #. Inside the MathApp folder, do ``dotnet new console``.
+   #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here).
 
 #. Make MathApp a project of the MathAppTest test project:
 
-   #. `dotnet add` [foldername of the Test project csproj file] `reference` [foldername of the App project csproj file]
+   #. ``dotnet add`` [foldername of the Test project csproj file] ``reference`` [foldername of the App project csproj file]
 
 In your application folder, we know there is a default Program.cs file created when we run 
-`dotnet new console`. When we run `dotnet new mstest`, there is a `UnitTest1` created 
+``dotnet new console``. When we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
 automatically for you to use. Now revise the content of the two files. 
 
 The content of Program.cs in your MathApp folder should look like the code below, 
-filled with a class `BasicMath` containing 4 basic arithmetic operation methods::
+filled with a class ``BasicMath`` containing 4 basic arithmetic operation methods::
 
     namespace SomeMath
     {
