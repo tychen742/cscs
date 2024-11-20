@@ -33,15 +33,19 @@ The process of creating a unit test involves several steps:
 
 #. Add both projects to solution:
 
-   #. Add MathApp to solution::
+   #. Add MathApp to solution:
     
-      tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
-      Project `MathApp/MathApp.csproj` added to the solution.
+        .. code-block:: bash
+        
+            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
+            Project `MathApp/MathApp.csproj` added to the solution.
 
-   #. Add MathAppTest to solution::
+   #. Add MathAppTest to solution:
+
+        .. code-block:: bash
       
-      tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
-      Project `MathAppTest/MathAppTest.csproj` added to the solution.
+            tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
+            Project `MathAppTest/MathAppTest.csproj` added to the solution.
 
 In your application folder, we know there is a default Program.cs file created when we run 
 ``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
