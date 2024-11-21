@@ -31,7 +31,7 @@ in VS Code but it can be easier from time to time with the terminal:
         tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
         The template "Solution File" was created successfully.
 
-   #. Later, when you need to choose a solution for the active project, go to ``View`` ==> ``Command Palette`` ==> type solution and 
+   2. Later, when you need to choose a solution for the active project, go to ``View`` ==> ``Command Palette`` ==> type solution and 
       choose ``.NET: Open Solution`` to choose your solution, which is UnitTestProject1 in this case. 
 
 #. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
