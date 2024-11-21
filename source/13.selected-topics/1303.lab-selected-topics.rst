@@ -82,7 +82,7 @@ in VS Code but it can be easier from time to time with the terminal:
        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
        Reference `..\MathApp\MathApp.csproj` added to the project.
 
-Prepare Code
+Preparing Code
 --------------
 
 In your application folder, we know there is a default Program.cs file created when we run 
@@ -206,6 +206,10 @@ Now if you run ``dotnet test`` inside UnitTestProject1, you should see the resul
 
 
     Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
+
+
+Run Testing in VS Code
+-----------------------
 
 You should also be able to run the test using VS Code for better visualization of the tests. You may need to 
 install an extension such as C# Dev Kit for the purpose and build/rebuild the test project in Test Explorer to make the tests show 
