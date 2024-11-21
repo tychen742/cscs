@@ -9,6 +9,9 @@ Your Tasks
 #. As usual, prepare the assignment using a Word document with screenshots (code and execution with path 
    and username) and your annotations. 
 
+Preparing Project
+------------------
+
 The idea of TDD is to write tests first, so that you will be focused with the requirements and not 
 to be distracted by your own coding. That's why we start with simple test cases in the test project to test the 
 units in the application project. After you make sure the application tests can pass, you then improve the 
@@ -79,7 +82,8 @@ in VS Code but it can be easier from time to time with the terminal:
        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
        Reference `..\MathApp\MathApp.csproj` added to the project.
 
-
+Prepare Code
+--------------
 
 In your application folder, we know there is a default Program.cs file created when we run 
 ``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
