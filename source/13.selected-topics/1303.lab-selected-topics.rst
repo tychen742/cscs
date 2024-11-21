@@ -67,7 +67,7 @@ in VS Code but it can be easier from time to time with the terminal:
         tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
         Project `MathAppTest/MathAppTest.csproj` added to the solution.
 
-#. After the two projects are created, add the app project to the test project as one of the projects to be tested::
+#. Add the app project to the test project as one of the projects to be tested::
 
         dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
 
