@@ -99,9 +99,11 @@ The Unit Testing Process
 --------------------------
 
 One of the fundamental principles of adopting unit testing is to follow a 
-TDD (Test Driven Development) approach where you have to write tests case first, 
-and then write the simple code that will make the test pass. The process of TDD is often 
-depicted as the figure below:
+TDD (Test Driven Development) approach where you will: 
+
+#. Write a failing test (to prove the point that the test works) by no providing 
+#. Implement the functionality to pass the test
+#. Refactor the code while keeping the test green
 
 .. figure:: ../images/tdd.png
    :align: center
@@ -133,7 +135,7 @@ will fail.
 
 
 After the test cases are prepared, a test framework (e.g., xUnit, NUnit, or MSTest) is 
-added to the project. From the, for NUnit, you can run the following command to add NUnit 
+added to the project. From there, for NUnit, you can run the following command to add NUnit 
 to your test project (xUnit and MSTest follow similar syntax) [#test-with-csharp-dev-kit]_:: 
 
    dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
@@ -174,7 +176,7 @@ The method test code would look like the follows::
       }
    }}
 
-Note that, in the test code,
+Note that, in the test code:
 
 - The method must be defined with the [TestMethod] attribute just above method name.
 - The method must having return type void.

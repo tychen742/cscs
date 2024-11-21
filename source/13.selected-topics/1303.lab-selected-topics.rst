@@ -1,15 +1,24 @@
 Lab: Unit Test
 ==================
 
-Note that the idea of TDD is to write tests first, so that you will be focused with the requirements and not 
-to be distracted by your coding. That's why we start with simple test cases in the test project to test the 
+Your Tasks
+------------
+
+#. Implement this unit testing project.
+#. Add one method in the application and one corresponding test in the test project. 
+#. As usual, prepare the assignment using a Word document with screenshots (code and execution with path 
+   and username) and your annotations. 
+
+The idea of TDD is to write tests first, so that you will be focused with the requirements and not 
+to be distracted by your own coding. That's why we start with simple test cases in the test project to test the 
 units in the application project. After you make sure the application tests can pass, you then improve the 
 units (methods, classes) in the application project. 
 
-Create a lab folder, call it Ch13SelectedTopicsLab. Its location is inside [USERNAME]\\workspace\\introcscs\\. 
 
 The process of creating a unit test involves several steps. Most, if not all, of the steps can be performed 
 in VS Code but it can be easier from time to time with the terminal:
+
+#. Create a lab folder, call it ``Ch13SelectedTopicsLab``. Its location is inside [USERNAME]\\workspace\\introcscs\\. 
 
 #. Create a solution folder:
    
@@ -22,7 +31,11 @@ in VS Code but it can be easier from time to time with the terminal:
         tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
         The template "Solution File" was created successfully.
 
+    To choose a solution for the active project, go to ``View`` ==> ``Command Palette`` ==> type solution and 
+    choose ``.NET: Open Solution`` to choose your solution, which is UnitTestProject1 in this case. 
+
 #. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
+   
    a **test project** folder, call it ``MathAppTest``:
 
    #. ``mkdir MathApp`` inside UnitTestProject1.
@@ -112,7 +125,7 @@ filled with a class ``BasicMath`` containing 4 basic arithmetic operation method
         }
     }
 
-You would want to run ``dotnet build`` in the project folder to make sure there is no errors::
+You would want to run ``dotnet build`` in the app project folder to make sure there is no errors::
 
     dotnet build
 
@@ -132,7 +145,7 @@ as a parameter, and shows the error dialog if the condition is false)::
         {
             BasicMath bm = new BasicMath();     // create instance
             double res = bm.Add(10, 10);        // run the method
-            Assert.AreEqual(res, 20);           // make sure the answers match
+            Assert.AreEqual(res, 20);           // detect if the answers match
         }
 
         [TestMethod]
@@ -160,7 +173,7 @@ as a parameter, and shows the error dialog if the condition is false)::
         }
     }
 
-You would want to run ``dotnet build`` in the project folder to make sure there is no errors::
+You would want to run ``dotnet build`` in the test project folder to make sure there is no errors::
 
     dotnet build
 
@@ -190,7 +203,6 @@ Now if you run ``dotnet test`` inside UnitTestProject1, you should see the resul
 
     Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
 
-
 You should also be able to run the test using VS Code for better visualization of the tests. You may need to 
-install an extension for the purpose and build/rebuild the test project in Test Explorer to make the tests show 
+install an extension such as C# Dev Kit for the purpose and build/rebuild the test project in Test Explorer to make the tests show 
 up in the test extension. 
