@@ -51,10 +51,6 @@ in VS Code but it can be easier from time to time with the terminal:
    #. Inside the MathApp folder, do ``dotnet new console``.
    #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here but you can use other tools such as NUnit or xUnit).
    
-#. Make MathApp a project of the MathAppTest test project:
-
-   #. ``dotnet add`` [foldername of the Test project csproj file] ``reference`` [foldername of the App project csproj file]
-
 #. Add both projects to solution:
 
    1. Add MathApp to solution:
