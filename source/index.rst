@@ -1,4 +1,4 @@
-Lecture Notes: IST-1551 CS in C#
+Lecture Notes: Intro to CS in C#
 ===========================================
 
 .. toctree::
