@@ -1,26 +1,26 @@
 Introduction
 ==============
 
-The term "data structure" could mean any structure (such as a list, array, tree, 
-dictionary, etc) that stores data. You can say that a class as simple as an employee 
-object storing employee-specific data is a structure. Academically, it is common 
-to more focus on data structure as a data organization and storage format (hash, array, etc) 
-that is usually chosen for efficient access to data. A data structure, therefore, 
-is a collection of data values, the relationship among them, and the functions 
-or operations that can be applied to them. [#data_structure-wiki]_  
+The term **data structure** could mean any structure (such as a list, array, tree, 
+dictionary, etc) that stores data. By definition, you can say that a class as 
+simple as an employee object storing employee-specific data is a structure. 
+Academically, however, it is common to more focus on data structure as a data 
+organization and storage format (hash, array, etc) that is usually chosen for 
+efficient access to data. A data structure, therefore, can refer to a collection of data 
+values, the relationship among them, and the functions or operations that can 
+be applied to them. [#data_structure-wiki]_  
 
-However when we talk about data structures, we are often referring to commonly  
-structured sets of data, and they are sometimes called "collections". Collections 
-are sets of data. They can include lists, dictionaries, trees, etc. From the 
+On the other hand, when we talk about data structures, we are often referring to commonly  
+implemented structured sets of data, and they are sometimes called "collections". Collections 
+are sets of data including lists, dictionaries, trees, etc. From the 
 implementation perspective, a collection is an ``abstract data type`` that is 
 a grouping of items of often the same data type such as string or integer. 
 
-In NET, the namespace (and hence types) that store the sets of data is System.Collections. 
-Therefore in NET we tend to use the term collections for any of the data structures 
-used to store sets of data, including arrays. [#data_structure-vs-collection]_ 
+In .NET, the namespace (and hence types) that store the sets of data is System.Collections. 
+Therefore in .NET we tend to use the term **collections** for any of the data structures 
+used to store sets of data implemented in the .NET platform, including arrays. [#data_structure-vs-collection]_ 
 
-Microsoft, from the implementation perspective, equates collections as data structure by 
-saying that: [#microsoft-collections-and-data_structure]_
+From the implementation perspective, implemented data structure are called collections: [#microsoft-collections-and-data_structure]_
 
   Similar data can often be handled more efficiently when stored and 
   manipulated as a collection. You can use the System.Array class or the classes 
