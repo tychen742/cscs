@@ -87,7 +87,10 @@ automatically for you to use. Now revise the content of the two files.
 
 The content of the console app ``Program.cs`` in your MathApp folder should look like the code below, 
 filled with a class ``BasicMath`` containing 4 basic arithmetic operation methods 
-(note that the namespace is critical for the test project to access this app project)::
+(note that the namespace is critical for the test project to access this app project):
+
+.. code-block:: csharp
+    :linenos:
 
     namespace SomeMath
     {
