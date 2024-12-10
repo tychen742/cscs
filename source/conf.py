@@ -30,7 +30,7 @@ extensions = ['sphinx.ext.todo',
               'sphinx.ext.mathjax', 
               'sphinx.ext.extlinks', 
               'sphinx_rtd_theme',
-              'sphinx_book_theme',
+            #   'sphinx_book_theme',
               'sphinx_tabs.tabs',
               'sphinx.ext.intersphinx',
               'sphinxcontrib.youtube'
