@@ -1,0 +1,130 @@
+Introduction
+==============
+
+The term **data structure** could mean any structure (such as a list, array, tree, 
+dictionary, etc) that stores data. By definition, you can say that a class as 
+simple as an employee object storing employee-specific data is a structure. 
+Academically, however, it is common to more focus on data structure as a data 
+organization and storage format (hash, array, etc) that is usually chosen for 
+efficient access to data. A data structure, therefore, can refer to a collection of data 
+values, the relationship among them, and the functions or operations that can 
+be applied to them. [#data_structure-wiki]_  
+
+On the other hand, when we talk about data structures, we are often referring to commonly  
+implemented structured sets of data, and they are sometimes called "collections". Collections 
+are sets of data including lists, dictionaries, trees, etc. From the 
+implementation perspective, a collection is an ``abstract data type`` that is 
+a grouping of items of often the same data type such as string or integer. 
+
+In .NET, the namespace (and hence types) that store the sets of data is System.Collections. 
+Therefore in .NET we tend to use the term **collections** for any of the data structures 
+used to store sets of data implemented in the .NET platform, including arrays. [#data_structure-vs-collection]_ 
+
+From the implementation perspective, implemented data structure are called collections: [#microsoft-collections-and-data_structure]_
+
+  Similar data can often be handled more efficiently when stored and 
+  manipulated as a collection. You can use the System.Array class or the classes 
+  in the System.Collections, System.Collections.Generic, System.Collections.Concurrent, 
+  and System.Collections.Immutable namespaces to add, remove, and modify either 
+  individual elements or a range of elements in a collection.
+
+
+C# Collections
+----------------
+
+According to the C# language reference, [#csharp-collections]_
+
+  The .NET runtime provides many collection types that store and manage groups of 
+  related objects. Some of the collection types, such as System.Array, System.Span<T>, 
+  and System.Memory<T> are recognized in the C# language. In addition, interfaces 
+  like System.Collections.Generic.IEnumerable<T> are recognized in the language for 
+  enumerating the elements of a collection.
+
+Collection types represent different ways to collect data, such as hash tables, queues, 
+stacks, bags, dictionaries, and lists. Commonly used collection types may be grouped 
+into two groups:
+
+- Indexable collections: such as List that base on the List<T> class. 
+- Key/value pair collections: such as Dictionary that bases on the Dictionary<TKey,TValue> class. 
+
+In addition to indexable vs key/value, collections are also grouped into two types in C#: non-generic 
+collections and generic collections: [#generic-non_generic-collections]
+
+- Generic Collections: In the System.Collections.Generic namespace, collection classes like 
+  List<T>, Dictionary<TKey, TValue>, Queue<T>, Stack<T>, and Hashset<T>. 
+
+- Non-generic Collections: In the System.Collections namespace, the non-generic collection 
+  includes non-generic collection types such as ArrayList, SortedList, Stack, Queue, Hashtable, and BitArray. 
+
+Collections vary in how they store, sort, and compare elements, and how they 
+perform searches. As for how to choose among the collections to use, the .NET 
+fundamentals documentation offers a general guideline by considering several aspects. 
+[#selecting-collection-class]_ 
+
+
+Commonly Used Collection types
+--------------------------------
+
+In C#, collection types represent different ways to collect data, such as hash tables, 
+queues, stacks, bags, dictionaries, and lists. All collections are based on the 
+``ICollection`` or ``ICollection<T>`` **interfaces**, either directly or indirectly. 
+``IList`` and ``IDictionary`` and their generic counterparts all derive from these 
+two interfaces.
+
+In collections based on IList or directly on ICollection, every element contains 
+only a value. These types include: [#commonly-used-types]_
+
+- **Array**
+- ArrayList
+- **List<T>**
+- Queue
+- ConcurrentQueue<T>
+- Stack
+- ConcurrentStack<T>
+- LinkedList<T>
+
+In collections based on the ``IDictionary`` interface, every element contains both 
+a key and a value. These types include:
+
+- Hashtable
+- SortedList
+- SortedList<TKey,TValue>
+- **Dictionary<TKey,TValue>**
+- ConcurrentDictionary<TKey,TValue>
+
+While these collection types (classes) are implemented in C#, you should note that 
+they are based on common data structures: [#data_structure-wiki]_ 
+
+- Array: An array is a number of elements in a specific order, typically all of 
+  the same type.
+- Linked List: A linked list is a linear collection of data elements of any type, 
+  called nodes, where each node has itself a value, and points to the next node in 
+  the linked list.
+- Record: A record (also called tuple or struct) is an aggregate data structure. 
+  A record is a value that contains other values, typically in fixed number and 
+  sequence and typically indexed by names. 
+- Hash Tables: Hash tables, also known as hash maps, are data structures that provide 
+  fast retrieval of values based on keys. They use a hashing function to map keys 
+  to indexes in an array, allowing for constant-time access in the average case. 
+- Graphs: Graphs are collections of nodes connected by edges, representing 
+  relationships between entities. 
+- Stacks and Queues: Stacks and queues are abstract data types that can be implemented 
+  using arrays or linked lists. A stack has two primary operations: push 
+  (adds an element to the top of the stack) and pop (removes the topmost element from 
+  the stack), that follow the Last In, First Out (LIFO) principle. Queues have two 
+  main operations: enqueue (adds an element to the rear of the queue) and dequeue 
+  (removes an element from the front of the queue) that follow the First In, First 
+  Out (FIFO) principle.  
+- Trees: Trees represent a hierarchical organization of elements. A tree consists 
+  of nodes connected by edges, with one node being the root and all other nodes 
+  forming subtrees.
+
+.. rubric:: Footnotes
+
+.. [#data_structure-wiki] See, e.g., the Data structure `Wikipedia entry <https://en.wikipedia.org/wiki/Data_structure>`_. 
+.. [#data_structure-vs-collection] See a Q&A discussion at `Microsoft <https://learn.microsoft.com/en-us/answers/questions/1522979/difference-between-data-structure-and-collection-i>`_
+.. [#microsoft-collections-and-data_structure] In the .NET fundamentals documentation, the term "data structures" only appears in the article title `Collections and Data Structure <https://learn.microsoft.com/en-us/dotnet/standard/collections/>`_ 
+.. [#csharp-collections] See C# language reference: `Collections <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/collections>`_
+.. [#selecting-collection-class] .NET fundamentals documentation: `Selecting a Collection Class <https://learn.microsoft.com/en-us/dotnet/standard/collections/selecting-a-collection-class>`_
+.. [#commonly-used-types] .NET fundamentals documentation: `Commonly used collection types <https://learn.microsoft.com/en-us/dotnet/standard/collections/commonly-used-collection-types>`_
+.. [#generic-non_generic-collections] See `C# Generic & Non-generic Collections <https://www.tutorialsteacher.com/csharp/csharp-collection#:~:text=C%23%20includes%20specialized%20classes%20that,generic%20collections%20and%20generic%20collections.>`_

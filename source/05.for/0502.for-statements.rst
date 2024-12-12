@@ -1,0 +1,293 @@
+.. index:: statement; for
+
+.. _for-statement:
+
+The ``for`` Statement 
+============================ 
+
+The ``for`` statement executes a statement or a block of statements 
+while a specified **Boolean expression** evaluates to true. Such evaluation involves 
+comparing the local loop counter variable (an **integer counter** that increments/decrements over every loop) 
+to a preset value. Since the number of loops is controlled by comparing the counter with the **preset value**, 
+you need to specify the preset value to decide the number of times you want to run the code block when defining 
+a ``for`` loop statement.  
+
+
+.. _for-loop-header:
+
+For Statement Syntax
+----------------------
+
+``for`` loops are usually favored for iteration because the   
+all the information about the local loop variable are available in one place at the top, 
+which helps quickly visualize the overall sequence in the loop.
+
+The C# for loop statement syntax is:
+
+| ``for (`` *initializer* ``;`` *condition* ; *iterator* ``)`` 
+    {
+|    // code block (statements)
+| ``}``
+
+Let us practice in ``csharprepl``::
+
+   > for (int i = 1; i <= 5; i++) 
+   {                                                                                                                     
+         Console.WriteLine(i);                                                                                             
+   }                                                                                                                     
+   1
+   2
+   3
+   4
+   5
+
+
+You can see that the ``for`` loop has four parts, a three-section semicolon-separated **header** 
+and a **body**:
+
+- **Initializer**: This section is a **variable declaration statement** that 
+  declares a ``local loop variable`` (or ``iterator variable`` or the counter) and initialize it with an initial value. 
+- **Condition**: The condition section is a **boolean expression** that determines 
+  if the next iteration in the loop should be executed or should the loop be terminated. If it evaluates to true, 
+  the next iteration is executed; otherwise, the loop is exited. 
+- **Iterator**: The iterator (**iteration expression**) section that defines what happens to the counter after each 
+  execution of the body of the loop. A common behavior is reassigning 
+  (increment or decrement) the value of the counter. 
+- The **body** of the loop, which must be a statement or a block of statements.
+
+In the example above, the *initializer* is ``i = 1``, *condition* is ``i <= n``, 
+and *iterator* is ``i++`` (see :ref:`arithmetic operators <arithmetic-operators>`).
+
+Note that the initializer section is executed **only once**, before entering the loop. 
+Also, the declared variable is local to the ``for`` loop heading and 
+the loop body and can not be accessed from outside the for statement. 
+
+The two semicolons are always needed in the ``for`` heading, but any of the
+parts they normally separate may be omitted.  
+If the condition part is omitted, the condition is 
+interpreted as always true, leading to an infinite loop, that can only
+terminate due to a ``return`` or :ref:`break statement <break-continue>` in the body.  
+
+**Header variation**
+
+The declaration of a for loop header is flexible. There may be several variables of the
+same type initialized, separated by commas. Also, at the end of the ``for`` loop heading, 
+the iteration portion may include more than one expression, also separated by commas.  
+For example::
+
+      for (int i = 0, j = 10; i < j; i = i+2, j++) {
+         Console.WriteLine("{0} {1}", i, j);
+      }
+
+Guess what this does, and then paste it into csharprepl to check.
+
+
+
+.. index:: execution sequence; for loop
+
+Execution sequence
+~~~~~~~~~~~~~~~~~~~
+
+For the execution sequence of for loops, note that the different parts of 
+the heading are used at different times:
+
+* When starting the statement, the initialization is done, and then
+  the test of condition (boolean expression).
+* After finishing the body and returning to the heading, the iteration operations
+  are done, followed by the test.
+
+
+.. index::
+   statement; break
+   statement; continue
+   break statement
+   continue statement
+   
+
+.. _break-continue:
+
+``break`` and ``continue`` Statements
+--------------------------------------
+
+The basic syntax of the ``for`` statement is simplistic. Here we are using the 
+``break`` and ``continue`` statements to learn the pragmatic coding practice of the ``for`` 
+loops by connecting to our understanding of conditional/selection statements. 
+
+When performing iteration, there will be times that you want to alter the code execution 
+sequence by skipping part or all of the iterations. If you only want to break out of 
+the *enclosing loop*, but *not* out of the whole method or the outer loop (in case of 
+nested looping), use a ``break`` statement
+
+  ``break;`` 
+  
+in place of ``return``, since return will break out the current method. With the ``break`` 
+statement, execution continues after terminating the enclosing iteration statement.  
+
+Note that the ``break`` and ``continue`` statements only make practical sense 
+inside of an ``if`` statement that is inside the loop. In the following examples, 
+you see a ``for`` statement with a ``break`` statement enclosed in a 
+``conditional/selection`` statement. 
+
+Assuming that variable ``target`` already has a string value and variable ``arr`` is an array of
+strings. With your knowledge about ``arr.Length`` and ``arr[i]`` from :ref:`string`, read 
+the following code:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 5-9
+
+   bool found = false;    
+   
+   for (int i = 0; i < arr.Length; i++)   // loop for arr.Length times
+   {
+      if (arr[i] == target)               // if one of arr == targe
+      {
+         found = true;                    // set found to true
+         break;                           // break out of the enclosing loop
+      }
+   }
+    
+   if (found)                             // if found == true (from the previous block)
+   {
+      Console.WriteLine("Target found at index " + i);
+   } 
+   else 
+   {
+      Console.WriteLine("Target not found");
+   } 
+
+When an element in ``arr`` is reached that matches ``target``, execution breaks out 
+of the ``for`` loop and move on to the ``if (found)`` statement block below. 
+
+Now, observe an alternate implementation with a ``compound condition`` (:ref:`Compound-Boolean-Expressions`) in the heading 
+and no ``break`` is:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 3
+
+    bool found = false;
+    
+    for (int i = 0; i < a.Length && !found; i++) {
+       if (a[i] == target) {
+          found = true;
+       }
+    }
+    
+    if (found) {
+       Console.WriteLine("Target found at index " + i);
+    } else {
+       Console.WriteLine("Target not found");
+    } 
+
+As you can see, the code exit because the condition section of the if statement header 
+has an expression ``!found`` (:ref:`logical-operators`), meaning found is not true. 
+The shows that since ``break`` statements rely on the logic of the conditional statement, 
+if the condition can be embedded in the header of the loop, you don't have to use break. 
+However, if you are designing a loop that has multiple exit criteria, using break statements 
+can make the code much less verbose in the header's condition section, and hence easier to 
+follow because the if statement conditions and the immediate break action may be clearly 
+presented. 
+
+
+.. _nested-for-loop:
+
+Nested ``for`` Loop
+-----------------------
+
+There will be times when **nested** loops are are required for the problem scenario. 
+A nested loop can look like this::
+
+   outer-Loop 
+   {
+      // body of outer-loop
+      inner-Loop
+      {
+         // body of inner-loop
+      }
+   ... ... ...
+   }
+
+Continuing with our discussion on ``break``, let's say we are in a situation like the following::
+
+   for (....) {
+      
+      // some statements of outer for loop
+      
+      for (....) {
+         ...
+         if (...) {
+         ...
+         break;
+         }
+         ...
+      }
+
+      // some statements of outer for look
+   } 
+
+The break statement is in the inner loop. If it is reached, the inner loop ends,
+but the **inner loop** is just a **single statement** inside the outer loop, 
+and **the outer loop continues**.  
+If the outer loop continuation condition remains true,
+the inner loop will be executed again. As an example:
+
+.. code-block:: csharp
+   :linenos:
+
+   for (int i = 0; i <= 3; i++)
+   {
+      for (int j = 0; j <= 3; j++)
+      {
+
+         if (i == 2)
+         {
+            break;
+         }
+
+         Console.WriteLine("{0} -- {1}", i, j);
+      }
+   }
+
+Can you determine the output of the preceding code? Try it in ``csharprepl`` or a test project 
+in your tests folder. 
+
+
+``continue`` Statement
+
+For completeness we mention the much less used ``continue`` statement:
+
+  ``continue;``  
+
+A ``continue`` statement:
+- does not break out of the whole loop statement.
+- break/skips the execution of the rest of the *body* in the current enclosing loop iteration.
+- starts the next enclosing loop iteration. 
+
+In the simplest situations, a ``continue`` statement just avoids an extra ``else`` clause. 
+It can considerably shorten code if the test is inside of complicated, deeply nested 
+``if`` statements. As an example:
+
+.. code-block:: csharp
+   :linenos:
+
+   for (int i = 0; i <= 3; i++)
+   {
+      for (int j = 0; j <= 3; j++)
+      {
+         if (i == 2)
+         {
+              continue;
+         }
+
+         Console.WriteLine("{0} -- {1}", i, j);
+      }
+   }
+
+Can you determine the output of the preceding code? Try it in ``csharprepl`` or a test project 
+in your tests folder. 
+
+
+
+
+

@@ -1,0 +1,58 @@
+
+Collections
+=============
+
+.. note:: 
+    Some descriptions in this chapter use the term class. In object-oriented 
+    programming, a class is a template that defines the methods and variables 
+    for a type. For example, in ``Console.WriteLine()``, `Console 
+    <https://learn.microsoft.com/en-us/dotnet/api/system.console?view=net-8.0>`_ is 
+    a class and WriteLine is a method defined in the class. 
+
+In addition to the ``value types`` such as int, float, bool, C# provides ``reference types`` 
+that store references to their data (objects). 
+
+.. note:: 
+  With reference types, two variables can reference the same object; therefore, 
+  operations on one variable can affect the object referenced by the other variable. 
+  With value types, each variable has its own copy of the data, and it's not possible 
+  for operations on one variable to affect the other. 
+
+When it comes to the creation and management of groups of items, there are two ways to 
+handle the items: arrays and collections. Collections are specialized ``classes`` 
+[#collection-definition]_ that store series of values or objects. 
+In terms of data structures, collections are similar to arrays, but they are designed 
+to be more effective in the organization, store, and modification of data such as 
+when adding, deleting, discovering, and inserting of data into the collections. Most collections 
+support adding or removing elements (resizing) dynamically. Notably, Array doesn't.
+
+Collections can be divided into two groups: 
+
+- **Indexable collections**: Collection elements are accessed using index such as the 
+  ``List<T>`` class, the most common indexable collection. 
+- **Key/value pair collections**: Key/value pair collections, such as 
+  the ``Dictionary<TKey,TValue>`` class, enable access to collection elements through 
+  the ``key`` of each element.
+
+Common types of collections include arrays, lists, dictionaries, sets, queues, 
+and stacks, each with their specific use cases:
+
+- Arrays are useful when you have a fixed number of elements, and you need to 
+  access them by their indices.
+- Lists are flexible arrays; they are best when you have an unknown number of 
+  elements to store, and you need to perform various operations like adding or 
+  removing items.
+- Dictionaries are great when you need to associate keys with values and retrieve 
+  values quickly based on their keys.
+- Sets, specifically HashSets, are beneficial when you need to ensure that all 
+  elements are unique and need to check whether an element is in the collection quickly.
+- Queues and Stacks are used when you need special kinds of insertion 
+  and retrieval orders (FIFO for queues and LIFO for stacks). [#common-collections]_
+
+In this chapter, we will discuss two commonly used collections: lists and dictionaries. 
+
+.. rubric:: Footnotes
+
+.. [#collection-definition] By definition, a collection within .NET is a class that, at a minimum, implements IEnumerable. This interface is critical because implementing the methods of IEnumerable is the minimum needed to 
+    support iterating over the collection. See `essentialcsharp.com <https://essentialcsharp.com/what-makes-a-class-a-collection-ienumerable#what-makes-a-class-a-collection-ienumerable>`_
+.. [#common-collections] See: `Essential Collections in C# <https://medium.com/@fairushyn/essential-collections-in-c-4ec7e90598ff#:~:text=Common%20types%20of%20collections%20include,access%20them%20by%20their%20indices>`_

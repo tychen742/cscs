@@ -26,11 +26,20 @@ from datetime import date
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks', 'sphinx_rtd_theme','sphinx_tabs.tabs',]
+extensions = ['sphinx.ext.todo', 
+              'sphinx.ext.mathjax', 
+              'sphinx.ext.extlinks', 
+              'sphinx_rtd_theme',
+            #   'sphinx_book_theme',
+              'sphinx_tabs.tabs',
+              'sphinx.ext.intersphinx',
+              'sphinxcontrib.youtube'
+              ]
 
 extlinks = {'repsrc': 
-              ('https://github.com/tychen742/introcs-csharp-examples/blob/master/%s','')
+              ('https://github.com/mstbit/introcs-csharp-examples/blob/master/%s','%s')
            }
+              # ('https://github.com/mstbit/introcs-csharp-examples/blob/master/%s','') ### crazy had to change this after installing/uninstalling the youtube extension
 
 # extensions = ['sphinxcontrib.bibtex']
 # bibtex_bibfiles = ['refs.bib']
@@ -51,7 +60,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Intro to CS in C#'
+# project = u'Intro to CS in C#'
+project = u'Lecture Notes IST-1551'
 authors= u'Tsangyao (T.Y.) Chen'
 # copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
@@ -120,6 +130,7 @@ rst_epilog = """
 # a list of builtin themes.
 
 html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
     #'canonical_url': '',

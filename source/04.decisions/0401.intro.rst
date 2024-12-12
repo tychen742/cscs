@@ -1,0 +1,184 @@
+Intro/Boolean
+=================================== 
+
+
+Selection Statements
+---------------------------------
+
+Selection statements, sometimes referred to as conditional statements, 
+are one of the three basic constructs (sequence, selection, iteration) in programming. 
+Selection statements provide the logic to perform decision-making: taking different 
+actions based on different conditions. When selecting from possible paths for execution, 
+the decisions are made based on the value of an expression.
+
+C# has the following conditional statements:
+
+- The ``if`` statement specifies a block of code to be executed, only if a provided Boolean 
+  expression evaluates to ``true``. 
+- The ``if-else`` statement allows you to choose which of the two code paths to follow 
+  based on a Boolean expression.
+- The ``else if`` statement specifies a new ``condition`` to ``test``.
+- ``switch`` statement selects from a list of code to execute based on a pattern match with an expression.
+
+The basic syntax for an if statement is:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+where the parenthesized condition of the if statement is a Boolean expression, named after 19th century mathematician 
+George Boole. The parentheses in an if statement delimit the boolean expression; that is, to 
+differentiate the boolean expression from the rest of the if statement; whereas parentheses 
+in an arithmetic expression are used to group expressions together. 
+
+
+Boolean Data Type
+---------------------
+
+The parenthesized condition of the if statement is a **Boolean expression**, 
+also referred to as **relational expression**. 
+Boolean expressions are used for control flow statements. In computing, an expression 
+always produce a value. The key characteristic of Boolean expressions 
+is that they always evaluate to either true or false (or Yes vs. No, On vs. Off, or 0 vs. 1). 
+This binary feature is represented as the Boolean binary data type (type ``bool`` in C# with 
+possible values of ``true`` or ``false``). 
+
+In ``csharprepl``, we can perform some quick tests on Boolean data:
+
+.. code-block:: 
+
+  > bool isRollaQuiet = true;      
+
+  > bool isChicagoClose = false;
+
+  > isRollaQuiet
+  true
+  > isChicagoClose
+  false
+  > 
+
+You should run a more formal test in VS Code to practice coding. 
+For example, you may create a method for this test like:
+
+.. note::
+  In this example, we are calling the method Rolla() in class BooleanExpression by 
+  issuing ``BooleanExpression.Rolla()`` because it's a static method. Also note that 
+  Rolla() is placed in another class. This is a demonstration to show you that we 
+  can call methods in another class as long as they are static.  
+
+
+.. code-block:: 
+
+  namespace Program
+  {
+
+    class Program
+    {
+      static void Main(string[] args)
+      {
+        BooleanExpression.Rolla();            // calling static method
+      }
+    }
+
+    internal class BooleanExpression         
+    {
+      internal static void Rolla()
+      {
+        bool isRollaQuiet = true;
+        bool isChicagoClose = false;
+        Console.WriteLine(isRollaQuiet);      // Outputs True
+        Console.WriteLine(isChicagoClose);    // Outputs False
+      }
+    }
+  }
+
+And the output of this code:
+
+.. code-block:: console
+
+  tychen@mac:~/workspaces/workspace/introcscs/Chapter04$ dotnet run
+  True
+  False
+  tychen@mac:~/workspaces/workspace/introcscs/Chapter04$
+
+
+Boolean Expressions
+-------------------
+
+Since a boolean expression would return a boolean value of either ``true`` or ``false``, 
+we can use boolean expressions to return boolean values in ``conditional testing`` to build 
+logic in selection/conditional statements. For that we use ``comparison operators`` (``==``, 
+``!=``, ``>``, ``<``, ``>=``, ``<=``). Note that:
+
+- The ``<`` , ``>`` , ``<=`` , and ``>=`` comparison operators are also known as 
+  ``relational operators`` and are supported by all integral and floating-point 
+  numeric types. 
+- The ``==`` (equality) and ``!=`` (inequality) operators are ``equality operators`` and they 
+  check if their operands are equal or not. Value types are equal when their value contents 
+  (e.g., numerical values or string values) are equal. Reference types are equal when the two 
+  variables refer to the same storage. 
+- The ``char`` type also supports comparison operators by comparing  
+  the corresponding character codes.
+
+Consider the following sample boolean expressions in the print statements:
+
+.. code-block:: 
+
+  Console.WriteLine(7.0 < 5.1);   // output: False
+  Console.WriteLine(7.0 > 5.1);   // output: True
+  Console.WriteLine(7.0 <= 5.1);   // output: False
+  Console.WriteLine(7.0 >= 5.1);   // output: True
+
+  int a = 1 + 2 + 3;
+  int b = 6;
+  Console.WriteLine(a == b);  // output: True
+
+  char c1 = 'a';
+  char c2 = 'A';
+  Console.WriteLine(c1 == c2);  // output: False
+
+Reference types will be discussed in subsequent chapters and the following example 
+is provided here for your reference:
+
+.. code-block:: 
+  :linenos:
+  :emphasize-lines: 15, 16
+
+  public class ReferenceTypesEquality
+  {
+      public class MyClass
+      {
+          private int id;
+
+          public MyClass(int id) => this.id = id;
+      }
+
+      public static void Main()
+      {
+          var a = new MyClass(1);
+          var b = new MyClass(1);
+          var c = a;
+          Console.WriteLine(a == b);  // output: False
+          Console.WriteLine(a == c);  // output: True
+      }
+  }
+
+Understanding boolean expressions above should give you a good sense of how 
+conditional/select statement syntax works:
+
+.. code-block:: 
+  :caption: Syntax of an if statement
+
+  if (condition) 
+  {
+    // block of code to be executed if the condition is True
+  }
+
+You should know that the ``condition`` is a ``Boolean expression``, which will evaluate to either ``true`` or 
+``false``. The parentheses is a testing construct. If the testing construct results to 
+``true``, then the code block follows will be executed. Otherwise, the code block 
+follows will not be executed. 

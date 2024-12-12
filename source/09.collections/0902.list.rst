@@ -1,0 +1,341 @@
+.. index:: list
+
+
+.. _list:
+
+List
+===============
+
+Arrays are fine if you know ahead of time how long your sequence of items is.
+Then you create your array with that length, and you are all set.
+
+If you want a variable sized container, you are likely to want a ``List``.  
+List is a type of collection that is used when the number of elements is unknown.
+As with arrays, you might want a collection of any particular type. 
+Unfortunately, you cannot use the simple notation of arrays to specify
+the type of element in a ``List``. Array syntax is
+*built into* the language. Lists are handled in the *library* of types
+provided by C# from .NET. 
+.. There are all sorts of situations where you might want 
+.. a general idea to have a version for each of many kinds of objects. 
+
+
+.. index:: generics
+   < > for generics
+
+Generics
+-----------
+
+Since .NET 4.0, the one new form of syntax that can apply to all sorts of
+classes, *generics* is introduced. There is a namespace for the generics 
+for collections, including List: ``System.Collections.Generic``. You used to have 
+to use the ``using`` directive to *import* the features offered by the class but 
+C# now does it automatically. In general, the new generic syntax allows a type in angle
+brackets after a class (e.g., List) name. 
+
+The type for a generic list collection is::
+
+    List<T>
+
+To create a list, you specify a type parameter for the type of data 
+the variable will store. For example, to create a list of string type::
+
+	List<string> myNames = new List<string>();
+
+Examples of adding elements to a list::
+
+	myNames.Add("Alice");
+	myNames.Add("Bob");
+	myNames.Add("Charles");
+
+To loop through a list, you may use the foreach loop::
+
+	foreach (string name in myNames)
+	{
+	    Console.WriteLine(name);
+	}
+
+Similarly, to create a list of integer type:
+
+.. code-block:: 
+
+	List<int> primeNumbers = new List<int>();
+	primeNumbers.Add(2); // adding elements using add() method
+	primeNumbers.Add(3);
+	primeNumbers.Add(5);
+	primeNumbers.Add(7);
+
+
+.. index::
+   single: List; constructor
+   single: List; Count
+   single: List; Add
+   single: List; Remove
+   single: List; RemoveAt
+   single: List; Contains
+   
+List Constructors and Methods
+-------------------------------
+
+We can play with some ``List`` methods in csharprepl. Note that csharprepl 
+informally displays the values of a ``List`` with Name and Type in a table like:
+
+.. code-block:: none
+
+	> words
+	List<string>(1)
+	┌──────┬─────────┬────────┐
+	│ Name │ Value   │ Type   │
+	├──────┼─────────┼────────┤
+	│ [0]  │ "Apple" │ string │
+	└──────┴─────────┴────────┘
+
+The blocks below are all from one csharprepl session, with our comments 
+breaking up the sequence. With the no-parameter ``constructor`` (the parentheses at the 
+end of the variable declaration), the ``List`` is empty to start:
+
+..  code-block:: none
+
+	> List<string> words = new List<string>();
+	> words;
+	List<string>(0)
+	> words.Count
+	0
+	
+You can add elements, and keep count with the ``Count`` property 
+as the size changes:
+
+..  code-block:: none
+
+	> words.Add("Apple");
+	> words
+	List<string>(1)
+	┌──────┬─────────┬────────┐
+	│ Name │ Value   │ Type   │
+	├──────┼─────────┼────────┤
+	│ [0]  │ "Apple" │ string │
+	└──────┴─────────┴────────┘
+	> words.Add("Banana");
+	> words             
+	List<string>(2)
+	┌──────┬──────────┬────────┐
+	│ Name │ Value    │ Type   │
+	├──────┼──────────┼────────┤
+	│ [0]  │ "Apple"  │ string │
+	│ [1]  │ "Banana" │ string │
+	└──────┴──────────┴────────┘
+	> words.Add("Cherry"); 
+	> words             
+	List<string>(3)
+ 	┌──────┬──────────┬────────┐
+ 	│ Name │ Value    │ Type   │
+ 	├──────┼──────────┼────────┤
+ 	│ [0]  │ "Apple"  │ string │
+ 	│ [1]  │ "Banana" │ string │
+ 	│ [2]  │ "Cherry" │ string │
+ 	└──────┴──────────┴────────┘
+	> words.Count;
+	┌───────────────────────────────────────────CompilationErrorException────────────────────────────────────────────┐
+	│ (1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be     │
+	│ used as a statement                                                                                            │
+	└────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+	> words.Count
+	3
+	
+.. index::  list; index [ ]
+   single: [ ]; list index
+   
+You can reference and change elements by index, like with ``arrays``:
+
+..  code-block:: none
+
+	> words[0];
+	"Apple"
+	> words[2];
+	"Cherry"
+	> words[2] = "Coconut";
+	> words;
+	List<string>(3)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Apple"   │ string │
+	│ [1]  │ "Banana"  │ string │
+	│ [2]  │ "Coconut" │ string │
+	└──────┴───────────┴────────┘
+	
+You can use ``foreach`` like with arrays or other sequences:
+
+..  code-block:: 
+
+	> foreach (string s in words) 
+  	{ 
+      	Console.WriteLine(s.ToUpper()); 
+  	}    
+	APPLE
+	BANANA
+	COCONUT
+
+.. index:: List; Console.WriteLine useless
+	
+Note:  Unfortunately C# is not user-friendly if 
+you try to use ``Console.WriteLine`` to print a ``List`` *object*:
+
+.. code-block:: none
+
+	> Console.WriteLine(words)
+	System.Collections.Generic.List`1[System.Int32]
+
+Next, compare ``Remove``, which finds the first matching element and removes it,
+and ``RemoveAt``, which removes the element at a specified index.
+``Remove`` returns whether the List has been changed:
+
+.. code-block:: none
+
+	> words.Remove("Apple");  
+	true
+
+	> words 
+	List<string>(2)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	└──────┴───────────┴────────┘
+
+	> 
+	> words.Add("Avocado");
+	> words.Add("Durian");
+	> words
+	List<string>(4)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	│ [2]  │ "Avocado" │ string │
+	│ [3]  │ "Durian"  │ string │
+	└──────┴───────────┴────────┘
+	> words.RemoveAt(3)
+	> words
+	List<string>(3)
+	┌──────┬───────────┬────────┐
+	│ Name │ Value     │ Type   │
+	├──────┼───────────┼────────┤
+	│ [0]  │ "Banana"  │ string │
+	│ [1]  │ "Coconut" │ string │
+	│ [2]  │ "Avocado" │ string │
+	└──────┴───────────┴────────┘
+	
+Removing does not leave a "hole" in the ``List``: The list closes up,
+so the index decreases for the elements after the removed one:
+
+.. code-block:: none
+
+	> words.Count;
+	3
+	
+You can check for membership in a ``List`` with ``Contains``:
+
+.. code-block:: none
+
+	> words.Contains("Apple")
+	false
+	> words.Contains("Banana")
+	true
+	> 
+
+You can also remove all elements at once:
+
+.. code-block:: none
+
+	> words.Clear()
+	
+	> words        
+	List<string>(0)
+	> 
+
+.. index::
+   single: List; constructor with sequence
+   
+Here is a List containing ``int`` elements.
+Though more verbose than for an array, you can initialize a ``List``
+with another collection, including an ``anonymous array``,
+specified with an explicit sequence in curly braces:
+
+..  code-block:: none
+
+	> List<int> nums = new List<int>(new[] { 1, 2, 3, 4, 5 });
+
+	> nums
+	List<int>(5)
+	┌──────┬───────┬──────┐
+	│ Name │ Value │ Type │
+	├──────┼───────┼──────┤
+	│ [0]  │ 1     │ int  │
+	│ [1]  │ 2     │ int  │
+	│ [2]  │ 3     │ int  │
+	│ [3]  │ 4     │ int  │
+	│ [4]  │ 5     │ int  │
+	└──────┴───────┴──────┘
+
+We have been using the explicit declaration syntax, but generic types tend to get long,
+so the keyword ``var`` for implicitly-typed variable creation is handy with them::
+
+   var stuff = new List<string>();
+
+When initializing a generic object, you still need to remember both the angle braces 
+around the type *and* the parentheses for the parameter list after that. Or, you can 
+try initializing a collection object with *collection initialization*:: 
+
+	List<int> digits = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	List<int> digits2 = new List<int> { 0 + 1, 12 % 3, MakeInt() };
+
+
+
+.. .. index:: side effect
+
+.. An aside on the ``Remove`` method: It both causes a side effect, 
+.. changing the list, *and* it returns a value. If a function returns a value, 
+.. we typically use the method call as an expression in a larger statement. The 
+.. ``Remove`` method illustrates that this is 
+.. not always a mistake: If you just want the side effect, trying to remove an element,
+.. whether or not it is in the list, then there is no need to check for the return value.
+.. This complete C# statement is fine::
+
+..   someList.Remove(element);
+
+.. You should generally think carefully before *defining* a method 
+.. that both has a side effect and a return value. Most methods that return a value 
+.. do not have a side effect. If you see a function used in the normal way as an 
+.. expression, it is easy to forget that it was *also* producing some side effect.
+  
+.. index:: example; ReadLines
+   ReadLines example
+   List; ReadLines example
+
+Interactive List Example
+-------------------------
+
+As in contrast to ``array``, ``lists`` are handy when you do not know how much 
+data there will be. A simple example would be reading in lines from the user 
+interactively::
+
+    /// Return a List of lines entered by the user in response
+    /// to the prompt.  Lines in the List will be nonempty, since an
+    /// empty line terminates the input. 
+    List<string> ReadLines(string prompt) 
+    {
+       List<string> lines = new List<string>();
+       Console.WriteLine(prompt);
+       Console.WriteLine("An empty line terminates input.");
+       string line = Console.ReadLine();
+       while (line.Length > 0) {
+          lines.Add(line);
+          line = Console.ReadLine();
+       }
+       return lines;
+    }
+    
+    

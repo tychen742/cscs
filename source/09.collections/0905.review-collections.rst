@@ -1,0 +1,84 @@
+Chapter Review 
+=========================
+
+#.  Distinguish the cases when you would want to use a list instead of an array, or 
+    the other way around.
+
+#.  What syntax is consistent between arrays and lists?  What are comparable
+    features, but with different syntax?
+
+#. Here is one way to put five particular elements into a list:
+
+    .. code-block:: 
+
+        var words = new List<string>();
+        string[] temp = {"a", "an", "the", "on", "of"};
+        foreach(string s in temp) {
+            words.Add(s);
+        }
+
+    How can you do this all without a loop, and with only two statements? 
+    How about with a single statement, assuming you do not need temp again?
+
+#.  If we continue on from above, with the line::
+
+        var words2 = words;
+        
+    Then what would be the difference in effect between these two possible next
+    lines?   ::
+    
+        words.Clear()
+        
+        words = new List<string>();     
+    
+#.  If you delete an element from the middle of a list, what happens to the
+    spot where you removed the element?
+
+#.  Which is true for a ``Dictionary``: is it mutable or immutable?
+    
+#.  What syntax is there for a ``Dictionary`` that matches that for a ``List``?
+
+#. You have been using csharprepl and it currently shows the following:
+
+    .. code-block:: none
+        
+        > words
+        List<string>(3)
+        ┌──────┬──────────┬────────┐
+        │ Name │ Value    │ Type   │
+        ├──────┼──────────┼────────┤
+        │ [0]  │ "Apple"  │ string │
+        │ [1]  │ "Banana" │ string │
+        │ [2]  │ "Cherry" │ string │
+        └──────┴──────────┴────────┘
+
+   What would ``words.Count`` return in csharprepl?
+
+#. In VS Code, create a method call SortFruits. When called with a string array 
+   argument that contains three fruit names, the method: 
+   
+   - turns the fruits into a string list, 
+   - print out the data type of the list (use .GetType()), 
+   - sort the fruits alphabetically, and 
+   - iterate through the list and print out the sorted fruit names, but 
+   - does not return anything to the caller.
+
+
+#. In csharprepl, create a dictionary of key-value <string, string>, call it fruits, 
+   that contains three fruits and their corresponding color. Iterate through 
+   the dictionary and output each entry in one line formatted as "<fruit>" : "<color>". 
+   Afterwards, print your full name in a separate line. 
+
+
+
+.. #.  Though for some collections, like arrays and lists,
+..     you can fairly easily replace a ``foreach`` 
+..     loop with a ``for`` loop, that is not the case if you want to iterate
+..     through a ``Dictionary``.  How do you go through all the keys in
+..     a ``Dictionary``?
+.. #.  ``Dictionary`` values are of arbitrary type. What is the restriction on 
+..     key types?
+
+    
+   
+

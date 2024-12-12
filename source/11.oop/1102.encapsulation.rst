@@ -1,0 +1,158 @@
+Encapsulation
+==================
+
+Encapsulation is defined as bundling data and related operations into a single 
+unit. This is different from procedural approach of programming, where data and 
+functionalities tend to separate. When bundling data with methods in the same class, 
+encapsulation also shields the data from being accessed by the code outside the class. 
+
+In C#, encapsulation is achieved by granting no direct access to the data: By 
+declaring the fields/variables of the class as ``private``. To access and modify 
+the private fields, C# uses ``properties``, which are special ``public`` methods in the 
+class to ``set`` and ``get`` the values of private fields.
+
+There are several ways to implement encapsulation in C#:
+
+- Using properties
+- Using methods
+
+
+Using Properties
+~~~~~~~~~~~~~~~~~~~
+
+Properties are a special type of class member that provide a way to read and 
+write the value of a private field. They allow you to control access to the 
+field while still providing a simple and convenient way to access its value.
+
+.. code-block:: csharp
+    :linenos:
+
+    namespace IntroCSCS {
+        public class BankAccount
+        {
+            private decimal balance;
+
+            public decimal Balance              // Balance property; a special method with 
+            {                                   // getter and setter
+                get { return balance; }
+                set { balance = value; }
+            }
+        }
+
+        class Program{
+            // Can access balance through the Balance property
+            BankAccount account = new BankAccount();
+            account.Balance = 100;
+            Console.WriteLine(account.Balance);
+        }
+
+
+Using methods
+~~~~~~~~~~~~~~~~~
+
+You can implement encapsulation by using methods to access and modify the values 
+of private fields. This allows you to control access to the fields and enforce 
+any necessary business logic or validation.
+
+.. code-block:: csharp
+    :linenos:
+    :emphasize-lines: 3
+
+    namespace IntroCSCS {
+        public class BankAccount
+        {
+            private decimal balance;                        // private field 
+
+            public BankAccount(decimal initialBalance)      // constructor; set default value 
+            {
+                balance = initialBalance;               
+            }
+
+            public decimal GetBalance()                     // using method to implement encapsulation.
+            {
+                return balance;                             
+            }
+
+            public void Deposit(decimal amount)
+            {
+                balance += amount;
+            }
+
+            public void Withdraw(decimal amount)
+            {
+                balance -= amount;
+            }
+        }
+
+        class Program {
+            static void Main(string[] args)
+            {
+                BankAccount myAccount = new BankAccount(1000);
+        
+                myAccount.Deposit(500);
+                Console.WriteLine("Balance: " + myAccount.GetBalance()); 
+                                                                    // output: balance: 1500
+                myAccount.Withdraw(2000);
+                Console.WriteLine("Balance: " + myAccount.GetBalance());
+            }                                                       // Balance: -500
+        }
+    }
+
+Let us take a look at this class: 
+
+- **Security**: You interact with the BankAccount object through its public methods, never 
+  directly accessing the balance field.
+- **The ``BankAccount`` class**: The ``BankAccount`` class **encapsulates** data 
+  (the ``balance`` field) and related operations (the ``Deposit`` and ``Withdraw`` methods). 
+- **The balance field**: The balance field is marked as **private**, meaning it can 
+  only be accessed within the BankAccount class. This ensures that the balance can 
+  only be ``modified`` through the Deposit and Withdraw methods, which can enforce 
+  any necessary business logic or validation.
+- **The GetBalance method**: The GetBalance method, on the other hand, is marked as 
+  public, meaning it can be called from outside the BankAccount class. This allows 
+  other code to retrieve the balance without being able to modify it directly.
+
+Take a look at another example. In the program below, the class Student is encapsulated 
+as the variables are declared as private. To access these private variables we 
+are using the ``Name`` and ``Age`` ``accessors`` which contain the get and set method 
+to retrieve and set the values of private fields. Accessors are defined as public 
+so that they can access in other class. 
+
+.. code-block:: 
+    :linenos:
+
+    namespace IntroCSCS
+    {
+        public class Student
+        {
+            private String studentName;     // private variables declared
+            private int studentAge;         // these can only be accessed by public getter/setter
+
+            public String Name              // Property; getter/setter accessors
+            {
+                get { return studentName; }
+                set { studentName = value; }
+            }
+
+            public int Age                  // getter/setter accessors to access Age
+            {
+                get { return studentAge; }
+                set { studentAge = value; }
+            }
+        }
+
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+
+                Student obj = new Student();
+                obj.Name = "TY Chen";           // set field value
+                obj.Age = 35;                   // set field value
+
+                Console.WriteLine(" Name : " + obj.Name);   // output: Name : TY Chen
+                Console.WriteLine(" Age : " + obj.Age);     // output: Age : 35
+            }
+        }
+    }

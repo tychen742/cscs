@@ -1,0 +1,641 @@
+.. index:: 
+   single: array; one dimensional
+
+.. _one-dim-arrays:
+
+One Dimensional Arrays
+============================ 
+
+.. index::
+   array; [ ] declaration
+
+An array is a ``data structure`` that contains a number of variables that are accessed 
+through computed indices. The variables contained in an array, also called the 
+``elements`` of the array, are all of the same type, and this type is called the 
+``element type`` of the array. [#arr-microsoft]_
+
+In C#, an array is a structure representing a **fixed length** ``ordered`` collection of 
+values or objects with the **same type**. Arrays make it easier to organize and 
+operate on large amounts of data. For example, rather than creating 100 integer 
+variables, you can just create one array that stores all those integers and access 
+them using array indices. [#arr-codeacademy]_
+
+You have learned that a string is an immutable ``sequence`` of characters and how to 
+loop through the sequence. Arrays provide more general sequences, with the 
+same indexing notation, but with free choice of the ``type`` of the items in the 
+sequence, and the ability to ``change`` the elements in the sequence.
+
+
+Creating Arrays
+-----------------
+
+A C# ``array variable`` is declared similarly to a non-array variable, with the 
+addition of square brackets (``[]``) after the ``type`` specifier to denote it as an array. 
+So, the general form for declaring an array variable of the element type is:
+
+    **type**\ ``[]`` variableName;
+
+For example, if you want to create an array called ``a`` with the type ``int`` 
+for elements, you declare the array variable as::
+
+   int[] a;
+
+In this declaration, you do *not* know how many elements will be in this array 
+from the preceding declaration. You must give further information to create the 
+corresponding ``array object``. A new object can be created using the ``new`` 
+syntax. An array must get a definite length, which can be a literal integer or 
+any integer expression. The general syntax to create a  new array is
+
+   ``new`` **type**\ ``[`` *length* ``]``
+   
+After the type, there are square brackets enclosing an expression for the length
+of the array - this length is unchangeable after creation. For example ::
+
+   int[] a;
+   a = new int[4];
+   
+or, you may combine with the declaration, ::
+
+   int[] a = new int[4];
+
+to creates an array that holds 4 integers. After specifying the number of the elements
+of the array, the default initial values are also assigned. For example, numerical 
+arrays get initialized to all 0's (false for boolean, the character with Unicode 
+number zero for char, and null for objects and string) with this syntax by default, so when you loop 
+through the array variable::
+
+   > foreach (int i in a)      
+     {                                                
+         Console.Write(i);                            
+     }                                                
+   0000
+   > 
+
+An **array initializer** consists of a sequence of variable initializers, 
+enclosed by "``{``” and "``}``" tokens and separated by "``,``" tokens. 
+An array initializer can be used in a variable declaration::
+
+   int[] a = {0, 2, 4, 6, 8};
+
+which is a shorthand for the equivalent ``array creation expression``::
+
+   int[] a = new int[] {0, 2, 4, 6, 8};
+
+
+Note that the actual data for an array is *not* stored directly in the memory location 
+allocated by the declaration. The array could have any number of items, and hence 
+the memory requirements are not known at compile time. Like all other object 
+(as opposed to primitive) types, what is actually stored at the memory location declared 
+for ``a`` is a *reference* to the actual place where the data for the array is stored. 
+In actual compiler implementation, this reference is an address in memory. In the diagram 
+below, you see the object references with an arrow *pointing* to the actual location 
+for the object's data after ``a`` is initialized:
+
+.. image:: ../images/newArray1.png
+   :alt: new array
+   :align: center
+   :width: 300 pt
+ 
+The small box beside ``a`` is meant to indicate the memory space allocated when ``a`` is
+declared. As you can see that space does not actually contain the array, but rather a 
+*reference* to the array, pointing to the actual sequence of data for the array.
+Also, in the diagram you see the indices associated with each element, though they 
+are not actual a part of what is stored in memory.
+
+
+
+Accessing Array Elements
+--------------------------
+
+
+.. index::
+   single: [ ]; array indexing
+   array; indexing [ ]
+   index; array
+   
+The elements inside an array can to referenced with the same index notation used
+earlier for strings. :: 
+
+    a[2]
+    
+refers to the element at index 2 (third element because of 0 based indexing).
+
+Unlike with strings, this element can not only be read, but also be assigned to::
+
+    a[0] = 7;
+    a[1] = 5;
+    a[2] = 9;
+    a[3] = 6;
+
+These four assignment statements 
+would replace the original 0 values for each element in the array.
+
+This is a verbose way to specify all array values. An array with the
+same final data could be created with the single declaration::
+
+   int[] b = {7, 5, 9, 6};
+
+.. image:: ../images/newArray2.png
+   :alt: new array initialized with braces
+   :align: center
+   :width: 300 pt
+
+The list in braces ONLY is allowed as an initialization of a variable
+in a *declaration*, not in a later assignment statement.  
+Technically it is an initializer, not an array literal.
+
+Individual array elements can *both* be used in expressions, and be assigned to. 
+Continuing with the earlier example code::
+
+    a[2] = 4*a[1] - a[3];
+
+``a[2]`` now equals 4\*5 - 6 = 14.
+
+Arrays, like strings, have a ``Length`` property::
+
+    Console.WriteLine(b.Length); // prints 4
+
+just like with strings. In practice array elements are almost always referred 
+to with an index variable. A very common pattern is to deal with each element 
+in sequence, and the syntax is the same as for a string. Print all elements 
+of array ``b``::
+
+    for (int i= 0; i < b.Length, i++) { 
+       Console.WriteLine(b[i]); 
+    }
+    
+The ``foreach`` syntax would be::
+
+   foreach ( int x in b) {
+      Console.WriteLine(x);
+   }
+
+while the ``while`` loop syntax would be::
+
+   > int[] a = { 1, 2, 3, 4, 5 }; 
+   > int i = 0;                
+   > while ( i < a.Length){ 
+      Console.Write(a[i]); 
+      i++; 
+     }
+   12345
+   > 
+
+In the ``foreach`` loop, the ``int`` type for ``x`` matches the element type of the array ``b``.
+
+The shorter ``foreach`` syntax is not as general as the ``for`` syntax.  
+For example, to print only the first *3* elements of b::
+
+   for(int i= 0; i < 3; i++) {
+      Console.WriteLine(b[i]);
+   }
+
+but the ``foreach`` syntax would not work, since it must process *all* elements.
+
+Also, you may use the ``for`` syntax to assign new values to the array elements, 
+rather than just use the values in expressions::
+
+   for(int i= 0; i < b.Length; i++) {
+      b[i] = 5*i;
+   }
+   
+Now the array ``b`` of our earlier examples (of length 4) would now contain 0, 5,
+10, and 15.  
+
+.. warning::
+   There is no analog of *changing* the value of ``b[i]`` with a
+   ``foreach`` loop.  To change values in an array, we must
+   assign to each location in the array by *index*.
+   A ``foreach`` loop only provides the *value* of each sequence element
+   for us to read.
+
+We have had the array indices so far be given by a single symbol, 
+which is the most common case in practice, but in fact what appears
+inside the square braces can be any ``int`` *expression*.
+Like parentheses, square brackets *delimit*
+the inside expression, which gets evaluated first, before the array value is
+looked up. Consider this csharprepl sequence:
+
+..  code-block:: none
+
+   > int[] a = {5, 9, 15, -4};
+   > int i = 2;
+   > a[i];
+   15
+
+This should be clear. Now think first, what should ``a[i+1]`` be?
+
+..  code-block:: none
+
+   > a[i+1];
+   -4
+
+In steps:  ``a[i+1]`` is ``a[2+1]`` is ``a[3]`` is -4. Be careful,
+``a[i+1]`` is *NOT* ``a[i] + 1`` (which would be 16). 
+
+
+.. index:: array; as parameter
+   example; PrintStrings
+
+.. _printstrings:
+
+The code above to print each element of an array performs a 
+unified and possibly useful operation, so it would make sense to
+encapsulate it into a function. A function can take any type as a
+parameter, so an array type is perfectly reasonable! Above we
+printed each element of an array of integers. This time let's choose strings,
+so the formal parameter is an array of strings:  ``string[]``.
+
+.. literalinclude:: ../../examples/introcs/string_array/string_array.cs
+   :start-after: chunk PrintStrings
+   :end-before: chunk
+   :linenos:
+   :dedent: 6
+
+With this definition, the code fragment  ::
+
+     string[] hamlet = {"To be", "or not", "to be!"};
+     PrintStrings(hamlet);
+     
+would print:
+
+..  code-block:: none
+
+    To be
+    or not
+    to be!
+
+Here we are just reading the data from the array parameter.  
+We will see that there are more wrinkles to array parameters in :ref:`alias`.
+
+.. index:: function; return array
+   array; returned by method
+  
+An array type can also be
+returned like any other type.  Examine the function definition:
+  
+.. literalinclude:: ../../examples/introcs/string_array/string_array.cs
+   :start-after: chunk InputNStrings
+   :end-before: chunk
+   :dedent: 6
+
+This code follows a standard pattern for functions returning an array:
+  
+* In order to return an array, we must *first create* a new array
+  with the ``new`` syntax.  We must set the proper length (``n`` here).  
+* And we are not done with one line of creation:  Since the array has 
+  multiple parts, we need a loop to assign all the values.  We have a simple
+  ``for`` loop to assign to each element in turn.
+* Finally we must return the array that we created!
+
+
+
+.. index::
+   command line; parameter
+   parameter; command line to Main
+   Main; parameters
+
+.. _command-line-param:
+
+Parameters to Main
+---------------------
+
+The ``Main`` method may take an array of strings as parameter, as in example 
+:repsrc:`print_param/print_param.cs`:
+
+.. literalinclude:: ../../examples/introcs/print_param/print_param.cs
+   :start-after: chunk
+   :end-before: chunk
+   :dedent: 3
+
+
+By convention, the formal parameter for ``Main`` is called ``args``, 
+short for arguments.  
+
+Compile (``dotnet build``) and run (``dotnet run``) the program from the command line.
+Run it with some things at the end of the line in ``macOS`` like:
+
+.. code-block:: none
+
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
+
+or in ``Windows`` like:
+
+.. code-block:: none
+
+   PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
+
+and it should print for you:
+
+..  code-block:: none
+
+    There are 3 command line parameters.
+    hi
+    there
+    123
+
+See what quoted strings do. Use command line parameters (with the quotes)  
+``"hi there" 123``. This should print for you::
+
+    There are 2 command line parameters.
+    hi there
+    123
+
+
+
+.. _command-line-adder-exercise:
+
+Command Line Adder 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A code block in the Main method of your project that calculates and prints 
+the sum of three command line parameters taken from user input:: 
+
+   2 5 22
+
+then the program prints 29.
+
+The code could look like this::
+
+   ////////// args array from command line.
+   int sum = 0;
+   for (int i = 0; i < args.Length; i++)
+   {
+         sum = sum + int.Parse(args[i]);
+   }
+   Console.WriteLine(sum);
+
+Here we are using the ``arg`` array directly just like the preceding section. 
+
+To run the code this time, go down to your project's bin/Debug/net8.0 directory 
+from the command line, and run ``ls``. You will find the executables (the ``.dll`` or ``.exe`` 
+files) that you can execute. In ``Windows``, it should look like:
+
+.. code-block:: none
+    
+   PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> Ch08Arrays.exe 2 5 22
+    
+and you will see the output. You can also run the project by issuing:
+
+.. code-block:: none
+   
+   PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
+
+as before to see the same output. In earlier version of ``macOS``, you run this 
+with ``dotnet run`` in your project folder at command line with the arguments:
+
+.. code-block:: none
+
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
+
+or in more current versions of ``macOS``:
+
+.. code-block:: none
+
+   [username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
+   
+and you will see the output of the sum of the integers.
+
+Just like the preceding section, this shows that the ``string[] args`` in the Main method is a ``string array`` taking its 
+elements from the command line when the project is executed in the command line with arguments provided.
+
+Also, this code execution shows us the location of the executable files in the project. 
+ 
+
+.. index:: string; Split
+   Split method for strings
+   
+.. _Split:
+
+.. String Method Split
+.. ---------------------
+
+.. A string method producing an array:
+
+.. ``string[] Split(char`` **separator** ``)``   
+..     Returns an array of substrings from *this* string.  They are the pieces left
+..     after chopping out the separator character from the string. 
+..     A piece may be the empty string. 
+..     Example: 
+
+..     ..  code-block:: none
+    
+.. 		> var fruitString = "apple pear banana";
+.. 		> string[] fruit = fruitString.Split(' ');
+.. 		> fruit;
+.. 		{ "apple", "pear", "banana" }
+.. 		> fruit[1];
+.. 		"pear"
+.. 		> var s = "  extra   spaces ";
+.. 		> s.Split(' ');
+.. 		{ "", "", "extra", "", "", "spaces", "" }
+		
+.. Note: The response with the list in braces is a purely *csharprepl* convention for displaying
+.. sequences for the user.  There is no corresponding string displayed by C# Write commands.
+.. Also see that the string is split at *each* ``separator``, 
+.. even if that produces empty strings.
+
+.. .. index:: IntsFromString1
+..    index; parallel arrays
+
+.. .. _ints_from_string1:
+
+.. ``Split`` is useful for parsing a line with several parts.  You might get a group of 
+.. integers on a line of text, for instance from::
+
+..          string input = UI.PromptLine(
+..             "Please enter some integers, separated by single spaces: ");
+
+.. To extract the numbers, you want to the separate the entries in the string
+.. with ``Split``, *and* you probably want further processing: 
+.. If you want them as integers, not strings, you must convert each one separately.
+
+.. It is useful to put this idea in a function.
+.. See the type returned.  It is an array ``int[]`` for the int results::
+
+..       /// Return ints taken from space separated integers in a string.
+..       public static int[] IntsFromString1(string input)
+..       {
+..          string[] integers = input.Split(' ');
+..          int[] data = new int[integers.Length];
+..          for (int i=0; i < data.Length; i++)
+..             data[i] = int.Parse(integers[i]);
+..          return data;
+..       }
+      
+.. In a call to ``IntsFromString1("2 5 22")``,  ``integers`` would be 
+.. an array containing strings ``"2"``, ``"5"``, and ``"22"``.  
+.. We need the conversions to ``int`` to go in a new array that we call ``data``.
+.. We must set its length, which will clearly be the same as for ``integers``,
+.. ``integers.Length``.
+.. To assign elements into ``data`` we need a loop providing indices,
+.. like the ``for`` loop provided.  Then for each index, we parse a
+.. string in ``integers`` into an ``int``, 
+.. and place the ``int`` in the corresponding location in ``data``.  We need to return
+.. ``data`` at the end to make it accessible to the caller.
+
+.. Again we use the basic pattern for returning an array.  
+
+.. Dealing with arrays is hard for many students for several reasons:
+
+.. *  You have new array declaration and creation syntax.
+.. *  Array are compound objects, so there is a lot to think about.
+.. *  Loops are hard for many people, and you almost always deal with loops.
+.. *  You usually must deal with index variables, and there are many 
+..    patterns.
+
+.. The last point is significant, 
+.. so it is important to note the special pattern in the example above:
+
+.. .. note::
+..    The use of the same index variable for more than one array is 
+..    a standard way to have 
+..    *related* entries in *corresponding* positions in the arrays.
+
+.. We will introduce a refinement of this function in the
+.. :ref:`intsfromstring_exercise`.  It will rely on a more complicated
+.. index-handling pattern.
+
+
+  
+.. index:: alias
+
+.. _alias:
+
+References and Aliases
+-------------------------
+
+Object variables, like arrays, are references, 
+and this has important implications for
+assignment.
+
+With a primitive type like an ``int``, an assignment copies the data:
+
+.. image:: ../images/intCopy.png
+   :alt: copying an int
+   :align: center
+   :width: 90 pt
+
+In the diagram, the contents of the memory box labeled ``b`` is copied to the
+memory box labeled ``d``. The value of ``d`` starts off equal to the value of ``b``, 
+but can later be changed independently.
+
+Contrast an assignment with arrays.  The value that is copied is the *reference*,
+not the array data itself, so both end up pointing at the *same*  actual array:
+
+.. image:: ../images/arrayAlias.png
+   :alt: copying an array reference
+   :align: center
+   :width: 300 pt
+   
+Hereafter, array assignments like::
+
+   b[2] = -10;
+   d[1] = 55;
+   
+would both change the *same* array.  Now ``b`` and ``d`` are essentially
+names for the same thing (the actual array).  The technical term matches English:
+The names are *aliases*.
+
+This may seem like a pretty silly discussion. Why bother to give two different 
+names to the same object? Isn't one enough? In fact it is very important
+in function/method calls. An array reference can be passed as an actual value, 
+and it is the array *reference* that is copied to the formal parameter, so
+the formal parameter name is an **alias** for the actual parameter name.
+
+.. note::
+   If an array passed as a parameter to a method has elements changed in the
+   method, then the change affects the actual parameter array.
+   The change *remains* in the actual parameter array *after* 
+   the method has terminated.
+
+.. index:: example; Scale
+   Scale example
+   array; parameter
+
+For example, consider the following function::
+
+   // Modify a by multiplying all elements by multiplier. 
+   static void Scale(int[] a, int multiplier)
+   {
+      for (int i = 0; i < a.Length; i++) {
+         a[i] *= multiplier;  // or:  a[i] = a[i] * multiplier
+      }
+   }
+   
+The fragment::
+
+   int[] nums = {2, 4, 1};
+   Scale(nums, 5);
+   
+would *change* nums, so it ends up containing elements 10, 20, and 5.
+
+
+
+    
+.. index:: OOP; default value
+   default value in instance 
+
+.. _default-fields:
+   
+Default Initializations
+-------------------------
+
+Did you notice that when the first example array of integers was created,   
+it was filled with zeros?  It is a safety feature of C# that the internal fields 
+of objects always get a specific value, not random data.  Here are the defaults:
+
+.. csv-table:: Default Values
+    :header: "Type", "Value"
+    :widths: 30, 10
+
+    "primitive numeric types", "0"
+    "bool", "false"
+    "all object types", "null"
+
+.. warning::
+
+   An array with elements of object type, like ``string[]``,  
+   without a specific initializer, 
+   gets initialized to  all ``null`` values.  The creation is totally
+   legal, but if you try to use the created value, like  ::
+   
+       string[] words = new string[10];
+       Console.WriteLine(words[0].Length);  // run time error here 
+    
+   The error is because ``null`` is not an object - it does not have a ``Length``
+   property.  If, for example, 
+   you want an array of empty strings you would need to initialize it with
+   a loop::
+    
+       string[] words = new string[10];
+       for (int i = 0; i < words.Length; i++) {
+          words[i] = "";
+       }
+
+
+LINQ Methods
+--------------
+
+.. note:: 
+
+   Language-Integrated Query (`LINQ <https://learn.microsoft.com/en-us/dotnet/csharp/linq/>`_) is the name for a set of technologies based 
+   on the integration of query capabilities directly into the C# language. 
+
+All the arrays in C# are derived from an abstract base class `System.Array <https://learn.microsoft.com/en-us/dotnet/api/system.array?view=netframework-4.7.2>`_. 
+The Array class implements the ``IEnumerable interface``, so you can LINQ 
+extension methods such as Max( ), Min( ), Sum( ), reverse( ), etc on arrays::
+
+   int[] nums = new int[5]{ 10, 15, 16, 8, 6 };
+
+   nums.Max();       // returns 16
+   nums.Min();       // returns 6
+   nums.Sum();       // returns 55
+   nums.Average();   // returns 55
+
+
+
+.. rubric:: Footnotes
+
+.. [#arr-microsoft] See `Arrays <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/arrays>`_ in Microsoft Langauge Reference.
+.. [#arr-codeacademy] See `C# Arrays <https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-arrays/cheatsheet>`_ of codeacademy. 

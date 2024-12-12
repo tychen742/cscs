@@ -1,0 +1,418 @@
+
+
+
+.. index:: while; planning rubric
+   loop; planning rubric
+   rubric; planning a loop
+   planning; loop rubric
+
+Lab: ``while`` Loops
+=======================
+
+- **Note on GAI**: Note that the course policy is that you should not use generative AI (GAI)
+  without authorization. GAI are great tools and you should learn how to use it, but 
+  they are tools and should be used to facilitate but not replace your learning. 
+  If you are suspected to have used GAI to generate answers 
+  to the assignment questions instead of using it as a learning tool, you may be 
+  called up to explain/reproduce your work. If you fail to demonstrate your 
+  competency, all your **related assignments throughout the semester will be 
+  regraded as 0**. For example, if you fail to produce good code in ``while`` loops 
+  in midterm exam, your *lab06 while loop homework and labs* will be re-evaluated.  
+
+#. Create a dotnet console app project (see :ref:`create-project` if you need to), if you 
+   have not, in your ``introcscs`` (``C:\Users\*USERNAME*\workspace\introcscs`` for Windows or ``COMPUTER:introcscs USERNAME$`` for macOS) directory; call it 
+   **Ch06WhileLoop**. 
+#. Prepare your code in VS Code. 
+#. Use the file Program.cs to code.
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch06WhileLoop*. 
+#. When executing code, you will only use the Main() method in class *Ch06WhileLoop*. 
+#. You will prepare methods in the same class to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // in code when 
+   appropriate) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part 
+   of the execution).
+
+Easy ``while``
+-----------------
+
+Write a program with a ``while`` loop to print:
+
+..  code-block:: none
+
+     10
+     9
+     8
+     7
+     6
+     5
+     4
+     3
+     2
+     1
+     Blastoff!
+
+
+Number in Range [1…100]
+-------------------------
+
+Enter an integer in the range [1 … 100]. If the entered number is invalid, 
+enter it again. In this case, an invalid number will be any number that is not 
+within the specified range. [#number-in-range]_
+
+To solve the problem, we can use the following algorithm:
+
+- We create a num variable to which we assign the integer value obtained from the console input.
+- For a loop condition, we put an expression that is true if the number of the input is not in the range specified in the problem's description.
+- In the body of the loop: we print a message "Invalid number!" on the console, then we assign a new value to num from the console input.
+- Once we have validated the entered number, we print the value of the number outside the body of the loop.
+
+Here's a implementation of the algorithm using a while loop and there are places that 
+need to be fixed in the code::
+
+   var num = int.Parse(Console.WiteLine());
+   while (num < 1 && num > 100)
+   {
+      Console.WriteLine("Invalid number!");
+      num = int.Parse(Console.WriteLine());
+   }
+   Console.WriteLine("The number is: {{10}", num);
+
+Fix the preceding code and make sure the execution performs correctly. 
+
+.. _lab-number-game:
+
+Number Guessing Game 
+-------------------------
+
+This lab is inspired by a famous children's game
+known as the number-guessing game. We suppose two people are playing. The rules are:
+
+- Person A chooses a positive integer less than N and keeps it in his or
+  her head.
+- Person B makes repeated guesses to determine the number. Person A
+  must indicate whether the guess is higher or lower.
+- Person A must tell the truth.
+
+So as an example:
+
+- George and Andy play the game.
+- George chooses a positive number less than 100 (29) and keeps it in his
+  head.
+- Andy guesses 50. George says "Lower". Andy now knows that 
+  :math:`1 \leq number < 50`.
+- Andy guesses 25. George says "Higher". Andy now knows that 
+  :math:`26 \leq number < 50`.
+- Andy guesses 30. George says "Lower". Andy now knows that the
+  :math:`26 \leq number < 30`.
+- Andy starts thinking that he is close to knowing the correct answer. He
+  decides to guess 29. Andy guesses the correct number. So George
+  says, "Good job! You win!"
+
+
+The computer code for the game is going to be acting like Person A and should 
+be configured and behave as follows.
+
+#. Make sure your program has ``namespace IntroCSCS;`` to match the UI class. 
+#. Put the code for playing the number game in a method called ``Game``::
+
+    static void Game()
+        
+#. You call ``Game()`` from the ``Main`` method.
+#. Prompt the player for a guess. Use ``UI.PromptInt``. 
+#. When the player guesses the right number, print "Good job!  You win!"
+#. When the player is incorrect, print "Lower!" or "Higher!" as appropriate.
+#. Have the Game method print "In this game you guess a positive number 
+   less than 100." It is best if you have the printing statement
+   reference the variable ``big``, rather than the literal ``100``.
+#. Have the game generate a *random* number. For your convenience, 
+   use the C# code below to generate the random number. Assuming we want a 
+   ``secret`` number so :math:`1 \leq secret < big`, we can use the code::
+
+      Random r = new Random();
+      int secret = r.Next(1, big);
+
+   .. note:: 
+      In case you are wondering, we are creating a *new object* 
+      of the *class* ``Random``, which serves as the
+      *random number generator*. We'll cover this in more detail when we
+      get to the :ref:`classes` chapter. 
+   
+   * Here is some illustration using a ``Random`` object in ``csharprepl``. 
+     Your answers will not be the same::
+
+         > Random r = new Random();
+
+         > r.Next(1, 100)
+         68
+         > r.Next(1, 100)
+         48
+         > r.Next(1, 100)
+         30
+         > r.Next(1, 100)
+         70
+         > r.Next(1, 100)
+         67
+         > 
+
+   * Note that, the **minimum** possible value of the number returned by ``r.Next``
+     is the first parameter, and the value returned is always *less* than
+     the second parameter, *never equal*.  
+
+#. As an extra challenge, when the player finally wins, print the number of guesses
+   the player made. 
+#. When run, the program should work like (where ``secret`` ended up as 68):
+   
+    | Guess a number less than 100!
+    | Guess the number: **60**
+    | Higher!
+    | Guess the number: **72**
+    | Lower!
+    | Guess the number: **66**
+    | Higher!
+    | Guess the number: **68**
+    | Good job!  You win on guess 3!
+   
+   
+.. _SumToN:
+
+Sum To ``n``
+------------
+
+- This lab gives detailed description about the process of arriving at a solution to 
+  the problem. Please read the explanations if you are new to coding and while loops. 
+
+Let us write a method to sum the numbers from 1 to ``n``::
+
+    /// Return the sum of the numbers from 1 through n. 
+    static int SumToN(int n) 
+    {
+       ...
+    }
+
+For instance, SumToN(5) calculates 1 + 2 + 3 + 4 + 5 and returns 15.
+You know how to generate a sequence of integers (using loop header). To see how this works in steps, 
+let us take a concrete example like the one above for SumToN(5), and write out a detailed sequence of steps like:
+
+..  code-block:: none
+
+    3 = 1 + 2
+    6 = 3 + 3 
+    10 = 6 + 4
+    15 = 10 + 5
+    
+Since ``n`` is general, we need a loop, and hence we must see a **pattern** in code that we can repeat:
+
+- In each calculation the second term in the additions is a successive integer, that we can generate. 
+- Starting in the second line, the first number in each addition is the sum from the previous line. 
+- The next integer and the next partial sum change from step to step, so in order to use the same code over and
+  over we will need changeable variables, with names. We can make the partial
+  sum be ``sum`` and we can call the next integer ``i``.  Each addition can be
+  in the form::
+
+     sum + i
+
+- We need to remember that result, the new sum.  You might first think to introduce
+  such a name::
+
+     newSum = sum + i;
+    
+This will work. We can go through the :ref:`Loop Planning Rubric <loop-planning-rubric>`:
+    
+The variables are ``sum``, ``newSum`` and ``i``.
+    
+To evaluate  ::
+
+    newSum = sum + i;
+
+the first time in the loop, we need *initial* values for sum and i.
+Our concrete example leads the way::
+
+   int sum = 1, i = 2;
+   
+We need a ``while`` loop heading with a continuation condition.  How
+long do we want to add the next ``i``?  That is for all the value up to and
+including n::
+
+   while (i <= n) {
+
+There is one more important piece - making sure the same code 
+
+    newSum = sum + i;
+    
+works for the *next* time through the loop.  We have dealt before with
+the idea of the next number in sequence::
+
+   i = i + 1;
+   
+What about ``sum``?  What was the ``newSum`` 
+on *one* time through the loop becomes the old or
+just plain ``sum`` the *next* time through, so we can make an assignment::
+
+   sum = newSum:
+   
+All together we calculate the sum with::
+
+   int sum = 1, i = 2;
+   while (i <= n) {
+      int newSum = sum + i;
+      sum = newSum:
+      i = i + 1;
+   }
+   
+We can condense it in this case: Since ``newSum`` is only used
+once, we can do away with this extra variable name, 
+and directly change the value of sum::
+
+   int sum = 1, i = 2;
+   while (i <= n) {
+      sum = sum + i;
+      i = i + 1;
+   }
+
+Finally this was supposed to fit in a method. The ultimate purpose
+was to *return* the sum, which is the final value of the
+variable ``sum``, so the whole method is::
+
+  /// Return the sum of the numbers from 1 through n. 
+  static int SumToN(int n)     // line 1
+  {
+     int sum = 1, i = 2;       // 2
+     while (i <= n) {          // 3
+        sum = sum + i;         // 4
+        i = i + 1;             // 5
+     }
+     return sum;               // 6
+  }
+
+Also you should check the program in a more general situation, say with ``n`` 
+being 4. You should be able to play computer and generate this table,
+using the line numbers shown in comments at the end of lines, 
+and following one statement of execution at a time.  We only
+make entries where variables change value.
+      
+====  ==  ====  ======================== 
+Line   i   sum  Comment   
+====  ==  ====  ======================== 
+1               assume 4 is passed for n        
+2      2     1  
+3               2<=4: true, enter loop
+4            3  1+2=3
+5      3        2+1=3, bottom of loop
+3               3<=4: true
+4            6  3+3=6
+5      4        3+1=4, bottom of loop
+3               4<=4: true
+4           10  6+4=10
+5      5        4+1=5, bottom of loop
+3               5<=4: false, skip loop
+6               return 10
+====  ==  ====  ======================== 
+
+
+
+
+
+
+.. index:: exercise; loan table
+   decimal; loan table exercise
+
+.. _loan_table_exercise:
+
+Loan Table 
+-----------------------
+
+This exercise is an extension of the :ref:`savings_exercise`. Different
+forms of iteration may make sense to you but you are encouraged to use the ``while`` or ``do`` loop.
+
+Loans are common with a specified interest rate and with a fixed periodic 
+payment.  Interest is charged at a fixed rate on the amount left in the loan 
+after the last periodic payment (or start of the loan for the first payment).
+
+For example, if an initial $100 loan is made with 10% interest per pay
+period, and a regular $20 payment each pay period:
+At the time of the first payment interest of $100*.10 = $10 is accrued,
+so the total owed is $110.  Right after the payment of $20, 
+$110 - $20 = $90 remains.  That $90 gains interest of $90*.10 = $9 up to the
+next payment, when $90 + $9 = $99 is owed.  After the regular payment of
+$20, $99 - $20 = $79 is left, and so on.  When a payment of at most $20 brings
+the amount owed to 0, the loan is done.
+ 
+We can make a table showing 
+
+* Payment number (starting from 1)
+* The principal amount after the previous payment (or the beginning of the loan
+  for the first payment) 
+* The interest on that principal up until the next periodic payment
+* The payment made as a result.  
+
+Continuing the example above, the whole table
+would look like:
+
+.. code-block:: none
+
+    Number Principal   Interest    Payment
+         1    100.00      10.00      20.00
+         2     90.00       9.00      20.00
+         3     79.00       7.90      20.00
+         4     66.90       6.69      20.00
+         5     53.59       5.36      20.00
+         6     38.95       3.90      20.00
+         7     22.85       2.29      20.00
+         8      5.14       0.51       5.65
+
+In the final line, the principal plus interest equal the payment, finishing
+off the loan.
+     
+Similarly, with a $1000.00 starting loan, 5% interest per pay period, and
+$196 payments due, you would get
+
+.. code-block:: none
+      
+    Number Principal   Interest    Payment
+         1   1000.00      50.00     196.00
+         2    854.00      42.70     196.00
+         3    700.70      35.04     196.00
+         4    539.74      26.99     196.00
+         5    370.73      18.54     196.00
+         6    193.27       9.66     196.00
+         7      6.93       0.35       7.28
+
+If a $46 payment were specified, the principal would not decrease from the
+initial amount, and the loan would never be paid off.
+
+There are a couple of wrinkles here:  ``double`` values do not hold decimal
+values exactly.  The ``decimal`` type does hold decimal numbers exactly 
+and
+hence are better for monetary calculations.  Decimal literals end with m, like
+``34.56m`` for *exactly* 34.56.    
+
+Though decimals are exact, money only has two decimal places.  We make the 
+assumption that interest will always be calculated as current 
+principal*rate, rounded
+to two decimal places:  ``Math.Round(principal*rate, 2)``.
+
+Write the ``LoanTable`` method and run it from ``Main``::
+
+    /// Print a loan table, showing payment number, principal at the 
+    /// beginning of the payment period, interest over the period, and
+    /// payment at the end of the period.
+    /// The principal is the initial amount of the loan.
+    /// The rate is fraction representing the rate of interest per PAYMENT.
+    /// The periodic regular payment is also specified.
+    public static void LoanTable(decimal principal, decimal rate, 
+                                 decimal payment)
+
+Note that the ``rate``, too, is a ``decimal``, 
+even though it does not represent money.
+That is important, because arithmetic with a ``decimal`` and a ``double`` is
+forbidden:  A ``double`` would have to be explicitly cast to a ``decimal``.
+Insisting on ``decimal`` parameter simplifies the method code.
+
+
+
+.. rubric:: Footnotes
+
+.. [#number-in-range] This question is from `Example: Number in Range [1..100]<https://csharp-book.softuni.org/Content/Chapter-7-1-complex-loops/while-loop/examples/example-number-in-range-1100.html>`

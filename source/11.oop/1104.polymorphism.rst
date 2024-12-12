@@ -1,0 +1,322 @@
+Polymorphism
+================
+
+Polymorphism means "many-shaped", and it occurs when we 
+have classes that are related to each other by inheritance. Polymorphism refers to the 
+ability of a single interface to be used to refer to multiple **implementations** of 
+a particular behavior (functionality or "method"). 
+
+In C#, polymorphism can be achieved through inheritance, interfaces, and ``virtual`` 
+methods. Inheritance allows us inheriting fields and methods from a base/parent class. 
+Polymorphism further allows use to modify and use those methods to perform different 
+tasks. This is called ``method overriding``, meaning to override the definition of the 
+method in the base/parent class. In this case here, you are implementing method name 
+that you inherit from a parent class, you have to use the ``same method signatures``.
+
+There will be time when you need to define two or more methods sharing the same 
+method name in the same class (as opposing to method overriding, where method modification 
+happens in the child classes). For example, you want to create an "AddTwo" method in your 
+math operation class and you want AddTwo to intake integers, float, and decimal types. 
+This is a form of polymorphism [#polymorphism-definition]_ called **method overloading**, 
+in which you need to provide ``different method signatures`` (such as data types) in 
+order to distinguish the methods. 
+
+
+Method Overriding: virtual/override/base
+-----------------------------------------
+
+Think of a base class called ``Animal`` that has a method called 
+``animalSound()``. Derived classes of Animals could be ``Pig``, ``Cat``, ``Dog`` 
+- and they can have their own implementation of the same ``animalSound()`` 
+(the pig oinks, and the cat meows, etc.):
+
+.. code-block:: 
+    :linenos:
+
+    class Animal                // Base class (parent) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+
+    class Pig : Animal          // Derived class (child) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+    class Dog : Animal          // Derived class (child) 
+    {
+        public void animalSound()
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+    }
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            Animal myAnimal = new Animal(); // Create a Animal object
+            Animal myPig = new Pig();       // Create a Pig object
+            Animal myDog = new Dog();       // Create a Dog object            
+            myAnimal.animalSound();         // The animal makes a sound
+            myPig.animalSound();            // The animal makes a sound
+            myDog.animalSound();            // The animal makes a sound
+            myCat.animalSound();            // The animal makes a sound
+        }
+    }    
+
+The code output above is not what you expected. Different animals should make different 
+sounds, but here Pig and Dog are making the same sound. This happens because the 
+base class method overrides the derived class method, when they share the same name.
+
+For the derived (child) to ``override`` the base class method, you need to 
+
+#. add the ``virtual`` keyword to the method in the base class; and 
+#. use the ``override`` keyword for each derived class methods. 
+
+
+.. code-block:: csharp
+    :linenos:
+
+    class Animal                            // Base class (parent) 
+    {
+        public virtual void animalSound()   // virtual
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+
+    class Pig : Animal                      // Derived class (child) 
+    {
+        public override void animalSound()  // override
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+
+    class Dog : Animal                      // Derived class (child) 
+    {
+        public override void animalSound()  // override
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+    }
+
+    class Cat : Animal                      // Derived class (child) 
+    {
+        public void animalSound()
+        {
+            animalSound();
+            // or base.animalSound();       // the base keyword refer
+        }
+    }
+
+
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            Animal myAnimal = new Animal(); // Create a Animal object
+            Animal myPig = new Pig();       // Create a Pig object
+            Animal myDog = new Dog();       // Create a Dog object
+            Animal myDog = new Cat();       // Create a Cat object
+
+            myAnimal.animalSound();         // The animal makes a sound
+            myPig.animalSound();            // The pig says: wee wee
+            myDog.animalSound();            // The dog says: bow wow
+            myCat.animalSound();            // The animal makes a sound
+        }
+    }
+
+Now you have achieved **method overriding** by marking the method in the base class 
+``virtual`` and the method in the derived class ``override``.
+
+
+.. note:: 
+
+    The content in this section discuss advanced scenarios and is here for your reference. 
+
+
+In C#, there are a few rules to follow when using polymorphism: [#polymorphism-codewithhonor]_
+
+#. A class can *only inherit from a single base class*, but it can implement multiple 
+   interfaces.
+#. A method marked as ``virtual`` in the base class can be overridden in a derived 
+   class using the ``override`` keyword.
+#. If a derived class wants to call the implementation of a virtual method from 
+   the base class, it can use the ``base`` keyword.
+#. If a derived class wants to prevent a virtual method from being overridden 
+   in further derived classes, it can use the ``sealed`` keyword.
+#. If a derived class wants to provide its own implementation of a virtual method, 
+   but also wants to call the implementation from the base class, it can use 
+   the ``base`` keyword in the implementation.
+
+.. code-block:: csharp
+    :linenos:
+
+    public class Shape
+    {
+        public virtual void Draw()
+        {
+            Console.WriteLine("Drawing a shape");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        public override void Draw()
+        {
+            base.Draw();                    // Call the implementation in the base class
+            Console.WriteLine("Drawing a circle");
+        }
+    }
+
+    public class Rectangle : Shape
+    {
+        public sealed override void Draw()  // note the "sealed" keyword
+        {
+            Console.WriteLine("Drawing a rectangle");
+        }
+    }
+
+    public class Triangle : Shape
+    {
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a triangle");
+        }
+    }
+
+    public class Square : Rectangle
+    {
+        // This will cause a compile-error because the Draw method is sealed in the Rectangle class
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a square");
+        }
+    }
+
+
+Method Overloading
+--------------------
+    
+With method overloading, multiple methods can have the same name with different 
+signatures/parameters. 
+
+For example, consider the following example, which your use two methods that add numbers 
+of different data types: [#method-overloading-w3]_
+
+.. code-block:: csharp
+
+    static int PlusMethodInt(int x, int y)
+    {
+        return x + y;
+    }
+    
+    static double PlusMethodDouble(double x, double y)
+    {
+        return x + y;
+    }
+    
+    static void Main(string[] args)
+    {
+        int myNum1 = PlusMethodInt(8, 5);
+        double myNum2 = PlusMethodDouble(4.3, 6.26);
+        Console.WriteLine("Int: " + myNum1);
+        Console.WriteLine("Double: " + myNum2);
+    }
+
+Obviously you are performing the same operations in the preceding code, with the only 
+difference been the data types. So, instead of creating two different methods, you may 
+``overload`` a ``PlusMethod`` method to work for both int and double:
+
+.. code-block:: csharp
+    
+    static int PlusMethod(int x, int y)
+    {
+        return x + y;
+    }
+    
+    static double PlusMethod(double x, double y)
+    {
+        return x + y;
+    }
+    
+    static void Main(string[] args)
+    {
+        int myNum1 = PlusMethod(8, 5);
+        double myNum2 = PlusMethod(4.3, 6.26);
+        Console.WriteLine("Int: " + myNum1);
+        Console.WriteLine("Double: " + myNum2);
+    }
+
+Now, with **method overloading**, you can call ``PlusMethod()`` with different data 
+types (int or double) and C# will choose the correct method to run according to their 
+signatures even if both methods have the same name. 
+
+Another example below shows you that, in addition to data types, you may even change the 
+number of parameters or even the operators (the ``+`` in the fourth ``Add()`` method 
+means). 
+
+.. code-block:: csharp
+
+    namespace IntroCSCS
+    {
+        class MethodOverLoading
+        {
+            public int Add(int num1, int num2)
+            {
+                return (num1 + num2);
+            }
+            public int Add(int num1, int num2, int num3)
+            {
+                return (num1 + num2 + num3);
+            }
+            public float Add(float num1, float num2)
+            {
+                return (num1 + num2);
+            }
+            public string Add(string value1, string value2)
+            {
+                return (value1 + " " + value2);
+            }
+        }
+    }
+
+    namespace IntroCSCS
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {    
+                MethodOverloading mol = new MethodOverloading();  
+                Console.WriteLine("Add two int parameter: " + mol.Add(3, 2));  
+                Console.WriteLine("Add three int parameter: " + mol.Add(3, 2, 8));  
+                Console.WriteLine("Add two float parameter: " + mol.Add(3f, 22f));  
+                Console.WriteLine("Add two string parameter: " + mol.Add("hello", "world"));             }
+
+                // output: 
+                // Add two int parameter: 5
+                // Add three int parameter: 13
+                // Add two float parameter: 25
+                // Add two string parameter: hello world
+        }
+    }
+
+.. rubric:: Footnotes
+
+.. [#polymorphism-definition] There is no globally agreed-upon definition of "Polymorphism". 
+   Microsoft's discussion on `polymorphism <https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism>`_ 
+   does not include method overloading. It is common to categorize polymorphism into 1) 
+   compile time polymorphism, including method overloading and operator overloading, and 2) 
+   runtime polymorphism, as achieved by method overriding. For example, see `here <https://www.programiz.com/csharp-programming/polymorphism>`_, 
+   while it's easier to say that method overloading and method overriding as two major types 
+   of polymorphism such as `here <https://ogutdgnn.medium.com/polymorphism-in-c-with-method-overloading-and-method-overriding-da0d5323a2cd#:~:text=Overloading%20is%20determined%20at%20compile,same%20method%20in%20inherited%20classes.>`_.
+   
+.. [#polymorphism-codewithhonor] `C# Polymorphism <https://medium.com/@CodeWithHonor/c-polymorphism-91b5b348c19f>`_
+
+.. [#method-overloading-w3] Sample code here are from `w3schools <https://www.w3schools.com/cs/cs_method_overloading.php>`_.

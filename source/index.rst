@@ -1,28 +1,24 @@
-Intro to Programming in C#
-======================================
+Lecture Notes: Intro to CS in C#
+===========================================
 
 .. toctree::
    :numbered:
    :maxdepth: 2
 
-   01.context/context
+   01.context/01.context
    02.data/data
-   03.functions/functions
-   04.basicstringops/basicstringops
-   05.decisions/decisions
-   06.while/while
-   07.foreach/foreach
-   08.for/for
-   09.files/files
-   10.arrays/arrays
-   11.lists/lists
-   12.dictionaries/dictionaries
-   13.classes/classes
-   14.testing/testing
-   15.interfaces/interfaces
-   16.recursion/recursion
-   17.datastructures/datastructures
-   18.appendix/appendix
+   03.methods/methods
+   04.decisions/decisions
+   05.for/for
+   06.while/06.while
+   07.files/07.files
+   08.arrays/08.arrays
+   09.collections/09.collections
+   10.classes/10.classes
+   11.oop/11.oop
+   12.datastructure/12.datastructure
+   13.selected-topics/13.selected-topics
+   14.appendix/14.appendix
    
 :ref:`genindex`
 

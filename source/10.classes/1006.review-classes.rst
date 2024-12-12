@@ -1,0 +1,141 @@
+Chapter Review 
+=========================
+
+- Follow the lab assignment format to prepare this assignment. 
+- Create a project folder called ``Ch10Classes`` to include the code for this 
+  project.
+- Question 6~10 require code and execution screenshots when applicable.  
+
+#.  What is the keyword used to create an instance of a class? 
+
+#. Can you create an object from a class resides in another file?
+
+#.  What is the purpose of a constructor?
+    
+#.  Describe the process of implementing inheritance in polymorphism in steps. 
+
+#.  If you want to use an instance variable (field) in a method, should you declare
+    that instance variable in the method? Why?
+
+#.  How do you create an instance of the following class?
+
+    .. code-block:: 
+
+        class DoMath
+        {
+            public int Sum(int num1, int num2)
+            {
+                var total = num1 + num2;
+                return total;
+            }
+        }
+
+#.  How do you use the following class to use the Sum method for summing up two integers? Prepare  
+    your code in your Program.cs Main method. 
+    
+    .. code-block:: csharp
+
+        static class SomeMath
+        {
+            public static int Sum(int a, int b)
+            {
+                return a + b;
+            }
+        }
+
+#.  Define a ``Math`` class, when **instantiated**, offer the functionality of two 
+    summing methods with the same name Sum that would take 2 and 3 arguments, 
+    respectively, and sum them up and return the results. 
+
+#. Change the preceding code to allow the passing of an unspecified number of integer arguments 
+   (see, e.g., https://stackoverflow.com/questions/1996426/pass-multiple-optional-parameters-to-a-c-sharp-function). 
+   Save the file in the project folder,call it SumManyArgs.cs and use SumManyArgs as the class name. 
+
+#.  Does the following code define a public or private class? Add an access modifier without 
+    changing the existing accessibility level. Show your changed code and explain why. 
+
+    .. code-block:: 
+
+        class Customer
+        {
+            // Fields, properties, methods and events go here...
+        }
+
+.. #.  What does the ``this`` keyword do in the context of this chapter?
+
+.. #.  If we want users to be able to see the value of a private instance variable
+..     from outside of the class, how do we do it?
+
+.. #.  What is the general name of the category of public methods whose sole purpose
+..     is to set a part of instance state to a new specified value?    
+
+.. #.  If you do not explicitly assign a value to an instance variable in a
+..     constructor, does the instance variable have a value?
+
+
+.. #.  What is the general name of the category of methods that return
+..     instance state values?
+    
+.. #.  Instance variables are usually visible from inside instance methods for
+..     the class.  What is the exception?  In the exceptional case, what is
+..     the workaround to allow access to the instance variable?
+    
+.. #.  Sometimes you need to refer explicitly to the current object.  How
+..     do you do it?
+ 
+
+.. #.  What is the return type for a setter method?
+ 
+
+
+.. #.  If a class has one or more setter methods, is the object type 
+..     immutable?
+   
+.. #.  Where in a class are instance variables declared?
+
+.. #.  For most instance variables, what is the modifier used that does not
+..     appear at the beginning of a local variable declaration?
+   
+.. #.  What is the lifetime of an instance variable:   
+..     When does it come into existence, and how long does it last?
+   
+.. #.  Why do we generally make an instance variable ``private``?
+
+.. #.  In what code can an instance variable be seen and used?
+
+.. #.  Must instance variables and methods always be preceded by
+..     an explicit object reference and ``.``?
+
+.. #.  Can we refer to an instance variable in a part of the code 
+..     where there is no current object?
+
+.. #.  In what kind of method in a class definition are instance variables never
+..     accessible?
+
+.. #.  A method with what signature allows you to control how the string 
+..     concatenation operate (``+``) generates a string from the object?
+    
+.. #.  If you write an override the ``ToString`` method in a class, should the method
+..     print the string?   If not, what should it do with the resulting string?
+    
+
+
+.. #.  Can aliased objects cause problems when created for an immutable object? 
+..     Mutable object?
+
+.. #.  In a class with instance methods you can always design the class so variables
+..     are instance variables and not local variables.  When should you
+..     use local variables instead?
+    
+.. #. If an instance method has a formal parameter of the same type as the
+..    class being defined,
+..    can you refer to a private instance variable in the parameter object?  
+..    May you change it?
+..    How do you distinguish an instance variable for the current object from the
+..    corresponding instance variable for the parameter object?
+
+
+
+
+
+    

@@ -1,0 +1,201 @@
+.. index:: string, string length, string indexing
+
+.. _string:
+
+Strings
+================
+
+A string in C# is a collection of literal characters used to store text. 
+In C# string must be enclosed in double quotes to delimit the string. 
+
+Since a string is a series of characters (of the ``char`` type), we can 
+refer to the individual characters by using index numbers, which can be useful 
+when we need to manipulate strings and character level. In the example below, 
+the character f has an index number of 0.
+
++-----------+---+---+---+---+---+---+---+
+| Index     | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
++-----------+---+---+---+---+---+---+---+
+| Character | f | o | r | m | o | s | a |
++-----------+---+---+---+---+---+---+---+
+
+When represented in code, indexing works like below:
+
+.. code-block:: none
+    
+    > string txt = "ilha formosa";  
+    > txt[3]
+    'a'
+    > 
+
+Note that, in the example above, the output is a character since strings consist of 
+characters and the ``char`` type are created by delimiting the characters by single 
+quotation marks. 
+
+
+Creating a String
+------------------
+
+To create a variable of type string and assign it with a value:
+
+.. code-block:: 
+
+    > string dayOfWeek = "Monday";
+
+    > dayOfWeek      // the REPL shell prints the variable value 
+    "Monday"
+    > 
+
+In an editor such as VS Code, this would look like the following, where ``Console.WriteLine`` 
+prints out the string rather than REPL. 
+
+.. code-block:: C#
+    :linenos:
+
+    string dayOfWeek = "Monday";
+
+    Console.WriteLine(dayOfWeek);   // Console.WriteLine for output
+
+Since this is a console app, we use the TERMINAL in VS Code to do ``dotnet run``
+to see the project outcome. Make sure you are in the right project directory, though.    
+
+
+.. index:: string; concatenation with +
+   concatenation
+   single: +; string concatenation
+   operator; + string concatenation
+
+.. _String-Concatenation:
+   
+String Concatenation
+---------------------
+   
+String concatenation is to join stings together. In C#, the ``+`` operator 
+is used to perform concatenation. Note C# uses the ``+`` operator for both 
+arithmetic addition and concatenation. To concatenate two strings together:
+
+.. code-block:: none
+
+    > string firstName = "Tsangyao";    // assign value to variable
+    > string lastName = " Chen";    
+
+    > firstName + lastName              // concatenation
+    "Tsangyao Chen"
+    > 
+
+C# can also concatenate values of different data types. The example below 
+shows you how to concatenate data of string type and int type: 
+
+.. code-block:: none
+
+    > int aLargeAmountOf = 400;                                
+
+    > "I spent " + aLargeAmountOf + " dollars on coffee this week."
+    "I spent 400 dollars on coffee this week."
+    > 
+
+
+Escape Special Characters
+---------------------------
+
+.. index::
+   escape code \
+   single: \ ; character escape code
+   character escape code \
+   
+Since C# requires double quotation marks as delimiters for creating strings, when we need 
+to show quotation marks as part of a string, the situation becomes tricky. Consider the 
+following string toBe1. We see that there is a syntax error at (1,18) (line# 1, character# 18) 
+when trying to put a quotation inside the string:  
+
+.. code-block:: none
+
+    > string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";  
+    ┌────CompilationErrorException─────┐
+    │ (1,18): error CS1002: ; expected │
+    └──────────────────────────────────┘
+
+To make the quotation work, we need to use the special character backslash ``\`` as *escape character*, 
+meaning that the character following it should be treated specially: They turns 
+special characters into string characters. 
+
+    > string toBe2 = "\"To be, or not to be\" is a speech given by Prince Hamlet.";
+
+    > Console.WriteLine(toBe2);
+    "To be, or not to be" is a speech given by Prince Hamlet.
+    
+In our example above, the ``"`` in ``\"To be`` and ``to be\"`` are escaped and 
+therefore special character ``"`` can be treated as string and shown as intended.
+
+Another example would look like the following. 
+
+.. code-block:: none
+
+    > Console.WriteLine("Goog morning!");
+    Goog morning!
+    > Console.WriteLine("He said, \"Goog morning!\".");
+    He said, "Goog morning!".
+
+Common special cases to be escaped include:
+
++------------------+---------------------------------------+
+| Escape character | Result                                |
++==================+=======================================+
+| ``\"``           | ``"`` (quote)                         |
++------------------+---------------------------------------+
+| ``\'``           | ``'`` ( single quote in char literal) |
++------------------+---------------------------------------+
+| ``\\``           | ``\`` (backslash)                     |
++------------------+---------------------------------------+
+| ``\n``           | new line                              |
++------------------+---------------------------------------+
+| ``\t``           | new tab                               |
++------------------+---------------------------------------+
+
+The newline character (``\n``) inserts a new line and move the cursor 
+to the beginning of the new line. This is useful because C# string literals 
+are characters delimited by double quotation marks ``"`` in one line. [#]_ To 
+print to multiple lines, we use ``\n`` like:  
+
+.. code-block:: none
+
+    > Console.WriteLine("Good morning. Good afternoon. Good evening.");
+    Good morning. Good afternoon. Good evening.
+
+    > Console.WriteLine("Good morning. \nGood afternoon. \nGood evening.");
+    Good morning. 
+    Good afternoon. 
+    Good evening.
+
+    > 
+    
+ 
+String Properties and Methods
+-----------------------------
+
+Although we use string literals, strings are objects. In object-oriented-programming, 
+objects have *instance properties* and *instance methods*. Some examples of C# string 
+properties and methods are: 
+
+The length of a string can be found using the ``Length`` property::
+
+    string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    Console.WriteLine("The length of the txt string is: " + txt.Length);
+
+
+There are many string methods available [#]_. As examples, ToUpper() and ToLower() 
+return a copy of the string converted to uppercase or lowercase:
+
+.. code-block:: csharp
+
+    string txt = "Hello World";
+    Console.WriteLine(txt.ToUpper());   // Outputs "HELLO WORLD"
+    Console.WriteLine(txt.ToLower());   // Outputs "hello world"
+
+
+
+.. rubric:: Footnotes 
+
+.. [#] You can use `verbatim text <"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim">`_ to achieve multiple line text.
+.. [#] See `String methods <https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0#methods>`_ for a complete list. 
+   

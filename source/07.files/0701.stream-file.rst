@@ -1,0 +1,194 @@
+.. index:: file (StreamWriter); stream abstraction
+   stream
+
+.. _fileabstraction:
+
+Files As Streams
+============================ 
+
+
+In most real world scenarios, especially in business settings, operations carried 
+out with computers and information systems usually involve data processing and  
+may generate new data as a result. To make the data *persistent* past the end of 
+program execution, data are stored  in file system or databases (for structured data). Although a 
+database maybe preferred in many cases, there will be times that you need to read and write files 
+for various purposes.  
+
+A file is a collection of data stored on in a storage device with a name and 
+directory path information. A file is stored in your file system, which is part of 
+the operating system (OS), and the OS therefore has the information about the file 
+and how to access it. 
+
+
+File Stream
+--------------
+
+In .NET, file and stream I/O (input/output) refers to the transfer of data either to or from a 
+storage medium. The System.IO namespaces contain types that enable reading and writing, 
+both synchronously and asynchronously, on data streams and files, in addition to other file and stream operations. 
+
+You have already read and written streams of 
+characters to the ``Console``. Most of the syntax that we use for files will be very similar, using 
+methods ``ReadLine``, ``WriteLine``, and ``Write`` in the same way you used them for the ``Console``.
+
+When you read/write a file in C# program, the data processed is seen as a **Stream**.
+A stream is a sequence of bytes of data sent between the destination and the source of 
+the file. Streams are how data is read and written to and from files, networks, and 
+computer memory. For example, printing data using a printer involves sending a sequence 
+of bytes of data to a stream associated with a network port connected to the printer. 
+
+
+File handling process
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For file handling operations, there are two obvious streams: 
+
+#. The **Input Stream** that is used to read data from a file (read operation).
+#. The **Output Stream** that is used to write data into a file (write operation). 
+
+However, different task processes use different type of streams: text files, binary files, 
+strings, and network communications are some of the examples. The basic 
+stream operations therefore include the following:
+
+#. Creation/Opening
+#. Reading
+#. Writing 
+#. Positioning
+#. Closing
+
+
+The ``System.IO`` namespace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Files can be handled very differently by different operating systems, but
+C# abstracts away the differences and provides stream interfaces between
+a C# program and files through the ``System.IO namespace`` (:ref:`namespace <namespace>`). The System.IO namespace 
+contains the required classes used to handle the input and output streams and provide information 
+about file and directory structure. 
+
+.. note:: 
+   The `System.IO namespace <https://learn.microsoft.com/en-us/dotnet/api/system.io?view=net-8.0>`_ lists all 
+   the classes available for use. The `File class <https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=net-8.0>`_ 
+   is one of the classes that provides static methods for the creation, copying, deletion, moving, and 
+   opening of a single file, and aids in the creation of FileStream objects.
+
+Classes that are commonly used to for file handling include: 
+- The ``FileStream`` class
+- Convenience class: ``File`` class
+- Helper class: ``StreamWriter``
+- Helper class: ``StreamReader`` 
+
+
+Simple File Handling: ``File`` Class 
+--------------------------------------
+
+Among the file handling methods is the convenience class ``File``, which provides ``static methods`` for the creation, 
+copying, deletion, moving, and opening of a single file, and aids in the creation of ``FileStream`` objects. For example, 
+the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations 
+among other methods:
+
+.. list-table:: Methods in File Class 
+   :widths: 10 35
+   :header-rows: 1
+   
+   * - Method
+     - Description
+   * - AppendText()	
+     - Appends text at the end of an existing file
+   * - Copy()	
+     - Copies a file
+   * - Create()	
+     - Creates or overwrites a file
+   * - Delete()	
+     - Deletes a file
+   * - Exists()	
+     - Tests whether the file exists
+   * - ReadAllText()	
+     - Reads the contents of a file
+   * - Replace()	
+     - Replaces the contents of a file with the contents of another file
+   * - WriteAllText()	
+     - Creates a new file and writes the contents to it. If the file already exists, it will be overwritten.
+
+Sine class ``File`` provides ``static methods``, we can ``call`` the methods directly by using the ``dot notation`` 
+without having to create a new instance of the class. For example, with ``File`` class, when you want to write 
+some content to a file, you can simply say ``File.ReadAllText(string path, string content)`` to write the 
+string content to the path file.
+
+You should perform tests such as the following in ``csharprepl`` to get familiar with the methods: 
+
+#. Create a file using ``File.Create (path)``:   // path means filename + the file's directory path
+   
+   .. code::
+
+      > File.Create("MyTest.txt");   
+
+#. Check if a file exists using ``File.Exists (path)``:
+
+   .. code:: 
+
+     > if (File.Exists("MyTest.txt")) 
+       {                           
+          Console.WriteLine("MyTest.txt exists"); 
+       }
+     MyTest.txt exists
+
+#. Write to a file using ``File.WriteAllText (path, content)``:
+   
+   .. code:: 
+
+      > File.WriteAllText("MyTest.txt", "Hello, this is a test.");  
+
+#. Read from a file using ``File.ReadAllText(path)``:
+
+   .. code:: 
+
+      > File.ReadAllText("MyTest.txt");                            
+
+      > Console.WriteLine(File.ReadAllText("MyTest.txt"));
+      Hello, this is a test.
+
+      > 
+
+
+To better organize the tests above, you should copy your tests in ``csharprepl`` and use VS Code. You should 
+also use a variable for the filename:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 2, 17, 28, 32
+
+   using System;
+   using System.IO;
+
+   namespace IntroCSCS
+   {
+      internal class Ch07File
+      {
+         private static void Main(string[] args)
+         {
+
+               // create a file
+               string path = "MyTest.txt";      // create the file in this directory
+               // File.Create(path);            // let WriteAllText create the file //
+                                                // File.Create() does not close file; leads to exception 
+
+               // test file existence 
+               if (File.Exists(path))
+               {
+                  Console.WriteLine($"The file {path} exists.");
+               }
+
+               // write to the file
+               string str = "Hello, I know how to writing files.";
+               File.WriteAllText(path, str);    // static method WriteAllText() will create the file if not exists
+
+
+               // read the file 
+               string s = File.ReadAllText(path);  // static method ReadAllText() for reading from file
+               Console.WriteLine(s);
+
+         }
+      }
+   }

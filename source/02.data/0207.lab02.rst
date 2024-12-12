@@ -1,0 +1,253 @@
+
+
+Lab 02
+=========
+
+We have discussed the development environment and tools, 
+the concepts of variables and data types (with some elaborations on arithmetic and 
+strings), along with the basic syntax and program structure. 
+
+You might like to do a quick review of some of 
+the parts, testing in the `csharprepl` program, so you get immediate feedback
+for the statements and expressions.
+
+Variable Reassignment
+------------------------
+
+**Think First**: For now consider a small, artificial example program:
+
+.. code-block:: csharp
+   :linenos:
+
+   using System;      // this is optional as the compiler will do this automatically
+
+   class UpdateVars   // class name does not have to be the same as Project/Folder name
+   {
+      static void Main()
+      {  // simple sequential code updating two variables
+         int x = 3;
+         int y = x + 2;
+         y = 2 * y;
+         x = y - x;
+         Console.WriteLine (x + " " + y);
+      }
+   }
+
+emphasizing the ability to *reassign* variable values. 
+       
+Can you *predict* the result? 
+
+
+**Test**: 
+
+Create a C# project in your workspace/tests directory called **UpdateVars**, 
+copy the code to the Program.cs file, run the program and check. 
+
+In case you forget how to do this, follow the following steps:
+
+#. Start your terminal (Windows PowerShell or mac Terminal)
+#. ``cd`` into the ``workspace/tests`` directory. ``ls``
+#. ``mkdir UpdateVars`` to create the project folder. ``ls``
+#. ``cd`` into the empty project folder. ``ls``
+#. Execute ``dotnet new console`` to create the C# console app project.  
+#. ``code .`` to use VS Code to open the project folder and edit the ``Program.cs`` file. 
+#. Clean up the editor and copy-n-paste the code (line # 1-13) to the VS Code editor. 
+#. Click on the "Toggle Panel" icon in the upper right corner of VS Code to open terminal.
+#. Execute the C# project by issuing ``dotnet run`` (or ``dotnet build`` to compile but not run). (**Save** the project before running the project)
+
+Please note that the program will run without namespace or class. 
+Namely, you can just copy line # 7 to 11 and the program will run. You are 
+encouraged, though, to copy the whole file to get familiar with the structure of a 
+C# program.
+
+Particularly if you did not guess right, it is important to
+understand what happens, one step at a time. That means keeping
+track of what changes to variables are made by each statement.
+
+
+
+
+Implement an Algorithm
+------------------------
+
+Read the following description and:
+
+- create a console app project in your introcscs directory, 
+  call it **MathFun** (this means you will ``mkdir`` a directory called 
+  MathFun and run ``dotnet new console`` to create the project)
+- Write the code according to the table below 
+- Take a screenshot of the code and the result of its execution  
+
+In the table below, statements are referred to by the numbers labeling
+the lines in the code above. We can track the state of each
+variable after each line is executed. A dash is shown where a
+variable is not yet defined. For instance after line 7 is executed, a
+value is given to x, but y is still undefined. Then y gets a value
+in line 8. 
+The comment space can be used any time
+it is helpful.  In particular it should be used  when something
+is printed, since this
+important action does *not* affect the variable list.
+
+====  ==  ==  =======================================
+Line  x   y   Comment
+====  ==  ==  =======================================
+5     \-  \-  Start at beginning of Main
+7     3   \-  initialize x
+8             print the value of x
+9     3   5   5=3+2, using the value of x from the previous line
+10    3   10  10=2*5 on the right; use the value of y from the
+              previous line
+11    7   10  7=10-3 on the right; use the value of x and y from the
+              previous line
+12    7   10  print: 7 10
+====  ==  ==  =======================================
+
+The critical point here is to always use the most recently assigned value
+of each variable. Unlike in math, symbol values change!
+
+The order of execution will always be the order of the lines in our
+table. In this simple *sequential* code, that *also* follows the
+textual order of the program. 
+
+Following each line of execution of a
+program in the proper order of execution, carefully, 
+keeping track of the current values of
+variables, will be called *playing computer*. A table like the one
+above is an organized way to keep track.
+
+The line numbering is not very exciting in a simple sequential program,
+but it will become very important when we get to other execution sequences.
+We start with the simple sequential numbering now for consistency, as
+we get used to the idea of such a table following execution sequence.
+
+
+
+User Input
+------------
+
+Read the following description and create a console app project 
+in your introcscs directory called **MathDivision** to generate the final outcome.
+
+We want to develop a program that can do the following:
+
+- Prompt the user for input of two integers, which we will call
+  *numerator* and *denominator*. For clarity, we are only looking at
+  integers, because this assignment is about rational numbers. A
+  rational number can always be expressed as a quotient of two integers.
+
+- Calculate the floating point division result (e.g. 10/4 = 2.5).
+
+- Calculate the quotient and the remainder (e.g. 10/4 = 2 with a
+  remainder of 2 = 2 2/4).
+
+Your final program should work as in this sample run, and use the same 
+labeled format:
+
+.. code-block:: none
+
+   Please enter the numerator? 14
+   Please enter the denominator? 4
+   Integer division result = 3 with a remainder 2
+   Floating point division result = 3.5
+   The result as a mixed fraction is 3 2/4.
+
+For this lab, the example format ``3 2/4`` is sufficient.
+It would look better as ``3 1/2``, but a general 
+efficient way to reduce fractions to
+lowest terms is not covered until the section on the algorithm `gcd`.  
+
+To do the part requiring a decimal quotient you are going to 
+need to have a ``double`` value, though your original data 
+was of type ``int``.
+
+You could use the approach in `cast`, with an explicit cast. 
+Another approach mentioned in that section was to do the cast implicitly
+in a ``double`` declaration with initialization from an ``int``. If we
+already had ``int`` variables, ``numerator`` and 
+``denominator``, that were previously assigned their values, 
+we could use::
+
+    double numeratorDouble = numerator; // implicit cast
+    double quotientDouble = numeratorDouble/denominator;
+    ...
+
+Remember: at least one operand in a quotient must be ``double`` 
+to get a ``double`` result.
+    
+To help you get started with your program code, 
+we provided this simple *stub*::
+
+  using System;
+
+  class DoTheMath {   // Lab stub
+    static void Main() {
+        /* Prompt the user for the numerator using
+          Console.Write().
+
+          Convert this text into int numerator using
+          int.Parse().
+
+          Do the same for the denominator.
+
+          Calculate quotient and remainder (as integers)
+          Use Console.WriteLine() to display the labels
+          as illustrated in the sample output in the lab.
+
+          Do the same but using floating point division
+          and not doing the remainder calculation.
+
+          Create the sentence with the mixed fraction.
+          Be careful of the places there are *not* spaces.
+        */
+    }
+  } 
+
+
+You are encouraged to copy this design/algorithm into your 
+project file to help with your coding.
+
+
+The body of ``Main`` presently contains only *comments*, skipped by 
+the compiler. We illustrate two forms (being inconsistent for your information only):
+
+* ``//`` to the end of the *same* line
+* ``/*`` to ``*/`` through any number of lines.
+
+Again, copy the stub to a project of
+your own and replace the comments with your code to complete it.
+
+
+Format Reading Exercise
+-------------------------
+
+What is printed?  ::
+
+        Console.WriteLine("{0}{1}{1}{2}", "Mi", "ssi", "ppi");
+        
+Check yourself.
+   
+.. _QuotientFormat:
+
+Exercise for Format
+-------------------------
+
+Write a program, ``quotient_format.cs``, that behaves like
+`QuotientProblem`, but generate the sentence using 
+``Console.WriteLine`` with a format string and no ``+`` operator.
+
+
+Madlib Exercise 
+-------------------------
+
+Write a program, ``my_mad_lib.cs``, that prompts the user for
+words that fit specified grammatical patterns ( a noun, a verb, a color,
+a city....) and plug them into a multiline format string so they fit
+grammatically, and
+print the usually silly result.  
+If you are not used to mad libs, try running (not 
+looking at the source code) the example project mad_lib, and then try it 
+again with different data.
+If this exercise seems like too big of a challenge yet,
+see our example source code, 
+:repsrc:`mad_lib/mad_lib.cs`, and then *start over* on your own.

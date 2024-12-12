@@ -1,0 +1,324 @@
+Lab 03
+====================================================
+
+
+* Use a Word file to paste your screenshots.
+* Add notes to make your submission clear. 
+* Number the questions clearly (e.g., 3.5.1. Return Statement). 
+* Unclear screenshots will result in grade penalty. 
+
+Return Statement
+-----------------
+
+Perform the following for this part of the lab:
+
+- Copy this code into a project called **Returns**. 
+- Run the code.
+- Study the code and make sure you understand how **every line** of the code works. 
+- Write brief comments (after //) at the right of each line to explain what each line is doing 
+- Take a screenshot of this piece of code and the result of running the code. 
+
+You probably have used mathematical functions in algebra class, but
+they all had calculated values associated with them. For instance
+if you defined 
+
+   F(x)=x\ :sup:`2`
+
+then it follows that F(3) is 3\ :sup:`2` = 9, and F(3)+F(4) is
+3\ :sup:`2` + 4\ :sup:`2` = 9 + 16 = 25.
+
+Method calls in expressions get replaced during evaluation by the value of the method. 
+That's why when we can directly print out (line# 12-13) the result of the method call in the 
+following code.   
+
+The corresponding definition and examples in C# would be the
+following:
+
+.. code-block:: 
+   :linenos:
+   :emphasize-lines: 12, 13
+
+   using System;                 //
+
+   class Return1                 //
+   {
+      static int F(int x)        //
+      {
+         return x*x;             //
+      }
+
+      static void Main()         //
+      {
+         Console.WriteLine(F(3));         //
+         Console.WriteLine(F(3) + F(4));  //
+      }
+   }
+
+The C# syntax you need to pay attention to is the **return statement**, with the word
+``return`` followed by an expression, value, or variable(s). Methods that return values
+can be used in expressions (e.g., line# 13: F(3) + F(4)), just like in math class. When an
+expression with a method call is evaluated, the method call is
+effectively replaced temporarily by its returned value. Inside the
+C# method, the value to be returned is given by the
+expression in the ``return`` statement.
+
+Since the method returns data, and all data in C# is typed, 
+there must be a type given for the value returned. Note that the 
+method header does not start with ``static void``.  
+In place of ``void`` is ``int``. The ``void`` in earlier method header
+meant nothing was returned. The ``int`` here means that a value *is*
+returned and its type is ``int``.
+
+After the method ``F`` finishes executing from inside ::
+
+	Console.WriteLine(F(3));
+
+it is as if the statement temporarily became ::
+
+	Console.WriteLine(9);
+
+and similarly when executing ::
+
+	Console.WriteLine(F(3) + F(4)); 
+
+the interpreter first evaluates F(3) and effectively replaces the
+call by the returned result, 9, as if the statement temporarily
+became ::
+
+	Console.WriteLine(9 + F(4));
+
+and then the interpreter evaluates F(4) and effectively replaces
+the call by the returned result, 16, as if the statement
+temporarily became ::
+
+	Console.WriteLine(9 + 16);
+
+resulting finally in 25 being calculated and printed.
+
+
+Return Strings
+----------------
+
+C# methods can return any type of data, not just numbers, and
+there can be any number of statements executed before the return
+statement. Read, follow, and run the example program, which has ``string`` as 
+``return type``:
+
+.. code-block:: 
+   :linenos:
+
+   using System;           
+
+   class Return2           
+   {
+      static string LastFirst(string firstName, string lastName)  
+      {
+         string separator = ", ";                                 
+         string result = lastName + separator + firstName;        
+         return result;                                           
+      }
+
+      static void Main()
+      {
+         Console.WriteLine(LastFirst("Benjamin", "Franklin"));
+         Console.WriteLine(LastFirst("Andrew", "Harrington"));
+      }
+   }
+
+   // ** write your answer here **
+
+To make sure you can follow the flow of execution with methods 
+and return values, do the following:
+
+- Find the line number(s) for each step of code execution of the preceding code 
+  as the table below.
+- In the chart below, match the steps with the line numbers in the program above, comma-separated with one space, as a comment at the end of the code. 
+  To denote multiple lines, use dash. 
+- Screenshot your code and the result of execution.
+
+.. list-table:: Method Execution and Returns
+   :width:10 90
+   :header-rows: 1
+
+   * - #
+     - Step
+   * - 1
+     - Start at Main
+   * - 2
+     - call the method, remembering where to return
+   * - 3
+     - pass the parameters: firstName = "Benjamin"; lastName = "Franklin"
+   * - 4
+     - Assign the variable separator the value ", "
+   * - 5
+     - Assign the variable result the value of lastName + separator + firstName which is "Franklin" + ", " + "Benjamin", which evaluates to "Franklin, Benjamin"
+   * - 6
+     - Return "Franklin, Benjamin"
+   * - 7
+     - Use the value returned from the method call so the line effectively becomes Console.WriteLine("Franklin, Benjamin");, so print it.
+   * - 8
+     - call the method with the new actual parameters, remembering where to return
+   * - 9
+     - pass the parameters: firstName = "Andrew"; lastName = "Harrington"
+   * - 10
+     - … calculate and return "Harrington, Andrew"
+   * - 11
+     - Use the value returned by the method and print "Harrington, Andrew"
+
+
+
+.. Lines 12: Start at Main
+
+.. Line 14: call the function, remembering where to return
+
+.. Line 5: pass the parameters: firstName = "Benjamin"; lastName = "Franklin"
+
+.. Line 7: Assign the variable separator the value ", "
+
+.. Line 8: Assign the variable result the value of lastName + separator + firstName which is "Franklin" + ", " + "Benjamin", which evaluates to "Franklin, Benjamin"
+
+.. Line 9: Return "Franklin, Benjamin"
+
+.. Line 14: Use the value returned from the function call so the line effectively becomes Console.WriteLine("Franklin, Benjamin");, so print it.
+
+.. Line 15: call the function with the new actual parameters, remembering where to return
+
+.. Line 5: pass the parameters: firstName = "Andrew"; lastName = "Harrington"
+
+.. Lines 7-9: … calculate and return "Harrington, Andrew"
+
+.. Line 15: Use the value returned by the function and print "Harrington, Andrew"
+
+
+
+Return Formatted String
+--------------------------
+
+Perform the following for this part of the lab:
+- Read the description.
+- Copy the code to a project called Addition2a. 
+- Run the code. 
+- Change variable name a and b to num1 and num2. 
+- Run the code.
+- Does changing the variable names affect the code execution? Why? Explain in the last line of the code.
+
+It is common to want to construct and immediately print a string,
+so having ``Console.Write`` is definitely handy when we want it.
+However, sometimes we just want to have the resulting string returned, 
+so that we can do something else with it. We can use 
+the C# library method ``string.Format``, which does just what we want:  
+The parameters have the same form as for ``Console.Write``, 
+but the formatted string is *returned*.
+
+.. code-block:: 
+   :linenos:
+   :emphasize-lines: 8
+
+   using System;
+
+   class Addition2a
+   {  // start function chunk
+      static string SumProblemString(int x, int y) // with string.Format
+      {
+         int sum = x + y;
+         return string.Format("The sum of {0} and {1} is {2}.", x, y, sum);
+      }
+      // end function chunk
+      static void Main()
+      {
+         Console.WriteLine(SumProblemString(2, 3));
+         Console.WriteLine(SumProblemString(12345, 53579));
+         Console.Write("Enter an integer: ");
+         int a = int.Parse(Console.ReadLine());
+         Console.Write("Enter another integer: ");
+         int b = int.Parse(Console.ReadLine());
+         Console.WriteLine(SumProblemString(a, b));
+      }
+   }
+   // ** explain here **
+
+Note: The only caveat with ``string.Format`` is that
+there is *no* special method corresponding to ``Console.WriteLine``,
+with an automatic terminating newline.
+You can generate a newline with string.Format:  Remember the
+escape code ``"\n"``. Put it at the end to go on to a new line.
+
+	
+Interview String Return
+------------------------------------------
+
+Observe the following code (project name: Interview):
+
+.. code-block:: 
+   :linenos:
+
+   using System;
+
+   class Interview
+   {
+      static void Main()  // basic prompt/read/write example
+      {
+         Console.Write ( "Enter the interviewee's name: ");
+         string name = Console.ReadLine();
+         Console.Write( "Enter the appointment time: ");
+         string time = Console.ReadLine();
+         Console.WriteLine(name + " has an interview at " + time + ".");
+      }
+   }
+
+Modify the above program so that it accomplishes the same thing as the preceding code, but 
+introduce a method ``InterviewSentence`` that takes name
+and time strings as parameters and returns the interview sentence string.
+
+Follow the instructions: 
+
+* Use ``string.Format`` in the method. 
+* Manage input from the user and output to the screen entirely in ``Main``.
+* Use ``InterviewSentence()`` to generate the sentence that you want to *later* print. 
+
+Take a screenshot of your code and the result of execution. 
+
+	
+
+Birthday Method 
+---------------------------
+
+Observe the following code:
+
+.. code-block:: 
+   :linenos:
+
+   using System;
+
+   class Birthday
+   {
+      static void HappyBirthday(string person)
+      {
+         Console.WriteLine ("Happy Birthday to you!");
+         Console.WriteLine ("Happy Birthday to you!");
+         Console.WriteLine ("Happy Birthday, dear " + person + ".");
+         Console.WriteLine ("Happy Birthday to you!");
+      }
+
+      static void Main()
+      {
+         HappyBirthday("Emily");
+         HappyBirthday("Andre");
+      }
+
+   }
+
+
+Modify the preceding code by saving it as your
+own project as ``BirthdayMany.cs``: 
+
+* Add a method call (but *not* another method *definition*), so Maria gets a verse, 
+  in addition to Emily and Andre. 
+* Also, print a blank line between verses. 
+  (There are two ways to handle the blank lines: You may *either* do this by adding 
+  a print line to the
+  method definition, *or* by adding a print line between all calls to
+  the method. Recall that if you give Console.WriteLine an empty
+  parameter list, it just goes to the next line.)
+
+Take a screenshot of your code and result of execution. 

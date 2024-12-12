@@ -1,0 +1,118 @@
+
+
+.. index::
+   method; summary of syntax
+
+.. _static-method-summary:
+
+(Static) Method Summary
+==============================
+
+This chapter has introduced static methods: those used in procedural programming
+as opposed to :ref:`instance-methods` used to 
+implement object-oriented programming. 
+
+
+Method definition
+-------------------
+
+#. The general syntax for defining a static method is
+
+   | ``static`` **returnTypeOrVoid** **MethodName** ``(``  parameter list ``)``
+   | ``{``
+   |    statements in the method body...
+   | ``}``
+       
+#. The *parameter list* can be empty or contain one or more comma separated 
+   *parameter* entries.   
+   Each parameter entry has the form
+ 
+      **type** **parameterName**
+      
+#. If the method is going to be called from outside its class, the heading needs
+   to start with ``public`` before the ``static``. 
+   
+#. If **returnTypeOrVoid** in the heading is not ``void``, there must be a 
+   *return statement* in the method body.  A return statement has the form
+
+    ``return`` *expression* ``;``
+    
+   where the expression should be of the same type as in **returnTypeOrVoid**.
+   Execution of the method terminates immediately when a return statement
+   is reached.  
+   
+#. Execution of a program starts at a method with a heading including
+
+     ``static void Main``
+   
+
+
+   
+Method Calls
+---------------
+
+#.  A method call takes the form
+
+    **MethodName** ``(``  actual parameter list ``)``
+    
+    A method call makes the method definition be *executed*.
+    
+#.  The actual parameter list is a comma separated list of the *same*
+    length as the parameter list.  Each entry is an expression.
+    The entries in an actual parameter list do *not* include type declarations.
+    
+    Effectively, the method execution starts by assigning to each
+    parameter variable the corresponding value from 
+    evaluating the actual parameter expression.
+    In particular, that means the actual parameter values must be allowed
+    in an assignment statement for a variable of the parameter's type!
+
+    
+#.  If the method has return type ``void``, it can only be used syntactically
+    as an entire statement (with a semicolon added). After the method
+    call completes, execution continues with the next statement.
+    
+#.  If there is a non-void return type, then the method call is syntactically
+    an expression in the statement where is appears.
+    The execution of such a method must reach a return statement.  The value
+    of the method-call expression is the value of the expression in this
+    return statement.
+    
+    
+#.  A method with a return value can also legally be used as a whole statement.
+    In this case the return value is lost.  Though legal, this is often an error! 
+    
+    
+Scope
+------
+
+#.  A variable declared inside a method definition is called a *local variable*.
+    This declaration may be in either the parameter
+    list or in the body of the method.  
+    
+#.  A local variable comes into existence after the method is called, and ceases
+    to exist after that method call terminates.  A local variable is invisible
+    to the rest of the program.  Its *scope* is just within that method.  Its
+    lifetime is just through a single
+    method call.  Its *value* may be transferred outside of the method scope
+    by standard means, principally:  
+    
+    - If it is the expression in a return statement, its value is
+      sent back to the caller.
+    - It can be passed as an
+      actual parameter to a further method called within its scope.
+      
+
+    
+Static Variables
+----------------
+
+#.  There may be a declaration prefaced by the word ``static`` that appears 
+    *inside* a class and *outside* of any method definition in the class.
+    Static variables are visible within each method of the class, and may
+    be used by the methods.  
+    
+#.  A common use of a static variable is to give a name to a constant 
+    value used in multiple methods in the class.
+    
+    

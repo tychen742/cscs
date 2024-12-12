@@ -1,0 +1,215 @@
+Lab: Unit Test
+==================
+
+Your Tasks
+------------
+
+#. Implement this unit testing project.
+#. Add one method in the application and one corresponding test in the test project. 
+#. As usual, prepare the assignment using a Word document with screenshots (code and execution with path 
+   and username) and your annotations. 
+
+Preparing Project
+------------------
+
+The idea of TDD is to write tests first, so that you will be focused with the requirements and not 
+to be distracted by your own coding. That's why we start with simple test cases in the test project to test the 
+units in the application project. After you make sure the application tests can pass, you then improve the 
+units (methods, classes) in the application project. 
+
+
+The process of creating a unit test involves several steps. Most, if not all, of the steps can be performed 
+in VS Code but it can be easier from time to time with the terminal:
+
+#. Create a lab folder, call it ``Ch13SelectedTopicsLab``. Its location is inside [USERNAME]\\workspace\\introcscs\\. 
+
+#. Create a solution folder:
+   
+   #. Inside your Ch13SelectedTopicsLab, create a folder, call it UnitTestProject1 (``mkdir UnitTestProject1``).
+
+    To make this folder a solution, run:
+
+    .. code-block:: bash
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet new sln
+        The template "Solution File" was created successfully.
+
+   2. Later, when you need to choose a solution for the active project, go to ``View`` ==> ``Command Palette`` ==> type solution and 
+      choose ``.NET: Open Solution`` to choose your solution, which is UnitTestProject1 in this case. 
+
+#. Create an **application project** folder (new here but can be existing), call it ``MathApp``, and 
+   
+   a **test project** folder, call it ``MathAppTest``:
+
+   #. ``mkdir MathApp`` inside UnitTestProject1.
+   #. ``mkdir MathAppTest`` inside UnitTestProject1.
+
+   Now if you ``ls``, you should see both folders.
+
+#. Make MathApp a console app project and MathAppTest a MSTest project:
+
+   #. Inside the MathApp folder, do ``dotnet new console``.
+   #. Inside the MathAppTest folder, do ``dotnet new mstest`` (we are using MSTest here but you can use other tools such as NUnit or xUnit).
+   
+#. Add both projects to solution:
+
+   1. Add MathApp to solution:
+    
+    .. code-block:: bash        
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathApp
+        Project `MathApp/MathApp.csproj` added to the solution.
+
+   2. Add MathAppTest to the solution:
+
+    .. code-block:: bash      
+
+        tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet sln add MathAppTest/
+        Project `MathAppTest/MathAppTest.csproj` added to the solution.
+
+#. Add the app project to the test project as one of the projects to be tested::
+
+        dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+
+   For example, inside the UnitTestProject1 folder, issue ``dotnet add MathAppTest reference MathApp``. You should see:
+
+   .. code-block:: bash
+
+       tychen@mac:~/workspace/introcscs/Ch13SelectedTopicsLab/UnitTestProject1$ dotnet add MathAppTest reference MathApp
+       Reference `..\MathApp\MathApp.csproj` added to the project.
+
+Preparing Code
+--------------
+
+In your application folder, we know there is a default Program.cs file created when we run 
+``dotnet new console``. Same thing, when we run ``dotnet new mstest``, there is a ``UnitTest1`` created 
+automatically for you to use. Now revise the content of the two files. 
+
+The content of the console app ``Program.cs`` in your MathApp folder should look like the code below, 
+filled with a class ``BasicMath`` containing 4 basic arithmetic operation methods 
+(note that the namespace is critical for the test project to access this app project):
+
+.. code-block:: csharp
+    :linenos:
+
+    namespace SomeMath
+    {
+    
+        internal class Program
+        {
+            private static void Main(string[] args)
+            {
+                Console.WriteLine("Hello, World!");
+            }
+        }
+        
+        public class BasicMath
+        {
+            public double Add(double num1, double num2)
+            {
+                return num1 + num2;
+            }
+
+            public double Subtract(double num1, double num2)
+            {
+                return num1 - num2;
+            }
+
+            public double divide(double num1, double num2)
+            {
+                return num1 / num2;
+            }
+
+            public double Multiply(double num1, double num2)
+            {
+                // To trace error while testing, writing + operator instead of * operator.
+                return num1 + num2;         ///// this will fail!!!!!
+            }
+        }
+    }
+
+You would want to run ``dotnet build`` in the app project folder to make sure there is no errors::
+
+    dotnet build
+
+The content of the ``UnitTest1`` file in the MathAppTest folder, on the other hand, should 
+look like this (note the ``Assert`` method works in debug compilation to take in a Boolean condition 
+as a parameter, and shows the error dialog if the condition is false)::
+
+    using SomeMath;             ///// we want to talk to the BasicMath class 
+
+    namespace MathAppTest;      ///// generated when creating project
+
+    [TestClass]                 ///// specify the UNIT (class) to be tested
+    public class UnitTest1
+    {
+        [TestMethod]            ///// specify the UNIT (method) to be tested
+        public void Test_AddMethod()
+        {
+            BasicMath bm = new BasicMath();     // create instance
+            double res = bm.Add(10, 10);        // run the method
+            Assert.AreEqual(res, 20);           // detect if the answers match
+        }
+
+        [TestMethod]
+        public void Test_SubtractMethod()
+        {
+            BasicMath bm = new BasicMath();
+            double res = bm.Subtract(10, 10);
+            Assert.AreEqual(res, 0);
+        }
+
+        [TestMethod]
+        public void Test_DivideMethod()
+        {
+            BasicMath bm = new BasicMath();
+            double res = bm.divide(10, 5);
+            Assert.AreEqual(res, 2);
+        }
+
+        [TestMethod]
+        public void Test_MultiplyMethod()
+        {
+            BasicMath bm = new BasicMath();
+            double res = bm.Multiply(10, 10);
+            Assert.AreEqual(res, 100);
+        }
+    }
+
+You would want to run ``dotnet build`` in the test project folder to make sure there is no errors::
+
+    dotnet build
+
+Now if you run ``dotnet test`` inside UnitTestProject1, you should see the results like:
+
+.. code-block:: bash
+
+    tychen@mac:~/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1$ dotnet test
+    Determining projects to restore...
+    All projects are up-to-date for restore.
+    MathApp -> /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathApp/bin/Debug/net8.0/MathApp.dll
+    MathAppTest -> /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/bin/Debug/net8.0/MathAppTest.dll
+    Test run for /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/bin/Debug/net8.0/MathAppTest.dll (.NETCoreApp,Version=v8.0)
+    Microsoft (R) Test Execution Command Line Tool Version 17.9.0 (x64)
+    Copyright (c) Microsoft Corporation.  All rights reserved.
+
+    Starting test execution, please wait...
+    A total of 1 test files matched the specified pattern.
+    Failed Test_MultiplyMethod [42 ms]
+    Error Message:
+        Assert.AreEqual failed. Expected:<20>. Actual:<100>. 
+    Stack Trace:
+        at MathAppTest.UnitTest1.Test_MultiplyMethod() in /Users/tychen/workspace/introcscs/Ch13SelectedTopics/UnitTestProject1/MathAppTest/UnitTest1.cs:line 37
+        at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+        at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+
+    Failed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 118 ms - MathAppTest.dll (net8.0)
+
+
+Run Testing in VS Code
+-----------------------
+
+You should also be able to run the test using VS Code for better visualization of the tests. You may need to 
+install an extension such as C# Dev Kit for the purpose and build/rebuild the test project in Test Explorer to make the tests show 
+up in Testing section of the Activity Bar. 
