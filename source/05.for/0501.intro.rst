@@ -1,0 +1,226 @@
+
+Iteration
+============================ 
+
+Iteration, or looping, is one of the three basic constructs in computer 
+programming (see :ref:`programming-constructs`). The basic purpose of iteration is code repetition, which 
+humans usually find difficult but comes very easy for computers. After 
+starting, the repetitive execution of a block of code or a set of 
+instructions/statements will not stop until certain criterion is met. 
+The termination of iteration can be either **count**-controlled (for loops) 
+or **condition**-controlled (while loops). In general, when you know 
+exactly how many times you are going to loop through a 
+block of code, you use the ``for`` loop; otherwise, you would choose a ``while`` loop.
+
+The need for code repetition can be seen from the following code:
+
+.. code-block:: 
+  :linenos:
+  :emphasize-lines: 8-17
+
+  using System;
+  namespace IntroCSCS
+  {
+      internal class Chapter05
+      {
+          static void Main(string[] args)
+          {
+              Console.Write("1 ");
+              Console.Write("2 ");
+              Console.Write("3 ");
+              Console.Write("4 ");
+              Console.Write("5 ");
+              Console.Write("6 ");
+              Console.Write("7 ");
+              Console.Write("8 ");
+              Console.Write("9 ");
+              Console.Write("10 ");
+              // output: 1 2 3 4 5 6 7 8 9 10 
+              Console.WriteLine();  
+          }
+      }
+  }
+
+Obviously, to code the print statement repetitively for 10 times is not a efficient use 
+of time for a developer, not to mention the repetition could go for more than 10 times. 
+
+
+C# Iteration Statements
+-------------------------
+
+The C# language reference states that iteration 
+statements include ``for``, ``foreach``, ``do``, and ``while`` and that the iteration 
+statements "repeatedly execute a statement or a block of statements": [#iteration]_
+
+- The ``for`` statement [#c-style-for-loop]_ executes its body of an iteration statement while a specified 
+  Boolean expression evaluates to true. 
+- The ``foreach`` statement enumerates the elements of a collection and executes 
+  its body for each element of the collection. 
+- The ``do`` statement conditionally executes its body one or more times. 
+- The ``while`` statement conditionally executes its body zero or more times.
+
+As a solution to the preceding code repetition problem, a ``for`` loop can be used as below. 
+Comparing the highlighted for statement with the, you can see the need for iteration. 
+The syntax of the ``for`` loop statement will be explained in a later section. 
+
+.. code-block:: csharp
+  :linenos:
+  :emphasize-lines: 13-16
+
+  using System;
+  namespace IntroCSCS
+  {
+    internal class Chapter05
+    {
+        private static void Main(string[] args)
+        {
+            CountToThen();
+        }
+
+        static void CountToThen()
+        {
+            for (int i = 1; i <= 10; i = i + 1)
+            {
+                Console.Write(i + " ");
+            }
+            // output: 1 2 3 4 5 6 7 8 9 10 
+            Console.WriteLine();
+        }
+    }
+  }
+
+
+
+Iterator/Step
+-----------------
+
+The iterator, also known as **step**, section can contain zero or more expressions, separated by commas. 
+Commonly used iterators include:
+
+- prefix or postfix increment expression, such as ++i or i++
+- prefix or postfix decrement expression, such as --i or i-- 
+- assignment
+
+The arithmetic unary operators (decrement operator ``--`` and 
+increment operator ``++``) are probably the most common ones used in for and while loops, especially 
+the postfix increment operator. The result of a postfix increment operation is that it 
+increments the value of the local loop variable (``i``) and still evaluates to the original value 
+as before the operation and will update the value in next iteration. Namely, ``i++`` will retain 
+the old value in the body of the for statement until next next iteration. 
+
+For example, test this in ``csharprepl``::
+
+   > int num = 3;
+   > num 
+   3
+   > num++       // postfix expression, the value remains
+   3
+   > num         // i is evaluated again. Now it shows 4. 
+   4
+   > 
+
+Observe the code below to compare the behavior of postfix and prefix operations and you will see 
+the difference between the postfix expression and prefix expression:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 5, 12
+   
+   static void PostfixIncrement()
+   {
+      int i = 0;
+      Console.WriteLine("int i == {0}", i);  // i == 0
+      Console.WriteLine("i++ == {0}", i++);  // i++ == 0
+      Console.WriteLine("i == {0}", i);      // i == 1
+   } 
+   
+   {
+      int j = 0;
+      Console.WriteLine("int j == {0}", j);  // j == 0
+      Console.WriteLine("++j == {0}", ++j);  // ++j == 1
+      Console.WriteLine("j == {0}", j);      // j == 1
+   }
+
+When setting a "**step**, you may also use assignment statement (see :ref:`assignment-operators`) to step, which give you 
+more flexibility in stepping. For example, in ``csharprepl``::
+
+  > int n = int.Parse(Console.ReadLine()); 
+    for (var i = 0; i <= n; i += 10) 
+    { 
+        Console.WriteLine(i); 
+    }
+  30
+  0
+  10
+  20
+  30
+
+
+``return``, ``break``, and ``continue``
+------------------------------------------
+
+``break``, ``continue``, ``return``, and ``goto`` are the jump statements (see: :ref:`statements`) in 
+C# that transfer the control of code execution flow. 
+
+You can stop a loop in the middle with an ``if`` statement 
+that leads to a choice with a ``return`` statement, which forces you to completely 
+leave the current method block. Note that return breaks the current code execution and continue from 
+where the method is called.
+
+With the ``break`` statement, you exit/break out of the current loop. The ``break`` statement 
+terminates the closest enclosing iteration statement (for, foreach, while, or do loop) 
+or switch statement. 
+
+With the ``continue`` statement, you terminate the current loop and step to the next 
+iteration. The ``continue`` statement stops the current execution flow and starts a new iteration of 
+the closest enclosing iteration statement (for, foreach, while, or do loop). 
+
+
+.. _loop-planning-rubric:
+
+Loop Planning Rubric
+---------------------------
+   
+Looking ahead to more complicated and interesting problems,
+here is a list of questions to ask yourself when
+designing a method with a loop:
+
+#. Data & loop variables: What data is involved? Make sure you give good variable names.
+#. Initialization: What needs to be initialized and how? This certainly includes any
+   variable tested in the condition.
+#. Condition: What is the condition that will allow the loop to *continue*? It
+   may be easier to think of the condition that will *stop* the loop.
+   That is fine - but remember to *negate* it (with ``!``) to turn it
+   into a proper *continuation* condition.
+#. Distinguish: What is the code that should only be executed once? 
+   What action do I want to repeat? 
+#. Repetition: How do I write the repeating action so I can modify it for the next time
+   through the loop to work with new data?
+#. Update: What code is needed to do modifications to make the same action code work
+   the next time through the loop?
+#. Locale variables: Have I thought of variables needed in the middle and declared them;
+   do other things need initialization?
+#. Condition again: Will the continuation condition eventually fail?  
+   *Be sure to think about this!*
+#. Structure: Separate the actions to be done once before the repetition (code before the
+   loop) from repetitive actions (in the loop) and from actions not repeated, but
+   done after the loop (code after the loop). Missing this distinction
+   is a *common error*!
+
+This is quite a sequence of steps. You should at least note a more basic split into two parts:
+
+#. Writing the code to make sure each desired iteration is reached 
+   (loop dynamics: initialized data for the test condition, the test condition itself, 
+   preparing for the next iteration)
+#. Doing the work for a specific item/iteration (mostly of the body of the loop)
+
+You generally only need to concentrate on one of those at a time.  
+If you set up how to reach all of the repetitions, giving names for the variables
+to be acted on, then you can separately just concentrate on dealing with the the action/code
+to deal with the *current* situation.
+
+
+.. rubric:: Footnotes
+
+.. [#iteration] See: C# Language Reference: `Iteration statements - for, foreach, do, and while <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements>`.
+.. [#c-style-for-loop] The C# for loop is C-style for loop since C# is one of the C-family languages. The ``for (initialization; condition; update)`` for loop is also the only one type of for loop in C language.

@@ -1,0 +1,181 @@
+.. index:: if-else-if
+        
+.. _Multiple-Tests:
+
+``else-if`` Statements: Multi-Selection
+=========================================
+
+``if-else`` statements allow us to construct two alternative paths. 
+A single condition determines which path will be followed. 
+We can build more complex conditionals using an else if clause, with which 
+you can pick between 3 or more possibilities. 
+These allow us to add additional conditions and code blocks, which 
+facilitate more complex branching.
+
+
+else-if Statements
+---------------------
+
+Comparing with the ``if-else`` statement, the ``else if`` statements specify 
+a new condition to be tested if the first condition is False. 
+
+The syntax for the ``else-if`` statement is::
+
+    if (condition1)
+    {
+        // block of code to be executed if condition1 is True
+    } 
+    else if (condition2) 
+    {
+        // block of code to be executed if the condition1 is False and condition2 is True
+    } 
+    else
+    {
+        // block of code to be executed if the condition1 is False and condition2 is False
+    }
+
+Note that the logic of the flow terminate at ``else``: The ``else`` block is the 
+default block when all the conditions are False. 
+
+An example of else-if statement is::
+
+    int x = 10;
+    int y = 20;
+
+    if (x > y)
+    {
+    Console.WriteLine("x is greater than y");
+    }
+    else if (x < y)
+    {
+    Console.WriteLine("x is less than y");
+    }
+    else
+    {
+    Console.WriteLine("x and y are equal");
+    }
+    
+
+In the example above, the logic is that the three conditions can exhaust 
+all possible alternatives. If the first condition is False, the next 
+condition, in the else-if statement, will be tested. If the 2nd condition 
+is also False, we then move on to the ``else`` statement, the **default** 
+case, since condition1 and condition2 are both False.
+
+
+The code below is a variation of the Weight() method. Consider this
+fragment *without* a final ``else``::
+
+    if (weight > 120) {
+        Console.WriteLine("Sorry, we can not take a suitcase that heavy.");
+    }
+    else if (weight > 50) { 
+        Console.WriteLine("There is a $25 charge for luggage that heavy.");
+    }
+    
+As with a simple if statement, the else clause is optional in else-if statements. 
+This code above only prints one of two lines if there is a
+problem with the weight of the suitcase (> 50 or > 120). Nothing is printed if 
+neither of the conditions is met, meaning the weight is not greater than 50. 
+
+.. _else-if-cases:
+
+``else-if`` Statements for Cases
+---------------------------------
+
+Consider the following code, LetterGrade() method, for converting a 
+numerical grade to a letter grade, 'A', 'B', 'C', 'D' or 'F', where 
+the cutoffs for 'A', 'B', 'C', and 'D' are 90, 80, 70, and 60 
+respectively. We repetitively nests the if statements in 
+the else clauses. The code structure is legal but semantically unsound if 
+we consider the grade letters to be a flat structure:
+
+.. code-block:: 
+
+    static char LetterGrade(double score)
+    {
+        char letter;
+        if (score >= 90) {
+            letter = 'A'; 
+        }
+        else {   // grade must be B, C, D or F 
+            if (score >= 80) { 
+                letter = 'B'; 
+            }
+            else { // grade must be C, D or F 
+                if (score >= 70) { 
+                letter = 'C'; 
+                }
+                else {   // grade must D or F 
+                if (score >= 60) {
+                    letter = 'D'; 
+                }
+                else { 
+                    letter = 'F';
+                }
+                }   //end else D or F
+            }      // end of else C, D, or F
+        }         // end of else B, C, D or F
+        return letter;
+    }
+
+As seen in the LetterGrade() method above, the repeatedly increasing indentation 
+with an ``if`` statement in the ``else`` clause can be annoying and 
+distracting. Here is a preferred
+alternative in this situation, that avoids all this further
+indentation:  
+Combine each ``else`` and following ``if`` onto the same line, 
+and note that the ``if`` part after each else is just a *single*
+(possibly very complicated) statement.  This allows the elimination of
+some of the braces and make the code more readable and logically clear:
+
+| ``if (`` *condition1* ``) {``
+|      statement-block-run-if-condition1-is-true;       
+| ``}``  
+| ``else if (`` *condition2* ``) {``
+|      statement-block-run-if-condition2-is-the-first-true;       
+| ``}``  
+| ``else if (`` *condition3* ``) {``
+|      statement-block-run-if-condition3-is-the-first-true;       
+| ``}`` 
+| // ...
+| ``else {    //`` *no condition!* 
+|      statement-block-run-if-no condition-is-true;       
+| ``}`` 
+    
+Note that *exactly one* of the statement blocks gets executed:
+- If some condition is true, the first block following a true condition is executed. 
+- If no condition is true, the ``else`` block is executed. 
+  
+
+We can modify the LetterGrade() method into **LetterGrade2()** 
+method using ``else if``, which is more readable and semantically sound:
+    
+.. code-block:: csharp
+
+    static char LetterGrade2(double score)
+    {
+        char letter;
+        if (score >= 90) {
+            letter = 'A'; 
+        }
+        else if (score >= 80) { 
+            letter = 'B'; 
+            }
+        else if (score >= 70) { 
+            letter = 'C'; 
+        }
+        else if (score >= 60) {
+            letter = 'D'; 
+        }
+        else { 
+            letter = 'F';
+        }
+        return letter;
+    }
+
+
+
+
+
+

@@ -1,0 +1,207 @@
+Method Header and Method Call
+==================================
+
+
+Method Signature: The Recipe
+------------------------------
+
+The first method you have encountered in C# is the Main method, in which *Main* is 
+the name that you can to refer to this set of statements. A Main method is special 
+because it is designated as the only entry point of a C# application and therefore 
+the first method to be invoked in a class [#f1]_. 
+
+Note that the **Main method** is contained in a **class** (Program), which is a 
+standard arrangement for OOP languages. 
+You define a method by writing the method’s **header** and **body**. The header is 
+also called a **method signature**. [#f6]_ When defining methods, you follow a recipe 
+(standard syntax) to specify the **method signatures**. The 
+standard syntax template for method signatures is as follows: [#f4]_
+
+.. code-block:: none
+   
+   [Access Modifier] [static modifier] [Return Type] MethodName(Parameter List)
+   {
+      // Method Body: a set of statements enclosed in curly braces { }
+   }
+
+In this template, the signature include the following parts:
+
+.. list-table:: Method Signatures
+   :widths: 10 90
+   :header-rows: 1
+
+   * - Signature 
+     - Description
+   * - Access Level 
+     - Optional. This determines visibility of methods between classes, and whether 
+       or not it can instantiate new objects. Since our methods in this chapter are limited 
+       to this class, we will leave them off for now.
+   * - Static modifier
+     - Define the method as a static member method of the class. When not defined as 
+       static, it is an instance member. [#f3]_
+   * - Return Type
+     - If the method is returning a value, this indicates what data type it will 
+       be. Not all methods return values. Methods that do not return a value have a return 
+       type of ``void``.
+   * - Method Name
+     - The method’s unique ``identifier``. This is what you use to call your method.
+   * - Parameter List
+     - A parameter is a placeholder for specific data that the method will 
+       act upon. Parameters are optional. In these cases, the ``()`` are still part of the method 
+       call, but remain empty.
+   * - Method Body
+     - This is where you code your method. Note it is contained between ``{}``.
+
+
+With method signatures, you can design methods specifically to your needs. But for now, 
+let us analyze the two methods in class TryMethods below to apply our understanding of signatures:
+
+.. code-block:: csharp
+   :linenos: 
+   :emphasize-lines: 10-11
+
+   using System;                          // the using statement
+   class TryMethods                       // class declaration
+
+   {
+      static void Main(string[] args)     // static modifier, return modifier, and method name
+      {                                   // static: can be invoked directly; void, no return to caller
+         MyMethod();                      // method MyMethod (line# 9) is called
+      }
+
+      static void MyMethod()              // static modifier, return modifier, and method name 
+      {                                   // static: can be invoked directly; void, no return to caller
+         Console.WriteLine("IST 1551");   // Method body
+         Console.WriteLine("T.Y. Chen");  // Method body
+      }
+
+   }
+
+.. note:: 
+   You have probably noticed that you can prepare this code by making the **MyMethod** 
+   project folder (``mkdir MyMethod``), then creating the project by running ``dotnet new console 
+   --use-program-main`` (or just do ``dotnet new console`` then change the code to include 
+   the ``Main method``). After that, you run ``code .`` from the terminal to open 
+   the project in VS Code and click on Program.cs to edit the source code.
+
+
+Method Calls & Returns
+------------------------
+
+In the preceding code, we add a new method, the ``MyMethod`` method in addition to 
+the ``Main`` method. Since the Main method is the 
+first method to be invoked by the .NET common 
+language runtime (CLR) when the application is started. You then **call** (or **invoke**) 
+other methods (making **method calls**) from the Main method. [#f2]_ 
+
+When making a method call, you call it using the method **name** followed by 
+**parentheses**. The method header static void chorus() indicates the return type is void and there are no formal parameters between the parentheses, which means you can call the method as shown: 
+Note that you build your methods outside of the Main method and you make method calls 
+from within the Main method. Namely, you separate the Main method (app the entry point) 
+from other methods (functionalities). The purpose of the Main method, therefore, is to 
+execute your programs inside the class.
+
+An important feature of functions/methods is that they can **return** values to their 
+**callers**. In the example below, you see that you call the method SquareTheNumber() 
+from the Main() method using the name of the method and with a parameter. 
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 7, 12-14, 16-18
+
+   
+   using System;
+
+   class MainClass {
+
+      static int SquareTheNumber(int num)
+      {
+         return num * num;    // the value to be returned is given by the expression in the return statement.
+      }
+
+      public static void Main (string[] args) {
+
+         int digit = 4;
+         int squaredNum = SquareTheNumber(digit);
+         int squaredAndSummed = squaredNum + SquareTheNumber(digit);
+
+         Console.WriteLine(squaredNum);
+         Console.WriteLine(squaredAndSummed);
+         Console.WriteLine(SquareTheNumber(5));
+
+      }
+   }
+
+The output of the code above would be::
+
+   16
+   32
+   25
+
+In the preceding code, we see that: 
+
+- line# 7 uses the ``return`` keyword to create a return statement to return 
+  the resulted value to the caller. 
+- Line# 12 initializes the value of int variable digit to 4
+- Line# 13 calls the squaredNum() method with argument digit (4) and save the resulted 
+  return value to int variable squaredNum.
+- Line# 14 add squaredNum and add it to the return value of the method call with argument value of 4.
+
+Since methods can return data, and all data in C# is typed, 
+there must be a type given for the value returned. Note that in the preceding 
+code the method header does not start with ``static void``.  
+In place of ``void`` is ``int``.  The ``void`` in method headers
+mean nothing was returned. The ``int`` here means that a value *is*
+returned and its type is ``int``.
+
+
+Flow of execution
+-------------------
+
+In terms of the construct of **sequential processing**, functions/methods 
+alter code execution order in several ways: by statements not
+being executed as the definition is first read, and then when the
+method is called during execution, jumping to the method code,
+and back at the the end of the method execution. [#f7]_
+
+A class can contain multiple methods. It can be tempting to think the 
+methods are executed in the order they appear in the class, but this is 
+not the case. A program always begins at the first statement in the Main 
+method. Each statement in the main is executed sequentially, one at a 
+time, until you reach a method call. A method call causes the program 
+execution to jump to the first line of the called method. 
+Each statement in the called method is then executed in order. 
+When the called method is done, the program returns back to the 
+main method. [#f8]_
+
+In other words, the order in which the method definition code blocks does 
+not matter to C#. It is a human choice. One good practice is to show 
+``Main`` first. This means a human reading in order gets an overview 
+of what is happening by looking at Main, but does not know the details 
+until reading the definitions of other methods.
+
+
+
+
+
+	
+.. [#f1] Note that if you have more than one Main method in you have to use the 
+   `StartupObject <https://learn.microsoft.com/en-us/dotnet/csharp/language
+   -reference/compiler-options/advanced#mainentrypoint-or-startupobject>`_ 
+   compiler option to specify which Main method to use as the entry point. 
+.. [#f2] Main method is required for console and Web apps in .NET.  
+.. [#f3] A class has members such as field, properties, and methods. Static 
+   members of the class can be used without creating a new instance of the class. 
+   For example, we can access the square root method in Math class under the 
+   System namespace directly, ``Console.Write(Math.Sqrt(x));``, without using the 
+   ``new`` keyword to create a new instance of the Math class. 
+
+.. [#f4] This template and explanation is adopted from https://education.launchcode.org/intro-to-programming-csharp/chapters/methods/method-signatures.html
+.. [#f6] Note that, in OOP, method signature usually refers the method name and the type of 
+         its parameters (enclosed in parentheses and separated by commas) while the method 
+         header means the whole first line of the method definition. Here we use the 
+         definition from `Microsoft Learn <https://learn.microsoft.com/en-us/dotnet/csharp/methods>`_ 
+         to make it simple. 
+.. [#f7] https://education.launchcode.org/intro-to-programming-csharp/chapters/methods/method-signatures.html#method-calls
+
+.. [#f8] https://runestone.academy/ns/books/published/csjava/Unit5-Writing-Methods/topic-5-1-writing-methods.html

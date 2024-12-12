@@ -1,0 +1,320 @@
+.. _io:
+
+Input and Output
+==========================
+
+.. ReadKey
+
+.. tip::¶
+
+    Save the file before ``dotnet run``.
+    Use ``dotnet build`` or ``dotnet build`` *ProjectName* when needed. 
+
+
+.. index:: 
+   double: Console; ReadLine
+   
+.. _read-from-console:
+   
+Input: Reading from the Keyboard
+----------------------------------
+
+At console or terminal, input is done in two parts: Prompt and read. 
+Because the lack of better visual cues, we use a *prompt* to instruct the user 
+how to respond. For example: ::
+
+    Console.Write("Enter your name: ");
+    
+The user input from keyboard is automatically shown
+in the terminal or console window. For a program to take in the characters typed, 
+another method in the ``Console`` class is used:
+``Console.ReadLine``.
+
+The read method reads the data from a line typed at the keyboard by the user.
+When the user presses the Enter (Return) key, the sequence of characters,
+form the string *value* of the read method.
+
+With any method producing a value, the value is *lost* unless it 
+is *immediately* used. We therefore assign the value from the read method 
+to a variable like in ::
+
+    string name;                                // declare variable
+    
+    Console.WriteLine("Enter your name: ");     // prompt for input
+    name = Console.ReadLine();                  // save value to variable
+
+or read in one line ::
+
+    Console.WriteLine("Enter your name: ");
+    string name = Console.ReadLine();
+
+    Console.WriteLine(name);                    // print to test
+
+Now we have a variable containing the value for us to operate on. 
+     
+
+.. index::
+   string; Parse to int or double
+   Parse int and double
+   int; Parse
+   double; Parse
+   
+.. _the_ui_class:
+
+User Input: The UI class
+---------------------------
+
+Andrew N. Harrington and George Thiruvathukal (2021) have prepared some useful 
+C# utility methods for convenient user input and the code is available on `github <https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/ui/ui.cs>`_. 
+
+To use the code, go to the github repository, and do the following:
+
+#. Make sure the path is ``introcs-csharp-examples/ui/ui.cs`` and the file name is ``ui.cs``. 
+#. Make sure the *Code* tab is selected and you are seeing the source code. 
+#. Use ``copy raw files`` icon or simply highlight the whole code. 
+#. In your project folder, create a new file and name it ``ui.cs``. 
+#. Paste the copied code to the file.
+#. Change the namespace of the file from IntroCS to ``IntroCSCS``.
+
+Alternatively, you may just download ``ui.cs`` as a raw file from github and place it in the 
+project folder with the Program.cs file and change the file's namespace from IntroCS 
+to IntroCSCS. 
+
+Now you can use the input methods in your code. For example, you may use its 
+``PromptInt`` method to prompting a user input of integer type:: 
+
+    a = UI.PromptInt("Enter integer leg: ");
+
+
+
+
+Casting (Type Conversion) in Input
+-----------------------------------
+
+The default value from ``Console.ReadLine()`` is of string type and 
+when we want the user to supply numbers, we need to explicitly convert the 
+strings to the proper kind of number. We cannot convert the string type to 
+int implicitly because strings are immutable in C#. Instead, you need to parse 
+the string and assign to the intended data type. 
+
+There are C# built-in methods to do that. ``int.Parse`` takes a string parameter
+that should be the characters in an ``int``, like "123" or "-25", and 
+produces the corresponding ``int`` value, like 123 or -25: ::
+
+    Console.WriteLine("Enter your age: ");      // prompt
+    var ageInput = Console.ReadLine();          // save input to variable
+    
+    Console.WriteLine(ageInput.GetType());      // check type: string
+    Console.WriteLine(ageInput);
+    
+    int age = int.Parse(ageInput);               // casting type to int
+    
+    Console.WriteLine(age.GetType());
+    Console.WriteLine(age);
+
+The double type works similarly as the int type::
+    
+    > string s = "34.5";
+    > double d = double.Parse(s);
+    > d
+    34.5
+
+or, in VS Code::
+
+    string s = "34.5";
+    double d = double.Parse(s);
+    Console.WriteLine(d);
+
+
+.. _substitution-in-writeline:
+
+Console.WriteLine() 
+-----------------------
+
+The method ``Console.Write()`` does not create a new line when executing. 
+We can make use of this in cases such as reading user input ::
+
+    string firstName;
+
+    Console.Write("Enter you first name: ");    // input will start here
+    firstName = Console.ReadLine();
+
+    Console.WriteLine("Hiya, " + firstName + "!");
+
+
+You have seen output ("print" or "echo") from the very beginning when creating 
+the console app project (``dotnet console new``) and see the executing line of::
+
+    Console.WriteLine("Hello, World");
+
+Naturally, we can print variables in addition to the string literal. For example, 
+extending our input code::
+
+    Console.WriteLine("Enter your name: ");
+    string name = Console.ReadLine();
+
+    Console.WriteLine("Hello," + name);        // use + for concatenation
+
+
+.. _format-strings:
+
+Composite formatting
+-----------------------
+
+Instead of using the ``+`` operator, **composite format** (the 
+"fill-in-the-braces") gives us better control over output using ``Console.WriteLine``
+by using positional **string format index** to separate the string and the data variables. 
+
+In composite formatting, you use two arguments: 1) a composite format **string** with 
+**parameter specifier** (``format item`` index) and 2) an **object list**. When printing, 
+the objects (variables or literal values) substitute the parameter specifiers one by one. 
+
+Observe the last two statements::
+
+    string firstName;
+
+    Console.Write("Enter you first name: ");    // input will start here
+    firstName = Console.ReadLine();
+
+    Console.WriteLine("Hiya, " + firstName + "!");
+    Console.WriteLine("Hiya, {0}!", firstName);
+
+You can imagine that there would be {1}, {2}... like this::
+
+        Console.WriteLine("Hiya, {0} {1}!", firstName, lastName);
+
+With composite formatting, we have the flexibility of writing the output string 
+and place the variables anywhere we prefer in the string.  
+
+A more elaborate silly examples that you could test in csharp would be::
+
+    string first = "Peter";
+    string last = "Piper";
+    string what = "pick";
+    Console.WriteLine("{0} {1}, {0} {1}, {2}.", first, last, what);
+    
+It would print::
+
+    Peter Piper, Peter Piper, pick.
+    
+where parameter 0 is ``first`` (value ``"Peter"``), 
+parameter 1 is ``last`` ( value ``"Piper"``), and
+parameter 2 is ``what`` (value ``"pick"``).  
+
+
+As an example, try the following in csharprepl::
+
+    int x = 7;
+    int y = 5;
+    Console.WriteLine("{0} plus {1} is {2}; {0} times {1} is {3}.", x, y, x+y, x*y);
+    
+to see it prints::
+
+    7 plus 5 is 12; 7 times 5 is 35.
+    
+Note the following features of the parameters after the first string:
+
+- These parameters can be any expression, 
+  and the expressions get evaluated before printing.
+- These parameters to be substituted can be of any type. 
+- These parameters are automatically converted to a string form, just as in the
+  use of the string ``+`` operation.  
+  
+In fact the simple use of format strings shown so far can be completed replaced by 
+long expressions with ``+``, if that is your taste.
+
+Format Specifiers
+~~~~~~~~~~~~~~~~~~~
+
+In addition to printing out strings using composite formatting as seen above, a common 
+way to format strings is using the string.Format() method to save the value of the 
+variable into another string. For example, we may save a format string to a variable::
+
+    var msg = string.Format("There are {0} balls", 3);
+
+Also, C# has **format specifiers** [#format-specifiers]_ for different data types when 
+formatting data. 
+For example, ``D`` for Decimal type::
+
+    int value = 6324;
+    string output = string.Format("{{{0:D}}}", value);
+
+    Console.WriteLine(output);
+    // The example displays the following output:
+    //       {6324}
+
+You may format two strings together. In the example below, the ``{1,6:D}`` 
+format item takes the second item, format it also as a decimal and the 
+string length will be 6 characters (right-aligned and padded with empty strings;
+the 6 here is the ``alignment component``):: 
+
+    string.Format("{0:D}  {1,6:D}", 634, 868); // result: 634     868
+
+
+``C`` for currency::
+
+    int myNumber = 100;
+    Console.WriteLine("{0:C}", myNumber);
+
+    // The example displays the following output
+    // if en-US is the current culture:
+    //        $100.00
+
+
+
+.. _string-interpolation:
+
+String Interpolation
+------------------------------
+
+The ``$`` character identifies a string literal as an **interpolated string**. An interpolated 
+string is a string literal that might contain interpolation expressions. When an 
+interpolated string is resolved to a result string, the compiler replaces items with 
+interpolation expressions by the string representations of the expression results. 
+String interpolation provides a more readable, convenient syntax to format strings. 
+To identify a string literal as an interpolated string, prepend it with the ``$`` symbol. 
+
+Compare **composite formatting** and **string interpolation**::  
+
+    var name = "Mark";
+    var date = DateTime.Now;
+
+    // Composite formatting:
+    Console.WriteLine("Hello, {0}! Today is {1}, it's {2:HH:mm} now.", name, date.DayOfWeek, date);
+    // String interpolation:
+    Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
+    // Both calls produce the same output that is similar to:
+    // Hello, Mark! Today is Wednesday, it's 19:40 now.
+
+
+   
+Writing to the Console
+------------------------
+   
+In csharprepl, you can type an expression and immediately see the result 
+of its evaluation. This is good for test out syntax. In a regular C# program 
+run from a file like in VS Code, you must explicitly give instructions to print to a 
+console/terminal.  
+
+This printing is accomplished through a method with a long name: ``Console.WriteLine``.
+Like with math, you can pass a method a value to work on, by placing it in
+parentheses after the name of the method.
+
+``Console`` is a C# class maintained by the system, that
+interacts with the terminal or console window where text output 
+appears for the program.  A method defined in that class is ``WriteLine``.
+To refer to a method like ``WriteLine`` in a different class, you must indicate
+the location of the method with the "dot" notation shown:
+class name, then ``.``, then the method.  This  
+gives the more elaborate name needed in the program.
+
+.. index:: Console; Write
+
+The ``Console.WriteLine`` method automatically makes the printing
+position advance to the next line, as when you press the Enter or Return key.
+A variant, ``Console.Write``, prints the parameter exactly, and nothing else.
+
+
+.. rubric:: Footnotes
+
+.. [#format-specifiers] `.NET Standard numeric format strings <https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings>`_

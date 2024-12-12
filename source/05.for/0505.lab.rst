@@ -1,0 +1,385 @@
+.. index:: labs; for loops
+
+.. _lab-for-loops:
+   
+Lab: for Loops
+================
+
+- Note that the course policy is that you should not use generative AI 
+  without authorization. If you are suspected to have used generative AI 
+  and not able to explain/reproduce your work when requested, all your 
+  **related assignments throughout the semester will be regraded as 0**.
+
+#. Create a dotnet console app project (:ref:`create-project`), if you 
+   have not, in your *USERNAME*/workspace/introcscs directory; call it 
+   **Ch05ForLoop**. 
+#. Prepare your code in VS Code. 
+#. Use the file Program.cs to code.    
+#. The namespace of this project is *IntroCSCS*. 
+#. The class name of this project is *Ch05ForLoop*. 
+#. When executing code, you will only use the Main() method in class *Ch05ForLoop*. 
+#. You will prepare methods in the same class to be called from the Main() method. 
+#. Use a Word document to prepare your assignment. 
+#. Number the questions and **annotate** your answers (using // in code when 
+   appropriate) to show your understanding. 
+#. For coding questions, screenshot and paste 1) your code in VS Code and 2) the 
+   results of the code's execution (**command prompt** and **username** are part 
+   of the execution).
+
+
+Goals for this lab:
+
+- Practice with loops. You are encouraged to use a ``for`` loop where appropriate.
+- Use nested loops where appropriate.
+
+
+For Loop Lab
+--------------------
+
+This part of the lab comes from :repsrc:`loop_lab_stub/loop_lab.cs`. You may refer to the 
+code while answering the questions here.
+
+   #. From the terminal, go to your Ch05ForLoop project folder.
+   #. ``code .`` + Enter from within the Ch05ForLoop directory. 
+   #. Start working on the methods. 
+   
+Your task is to Fill in method bodies for each part below: 
+
+.. index:: PrintReps
+
+#.  Complete method ``PrintReps`` to be called from Main() like:
+
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: PrintReps chunk
+       :end-before: body
+       :dedent: 6
+
+    Hint:  How would you do something like the example
+    ``PrintReps("Ok", 9)`` or with a higher count by hand?  
+    Probably count under your breath as you write:
+    
+    .. code-block:: none
+
+        1 2 3 4 5 6 7 8 9
+       OkOkOkOkOkOkOkOkOk
+    
+    This is a counting loop. Use a C-style for loop. 
+    
+    
+    .. _StringOfReps:
+    
+    .. index:: StringOfReps
+    
+#.  Complete method ``StringOfReps``  
+
+    .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+       :start-after: StringOfReps chunk
+       :end-before: body
+       :dedent: 6
+
+    Note the distinction from the previous part:  Here the method prints nothing.
+    Its work is *returned* as a single string. You have call the method like:: 
+      
+      Console.WriteLine(StringOfReps("Ok", 9));
+    
+
+    .. index:: Factorial
+    
+#. Complete method ``Factorial``: (A factorial, in mathematics, is the product of 
+   all positive integers less than or equal to a given positive integer and 
+   denoted by that integer and an exclamation point.)
+    
+   .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+      :start-after: Factorial chunk
+      :end-before: body
+      :dedent: 6    
+   
+   It is useful to think of the sequence of steps to calculate a 
+   concrete example of a factorial, say 6!:    
+   
+   .. code-block:: none
+   
+      Start with 1
+      2 * 1 = 2
+      3 * 2 = 6
+      4 * 6 = 24
+      5 * 24 = 120
+      6 * 120 = 720
+   
+   **ALSO** find the largest value of ``n`` for which the method works.
+   (You might want to add a bit of code further testing Factorial,
+   to make this easier.) Caution: although a negative result from the 
+   product of two positive numbers is clearly wrong, only half of the
+   allowed values are negative, so the first wrong answer could equally well
+   be positive. **Explain how you find the largest value of ``n`` that works in this method.**
+    
+
+.. index:: Random; static variable
+.. index:: Random; heads or tails exercise
+   exercise; heads or tails
+   heads or tails exercise
+   
+.. _head_tails_exercise:
+
+Head or Tails 
+---------------
+
+Write a method ``Flip()``,
+that will just randomly print ``Heads`` or ``Tails`` *once*.
+Accomplish this by choosing 0 or 1 arbitrarily with a random
+number generator. More details follow.
+ 
+Use a ``Random`` object, and make the ``Random`` object a local variable inside 
+the ``Flip`` method.  
+
+*It is generally a good idea to only create a single ``Random`` object
+that stays in scope for the whole program so it can be used by various programs. 
+One way to do that is to make it* **static**. For our purpose here, just place 
+the random object declaration in your Flip() method::
+
+  Random r = new Random();
+
+*Note again that in the future you would place the object inside your class but 
+outside of any method, so you can use ``r`` in any method in your class*.  
+
+For ``int`` variables ``low`` and ``higher``, with ``low < higher``::
+ 
+    int n = r.Next(low, higher);
+
+returns a (pseudo) random ``int``, satisfying ``low <= n < higher``.
+If you select ``low`` and ``higher`` as 0 and 2, 
+so there are only two possible values for n,
+then you can choose to print ``Heads`` or ``Tails`` with an
+|if-else| statement based on the result.
+
+In your ``Flip`` method, create a ``for`` loop so you generate a random sequence of 
+10 heads and/or tails. Print out the heads/tails like::
+
+   Tails Tails Tails Tails Heads Tails Heads Tails Tails Tails 
+
+Place ``return ""`` in your ``else`` block to avoid a "not all paths return value" 
+warning if you use an else if statement (or simply put the return line at the 
+end of the code block).
+ 
+.. warning::
+
+   We have discovered some problems with the ``Next()`` implementation
+   that sometimes results in random values not
+   being generated. This is likely a bug that will be fixed. If you
+   experience any problems with ``Next()``, the following is for you!
+
+.. An alternative to generating random 0 and 1 values for heads and tails
+.. is to generate random double-precision values. Using the same
+.. variable, ``r``, you can call ``r.NextDouble()`` to get a random value
+.. between 0 and 1. You can consider any generated value :math:`n < 0.5` to
+.. be heads; :math:`n >= 0.5` represents tails::
+
+..     double n = r.NextDouble();
+..     if (n < 0.5) {
+..        // heads
+..     } else {
+..        // tails
+..     }
+    
+
+
+
+.. index:: exercise; GroupFlips
+
+Group Flips 
+-------------
+
+Write a method ``GroupFlips()`` using the ``Flip()`` method  
+from the last question to::
+ 
+   /// Print out the results from the total number of random flips of a coin.
+   /// Group them groupSize per line, each followed by a space.
+   /// The last line may contain fewer than groupSize flips 
+   /// if total is not a multiple of groupSize.  The last line
+   /// should be followed by exactly one newline in all cases.
+   /// For example, GroupFlips(10, 4) *could* produce:
+   ///   Heads Heads Tails Heads 
+   ///   Heads Tails Heads Tails
+   ///   Tails Tails 
+   static void GroupFlips(int total, int groupSize)
+
+Complete this method definition and test 
+with a variety of calls to ``GroupFlips`` in ``Main``. The output from the 
+previous exercise would be produced by the call::
+
+   GroupFlips(10, 1); 
+
+    
+.. index:: exercise; reverse string foreach
+
+.. _reverse-string-foreach:
+  
+Reverse String ``foreach`` 
+---------------------------
+
+We already have discussed :ref:`reverse-string-returned`.
+It used a ``for`` loop to go through the characters in
+reverse order.  Write a version with the only loop heading::
+
+   foreach(char ch in s) {
+   
+and no reference to indices in s.
+
+
+.. index:: exercise; only letters
+   only letters exercise; 
+
+.. _only-letters-ex:
+  
+Only Letters 
+----------------------
+
+Write a program that defines and tests a method with
+description and heading::
+
+    /// Return s with all non-letters removed.
+    /// For example OnlyLetters("Hello, World!") returns "HelloWorld".
+    static string OnlyLetters(string s)
+
+Assume the English alphabet.
+    
+.. index:: exercise; palindrome
+   palindrome exercise; 
+
+.. _palindrome-ex:
+  
+Palindrome Exercise
+----------------------
+
+Write a program ``palindrome.cs`` that defines and tests a method with
+description and heading::
+
+    /// Return true when s is a palindrome.
+    /// For example IsPalindrome("A Toyota!") returns true.
+    static bool IsPalindrome(string s)
+  
+A palindrome is a string that contains the same sequence of letters,
+ignoring capitalization, forward and backward.  Non-letters are ignored.
+Examples are "Madam, I'm Adam." and "Able was I 'ere I saw Elba."
+
+``IsPalindrome`` can be written very concisely by copying and using
+methods from previous exercises.
+
+.. index:: exercise; nested play computer
+
+
+Predict what these code fragments print.  Then check yourself in csharp::
+
+    for (int i = 3; i > 0; i--) {
+        for (int j = i; j < 4; j++) {
+            Console.Write(j);
+        }
+        Console.WriteLine();
+    }
+        
+    string s = "abcdef";    
+    for (int i = 1; i < s.Length; i += 2) {
+        for (int k = 0; k < i; k++) {
+            Console.Write(s[i]);
+        }
+    }
+
+.. index:: exercise; power table
+
+.. _power_table_exercise:
+
+Power Table 
+--------------
+    
+a.  Write a method that completes and tests with this heading. 
+    Be sure your program tests 
+    with several values for each parameter::
+
+       /// Print a table of powers of positive integers.  
+       /// Assume 1 <= nMax <= 12, 1 <= powerMax <= 7. 
+       /// Example: output of PowerTable(3, 4)
+       ///       n^1       n^2      n^3      n^4
+       ///         1         1        1        1
+       ///         2         4        8       16
+       ///         3         9       27       81     
+       ///
+       public static void PowerTable(int nMax, int powerMax) 
+   
+    Make sure the table always ends up with right-justified columns.
+
+b.  Make the table have columns all the same width, but
+    make the width be as small as possible for the parameters
+    provided, leaving a minimal one space (but not less!) between columns
+    somewhere in the table. Consider heading widths, too.
+
+
+
+
+.. #.  Modify the method to return a ``long``.  
+..     Then what is the largest value of ``n`` for which the method works?
+    
+..     *Remember the values from this part and the previous part*
+..     *to tell the TA's checking out your work.*
+
+..     .. index:: PrintRectangle
+      
+.. #.  Complete the method
+
+..     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+..        :start-after: PrintRectangle chunk
+..        :end-before: body
+..        :dedent: 6
+    
+..     Here are further examples::
+        
+..         PrintRectangle(5, 1, ' ', 'B');
+..         PrintRectangle(0, 2, '-', '+');
+    
+..     would print
+    
+..     .. code-block:: none
+
+..        BBBBBBB
+..        B     B
+..        BBBBBBB
+..        ++
+..        ++
+..        ++
+..        ++
+    
+..     Suggestion:  You are always encouraged to build up to a complicated solution 
+..     incrementally.
+..     You might start by just creating the inner rectangle, without the border.
+
+.. #.  Complete the method below.  
+
+..     .. literalinclude:: ../../examples/introcs/loop_lab_stub/loop_lab.cs
+..        :start-after: PrintTableBorders chunk
+..        :end-before: body
+..        :dedent: 6
+    
+..     Here is further example::
+        
+..         PrintTableBorders(2, 1, 6, 3);
+    
+..     would print (with actual vertical bars)
+    
+..     .. code-block:: none
+
+..        +------+------+
+..        |      |      |
+..        |      |      |
+..        |      |      |
+..        +------+------+
+    
+..     You can do this with lots of nested loops, 
+..     or much more simply you can use ``StringOfReps``, possibly six times
+..     in several assignment statements, 
+..     and print a single string.  Think of larger and larger building blocks.
+   
+..     The source of this book is plain text where some of the tables are laid out
+..     in a format similar to the output of this method.  The Emacs editor 
+..     has a mode that maintains
+..     a fancier related setup on the screen, on the fly,
+..     as content is added inside the cells!
+   

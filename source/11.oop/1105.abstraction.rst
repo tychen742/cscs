@@ -1,0 +1,332 @@
+Abstraction
+=================
+
+Abstraction is achieved by ignoring implementation details while focusing on 
+essential features. Abstraction can be achieved through the use of either 
+**abstract classes** or **interfaces**. 
+
+The most common form of abstraction in OOP is data abstraction, which means a set of 
+abstract operations fully defines the behavior of an abstract data object. 
+Note that, in general: [#abstract-class_vs_interface]_  
+
+- An abstract class defines what something is (description). Abstract classes can 
+  contain implementation of methods, fields, constructors, etc.
+- An interface defines that something can do (behavior). Therefore, they only contains 
+  method and property prototypes. For example, the interface ``IEnumerable`` 
+  means that anything implements IEnumerable is enumerable and its behavior is it 
+  can be enumerated.
+
+A class can implement multiple interfaces, but it can only inherit one class 
+(abstract or otherwise). 
+
+
+Abstract Classes
+------------------
+
+In C#, the ``abstract`` keyword is used to create abstract classes and abstract methods:
+
+- **Abstract class**: is a restricted class that cannot be used to create objects; instead, 
+  it must be **inherited** from a child class to be used.
+- **Abstract method**: can **only** be used in an abstract class, and it **does not have a 
+  body**. The body is provided by the derived (child) class.
+
+Important characteristics of abstract classes include: 
+
+- Members: An abstract class can contain both **abstract** and **non-abstract** members.
+- ``override``: Derived classes that implement ``abstract`` methods must use the 
+  ``override`` keyword.
+- **Use**: An abstract class cannot be instantiated using a ``new`` keyword; it must be inherited by a 
+  derived (child) class in order to be used. 
+- **Abstract members**: Abstract members of an abstract class may include methods, properties, or events that 
+  **do not have an implementation**, and must be implemented in the derived class.
+- If a class contains any abstract members, it must also be marked as abstract.
+- **concrete class**: A derived class that implements all of the abstract members of its base class is considered to be a 
+  **concrete class**, and can be instantiated.
+
+Here is an example of an abstract class that contains an abstract method in C#:
+
+.. code-block:: 
+    :linenos:
+    :emphasize-lines: 1, 3
+
+    abstract class Shape
+    {
+        public abstract double GetArea();
+    }
+
+Note that, since an abstract cannot be instantiated, if you try to create an object 
+from it::
+    
+    Shape shape = new Shape();
+    
+You will receive an error message like (in macOS):
+
+.. code-block:: bash
+
+    tcn85@mac:~/workspace/introcscs/Ch11OOP$ dotnet run
+    /Users/tcn85/workspace/introcscs/Ch11OOP/Vehicle.cs(29,23): error CS0144: Cannot create an 
+    instance of the abstract type or interface 'Shape' [/Users/tcn85/workspace/introcscs/Ch11OOP/Ch11OOP.csproj]
+
+    The build failed. Fix the build errors and run again.
+
+or in Windows:
+
+.. code-block:: powershell
+
+    PS C:\Users\tcn85\workspace\introcscs\Ch11OOP> dotnet run
+    C:\Users\tcn85\workspace\introcscs\Ch11OOP\Vehicle.cs(29,23): error CS0144: Cannot create an 
+    instance of the abstract type or interface 'Shape' [C:\Users\tcn85\workspace\introcscs\Ch11OOP\Ch11OOP.csproj]
+
+    The build failed. Fix the build errors and run again.
+    PS C:\Users\tcn85\workspace\introcscs\Ch11OOP> 
+
+This abstract class represents a shape, and has a single abstract method called ``GetArea()`` that 
+returns the area of the shape. From Shape, you can define different classes inheriting Shape (such as Circle, 
+Square, Triangle...). Each child class would implement the ``GetArea()`` method differently since this method is 
+abstract and therefore it does not have an implementation and must be implemented in a derived class.
+
+Here is an example of a derived class that implements the GetArea() method:
+
+.. code-block:: csharp
+
+    class Circle : Shape
+    {
+        private double radius;                  // field (data)
+
+        public Circle(double radius)            // a constructor intaking argument double radius
+        {
+            this.radius = radius;               // create the variable to be used in the object
+        }
+
+        public override double GetArea()        // implementation of the GetArea method from Shape; override
+        {
+            return Math.PI * radius * radius;
+        }
+    }
+
+ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle = new Circle(10);
+            double area = circle.GetArea();
+            Console.WriteLine(area);            // output: 314.1592653589793      
+        }
+    }
+
+
+As another example, see the abstract class and methods defined and executed as follows.
+
+.. code-block:: csharp
+    :linenos: 
+    :emphasize-lines: 1, 3, 5, 12, 14-17, 25
+
+    abstract class Animal                       // Abstract class
+    {
+        public abstract void animalSound();     // Abstract method (does not have a body)
+        
+        public void sleep()                     // Regular method
+        {
+            Console.WriteLine("Zzz");
+        }
+    }
+
+    
+    class Pig : Animal                          // Derived class (inherit from Animal)
+    {
+        public override void animalSound()      // method implementation body of animalSound(); override 
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Pig myPig = new Pig();              // Create a Pig object
+            myPig.animalSound();                // Call the implemented abstract method: 
+                                                // output The pig says: wee wee
+            myPig.sleep();                      // Call the regular method (in base class)
+        }                                       // output: Zzz
+        
+    }
+
+
+Abstraction is a powerful modular design that allows for a **separation of concerns** 
+between the interface/abstract class and the implementation of a class. It helps to 
+reduce complexity and improve maintainability by allowing changes to be made to the 
+implementation without affecting the overall behavior of the class. In this example 
+below, you see that this time a ``Rectangle`` class is created to inherit the 
+**abstract class** ``Shape`` and two **abstract methods** are implemented. 
+
+.. code-block:: csharp
+    :linenos:
+
+    abstract class Shape
+    {
+        public abstract double GetArea();
+        public abstract double GetPerimeter();
+    }
+
+    class Rectangle : Shape
+    {
+        private double width;
+        private double height;
+
+        public Rectangle(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+
+        public override double GetArea()
+        {
+            return width * height;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 2 * (width + height);
+        }
+    }
+
+
+Interfaces
+-------------
+
+Interface is another way of achieving abstraction in C#. An interface is a completely 
+"abstract" class, which can only contain abstract methods and properties 
+(with empty bodies) without any implementation. For example, the following code is 
+an interface definition that does not have any method implementation (body, ``{}``): [#interfaces-w3school]_ 
+
+.. code-block:: csharp
+
+    interface Animal 
+    {
+        void animalSound();     ///// interface method (does not have a body)
+        void run();             ///// interface method (does not have a body)
+    }
+
+Note that: 
+
+#. It is considered good practice to start with the letter "``I``" at the beginning of an 
+   interface name to note that it is an interface rather than a class.
+#. Interfaces can contain properties and methods, but not fields.
+#. By default, members of an interface are ``abstract`` and ``public``.
+#. To use the interface methods, the interface must be "implemented" 
+   (kinda like inherited) by a child class using the ``:`` symbol (just like with 
+   inheritance).  
+#. You do not have to use the override keyword when implementing an interface.
+
+For example:
+
+.. code-block:: csharp
+    :linenos:
+    :emphasize-lines: 1, 3, 7, 20
+
+    interface IAnimal 
+    {
+      void animalSound();       // interface method (does not have a body)
+    }
+    
+    
+    class Pig : IAnimal         // Pig "implements" the IAnimal interface
+    {
+      public void animalSound() 
+      {                         // The body of animalSound() is provided here
+        Console.WriteLine("The pig says: wee wee");
+      }
+    }
+    
+    class Program 
+    {
+      static void Main(string[] args) 
+      {
+        Pig myPig = new Pig();  // Create a Pig object
+        myPig.animalSound();    // use the implemented abstract method
+      }
+    }
+
+
+
+Difference Between Abstract Class and Interface in C# 
+-------------------------------------------------------
+
+There are key features in abstract class and interface that you would need to get familiar 
+with in future learning. For the purpose of this course, learning how to use the techniques 
+and understanding the ideas behind both is sufficient. Given the similarity in nature between 
+the two OOP techniques, it help to see a comparison of abstract class and interface as below. [#abstract-class_vs_interface_table]_ 
+
+.. list-table:: Abstract Class vs. Interface
+    :widths: 20 30 30 20
+    :header-rows: 1
+
+  * - Feature
+    - Abstract Class
+    - Interface
+    - .
+
+  * - Inheritance
+    - Can only be inherited from one class 
+    - Can implement multiple interfaces
+    - 
+
+  * - Default Implementation 
+    - Can provide a default implementation
+    - Cannot provide a default implementation (until C# 8.0, where default methods are allowed)
+    - 
+
+  * - Access Modifiers
+    - Can have access modifiers for its members
+    - Members are public by default
+    - 
+
+  * - Constructors
+    - Can have constructors
+    - Cannot have constructors
+    - 
+
+  * - Fields
+    - Can contain fields
+    - It cannot contain fields
+    - 
+
+  * - Method Definition
+    - Can have defined, abstract, or virtual methods
+    - Only contains method signatures (until C# 8.0)
+    - 
+
+  * - State or Data
+    - Can hold state (fields)
+    - Cannot hold state
+    - 
+
+  * - Inheritance vs Implementation
+    - Inherits from another class (abstract or concrete)
+    - Implements an interface
+    - 
+
+  * - Type of Methods
+    - Can have static, abstract, virtual methods
+    - Only abstract methods (until C# 8.0)
+    - 
+
+  * - Compatibility
+    - Suitable for classes with closely related functionality
+    - Suitable for classes with unrelated functionalities
+    - 
+
+  * - Versioning
+    - Easier to add new methods without breaking existing implementations
+    - Adding new methods can break existing implementations
+    - 
+
+
+.. rubric:: Footnotes
+
+.. [#abstract-class_vs_interface] See this question at `StackOverflow <https://stackoverflow.com/questions/15178219/whats-the-difference-between-an-abstract-class-and-an-interface>`_. 
+.. [#interfaces-w3school] See w3schools' `C# Interface <https://www.w3schools.com/cs/cs_interface.php>`_
+.. [#abstract-class_vs_interface_table] `Difference Between Abstract Class and Interface in C# <https://www.shiksha.com/online-courses/articles/difference-between-abstract-class-and-interface-in-c-blogId-151941#:~:text=An%20abstract%20class%20can%20have,and%20it%20cannot%20hold%20state.>`_

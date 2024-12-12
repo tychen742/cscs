@@ -1,0 +1,315 @@
+Dictionary
+====================
+
+We have explored several ways of storing a collection of the same type of data:
+
+- arrays: built-in syntax, unchanging size of the collection
+- List: generic class type, allows the size of the collection to grow
+
+Both approaches allow reference to data elements using a 
+numerical index between square brackets, as in ``words[i]``.  
+The index provides an order for the elements,
+but there is no meaning to the index beyond the sequence order.
+
+Sometimes, we want to look up data based on a more meaningful key, as in a 
+dictionary: given a word, you can look up the definition.
+
+C# uses the type name `Dictionary <https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-8.0>`_, but with greater generality than in
+nontechnical use. In a regular dictionary, you start with a word, 
+and look up the definition. The generalization is to have some piece of
+data that leads you to (or *maps* to) another piece of data.  
+The computer science jargon is that a **key** leads you to a **value**.
+In a normal dictionary, these are both likely to be strings, but in the
+C# generalization, the possible types of key and value are much more extensive.
+Hence the generic ``Dictionary`` type requires you to specify 
+*both a type for the key and a type for the value*.
+    
+
+Creating a Dictionary
+-----------------------
+
+We can initialize an English-Spanish dictionary ``e2sp`` with ::
+
+    Dictionary<string, string> e2sp = new Dictionary<string, string>();
+    
+That is quite a mouthful! The C# ``var`` keyword (implicitly-typed local variable) syntax 
+is handy to shorten it as you do not have to repeat the type name::
+
+    var e2sp = new Dictionary<string, string>();
+
+The general generic type syntax therefore is: 
+
+   ``Dictionary<`` **keyType**\ ``,`` **valueType** ``>``
+   
+For example, if you are counting the number of repetitions of words in a document, you are 
+likely to want a ``Dictionary`` mapping each word to its number of repetitions so far::
+
+    var wordCount = new Dictionary<string, int>();
+    
+If your friends all have a personal list of phone numbers, you might look them up
+with a dictionary with a string name for the key and a ``List`` of personal phone number
+strings for the value.  The type could be ``Dictionary<string, List<string>>``.  
+This example illustrates how one generic type can be built on another.
+
+There is no restriction on the value type. There is one important technical 
+restriction on the key type: it should be **immutable**. 
+.. This has to do with the implementation referenced in :ref:`dictionary-efficiency`.
+
+.. index::
+   dictionary; key lookup [ ]
+   single: [ ]; dictionary key lookup
+
+Accessing Data in Dictionary
+------------------------------
+
+Similar to an array or ``List``, you can assign and reference elements of 
+a ``Dictionary``, using square bracket notation. The difference is that the 
+reference is through a key, not a sequential index, as in::
+
+    e2sp["one"] = "uno";
+    e2sp["two"] = "dos";
+    
+or, you can use the Dictionary.Add() method::
+
+   e2sp.Add("three", "tres");
+
+
+csharprepl displays dictionaries in its own special form, 
+as a table showing the {key, value} pairs and type. Here is a longer csharprepl sequence:
+
+..  code-block:: none
+
+   > Dictionary<string, string> e2sp = new Dictionary<string, string>();
+    
+   > e2sp
+   Dictionary<string, string>(0)
+    
+   > e2sp["one"] = "uno";
+   > e2sp["two"] = "dos"; 
+   > e2sp.Add("three", "tres");
+   > e2sp.Count                     // the Count property gives the length of the dictionary
+   3   
+   > e2sp;                
+   Dictionary<string, string>(3)
+   ┌──────┬─────────────────────┬──────────────────────────────┐
+   │ Name │ Value               │ Type                         │
+   ├──────┼─────────────────────┼──────────────────────────────┤
+   │ [0]  │ { "one", "uno" }    │ KeyValuePair<string, string> │
+   │ [1]  │ { "two", "dos" }    │ KeyValuePair<string, string> │
+   │ [2]  │ { "three", "tres" } │ KeyValuePair<string, string> │
+   └──────┴─────────────────────┴──────────────────────────────┘
+    
+    > Console.WriteLine("{0}, {1}; {2}", e2sp["one"], e2sp["two"], e2sp["three"])
+         uno, dos; tres
+
+As you can see, we using the key to refer to the value of a dictionary entry. If a key-value 
+pair already exists, you may not Add() a value to the key, but you can update date it using the 
+Item[] property (the indexer[] square brackets) such as dict["aaa"] = "AAA";
+
+
+.. index:: dictionary; Keys
+   Keys property
+
+If you want to iterate through a whole ``Dictionary``, you will want the syntax below,
+with ``foreach`` and the property ``Keys``:
+
+..  code-block:: none
+
+   > foreach (string s in e2sp.Keys) {
+   >    Console.WriteLine(s);
+   > }
+   one
+   two
+   three
+    
+To loop through the dictionary and access both the key and value in each entry, you may do::
+
+   > foreach (var entry in e2sp.Keys) {
+   >    Console.WriteLine("{0} : {1}", entry.Key, entry.Value);
+   > }
+
+In this example, we use an implicitly-typed variable ``entry`` to ask the compiler to infer the type. 
+We then use the .Key and .Value properties to refer to the data. 
+
+
+The documentation for ``Dictionary`` says
+that you cannot depend on the order of processing with ``foreach``, though the present 
+implementation remembers the order in which keys were added.
+
+
+.. index:: example; ContainsKey
+   dictionary; ContainsKey example
+   ContainsKey example
+
+
+Properties and Methods in Dictionary
+--------------------------------------
+
+There are plenty of properties and methods built in in the Dictionary class in addition to 
+.Add() and .Count, .Key, .Value as aforementioned. 
+
+It is often useful to know if a key is already in a ``Dictionary``:
+Note the method ``ContainsKey``:
+
+..  code-block:: none
+
+    > e2sp.ContainsKey("seven")
+    false
+    > e2sp.ContainsKey("three")
+    true
+
+
+The method ``Remove`` takes a key as parameter.  Like a ``List`` and other
+collections, a ``Dictionary`` has a ``Clear`` method:
+
+..  code-block:: none
+
+   > e2sp.Count;
+   ┌───────────────────────────────────────────────────CompilationErrorException────────────────────────────────────────────────────┐
+   │ (1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be used as a statement │
+   └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ e2sp.Count
+   > e2sp.Count                
+   3
+   
+   > e2sp.Remove("two")
+   true
+   > e2sp.Count
+   2
+   
+   > e2sp              
+   Dictionary<string, string>(2)
+   ┌──────┬─────────────────────┬──────────────────────────────┐
+   │ Name │ Value               │ Type                         │
+   ├──────┼─────────────────────┼──────────────────────────────┤
+   │ [0]  │ { "one", "uno" }    │ KeyValuePair<string, string> │
+   │ [1]  │ { "three", "tres" } │ KeyValuePair<string, string> │
+   └──────┴─────────────────────┴──────────────────────────────┘
+   
+   > e2sp.Clear()
+   > e2sp        
+   Dictionary<string, string>(0)
+   > e2sp.Count
+   0
+
+
+
+.. Dictionary Examples
+.. ===================
+
+.. .. index:: generics; HashSet
+..    HashSet
+..    set
+..    type; HashSet
+
+.. .. _sets:
+
+.. Sets
+.. --------------------------
+
+.. In the next section we will have an example making central use of a dictionary.
+.. It will also make use of a set.  The generic C# version is
+.. a ``HashSet``, which models a mathematical set:  a collection
+.. with no repetitions and no defined order.  We use a ``HashSet`` for the 
+.. words to be ignored.  We use a ``HashSet`` rather than a ``List`` because
+.. the ``Contains`` method for a ``List`` has linear order, while the ``Contains`` method for
+.. a ``HashSet`` uses the same trick as in a ``Dictionary`` to be of constant order on average.
+
+.. Here is a csharprepl session using the type ``HashSet`` of strings. The ``Add`` method, like 
+.. the ``Remove`` method for Lists, returns true or false depending on whether the method 
+.. changes the set:
+
+.. ..  code-block:: none
+
+.. 	> var set = new HashSet<string>();
+.. 	> set;
+.. 	{  }
+.. 	> set.Add("hi");
+.. 	true
+.. 	> set;
+.. 	{ "hi" }
+.. 	> set.Add("up");         
+.. 	true
+.. 	> set;
+.. 	{ "hi", "up" }
+.. 	> set.Add("hi");  // already there       
+.. 	false
+.. 	> set;
+.. 	{ "hi", "up" }
+.. 	> set.Contains("hi");
+.. 	true
+.. 	> set.Contains("down");
+.. 	false
+.. 	> var set2 = new HashSet<string>(new string[]{"a", "be", "see"});
+.. 	> set2;
+.. 	{ "a", "be", "see" }
+
+.. That lack of order for a ``HashSet`` means it cannot
+.. be indexed, but otherwise it has mostly the same methods and constructors 
+.. that have been discussed for a ``List``, including ``Add`` and ``Contains`` and 
+.. a constructor that takes a collection as parameter.  
+
+
+.. .. index:: example; Word Count
+..    Word Count example
+..    HashSet; example 
+..    List; example
+
+.. Word Count Example
+.. -------------------
+
+.. Counting the number of repetitions of words in a text provides a realistic
+.. example of using a ``Dictionary``.  With each word that you find, you want to associate
+.. a number of repetitions.  A complete program is in the example file 
+.. :repsrc:`count_words/count_words.cs`. 
+
+.. The central functions are excerpted below, and they also introduce some extra 
+.. features from the .Net libraries.
+
+.. This constructor pattern taking the elements of one collection and creating another
+.. collection, possibly of another type, is used twice: first
+.. to create a ``HashSet`` from an array, and later to create a ``List`` from a ``HashSet``.  
+.. The latter is needed so the ``List`` can be sorted in alphabetical order with its 
+.. ``Sort`` method, used here for the first time.  Our table contains the words in
+.. alphabetical order.
+
+.. Also used for the first time are two string methods: the pretty clearly named ``ToCharArray`` and
+.. another variation on ``Split``.  An alternative to supplying a single character to split on,
+.. is to use a ``char`` array as parameter, and the string is split at an occurrence of any of the
+.. characters in the array.  This allows a split on all punctuation and special symbol characters,
+.. as well as a blank.
+
+.. We separate the processing into two functions, one calculating the dictionary, and one printing
+.. a table.  To reduce the amount of clutter in the ``Dictionary``, the function
+.. ``GetCounts`` takes as a parameter a set of words to ignore.
+
+.. .. literalinclude:: ../../examples/introcs/count_words/count_words.cs
+..    :start-after: chunk
+..    :end-before: chunk
+
+.. Look at the code carefully, and look at the whole program that analyses the
+.. Gettysburg Address.
+
+
+
+.. .. index:: big oh
+..    dictionary; big oh 
+..    linear order
+..    constant order
+
+.. .. _dictionary-efficiency:
+
+.. Dictionary Efficiency
+.. --------------------------
+
+.. We could simulate the effect of a Dictionary pretty easily by keeping
+.. a List ``keys`` and a List ``values``, in the same order.  We could
+.. find the entry with a specified key with::
+
+..    int i = keys.IndexOf(key);
+..    return values[i];
+   
+.. Searching though a ``List``, however, take time proportional to the
+.. length of the ``List`` in general, *linear order*.  Through a clever implementation
+.. covered in data structures classes, a ``Dictionary`` uses a *hash table*
+.. to make the average lookup time of *constant order*.  A hash table depends on the
+.. keys being immutable.

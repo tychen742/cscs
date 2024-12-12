@@ -1,0 +1,96 @@
+Chapter Review 
+=========================
+
+- Note that the course policy is that you should not use generative AI 
+  without authorization. If you are suspected to have used generative AI 
+  and not able to explain/reproduce your work when requested, all your 
+  **related assignments throughout the semester will be regraded as 0.**
+
+- Prepare this assignment using a Word document.
+- Number and write answers under each question.
+- Paste code screenshots when required.
+
+.. note:: 
+    You are encourage to keep your test code in the project. To do that:
+
+    - Create a dotnet console app project (:ref:`create-project`), if you 
+      have not done that, in your *USERNAME*/workspace/introcscs directory; called it 
+      **Ch05ForLoop**. 
+    - Place your test code in methods to be called from the Main method. Name your 
+      methods properly. 
+
+
+   
+#.  When you have nested ``for`` loops, and you reach the bottom of the *body* of the
+    *inner* loop, where does execution go next?
+
+
+#.  What happens when you omit the condition in a ``for`` loop? 
+    
+    Explain and try it out in csharprepl or VS Code and paste the results here. 
+
+
+#.  In the heading of a ``for`` loop, how do you initialize or update
+    several variables?
+
+    
+#.  Rewrite ::
+   
+        num /= 2;
+        
+    equivalently without the operand ``/=``.
+    
+#.  Rewrite ::
+
+       bigName = bigName - 10;
+       
+    with a statement that only includes ``bigName`` once.
+    
+
+#.  Distinguish the effects of these two statements::
+
+       x-=2;
+       
+       x=-2;
+       
+       
+#.  What is printed?  ::
+
+        Console.WriteLine("12345678");
+        for( int p = 1; p < 6; p++) {
+            string formatStr = "{0:F" + p + "}";
+            Console.WriteLine(formatStr, 1.2345678);
+        }
+
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
+
+#.  What is printed?  (Just ",4" has been inserted.) ::
+
+        Console.WriteLine("12345678");
+        for( int p = 1; p < 6; p++) {
+            string formatStr = "{0,4:F" + p + "}";
+            Console.WriteLine(formatStr, 1.2345678);
+        }
+    
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
+        
+#.  What is printed?  ::
+
+        Console.WriteLine("123456");
+        for( int w = 6; w >= -6; w -= 4) {
+            string formatStr = "{0," + w + "}|";
+            Console.WriteLine(formatStr, "here");
+        }
+
+    Explain, then paste here the screenshot of the results of you testing it in csharprepl or VS Code. 
+
+
+    
+#.  Even if you want to process every element of a sequence, what would keep
+    you from using a ``foreach`` loop?
+    
+
+
+.. #.  May you legally omit the initialization part of a ``for`` loop?

@@ -1,0 +1,119 @@
+.. index:: path
+
+.. _path-strings:
+
+Path Strings
+====================
+
+When a program is running, there is alway a *current directory* (or, 
+**present working directory**, ``pwd``). Files in the present working directory can 
+be referred to by their simple names, e.g., *sample.txt*, so 
+project files can be referred to by their simple names because they are in the same 
+directory.
+
+Referring to files not in the current directory is more complicated.  
+You should be aware from using the Windows Explorer or the macOS Finder that
+files and directories are located in a hierarchy of directories in the
+file system. On a Mac, the file system is unified in 
+one hierarchy. On Windows, each storage drive has its own hierarchy.
+
+.. index:: / ; path separator
+   single: \ ; path separator
+
+Files are generally referred to by a chain of directories before
+the final name of the file desired. A *path string* (or simply **path**) is used
+to represent such a sequence of names. Elements of the directory chain are separated
+by operating system specific punctuation symbols: In Windows the separator is 
+backslash, ``\``, and on a Mac it is (forward) slash, ``/``. For example, on a Mac the path 
+
+.. code-block:: none
+    
+   /Users/anh 
+   
+starts with a /, meaning the **root** or top directory in the hierarchy, and Users is
+a subdirectory, and anh is a subdirectory of Users (in this case the home directory
+for the user with login anh). It is similar with Windows, except there may be a drive 
+in the beginning, and the separator is a \\, so
+
+.. code-block:: none
+   
+   C:\Windows\System32
+
+is on C: drive; Windows is a subdirectory of the root directory \\, and System32 is
+a subdirectory of Windows. Each drive in Windows has a separate file hierarchy 
+underneath it.
+
+.. index:: path; absolute
+
+Paths starting from the root of a file system, with ``\`` or ``/`` are called
+**absolute paths** or **full paths** because they begin with the root of the file hierarchy. 
+Since there is always a current directory, it makes sense to allow a path to be *relative* 
+to the current directory. In that case do *not* start with the slash that would
+indicate the root directory. For example, if the current directory is
+your user home directory, you likely have a subdirectory :file:`Downloads`, and the 
+:file:`Downloads` directory might contain :file:`examples.zip`. From the home directory, 
+this file could be referred to as :file:`Downloads\\examples.zip` in Windows or 
+:file:`Downloads/examples.zip` on a Mac.
+
+
+Referring to files in the current directory just by their plain file name is
+actually an example of using relative paths.
+
+.. index:: .. parent folder
+
+With relative paths, you sometimes want to move up the directory hierarchy:  ``..``
+(two periods) refers to the directory one level up the chain.  
+
+For example, suppose you have a ``data`` directory under your ``introcscs`` directory, 
+and you place your sample.txt in the data directory. When running your project from the 
+project directory (Ch07File), you would refer to the sample.txt file to read as 
+:file:`..\\data\\sample.txt` in Windows or 
+:file:`../data/sample.txt` in macOS. Follow this one step at a time:  
+Starting from the :file:`Ch07File` project folder, where the program is running,
+go up one folder (:file:`..`) to the ``introcscs`` folder, then down into the 
+:file:`data` folder, and refer to the :file:`sample.txt` file in that folder.  
+
+.. index:: . ; current folder
+
+Occasionally you need to
+refer explicitly to the current directory:  It is referred to as :file:`.`. (a single
+period).
+
+.. index:: Path class
+
+Paths in C#
+--------------
+
+The differing versions of paths for Windows and a Mac are a pain to deal with. Luckily C#
+abstracts away the differences.  It has a ``Path`` class in the ``System.IO`` 
+namespace that provides many handy functions for dealing with paths in 
+an operating system independent way:
+
+For one thing, C# knows the path separator character for your operating system,
+``Path.DirectorySeparatorChar``.
+   
+More useful is the function ``Path.Combine``, which takes any number of string parameters
+for sequential parts of a path, and creates a single string appropriate for the
+current operating system.  For example,
+``Path.Combine("bin", "Debug")`` will return ``"bin\Debug"`` or ``"bin/debug"``
+as appropriate.
+``Path.Combine("..", "data", "sample.txt")`` will return a string with characters
+``..\data\sample.txt`` or ``../data/sample.txt``.  
+
+Even if you know you are going to be on Windows, file paths are a problem because
+``\`` is the string escape character. To enter the Windows path solve explicitly
+you would need to have ``"..\\data\\sample.txt"``, or the raw string prefix,
+``@`` can come to the rescue:  ``@"..\data\sample.txt"``.
+
+Path strings are used by the :ref:`directory-class` and by the :ref:`file-class`. 
+You can look at the ``Path`` class in the C# Language Reference  
+for many other operations with path strings.
+
+The Directory Class
+----------------------
+
+The ``Directory`` class is in the ``System.IO`` namespace.
+Directories in the file system are referenced by :ref:`path-strings`.
+You can look at the C# language reference for a wide variety of functions in the
+``Directory`` class including ones to list all the files in a directory 
+or to check if a path string represents an actual directory.

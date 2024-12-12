@@ -1,0 +1,622 @@
+.. index::  class; Contact
+   Contact class 
+   instance of a class
+   
+.. _class:
+
+Introduction to Class 
+============================================
+
+Overview
+----------
+
+To understand class and object-oriented programming (OOP), some important basic concepts learn first inlcude: 
+
+- **Class**: A class is a blueprint, prototype, or template. 
+- **Class Members**: In C#, a class contains members, which include **fields**, properties, **methods**, and events.
+- **Class Instance**: An ``object`` is an ``instance`` of a class. Namely, an object is created based on a 
+  class and therefore is an instance of that class. An object can be created using the ``new`` keyword. 
+
+There are related terminology that you will see about class and OOP:
+
+- **Field**: A field is a variable of any type that is declared directly in a class or struct. Fields are 
+  members of their containing type. A field stores a piece of data within an object. It acts like a 
+  variable and may have a different value for each instance of a type. [#field-property]_
+- **Property**: Properties expose fields. Fields should (almost always) be kept private to a class and accessed via 
+  get and set properties. 
+- The **this** Keyword: In C#, the this keyword refers to the current instance of a class.
+- **Reference Types**: A type that is defined as a class is a reference type. Other types include: interface, struct, delegate, or enum.
+- **Constructor**: In C#, a constructor is called when an object is created to set default values. A constructor must have the 
+  **same name** as the enclosing class. Using constructor is not obligatory in C#. If no constructors are specified in a class, the compiler 
+  automatically creates a parameterless constructor.
+
+    
+
+Declaring Classes
+--------------------
+
+To declare a class, you need to use the ``class`` keyword and give a unique ``identifier`` (name) to the class. For example, 
+you want to create a customer class to include some data and methods in one unit::
+
+   //[access modifier] - [class] - [identifier]
+   public class Customer
+   {
+      // Fields, properties, methods and events go here...
+   }
+
+Attributes to be considered when creating a class include:
+
+- Access Modifiers: The default access for a class type is internal. Basic levels of access for a class include [#access-levels]_ :
+    - **public**: Access is not restricted. Anyone code can create instances of this class. 
+    - **protected**: Access is limited to the containing class or types derived from the containing class.
+    - **internal**: Access is limited to the current assembly. [#internal-assembly]_
+    - **private**: Access is limited to the containing type.
+- Class Identifier: A unique name for the class. An identifier is the name you assign to a type (class, interface, struct, delegate, or enum), 
+  member, variable, or namespace. An identifier begins with a letter or underscore. As a convention, use PascalCase for class names and method names.
+- Class Body: The class body is surrounded by { }. The behavior and data are defined in the class body, including **fields**, properties, **methods**, and events on a class and
+  are collectively referred to as **class members**.
+- Base Class or Super Class: Optional. Name of the class's superclass; preceded by a colon (:). 
+- Interfaces: Interface names implemented by the class; preceded by a colon (:).
+
+
+Using a Class
+---------------
+
+In the following example, there is a class called ``Program`` with a Main method. We define another class 
+called ``DoMath`` and then, in the Main method of the Program class, 1) instantiate an object of the DoMath class by 
+using the ``new`` keyword and 2) use the dot notation (``.``) to access a method defined in DoMath::
+
+   internal class Program
+   {
+      static void Main(string[] args)
+      {
+         DoMath doMath = new DoMath();    // create an object using the new keyword
+         int aSum = doMath.Sum(2, 2);     // use the [object].[method] syntax to use the methods 
+         Console.WriteLine(aSum);         // output 4
+      }
+   }
+
+   class DoMath                           // class accessability level is default to internal 
+   {
+      public int Sum(int num1, int num2)
+      {
+         var total = num1 + num2;
+         return total;
+      }
+   } 
+
+In addition to store data as local variables and call methods in the same class,
+now we have alternatives for storing and accessing data in the methods within
+a new class that we write. Just like using the ``UI`` class or ``Random`` class, we 
+now can better design, extend, and organize program functionalities.
+
+When you use classes like StreamReader, you create a new StreamReader object using the ``new`` 
+keyword and then use the ``ReadLine`` method (example in csharprepl)::
+
+   > StreamReader reader = new StreamReader("ui.cs");
+   > string line = reader.ReadLine();                
+   > line                                            
+   "using System;"
+   > 
+
+As you can see, we are using the ``member access operator (.)`` to access a member 
+of a namespace or a type. Calls to instance methods are always attached to a specific object.
+That has always been the part through the ``.`` of
+
+   *object*\ ``.``\ *method*\ ``(``  ... ``)``
+   
+
+.. index:: OOP; instance variable
+   instance variable
+   variable; instance
+   private; instance variable
+   
+
+.. Constructor
+
+.. Instance Variables
+.. ----------------------
+
+
+
+.. index:: OOP; constructor
+   constructor
+
+
+Constructors
+----------------
+
+The constructor is a special method in the class: 
+
+#. Its ``name`` is the same as the name of its type. For example, if we create a class named ``Contact``, then the 
+   constructor method is also called ``Contact``.
+#. Its method ``signature`` includes only an optional access modifier, the method name, and its parameter list
+#. Its method ``signature`` has ``no return type`` (and *no* ``static``). Implicitly you are creating a default object from the class.
+#. The constructor can have parameters like a regular method. That means giving values to its fields. For example, 
+   you may want to store this *state* (the current condition of a system, such as the values of the variables) in 
+   instance variables ``name``, ``phone`` and ``email`` if you are creating a Contact type:  
+
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: constructor 
+   :end-before: getter
+
+While the local variables in the formal parameters disappear after the constructor terminates,
+we want the data to live on as the state of the object. In order to remember state after the 
+constructor terminates, we must *make sure the information gets into the instance variables* 
+for the object. This is the basic operation of most constructors: Copy desired formal
+parameters in to initialize the state in the fields. That is all our simple
+code above does.
+
+To further explain how constructors work, take a look at the following code::
+
+   internal class Program
+   {
+      static void Main(string[] args)
+      {
+         CheckID check = new CheckID("taylor swift");
+      }
+   }
+
+   class CheckID
+   {
+      public string name;           // this is an instance field (variable)
+      public CheckID(string name)
+      {
+         this.name = name;          // The "this" keyword refers to the current instance of the class
+      }
+
+      public void PrintResult()
+      {
+         // ... if ID for this name exists ...
+         Console.WriteLine($"{name} has an existing ID!"); // using the "name" variable in method
+      }                             // output "taylor swift has an existing ID!"
+      // ....
+      // ....
+   }
+
+.. Note that ``name``, ``phone`` and ``email`` are *not* declared as 
+.. local variables.  They refer to the *instance* variables, but we are *not* using 
+.. full object notation: an object reference and a
+.. dot, followed by the field.  
+
+.. So far always we have always been referring to a built-in type of object
+.. defined in a different class, like ``arrayObject.Length``.  
+.. The constructor is *creating* an object,
+.. and the use of the bare instance variable names is understood to be giving 
+.. values to the instance variables in this Contact object 
+.. that is being constructed.
+.. Inside a constructor 
+.. and also inside an instance method 
+.. (discussed below)
+.. C# allows this shorthand notation without ``someObject.``.
+
+.. index::  OOP; instance method
+
+
+Static Classes & Methods
+----------------------------
+
+In some conditions you may want to create **static classes** that provide static methods without 
+instantiation. That means you do not need to use the ``new`` operator keyword to create a variable 
+of the class type. Also, without the class instance variable, you access the members of a static 
+class by using the class name itself. For example, if you have a static class called SomeMath::
+
+   static class SomeMath
+   {
+      public static int Sum(int a, int b)    // a public static method
+      {
+         return a + b;
+      }
+   }
+
+To use the Sum method in the SomeMath class, you call it directly without creating a new object::
+
+   internal class Program
+   {
+      static void Main(string[] args)
+      {  
+         int aSum = SomeMath.Sum(2, 2);
+         Console.WriteLine(aSum);      // output 4
+      }
+   }
+
+As another example, in the .NET Class Library, the ``static`` `System.Math <https://learn.microsoft.com/en-us/dotnet/api/system.math>`_ 
+class contains methods that perform mathematical operations, without any requirement to store or 
+retrieve data that is unique to a particular instance of the `Math <https://learn.microsoft.com/en-us/dotnet/api/system.math>`_ 
+class. You can use the math methods directly in your code by referring to the static class name ``Math``::
+
+   double dub = -3.14;
+   Console.WriteLine(Math.Abs(dub));               // 3.14
+   Console.WriteLine(Math.Floor(dub));             // -4
+   Console.WriteLine(Math.Round(Math.Abs(dub)));   // 3
+
+
+
+
+Properties
+------------
+
+.. note:: 
+
+   Although the content are still valid, this section will be updated later to reflect 
+   the more current syntax and discussion of properties such as in `Using Properties <https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties#the-get-accessor>`_. 
+
+A property is a member that provides a flexible mechanism to read, write, or compute 
+the value of a data field. Properties appear as public data members, but they're 
+implemented as special methods called accessors.
+
+.. index:: OOP; getter
+   getter method 
+
+.. _getters:
+
+Getters
+~~~~~~~~~
+
+In instance methods you have an extra way of getting data in and out of the method: 
+Reading or setting instance variables (fields). The simplest methods do nothing but reading 
+or setting instance variables. We start with those:
+
+The ``private`` in front
+of the field declarations was important to keep code outside the
+class from messing with the values.  On the other hand we do want
+others to be able to *inspect* the name, phone and email,
+so how do we do that?  Use **public methods**. 
+
+Since the fields are accessible anywhere *inside* the class's instance methods, 
+and public methods can be used from *outside* the class, we can simply code
+
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: getter
+   :end-before: labels
+
+These methods allow one-way communication of the name, phone and email 
+values out from the object.
+These are examples
+of a simple category of methods:  A *getter* simply returns the value of a part
+of the object's state, without changing the object at all.  
+
+Note again that there is no ``static`` in the method heading.  
+The field value for the *current* Contact is returned.
+
+A standard convention that we are following:
+Have getter methods names start with "Get", 
+followed by the name of the data to be returned. 
+
+In this first simple version of Contact we add one further method, to
+print all the contact information with labels.
+
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: labels
+   :end-before: chunk
+
+Again, we use the instance variable names, plugging them into a format string.  
+Remember the ``@`` syntax
+for multiline strings gives us verbatim string literals that are interpreted literally 
+without escape sequences.
+
+You can see and see the entire Contact class 
+in :repsrc:`contact1/contact1.cs`.
+
+This is your first complete class defining a new type of object.  
+Look carefully to get used to the features introduced, before we add
+more ideas:
+
+.. index:: example; Contact version 2
+
+.. index:: OOP; this
+   this instance 
+
+
+This Object
+~~~~~~~~~~~~~
+
+We will be making an elaboration on the Contact class from here on.  We introduce
+new parts individually, but the whole code is in 
+:repsrc:`contact2/contact2.cs`.
+
+The current object is *implicit* inside a constructor or instance method definition,
+but it can be referred to *explicitly*.  It is called ``this``.  
+In a constructor or instance method, ``this`` is automatically a legal
+local variable to reference.  
+You usually do not need to 
+use it explicitly, but you could.   For example the current ``Contact`` object's
+``name`` field could be referred to as either ``this.name`` or the shorter plain ``name``.
+In our next version of the Contact class we will see several places where 
+an explicit ``this`` is useful.
+
+In the first version of the constructor, repeated here,
+
+.. literalinclude:: ../../examples/introcs/contact1/contact1.cs
+   :start-after: constructor 
+   :end-before: getter
+
+we used different names for the instance variables and the formal
+parameter names that we used to initialize the instance variables.  We
+chose reasonable names, but we are adding extra names that we are not going
+to use later, and it can be confusing.  The most obvious names for the formal
+parameters that will initialize the instance variables are the *same* names.
+
+If we are not careful, there is a problem with that.  An instance variable,
+however named, and a local variable are not the same.  This is 
+nonsensical::
+
+      public Contact(string name, string phone, string email) 
+      {
+         name = name; // ????
+         ...
+
+Logically we want this pseudo-code in the constructor:
+
+       instance variable ``name``  ``=`` local variable ``name`` 
+
+We have to disambiguate the two uses.  The compiler always looks for
+*local* variable identifiers *first*, so plain ``name`` will refer to the local 
+variable ``name`` declared in the formal parameter list.  
+This local variable identifier  *hides* the matching instance variable
+identifier.  We have to do something else to refer to the instance variable.
+The explicit ``this`` object comes to the rescue:  ``this.name`` refers to 
+a part of this object.  It must refer to the 
+instance variable, not the local variable.  Our alternate constructor is:
+
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: constructor 
+   :end-before: getter
+
+
+Setters
+~~~~~~~~~
+
+The original version of Contact makes a Contact object be
+*immutable*: Once it is created with the constructor, there is no way
+to change its internal state.  The only assignments to the private
+instance variables are the ones in the constructor.  In real life
+people can change their email address.  We might like to allow that
+with our Contact objects.  Users can read the data in a Contact with the 
+*getter* methods.  Now we need *setter* methods.  The naming conventions
+are similar:  start with "Set".  In this case we must supply the new data,
+so setter methods need a parameter:
+
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: setter methods
+   :end-before: chunk
+
+In ``SetPhone``, like in our original constructor, we illustrate using a
+*new* name for the parameter that sets the instance variable.  For 
+comparison we use the alternate identifier matching approach in the 
+other setter:
+
+.. literalinclude:: ../../examples/introcs/contact2/contact2.cs
+   :start-after: SetEmail
+   :end-before: chunk
+
+Now we can alter the contents of a Contact::
+
+     Contact c1 = new Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu");
+     c1.SetEmail ("maria.ortiz@gmail.com");
+     c1.SetPhone("555-555-5555");
+     c1.Print(); 
+
+would print
+
+..  code-block:: none
+
+    Name:  Marie Ortiz
+    Phone: 555-555-5555
+    Email: maria.ortiz@gmail.com
+
+
+.. _toString:
+
+.. index::
+   single:  ToString
+   single:  override
+
+
+ToString Override
+---------------------
+
+All object in C# have a ``ToString`` method because all types inherit from the base class 
+System.Object. It converts an object to its string representation for display. It is used 
+to perform internal string concatenation and Write. 
+
+Default ToString behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ToString returns returns the ``fully qualified name`` of the type of the Object. For example:
+
+.. code-block:: 
+   :linenos:
+   :emphasize-lines: 17
+
+   namespace IntroCSCS 
+   {
+      class Animal
+      {
+         public string name;
+         public Animal(string name)
+         {
+            this.name = name;            }
+         }
+      }
+      
+      public class TestAnimal
+      {
+         public static void Main()
+         {
+            Animal frog = new Animal("Froggy");
+            Console.WriteLine(frog.ToString());    ///// print: IntroCSCS.Animal; Animal is the type
+            Console.WriteLine(frog.name);          ///// print: Froggy 
+         }
+      }
+   }
+
+
+Overriding ToString
+~~~~~~~~~~~~~~~~~~~~~
+
+Think more generally about string representations:  
+All the built-in type values can be concatenated into strings with the '+' operator,
+or displayed with ``Console.Write``. We would like that behavior with our custom types, 
+too. 
+
+Types frequently ``override`` the Object.ToString method to provide a more suitable string 
+representation or display of a particular type instead of the default fully qualified type name. 
+For example:
+
+.. code-block:: csharp
+   :linenos:
+   :emphasize-lines: 6, 17
+
+   class Employee
+   {
+      public string Name { get; set; }
+      public int Salary { get; set; }
+
+      public override string ToString()
+      {
+         return "Employee: " + Name + " " + Salary;      ///// returns object data  
+      }
+   }
+
+   class Test
+   {
+      public static void Main()
+      {
+         Employee employee = new Employee { Name = "John", Salary = 100000 };
+         Console.WriteLine(employee.ToString());   ///// print: Employee: John 100000
+         Console.WriteLine(employee);              ///// print: Employee: John 100000 
+                                                   /////        as ToString is the default output
+
+      }
+   }
+
+See what the ToString method does now: it uses the object state (e.g., the values of variables name and 
+salary in this case) and implicitly covert and *return* a single string representation of the object. 
+
+
+Print() Customization 
+~~~~~~~~~~~~~~~~~~~~~
+
+You can further customize the ToString overriding. For example, in the preceding ``Employee`` class, 
+in addition to the following ``ToString`` override, you might like to have a convenience method 
+``Print`` using ``ToString``. We want one instance method, ``Print`` to call another instance 
+method ``ToString`` for the *same* object::
+
+   public void Print()  
+   {
+      Console.WriteLine(ToString()); 
+      // Console.WriteLine(this);         ///// "this" returns the same as ToString()
+   }
+
+
+Now take a look at the test and output::
+
+   Employee employee = new Employee { Name = "John", Salary = 100000 };
+   Console.WriteLine(employee.ToString());
+   Console.WriteLine(employee);
+   employee.Print();
+
+
+.. code-block:: bash
+
+   tcn85@mac:~/workspace/introcscs/Ch10ClassesLab$ dotnet run
+   Employee: John 100000
+   Employee: John 100000
+   Employee: John 100000
+
+
+
+.. When we use ``Console.WriteLine`` on this current object, which is *not*
+.. already a string, there is an automatic call to ``ToString``.
+
+
+
+.. .. index:: redeclaring instance variables error
+..    compiler error; before error in text
+..    instance variable; redeclaring error
+
+
+.. .. _local-variables-hiding-instance-variables:
+
+.. Local Variables Hiding Instance Variables
+.. ------------------------------------------
+
+.. A common error is for students to try to declare the instance variables twice,
+.. once in the regular instance variable declarations, 
+.. *outside of any constructor or method* and then again *inside* a 
+.. constructor, like::
+
+..       public Contact(string fullName, string phoneNumber, string emailAddress) 
+..       {
+..          string name = fullName;      // LOGICAL ERROR!
+..          string phone = phoneNumber;  // LOGICAL ERROR!
+..          string email = emailAddress; // LOGICAL ERROR
+..       }
+
+.. This is deadly.  It is worse than redeclaring a local variable, which at least will 
+.. trigger a compiler error.
+
+.. ..  warning::
+
+..     Instance variable *only* get declared outside of all
+..     functions and constructors.  Same-name 
+..     local variable declarations hide the
+..     instance variables, but *compile just fine*.  The local variables disappear
+..     after the constructor ends, leaving the instance variables 
+..     *without* your desired initialization. Instead the hidden instance variables 
+..     just get the default initialization, ``null`` for an object
+..     or 0 for a number.
+    
+.. There is a related strange compiler error.  This is not likely to happen frequently, 
+.. but thinking through its logic (or illogic) could be helpful in understanding
+.. local and instance variables: 
+.. Generally when you get a compiler error, the error is at or *before* the location the
+.. error is referenced, but with local variables covering instance variables, 
+.. the real cause can come later in the text of the method.  Below, when you first
+.. refer to ``r`` in ``Badnames``, it appears to be correctly referring to the
+.. instance variable ``r``::
+
+..     class ForwardError
+..     {
+..         private int r = 3;
+        
+..         // ...
+        
+..         void BadNames(int a, int b)
+..         {
+..             int n = a*r + b; // legal in text *just* to here; instance field r
+..             //...
+..             int r = a % b; // r declaration makes *earlier* line wrong
+..             //...
+..         }
+    
+.. The compiler scans through *all* of ``BadNames``, and sees the ``r`` declared locally
+.. in its scope.
+.. The error may be marked on the earlier line, where the compiler then assumes 
+.. ``r`` is the later declared local ``int`` variable, not the instance variable.
+.. The error it sees is a local variable used before declaration. 
+
+.. This is based on a real student example.  
+.. This example points to a second issue: using variable names that 
+.. that are too short and not descriptive of the variable meaning, and so may
+.. easily be the same name as something unrelated.
+
+.. .. index:: lifetime; vs. scope
+..    scope; vs. lifetime
+   
+.. Lifetime and Scope Exercise/Example
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Be careful to distinguish lifetime and scope.  Either a local variable or
+.. an instance variable can be temporarily out of scope, but still be alive.
+.. Can you construct an example to illustrate that?  One of ours is
+.. :repsrc:`lifetime_scope/lifetime_scope.cs`.
+
+
+
+.. rubric:: footnote
+
+.. [#access-levels] `Accessibility Levels (C# Reference) <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels>`_.
+.. [#field-property] See the answer at `What is the difference between a field and a property? <https://stackoverflow.com/questions/295104/what-is-the-difference-between-a-field-and-a-property>`_
+.. [#internal-assembly] See `internal <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/internal>`_

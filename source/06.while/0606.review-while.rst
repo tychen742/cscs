@@ -1,0 +1,68 @@
+Chapter Review 
+=========================
+
+- Note that the course policy is that you should not use generative AI 
+  without authorization. If you are suspected to have used generative AI 
+  and not able to explain/reproduce your work when requested, all your 
+  **related assignments throughout the semester will be regraded as 0.**
+
+- Prepare this assignment using a Word document.
+- Number and write answers under each question.
+- Paste code screenshots when required.
+  
+
+#.  When might you prefer a ``for`` loop in place of a ``while`` loop?
+    What do you gain?
+
+#. When might you prefer a while loop or a foreach instead of a for loop?
+
+#.  Describe in general when a ``foreach`` loop is going to be easier to use 
+    than a ``while`` loop.
+    
+#.  Each sentence below introduces a problem.  
+    What words/combinations suggest a loop/repetition?
+    
+    #. Square each number from 1 to n.
+    #. Respond until the user says to stop.
+    #. Repeat the process until the width is < .00001.
+    #. Count the vowels in the sentence that you are given.
+    #. See if there are any double letters in the word that you are given.
+    
+#.  Compare do-while and while loops: 
+    How do you think about which one to use?
+
+#.  In general, what causes an infinite ``while`` loop?
+
+#.  A ``while`` loop is generally terminated when the program evaluates the
+    condition in its heading and it becomes false.  
+    How else can a program exit from a ``while`` loop?
+    
+#.  When inside a loop,
+    a return statement should generally only appear as a *sub-statement*
+    of what kind of statement?
+    
+#.  Which of these conditions is safer in general, with *arbitrary* 
+    ``string`` ``s`` and 
+    ``int`` ``i``?  ::
+
+         s[i] != '#' && i >= 0 && i < s.Length
+         
+         i >= 0 && i < s.Length && s[i] != '#' 
+         
+#.  What is printed?  ::
+
+        //          012345678901234567890
+        string s = "Is coding cool? Yes!"
+        Console.WriteLine(s.Trim()); 
+        string t = s.Substring(9, 8);
+        Console.WriteLine(t.Replace(" ", "/")); 
+        Console.WriteLine(t.Trim().Replace(" ", "/")); 
+        Console.WriteLine(s.StartsWith("is"));
+        Console.WriteLine(s.ToLower().StartsWith("is"));
+        int i = s.IndexOf("co"), j = s.IndexOf("co", i+1),
+            k = s.IndexOf("co", j+1);
+        Console.WriteLine(i + " " + j + " " + k);
+    
+       
+
+    

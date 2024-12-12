@@ -1,0 +1,91 @@
+.. index:: function; definition
+
+.. _A-First-Function:
+
+Introduction
+==============
+
+Methods/functions are reusable, callable, and customizable piece of code 
+in a computer program. When a function is a part of a class, 
+it's called a method. In OOP languages, functions are called methods because they are 
+always declared inside and operated through designated classes. It is, therefore, 
+by definition, more accurate to call these subroutines methods rather than functions in C# 
+since C# is an OOP language. However, when discussing the construct of subroutine 
+in general, the general term function seems appropriate and you will see people use the terms 
+interchangeably from time to time.
+
+
+.. note:: 
+   In C# or other object oriented programming (OOP) languages, methods 
+   are associated with a class. In other languages, you may hear the term function. 
+   A function is similar to a method, but it is not tied to a class. Due to the 
+   similarity in overall usage, it is common to use the terms methods and functions as synonyms.
+
+You have seen the Main() method in the C# console app programs that you generated 
+using the .NET template. In C#, the Main() method is the application’s entry point. 
+When the application is run, execution begins at the start of the Main() method. 
+
+Up until this unit, you wrote all code in the main method, but now you 
+will be creating new methods that can be called by the main method. Methods are 
+**named** code blocks that can be reused (called) whenever we needed. Methods are an 
+**abstraction** of your code because the methods abstracting away the details (you use 
+the methods by their names only) and that serves to organize your code by function 
+and reduce the repetition of code. In addition, it helps with debugging and 
+maintenance since changes to that block of code only need to happen in one place. 
+Here are some of the main reasons to use multiple methods in your programs:
+
+- Reducing Complexity: Divide a problem into sub-problems to solve it a piece at a time.
+- Reusing Code: Avoid repetition of code.
+- Maintainability and Debugging: Smaller methods are easier to debug and understand.
+
+When you see duplicate lines of code, that is a signal for you to make a new method. 
+A method is a named set of statements. When we want to execute the statements, we 
+call the method using its name. In a subsequent lesson you will create methods 
+that are called using an object, referred to as **instance methods** or object methods. 
+The methods in this unit are called without an object, so they are **static methods**. 
+Static methods are also referred to as class methods.
+
+Some important characteristics of methods/functions are:
+
+- We design methods to be **reusable** subroutines perform certain actions so that 
+  we do not have to write the same/similar code repetitively. 
+- In general, a method should do a **single thing**. You then combine a sequence to perform desired actions. 
+- Methods will not run until it is **called**. We say we are making a "function call" 
+  or "method call" when we invoke/use the subroutine. 
+- When calling a method, we often pass data into the method and we usually 
+  design the method to **return** values when called. 
+- The data that are passed to the method are called **arguments** and the variables 
+  defined for the argument intake are called **parameters** (although they are often 
+  not differentiated from each others). [#f1]_
+
+Observing a C# method: The Main method in a console application is 
+a method and it looks like the follows when you generate it 
+with ``dotnet new console --use-program-main``:
+
+.. code-block:: csharp
+   :linenos: 
+   :emphasize-lines: 5-8
+
+   namespace HelloWorld;
+
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         Console.WriteLine("Hello, World!");
+      }
+   }
+
+The Main method, however, is unique by design because it is designated to be the enter point of an 
+application. Although you can write code in the Main method, you will learn how to write methods 
+in addition to, and outside of, the Main method to extend the functionality of your code.  
+
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] In C#, when methods of a type are nested in another member, they are 
+   called *local functions*. 
+
+
