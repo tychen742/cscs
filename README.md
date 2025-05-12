@@ -18,8 +18,8 @@ More details to follow... -->
 ```
 $ pip install -r requirements.txt
 $ ./bin/get-code-examples.sh && make html latexpdf
-$ activate .venv ### .venv is required to run sphinx 
-$ make html     ### this will create the html files to be loaded to the http server
+$ activate .venv    ### .venv is required to run sphinx 
+$ make html         ### this will create the html files to be loaded to the http server
 ```
 
 Notes
