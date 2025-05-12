@@ -1,4 +1,4 @@
-Introduction to Computer Science in C\#
+Introduction to Programming in C\#
 ===========================================
 
 <!-- Build Status
@@ -18,7 +18,7 @@ More details to follow... -->
 ```
 $ pip install -r requirements.txt
 $ ./bin/get-code-examples.sh && make html latexpdf
-$ make html
+$ make html     ### this will create the html files to be loaded to the http server
 ```
 
 Notes
