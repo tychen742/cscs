@@ -1,4 +1,4 @@
-Lecture Notes: Intro to CS in C#
+Introduction to CS in C#
 ===========================================
 
 .. toctree::
