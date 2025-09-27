@@ -1,0 +1,32 @@
+# Travis-CI Build
+# Many thanks to the keyczar-dotnet project for initial inspiration.
+# Our contribution:
+#  - Handles both Mono 2 and 3 installation, generically, in an OS X worker
+#  - Unbundles the NuGet.exe setup (no binary dependencies carried)
+#  - Verifies NuGet.exe dependencies are present
+#  - Discovers and runs our unit tests
+# Disabled for now: sh .ci/RunTests.sh 
+
+language: objective-c
+
+env:
+ global:
+  - EnableNuGetPackageRestore=true 
+ matrix:
+  - MONO_SCRIPT="3" MONO_VER="4.0.2"
+  - MONO_SCRIPT="3" MONO_VER="3.10.0"
+  - MONO_SCRIPT="2" MONO_VER="2.10.11"
+
+# Mono distributes OS X binaries as pkg (for v2) and dmg (for v3)
+# So we need to have separate scripts to download and install it in the Travis worker
+
+before_install:
+ - sh .ci/install-mono-${MONO_SCRIPT}.sh ${MONO_VER}
+ - find /Library/Frameworks/Mono.framework -name Microsoft.Build.dll
+
+script:
+ - xbuild /verbosity:quiet
+
+branches:
+ only:
+  - master

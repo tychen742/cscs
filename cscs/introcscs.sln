@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ch05ForLoopLab", "Ch05ForLoopLab\Ch05ForLoopLab.csproj", "{EC81428F-3E47-4A8F-9C87-F2E3BEA8F24A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "introcs-csharp-examples", "introcs-csharp-examples", "{F49FC982-A7DB-4BC2-A767-D0D17D2A069C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ui", "introcs-csharp-examples\ui\ui.csproj", "{DC88927E-04FA-4738-A07B-D5188AEAB924}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC81428F-3E47-4A8F-9C87-F2E3BEA8F24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC81428F-3E47-4A8F-9C87-F2E3BEA8F24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC81428F-3E47-4A8F-9C87-F2E3BEA8F24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC81428F-3E47-4A8F-9C87-F2E3BEA8F24A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC88927E-04FA-4738-A07B-D5188AEAB924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC88927E-04FA-4738-A07B-D5188AEAB924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC88927E-04FA-4738-A07B-D5188AEAB924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC88927E-04FA-4738-A07B-D5188AEAB924}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC88927E-04FA-4738-A07B-D5188AEAB924} = {F49FC982-A7DB-4BC2-A767-D0D17D2A069C}
+	EndGlobalSection
+EndGlobal

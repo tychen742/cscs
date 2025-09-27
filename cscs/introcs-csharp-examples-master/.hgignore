@@ -1,9 +1,9 @@
+syntax: glob
+
 Thumbs.db
 .DS_Store
-bin/
 obj/
 build/
-.venv/
 *.pyc
 *.exe
 *.exe
@@ -16,6 +16,7 @@ build/
 *~
 CSharpHtml/
 CSharpHtml.zip
+index.html
 ProgrammingInCSharp.pdf
 projects.zip
 java/
@@ -34,9 +35,3 @@ rst/*.zip
 test/
 rst3/
 rst/images/lab-edit/old
-scriptcs.0.10.0/
-sites-enabled/
-rst/images/lab-edit/new/
-
-.fake
-cscs/
