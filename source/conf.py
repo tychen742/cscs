@@ -64,7 +64,7 @@ master_doc = 'index'
 # General information about the project.
 
 # project = u'Intro to Prog in C#'
-project = u'Intro to CS in C#'
+project = u'Think CS in C#'
 authors= u'Tsangyao (T.Y.) Chen'
 # copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
@@ -163,11 +163,11 @@ html_theme_options = {
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
 # html_title = None
-html_title = 'Think CSharp: An Introduction to Computer Science'
+html_title = 'Think CS in C#'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 # html_short_title = 'C# Intro'
-html_short_title = 'Think C#'
+html_short_title = 'Think CSC#'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -277,7 +277,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'thinkcsharp', u'Introduction to Computer Science in C#',
+    ('index', 'thinkcsharp', u'Think CS in C#',
      [u'ATsangyao (T.Y.) Chen'], 1)
 ]
 
@@ -291,7 +291,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'thinkcsharp', u'Think CSharp: An Introduction to Computer Science',
+    ('index', 'thinkcsharp', u'Think CSC#: An Introduction to Computer Science',
      u'Tsangyao (T.Y.) Chen', 'thinkcsharp',
      'Think CSharp',
      'Computer Science')
