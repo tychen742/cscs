@@ -64,7 +64,7 @@ master_doc = 'index'
 # General information about the project.
 
 # project = u'Intro to Prog in C#'
-project = u'Intro to Prog in C#'
+project = u'Intro to CS in C#'
 authors= u'Tsangyao (T.Y.) Chen'
 # copyright = u'2012-2021, Andrew N. Harrington and George Thiruvathukal'
 
@@ -247,7 +247,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'thinkcsharp.tex', u'Introduction to Programming in C\\#',
+    ('index', 'thinkcsharp.tex', u'IntroCSCS',
      u'Tsangyao (T.Y.) Chen', 'manual'),
 ]
 
