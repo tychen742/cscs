@@ -1,4 +1,4 @@
-Introduction to Programming in C#
+Think CS in C#
 ===========================================
 
 .. toctree::
