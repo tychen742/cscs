@@ -1,0 +1,37 @@
+# Book settings
+title: Introduction to Computer Science in C#
+author: tychen
+logo: images/logo.png  # update or remove if no logo
+
+# Force re-execution of notebooks on each build
+execute:
+  execute_notebooks: "off"   # set to "auto" to run C# notebooks on build
+
+# HTML-specific settings
+html:
+  use_issues_button: false
+  use_repository_button: false
+
+# Sphinx settings (carried over from your existing conf.py)
+sphinx:
+  extra_extensions:
+    - sphinx.ext.todo
+    - sphinx.ext.mathjax
+    - sphinxcontrib.youtube
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    todo_include_todos: true
+    numfig: true
+    rst_prolog: |
+      .. role:: repsrc
+
+# Launch button settings (optional - for Binder/JupyterHub)
+# launch_buttons:
+#   notebook_interface: "jupyterlab"
+#   binderhub_url: "https://mybinder.org"
+
+# Repository info (optional)
+# repository:
+#   url: https://github.com/yourusername/cscs
+#   branch: main
+#   path_to_book: source

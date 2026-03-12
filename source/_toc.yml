@@ -1,0 +1,132 @@
+format: jb-book
+root: index
+
+parts:
+  - caption: "1. Context"
+    chapters:
+      - file: 01.context/0101.intro
+      - file: 01.context/0102.cs_ideas
+      - file: 01.context/0103.dev_tools
+      - file: 01.context/0104.program_structure
+      - file: 01.context/0105.lab
+      - file: 01.context/0106.review
+
+  - caption: "2. Data"
+    chapters:
+      - file: 02.data/0201.data_types
+      - file: 02.data/0202.variables
+      - file: 02.data/0203.operators
+      - file: 02.data/0204.arithmetic
+      - file: 02.data/0205.strings
+      - file: 02.data/0206.input_output
+      - file: 02.data/0207.lab02
+      - file: 02.data/0208.review
+
+  - caption: "3. Methods"
+    chapters:
+      - file: 03.methods/1.intro
+      - file: 03.methods/2.signature_call
+      - file: 03.methods/3.parameter
+      - file: 03.methods/4.summary
+      - file: 03.methods/5.lab03
+      - file: 03.methods/6.review
+
+  - caption: "4. Decisions"
+    chapters:
+      - file: 04.decisions/0401.intro
+      - file: 04.decisions/0402.ifstatement
+      - file: 04.decisions/0403.else_if
+      - file: 04.decisions/0404.nested_if
+      - file: 04.decisions/0405.compound_boolean
+      - file: 04.decisions/0406.switch
+      - file: 04.decisions/0407.lab04
+      - file: 04.decisions/0408.review
+
+  - caption: "5. For Loops"
+    chapters:
+      - file: 05.for/0501.intro
+      - file: 05.for/0502.for-statements
+      - file: 05.for/0503.for-examples
+      - file: 05.for/0504.foreach
+      - file: 05.for/0505.lab
+      - file: 05.for/0506.review
+
+  - caption: "6. While Loops"
+    chapters:
+      - file: 06.while/0601.while-statement
+      - file: 06.while/0602.while-examples
+      - file: 06.while/0603.do-while
+      - file: 06.while/0604.gcd-examples
+      - file: 06.while/0605.lab-while
+      - file: 06.while/0606.review-while
+
+  - caption: "7. Files"
+    chapters:
+      - file: 07.files/0701.stream-file
+      - file: 07.files/0702.file-write
+      - file: 07.files/0703.file-read
+      - file: 07.files/0704.paths
+      - file: 07.files/0705.lab-file
+      - file: 07.files/0706.review-files
+
+  - caption: "8. Arrays"
+    chapters:
+      - file: 08.arrays/0801.onedim
+      - file: 08.arrays/0802.twodim
+      - file: 08.arrays/0803.lab-array1d
+      - file: 08.arrays/0804.review-arrays
+
+  - caption: "9. Collections"
+    chapters:
+      - file: 09.collections/0901.collections
+      - file: 09.collections/0902.list
+      - file: 09.collections/0903.dictionary
+      - file: 09.collections/0904.lab-collections
+      - file: 09.collections/0905.review-collections
+
+  - caption: "10. Classes"
+    chapters:
+      - file: 10.classes/1001.intro-class
+      - file: 10.classes/1002.class-examples
+      - file: 10.classes/1003.rational
+      - file: 10.classes/1004.structs
+      - file: 10.classes/1005.lab-classes
+      - file: 10.classes/1006.review-classes
+
+  - caption: "11. OOP"
+    chapters:
+      - file: 11.oop/1101.intro-oop
+      - file: 11.oop/1102.encapsulation
+      - file: 11.oop/1103.inheritance
+      - file: 11.oop/1104.polymorphism
+      - file: 11.oop/1105.abstraction
+      - file: 11.oop/1106.review-oop
+
+  - caption: "12. Data Structures"
+    chapters:
+      - file: 12.datastructure/1201.intro-ds
+      - file: 12.datastructure/1202.collection-examples
+      - file: 12.datastructure/1203.searching
+      - file: 12.datastructure/1204.sorting
+      - file: 12.datastructure/1205.lab-ds
+      - file: 12.datastructure/1206.review-ds
+
+  - caption: "13. Selected Topics"
+    chapters:
+      - file: 13.selected-topics/1301.testing
+      - file: 13.selected-topics/1302.recursion
+      - file: 13.selected-topics/1303.lab-selected-topics
+
+  - caption: "14. Appendix"
+    chapters:
+      - file: 14.appendix/1401.resources
+      - file: 14.appendix/1402.command-line
+      - file: 14.appendix/1403.precedence
+      - file: 14.appendix/1404.acknowledgments
+      - file: 14.appendix/hgteamwork
+      - file: 14.appendix/homework-gradecalculation
+      - file: 14.appendix/homework-gradecalculation2
+      - file: 14.appendix/hw-booklist
+      - file: 14.appendix/hw-gradefiles
+      - file: 14.appendix/lab-versioncontrol
+      - file: 14.appendix/project
