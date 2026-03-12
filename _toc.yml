@@ -27,12 +27,12 @@ parts:
 
       - file: chapters/03.methods/methods
         sections:
-          - file: chapters/03.methods/1.intro
-          - file: chapters/03.methods/2.signature_call
-          - file: chapters/03.methods/3.parameter
-          - file: chapters/03.methods/4.summary
-          - file: chapters/03.methods/5.lab03
-          - file: chapters/03.methods/6.review
+          - file: chapters/03.methods/0301.intro
+          - file: chapters/03.methods/0302.signature_call
+          - file: chapters/03.methods/0303.parameter
+          - file: chapters/03.methods/0304.summary
+          - file: chapters/03.methods/0305.lab03
+          - file: chapters/03.methods/0306.review
 
       - file: chapters/04.decisions/decisions
         sections:
@@ -145,4 +145,5 @@ parts:
           - file: chapters/14.appendix/hw-gradefiles
           - file: chapters/14.appendix/lab-versioncontrol
           - file: chapters/14.appendix/project
+          - file: chapters/14.appendix/1405.index
 
