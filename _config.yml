@@ -1,15 +1,31 @@
 # Book settings
 title: Introduction to Computer Science in C#
 author: tychen
+logo: images/logo.svg
 
 # Force re-execution of notebooks on each build
 execute:
   execute_notebooks: "off"   # set to "auto" to run C# notebooks on build
 
+# MyST substitutions (available in .ipynb and .md files)
+parse:
+  myst_substitutions:
+    if-else: "`if`-`else`"
+    if-else-if: "`if`-`else`-`if`"
+    do-while: "`do`-`while`"
+    vscode: "Visual Studio Code"
+    repsrc: "https://bitbucket.org/gkthiruvathukal/introcs-csharp/src/default"
+
+# Only build files listed in _toc.yml
+only_build_toc_files: true
+
 # Exclude virtualenv and other non-book content
 exclude_patterns:
   - .venv/**
   - _build/**
+  - "**/.DS_Store"
+  - README.md
+  - cscs/
 
 # HTML-specific settings
 html:
@@ -28,6 +44,9 @@ sphinx:
     html_favicon: _static/favicon.png
     html_css_files:
       - my-styles.css
+      - custom.css
+    html_js_files:
+      - custom.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     todo_include_todos: true
     numfig: true
