@@ -1,11 +1,15 @@
 # Book settings
 title: Introduction to Computer Science in C#
 author: tychen
-logo: images/logo.png  # update or remove if no logo
 
 # Force re-execution of notebooks on each build
 execute:
   execute_notebooks: "off"   # set to "auto" to run C# notebooks on build
+
+# Exclude virtualenv and other non-book content
+exclude_patterns:
+  - .venv/**
+  - _build/**
 
 # HTML-specific settings
 html:
@@ -19,11 +23,25 @@ sphinx:
     - sphinx.ext.mathjax
     - sphinxcontrib.youtube
   config:
+    html_static_path:
+      - _static
+    html_favicon: _static/favicon.png
+    html_css_files:
+      - my-styles.css
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     todo_include_todos: true
     numfig: true
+    highlight_language: csharp
     rst_prolog: |
       .. role:: repsrc
+    rst_epilog: |
+      .. |if-else| replace:: ``if``\ -``else``
+
+      .. |if-else-if| replace:: ``if``\ -``else``\ -``if``
+
+      .. |do-while| replace:: ``do``\ -``while``
+
+      .. |repsrc| replace:: https://bitbucket.org/gkthiruvathukal/introcs-csharp/src/default
 
 # Launch button settings (optional - for Binder/JupyterHub)
 # launch_buttons:
@@ -34,4 +52,4 @@ sphinx:
 # repository:
 #   url: https://github.com/yourusername/cscs
 #   branch: main
-#   path_to_book: source
+#   path_to_book: .

@@ -150,13 +150,13 @@ application to be run by the operating system. Scripting languages such as Bash 
 are interpreted language. They have an interpreter sitting in between the source code and 
 the OS for translation and does not require compilation. 
 
-.. figure:: ../images/interpreter.jpg
+.. figure:: ../../images/interpreter.jpg
    :width: 35%
 
    An interpreter processes the program a little at a time, alternately reading lines and performing computations. [#f3]_
 
 
-.. figure:: ../images/compiler.jpg
+.. figure:: ../../images/compiler.jpg
    :width: 50%
 
    A compiler translates source code into object code, which is run by a hardware executor. [#f3]_
@@ -176,7 +176,7 @@ In programming, an **expression** is something which evaluates to a value; while
 statement is a program instruction. An expression consists of operators and operands 
 as seen in the figure below. 
 
-.. figure:: ../images/expression.jpg
+.. figure:: ../../images/expression.jpg
   :width: 400
    
   Expression [#f5]_
@@ -188,7 +188,7 @@ type bool which takes a value true or false; while logical
 expressions combine two or more relational expressions and 
 produces bool type results.
   
-.. figure:: ../images/types_of_expressions.jpg
+.. figure:: ../../images/types_of_expressions.jpg
   :width: 400
 
   Types of Expressions

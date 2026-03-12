@@ -91,7 +91,7 @@ In actual compiler implementation, this reference is an address in memory. In th
 below, you see the object references with an arrow *pointing* to the actual location 
 for the object's data after ``a`` is initialized:
 
-.. image:: ../images/newArray1.png
+.. image:: ../../images/newArray1.png
    :alt: new array
    :align: center
    :width: 300 pt
@@ -135,7 +135,7 @@ same final data could be created with the single declaration::
 
    int[] b = {7, 5, 9, 6};
 
-.. image:: ../images/newArray2.png
+.. image:: ../../images/newArray2.png
    :alt: new array initialized with braces
    :align: center
    :width: 300 pt
@@ -511,7 +511,7 @@ assignment.
 
 With a primitive type like an ``int``, an assignment copies the data:
 
-.. image:: ../images/intCopy.png
+.. image:: ../../images/intCopy.png
    :alt: copying an int
    :align: center
    :width: 90 pt
@@ -523,7 +523,7 @@ but can later be changed independently.
 Contrast an assignment with arrays.  The value that is copied is the *reference*,
 not the array data itself, so both end up pointing at the *same*  actual array:
 
-.. image:: ../images/arrayAlias.png
+.. image:: ../../images/arrayAlias.png
    :alt: copying an array reference
    :align: center
    :width: 300 pt

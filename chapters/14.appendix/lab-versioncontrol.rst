@@ -111,7 +111,7 @@ Now we'll create a first repository at Bitbucket.org.
 Go to ``Repositories -> Create Repository`` (the option is at the bottom
 of the list of menu options). You'll see this screen:
 
-.. image:: ../images/lab-hg/hgcreaterepository.png
+.. image:: ../../images/lab-hg/hgcreaterepository.png
    :width: 350 pt
    :alt: Xamarin Studio Image
    :align: center
@@ -146,7 +146,7 @@ create more of them later.
 
 Here is an example of a filled out form:
 
-.. image:: ../images/lab-hg/hgcreaterepository2.png
+.. image:: ../../images/lab-hg/hgcreaterepository2.png
    :width: 350 pt
    :alt: Xamarin Studio Image
    :align: center
@@ -223,7 +223,7 @@ So you can now go ahead by selecting this newly created repository
 from the list of repositories.  If all goes well, you should see the
 following screen:
 
-.. image:: ../images/lab-hg/hgrepositorysummary.png
+.. image:: ../../images/lab-hg/hgrepositorysummary.png
    :height: 300 pt
    :alt: Xamarin Studio Image
    :align: center
@@ -549,7 +549,7 @@ Do the following:
    time, but we're going to take a look at the powerful capability of "looking at the
    source". So go to the *Source* tab.
 
-   .. image:: ../images/lab-hg/bitbucket-source.png
+   .. image:: ../../images/lab-hg/bitbucket-source.png
       :width: 350 pt
       :alt: Xamarin Studio Image
       :align: center
@@ -561,7 +561,7 @@ Do the following:
    your source code (for hello.cs). Then you
    can look at it--through the web! When you do so, you'll see something like this.
 
-   .. image:: ../images/lab-hg/HelloWorld.png
+   .. image:: ../../images/lab-hg/HelloWorld.png
       :height: 290 pt
       :alt: Xamarin Studio Image
       :align: center
@@ -622,7 +622,7 @@ a team on developing the book and examples.
        you visit our site at Bitbucket, you would see a screen like this when viewing our
        repository:
 
-       .. image:: ../images/lab-hg/introcs-repo.png
+       .. image:: ../../images/lab-hg/introcs-repo.png
           :height: 290 pt
           :alt: Xamarin Studio Image
           :align: center

@@ -59,7 +59,7 @@ The file system structure begins with the root (``/``), with a number of default
 functionalities. For example, oen of the first the default location after logging in is the user's home directory, which is specified 
 as /home/USER_NAME.
 
-   .. figure:: ../images/linux_directory_tree.gif
+   .. figure:: ../../images/linux_directory_tree.gif
       :scale: 80%
 
       A hypothetical Linux directory tree
@@ -115,7 +115,7 @@ The whole process should look similar to this in Windows:
 
 If you use macOS, the process should look similar enough:
 
-.. figure:: ../images/shell_create_workspace_tests.jpg
+.. figure:: ../../images/shell_create_workspace_tests.jpg
    :scale: 35%
 
    Creating a workspace directory, tests subdirectory, and a test file in macOS.
@@ -141,7 +141,7 @@ extensions available to enhance and enrich its tools and features. A great advan
 VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for 
 almost every other programming languages and technology as long as they involve editing and coding. 
 
-.. figure:: ../images/popular_ide.jpg
+.. figure:: ../../images/popular_ide.jpg
    :scale: 25%
 
    Visual Studio Code remains the preferred IDE across all developers. [#f]_
@@ -167,7 +167,7 @@ Views such as:
    #. Extensions - Install and manage your extensions within VS Code.
    #. Custom views - Views contributed by extensions.
 
-   .. figure:: ../images/vscode_interface.jpg
+   .. figure:: ../../images/vscode_interface.jpg
       :scale: 50%
 
       Basic elements in VS Code user interface [#]_
@@ -179,7 +179,7 @@ Views such as:
      to the project directory. 
    - You may use Cmd+J (Ctl+J) to toggle the Panel to use the terminal.  
 
-     .. |vscode-toggle| image:: ../../source/images/vscode-toggle.jpg
+     .. |vscode-toggle| image:: ../../images/vscode-toggle.jpg
        :height: 2ex
 
 **Command Palette**: In addition to the UI elements, an important key combination to learn is 
@@ -188,7 +188,7 @@ palette gives access to all the functionalities within VS Code. For example,
 if you type ``.NET`` at the command palette, you get to access the .NET commands 
 and features as follows.
 
-.. figure:: ../images/command_pallette_dontnet.jpg
+.. figure:: ../../images/command_pallette_dontnet.jpg
   :scale: 25%
 
   Using vscode Command Palette
