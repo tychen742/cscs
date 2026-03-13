@@ -12,7 +12,6 @@ parse:
   myst_enable_extensions:
     - colon_fence
     - substitution
-    - icons
   myst_substitutions:
     if-else: "`if`-`else`"
     if-else-if: "`if`-`else`-`if`"
@@ -45,10 +44,12 @@ sphinx:
   config:
     html_static_path:
       - _static
+      - images
     html_favicon: _static/favicon.png
     html_css_files:
       - my-styles.css
       - custom.css
+      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
       - custom.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
