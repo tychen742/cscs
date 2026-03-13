@@ -9,6 +9,10 @@ execute:
 
 # MyST substitutions (available in .ipynb and .md files)
 parse:
+  myst_enable_extensions:
+    - colon_fence
+    - substitution
+    - icons
   myst_substitutions:
     if-else: "`if`-`else`"
     if-else-if: "`if`-`else`-`if`"
