@@ -5,14 +5,13 @@ parts:
   - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
-      - file: chapters/01.context/01.context
+      - file: chapters/01.context/0100.intro
         sections:
-          - file: chapters/01.context/0101.intro
-          - file: chapters/01.context/0102.cs_ideas
-          - file: chapters/01.context/0103.dev_tools
-          - file: chapters/01.context/0104.program_structure
-          - file: chapters/01.context/0105.lab
-          - file: chapters/01.context/0106.review
+          - file: chapters/01.context/0101.cs_ideas
+          - file: chapters/01.context/0102.dev_tools
+          - file: chapters/01.context/0103.program_structure
+          - file: chapters/01.context/0104.lab
+          - file: chapters/01.context/0105.review
 
       - file: chapters/02.data/data
         sections:
