@@ -1,5 +1,10 @@
-Introduction to Programming in C\#
+Introduction to CSCS in C\#
 ===========================================
+
+1. venv
+2. pip install "jupyter-book<2"
+3. pip install sphinxcontrib.youtube
+
 
 <!-- Build Status
 ------------- -->
