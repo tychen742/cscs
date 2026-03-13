@@ -2,7 +2,29 @@ examples/ios
 .venv
 .venv/
 
+data/*.csv
 
+# macOS
 .DS_Store
 */.DS_Store
 */*.DS_Store
+
+# VS Code
+.vscode/
+
+# .NET / C#
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.nupkg
+project.lock.json
+project.assets.json
+
+# .NET Interactive / Jupyter cache
+.jupyter/
+__pycache__/
+*.pyc
