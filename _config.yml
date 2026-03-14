@@ -58,6 +58,10 @@ sphinx:
     todo_include_todos: true
     numfig: true
     highlight_language: csharp
+    highlight_options:
+      default: { linenos: true }
+      # csharp: { linenos: true }
+    nb_number_source_lines: true
     rst_prolog: |
       .. role:: repsrc
     rst_epilog: |
