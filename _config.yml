@@ -13,11 +13,13 @@ parse:
     - colon_fence
     - substitution
   myst_substitutions:
-    if-else: "`if`-`else`"
-    if-else-if: "`if`-`else`-`if`"
-    do-while: "`do`-`while`"
+    if_else: "`if`-`else`"
+    if_else_if: "`if`-`else`-`if`"
+    do_while: "`do`-`while`"
     vscode: "Visual Studio Code"
-    repsrc: "https://bitbucket.org/gkthiruvathukal/introcs-csharp/src/default"
+    vscode_toggle: "Toggle Panel"
+    vscode_terminal: "TERMINAL"
+    repsrc: "https://github.com/mstbit/introcs-csharp-examples/blob/master"
 
 # Only build files listed in _toc.yml
 only_build_toc_files: true
