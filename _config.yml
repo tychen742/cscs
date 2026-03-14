@@ -75,12 +75,17 @@ sphinx:
       .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
 
 # Launch button settings (optional - for Binder/JupyterHub)
-# launch_buttons:
+launch_buttons:
+  thebe: true
+  binderhub_url: "https://mybinder.org"
 #   notebook_interface: "jupyterlab"
 #   binderhub_url: "https://mybinder.org"
 
 # Repository info (optional)
-# repository:
-#   url: https://github.com/yourusername/cscs
-#   branch: main
+repository:
+  url: https://github.com/tychen742/cscs
+  branch: main
 #   path_to_book: .
+
+thebe:
+  kernel_name: .net-csharp
