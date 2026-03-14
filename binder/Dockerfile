@@ -10,4 +10,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 
 RUN dotnet interactive jupyter install
 
+# Pre-warm dotnet-interactive to speed up startup
+RUN dotnet-interactive --help > /dev/null 2>&1 || true
+
 WORKDIR /home/jovyan
