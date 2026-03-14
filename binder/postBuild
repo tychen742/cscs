@@ -1,0 +1,4 @@
+#!/bin/bash
+# Pre-warm dotnet runtime
+dotnet --info > /dev/null 2>&1
+dotnet-interactive --version > /dev/null 2>&1
