@@ -19,7 +19,8 @@ parse:
     vscode: "Visual Studio Code"
     vscode_toggle: "Toggle Panel"
     vscode_terminal: "TERMINAL"
-    repsrc: "https://github.com/mstbit/introcs-csharp-examples/blob/master"
+    repsrc: "https://github.com/tychen742/cscs/tree/main/examples"
+    # repsrc: "examples"  # local copy of repo examples
 
 # Only build files listed in _toc.yml
 only_build_toc_files: true
@@ -71,7 +72,7 @@ sphinx:
 
       .. |do-while| replace:: ``do``\ -``while``
 
-      .. |repsrc| replace:: https://bitbucket.org/gkthiruvathukal/introcs-csharp/src/default
+      .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
 
 # Launch button settings (optional - for Binder/JupyterHub)
 # launch_buttons:
