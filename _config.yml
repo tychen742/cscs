@@ -75,7 +75,7 @@ sphinx:
     nb_number_source_lines: true
 
     thebe_config:
-      requestKernel: true
+      requestKernel: false
       predefinedOutput: true
       selector: ".thebe,.cell"
       kernelOptions:
