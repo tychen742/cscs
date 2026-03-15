@@ -5,144 +5,144 @@ parts:
   - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
-      - file: chapters/01.context/0100.intro
+      - file: chapters/01-context/0100-context-intro
         sections:
-          - file: chapters/01.context/0101.cs_ideas
-          - file: chapters/01.context/0102.dev_tools
-          - file: chapters/01.context/0103.program_structure
-          - file: chapters/01.context/0104.lab
-          - file: chapters/01.context/0105.review
+          - file: chapters/01-context/0101-cs_ideas
+          - file: chapters/01-context/0102-dev_tools
+          - file: chapters/01-context/0103-program_structure
+          - file: chapters/01-context/0104-lab
+          - file: chapters/01-context/0105-review
 
-      - file: chapters/02.data/data
+      - file: chapters/02-var_data/0200-var_type-intro
         sections:
-          - file: chapters/02.data/0201.data_types
-          - file: chapters/02.data/0202.variables
-          - file: chapters/02.data/0203.operators
-          - file: chapters/02.data/0204.arithmetic
-          - file: chapters/02.data/0205.strings
-          - file: chapters/02.data/0206.input_output
-          - file: chapters/02.data/0207.lab02
-          - file: chapters/02.data/0208.review
+          - file: chapters/02-var_data/0201-data_types
+          - file: chapters/02-var_data/0202-variables
+          - file: chapters/02-var_data/0203-operators
+          - file: chapters/02-var_data/0204-arithmetic
+          - file: chapters/02-var_data/0205-strings
+          - file: chapters/02-var_data/0206-input_output
+          - file: chapters/02-var_data/0207-lab02
+          - file: chapters/02-var_data/0208-review
 
-      - file: chapters/03.methods/methods
+      - file: chapters/03-methods/0300-methods-intro
         sections:
-          - file: chapters/03.methods/0301.intro
-          - file: chapters/03.methods/0302.signature_call
-          - file: chapters/03.methods/0303.parameter
-          - file: chapters/03.methods/0304.summary
-          - file: chapters/03.methods/0305.lab03
-          - file: chapters/03.methods/0306.review
+          - file: chapters/03-methods/0301-intro-methods
+          - file: chapters/03-methods/0302-signature_call
+          - file: chapters/03-methods/0303-parameter
+          - file: chapters/03-methods/0304-summary
+          - file: chapters/03-methods/0305-lab03
+          - file: chapters/03-methods/0306-review
 
-      - file: chapters/04.decisions/decisions
-        sections:
-          - file: chapters/04.decisions/0401.intro
-          - file: chapters/04.decisions/0402.ifstatement
-          - file: chapters/04.decisions/0403.else_if
-          - file: chapters/04.decisions/0404.nested_if
-          - file: chapters/04.decisions/0405.compound_boolean
-          - file: chapters/04.decisions/0406.switch
-          - file: chapters/04.decisions/0407.lab04
-          - file: chapters/04.decisions/0408.review
+      - file: chapters/04-decision/0400-decision-intro  
+        sections: 
+          - file: chapters/04-decision/0401-intro-decision
+          - file: chapters/04-decision/0402-ifstatement
+          - file: chapters/04-decision/0403-else_if
+          - file: chapters/04-decision/0404-nested_if
+          - file: chapters/04-decision/0405-compound_boolean
+          - file: chapters/04-decision/0406-switch
+          - file: chapters/04-decision/0407-lab04
+          - file: chapters/04-decision/0408-review
 
   - caption: "Part II. Iteration & I/O"
     numbered: true
     chapters:
-      - file: chapters/05.for/for
+      - file: chapters/05-for/0500-for-intro
         sections:
-          - file: chapters/05.for/0501.intro
-          - file: chapters/05.for/0502.for-statements
-          - file: chapters/05.for/0503.for-examples
-          - file: chapters/05.for/0504.foreach
-          - file: chapters/05.for/0505.lab
-          - file: chapters/05.for/0506.review
+          - file: chapters/05-for/0501-intro
+          - file: chapters/05-for/0502-for-statements
+          - file: chapters/05-for/0503-for-examples
+          - file: chapters/05-for/0504-foreach
+          - file: chapters/05-for/0505-lab
+          - file: chapters/05-for/0506-review
 
-      - file: chapters/06.while/06.while
+      - file: chapters/06-while/06-while-intro
         sections:
-          - file: chapters/06.while/0601.while-statement
-          - file: chapters/06.while/0602.while-examples
-          - file: chapters/06.while/0603.do-while
-          - file: chapters/06.while/0604.gcd-examples
-          - file: chapters/06.while/0605.lab-while
-          - file: chapters/06.while/0606.review-while
+          - file: chapters/06-while/0601-while-statement
+          - file: chapters/06-while/0602-while-examples
+          - file: chapters/06-while/0603-do-while
+          - file: chapters/06-while/0604-gcd-examples
+          - file: chapters/06-while/0605-lab-while
+          - file: chapters/06-while/0606-review-while
 
-      - file: chapters/07.files/07.files
+      - file: chapters/07-files/0700-files-intro
         sections:
-          - file: chapters/07.files/0701.stream-file
-          - file: chapters/07.files/0702.file-write
-          - file: chapters/07.files/0703.file-read
-          - file: chapters/07.files/0704.paths
-          - file: chapters/07.files/0705.lab-file
-          - file: chapters/07.files/0706.review-files
+          - file: chapters/07-files/0701-stream-file
+          - file: chapters/07-files/0702-file-write
+          - file: chapters/07-files/0703-file-read
+          - file: chapters/07-files/0704-paths
+          - file: chapters/07-files/0705-lab-file
+          - file: chapters/07-files/0706-review-files
 
   - caption: "Part III. Data Structures"
     numbered: true
     chapters:
-      - file: chapters/08.arrays/08.arrays
+      - file: chapters/08-arrays/0800-arrays-intro
         sections:
-          - file: chapters/08.arrays/0801.onedim
-          - file: chapters/08.arrays/0802.twodim
-          - file: chapters/08.arrays/0803.lab-array1d
-          - file: chapters/08.arrays/0804.review-arrays
+          - file: chapters/08-arrays/0801-onedim
+          - file: chapters/08-arrays/0802-twodim
+          - file: chapters/08-arrays/0803-lab-array1d
+          - file: chapters/08-arrays/0804-review-arrays
 
-      - file: chapters/09.collections/09.collections
+      - file: chapters/09-collections/0900-collections-intro
         sections:
-          - file: chapters/09.collections/0901.collections
-          - file: chapters/09.collections/0902.list
-          - file: chapters/09.collections/0903.dictionary
-          - file: chapters/09.collections/0904.lab-collections
-          - file: chapters/09.collections/0905.review-collections
+          - file: chapters/09-collections/0901-collections
+          - file: chapters/09-collections/0902-list
+          - file: chapters/09-collections/0903-dictionary
+          - file: chapters/09-collections/0904-lab-collections
+          - file: chapters/09-collections/0905-review-collections
 
-      - file: chapters/12.datastructure/12.datastructure
+      - file: chapters/10-datastructure/1000-datastructure-intro
         sections:
-          - file: chapters/12.datastructure/1201.intro-ds
-          - file: chapters/12.datastructure/1202.collection-examples
-          - file: chapters/12.datastructure/1203.searching
-          - file: chapters/12.datastructure/1204.sorting
-          - file: chapters/12.datastructure/1205.lab-ds
-          - file: chapters/12.datastructure/1206.review-ds
+          - file: chapters/10-datastructure/1201-intro-ds
+          - file: chapters/10-datastructure/1202-collection-examples
+          - file: chapters/10-datastructure/1203-searching
+          - file: chapters/10-datastructure/1204-sorting
+          - file: chapters/10-datastructure/1205-lab-ds
+          - file: chapters/10-datastructure/1206-review-ds
 
   - caption: "Part IV. Object-Oriented Programming"
     numbered: true
     chapters:
-      - file: chapters/10.classes/10.classes
+      - file: chapters/11-classes/1100-classes-intro
         sections:
-          - file: chapters/10.classes/1001.intro-class
-          - file: chapters/10.classes/1002.class-examples
-          - file: chapters/10.classes/1003.rational
-          - file: chapters/10.classes/1004.structs
-          - file: chapters/10.classes/1005.lab-classes
-          - file: chapters/10.classes/1006.review-classes
+          - file: chapters/11-classes/1001-intro-class
+          - file: chapters/11-classes/1002-class-examples
+          - file: chapters/11-classes/1003-rational
+          - file: chapters/11-classes/1004-structs
+          - file: chapters/11-classes/1005-lab-classes
+          - file: chapters/11-classes/1006-review-classes
 
-      - file: chapters/11.oop/11.oop
+      - file: chapters/12-oop/1200-oop-intro
         sections:
-          - file: chapters/11.oop/1101.intro-oop
-          - file: chapters/11.oop/1102.encapsulation
-          - file: chapters/11.oop/1103.inheritance
-          - file: chapters/11.oop/1104.polymorphism
-          - file: chapters/11.oop/1105.abstraction
-          - file: chapters/11.oop/1106.review-oop
+          - file: chapters/12-oop/1201-intro-oop
+          - file: chapters/12-oop/1202-encapsulation
+          - file: chapters/12-oop/1203-inheritance
+          - file: chapters/12-oop/1204-polymorphism
+          - file: chapters/12-oop/1205-abstraction
+          - file: chapters/12-oop/1206-review-oop
 
-      - file: chapters/13.selected-topics/13.selected-topics
+      - file: chapters/13-topics/1300-topics-intro
         sections:
-          - file: chapters/13.selected-topics/1301.testing
-          - file: chapters/13.selected-topics/1302.recursion
-          - file: chapters/13.selected-topics/1303.lab-selected-topics
+          - file: chapters/13-topics/1301-testing
+          - file: chapters/13-topics/1302-recursion
+          - file: chapters/13-topics/1303-lab-selected-topics
 
   - caption: "Appendix"
     numbered: true
     chapters:
-      - file: chapters/14.appendix/14.appendix
+      - file: chapters/14-appendix/14-appendix
         sections:
-          - file: chapters/14.appendix/1401.resources
-          - file: chapters/14.appendix/1402.command-line
-          - file: chapters/14.appendix/1403.precedence
-          - file: chapters/14.appendix/1404.acknowledgments
-          - file: chapters/14.appendix/hgteamwork
-          - file: chapters/14.appendix/homework-gradecalculation
-          - file: chapters/14.appendix/homework-gradecalculation2
-          - file: chapters/14.appendix/hw-booklist
-          - file: chapters/14.appendix/hw-gradefiles
-          - file: chapters/14.appendix/lab-versioncontrol
-          - file: chapters/14.appendix/project
-          - file: chapters/14.appendix/1405.index
+          - file: chapters/14-appendix/1401-resources
+          - file: chapters/14-appendix/1402-command-line
+          - file: chapters/14-appendix/1403-precedence
+          - file: chapters/14-appendix/1404-acknowledgments
+          - file: chapters/14-appendix/hgteamwork
+          - file: chapters/14-appendix/homework-gradecalculation
+          - file: chapters/14-appendix/homework-gradecalculation2
+          - file: chapters/14-appendix/hw-booklist
+          - file: chapters/14-appendix/hw-gradefiles
+          - file: chapters/14-appendix/lab-versioncontrol
+          - file: chapters/14-appendix/project
+          - file: chapters/14-appendix/1405-index
 
