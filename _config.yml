@@ -38,6 +38,16 @@ html:
   use_issues_button: false
   use_repository_button: false
 
+# Launch button settings (optional - for Binder/JupyterHub)
+launch_buttons:
+  thebe: true
+
+# # Repository info (optional)
+repository:
+  url: https://github.com/tychen742/cscs
+  branch: main
+  path_to_book: .
+
 # Sphinx settings (carried over from your existing conf.py)
 sphinx:
   extra_extensions:
@@ -63,6 +73,22 @@ sphinx:
       default: { linenos: true }
       # csharp: { linenos: true }
     nb_number_source_lines: true
+
+    thebe_config:
+      requestKernel: true
+      predefinedOutput: true
+      selector: ".thebe,.cell"
+      kernelOptions:
+        name: ".net-csharp"
+        kernelName: ".net-csharp"
+        path: "."
+        serverSettings:
+          baseUrl: "https://thinkcscs.org/user/tychen/"
+          token: "f99ce0beab7542478f2abf92c77d4d9e"
+      # jupyter_url: "https://thinkcscs.org"
+      # token: "f99ce0beab7542478f2abf92c77d4d9e"
+      # predefinedOutput: true
+
     rst_prolog: |
       .. role:: repsrc
     rst_epilog: |
@@ -73,31 +99,14 @@ sphinx:
       .. |do-while| replace:: ``do``\ -``while``
 
       .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
-    thebe_config:
-      requestKernel: true
-      jupyterhubUrl: "https://thinkcscs.org"
-      token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c"
-      kernelOptions:
-        name: ".net-csharp"
-        path: "."
-      binderOptions:
-        repo: ""
-        ref: ""
-      predefinedOutput: true
 
-thebe:
-  kernel_name: .net-csharp
-  jupyter_url: https://thinkcscs.org
-  token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c"
-  use_thebe_lite: false
-  binder_url: ""
 
-# Launch button settings (optional - for Binder/JupyterHub)
-launch_buttons:
-  thebe: true
+# thebe:
+#   kernel_name: .net-csharp
+#   jupyter_url: https://thinkcscs.org
+#   token: "f99ce0beab7542478f2abf92c77d4d9e"
+#   use_thebe_lite: false
+#   binder_url: ""
 
-# # Repository info (optional)
-repository:
-  url: https://github.com/tychen742/cscs
-  branch: main
-  path_to_book: .
+
+

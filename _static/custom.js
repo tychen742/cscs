@@ -153,21 +153,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Override Thebe config to use JupyterHub instead of Binder
 // Override Thebe config BEFORE it loads
-(function() {
-    const observer = new MutationObserver(function() {
-        const thebeConfig = document.querySelector('script[type="text/x-thebe-config"]');
-        if (thebeConfig) {
-            thebeConfig.textContent = JSON.stringify({
-                requestKernel: true,
-                jupyterhubUrl: "https://thinkcscs.org",
-                token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c",
-                kernelOptions: {
-                    name: ".net-csharp"
-                },
-                predefinedOutput: true
-            });
-            observer.disconnect();
-        }
-    });
-    observer.observe(document.documentElement, {childList: true, subtree: true});
-})();
+// (function() {
+//     const observer = new MutationObserver(function() {
+//         const thebeConfig = document.querySelector('script[type="text/x-thebe-config"]');
+//         if (thebeConfig) {
+//             thebeConfig.textContent = JSON.stringify({
+//                 requestKernel: true,
+//                 jupyterhubUrl: "https://thinkcscs.org",
+//                 token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c",
+//                 kernelOptions: {
+//                     name: ".net-csharp"
+//                 },
+//                 predefinedOutput: true
+//             });
+//             observer.disconnect();
+//         }
+//     });
+//     observer.observe(document.documentElement, {childList: true, subtree: true});
+// })();
