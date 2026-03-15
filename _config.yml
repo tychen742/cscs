@@ -73,21 +73,30 @@ sphinx:
       .. |do-while| replace:: ``do``\ -``while``
 
       .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
-
+    thebe_config:
+      requestKernel: true
+      jupyterhubUrl: "https://thinkcscs.org"
+      token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c"
+      kernelOptions:
+        name: ".net-csharp"
+        path: "."
+      binderOptions:
+        repo: ""
+        ref: ""
+      predefinedOutput: true
 
 thebe:
   kernel_name: .net-csharp
   jupyter_url: https://thinkcscs.org
   token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c"
+  use_thebe_lite: false
+  binder_url: ""
 
 # Launch button settings (optional - for Binder/JupyterHub)
 launch_buttons:
   thebe: true
-  # binderhub_url: "https://mybinder.org"
-#   notebook_interface: "jupyterlab"
-  # binderhub_url: "https://mybinder.org"
 
-# Repository info (optional)
+# # Repository info (optional)
 repository:
   url: https://github.com/tychen742/cscs
   branch: main
