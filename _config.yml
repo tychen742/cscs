@@ -61,7 +61,6 @@ sphinx:
       - images
     html_favicon: _static/favicon.png
     html_css_files:
-      - my-styles.css
       - custom.css
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
@@ -79,8 +78,10 @@ sphinx:
       repository_url: https://github.com/tychen742/cscs
       bootstrap: false
       requestKernel: true
-      predefinedOutput: true
-      selector: ".thebe,.cell"
+      predefinedOutput: false
+      selector: "div.cell"
+      selector_input: "div.cell_input"
+      selector_output: "div.cell_output"
       kernel_name: ".net-csharp"
       kernelOptions:
         name: ".net-csharp"
