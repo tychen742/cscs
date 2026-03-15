@@ -1,5 +1,48 @@
 console.log("Custom JS loaded!");
 
+// Filter noisy, non-actionable browser/extension errors from console output.
+(function setupConsoleNoiseFilter() {
+    const originalError = console.error.bind(console);
+    const originalWarn = console.warn.bind(console);
+
+    function toMessage(args) {
+        return args.map(a => {
+            if (typeof a === 'string') return a;
+            if (a && a.message) return a.message;
+            try {
+                return JSON.stringify(a);
+            } catch {
+                return String(a);
+            }
+        }).join(' ');
+    }
+
+    function isKnownNoise(msg) {
+        return (
+            msg.includes("A listener indicated an asynchronous response by returning true") ||
+            (msg.includes("WebSocket connection") && msg.includes("/ws/ws"))
+        );
+    }
+
+    console.error = function (...args) {
+        const msg = toMessage(args);
+        if (isKnownNoise(msg)) {
+            console.info("[filtered-noise]", msg);
+            return;
+        }
+        originalError(...args);
+    };
+
+    console.warn = function (...args) {
+        const msg = toMessage(args);
+        if (isKnownNoise(msg)) {
+            console.info("[filtered-noise]", msg);
+            return;
+        }
+        originalWarn(...args);
+    };
+})();
+
 /*
 // Handle sidebar toggle using event delegation (more reliable)
 document.addEventListener('click', function (e) {
