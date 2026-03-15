@@ -15,8 +15,12 @@ RUN pip install --no-cache-dir jupyter jupyterlab notebook jupyterhub
 
 # Install dotnet-interactive to a shared path (not /root)
 ENV DOTNET_TOOLS=/opt/dotnet-tools
+ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=1
 RUN dotnet tool install --tool-path ${DOTNET_TOOLS} Microsoft.dotnet-interactive --version 1.0.522904
 ENV PATH="${DOTNET_TOOLS}:${PATH}"
+
+# Ensure jovyan owns its home .dotnet dir (created by SDK during tool install)
+RUN mkdir -p ${HOME}/.dotnet && chown -R ${NB_UID}:${NB_UID} ${HOME}
 
 # Switch to non-root user, install Jupyter kernel, pre-warm
 USER ${NB_USER}
