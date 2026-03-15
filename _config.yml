@@ -41,6 +41,7 @@ html:
 # Launch button settings (optional - for Binder/JupyterHub)
 launch_buttons:
   thebe: true
+  binderhub_url: "https://mybinder.org"
 
 # # Repository info (optional)
 repository:
@@ -75,19 +76,15 @@ sphinx:
     nb_number_source_lines: true
 
     thebe_config:
-      requestKernel: false
+      repository_url: https://github.com/tychen742/cscs
+      bootstrap: false
+      requestKernel: true
       predefinedOutput: true
       selector: ".thebe,.cell"
+      kernel_name: ".net-csharp"
       kernelOptions:
         name: ".net-csharp"
-        kernelName: ".net-csharp"
         path: "."
-        serverSettings:
-          baseUrl: "https://thinkcscs.org/user/tychen/"
-          token: "f99ce0beab7542478f2abf92c77d4d9e"
-      # jupyter_url: "https://thinkcscs.org"
-      # token: "f99ce0beab7542478f2abf92c77d4d9e"
-      # predefinedOutput: true
 
     rst_prolog: |
       .. role:: repsrc
