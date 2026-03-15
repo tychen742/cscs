@@ -71,9 +71,9 @@ sphinx:
     numfig: true
     highlight_language: csharp
     highlight_options:
-      default: { linenos: true }
+      default: { linenos: false }
       # csharp: { linenos: true }
-    nb_number_source_lines: true
+    nb_number_source_lines: false
 
     thebe_config:
       repository_url: https://github.com/tychen742/cscs
