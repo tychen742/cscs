@@ -1,4 +1,7 @@
-#!/bin/bash
-# Pre-warm dotnet runtime
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[binder/postBuild] Pre-warming dotnet runtime"
 dotnet --info > /dev/null 2>&1
 dotnet-interactive --version > /dev/null 2>&1
+echo "[binder/postBuild] Pre-warm complete"
