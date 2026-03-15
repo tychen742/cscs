@@ -33,7 +33,7 @@ parts:
           - file: chapters/03-methods/0305-lab03
           - file: chapters/03-methods/0306-review
 
-      - file: chapters/04-decision/0400-decision-intro  
+      - file: chapters/04-decision/0400-decision-intro
         sections: 
           - file: chapters/04-decision/0401-intro-decision
           - file: chapters/04-decision/0402-ifstatement
@@ -94,12 +94,12 @@ parts:
 
       - file: chapters/10-datastructure/1000-datastructure-intro
         sections:
-          - file: chapters/10-datastructure/1201-intro-ds
-          - file: chapters/10-datastructure/1202-collection-examples
-          - file: chapters/10-datastructure/1203-searching
-          - file: chapters/10-datastructure/1204-sorting
-          - file: chapters/10-datastructure/1205-lab-ds
-          - file: chapters/10-datastructure/1206-review-ds
+          - file: chapters/10-datastructure/1001-intro-ds
+          - file: chapters/10-datastructure/1002-collection-examples
+          - file: chapters/10-datastructure/1003-searching
+          - file: chapters/10-datastructure/1004-sorting
+          - file: chapters/10-datastructure/1005-lab-ds
+          - file: chapters/10-datastructure/1006-review-ds
 
   - caption: "Part IV. Object-Oriented Programming"
     numbered: true
