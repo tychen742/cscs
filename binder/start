@@ -1,15 +1,3 @@
 #!/usr/bin/env bash
-set -euo pipefail
-
-echo "[binder/start] Starting Binder runtime"
-echo "[binder/start] Python: $(python3 --version 2>/dev/null || true)"
-echo "[binder/start] Dotnet: $(dotnet --version 2>/dev/null || true)"
-echo "[binder/start] dotnet-interactive: $(dotnet-interactive --version 2>/dev/null || true)"
-
-if [ "$#" -gt 0 ]; then
-	echo "[binder/start] Handing off to repo2docker/JupyterHub command: $*"
-	exec "$@"
-fi
-
-echo "[binder/start] No command args received; starting jupyterhub-singleuser"
-exec jupyterhub-singleuser
+set -e
+exec "$@"
