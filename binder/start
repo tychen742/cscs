@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[binder/start] Starting JupyterLab for Thebe/Binder runtime"
+echo "[binder/start] Starting Binder runtime"
 echo "[binder/start] Python: $(python3 --version 2>/dev/null || true)"
 echo "[binder/start] Dotnet: $(dotnet --version 2>/dev/null || true)"
 echo "[binder/start] dotnet-interactive: $(dotnet-interactive --version 2>/dev/null || true)"
 
-exec jupyter lab \
-  --ip=0.0.0.0 \
-  --port=8888 \
-  --no-browser \
-  --ServerApp.token='' \
-  --ServerApp.password='' \
-  --ServerApp.allow_origin='*'
+echo "[binder/start] Handing off to repo2docker/JupyterHub command: $*"
+exec "$@"
