@@ -15,8 +15,8 @@ parts:
 
       - file: chapters/02-var_data/0200-var_type-intro
         sections:
-          - file: chapters/02-var_data/0201-data_types
-          - file: chapters/02-var_data/0202-variables
+          - file: chapters/02-var_data/0201-variables
+          - file: chapters/02-var_data/0202-data_types
           - file: chapters/02-var_data/0203-operators
           - file: chapters/02-var_data/0204-arithmetic
           - file: chapters/02-var_data/0205-strings
@@ -44,27 +44,17 @@ parts:
           - file: chapters/04-decision/0407-lab04
           - file: chapters/04-decision/0408-review
 
-  - caption: "Part II. Iteration & I/O"
+      - file: chapters/05-iteration/0500-iteration-intro
+        sections:
+          - file: chapters/05-iteration/0501-iteration
+          - file: chapters/05-iteration/0502-for-statements
+          - file: chapters/05-iteration/0503-while-statement
+          - file: chapters/05-iteration/0504-lab
+          - file: chapters/05-iteration/0505-review
+
+  - caption: "Part II. Files and Text"
     numbered: true
     chapters:
-      - file: chapters/05-for/0500-for-intro
-        sections:
-          - file: chapters/05-for/0501-intro
-          - file: chapters/05-for/0502-for-statements
-          - file: chapters/05-for/0503-for-examples
-          - file: chapters/05-for/0504-foreach
-          - file: chapters/05-for/0505-lab
-          - file: chapters/05-for/0506-review
-
-      - file: chapters/06-while/0600-while-intro
-        sections:
-          - file: chapters/06-while/0601-while-statement
-          - file: chapters/06-while/0602-while-examples
-          - file: chapters/06-while/0603-do-while
-          - file: chapters/06-while/0604-gcd-examples
-          - file: chapters/06-while/0605-lab-while
-          - file: chapters/06-while/0606-review-while
-
       - file: chapters/07-files/0700-files-intro
         sections:
           - file: chapters/07-files/0701-stream-file
@@ -73,6 +63,15 @@ parts:
           - file: chapters/07-files/0704-paths
           - file: chapters/07-files/0705-lab-file
           - file: chapters/07-files/0706-review-files
+
+      - file: chapters/07-text/0700-text-intro
+        sections:
+          - file: chapters/07-text/0701-text-basics
+          - file: chapters/07-text/0702-splitting-tokenizing
+          - file: chapters/07-text/0703-search-replace
+          - file: chapters/07-text/0704-structured-lines
+          - file: chapters/07-text/0705-lab-text
+          - file: chapters/07-text/0706-review-text
 
   - caption: "Part III. Data Structures"
     numbered: true
@@ -95,13 +94,13 @@ parts:
       - file: chapters/10-datastructure/1000-datastructure-intro
         sections:
           - file: chapters/10-datastructure/1001-intro-ds
-          - file: chapters/10-datastructure/1002-collection-examples
           - file: chapters/10-datastructure/1003-searching
           - file: chapters/10-datastructure/1004-sorting
+          - file: chapters/10-datastructure/1007-complexity
           - file: chapters/10-datastructure/1005-lab-ds
           - file: chapters/10-datastructure/1006-review-ds
 
-  - caption: "Part IV. Object-Oriented Programming"
+  - caption: "Part IV. Object-Oriented"
     numbered: true
     chapters:
       - file: chapters/11-classes/1100-classes-intro
@@ -122,14 +121,26 @@ parts:
           - file: chapters/12-oop/1205-abstraction
           - file: chapters/12-oop/1206-review-oop
 
-      - file: chapters/13-topics/1300-topics-intro
+  - caption: "Part V. Reliability, Testing, and Advanced Topics"
+    numbered: true
+    chapters:
+      - file: chapters/13-topics/1310-reliability-intro
+        sections:
+          - file: chapters/13-topics/1304-error-handling
+          - file: chapters/13-topics/1305-debugging-workflow
+      - file: chapters/13-topics/1311-testing-workflow-intro
         sections:
           - file: chapters/13-topics/1301-testing
-          - file: chapters/13-topics/1302-recursion
+          - file: chapters/13-topics/1309-git-workflow
           - file: chapters/13-topics/1303-lab-selected-topics
+      - file: chapters/13-topics/1312-functional-recursive-intro
+        sections:
+          - file: chapters/13-topics/1302-recursion
+          - file: chapters/13-topics/1306-lambdas
+          - file: chapters/13-topics/1307-linq
 
   - caption: "Appendix"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/14-appendix/14-appendix
         sections:
@@ -145,4 +156,3 @@ parts:
           - file: chapters/14-appendix/lab-versioncontrol
           - file: chapters/14-appendix/project
           - file: chapters/14-appendix/1405-index
-
