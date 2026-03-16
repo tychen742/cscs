@@ -30,6 +30,25 @@ internal class Program
 
         ///// verse
         Verse("chicken", "buk");
+
+
+static string SumProblemString(int a, int b)
+{
+    return $"{a} + {b} = {a + b}";
+}
+    static void MyMethod()              // static: the method can be called directly as a member of the class
+    {                                   // void: no return to caller; just print something here
+        Console.WriteLine("aaaaa");
+        Console.WriteLine("bbbbb");
+    }
+
+    void MyMethod2()              // static: the method can be called directly as a member of the class
+    {                                   // void: no return to caller; just print something here
+        Console.WriteLine("ccccc");
+        Console.WriteLine("ddddd");
+    }
+
+
     }
 
     public static void Verse(String animal, String noise)
@@ -65,17 +84,5 @@ class TryMethods                       // class declaration
 
 {
 
-
-    static void MyMethod()              // static: the method can be called directly as a member of the class
-    {                                   // void: no return to caller; just print something here
-        Console.WriteLine("aaaaa");
-        Console.WriteLine("bbbbb");
-    }
-
-    void MyMethod2()              // static: the method can be called directly as a member of the class
-    {                                   // void: no return to caller; just print something here
-        Console.WriteLine("ccccc");
-        Console.WriteLine("ddddd");
-    }
 
 }
