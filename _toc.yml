@@ -3,7 +3,7 @@ root: chapters/preface
 
 parts:
   - caption: "Part I. Fundamentals"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/01-context/0100-context-intro
         sections:
@@ -53,7 +53,7 @@ parts:
           - file: chapters/05-iteration/0505-review
 
   - caption: "Part II. Files and Text"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/06-files/0600-files-intro
         sections:
@@ -74,7 +74,7 @@ parts:
           - file: chapters/07-text/0706-review-text
 
   - caption: "Part III. Data Structures"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/08-arrays/0800-arrays-intro
         sections:
@@ -101,7 +101,7 @@ parts:
           - file: chapters/10-datastructure/1006-review-ds
 
   - caption: "Part IV. Object-Oriented"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/11-classes/1100-classes-intro
         sections:
@@ -122,7 +122,7 @@ parts:
           - file: chapters/12-oop/1206-review-oop
 
   - caption: "Part V. Reliability, Testing, and Advanced Topics"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/13-topics/1310-reliability-intro
         sections:
@@ -140,7 +140,7 @@ parts:
           - file: chapters/13-topics/1307-linq
 
   - caption: "Appendix"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/14-appendix/14-appendix
         sections:
