@@ -55,14 +55,14 @@ parts:
   - caption: "Part II. Files and Text"
     numbered: false
     chapters:
-      - file: chapters/07-files/0700-files-intro
+      - file: chapters/06-files/0600-files-intro
         sections:
-          - file: chapters/07-files/0701-stream-file
-          - file: chapters/07-files/0702-file-write
-          - file: chapters/07-files/0703-file-read
-          - file: chapters/07-files/0704-paths
-          - file: chapters/07-files/0705-lab-file
-          - file: chapters/07-files/0706-review-files
+          - file: chapters/06-files/0601-stream-file
+          - file: chapters/06-files/0602-file-write
+          - file: chapters/06-files/0603-file-read
+          - file: chapters/06-files/0604-paths
+          - file: chapters/06-files/0605-lab-file
+          - file: chapters/06-files/0606-review-files
 
       - file: chapters/07-text/0700-text-intro
         sections:
