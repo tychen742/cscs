@@ -44,3 +44,4 @@ Notes
 - ??? pip install docutils==0.16 ==> 
 - ??? conf.py: extensions = ['sphinx_tabs.tabs']
 - Esbonio v0.11.0 by Swyddfa for live preview in vscode (included in reStructuredText v190.4.1 by LeXtudio)
+- `_ext/lexer_alias.py`: Sphinx extension that registers `polyglot-notebook` as a Pygments alias for C#. Polyglot Notebooks (VS Code) sets `language_info.name` to `polyglot-notebook`, which Pygments does not recognise. This extension silences the resulting build warning without suppressing all lexer warnings. Loaded via `sphinx.local_extensions` in `_config.yml`.

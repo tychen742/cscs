@@ -51,6 +51,8 @@ repository:
 
 # Sphinx settings (carried over from your existing conf.py)
 sphinx:
+  local_extensions:
+    lexer_alias: _ext
   extra_extensions:
     - sphinx.ext.todo
     - sphinx.ext.mathjax
