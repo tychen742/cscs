@@ -33,5 +33,4 @@ namespace IntroCS
          }
          return -1;
       }
-   }
-}
+     // chunk-linearsearchfrom-end
