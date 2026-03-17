@@ -62,33 +62,38 @@ parts:
           - file: chapters/06-files-text/0603-text-operations
           - file: chapters/06-files-text/0604-lab
           - file: chapters/06-files-text/0605-review
+          - file: chapters/06-files-text/0606-regex
 
-  - caption: "Part III. Data Structures"
+  - caption: "Part III. Data Structures & Algorithms"
     numbered: true
     chapters:
-      - file: chapters/08-arrays/0800-arrays-intro
+      - file: chapters/07-arrays/0700-arrays-intro
         sections:
-          - file: chapters/08-arrays/0801-onedim
-          - file: chapters/08-arrays/0802-twodim
-          - file: chapters/08-arrays/0803-lab-array1d
-          - file: chapters/08-arrays/0804-review-arrays
+          - file: chapters/07-arrays/0701-onedim
+          - file: chapters/07-arrays/0702-twodim
+          - file: chapters/07-arrays/0703-lab-array1d
+          - file: chapters/07-arrays/0704-review-arrays
 
-      - file: chapters/09-collections/0900-collections-intro
+      - file: chapters/08-collections/0800-collections-intro
         sections:
-          - file: chapters/09-collections/0901-collections
-          - file: chapters/09-collections/0902-list
-          - file: chapters/09-collections/0903-dictionary
-          - file: chapters/09-collections/0904-lab-collections
-          - file: chapters/09-collections/0905-review-collections
+          - file: chapters/08-collections/0801-collections
+          - file: chapters/08-collections/0802-list
+          - file: chapters/08-collections/0803-dictionary
+          - file: chapters/08-collections/0804-lab-collections
+          - file: chapters/08-collections/0805-review-collections
 
-      - file: chapters/10-datastructure/1000-datastructure-intro
+      - file: chapters/09-datastructure/0900-datastructure-intro
         sections:
-          - file: chapters/10-datastructure/1001-intro-ds
-          - file: chapters/10-datastructure/1003-searching
-          - file: chapters/10-datastructure/1004-sorting
-          - file: chapters/10-datastructure/1007-complexity
-          - file: chapters/10-datastructure/1005-lab-ds
-          - file: chapters/10-datastructure/1006-review-ds
+          - file: chapters/09-datastructure/0901-intro-ds
+          - file: chapters/09-datastructure/0902-collection-examples
+
+      - file: chapters/10-algorithms/1000-algorithms-intro
+        sections:
+          - file: chapters/10-algorithms/1001-searching
+          - file: chapters/10-algorithms/1002-sorting
+          - file: chapters/10-algorithms/1003-complexity
+          - file: chapters/10-algorithms/1004-lab-algorithms
+          - file: chapters/10-algorithms/1005-review-algorithms
 
   - caption: "Part IV. Object-Oriented"
     numbered: true
@@ -114,20 +119,23 @@ parts:
   - caption: "Part V. Advanced Topics"
     numbered: true
     chapters:
-      - file: chapters/13-reliability/1300-reliability-intro
+      - file: chapters/13-exceptions-debugging/1300-exceptions-debugging-intro
         sections:
-          - file: chapters/13-reliability/1301-error-handling
-          - file: chapters/13-reliability/1302-debugging-workflow
+          - file: chapters/13-exceptions-debugging/1301-error-handling
+          - file: chapters/13-exceptions-debugging/1302-debugging-workflow
       - file: chapters/14-testing/1400-testing-workflow-intro
         sections:
           - file: chapters/14-testing/1401-testing
-          - file: chapters/14-testing/1402-git-workflow
           - file: chapters/14-testing/1403-lab-selected-topics
       - file: chapters/15-functionals/1500-functional-recursive-intro
         sections:
           - file: chapters/15-functionals/1501-recursion
           - file: chapters/15-functionals/1502-lambdas
           - file: chapters/15-functionals/1503-linq
+          - file: chapters/15-functionals/1504-pattern-matching
+          - file: chapters/15-functionals/1505-tuples
+          - file: chapters/15-functionals/1506-lab
+          - file: chapters/15-functionals/1507-review
 
   - caption: "Appendix"
     numbered: true
