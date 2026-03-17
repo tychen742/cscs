@@ -55,23 +55,13 @@ parts:
   - caption: "Part II. Files and Text"
     numbered: true
     chapters:
-      - file: chapters/06-files/0600-files-intro
+      - file: chapters/06-files-text/0600-files-text-intro
         sections:
-          - file: chapters/06-files/0601-stream-file
-          - file: chapters/06-files/0602-file-write
-          - file: chapters/06-files/0603-file-read
-          - file: chapters/06-files/0604-paths
-          - file: chapters/06-files/0605-lab-file
-          - file: chapters/06-files/0606-review-files
-
-      - file: chapters/07-text/0700-text-intro
-        sections:
-          - file: chapters/07-text/0701-text-basics
-          - file: chapters/07-text/0702-splitting-tokenizing
-          - file: chapters/07-text/0703-search-replace
-          - file: chapters/07-text/0704-structured-lines
-          - file: chapters/07-text/0705-lab-text
-          - file: chapters/07-text/0706-review-text
+          - file: chapters/06-files-text/0601-stream-file
+          - file: chapters/06-files-text/0602-file-operations
+          - file: chapters/06-files-text/0603-text-operations
+          - file: chapters/06-files-text/0604-lab
+          - file: chapters/06-files-text/0605-review
 
   - caption: "Part III. Data Structures"
     numbered: true
@@ -105,12 +95,12 @@ parts:
     chapters:
       - file: chapters/11-classes/1100-classes-intro
         sections:
-          - file: chapters/11-classes/1001-intro-class
-          - file: chapters/11-classes/1002-class-examples
-          - file: chapters/11-classes/1003-rational
-          - file: chapters/11-classes/1004-structs
-          - file: chapters/11-classes/1005-lab-classes
-          - file: chapters/11-classes/1006-review-classes
+          - file: chapters/11-classes/1101-intro-class
+          - file: chapters/11-classes/1102-class-examples
+          - file: chapters/11-classes/1103-rational
+          - file: chapters/11-classes/1104-structs
+          - file: chapters/11-classes/1105-lab-classes
+          - file: chapters/11-classes/1106-review-classes
 
       - file: chapters/12-oop/1200-oop-intro
         sections:
@@ -121,38 +111,38 @@ parts:
           - file: chapters/12-oop/1205-abstraction
           - file: chapters/12-oop/1206-review-oop
 
-  - caption: "Part V. Reliability, Testing, and Advanced Topics"
+  - caption: "Part V. Advanced Topics"
     numbered: true
     chapters:
-      - file: chapters/13-topics/1310-reliability-intro
+      - file: chapters/13-reliability/1300-reliability-intro
         sections:
-          - file: chapters/13-topics/1304-error-handling
-          - file: chapters/13-topics/1305-debugging-workflow
-      - file: chapters/13-topics/1311-testing-workflow-intro
+          - file: chapters/13-reliability/1301-error-handling
+          - file: chapters/13-reliability/1302-debugging-workflow
+      - file: chapters/14-testing/1400-testing-workflow-intro
         sections:
-          - file: chapters/13-topics/1301-testing
-          - file: chapters/13-topics/1309-git-workflow
-          - file: chapters/13-topics/1303-lab-selected-topics
-      - file: chapters/13-topics/1312-functional-recursive-intro
+          - file: chapters/14-testing/1401-testing
+          - file: chapters/14-testing/1402-git-workflow
+          - file: chapters/14-testing/1403-lab-selected-topics
+      - file: chapters/15-functionals/1500-functional-recursive-intro
         sections:
-          - file: chapters/13-topics/1302-recursion
-          - file: chapters/13-topics/1306-lambdas
-          - file: chapters/13-topics/1307-linq
+          - file: chapters/15-functionals/1501-recursion
+          - file: chapters/15-functionals/1502-lambdas
+          - file: chapters/15-functionals/1503-linq
 
   - caption: "Appendix"
     numbered: true
     chapters:
-      - file: chapters/14-appendix/14-appendix
+      - file: chapters/16-appendix/16-appendix
         sections:
-          - file: chapters/14-appendix/1401-resources
-          - file: chapters/14-appendix/1402-command-line
-          - file: chapters/14-appendix/1403-precedence
-          - file: chapters/14-appendix/1404-acknowledgments
-          - file: chapters/14-appendix/hgteamwork
-          - file: chapters/14-appendix/homework-gradecalculation
-          - file: chapters/14-appendix/homework-gradecalculation2
-          - file: chapters/14-appendix/hw-booklist
-          - file: chapters/14-appendix/hw-gradefiles
-          - file: chapters/14-appendix/lab-versioncontrol
-          - file: chapters/14-appendix/project
-          - file: chapters/14-appendix/1405-index
+          - file: chapters/16-appendix/1601-resources
+          - file: chapters/16-appendix/1602-command-line
+          - file: chapters/16-appendix/1603-precedence
+          - file: chapters/16-appendix/1604-acknowledgments
+          - file: chapters/16-appendix/hgteamwork
+          - file: chapters/16-appendix/homework-gradecalculation
+          - file: chapters/16-appendix/homework-gradecalculation2
+          - file: chapters/16-appendix/hw-booklist
+          - file: chapters/16-appendix/hw-gradefiles
+          - file: chapters/16-appendix/lab-versioncontrol
+          - file: chapters/16-appendix/project
+          - file: chapters/16-appendix/1605-index
