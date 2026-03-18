@@ -1,3 +1,23 @@
+// Provide fallback globals expected by sphinx-togglebutton and sphinx-thebe.
+// These are set once here to avoid duplicate inline declarations in <head>.
+(function setSphinxInteractiveGlobals() {
+    if (typeof window.togglebuttonSelector === 'undefined') {
+        window.togglebuttonSelector = '.toggle, .admonition.dropdown';
+    }
+    if (typeof window.THEBE_JS_URL === 'undefined') {
+        window.THEBE_JS_URL = 'https://unpkg.com/thebe@0.8.2/lib/index.js';
+    }
+    if (typeof window.thebe_selector === 'undefined') {
+        window.thebe_selector = 'div.cell';
+    }
+    if (typeof window.thebe_selector_input === 'undefined') {
+        window.thebe_selector_input = 'div.cell_input';
+    }
+    if (typeof window.thebe_selector_output === 'undefined') {
+        window.thebe_selector_output = 'div.cell_output';
+    }
+})();
+
 console.log("Custom JS loaded!");
 
 // Filter noisy, non-actionable browser/extension errors from console output.
