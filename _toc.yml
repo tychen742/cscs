@@ -10,6 +10,7 @@ parts:
           - file: chapters/01-context/0101-cs_ideas
           - file: chapters/01-context/0102-dev_tools
           - file: chapters/01-context/0103-program_structure
+          - file: chapters/01-context/0104-preview
           - file: chapters/01-context/0104-lab
           - file: chapters/01-context/0105-review
 
@@ -20,6 +21,7 @@ parts:
           - file: chapters/02-var_data/0203-operators
           - file: chapters/02-var_data/0205-strings
           - file: chapters/02-var_data/0206-input_output
+          - file: chapters/02-var_data/0207-preview
           - file: chapters/02-var_data/0207-lab02
           - file: chapters/02-var_data/0208-review
 
@@ -29,6 +31,7 @@ parts:
           - file: chapters/03-methods/0302-signature_call
           - file: chapters/03-methods/0303-parameter
           - file: chapters/03-methods/0304-summary
+          - file: chapters/03-methods/0305-preview
           - file: chapters/03-methods/0305-lab03
           - file: chapters/03-methods/0306-review
 
@@ -40,6 +43,7 @@ parts:
           - file: chapters/04-decision/0404-nested_if
           - file: chapters/04-decision/0405-compound_boolean
           - file: chapters/04-decision/0406-switch
+          - file: chapters/04-decision/0407-preview
           - file: chapters/04-decision/0407-lab04
           - file: chapters/04-decision/0408-review
 
@@ -48,6 +52,7 @@ parts:
           - file: chapters/05-iteration/0501-iteration
           - file: chapters/05-iteration/0502-for-statements
           - file: chapters/05-iteration/0503-while-statement
+          - file: chapters/05-iteration/0504-preview
           - file: chapters/05-iteration/0504-lab
           - file: chapters/05-iteration/0505-review
 
@@ -59,6 +64,7 @@ parts:
           - file: chapters/06-files-text/0601-stream-file
           - file: chapters/06-files-text/0602-file-operations
           - file: chapters/06-files-text/0603-text-operations
+          - file: chapters/06-files-text/0604-preview
           - file: chapters/06-files-text/0604-lab
           - file: chapters/06-files-text/0605-review
           - file: chapters/06-files-text/0606-regex
@@ -70,6 +76,7 @@ parts:
         sections:
           - file: chapters/07-arrays/0701-onedim
           - file: chapters/07-arrays/0702-twodim
+          - file: chapters/07-arrays/0703-preview
           - file: chapters/07-arrays/0703-lab-array1d
           - file: chapters/07-arrays/0704-review-arrays
 
@@ -78,6 +85,7 @@ parts:
           - file: chapters/08-collections/0801-collections
           - file: chapters/08-collections/0802-list
           - file: chapters/08-collections/0803-dictionary
+          - file: chapters/08-collections/0804-preview
           - file: chapters/08-collections/0804-lab-collections
           - file: chapters/08-collections/0805-review-collections
 
@@ -85,12 +93,15 @@ parts:
         sections:
           - file: chapters/09-datastructure/0901-intro-ds
           - file: chapters/09-datastructure/0902-collection-examples
+          - file: chapters/09-datastructure/0903-preview
+          - file: chapters/09-datastructure/0903-lab-ds
 
       - file: chapters/10-algorithms/1000-algorithms-intro
         sections:
           - file: chapters/10-algorithms/1001-searching
           - file: chapters/10-algorithms/1002-sorting
           - file: chapters/10-algorithms/1003-complexity
+          - file: chapters/10-algorithms/1004-preview
           - file: chapters/10-algorithms/1004-lab-algorithms
           - file: chapters/10-algorithms/1005-review-algorithms
 
@@ -103,6 +114,7 @@ parts:
           - file: chapters/11-classes/1102-properties
           - file: chapters/11-classes/1103-class-instance
           - file: chapters/11-classes/1104-operator-overloading
+          - file: chapters/11-classes/1105-preview
           - file: chapters/11-classes/1105-lab-classes
           - file: chapters/11-classes/1106-review-classes
 
@@ -113,7 +125,9 @@ parts:
           - file: chapters/12-oop/1203-inheritance
           - file: chapters/12-oop/1204-polymorphism
           - file: chapters/12-oop/1205-abstraction
-          - file: chapters/12-oop/1206-review-oop
+          - file: chapters/12-oop/1206-preview
+          - file: chapters/12-oop/1206-lab-oop
+          - file: chapters/12-oop/1207-review-oop
 
   - caption: "Part V. Advanced Topics"
     numbered: true
@@ -122,10 +136,13 @@ parts:
         sections:
           - file: chapters/13-exceptions-debugging/1301-error-handling
           - file: chapters/13-exceptions-debugging/1302-debugging-workflow
+          - file: chapters/13-exceptions-debugging/1303-preview
+          - file: chapters/13-exceptions-debugging/1303-lab-exceptions
       - file: chapters/14-testing/1400-testing-workflow-intro
         sections:
           - file: chapters/14-testing/1401-testing
-          - file: chapters/14-testing/1403-lab-selected-topics
+          - file: chapters/14-testing/1402-preview
+          - file: chapters/14-testing/1402-lab-testing
       - file: chapters/15-selected-topics/1500-selected-topics-intro
         sections:
           - file: chapters/15-selected-topics/1501-recursion
@@ -133,6 +150,7 @@ parts:
           - file: chapters/15-selected-topics/1503-linq
           - file: chapters/15-selected-topics/1504-pattern-matching
           - file: chapters/15-selected-topics/1505-tuples
+          - file: chapters/15-selected-topics/1506-preview
           - file: chapters/15-selected-topics/1506-lab
           - file: chapters/15-selected-topics/1507-review
 
