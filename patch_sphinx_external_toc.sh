@@ -45,6 +45,13 @@ sed -i '' \
     '114s/setdefault(docname, {})\[anchorname\]/setdefault(doc, {})[anchor]/' \
     "$COLLECTORS"
 
+# Fix 3: __replace_toc method — env.toc_secnumbers[ref] raises KeyError when
+#         `ref` (e.g. 'chapters/16-appendix/16-appendix') was never initialized.
+#         Fix: use .setdefault(ref, {}) guard.
+sed -i '' \
+    's/env\.toc_secnumbers\[ref\]\[node\["anchorname"\]\]/env.toc_secnumbers.setdefault(ref, {})[node["anchorname"]]/' \
+    "$COLLECTORS"
+
 echo "Verifying patches..."
 grep -n "toc_secnumbers.setdefault" "$COLLECTORS"
 

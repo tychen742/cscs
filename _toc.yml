@@ -56,20 +56,7 @@ parts:
           - file: chapters/05-iteration/0504-lab
           - file: chapters/05-iteration/0505-review
 
-  - caption: "Part II. Files and Text"
-    numbered: true
-    chapters:
-      - file: chapters/06-files-text/0600-files-text-intro
-        sections:
-          - file: chapters/06-files-text/0601-stream-file
-          - file: chapters/06-files-text/0602-file-operations
-          - file: chapters/06-files-text/0603-text-operations
-          - file: chapters/06-files-text/0604-preview
-          - file: chapters/06-files-text/0604-lab
-          - file: chapters/06-files-text/0605-review
-          - file: chapters/06-files-text/0606-regex
-
-  - caption: "Part III. Data Structures & Algorithms"
+  - caption: "Part II. Working with Data"
     numbered: true
     chapters:
       - file: chapters/07-arrays/0700-arrays-intro
@@ -89,23 +76,17 @@ parts:
           - file: chapters/08-collections/0804-lab-collections
           - file: chapters/08-collections/0805-review-collections
 
-      - file: chapters/09-datastructure/0900-datastructure-intro
+      - file: chapters/06-files-text/0600-files-text-intro
         sections:
-          - file: chapters/09-datastructure/0901-intro-ds
-          - file: chapters/09-datastructure/0902-collection-examples
-          - file: chapters/09-datastructure/0903-preview
-          - file: chapters/09-datastructure/0903-lab-ds
+          - file: chapters/06-files-text/0601-stream-file
+          - file: chapters/06-files-text/0602-file-operations
+          - file: chapters/06-files-text/0603-text-operations
+          - file: chapters/06-files-text/0606-regex
+          - file: chapters/06-files-text/0604-preview
+          - file: chapters/06-files-text/0604-lab
+          - file: chapters/06-files-text/0605-review
 
-      - file: chapters/10-algorithms/1000-algorithms-intro
-        sections:
-          - file: chapters/10-algorithms/1001-searching
-          - file: chapters/10-algorithms/1002-sorting
-          - file: chapters/10-algorithms/1003-complexity
-          - file: chapters/10-algorithms/1004-preview
-          - file: chapters/10-algorithms/1004-lab-algorithms
-          - file: chapters/10-algorithms/1005-review-algorithms
-
-  - caption: "Part IV. Object-Oriented"
+  - caption: "Part III. Object-Oriented"
     numbered: true
     chapters:
       - file: chapters/11-classes/1100-classes-intro
@@ -129,6 +110,26 @@ parts:
           - file: chapters/12-oop/1206-lab-oop
           - file: chapters/12-oop/1207-review-oop
 
+  - caption: "Part IV. DSA"
+    numbered: true
+    chapters:
+
+      - file: chapters/09-datastructure/0900-datastructure-intro
+        sections:
+          - file: chapters/09-datastructure/0901-intro-ds
+          - file: chapters/09-datastructure/0902-collection-examples
+          - file: chapters/09-datastructure/0903-preview
+          - file: chapters/09-datastructure/0903-lab-ds
+
+      - file: chapters/10-algorithms/1000-algorithms-intro
+        sections:
+          - file: chapters/10-algorithms/1001-searching
+          - file: chapters/10-algorithms/1002-sorting
+          - file: chapters/10-algorithms/1003-complexity
+          - file: chapters/10-algorithms/1004-preview
+          - file: chapters/10-algorithms/1004-lab-algorithms
+          - file: chapters/10-algorithms/1005-review-algorithms
+
   - caption: "Part V. Advanced Topics"
     numbered: true
     chapters:
@@ -138,11 +139,13 @@ parts:
           - file: chapters/13-exceptions-debugging/1302-debugging-workflow
           - file: chapters/13-exceptions-debugging/1303-preview
           - file: chapters/13-exceptions-debugging/1303-lab-exceptions
+
       - file: chapters/14-testing/1400-testing-workflow-intro
         sections:
           - file: chapters/14-testing/1401-testing
           - file: chapters/14-testing/1402-preview
           - file: chapters/14-testing/1402-lab-testing
+
       - file: chapters/15-selected-topics/1500-selected-topics-intro
         sections:
           - file: chapters/15-selected-topics/1501-recursion
@@ -155,7 +158,7 @@ parts:
           - file: chapters/15-selected-topics/1507-review
 
   - caption: "Appendix"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/16-appendix/16-appendix
         sections:
