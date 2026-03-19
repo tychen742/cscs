@@ -12,6 +12,7 @@ parts:
           - file: chapters/01-context/0103-program_structure
           - file: chapters/01-context/0104-preview
           - file: chapters/01-context/0104-lab
+          - file: chapters/01-context/lab-versioncontrol
           - file: chapters/01-context/0105-review
 
       - file: chapters/02-var_data/0200-var_type-intro
@@ -50,6 +51,8 @@ parts:
           - file: chapters/05-iteration/0503-while-statement
           - file: chapters/05-iteration/0504-preview
           - file: chapters/05-iteration/0504-lab
+          - file: chapters/05-iteration/homework-gradecalculation
+          - file: chapters/05-iteration/homework-gradecalculation2
           - file: chapters/05-iteration/0505-review
 
   - caption: "Part II. Working with Data"
@@ -80,6 +83,7 @@ parts:
           - file: chapters/06-files-text/0606-regex
           - file: chapters/06-files-text/0604-preview
           - file: chapters/06-files-text/0604-lab
+          - file: chapters/06-files-text/hw-gradefiles
           - file: chapters/06-files-text/0605-review
 
   - caption: "Part III. Object-Oriented"
@@ -93,6 +97,7 @@ parts:
           - file: chapters/11-classes/1104-operator-overloading
           - file: chapters/11-classes/1105-preview
           - file: chapters/11-classes/1105-lab-classes
+          - file: chapters/11-classes/hw-booklist
           - file: chapters/11-classes/1106-review-classes
 
       - file: chapters/12-oop/1200-oop-intro
@@ -156,17 +161,7 @@ parts:
   - caption: "Appendix"
     numbered: false
     chapters:
-      - file: chapters/16-appendix/16-appendix
-        sections:
-          - file: chapters/16-appendix/1601-resources
-          - file: chapters/16-appendix/1602-command-line
-          - file: chapters/16-appendix/1603-precedence
-          - file: chapters/16-appendix/1604-acknowledgments
-          - file: chapters/16-appendix/hgteamwork
-          - file: chapters/16-appendix/homework-gradecalculation
-          - file: chapters/16-appendix/homework-gradecalculation2
-          - file: chapters/16-appendix/hw-booklist
-          - file: chapters/16-appendix/hw-gradefiles
-          - file: chapters/16-appendix/lab-versioncontrol
-          - file: chapters/16-appendix/project
-          - file: chapters/16-appendix/1605-index
+      - file: chapters/16-appendix/1601-resources
+      - file: chapters/16-appendix/1602-command-line
+      - file: chapters/16-appendix/project
+      - file: chapters/16-appendix/1605-index
