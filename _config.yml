@@ -75,6 +75,8 @@ sphinx:
       default: { linenos: false }
       # csharp: { linenos: true }
     nb_number_source_lines: false
+    copyright: "2024, Tsangyao Chen, Ph.D."
+    html_show_copyright: false
 
     thebe_config:
       repository_url: https://github.com/tychen742/cscs
