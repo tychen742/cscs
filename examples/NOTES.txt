@@ -4,3 +4,47 @@ This command will reformat the C# files using the following rules:
 - indented namespaces
 
 astyle -s3 --recursive --indent-namespaces '*.cs'
+
+---
+
+KNOWN OVERLAPS / INTENDED RELATIONSHIPS
+----------------------------------------
+
+PROGRESSIVE SERIES (pedagogical, each step adds something):
+  addition1 -> addition2 -> addition2a -> addition3
+    addition1:  flat code, no helper function
+    addition2:  introduces SumProblemString() with string concatenation
+    addition2a: same but uses string.Format()
+    addition3:  same but uses UIF.PromptInt() for input
+
+  birthday1 -> birthday2 -> birthday3 -> birthday4 -> birthday_who
+  check_digits1 -> check_digits2
+  input_in_range1 -> input_in_range2 -> input_in_range2_bad
+  sum_to_n_test -> sum_to_n_test_long -> sum_to_n_long_bad -> sum_to_n_long_bad2 -> sum_to_n_long_quick
+  wages1 -> wages2
+  interface_syntax1 through interface_syntax8
+  bisection_method1 (hardcoded) -> bisection_method (polymorphic)
+  g_c_d_basic, g_c_d_subtraction_method, g_c_d_remainder_loop, g_c_d_euclid_recursive (four distinct algorithms)
+  gcdbruteforce: older/simpler version of g_c_d_basic (no namespace, wider loop bound)
+
+INTENTIONAL BEFORE/AFTER PAIRS:
+  bad_scope  / good_scope
+  bad_sum    / good_sum
+  static_version / instance_version  (same guessing-game algorithm, static vs. instance method)
+  reversed_print / reversed_string   (same reversal, void-print vs. string-return)
+  hello_you1 / hello_you2            (same greeting, string concat vs. format string)
+  interview  / interview2            (same I/O, flat code vs. extracted function)
+  contact1   / contact2              (same Contact class, v2 adds setters + ToString)
+  fake_help_verbose / dict_lab_stub  (same chatbot logic, hardcoded vs. file-driven responses)
+  mod7_table / mod_mult_table        (hardcoded mod-7 vs. generalized for any modulus)
+
+RATIONAL CLASS (appears in multiple standalone projects — copies are necessary):
+  rational_nunit/rational.cs         authoritative unit-test version; Normalize() capitalized
+  interfaces/rational.cs             adds IComparable<Rational>; normalize() lowercase
+  rational_ops_stub/rational.cs      student lab stub — operator bodies left for the student
+  test_rational/test_rational.cs     manual driver only; no Rational class of its own
+  NOTE: rational_nunit and interfaces diverge intentionally for different lessons.
+
+TEXT ADVENTURE (two evolutionary stages):
+  cs_project1:    older style — private fields + manual getter methods
+  csproject_stub: modernized — C# auto-properties + CommandMapper abstraction

@@ -1,4 +1,13 @@
-﻿namespace IntroCSCS
+﻿// NOTE: searching.cs, binary_searching.cs, and sorting.cs in this folder are
+// modernized versions of the corresponding files in examples/searching/,
+// examples/binary_searching/, and examples/sorting/. They differ in:
+//   - namespace: IntroCSCS (here) vs. IntroCS (examples/)
+//   - method names: BubbleSort (here) vs. IntArrayBubbleSort (examples/)
+//   - indentation/code style updated to current conventions
+// These copies are intentional — this is a standalone .NET 8 project while
+// examples/ targets an older framework.
+
+namespace IntroCSCS
 {
     internal class Program
     {
