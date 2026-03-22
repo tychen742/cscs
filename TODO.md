@@ -2,7 +2,9 @@
 
 ## Cleanup
 
-is "selected topics" appropriate for 
+1. [ ] place preview, lab, review into an Assignment folder, and also create solutions for them. i've got some ideas and will discuss with you.
+2. [ ] NN00 intro vs NN01 intro.
+3. [ ] 
 
 ## Content
 
