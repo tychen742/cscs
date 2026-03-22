@@ -8,7 +8,7 @@ partial class Input
       // string dayOfWeek = "Monday";
       // Console.WriteLine(dayOfWeek); 
       // string toBeOrNot1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
-      string toBeOrNot2 = "\"To be, or not to be\" is a speech given by Prince Hamlet.";
+      string toBeOrNot2 = "\"To be, or not to be\" is a speech given by Prince Hamlet.";  
 
       // Console.WriteLine(toBeOrNot1);
       Console.WriteLine(toBeOrNot2);
