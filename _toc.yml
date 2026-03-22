@@ -55,7 +55,7 @@ parts:
           - file: chapters/05-iteration/homework-gradecalculation2
           - file: chapters/05-iteration/0505-review
 
-  - caption: "Part II. Working with Data"
+  - caption: "Part II. Data and I/O"
     numbered: true
     chapters:
       - file: chapters/07-arrays/0700-arrays-intro
@@ -111,7 +111,7 @@ parts:
           - file: chapters/12-oop/1206-lab-oop
           - file: chapters/12-oop/1207-review-oop
 
-  - caption: "Part IV. DSA"
+  - caption: "Part IV. Data Structures & Algorithms"
     numbered: true
     chapters:
 
@@ -121,6 +121,7 @@ parts:
           - file: chapters/09-datastructure/0902-collection-examples
           - file: chapters/09-datastructure/0903-preview
           - file: chapters/09-datastructure/0903-lab-ds
+          - file: chapters/09-datastructure/0904-review-datastructure
 
       - file: chapters/10-algorithms/1000-algorithms-intro
         sections:
