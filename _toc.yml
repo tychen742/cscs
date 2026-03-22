@@ -111,7 +111,7 @@ parts:
           - file: chapters/12-oop/1206-lab-oop
           - file: chapters/12-oop/1207-review-oop
 
-  - caption: "Part IV. Data Structures & Algorithms"
+  - caption: "Part IV. DSA"
     numbered: true
     chapters:
 
@@ -135,29 +135,34 @@ parts:
   - caption: "Part V. Advanced Topics"
     numbered: true
     chapters:
-      - file: chapters/13-exceptions-debugging/1300-exceptions-debugging-intro
+      - file: chapters/13-exceptions-testing/1300-exceptions-debugging-intro
         sections:
-          - file: chapters/13-exceptions-debugging/1301-error-handling
-          - file: chapters/13-exceptions-debugging/1302-debugging-workflow
-          - file: chapters/13-exceptions-debugging/1303-preview
-          - file: chapters/13-exceptions-debugging/1303-lab-exceptions
+          - file: chapters/13-exceptions-testing/1301-error-handling
+          - file: chapters/13-exceptions-testing/1302-debugging-workflow
+          - file: chapters/13-exceptions-testing/1303-testing
+          - file: chapters/13-exceptions-testing/1304-preview
+          - file: chapters/13-exceptions-testing/1305-lab-exceptions
+          - file: chapters/13-exceptions-testing/1306-review-exceptions
 
-      - file: chapters/14-testing/1400-testing-workflow-intro
+      - file: chapters/14-selected-topics/1400-selected-topics-intro
         sections:
-          - file: chapters/14-testing/1401-testing
-          - file: chapters/14-testing/1402-preview
-          - file: chapters/14-testing/1402-lab-testing
+          - file: chapters/14-selected-topics/1401-recursion
+          - file: chapters/14-selected-topics/1402-lambdas
+          - file: chapters/14-selected-topics/1403-linq
+          - file: chapters/14-selected-topics/1404-preview
+          - file: chapters/14-selected-topics/1405-lab
+          - file: chapters/14-selected-topics/1406-review
 
-      - file: chapters/15-selected-topics/1500-selected-topics-intro
+      - file: chapters/15-modern-csharp/1500-modern-csharp-intro
         sections:
-          - file: chapters/15-selected-topics/1501-recursion
-          - file: chapters/15-selected-topics/1502-lambdas
-          - file: chapters/15-selected-topics/1503-linq
-          - file: chapters/15-selected-topics/1504-pattern-matching
-          - file: chapters/15-selected-topics/1505-tuples
-          - file: chapters/15-selected-topics/1506-preview
-          - file: chapters/15-selected-topics/1506-lab
-          - file: chapters/15-selected-topics/1507-review
+          - file: chapters/15-modern-csharp/1501-pattern-matching
+          - file: chapters/15-modern-csharp/1502-records
+          - file: chapters/15-modern-csharp/1503-nullable
+          - file: chapters/15-modern-csharp/1504-generics
+          - file: chapters/15-modern-csharp/1505-async
+          - file: chapters/15-modern-csharp/1507-preview
+          - file: chapters/15-modern-csharp/1508-lab
+          - file: chapters/15-modern-csharp/1509-review
 
   - caption: "Appendix"
     numbered: false
