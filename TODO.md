@@ -14,8 +14,10 @@
 
 - [ ] Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (doesn't mention generics/async)
 - [ ] Add sample solutions notebook for Ch.15 lab
+- [ ] Consolidate the AI_guidelines.ipynb file in the projects (cscs, py, dsm) to have the same shared components
 
 ## Build
 
 - [ ] Verify `jbb` succeeds cleanly after all TOC changes
 - [ ] Check cross-references between Ch.9 tuples section and Ch.15 records
+- [ ] Verify `jbb` builds cleanly after all TOC restructuring changes
