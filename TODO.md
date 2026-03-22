@@ -1,12 +1,13 @@
 # TODO
 
-## Cleanup
+## 1. Cleanup
 
 1. [ ] place preview, lab, review into an Assignment folder, and also create solutions for them. i've got some ideas and will discuss with you.
 2. [ ] NN00 intro vs NN01 intro.
-3. [ ] 
+3. [ ] normalize the chapter folders to match the book chapters online and normalize the section filenames.
+4. [ ] Add one chapter to Appendices about Tooling.
 
-## Content
+## 2. Content
 
 1. [x] Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (doesn't mention generics/async)
 2. [ ] Add sample solutions notebook for Ch.15 lab
@@ -14,13 +15,13 @@
 4. [ ] Check all chapter sections for quality issues. For example, 
 5. [ ] Reflow all paragraphs in book content so each paragraph is a single line (for better wrapping and formatting)
 
-## Build
+## 3. Build
 
 1. [ ] Verify `jbb` succeeds cleanly after all TOC changes
 2. [ ] Check cross-references between Ch.9 tuples section and Ch.15 records
 3. [ ] Verify `jbb` builds cleanly after all TOC restructuring changes
 
-## Done
+## 4. Done
 
 8. [x] Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (doesn't mention generics/async)
 1. [x] Remove `examples/Properties/` stub folders (~134)

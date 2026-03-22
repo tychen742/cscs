@@ -1,6 +1,6 @@
 namespace InputOutput;
 
-class Input
+partial class Input
 {
 
    public static void Main(string[] args)

@@ -1,11 +1,15 @@
+namespace InputOutput;
 
-static int PromptIntInRange(string prompt, int lowLim, int highLim)
+partial class Input
 {
-    int number = UIF.PromptInt(prompt);
-    while (number < lowLim || number > highLim)
+    static int PromptIntInRange(string prompt, int lowLim, int highLim)
     {
-        Console.WriteLine("{0} is out of range!", number);
-        number = UIF.PromptInt(prompt);
+        int number = UIF.PromptInt(prompt);
+        while (number < lowLim || number > highLim)
+        {
+            Console.WriteLine("{0} is out of range!", number);
+            number = UIF.PromptInt(prompt);
+        }
+        return number;
     }
-    return number;
 }
