@@ -17,8 +17,6 @@ parse:
     if_else_if: "`if`-`else`-`if`"
     do_while: "`do`-`while`"
     vscode: "Visual Studio Code"
-    vscode_toggle: "Toggle Panel"
-    vscode_terminal: "TERMINAL"
     repsrc: "https://github.com/tychen742/cscs/tree/main/examples"
     # repsrc: "examples"  # local copy of repo examples
 
@@ -58,6 +56,8 @@ sphinx:
     - sphinx.ext.mathjax
     - sphinxcontrib.youtube
   config:
+    html_theme_options:
+      show_toc_level: 2
     html_static_path:
       - _static
       - images
