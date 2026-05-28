@@ -49,6 +49,7 @@ repository:
 
 # Sphinx settings (carried over from your existing conf.py)
 sphinx:
+  recursive_update: true
   local_extensions:
     lexer_alias: _ext
   extra_extensions:
