@@ -1,1 +1,2 @@
-rsync -avz --delete ~/workspace/cscs/_build/html/ tychen@thinkcscs.org:/var/www/cscs/
+#!/usr/bin/env bash
+exec ~/ai_shared/scripts/sync.sh cscs "$@"
