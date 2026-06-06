@@ -1,5 +1,5 @@
 format: jb-book
-root: chapters/preface
+root: preface
 
 parts:
   - caption: "Part I. Fundamentals"
@@ -10,10 +10,10 @@ parts:
           - file: chapters/01-context/0101-cs_ideas
           - file: chapters/01-context/0102-dev_tools
           - file: chapters/01-context/0103-program_structure
-          - file: chapters/01-context/0104-preview
-          - file: chapters/01-context/0104-lab
-          # - file: chapters/01-context/lab-versioncontrol
-          - file: chapters/01-context/0105-review
+          - file: chapters/01-context/assignments/preview
+          - file: chapters/01-context/assignments/lab
+          # - file: chapters/01-context/assignments/lab-versioncontrol
+          - file: chapters/01-context/assignments/review
 
       - file: chapters/02-var_data/0200-var_type-intro
         sections:
@@ -21,9 +21,9 @@ parts:
           - file: chapters/02-var_data/0202-data_types
           - file: chapters/02-var_data/0203-operators
           - file: chapters/02-var_data/0206-input_output
-          - file: chapters/02-var_data/0207-preview
-          - file: chapters/02-var_data/0207-lab02
-          - file: chapters/02-var_data/0208-review
+          - file: chapters/02-var_data/assignments/preview
+          - file: chapters/02-var_data/assignments/lab
+          - file: chapters/02-var_data/assignments/review
 
       - file: chapters/03-methods/0300-methods-intro
         sections:
@@ -31,29 +31,29 @@ parts:
           - file: chapters/03-methods/0302-signature_call
           - file: chapters/03-methods/0303-parameter
           - file: chapters/03-methods/0304-summary
-          - file: chapters/03-methods/0305-preview
-          - file: chapters/03-methods/0305-lab03
-          - file: chapters/03-methods/0306-review
+          - file: chapters/03-methods/assignments/preview
+          - file: chapters/03-methods/assignments/lab
+          - file: chapters/03-methods/assignments/review
 
       - file: chapters/04-decision/0400-decision-intro
         sections:
           - file: chapters/04-decision/0401-intro-decision
           - file: chapters/04-decision/0402-ifstatement
           - file: chapters/04-decision/0406-switch
-          - file: chapters/04-decision/0407-preview
-          - file: chapters/04-decision/0407-lab04
-          - file: chapters/04-decision/0408-review
+          - file: chapters/04-decision/assignments/preview
+          - file: chapters/04-decision/assignments/lab
+          - file: chapters/04-decision/assignments/review
 
       - file: chapters/05-iteration/0500-iteration-intro
         sections:
           - file: chapters/05-iteration/0501-iteration
           - file: chapters/05-iteration/0502-for-statements
           - file: chapters/05-iteration/0503-while-statement
-          - file: chapters/05-iteration/0504-preview
-          - file: chapters/05-iteration/0504-lab
-          - file: chapters/05-iteration/homework-gradecalculation
-          - file: chapters/05-iteration/homework-gradecalculation2
-          - file: chapters/05-iteration/0505-review
+          - file: chapters/05-iteration/assignments/preview
+          - file: chapters/05-iteration/assignments/lab
+          - file: chapters/05-iteration/assignments/homework-gradecalculation
+          - file: chapters/05-iteration/assignments/homework-gradecalculation2
+          - file: chapters/05-iteration/assignments/review
 
   - caption: "Part II. Data and I/O"
     numbered: true
@@ -62,18 +62,18 @@ parts:
         sections:
           - file: chapters/07-arrays/0701-onedim
           - file: chapters/07-arrays/0702-twodim
-          - file: chapters/07-arrays/0703-preview
-          - file: chapters/07-arrays/0703-lab-array1d
-          - file: chapters/07-arrays/0704-review-arrays
+          - file: chapters/07-arrays/assignments/preview
+          - file: chapters/07-arrays/assignments/lab
+          - file: chapters/07-arrays/assignments/review
 
       - file: chapters/08-collections/0800-collections-intro
         sections:
           - file: chapters/08-collections/0801-collections
           - file: chapters/08-collections/0802-list
           - file: chapters/08-collections/0803-dictionary
-          - file: chapters/08-collections/0804-preview
-          - file: chapters/08-collections/0804-lab-collections
-          - file: chapters/08-collections/0805-review-collections
+          - file: chapters/08-collections/assignments/preview
+          - file: chapters/08-collections/assignments/lab
+          - file: chapters/08-collections/assignments/review
 
       - file: chapters/06-files-text/0600-files-text-intro
         sections:
@@ -81,10 +81,10 @@ parts:
           - file: chapters/06-files-text/0602-file-operations
           - file: chapters/06-files-text/0603-text-operations
           - file: chapters/06-files-text/0606-regex
-          - file: chapters/06-files-text/0604-preview
-          - file: chapters/06-files-text/0604-lab
-          - file: chapters/06-files-text/hw-gradefiles
-          - file: chapters/06-files-text/0605-review
+          - file: chapters/06-files-text/assignments/preview
+          - file: chapters/06-files-text/assignments/lab
+          - file: chapters/06-files-text/assignments/hw-gradefiles
+          - file: chapters/06-files-text/assignments/review
 
   - caption: "Part III. Object-Oriented"
     numbered: true
@@ -95,10 +95,10 @@ parts:
           - file: chapters/11-classes/1102-properties
           - file: chapters/11-classes/1103-class-instance
           - file: chapters/11-classes/1104-operator-overloading
-          - file: chapters/11-classes/1105-preview
-          - file: chapters/11-classes/1105-lab-classes
-          - file: chapters/11-classes/hw-booklist
-          - file: chapters/11-classes/1106-review-classes
+          - file: chapters/11-classes/assignments/preview
+          - file: chapters/11-classes/assignments/lab
+          - file: chapters/11-classes/assignments/hw-booklist
+          - file: chapters/11-classes/assignments/review
 
       - file: chapters/12-oop/1200-oop-intro
         sections:
@@ -107,9 +107,9 @@ parts:
           - file: chapters/12-oop/1203-inheritance
           - file: chapters/12-oop/1204-polymorphism
           - file: chapters/12-oop/1205-abstraction
-          - file: chapters/12-oop/1206-preview
-          - file: chapters/12-oop/1206-lab-oop
-          - file: chapters/12-oop/1207-review-oop
+          - file: chapters/12-oop/assignments/preview
+          - file: chapters/12-oop/assignments/lab
+          - file: chapters/12-oop/assignments/review
 
   - caption: "Part IV. DSA"
     numbered: true
@@ -119,18 +119,18 @@ parts:
         sections:
           - file: chapters/09-datastructure/0901-intro-ds
           - file: chapters/09-datastructure/0902-collection-examples
-          - file: chapters/09-datastructure/0903-preview
-          - file: chapters/09-datastructure/0903-lab-ds
-          - file: chapters/09-datastructure/0904-review-datastructure
+          - file: chapters/09-datastructure/assignments/preview
+          - file: chapters/09-datastructure/assignments/lab
+          - file: chapters/09-datastructure/assignments/review
 
       - file: chapters/10-algorithms/1000-algorithms-intro
         sections:
           - file: chapters/10-algorithms/1001-searching
           - file: chapters/10-algorithms/1002-sorting
           - file: chapters/10-algorithms/1003-complexity
-          - file: chapters/10-algorithms/1004-preview
-          - file: chapters/10-algorithms/1004-lab-algorithms
-          - file: chapters/10-algorithms/1005-review-algorithms
+          - file: chapters/10-algorithms/assignments/preview
+          - file: chapters/10-algorithms/assignments/lab
+          - file: chapters/10-algorithms/assignments/review
 
   - caption: "Part V. Advanced Topics"
     numbered: true
@@ -140,18 +140,18 @@ parts:
           - file: chapters/13-exceptions-testing/1301-error-handling
           - file: chapters/13-exceptions-testing/1302-debugging-workflow
           - file: chapters/13-exceptions-testing/1303-testing
-          - file: chapters/13-exceptions-testing/1304-preview
-          - file: chapters/13-exceptions-testing/1305-lab-exceptions
-          - file: chapters/13-exceptions-testing/1306-review-exceptions
+          - file: chapters/13-exceptions-testing/assignments/preview
+          - file: chapters/13-exceptions-testing/assignments/lab
+          - file: chapters/13-exceptions-testing/assignments/review
 
       - file: chapters/14-selected-topics/1400-selected-topics-intro
         sections:
           - file: chapters/14-selected-topics/1401-recursion
           - file: chapters/14-selected-topics/1402-lambdas
           - file: chapters/14-selected-topics/1403-linq
-          - file: chapters/14-selected-topics/1404-preview
-          - file: chapters/14-selected-topics/1405-lab
-          - file: chapters/14-selected-topics/1406-review
+          - file: chapters/14-selected-topics/assignments/preview
+          - file: chapters/14-selected-topics/assignments/lab
+          - file: chapters/14-selected-topics/assignments/review
 
       - file: chapters/15-modern-csharp/1500-modern-csharp-intro
         sections:
@@ -160,13 +160,14 @@ parts:
           - file: chapters/15-modern-csharp/1503-nullable
           - file: chapters/15-modern-csharp/1504-generics
           - file: chapters/15-modern-csharp/1505-async
-          - file: chapters/15-modern-csharp/1507-preview
-          - file: chapters/15-modern-csharp/1508-lab
-          - file: chapters/15-modern-csharp/1509-review
+          - file: chapters/15-modern-csharp/assignments/preview
+          - file: chapters/15-modern-csharp/assignments/lab
+          - file: chapters/15-modern-csharp/assignments/review
 
   - caption: "Appendix"
     numbered: false
     chapters:
-      - file: chapters/16-appendix/1601-resources
-      - file: chapters/16-appendix/1602-command-line
-      - file: chapters/16-appendix/1605-index
+      - file: chapters/appendices/resources
+      - file: chapters/appendices/command-line
+      - file: chapters/appendices/project
+      - file: chapters/appendices/cs-index

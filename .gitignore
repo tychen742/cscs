@@ -24,7 +24,11 @@ obj/
 project.lock.json
 project.assets.json
 
+# Jupyter Book build output
+_build/
+
 # .NET Interactive / Jupyter cache
 .jupyter/
 __pycache__/
 *.pyc
+.ipynb_checkpoints/

@@ -15,12 +15,28 @@ Read `~/ai_shared/skills/book-authoring/SKILL.md` for all pedagogy, structure, a
 - This book is about CS and IT, not just programming syntax — conceptual parts are important
 - Published as a Jupyter Book
 
+## Memory
+
+Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this project and the user. Write all new memories there — not here, not in `.claude/`.
+
 ## Read First
 
-1. `authoring/BOOK_PLAN.md` for audience, scope, and chapter sequence
-2. `authoring/PROGRESS.md` for chapter status before touching any chapter
-3. `_toc.yml` for the current notebook order
-4. The target chapter's `MATERIALS.md` and `ORGANIZATION.md` before editing that chapter
+1. `~/workspace/ai_shared/memory/MEMORY.md` for prior decisions and context
+2. `authoring/BOOK_PLAN.md` for audience, scope, and chapter sequence
+3. `authoring/PROGRESS.md` for chapter status before touching any chapter
+4. `_toc.yml` for the current notebook order
+5. The target chapter's `MATERIALS.md` and `ORGANIZATION.md` before editing that chapter
+
+## Structure Decisions (as of 2026-06-06)
+
+- Notebooks use the `csharp` kernel; named `XXYY-slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
+- Preferred 3 content section notebooks per chapter (one per class meeting)
+- Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
+- Each chapter has `assignments/` subfolder with `index`, `preview`, `lab`, `review` notebooks
+- Chapter sequence is ch01–ch15; project instructions live in `chapters/appendices/`
+- Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
+- Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
+- Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding
 
 ## Chapter Organization
 
@@ -54,7 +70,7 @@ Footnote cells must be independent markdown cells.
 Each chapter must have three assignment notebooks in this order:
 
 | Type | File pattern | Specs |
-|------|-------------|-------|
+| ---- | ----------- | ----- |
 | Preview quiz | `NN0X-preview` | 5–10 conceptual questions from the content sections |
 | Lab | `NN0X-lab` | ~5 connected technical questions on one theme; each question builds on previous output |
 | Review (homework) | `NN0X-review` | 5–10 questions; majority are coding practice directly on the chapter's topics |

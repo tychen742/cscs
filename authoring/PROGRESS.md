@@ -49,3 +49,11 @@ Status values: `Draft` · `In Progress` · `Needs Review` · `Complete`
 | 16 | Resources | In Progress | |
 | 16 | Command Line | In Progress | |
 | 16 | Index | In Progress | |
+
+## Pending Actions
+
+1. Verify `jbb` builds cleanly after TOC restructuring
+2. Remove `examples/Properties/` stub folders (~134) and `examples/bin/` output folders (~125) from `materials/examples/`
+3. Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (missing generics/async)
+4. Check cross-references between Ch.9 data structures and Ch.15 records
+5. Delete stale root files: `requirements.txt_OLD`, empty `test` file, `_ext/__pycache__/`
