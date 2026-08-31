@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0
 # Create non-root user required by mybinder.org
 ARG NB_USER=jovyan
 ARG NB_UID=1000
-ENV NB_USER=${NB_USER} HOME=/home/${NB_USER}
+ENV NB_USER=${NB_USER} USER=${NB_USER} HOME=/home/${NB_USER}
 RUN adduser --disabled-password --gecos "Default user" --uid ${NB_UID} ${NB_USER}
 
 # Python + Jupyter stack
@@ -19,7 +19,8 @@ ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=1
 RUN dotnet tool install --tool-path ${DOTNET_TOOLS} Microsoft.dotnet-interactive --version 1.0.522904
 ENV PATH="${DOTNET_TOOLS}:${PATH}"
 
-# Ensure jovyan owns its home .dotnet dir (created by SDK during tool install)
+# Make the repository available and writable to the Binder user.
+COPY . ${HOME}
 RUN mkdir -p ${HOME}/.dotnet && chown -R ${NB_UID}:${NB_UID} ${HOME}
 
 # Switch to non-root user, install Jupyter kernel, pre-warm
