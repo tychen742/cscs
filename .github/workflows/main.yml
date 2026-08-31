@@ -42,6 +42,7 @@ jobs:
 
       - name: Build Jupyter Book
         run: |
+          jupyter-book clean . --all
           jupyter-book build .
           echo thinkcscs.org > _build/html/CNAME
 

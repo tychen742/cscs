@@ -3,7 +3,7 @@ root: preface
 
 parts:
   - caption: "Part I. Fundamentals"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/01-context/0100-context-intro
         sections:
@@ -56,7 +56,7 @@ parts:
           - file: chapters/05-iteration/assignments/review
 
   - caption: "Part II. Data and I/O"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/07-arrays/0700-arrays-intro
         sections:
@@ -87,7 +87,7 @@ parts:
           - file: chapters/06-files-text/assignments/review
 
   - caption: "Part III. Object-Oriented"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/11-classes/1100-classes-intro
         sections:
@@ -112,7 +112,7 @@ parts:
           - file: chapters/12-oop/assignments/review
 
   - caption: "Part IV. DSA"
-    numbered: true
+    numbered: false
     chapters:
 
       - file: chapters/09-datastructure/0900-datastructure-intro
@@ -133,7 +133,7 @@ parts:
           - file: chapters/10-algorithms/assignments/review
 
   - caption: "Part V. Advanced Topics"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/13-exceptions-testing/1300-exceptions-debugging-intro
         sections:
