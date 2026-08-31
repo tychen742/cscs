@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 02 &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/assignments/lab';</script>
+    <script src="../../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Chapter Review" href="review.html" />
+    <link rel="prev" title="Preview Questions" href="preview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../0200-var_type-intro.html">Variables &amp; Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preview.html">Preview Questions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/02-var_data/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/02-var_data/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 02</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-reassignment">Variable Reassignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-an-algorithm">Implement an Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input">User Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-reading-exercise">Format Reading Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-for-format">Exercise for Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#madlib-exercise">Madlib Exercise</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="lab-02">
+<h1>Lab 02<a class="headerlink" href="#lab-02" title="Link to this heading">#</a></h1>
+<p>We have discussed the development environment and tools,
+the concepts of variables and data types (with some elaborations on arithmetic and
+strings), along with the basic syntax and program structure.</p>
+<p>You might like to do a quick review of some of
+the parts, testing in the <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> program, so you get immediate feedback
+for the statements and expressions.</p>
+<section id="variable-reassignment">
+<h2>Variable Reassignment<a class="headerlink" href="#variable-reassignment" title="Link to this heading">#</a></h2>
+<p><strong>Think First</strong>: For now consider a small, artificial example program:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span><span class="w">      </span><span class="c1">// this is optional as the compiler will do this automatically</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UpdateVars</span><span class="w">   </span><span class="c1">// class name does not have to be the same as Project/Folder name</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span><span class="w">  </span><span class="c1">// simple sequential code updating two variables</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">      </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>emphasizing the ability to <em>reassign</em> variable values.</p>
+<p>Can you <em>predict</em> the result?</p>
+<p><strong>Test</strong>:</p>
+<p>Create a C# project in your workspace/tests directory called <strong>UpdateVars</strong>,
+copy the code to the Program.cs file, run the program and check.</p>
+<p>In case you forget how to do this, follow the following steps:</p>
+<ol class="arabic simple">
+<li><p>Start your terminal (Windows PowerShell or mac Terminal)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> into the <code class="docutils literal notranslate"><span class="pre">workspace/tests</span></code> directory. <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">UpdateVars</span></code> to create the project folder. <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> into the empty project folder. <code class="docutils literal notranslate"><span class="pre">ls</span></code></p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> to create the C# console app project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">.</span></code> to use VS Code to open the project folder and edit the <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> file.</p></li>
+<li><p>Clean up the editor and copy-n-paste the code (line # 1-13) to the VS Code editor.</p></li>
+<li><p>Click on the “Toggle Panel” icon in the upper right corner of VS Code to open terminal.</p></li>
+<li><p>Execute the C# project by issuing <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> (or <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">build</span></code> to compile but not run). (<strong>Save</strong> the project before running the project)</p></li>
+</ol>
+<p>Please note that the program will run without namespace or class.
+Namely, you can just copy line # 7 to 11 and the program will run. You are
+encouraged, though, to copy the whole file to get familiar with the structure of a
+C# program.</p>
+<p>Particularly if you did not guess right, it is important to
+understand what happens, one step at a time. That means keeping
+track of what changes to variables are made by each statement.</p>
+</section>
+<section id="implement-an-algorithm">
+<h2>Implement an Algorithm<a class="headerlink" href="#implement-an-algorithm" title="Link to this heading">#</a></h2>
+<p>Read the following description and:</p>
+<ul class="simple">
+<li><p>create a console app project in your introcscs directory,
+call it <strong>MathFun</strong> (this means you will <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> a directory called
+MathFun and run <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> to create the project)</p></li>
+<li><p>Write the code according to the table below</p></li>
+<li><p>Take a screenshot of the code and the result of its execution</p></li>
+</ul>
+<p>In the table below, statements are referred to by the numbers labeling
+the lines in the code above. We can track the state of each
+variable after each line is executed. A dash is shown where a
+variable is not yet defined. For instance after line 7 is executed, a
+value is given to x, but y is still undefined. Then y gets a value
+in line 8.
+The comment space can be used any time
+it is helpful. In particular it should be used when something
+is printed, since this
+important action does <em>not</em> affect the variable list.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Line</p></th>
+<th class="head"><p>x</p></th>
+<th class="head"><p>y</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>Start at beginning of Main</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>3</p></td>
+<td><p>-</p></td>
+<td><p>initialize x</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>print the value of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>3</p></td>
+<td><p>5</p></td>
+<td><p>5=3+2, using the value of x from the previous line</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>3</p></td>
+<td><p>10</p></td>
+<td><p>10=2*5 on the right; use the value of y from the previous line</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>7</p></td>
+<td><p>10</p></td>
+<td><p>7=10-3 on the right; use the value of x and y from the previous line</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>7</p></td>
+<td><p>10</p></td>
+<td><p>print: 7 10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The critical point here is to always use the most recently assigned value
+of each variable. Unlike in math, symbol values change!</p>
+<p>The order of execution will always be the order of the lines in our
+table. In this simple <em>sequential</em> code, that <em>also</em> follows the
+textual order of the program.</p>
+<p>Following each line of execution of a
+program in the proper order of execution, carefully,
+keeping track of the current values of
+variables, will be called <em>playing computer</em>. A table like the one
+above is an organized way to keep track.</p>
+<p>The line numbering is not very exciting in a simple sequential program,
+but it will become very important when we get to other execution sequences.
+We start with the simple sequential numbering now for consistency, as
+we get used to the idea of such a table following execution sequence.</p>
+</section>
+<section id="user-input">
+<h2>User Input<a class="headerlink" href="#user-input" title="Link to this heading">#</a></h2>
+<p>Read the following description and create a console app project
+in your introcscs directory called <strong>MathDivision</strong> to generate the final outcome.</p>
+<p>We want to develop a program that can do the following:</p>
+<ul class="simple">
+<li><p>Prompt the user for input of two integers, which we will call
+<em>numerator</em> and <em>denominator</em>. For clarity, we are only looking at
+integers, because this assignment is about rational numbers. A
+rational number can always be expressed as a quotient of two integers.</p></li>
+<li><p>Calculate the floating point division result (e.g. 10/4 = 2.5).</p></li>
+<li><p>Calculate the quotient and the remainder (e.g. 10/4 = 2 with a
+remainder of 2 = 2 2/4).</p></li>
+</ul>
+<p>Your final program should work as in this sample run, and use the same
+labeled format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Please enter the numerator? 14
+Please enter the denominator? 4
+Integer division result = 3 with a remainder 2
+Floating point division result = 3.5
+The result as a mixed fraction is 3 2/4.
+</pre></div>
+</div>
+<p>For this lab, the example format <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">2/4</span></code> is sufficient.
+It would look better as <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">1/2</span></code>, but a general
+efficient way to reduce fractions to
+lowest terms is not covered until the section on the algorithm <code class="docutils literal notranslate"><span class="pre">gcd</span></code>.</p>
+<p>To do the part requiring a decimal quotient you are going to
+need to have a <code class="docutils literal notranslate"><span class="pre">double</span></code> value, though your original data
+was of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>You could use the approach in <code class="docutils literal notranslate"><span class="pre">cast</span></code>, with an explicit cast.
+Another approach mentioned in that section was to do the cast implicitly
+in a <code class="docutils literal notranslate"><span class="pre">double</span></code> declaration with initialization from an <code class="docutils literal notranslate"><span class="pre">int</span></code>. If we
+already had <code class="docutils literal notranslate"><span class="pre">int</span></code> variables, <code class="docutils literal notranslate"><span class="pre">numerator</span></code> and
+<code class="docutils literal notranslate"><span class="pre">denominator</span></code>, that were previously assigned their values,
+we could use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">numeratorDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numerator</span><span class="p">;</span><span class="w"> </span><span class="c1">// implicit cast</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">quotientDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeratorDouble</span><span class="o">/</span><span class="n">denominator</span><span class="p">;</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember: at least one operand in a quotient must be <code class="docutils literal notranslate"><span class="pre">double</span></code>
+to get a <code class="docutils literal notranslate"><span class="pre">double</span></code> result.</p>
+<p>To help you get started with your program code,
+we provided this simple <em>stub</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DoTheMath</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Lab stub</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="cm">/* Prompt the user for the numerator using</span>
+<span class="cm">        Console.Write().</span>
+
+<span class="cm">        Convert this text into int numerator using</span>
+<span class="cm">        int.Parse().</span>
+
+<span class="cm">        Do the same for the denominator.</span>
+
+<span class="cm">        Calculate quotient and remainder (as integers)</span>
+<span class="cm">        Use Console.WriteLine() to display the labels</span>
+<span class="cm">        as illustrated in the sample output in the lab.</span>
+
+<span class="cm">        Do the same but using floating point division</span>
+<span class="cm">        and not doing the remainder calculation.</span>
+
+<span class="cm">        Create the sentence with the mixed fraction.</span>
+<span class="cm">        Be careful of the places there are *not* spaces.</span>
+<span class="cm">      */</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You are encouraged to copy this design/algorithm into your
+project file to help with your coding.</p>
+<p>The body of <code class="docutils literal notranslate"><span class="pre">Main</span></code> presently contains only <em>comments</em>, skipped by
+the compiler. We illustrate two forms (being inconsistent for your information only):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">//</span></code> to the end of the <em>same</em> line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/*</span></code> to <code class="docutils literal notranslate"><span class="pre">*/</span></code> through any number of lines.</p></li>
+</ul>
+<p>Again, copy the stub to a project of
+your own and replace the comments with your code to complete it.</p>
+</section>
+<section id="format-reading-exercise">
+<h2>Format Reading Exercise<a class="headerlink" href="#format-reading-exercise" title="Link to this heading">#</a></h2>
+<p>What is printed?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0}{1}{1}{2}"</span><span class="p">,</span><span class="w"> </span><span class="s">"Mi"</span><span class="p">,</span><span class="w"> </span><span class="s">"ssi"</span><span class="p">,</span><span class="w"> </span><span class="s">"ppi"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check yourself.</p>
+</section>
+<section id="exercise-for-format">
+<span id="quotientformat"></span><h2>Exercise for Format<a class="headerlink" href="#exercise-for-format" title="Link to this heading">#</a></h2>
+<p>Write a program, <code class="docutils literal notranslate"><span class="pre">quotient_format.cs</span></code>, that behaves like
+<code class="docutils literal notranslate"><span class="pre">QuotientProblem</span></code>, but generate the sentence using
+<code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> with a format string and no <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+</section>
+<section id="madlib-exercise">
+<h2>Madlib Exercise<a class="headerlink" href="#madlib-exercise" title="Link to this heading">#</a></h2>
+<p>Write a program, <code class="docutils literal notranslate"><span class="pre">my_mad_lib.cs</span></code>, that prompts the user for
+words that fit specified grammatical patterns ( a noun, a verb, a color,
+a city….) and plug them into a multiline format string so they fit
+grammatically, and
+print the usually silly result.
+If you are not used to mad libs, try running (not
+looking at the source code) the example project mad_lib, and then try it
+again with different data.
+If this exercise seems like too big of a challenge yet,
+see our example source code,
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/mad_lib/mad_lib.cs">mad_lib/mad_lib.cs</a>, and then <em>start over</em> on your own.</p>
+<p id="index-0"><strong>Unix Timestamp and Operator Practice</strong></p>
+<p>The Unix epoch began at 00:00:00 UTC on January 1, 1970. Every second that passes increments the Unix timestamp by 1. Run the cell below in script mode to get the current timestamp:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span><span class="w">    </span><span class="c1">// Local time (clock time of the machine running the code)</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">);</span><span class="w"> </span><span class="c1">// Coordinated Universal Time (UTC)</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">timeStamp</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="n">DateTimeOffset</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">).</span><span class="n">ToUnixTimeSeconds</span><span class="p">();</span><span class="w">  </span><span class="c1">// Unix timestamp (number of seconds since January 1, 1970, UTC)</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">timeStamp</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3/22/2026 12:41:09 PM
+3/22/2026 5:41:09 PM
+1774201269
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the operators from this section to answer the following questions:</p>
+<ol class="arabic">
+<li><p><strong>Remainder &amp; Division</strong> — How many full minutes have elapsed since the
+Unix epoch? How many seconds remain after removing the full minutes?</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timeStamp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">remainderSeconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timeStamp</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Chained division</strong> — How many full hours? How many full days?</p></li>
+<li><p><strong>Comparison</strong> — Is the number of elapsed days greater than 20,000?
+Assign the <code class="docutils literal notranslate"><span class="pre">bool</span></code> result to a variable and print it.</p></li>
+<li><p><strong>Compound assignment</strong> — Store the number of elapsed days in a variable.
+Use <code class="docutils literal notranslate"><span class="pre">+=</span></code> to add 365 (simulating one year from now). Print both values.</p></li>
+<li><p><strong>Bitwise</strong> — Use <code class="docutils literal notranslate"><span class="pre">&amp;</span> <span class="pre">1</span></code> on <code class="docutils literal notranslate"><span class="pre">timeStamp</span></code> to determine whether the timestamp
+is odd or even (a bit mask: result is <code class="docutils literal notranslate"><span class="pre">1</span></code> if odd, <code class="docutils literal notranslate"><span class="pre">0</span></code> if even).</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/02-var_data/assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="preview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="review.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-reassignment">Variable Reassignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-an-algorithm">Implement an Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input">User Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-reading-exercise">Format Reading Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-for-format">Exercise for Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#madlib-exercise">Madlib Exercise</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

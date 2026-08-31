@@ -1,0 +1,1208 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Conditional (if) Statements &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/04-decision/0402-ifstatement';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Switch Statement" href="0406-switch.html" />
+    <link rel="prev" title="Boolean Expressions &amp; Logical Operators" href="0401-intro-decision.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0400-decision-intro.html">Conditionals</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/04-decision/0402-ifstatement.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/04-decision/0402-ifstatement.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conditional (if) Statements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simple <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-two-way-selection"><code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements: Two-Way Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements-multi-selection"><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements: Multi-Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements">else-if Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements-for-cases"><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements for Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-conditionals">Nested Conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if-statements">Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if-else-statements">Nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="conditional-if-statements">
+<span id="simple-if-statements"></span><h1>Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements<a class="headerlink" href="#conditional-if-statements" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Simple <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement specifies a block of C# code to be executed if a condition is True.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (condition)
+{
+    // block of code to be executed if the condition is True
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that C# is case sensitive, so <code class="docutils literal notranslate"><span class="pre">If</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">if</span></code>. “If” or “IF” will
+generate an error.</p>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, the comparison operators (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, and <code class="docutils literal notranslate"><span class="pre">!=</span></code>) are used to evaluate the comparison expressions to derive a value of either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> from the Boolean expression.</p>
+<p>The first step to learn about the <code class="docutils literal notranslate"><span class="pre">if</span></code> statements is to perform some tests on the operators
+in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> such as:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"20 is greater than 10"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>with the output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>20 is greater than 10
+</pre></div>
+</div>
+<p>When coding, we often play with variables rather than simple values. Observe the
+following code and test it in csharprepl to practice <code class="docutils literal notranslate"><span class="pre">if</span></code> statements with variables:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"num1 is greater than num2"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Consider simple arithmetic comparisons that directly translate from math into C#.
+In csharprepl, enter:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now think of which of these expressions below are true and which false,
+and then enter each one into your csharp session to test:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span>
+<span class="mi">3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span>
+<span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span>
+</pre></div>
+</div>
+<p>You see that the expressions evaluate to either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. These are the only possible <em>Boolean</em> values.</p>
+<p>Run the example program below. Try it at least twice, with inputs: 30 and then 55. As you can see, you get different results, depending on the input. The main code is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// namespace IntroCSCS</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Chapter04</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Weight</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Weight</span><span class="p">()</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"How many pounds does your suitcase weigh? "</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">());</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"There is a $25 charge for luggage that heavy."</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Thank you for your business."</span><span class="p">);</span><span class="w">      </span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this code, following line numbers as:</p>
+<ul class="simple">
+<li><p>#5: The Main() method in the Chapter04 class called the Weight() method (line #10).</p></li>
+<li><p>#16: the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in the Weight() method test the condition inside the parentheses.</p>
+<ul>
+<li><p>If the condition is true that the weight is greater than 50, then the code block #17-19 would run, printing that there will be a $25 charge.</p></li>
+</ul>
+</li>
+<li><p>#21: <strong>No matter</strong> whether the if statement (#14-17) runs or not, print the “thank you” message.</p></li>
+</ul>
+<p>You can see from this code that:</p>
+<ol class="arabic simple">
+<li><p>the general C# syntax for a simple <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (condition)
+{
+   // statement(s)
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>If the condition is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then <code class="docutils literal notranslate"><span class="pre">execute</span></code> the statement(s) in braces. If the
+condition is <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">true</span></code>, then <code class="docutils literal notranslate"><span class="pre">skip</span></code> the statements in braces.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">condition</span></code> is an <code class="docutils literal notranslate"><span class="pre">expression</span></code> that evaluates to either true or false,
+of type <strong>boolean</strong>.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement only affects the normal sequential order <em>inside</em> the <code class="docutils literal notranslate"><span class="pre">if</span></code>
+statement itself (e.g., skipping the extra charge block when the condition is not true and still print the “thank you” line).</p></li>
+</ol>
+<p>Another code fragment of banking account transaction as an example:</p>
+<p>if (balance &lt; 0)
+{
+transfer = - balance;
+// transfer enough from the backup account:
+backupAccount = backupAccount - transfer;
+balance = balance + transfer;
+}</p>
+<p>The assumption in the example above is that if an account goes negative, it is brought back to 0 by transferring money from a backup account. Note that the choice is between</p>
+<ul class="simple">
+<li><p><strong>doing something</strong> (if the condition is <code class="docutils literal notranslate"><span class="pre">true</span></code>) or</p></li>
+<li><p><strong>nothing</strong> (if the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p></li>
+</ul>
+</section>
+<section id="if-else-statements-two-way-selection">
+<h2><code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements: Two-Way Selection<a class="headerlink" href="#if-else-statements-two-way-selection" title="Link to this heading">#</a></h2>
+<p>Since we can usually start analyzing a problem by coming up with two possibilities,
+it makes sense to add the alternative action to the code, which makes the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements.</p>
+<p>The general C# <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> syntax is:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// statement(s) for if-true;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// statement(s) for if-false;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let us start by running the following example code (Clothes() method in Chapter04.cs).
+Try it at least twice, with inputs 50 and then 80.
+As you can see, you get different results, depending on the input.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// namespace IntroCSCS</span>
+<span class="linenos"> 2</span><span class="c1">// {</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">Chapter04</span>
+<span class="linenos"> 5</span><span class="p">{</span>
+<span class="linenos"> 6</span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="p">{</span>
+<span class="linenos"> 8</span><span class="c1">// Rolla();</span>
+<span class="linenos"> 9</span><span class="c1">// Weight();</span>
+<span class="linenos">10</span><span class="w">   </span><span class="n">Clothes</span><span class="p">();</span>
+<span class="linenos">11</span><span class="p">}</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">   </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Clothes</span><span class="p">()</span>
+<span class="linenos">14</span><span class="w">   </span><span class="p">{</span>
+<span class="linenos">15</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"What is the temperature? "</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">());</span>
+<span class="linenos">17</span><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">temperature</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">70</span><span class="p">)</span>
+<span class="linenos">18</span><span class="w">         </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Wear shorts."</span><span class="p">);</span>
+<span class="linenos">20</span><span class="w">         </span><span class="p">}</span>
+<span class="linenos">21</span><span class="w">      </span><span class="k">else</span>
+<span class="linenos">22</span><span class="w">         </span><span class="p">{</span>
+<span class="linenos">23</span><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Wear long pants."</span><span class="p">);</span>
+<span class="linenos">24</span><span class="w">         </span><span class="p">}</span>
+<span class="linenos">25</span><span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Get some exercise outside."</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">   </span><span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="p">}</span>
+<span class="linenos">29</span><span class="c1">// }</span>
+</pre></div>
+</div>
+<p>You may see a warning in VS Code and when running the code as</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>warning CS8604:
+Possible null reference argument for parameter 's' in 'double double.Parse(string s)'.
+</pre></div>
+</div>
+<p>You can safely disregard the warning message. Basically, C# compiler produces warning at that line because argument of Parse is marked as “non-nullable” and the compiler determined that the parameter input you are passing to that call can be null at the point of call. For more information about this warning, see <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings#possible-null-assigned-to-a-nonnullable-reference">C# language reference</a>.</p>
+<p>After running the code, you see that the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement allows you to choose
+which of the two code paths to follow based on a Boolean expression.
+In an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement, an if statement is followed by an
+<code class="docutils literal notranslate"><span class="pre">else</span></code> statement that is only executed when the original <code class="docutils literal notranslate"><span class="pre">if</span></code> condition is <em>false</em>.
+Note that in an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement, <code class="docutils literal notranslate"><span class="pre">exactly</span> <span class="pre">one</span></code> of two possible code blocks in braces is executed.</p>
+<p>A final print line is also shown that is not indented, about getting exercise. The <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses each only embed a <em>single</em> (possibly compound) statement as option, so the last statement is not part of the <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement. It is beyond the <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement. It is just a part of the normal <code class="docutils literal notranslate"><span class="pre">sequential</span></code> flow of statements and therefore will be executed as part of the flow.</p>
+<div class="note admonition">
+<p class="admonition-title">Scope in Compound Statements</p>
+<p>Just like the local scope in method bodies, which happen to be enclosed in braces, making the function body a <em>compound statement</em>. In fact variables declared inside <em>any</em> compound statement have their scope restricted to <em>inside</em> that compound statement. As a result the following code makes no sense:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">BadBlockScope</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement is legal, but useless, because whichever compound statement gets executed, <code class="docutils literal notranslate"><span class="pre">val</span></code> ceases being defined after the closing brace of its compound statement, so the <code class="docutils literal notranslate"><span class="pre">val</span></code> in the return statement has not been declared or given a value. The code would generate a compiler error.</p>
+<p>If we want <code class="docutils literal notranslate"><span class="pre">val</span></code> to be used inside the braces and to make sense past the end of the compound statement, it cannot be declared inside the braces. Instead it must be declared before the compound statements that are parts of the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement. A local variable in a function declared before a nested compound statement is still visible (in scope) <em>inside</em> that compound statement.</p>
+</div>
+</section>
+<section id="else-if-statements-multi-selection">
+<span id="multiple-tests"></span><span id="index-0"></span><h2><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements: Multi-Selection<a class="headerlink" href="#else-if-statements-multi-selection" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements allow us to construct two alternative paths.
+A single condition determines which path will be followed.
+We can build more complex conditionals using an else if clause, with which
+you can pick between 3 or more possibilities.
+These allow us to add additional conditions and code blocks, which
+facilitate more complex branching.</p>
+</section>
+<section id="else-if-statements">
+<h2>else-if Statements<a class="headerlink" href="#else-if-statements" title="Link to this heading">#</a></h2>
+<p>Comparing with the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement, the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> statements specify
+a new condition to be tested if the first condition is False.</p>
+<p>The syntax for the <code class="docutils literal notranslate"><span class="pre">else-if</span></code> statement is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// block of code to be executed if condition1 is True</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// block of code to be executed if the condition1 is False and condition2 is True</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// block of code to be executed if the condition1 is False and condition2 is False</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the logic of the flow terminate at <code class="docutils literal notranslate"><span class="pre">else</span></code>: The <code class="docutils literal notranslate"><span class="pre">else</span></code> block is the
+default block when all the conditions are False.</p>
+<p>An example of else-if statement is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"x is greater than y"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"x is less than y"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"x and y are equal"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above, the logic is that the three conditions can exhaust
+all possible alternatives. If the first condition is False, the next
+condition, in the else-if statement, will be tested. If the 2nd condition
+is also False, we then move on to the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement, the <strong>default</strong>
+case, since condition1 and condition2 are both False.</p>
+<p>The code below is a variation of the Weight() method. Consider this
+fragment <em>without</em> a final <code class="docutils literal notranslate"><span class="pre">else</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">120</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Sorry, we can not take a suitcase that heavy."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"There is a $25 charge for luggage that heavy."</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with a simple if statement, the else clause is optional in else-if statements.
+This code above only prints one of two lines if there is a
+problem with the weight of the suitcase (&gt; 50 or &gt; 120). Nothing is printed if
+neither of the conditions is met, meaning the weight is not greater than 50.</p>
+</section>
+<section id="else-if-statements-for-cases">
+<span id="else-if-cases"></span><h2><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements for Cases<a class="headerlink" href="#else-if-statements-for-cases" title="Link to this heading">#</a></h2>
+<p>Consider the following code, LetterGrade() method, for converting a
+numerical grade to a letter grade, ‘A’, ‘B’, ‘C’, ‘D’ or ‘F’, where
+the cutoffs for ‘A’, ‘B’, ‘C’, and ‘D’ are 90, 80, 70, and 60
+respectively. We repetitively nests the if statements in
+the else clauses. The code structure is legal but semantically unsound if
+we consider the grade letters to be a flat structure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="nf">LetterGrade</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// grade must be B, C, D or F</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'B'</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// grade must be C, D or F</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">70</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'C'</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// grade must D or F</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'D'</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'F'</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w">   </span><span class="c1">//end else D or F</span>
+<span class="w">        </span><span class="p">}</span><span class="w">      </span><span class="c1">// end of else C, D, or F</span>
+<span class="w">    </span><span class="p">}</span><span class="w">         </span><span class="c1">// end of else B, C, D or F</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As seen in the LetterGrade() method above, the repeatedly increasing indentation
+with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in the <code class="docutils literal notranslate"><span class="pre">else</span></code> clause can be annoying and
+distracting. Here is a preferred
+alternative in this situation, that avoids all this further
+indentation:
+Combine each <code class="docutils literal notranslate"><span class="pre">else</span></code> and following <code class="docutils literal notranslate"><span class="pre">if</span></code> onto the same line,
+and note that the <code class="docutils literal notranslate"><span class="pre">if</span></code> part after each else is just a <em>single</em>
+(possibly very complicated) statement. This allows the elimination of
+some of the braces and make the code more readable and logically clear:</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(</span></code></p>
+<p><em>condition1</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">)</span> <span class="pre">{</span></code></p>
+<p>statement-block-run-if-condition1-is-true;</p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span> <span class="pre">(</span></code></p>
+<p><em>condition2</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">)</span> <span class="pre">{</span></code></p>
+<p>statement-block-run-if-condition2-is-the-first-true;</p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span> <span class="pre">(</span></code></p>
+<p><em>condition3</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">)</span> <span class="pre">{</span></code></p>
+<p>statement-block-run-if-condition3-is-the-first-true;</p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>// …</p>
+<p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">{</span>&#160;&#160;&#160; <span class="pre">//</span></code></p>
+<p><em>no condition!</em></p>
+<p>statement-block-run-if-no condition-is-true;</p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>Note that <em>exactly one</em> of the statement blocks gets executed:
+- If some condition is true, the first block following a true condition is executed.
+- If no condition is true, the <code class="docutils literal notranslate"><span class="pre">else</span></code> block is executed.</p>
+<p>We can modify the LetterGrade() method into <strong>LetterGrade2()</strong>
+method using <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code>, which is more readable and semantically sound:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="nf">LetterGrade2</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">score</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'B'</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">70</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'C'</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'D'</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">letter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'F'</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nested-conditionals">
+<h2>Nested Conditionals<a class="headerlink" href="#nested-conditionals" title="Link to this heading">#</a></h2>
+<p>The problem-solving scenario that you want to model may require
+complex branching behavior by combining conditionals and,
+in particular, by nesting conditionals. Namely, we can create more
+complex branching behavior by nesting conditional blocks.
+When more than one condition needs to be true and one of the
+condition is the sub-condition of parent condition, nested if can be used.
+In other words, when we want to further test certain condition
+when a condition tested true.</p>
+</section>
+<section id="nested-if-statements">
+<h2>Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#nested-if-statements" title="Link to this heading">#</a></h2>
+<p>The syntax for a nested if statement is as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if( boolean_expression 1)
+{
+   /* Executes when the boolean expression 1 is true */
+   if(boolean_expression 2)
+   {
+      /* Executes when the boolean expression 2 is true */
+   }
+}
+</pre></div>
+</div>
+<p>As an example, consider the following code where two separate but
+related ideas are tested using two independent if statements:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int num = 7;
+
+if (num &gt; 0)
+{
+   Console.WriteLine("POSITIVE");
+}
+
+if (num % 2 == 0)
+{
+   Console.WriteLine("EVEN");
+}
+</pre></div>
+</div>
+<p>We find that the output is POSITIVE, even though 7 is odd and so
+nothing should be printed in the 2nd if statement. This code
+doesn’t work as desired if we only want to test for evenness only
+when we already know the number is positive. We can enable this
+behavior by putting the second conditional inside the first as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int num = 7;
+
+if (num &gt; 0)
+{
+   Console.WriteLine("POSITIVE");
+
+   if (num % 2 == 0)
+   {
+      Console.WriteLine("EVEN");
+   }
+}
+</pre></div>
+</div>
+<p>Notice that when we put one conditional inside another, the body of the
+nested conditional is indented by two tabs rather than one. This convention
+provides an easy, visual way to determine which code is part of which conditional.</p>
+<p>Note that nested if statements can also contain an else statement.
+When working with nested statements, the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">clause</span></code> belongs to
+the last unpaired if. You can only use an else when you have an if.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"EVEN"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"ODD"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nested-if-else-statements">
+<h2>Nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements<a class="headerlink" href="#nested-if-else-statements" title="Link to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Often you want to distinguish between more than two distinct cases,
+but conditions only have two possible results, `true` or `false`,
+so the only direct choice is between two options. If there are
+more than two choices, a single test may only reduce the
+possibilities, but further tests can reduce the possibilities
+further and further until the possibilities are exhausted. Since almost
+any kind of statement can be placed in the sub-statements in
+an {{ if_else }} statement, one choice is a further `if` or {{ if_else }} statement.
+
+For instance, consider the LetterGrade() method that you have seen earlier.
+One way to write the method would be to test for one grade at a time, and
+resolve all the remaining possibilities inside the next `else` clause.
+
+If we do this consistently with our indentation conventions so far:
+</pre></div>
+</div>
+<p>static char LetterGrade(double score)
+{
+char letter;
+if (score &gt;= 90) {
+letter = ‘A’;
+}
+else { // grade must be B, C, D or F
+if (score &gt;= 80) {
+letter = ‘B’;
+}
+else { // grade must be C, D or F
+if (score &gt;= 70) {
+letter = ‘C’;
+}
+else { // grade must D or F
+if (score &gt;= 60) {
+letter = ‘D’;
+}
+else {
+letter = ‘F’;
+}
+} //end else D or F
+} // end of else C, D, or F
+} // end of else B, C, D or F
+return letter;
+}
+```</p>
+<p>When working with else statements in nested conditionals, remember that
+the else is paired with the last if that doesn’t have already have an else.
+In the example above, the else statement in line 10 belongs to the if in line 5.
+else and else if rules apply the same way within nested conditionals as in un-nested ones.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements, the sub-statements (the if-true and if-false clauses)
+are quite arbitrary statements. There can be more <code class="docutils literal notranslate"><span class="pre">if</span></code> or
+<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> sub-statements.</p>
+<p>In method LetterGrade() above, we place an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement as the <code class="docutils literal notranslate"><span class="pre">else</span></code>
+clause, and repeating this pattern, to repeatedly test for one more case,
+stopping when the <strong>first true condition if reached</strong>.</p>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/04-decision"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0401-intro-decision.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Boolean Expressions &amp; Logical Operators</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0406-switch.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Switch Statement</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simple <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements-two-way-selection"><code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements: Two-Way Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements-multi-selection"><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements: Multi-Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements">else-if Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-if-statements-for-cases"><code class="docutils literal notranslate"><span class="pre">else-if</span></code> Statements for Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-conditionals">Nested Conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if-statements">Nested <code class="docutils literal notranslate"><span class="pre">if</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if-else-statements">Nested <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Statements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

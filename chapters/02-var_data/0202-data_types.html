@@ -1,0 +1,1529 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Types &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/0202-data_types';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operators" href="0203-operators.html" />
+    <link rel="prev" title="Variables" href="0201-variables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0200-var_type-intro.html">Variables &amp; Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0201-variables.html">Variables</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/02-var_data/0202-data_types.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/02-var_data/0202-data_types.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-types-in-c">Common Data Types in C#</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-built-in-type-system">C# Built-in Type System</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-in-action">Data Types in Action</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-types">Integer Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-types">Floating-Point Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-bool">Boolean (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-char">Character (<code class="docutils literal notranslate"><span class="pre">char</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-string">String (<code class="docutils literal notranslate"><span class="pre">string</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-string">Creating a String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String Concatenation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-special-characters">Escape Special Characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-properties-and-methods">String Properties and Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type Conversion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="types">
+<span id="index-0"></span><h1>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h1>
+<p>In C#, <strong>everything is a type</strong>. Every value you store, every variable you declare, and every expression you write has a type. A <strong>type</strong> defines three things:</p>
+<ul class="simple">
+<li><p><strong>Value</strong>: The <strong>set of valid values</strong> it can hold (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code> holds whole numbers −2,147,483,648 to 2,147,483,647).</p></li>
+<li><p><strong>Operation</strong>: The <strong>operations</strong> permitted on those values (e.g., arithmetic on numbers, <code class="docutils literal notranslate"><span class="pre">.Length</span></code> on strings).</p></li>
+<li><p><strong>Memory</strong>: The <strong>amount of memory</strong> reserved when a variable of that type is created.</p></li>
+</ul>
+<p>C# types can be grouped into two groups: <strong>value</strong> types and <strong>reference</strong> types.</p>
+<p><strong>Value types</strong>:</p>
+<ul class="simple">
+<li><p>Variables of value types directly contain their data.</p></li>
+<li><p>Value types include <strong>primitive</strong> types <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, and <code class="docutils literal notranslate"><span class="pre">struct</span></code> and <code class="docutils literal notranslate"><span class="pre">enum</span></code>.</p></li>
+<li><p>Despite their keyword status, each is simply an alias for a .NET struct or class in the <code class="docutils literal notranslate"><span class="pre">System</span></code> namespace. For example, <code class="docutils literal notranslate"><span class="pre">int</span></code> aliases <code class="docutils literal notranslate"><span class="pre">System.Int32</span></code> and <code class="docutils literal notranslate"><span class="pre">string</span></code> aliases <code class="docutils literal notranslate"><span class="pre">System.String</span></code>. <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+</ul>
+<p><strong>Reference types</strong>:</p>
+<ul class="simple">
+<li><p>Variables of reference types store references to their data (objects).</p></li>
+<li><p>Reference types include <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">interface</span></code>,<code class="docutils literal notranslate"><span class="pre">delegate</span></code>, and <code class="docutils literal notranslate"><span class="pre">record</span></code>.</p></li>
+<li><p>You can define your own types; their fields and properties are themselves typed with built-ins or other custom types.</p></li>
+<li><p>There are three <strong>built-in reference</strong> types:  <code class="docutils literal notranslate"><span class="pre">object</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">delegate</span></code>, and <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>.</p></li>
+</ul>
+<p>Note that:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">struct</span></code> vs <code class="docutils literal notranslate"><span class="pre">class</span></code> is a common C# interview question because they look similar but <code class="docutils literal notranslate"><span class="pre">struct</span></code> is a value type (copied) and <code class="docutils literal notranslate"><span class="pre">class</span></code> is a reference type (shared).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> is the famous exception: it’s technically a reference type, but behaves like a value type because it’s immutable. Reassigning a string always creates a new one rather than modifying the original.</p></li>
+</ul>
+<p>Types split into two fundamental categories:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><strong>Value Types</strong></p></th>
+<th class="head"><p><strong>Reference Types</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Storage</p></td>
+<td><p>Stored directly in the variable</p></td>
+<td><p>Variable holds a reference to heap memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assignment</p></td>
+<td><p>Copies the value</p></td>
+<td><p>Copies the reference (both point to the same object)</p></td>
+</tr>
+<tr class="row-even"><td><p>Default value</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code> / <code class="docutils literal notranslate"><span class="pre">'\0'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Built-in examples</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>User-defined examples</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">struct</span></code>, <code class="docutils literal notranslate"><span class="pre">enum</span></code>, <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">interface</span></code>, <code class="docutils literal notranslate"><span class="pre">delegate</span></code>, <code class="docutils literal notranslate"><span class="pre">record</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="common-data-types-in-c">
+<h2>Common Data Types in C#<a class="headerlink" href="#common-data-types-in-c" title="Link to this heading">#</a></h2>
+<p>C# is a “strongly typed” language, meaning that every variable and constant has a type.
+In addition to variables, types are also required for expressions that evaluate to a
+value, method declarations with names, input parameters, and return values. Examples
+of common value types (declared and initiated with value assignment) are as follows.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">                  </span><span class="c1">// Integer (whole number)</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">myNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15000000000L</span><span class="p">;</span><span class="w">      </span><span class="c1">// Integer</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">myDoubleNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.99D</span><span class="p">;</span><span class="w">     </span><span class="c1">// Floating point number</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">myLetter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'D'</span><span class="p">;</span><span class="w">            </span><span class="c1">// Character</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">myBool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w">             </span><span class="c1">// Boolean</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">myText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span><span class="w">        </span><span class="c1">// String</span>
+</pre></div>
+</div>
+<p>From the list above you may notice that C# requires number <strong>suffixes</strong> for
+numeric types. The purpose of using suffixes is to help the compiler unambiguously
+identify the data type of the value/literal. The basic rules for integral
+literal number suffixes are:</p>
+<ul class="simple">
+<li><p>If an integral literal has no suffix, its type is the first of the following types in
+which its value can be represented: int, uint, long, ulong.</p></li>
+<li><p>l or L for long</p></li>
+<li><p>U or u for unsigned integer</p></li>
+<li><p>UL or ul for unsigned long</p></li>
+</ul>
+<p>For floating-point numeric types:</p>
+<ul class="simple">
+<li><p>The number literal without suffix or with the d or D suffix is of type double</p></li>
+<li><p>f or F suffix is of type float</p></li>
+<li><p>m or M suffix is of type decimal</p></li>
+</ul>
+<p>A purpose of defining data types is for memory allocation. Examples of some
+defined types and their memory size can be seen in the table below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No.</p></th>
+<th class="head"><p>Group</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Precision</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><strong>Integer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></td>
+<td><p>1 byte/8 bits</p></td>
+<td><p></p></td>
+<td><p>Integral range 0 to 255 (no negative values)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">short</span></code></p></td>
+<td><p>16 bits</p></td>
+<td><p></p></td>
+<td><p>Integral range -32,768 to 32,767</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p></p></td>
+<td><p><strong>*</strong> <strong><code class="docutils literal notranslate"><span class="pre">int</span></code></strong></p></td>
+<td><p>4 bytes/32 bits</p></td>
+<td><p></p></td>
+<td><p>Integral range -2,147,483,648 to 2,147,483,647</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+<td><p>8 bytes/64 bits</p></td>
+<td><p></p></td>
+<td><p>Integral range -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><strong>Floating Point</strong></p></td>
+<td><p><strong>*</strong> <code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>4 bytes/32 bits</p></td>
+<td><p>~6-9 digits</p></td>
+<td><p>Fractional numbers</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p></p></td>
+<td><p><strong><code class="docutils literal notranslate"><span class="pre">double</span></code></strong></p></td>
+<td><p>8 bytes/64 bits</p></td>
+<td><p>~15-17 digits</p></td>
+<td><p>Fractional numbers, general math</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p></td>
+<td><p>16 bytes/128 bits</p></td>
+<td><p>28-29 digits</p></td>
+<td><p>Fractional numbers, high precision (use for money)</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p><strong>Boolean</strong></p></td>
+<td><p><strong>*</strong> <strong><code class="docutils literal notranslate"><span class="pre">bool</span></code></strong></p></td>
+<td><p>1 bit</p></td>
+<td><p></p></td>
+<td><p>True or false values</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p><strong>Text</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p>2 bytes</p></td>
+<td><p></p></td>
+<td><p>Single character, single quotes <code class="docutils literal notranslate"><span class="pre">'A'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p></p></td>
+<td><p><strong>*</strong> <strong><code class="docutils literal notranslate"><span class="pre">string</span></code></strong></p></td>
+<td><p>2 bytes per character</p></td>
+<td><p></p></td>
+<td><p>Sequence of characters, double quotes <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Choosing types is a design decision to meet the needs of different use scenarios.
+For example, for financial unit, the <em>decimal</em> type may be a better choice because it
+is designed for the purpose of holding a larger range of digits with higher precision.</p>
+<p>One attribute of the integral value data types is that they can be either signed or
+unsigned. A signed type uses its bytes to represent an equal number of positive
+and negative numbers; whereas an unsigned type (such as <code class="docutils literal notranslate"><span class="pre">ushort</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>) uses its bytes to represent only positive numbers. The difference between
+singed and unsigned numbers can be seen from the example below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Signed integral types:"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"sbyte   : {sbyte.MinValue} to {sbyte.MaxValue} \t\t\t\t\t (max: 2^8-1)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"short  : {short.MinValue} to {short.MaxValue} \t\t\t\t (max: 2^15-1)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"int    : {int.MinValue} to {int.MaxValue}    \t\t\t (max: 2^31-1)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"long   : {long.MinValue} to {long.MaxValue} \t (max: 2^63-1)"</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Unsigned integral types:"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"byte   : {byte.MinValue} to {byte.MaxValue}     \t\t\t\t\t (2^8)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"ushort : {ushort.MinValue} to {ushort.MaxValue} \t\t\t\t\t (2^16)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"uint   : {uint.MinValue} to {uint.MaxValue} \t\t\t\t (2^32)"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"ulong  : {ulong.MinValue} to {ulong.MaxValue} \t\t\t (2^64)"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Signed integral types:
+sbyte   : -128 to 127 					 (max: 2^8-1)
+short  : -32768 to 32767 				 (max: 2^15-1)
+int    : -2147483648 to 2147483647    			 (max: 2^31-1)
+long   : -9223372036854775808 to 9223372036854775807 	 (max: 2^63-1)
+
+Unsigned integral types:
+byte   : 0 to 255     					 (2^8)
+ushort : 0 to 65535 					 (2^16)
+uint   : 0 to 4294967295 				 (2^32)
+ulong  : 0 to 18446744073709551615 			 (2^64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see the output as below:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Signed integral types:
+sbyte  : -128 to 127
+short  : -32768 to 32767
+int    : -2147483648 to 2147483647
+long   : -9223372036854775808 to 9223372036854775807
+
+Unsigned integral types:
+byte   : 0 to 255
+ushort : 0 to 65535
+uint   : 0 to 4294967295
+ulong  : 0 to 18446744073709551615
+</pre></div>
+</div>
+<section id="c-built-in-type-system">
+<span id="index-1"></span><h3>C# Built-in Type System<a class="headerlink" href="#c-built-in-type-system" title="Link to this heading">#</a></h3>
+<p>C# is a <strong>statically typed</strong> language — every value has a type known at compile
+time. Types fall into two fundamental categories:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C# Types
+├── Value Types          (stored directly on the stack)
+│   ├── Simple Types
+│   │   ├── Integral     sbyte  byte  short  ushort  int  uint  long  ulong  char
+│   │   ├── Floating     float  double
+│   │   ├── Decimal      decimal
+│   │   └── Boolean      bool
+│   ├── Enum Types       (user-defined named constants)
+│   └── Struct Types     (user-defined value types)
+└── Reference Types      (stored on the heap; variable holds a reference)
+    ├── Class Types      string  object  and user-defined classes
+    ├── Interface Types
+    ├── Array Types
+    └── Delegate Types
+</pre></div>
+</div>
+<p><strong>Value types</strong> hold their data directly. Assigning one value-type variable to
+another <em>copies</em> the value. <strong>Reference types</strong> hold a reference (memory
+address) to the data; assigning one reference-type variable to another copies
+the reference, not the data itself.</p>
+<p>Each C# primitive type is an alias for a .NET struct in the <code class="docutils literal notranslate"><span class="pre">System</span></code> namespace —
+for example, <code class="docutils literal notranslate"><span class="pre">int</span></code> is <code class="docutils literal notranslate"><span class="pre">System.Int32</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code> is <code class="docutils literal notranslate"><span class="pre">System.Boolean</span></code>, and <code class="docutils literal notranslate"><span class="pre">string</span></code>
+is <code class="docutils literal notranslate"><span class="pre">System.String</span></code>.</p>
+</section>
+</section>
+<section id="data-types-in-action">
+<span id="index-2"></span><h2>Data Types in Action<a class="headerlink" href="#data-types-in-action" title="Link to this heading">#</a></h2>
+<p>The following subsections explore each built-in type through examples you can
+run in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>.</p>
+<section id="integer-types">
+<span id="index-3"></span><h3>Integer Types<a class="headerlink" href="#integer-types" title="Link to this heading">#</a></h3>
+<p><strong>Integer types</strong> store whole numbers with no fractional part. The most common
+choice is <code class="docutils literal notranslate"><span class="pre">int</span></code> (32-bit signed), which covers roughly ±2.1 billion. Use <code class="docutils literal notranslate"><span class="pre">long</span></code>
+(64-bit) when you need a larger range, or <code class="docutils literal notranslate"><span class="pre">byte</span></code> for small non-negative values
+(0–255).</p>
+<p>Unsigned variants (<code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">ulong</span></code>, <code class="docutils literal notranslate"><span class="pre">ushort</span></code>, <code class="docutils literal notranslate"><span class="pre">byte</span></code>) hold only non-negative
+values, which doubles the positive range but disallows negatives.</p>
+<p>Numeric literals default to <code class="docutils literal notranslate"><span class="pre">int</span></code>. Use suffixes to specify other types:
+<code class="docutils literal notranslate"><span class="pre">L</span></code>/<code class="docutils literal notranslate"><span class="pre">l</span></code> for <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>/<code class="docutils literal notranslate"><span class="pre">u</span></code> for <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">UL</span></code>/<code class="docutils literal notranslate"><span class="pre">ul</span></code> for <code class="docutils literal notranslate"><span class="pre">ulong</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">population</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">_147_483_647</span><span class="p">;</span><span class="w">        </span><span class="c1">// int max (~2.1 billion); _ is a digit separator</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">worldPopulation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="n">_000_000_000L</span><span class="p">;</span><span class="w"> </span><span class="c1">// needs L suffix — too large for int</span>
+<span class="kt">byte</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w">                         </span><span class="c1">// 0–255, no negative values</span>
+<span class="kt">sbyte</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="p">;</span><span class="w">               </span><span class="c1">// -128–127</span>
+<span class="kt">uint</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="n">_000_000U</span><span class="p">;</span><span class="w">               </span><span class="c1">// unsigned: 0–4.29 billion</span>
+
+<span class="c1">// Signed vs unsigned: same bits, different interpretation</span>
+<span class="kt">int</span><span class="w">  </span><span class="n">signed</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">uint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint</span><span class="p">)</span><span class="n">signed</span><span class="p">;</span><span class="w">           </span><span class="c1">// becomes 4294967295 (all bits set)</span>
+<span class="n">signed</span>
+<span class="n">unsigned</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="floating-point-types">
+<span id="index-4"></span><h3>Floating-Point Types<a class="headerlink" href="#floating-point-types" title="Link to this heading">#</a></h3>
+<p>C# has three types for fractional numbers:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Precision</p></th>
+<th class="head"><p>Suffix</p></th>
+<th class="head"><p>Use for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>32-bit</p></td>
+<td><p>~6–9 digits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code></p></td>
+<td><p>Graphics, sensors</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td><p>64-bit</p></td>
+<td><p>~15–17 digits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">d</span></code> or <code class="docutils literal notranslate"><span class="pre">D</span></code> (default)</p></td>
+<td><p>General math</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p></td>
+<td><p>128-bit</p></td>
+<td><p>28–29 digits</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span></code> or <code class="docutils literal notranslate"><span class="pre">M</span></code></p></td>
+<td><p>Money, finance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">double</span></code> is the default type for decimal literals. Use <code class="docutils literal notranslate"><span class="pre">decimal</span></code> whenever
+rounding errors are unacceptable (e.g., currency); never use <code class="docutils literal notranslate"><span class="pre">float</span></code>/<code class="docutils literal notranslate"><span class="pre">double</span></code>
+for money.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Floating-point arithmetic is approximate — <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.2</span></code> does not equal <code class="docutils literal notranslate"><span class="pre">0.3</span></code>
+exactly in binary representation.</p>
+<p>This is not a C# bug; it is a consequence of how computers store fractional
+numbers. Memory stores bits (0s and 1s), so values are encoded in <strong>base 2
+(binary)</strong>. Just as 1/3 cannot be written exactly in base 10 (0.3333…), many
+decimal fractions — including 0.1 and 0.2 — cannot be represented exactly in
+binary. The closest representable binary value is used instead, and when you
+add two of these approximations the tiny errors accumulate, giving a result
+like <code class="docutils literal notranslate"><span class="pre">0.30000000000000004</span></code> instead of <code class="docutils literal notranslate"><span class="pre">0.3</span></code>.</p>
+<p>For money or anything where exact decimal rounding matters, use <code class="docutils literal notranslate"><span class="pre">decimal</span></code>,
+which stores numbers in base 10 internally and avoids this problem entirely.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14F</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.141592653589793</span><span class="p">;</span><span class="w">    </span><span class="c1">// default decimal literal type</span>
+<span class="kt">decimal</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">19.99M</span><span class="p">;</span><span class="w">          </span><span class="c1">// use M suffix for decimal</span>
+
+<span class="c1">// Precision difference</span>
+<span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="w">                        </span><span class="c1">// 0.30000000000000004 — binary rounding</span>
+<span class="mf">0.1M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2M</span><span class="w">                      </span><span class="c1">// 0.3 — decimal is exact</span>
+<span class="n">f</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<span class="n">price</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="boolean-bool">
+<span id="index-5"></span><h3>Boolean (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)<a class="headerlink" href="#boolean-bool" title="Link to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">bool</span></code> holds exactly one of two values: <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. It is the result
+of any comparison or logical expression, and is the required type for <code class="docutils literal notranslate"><span class="pre">if</span></code>
+conditions and loop guards.</p>
+<p>Unlike C/C++, C# does <strong>not</strong> allow integers to be used as booleans — <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(1)</span></code>
+is a compile-time error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">isOnline</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">hasExpired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">inRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">   </span><span class="c1">// true</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">isEven</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">        </span><span class="c1">// false</span>
+
+<span class="n">isOnline</span>
+<span class="n">inRange</span>
+<span class="n">isEven</span>
+<span class="n">isEven</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="character-char">
+<span id="index-6"></span><h3>Character (<code class="docutils literal notranslate"><span class="pre">char</span></code>)<a class="headerlink" href="#character-char" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">char</span></code> represents a single Unicode UTF-16 character, written in <strong>single
+quotes</strong>. Internally it is stored as a 16-bit unsigned integer, so it can be
+cast to and from <code class="docutils literal notranslate"><span class="pre">int</span></code>. Common escape sequences:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sequence</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'\n'</span></code></p></td>
+<td><p>Newline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'\t'</span></code></p></td>
+<td><p>Tab</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'\\'</span></code></p></td>
+<td><p>Backslash</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'\''</span></code></p></td>
+<td><p>Single quote</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">'A'</span></code> (char) is different from <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code> (string of length 1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">letter</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">digit</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="sc">'7'</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">newline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">unicode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">'\</span><span class="n">u00E9</span><span class="err">'</span><span class="p">;</span><span class="w">       </span><span class="c1">// é — U+00E9 LATIN SMALL LETTER E WITH ACUTE</span>
+
+<span class="c1">// char ↔ int</span>
+<span class="kt">int</span><span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span><span class="w">            </span><span class="c1">// 65 — implicit cast to int</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)(</span><span class="n">code</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 'B' — explicit cast back</span>
+
+<span class="n">letter</span>
+<span class="n">code</span>
+<span class="n">back</span>
+<span class="n">unicode</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-string">
+<span id="index-7"></span><span id="string"></span><h3>String (<code class="docutils literal notranslate"><span class="pre">string</span></code>)<a class="headerlink" href="#string-string" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code> is a sequence of <code class="docutils literal notranslate"><span class="pre">char</span></code> values, written in <strong>double quotes</strong>. Strings
+are <strong>immutable</strong> — operations like concatenation return a new string.</p>
+<p>Key features:</p>
+<ul class="simple">
+<li><p><strong>Interpolation</strong>: embed expressions with <code class="docutils literal notranslate"><span class="pre">$&quot;...{expr}...&quot;</span></code></p></li>
+<li><p><strong>Verbatim literals</strong>: prefix with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to treat backslashes literally (useful
+for file paths)</p></li>
+<li><p><strong>Common members</strong>: <code class="docutils literal notranslate"><span class="pre">.Length</span></code>, <code class="docutils literal notranslate"><span class="pre">.ToUpper()</span></code>, <code class="docutils literal notranslate"><span class="pre">.ToLower()</span></code>, <code class="docutils literal notranslate"><span class="pre">.Contains()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">.Substring()</span></code>, <code class="docutils literal notranslate"><span class="pre">.Replace()</span></code>, indexing with <code class="docutils literal notranslate"><span class="pre">[i]</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Hello, {name}!"</span><span class="p">;</span><span class="w">     </span><span class="c1">// string interpolation</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">@"C:\Users\Alice\docs"</span><span class="p">;</span><span class="w"> </span><span class="c1">// verbatim: backslashes are literal</span>
+
+<span class="c1">// Common operations</span>
+<span class="n">name</span><span class="p">.</span><span class="n">Length</span><span class="w">                              </span><span class="c1">// 5</span>
+<span class="n">name</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">()</span><span class="w">                           </span><span class="c1">// "ALICE"</span>
+<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w">                                  </span><span class="c1">// 'A' — char at index 0</span>
+<span class="n">name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"lic"</span><span class="p">)</span><span class="w">                     </span><span class="c1">// true</span>
+<span class="n">name</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">)</span><span class="w">             </span><span class="c1">// "Bob"</span>
+
+<span class="n">greeting</span>
+<span class="n">path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A string is a <strong>sequence of characters</strong> — each character has a numeric
+index starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>. For example, in <code class="docutils literal notranslate"><span class="pre">&quot;formosa&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'f'</span></code> is at index 0
+and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is at index 6. The last character is always at index <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Index</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Character</p></td>
+<td><p>f</p></td>
+<td><p>o</p></td>
+<td><p>r</p></td>
+<td><p>m</p></td>
+<td><p>o</p></td>
+<td><p>s</p></td>
+<td><p>a</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When represented in code, indexing works like the example below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ilha formosa"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that, in the example above, the output is a character since strings consist of characters. Note that the <code class="docutils literal notranslate"><span class="pre">char</span></code> type literals are created by delimiting the characters by <strong>single quotation</strong> marks.</p>
+</section>
+<section id="creating-a-string">
+<h3>Creating a String<a class="headerlink" href="#creating-a-string" title="Link to this heading">#</a></h3>
+<p>There are many ways to declare and initialize a variable of type string, most of them involve using an assignment statement to assign the variable with a value.</p>
+<p>As an example, to create a string variable in C# REPL:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Monday"</span><span class="p">;</span><span class="w"> </span>
+<span class="n">dayOfWeek</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the different ways of <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#declaring-and-initializing-strings">declaring and initializing</a> a string variable, see below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma warning disable CS8632</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
+
+<span class="kt">string</span><span class="w"> </span><span class="n">message1</span><span class="p">;</span><span class="w">                </span><span class="c1">// Declare without initializing.</span>
+<span class="kt">string?</span><span class="w"> </span><span class="n">message2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span><span class="w">        </span><span class="c1">// Initialize to null.</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">message3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span><span class="w">  </span><span class="c1">// Initialize as an empty string use the Empty constant instead of the literal "".</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">oldPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"c:\\Program Files\\Microsoft Visual Studio 8.0"</span><span class="p">;</span><span class="w">  </span><span class="c1">// Initialize with a regular string literal.</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">newPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"c:\Program Files\Microsoft Visual Studio 9.0"</span><span class="p">;</span><span class="w">   </span><span class="c1">// Initialize with a verbatim string literal.</span>
+<span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World!"</span><span class="p">;</span><span class="w">    </span><span class="c1">// Use System.String if you prefer.</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"I'm still a strongly-typed System.String!"</span><span class="p">;</span><span class="w"> </span><span class="c1">// In local variables (i.e. within a method body) you can use implicit typing.</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"You can't get rid of me!"</span><span class="p">;</span><span class="w"> </span><span class="c1">// Use a const string to prevent 'message4' from being used to store another string value.</span>
+<span class="kt">char</span><span class="p">[]</span><span class="w"> </span><span class="n">letters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'B'</span><span class="p">,</span><span class="w"> </span><span class="sc">'C'</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Use the String constructor only when creating a string from a char*, char[], or sbyte*. See System.String documentation for details.</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">alphabet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="n">letters</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"1. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message1</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"2. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message2</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"3. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message3</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"4. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">oldPath</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"5. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">newPath</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"6. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">greeting</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"7. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">temp</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"8. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message4</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"9. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">letters</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"10. "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alphabet</span><span class="p">);</span>
+
+<span class="cp">#pragma warning restore CS8632</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1. 
+2. 
+3. 
+4. c:\Program Files\Microsoft Visual Studio 8.0
+5. c:\Program Files\Microsoft Visual Studio 9.0
+6. Hello World!
+7. I'm still a strongly-typed System.String!
+8. You can't get rid of me!
+9. System.Char[]
+10. ABC
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since this is a console app, we use the TERMINAL in VS Code to do <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> to see the project outcome. Make sure you are in the right project directory, though.</p>
+</section>
+<section id="string-concatenation">
+<span id="index-8"></span><span id="id2"></span><h3>String Concatenation<a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h3>
+<p>String concatenation is to join stings together. In C#, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator is used to perform concatenation. Note C# uses the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator for both arithmetic addition and concatenation. To concatenate two strings together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tsangyao"</span><span class="p">;</span><span class="w">    </span><span class="c1">// assign value to variable</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">lastName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">" Chen"</span><span class="p">;</span>
+
+<span class="n">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lastName</span><span class="w">              </span><span class="c1">// concatenation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tsangyao Chen
+</pre></div>
+</div>
+</div>
+</div>
+<p>C# can also concatenate values of different data types. The example below
+shows you how to concatenate data of string type and int type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
+<span class="s">"I spent "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" dollars on coffee this week."</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="escape-special-characters">
+<h3>Escape Special Characters<a class="headerlink" href="#escape-special-characters" title="Link to this heading">#</a></h3>
+<p id="index-9">Since C# requires double quotation marks as delimiters for creating strings, when we need
+to show quotation marks as part of a string, the situation becomes tricky. Consider the
+following string toBe1. We see that there is a syntax error at (1,18) (line# 1, character# 18)
+when trying to put a quotation inside the string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">toBe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="n">To</span><span class="w"> </span><span class="n">be</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="s">" is a speech given by Prince Hamlet."</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1,18): error CS1002: ; expected
+
+(1,25): error CS1044: Cannot use more than one type in a for, using, fixed, or declaration statement
+
+(1,28): error CS1002: ; expected
+
+(1,35): error CS1002: ; expected
+
+(1,37): error CS1002: ; expected
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make the quotation work, we need to use the special character backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> as <em>escape character</em>,
+meaning that the character following it should be treated specially: They turns
+special characters into string characters.</p>
+<p>string toBe2 = “”To be, or not to be” is a speech given by Prince Hamlet.”;</p>
+<p>Console.WriteLine(toBe2);</p>
+<p>In our example above, the <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">\&quot;To</span> <span class="pre">be</span></code> and <code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">be\&quot;</span></code> are escaped and
+therefore special character <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> can be treated as string and shown as intended.</p>
+<p>Another example would look like the following.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Goog morning!"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"He said, \"Goog morning!\"."</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Goog morning!
+He said, "Goog morning!".
+</pre></div>
+</div>
+</div>
+</div>
+<p>Common special cases to be escaped include:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Escape character</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (quote)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'</span></code> ( single quote in char literal)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\</span></code> (backslash)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td><p>new line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td><p>new tab</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The newline character (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) inserts a new line and move the cursor
+to the beginning of the new line. This is useful because C# string literals
+are characters delimited by double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> in one line. <a class="footnote-reference brackets" href="#footnote-1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> To
+print to multiple lines, we use <code class="docutils literal notranslate"><span class="pre">\n</span></code> like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Good morning. Good afternoon. Good evening."</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Good morning. \nGood afternoon. \nGood evening."</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Good morning. Good afternoon. Good evening.
+Good morning. 
+Good afternoon. 
+Good evening.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-properties-and-methods">
+<span id="more-string-methods"></span><h3>String Properties and Methods<a class="headerlink" href="#string-properties-and-methods" title="Link to this heading">#</a></h3>
+<p>Although we use string literals, strings are objects. In object-oriented-programming,
+objects have <em>instance properties</em> and <em>instance methods</em>. Some examples of C# string
+properties and methods are:</p>
+<p>The length of a string can be found using the <code class="docutils literal notranslate"><span class="pre">Length</span></code> property:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"The length of the txt string is: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">txt</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the txt string is: 26
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many string methods available <a class="footnote-reference brackets" href="#footnote-2" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. As examples, ToUpper() and ToLower()
+return a copy of the string converted to uppercase or lowercase:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">txt</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">());</span><span class="w">   </span><span class="c1">// Outputs "HELLO WORLD"</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">txt</span><span class="p">.</span><span class="n">ToLower</span><span class="p">());</span><span class="w">   </span><span class="c1">// Outputs "hello world"</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO WORLD
+hello world
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="type-conversion">
+<span id="index-10"></span><h2>Type Conversion<a class="headerlink" href="#type-conversion" title="Link to this heading">#</a></h2>
+<p>C# variables have specific types, but values sometimes need to move between
+types. Type conversions are either <strong>implicit</strong> (automatic) or <strong>explicit</strong>
+(manual cast required).</p>
+<p><strong>Implicit casting</strong> happens automatically when converting a smaller type to a
+larger one — no data is lost:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>char → int → long → float → double
+</pre></div>
+</div>
+<p><strong>Explicit casting</strong> is required when converting a larger type to a smaller one,
+because precision or range may be lost:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>double → float → long → int → char
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">        </span><span class="c1">// implicit: int fits in long, no cast needed</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// explicit: long → int, cast required</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">GetType()</span></code> to inspect a variable’s type at runtime. When types are <em>not</em>
+cast properly, C# raises a compile-time error. For example, assigning a <code class="docutils literal notranslate"><span class="pre">double</span></code>
+directly to an <code class="docutils literal notranslate"><span class="pre">int</span></code> fails:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that if you choose to agree with the message and perform a type casting, you lose the
+precision of <code class="docutils literal notranslate"><span class="pre">double</span></code> over an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span><span class="w">       </span><span class="c1">// create a double type variable d</span>
+<span class="n">d</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">                </span><span class="c1">// declare an int without value assignment</span>
+<span class="n">i</span><span class="w">                     </span><span class="c1">// get the (default) value of an int</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w">           </span><span class="c1">// explicitly telling the compiler you intend the conversion</span>
+<span class="n">i</span><span class="w">                     </span><span class="c1">// get the value of i; the value .5 is lost</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p id="index-11">Rounding is similar to casting a floating type to possible as it gives us an <code class="docutils literal notranslate"><span class="pre">int</span></code> type.
+The function <code class="docutils literal notranslate"><span class="pre">Math.Round</span></code> will round to a mathematical integer, but leaves
+the type unchanged. So we need to perform a type casting after rounding:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Round</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">        </span><span class="c1">// rounding and re-assignment</span>
+<span class="n">d</span>
+<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span><span class="w">               </span><span class="c1">// the type remains</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Round</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">   </span><span class="c1">// casting to int</span>
+<span class="n">i</span>
+<span class="n">i</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span><span class="w">               </span><span class="c1">// type correct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Casting from int to double is usually not necessary but cause of implicit conversion.
+A use case for this would be when doing divisions, where <code class="docutils literal notranslate"><span class="pre">double</span></code> would work better than
+<code class="docutils literal notranslate"><span class="pre">int</span></code>. As an example, using csharprepl, we see that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
+<span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="w">               </span><span class="c1">// an integer division</span>
+<span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="w">      </span><span class="c1">// intended operation; casting required</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="rubric">Footnotes</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>For the full C# type system reference, see the
+<a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types">Types section in C# reference)</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footnote-1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>You can use <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim">verbatim text</a> to achieve multiple line text.</p>
+</aside>
+<aside class="footnote brackets" id="footnote-2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>See <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0#methods">String methods</a> for a complete list.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/02-var_data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0201-variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variables</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0203-operators.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-types-in-c">Common Data Types in C#</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-built-in-type-system">C# Built-in Type System</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-in-action">Data Types in Action</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-types">Integer Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-types">Floating-Point Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-bool">Boolean (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-char">Character (<code class="docutils literal notranslate"><span class="pre">char</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-string">String (<code class="docutils literal notranslate"><span class="pre">string</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-string">Creating a String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String Concatenation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-special-characters">Escape Special Characters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-properties-and-methods">String Properties and Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type Conversion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

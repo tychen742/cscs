@@ -1,0 +1,876 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab: Performance &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10-algorithms/assignments/lab';</script>
+    <script src="../../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Chapter Review" href="review.html" />
+    <link rel="prev" title="Preview Questions" href="preview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../1000-algorithms-intro.html">Algorithms</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preview.html">Preview Questions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/10-algorithms/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/10-algorithms/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab: Performance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-experiments">The Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-project">Starter Project</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="lab-performance">
+<span id="lab-search-performance"></span><h1>Lab: Performance<a class="headerlink" href="#lab-performance" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>This section is kept here for your reference</strong>.</p></li>
+</ul>
+<p>In <a class="reference internal" href="../1002-sorting.html#sorting"><span class="std std-ref">Sorting</span></a> we took advantage of a few ideas
+to show how to do basic
+benchmarking to compare the various approaches.</p>
+<ul class="simple">
+<li><p>using randomly-generated data</p></li>
+<li><p>making sure each algorithm is working with the same data</p></li>
+<li><p>making sure that we try a range of sizes to observe the effects of scaling</p></li>
+<li><p>using a timer with sufficiently high resolution (the <code class="docutils literal notranslate"><span class="pre">Stopwatch</span></code> gives
+us measurements in milliseconds).</p></li>
+</ul>
+<p>In this lab, you get your chance to learn a bit more about performance
+by comparing <em>searches</em>.
+The art of benchmarking is
+something that is easy to learn but takes a lifetime to master (to borrow
+a phrase from the famous Othello board game).</p>
+<p>Most of the algorithms we cover in introductory courses tend to be <em>polynomial</em>
+in nature. That is, the execution time can be bounded by a polynomial function
+of the data size $n$. A more accurate measure may also include
+a logarithm. Examples
+include but are not limited to:</p>
+<ul class="simple">
+<li><p>$O(1)$ is constant time,
+characterized by a calculation with a limited number of steps.</p></li>
+<li><p>$O(n)$ is linear time; often characterized by a single loop</p></li>
+<li><p>$O(n^2)$ is the time squared; often characterized by a nested loop</p></li>
+<li><p>$O(log\ n)$ is logarithmic (base 2) time; often characterized by a loop
+that repeatedly divides its work in half. The binary search is a well-known example.</p></li>
+<li><p>$O(n\ log\ n)$ is an example of a hybrid. Perhaps there is an outer loop that
+is linear and an inner loop that is logarithmic.</p></li>
+</ul>
+<p>And there are way more than these shown here. As you progress in computing, you’ll
+come to know and appreciate these in greater detail.</p>
+<p>In this lab, we’re going to look at a few different data structures and methods
+that perform searches on them and do <em>empirical</em> analysis to get an idea of how
+well each combination works. Contrasted with other labs where you had to write
+a lot of code, we’re going to give you some code to do all of the needed work
+but ask you to write the code to
+do the actual analysis and produce a basic table.</p>
+<section id="the-experiments">
+<h2>The Experiments<a class="headerlink" href="#the-experiments" title="Link to this heading">#</a></h2>
+<p>We’re going to measure the performance of data structures we have been learning
+about (and <em>will</em> learn about, for lists and sets). For this lab, we’ll focus on:</p>
+<ul class="simple">
+<li><p>Integer arrays using <a class="reference internal" href="../1001-searching.html#searching"><span class="std std-ref">Searching</span></a> and <a class="reference internal" href="../1001-searching.html#binarysearching"><span class="std std-ref">Binary Search</span></a></p></li>
+<li><p><a class="reference internal" href="../../08-collections/0802-list.html#list"><span class="std std-ref">List</span></a> of integers with linear searching</p></li>
+<li><p><a class="reference internal" href="../../08-collections/0801-collections.html#sets"><span class="std std-ref">Collections</span></a> of integers; checking if an item is contained in the set</p></li>
+</ul>
+<p>In the interest of fairness, we are only going to look at the time it takes
+to perform the various search operations. We’re not going to count the time
+to randomly-generate the data and actually <em>build</em> the data structure. The
+reasoning is straightforward. We’re interested in the search time, which is
+completely independent of other aspects that may be at play. We’re not at all
+saying that the other aspects are unimportant but want to keep the assignment
+focus on search.</p>
+<p>The experimental apparatus that we are constructing will do the following
+for each of the cases:</p>
+<ul class="simple">
+<li><p>create the data structure (e.g. new array, new list, new set)</p></li>
+<li><p>use a random seed <code class="docutils literal notranslate"><span class="pre">seed</span></code>, initialize a random generator that will generate
+<code class="docutils literal notranslate"><span class="pre">n</span></code> values.</p></li>
+<li><p>insert the random values into the data structure .
+For the case of sets, which eliminate duplicates, it is
+entirely possible you will end up with a tiny fraction of a percent
+fewer than <code class="docutils literal notranslate"><span class="pre">n</span></code> values.</p></li>
+<li><p>to measure the performance of any given search method, we need to perform a
+significant number of lookups (based on numbers in the random sequence) to
+ensure that we get an accurate idea of the <em>average</em> lookup time in practice.
+We’ll call this parameter, <code class="docutils literal notranslate"><span class="pre">rep</span></code>. We will spread out the values looked for
+by checking data elements that have indices at a regular interval throughout the array.
+The separation is <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">n/rep</span></code> when <code class="docutils literal notranslate"><span class="pre">rep</span> <span class="pre">&lt;</span> <span class="pre">n</span></code>. The separation is 1, and
+we wrap around at the end of the array if <code class="docutils literal notranslate"><span class="pre">rep</span> <span class="pre">&gt;</span> <span class="pre">n</span></code>.</p></li>
+<li><p>We’ll start a Stopwatch just before entering the loop to perform the lookups.</p></li>
+</ul>
+</section>
+<section id="starter-project">
+<h2>Starter Project<a class="headerlink" href="#starter-project" title="Link to this heading">#</a></h2>
+<p>To make your life easier, we have put together a project
+that refers to all the code for all of the experiments you need
+to run. (That’s right, we’re giving you the code for the <em>experiments</em>,
+but you’re going to write
+some code to run the various experiments and then run for varying sizes of <code class="docutils literal notranslate"><span class="pre">n</span></code>.)
+The stub file is <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/performance_lab_stub/performance_lab.cs">performance_lab_stub/performance_lab.cs</a>.</p>
+<p>Recreate example project performance_lab_stub in your solution as performance_lab,
+so you have your own copy to modify. You can either</p>
+<ul class="simple">
+<li><p>copy into the
+lab project the files <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/sorting/sorting.cs">sorting/sorting.cs</a>,
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/searching/searching.cs">searching/searching.cs</a>, and
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/binary_searching/binary_searching.cs">binary_searching/binary_searching.cs</a>. <em>If</em> you copy them into the lab
+project, <em>rename</em> the unused <code class="docutils literal notranslate"><span class="pre">Main</span></code> method from <code class="file docutils literal notranslate"><span class="pre">binary_searching.cs</span></code>
+to something else (since Xamarin Studio allows only one <code class="docutils literal notranslate"><span class="pre">Main</span></code> method in a
+project).</p></li>
+<li><p>An alternative is to recreate their whole projects,
+and <em>reference</em> them from the lab project.</p></li>
+</ul>
+<p>Here is the code for the first experiment, to test the performance of linear
+searching on integer arrays:</p>
+<p>Let’s take a quick look at how this experiment is constructed. We’ll also take a
+look at the other experiments but these will likely be presented in a bit
+less detail, except to highlight the differences:</p>
+<ul class="simple">
+<li><p>On line 3, we create a <code class="docutils literal notranslate"><span class="pre">Stopwatch</span></code> instance. We’ll be using this to do the timing.</p></li>
+<li><p>On lines 4-5, we are creating the data to be searched. Because we have already
+written this code in our sorting algorithms examples, we can refer to the
+Sorting class code in <code class="file docutils literal notranslate"><span class="pre">sorting.cs</span></code>, as long as you made the lab project
+able to reference it. We use the <code class="docutils literal notranslate"><span class="pre">Sorting</span></code> class name
+to access the method <code class="docutils literal notranslate"><span class="pre">IntArrayGenerate()</span></code> within this class. We also take advantage
+of this in the other experiments.</p></li>
+<li><p>Line 6 converts the number of repetitions into the increment in index values for each
+time.</p></li>
+<li><p>Line 7 resets the stopwatch. It is not technically required; however, we tend to be
+in the habit of doing it, because we sometimes reuse the same stopwatch and want
+to make sure it is completely zeroed out. A call to <code class="docutils literal notranslate"><span class="pre">Reset()</span></code> ensures it is zero.</p></li>
+<li><p>Line 8 actually starts the stopwatch. We are starting here as opposed to before line
+4, because the random data generation has nothing to do with the actual searching of
+the array data structure.</p></li>
+<li><p>Lines 10 through 12 are searching <code class="docutils literal notranslate"><span class="pre">rep</span></code> times for an item already known to
+be in the array.</p></li>
+<li><p>Line 13 stops the stopwatch.</p></li>
+<li><p>Line 14 returns the elapsed time in <em>milliseconds</em>
+between the <code class="docutils literal notranslate"><span class="pre">Start()</span></code> and <code class="docutils literal notranslate"><span class="pre">Stop()</span></code> method calls,
+which reflects the actual time of the experiment.</p></li>
+</ul>
+<p>Each of the other experiments is constructed similarly.
+For linear search and binary search
+we use the methods created earlier.
+For the lists and the set we use the built-in <code class="docutils literal notranslate"><span class="pre">Contains</span></code>
+method to search.
+The list and set are directly initialized in their constructors from the
+array data. (More on that in later chapters.)</p>
+<p>You need to fill in the <code class="docutils literal notranslate"><span class="pre">Main</span></code> method.
+The stub already has code to generate a random value for the <code class="docutils literal notranslate"><span class="pre">seed</span></code> for
+any run of the program. <em>Read</em> through to the end of the lab before
+starting to code. A step-by-step sequence is suggested at the end.</p>
+<ul>
+<li><p>Your code must parse command line <code class="docutils literal notranslate"><span class="pre">args</span></code> for the parameters <code class="docutils literal notranslate"><span class="pre">rep</span></code>
+and <em>any number</em>
+of values for <code class="docutils literal notranslate"><span class="pre">n</span></code>. For instance:</p>
+<blockquote>
+<div><p>mono PerformanceLab.exe 50000 1000 10000 100000</p>
+</div></blockquote>
+<p>would generate the table shown below for 50000 repetitions
+for each of the values of <code class="docutils literal notranslate"><span class="pre">n</span></code>: 1000,
+10000, and 100000.</p>
+</li>
+<li><p>In the end you will want to run each experiment
+for <code class="docutils literal notranslate"><span class="pre">rep</span></code> repetitions and iterate through each different value of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>Present the result data in a nice printed right-justified table for
+all values of n,
+with a title including the number of repetitions. Print
+something like the following, with the number of seconds calculated.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Times in seconds with 50000 repetitions
+       n    linear      list  binary     set
+    1000  ????.???  ????.???  ??.???  ??.???
+   10000  ????.???  ????.???  ??.???  ??.???
+  100000  ????.???  ????.???  ??.???  ??.???
+</pre></div>
+</div>
+<p>The table would be longer if more values of n were entered on the command line.
+Note that the experiments return times in milliseconds, (1/1000 of a second)
+while the table should print times in <em>seconds</em>.</p>
+</li>
+<li><p>Your final aim is to
+show your TA or instructor the results of
+a run with a table with at least three lines of data and with n
+being successive powers of 10, and <em>non-zero entries everywhere</em>. <em>Read on</em>
+for the major catch!</p>
+<p>You will need to
+<em>experiment</em> and adjust the repetitions and <code class="docutils literal notranslate"><span class="pre">n</span></code> choices.
+In order to <em>get all perceptible values</em> (nonzero), you will need a
+very large number of repetitions to work for the fastest searches.
+Our choice of 50000 in the example is not appropriate with these <code class="docutils literal notranslate"><span class="pre">n</span></code> values.
+The catch is that without further tweaking, you will only get nonzero
+values for all the fastest searches if the slower ones take
+<em>ridiculously long</em>.</p>
+<p>Because the range of speeds is so enormous, make an accommodation with the
+slow linear versions: If <code class="docutils literal notranslate"><span class="pre">rep</span> <span class="pre">&gt;=</span> <span class="pre">100</span></code> and <code class="docutils literal notranslate"><span class="pre">(long)n*rep</span> <span class="pre">&gt;=</span> <span class="pre">100000000</span></code>,
+then, for the linear and list columns <em>only</em>, time with <code class="docutils literal notranslate"><span class="pre">rep2</span> <span class="pre">=</span> <span class="pre">rep/100</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">rep</span></code>,
+and then compensate by multiplying the resulting time by <code class="docutils literal notranslate"><span class="pre">(double)rep/rep2</span></code>
+to produce the final table value.
+(This multiplier is not necessarily just 100, since the integer division creating
+<code class="docutils literal notranslate"><span class="pre">rep2</span></code> may not be exact.)</p>
+</li>
+</ul>
+<p>Before making the modification for large numbers, be sure to test with
+small enough values (though some results will be 0).
+Once again, you are encouraged to develop this is steps, for example:</p>
+<ol class="arabic simple">
+<li><p>Make sure you can parse the command line parameters. In a testing version
+write code to print out <code class="docutils literal notranslate"><span class="pre">rep</span></code>,
+and <em>separate</em> code to print out all <code class="docutils literal notranslate"><span class="pre">n</span></code> values, for any number
+of <code class="docutils literal notranslate"><span class="pre">n</span></code> values.</p></li>
+<li><p>Print out one <em>linear</em> test for <code class="docutils literal notranslate"><span class="pre">rep</span></code> and one value of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>Print out the results for all tests for <code class="docutils literal notranslate"><span class="pre">rep</span></code> and one value of <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+Keep <code class="docutils literal notranslate"><span class="pre">rep*n</span></code> small enough so the linear searches do not take too much time.</p></li>
+<li><p>Do all values of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>Make the printing be formatted as in the sample table.</p></li>
+<li><p>Add the modification for large <code class="docutils literal notranslate"><span class="pre">rep*n</span></code>.</p></li>
+<li><p>Experiment and get a table to show off!</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/10-algorithms/assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="preview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="review.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-experiments">The Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starter-project">Starter Project</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

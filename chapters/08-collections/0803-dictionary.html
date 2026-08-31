@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dictionary &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/08-collections/0803-dictionary';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preview Questions" href="assignments/preview.html" />
+    <link rel="prev" title="List" href="0802-list.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0800-collections-intro.html">Collections</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0802-list.html">List</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/08-collections/0803-dictionary.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/08-collections/0803-dictionary.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dictionary</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dictionary">Creating a Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-in-dictionary">Accessing Data in Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-and-methods-in-dictionary">Properties and Methods in Dictionary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dictionary">
+<h1>Dictionary<a class="headerlink" href="#dictionary" title="Link to this heading">#</a></h1>
+<p>We have explored several ways of storing a collection of the same type of data:</p>
+<ul class="simple">
+<li><p>arrays: built-in syntax, unchanging size of the collection</p></li>
+<li><p>List: generic class type, allows the size of the collection to grow</p></li>
+</ul>
+<p>Both approaches allow reference to data elements using a
+numerical index between square brackets, as in <code class="docutils literal notranslate"><span class="pre">words[i]</span></code>.
+The index provides an order for the elements,
+but there is no meaning to the index beyond the sequence order.</p>
+<p>Sometimes, we want to look up data based on a more meaningful key, as in a
+dictionary: given a word, you can look up the definition.</p>
+<p>C# uses the type name <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-8.0">Dictionary</a>, but with greater generality than in
+nontechnical use. In a regular dictionary, you start with a word,
+and look up the definition. The generalization is to have some piece of
+data that leads you to (or <em>maps</em> to) another piece of data.
+The computer science jargon is that a <strong>key</strong> leads you to a <strong>value</strong>.
+In a normal dictionary, these are both likely to be strings, but in the
+C# generalization, the possible types of key and value are much more extensive.
+Hence the generic <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type requires you to specify
+<em>both a type for the key and a type for the value</em>.</p>
+<section id="creating-a-dictionary">
+<h2>Creating a Dictionary<a class="headerlink" href="#creating-a-dictionary" title="Link to this heading">#</a></h2>
+<p>We can initialize an English-Spanish dictionary <code class="docutils literal notranslate"><span class="pre">e2sp</span></code> with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is quite a mouthful! The C# <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword (implicitly-typed local variable) syntax
+is handy to shorten it as you do not have to repeat the type name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The general generic type syntax therefore is:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Dictionary&lt;</span></code> <strong>keyType</strong><code class="docutils literal notranslate"><span class="pre">,</span></code> <strong>valueType</strong> <code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p>
+</div></blockquote>
+<p>For example, if you are counting the number of repetitions of words in a document, you are
+likely to want a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> mapping each word to its number of repetitions so far:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">wordCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If your friends all have a personal list of phone numbers, you might look them up
+with a dictionary with a string name for the key and a <code class="docutils literal notranslate"><span class="pre">List</span></code> of personal phone number
+strings for the value. The type could be <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;string,</span> <span class="pre">List&lt;string&gt;&gt;</span></code>.
+This example illustrates how one generic type can be built on another.</p>
+<p>There is no restriction on the value type. There is one important technical
+restriction on the key type: it should be <strong>immutable</strong>.
+.. This has to do with the implementation referenced in <a class="reference internal" href="#dictionary-efficiency"><span class="std std-ref">Accessing Data in Dictionary</span></a>.</p>
+</section>
+<section id="accessing-data-in-dictionary">
+<span id="dictionary-efficiency"></span><span id="index-0"></span><h2>Accessing Data in Dictionary<a class="headerlink" href="#accessing-data-in-dictionary" title="Link to this heading">#</a></h2>
+<p>Similar to an array or <code class="docutils literal notranslate"><span class="pre">List</span></code>, you can assign and reference elements of
+a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, using square bracket notation. The difference is that the
+reference is through a key, not a sequential index, as in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or, you can use the Dictionary.Add() method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>csharprepl displays dictionaries in its own special form,
+as a table showing the {key, value} pairs and type. Here is a longer csharprepl sequence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="w">                     </span><span class="c1">// the Count property gives the length of the dictionary</span>
+<span class="n">e2sp</span><span class="p">;</span>
+<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0}, {1}; {2}"</span><span class="p">,</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"three"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, we using the key to refer to the value of a dictionary entry. If a key-value
+pair already exists, you may not Add() a value to the key, but you can update date it using the
+Item[] property (the indexer[] square brackets) such as dict[“aaa”] = “AAA”;</p>
+<p id="index-1">If you want to iterate through a whole <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, you will want the syntax below,
+with <code class="docutils literal notranslate"><span class="pre">foreach</span></code> and the property <code class="docutils literal notranslate"><span class="pre">Keys</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To loop through the dictionary and access both the key and value in each entry, you may do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} : {1}"</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we use an implicitly-typed variable <code class="docutils literal notranslate"><span class="pre">entry</span></code> to ask the compiler to infer the type.
+We then use the .Key and .Value properties to refer to the data.</p>
+<p>The documentation for <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> says
+that you cannot depend on the order of processing with <code class="docutils literal notranslate"><span class="pre">foreach</span></code>, though the present
+implementation remembers the order in which keys were added.</p>
+</section>
+<section id="properties-and-methods-in-dictionary">
+<span id="index-2"></span><h2>Properties and Methods in Dictionary<a class="headerlink" href="#properties-and-methods-in-dictionary" title="Link to this heading">#</a></h2>
+<p>There are plenty of properties and methods built in in the Dictionary class in addition to
+.Add() and .Count, .Key, .Value as aforementioned.</p>
+<p>It is often useful to know if a key is already in a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>:
+Note the method <code class="docutils literal notranslate"><span class="pre">ContainsKey</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"seven"</span><span class="p">)</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"three"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">Remove</span></code> takes a key as parameter. Like a <code class="docutils literal notranslate"><span class="pre">List</span></code> and other
+collections, a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> has a <code class="docutils literal notranslate"><span class="pre">Clear</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"two"</span><span class="p">)</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
+<span class="n">e2sp</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
+<span class="n">e2sp</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/08-collections"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0802-list.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">List</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignments/preview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dictionary">Creating a Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-in-dictionary">Accessing Data in Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-and-methods-in-dictionary">Properties and Methods in Dictionary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

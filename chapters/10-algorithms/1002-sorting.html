@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sorting &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10-algorithms/1002-sorting';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Complexity" href="1003-complexity.html" />
+    <link rel="prev" title="Searching" href="1001-searching.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="1000-algorithms-intro.html">Algorithms</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1001-searching.html">Searching</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/10-algorithms/1002-sorting.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/10-algorithms/1002-sorting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sorting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchanging-array-elements">Exchanging Array Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-sort">Bubble Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-sort">Selection Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">Insertion Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-sort">Shell Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quicksort">Quicksort</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sorting">
+<span id="index-0"></span><span id="id1"></span><h1>Sorting<a class="headerlink" href="#sorting" title="Link to this heading">#</a></h1>
+<p>Common sorting algorithms are included in this section but, for the purpose of this
+course, only the essential ideas will be discussed and demonstrated.</p>
+<p>namespace</p>
+<p>Note that to use the example files downloaded from GitHub, you need to keep the namespace
+consistent. It is recommended to use IntroCSCS (or IntroCS) and you have to check every
+file to make sure they are consistent. Failing to do so will incur an error “error CS0103:
+The name ‘<em>CLASS</em>’ does not exist in the current context”.</p>
+<p>Sorting algorithms represent foundational knowledge that every computer scientist and
+IT professional should at least know at a basic level. It also turns out to be a great
+way of learning about why arrays are important.</p>
+<p>In this section, we’re going to take a look at a number of well-known sorting algorithms
+with the hope of sensitizing you to the notion of <em>performance</em>–a topic that is covered
+in greater detail in courses such as algorithms and data structures.</p>
+<p>This is not intended to be a comprehensive reference at all. The idea is to learn how
+these classic algorithms are coded in the teaching language for this course, C#, and to
+understand the essentials of analyzing their performance, both theoretically and
+experimentally. [1]</p>
+<p>The sorts and supporting functions are all in
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/sorting/sorting.cs">sorting/sorting.cs</a>, but we start one bit at a time:</p>
+<section id="exchanging-array-elements">
+<span id="index-1"></span><h2>Exchanging Array Elements<a class="headerlink" href="#exchanging-array-elements" title="Link to this heading">#</a></h2>
+<p>We’ll begin by introducing you to a simple method, whose only purpose in life is to
+swap two data values at positions <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> in a given integer array:</p>
+<p>For example if we have an array nums, shown with indices:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> nums: -1  8 11 22  9 -5  2
+index:  0  1  2  3  4  5  6
+</pre></div>
+</div>
+<p>Then after <code class="docutils literal notranslate"><span class="pre">Exchange(nums,</span> <span class="pre">2,</span> <span class="pre">5)</span></code> the array would look like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> nums: -1  8 -5 22  9 11  2
+index:  0  1  2  3  4  5  6
+</pre></div>
+</div>
+<p>In general, swapping two values in an array is
+no different than swapping any two integers.
+Suppose we have the following integers <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">t</span><span class="p">;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">35</span><span class="p">;</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After this code does its job, the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> would be 35
+and the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> would be 25.</p>
+<p>So in the <code class="docutils literal notranslate"><span class="pre">Exchange()</span></code> function above,
+if we have two different array elements at positions <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code>,
+we are basically getting each value at these positions,
+e.g. <code class="docutils literal notranslate"><span class="pre">data[m]</span></code> and <code class="docutils literal notranslate"><span class="pre">data[n]</span></code> and treating them
+as if they were <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> in the above code.</p>
+<p>You might find it helpful at this time to verify that
+the above code does what we’re saying it does, and a
+good way is to type it directly into the C# interpreter (csharp)
+so you can see it for yourself.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Exchange()</span></code> function is vital to all of the sorting algorithms in the following way.
+It is used whenever two items are found to be out of order.
+When this occurs, they will be <em>swapped</em>. This doesn’t mean
+that the item comes to its final resting place in the array.
+It just means that for the moment, the items
+have been reordered so we’ll get closer to having a sorted array.</p>
+<p>Let’s now take a look at the various sorting algorithms.</p>
+</section>
+<section id="bubble-sort">
+<span id="index-2"></span><h2>Bubble Sort<a class="headerlink" href="#bubble-sort" title="Link to this heading">#</a></h2>
+<p>The Bubble Sort algorithm works by repeatedly scanning
+through the array exchanging adjacent elements that are out of order. Watching
+this work with a strategically-placed <code class="docutils literal notranslate"><span class="pre">Console.WriteLine()</span></code> in the outer
+loop, you will see that the sorted array grows right to left. Each
+sweep picks up the largest remaining element and moves to the right as
+far as it can go. It is therefore not necessary to scan through the
+entire array each sweep, but only to the beginning of the sorted
+portion.</p>
+<p>We define the number of <em>inversions</em> as the number of element pairs that
+are out of order. They needn’t be adjacent. If <code class="docutils literal notranslate"><span class="pre">data[7]</span> <span class="pre">&gt;</span> <span class="pre">data[16]</span></code>,
+that’s an inversion. Every time an inversion is required,
+we also say that there is corresponding data <em>movement</em>. If you look at the
+<code class="docutils literal notranslate"><span class="pre">Exchange()</span></code> code, you’ll observe that a swap requires three movements
+to take place, which happens very quickly on most processors but still amounts
+to a significant cost.</p>
+<p>There can be at most $N \cdot \frac{N-1}{2}$ inversions in the
+array of length $N$. The maximum
+number of inversions occurs when the array is sorted in reverse order
+and has no equal elements.</p>
+<p>Bubble Sort exchanges only adjacent elements.
+Each such exchange removes precisely one inversion; therefore,
+Bubble Sort requires $O(N^2)$ exchanges.</p>
+</section>
+<section id="selection-sort">
+<h2>Selection Sort<a class="headerlink" href="#selection-sort" title="Link to this heading">#</a></h2>
+<p>The Selection Sort algorithm works to minimize the amount of data movement,
+hence the number of <code class="docutils literal notranslate"><span class="pre">Exchange()</span></code> calls.</p>
+<p>It’s a remarkably simple algorithm to explain. As shown in the code, the
+actual sorting is done by a function, <code class="docutils literal notranslate"><span class="pre">IntArraySelectionSort()</span></code>, which
+takes an array of data as its only parameter, like Bubble sort.
+The way Selection Sort works is as follows:</p>
+<ol class="arabic simple">
+<li><p>An outer loop visits each item in the array to find out whether it is the
+minimum of all the elements after it.
+If it is not the minimum, it is going to be swapped with whatever
+item in the rest of the array is the minimum.</p></li>
+<li><p>We use a helper function,
+<code class="docutils literal notranslate"><span class="pre">IntArrayMin()</span></code>
+to find the position of the minimum value in the rest of the array.
+This function has a parameter, <code class="docutils literal notranslate"><span class="pre">start</span></code> to indicate where
+we wish to begin the search.
+So as you can see from the loop in <code class="docutils literal notranslate"><span class="pre">IntArraySelectionSort()</span></code>,
+when we start with position <code class="docutils literal notranslate"><span class="pre">i</span></code>, and we compare to the later elements
+from position <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> to the end of the array, updating the position of the
+smallest element so far.</p></li>
+</ol>
+<p>An illustration to accompany the discussion:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: 12  8 -5 22  9  2
+index:  0  1  2  3  4  5
+        i     k
+</pre></div>
+</div>
+<p>The first time through the loop, <code class="docutils literal notranslate"><span class="pre">i</span></code> is 0, and <code class="docutils literal notranslate"><span class="pre">k</span></code> gets the value 2, since data[2]
+is -5, the smallest element. Those two positions get swapped.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: -5  8 12 22  9  2
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>The next
+time through the loop i is 1 and k becomes 5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: -5  8 12 22  9  2
+index:  0  1  2  3  4  5
+           i           k
+</pre></div>
+</div>
+<p>After the swap:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: -5  2 12 22  9  8
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>and so on. Here is the data after each of the last three swaps:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-5  2  8 22  9 12
+
+-5  2  8  9 22 12
+
+-5  2  8  9 12 22
+</pre></div>
+</div>
+<p>Consider the first call to <code class="docutils literal notranslate"><span class="pre">IntArrayMin</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: 12  8 -5 22  9  2
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>Initially <code class="docutils literal notranslate"><span class="pre">minPos</span></code> is 0. Here are the
+changes for each value of <code class="docutils literal notranslate"><span class="pre">pos</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pos=1:  8 = data[1] &lt; data[0] = 12, so minPos becomes 1
+pos=2: -5 = data[2] &lt; data[1] = 8, so minPos becomes 2
+pos=3: 22 = data[3] is not &lt; data[2] = -5, so minPos still 2
+pos=4:  9 = data[4] is not &lt; data[2] = -5, so minPos still 2
+pos=5:  2 = data[5] is not &lt; data[2] = -5, so minPos still 2
+</pre></div>
+</div>
+<p>and 2 gets returned, and we ge the swap</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> data: -5  8 12 22  9  2
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>The next call to <code class="docutils literal notranslate"><span class="pre">IntArrayMin</span></code> has <code class="docutils literal notranslate"><span class="pre">start</span></code> as 1, so <code class="docutils literal notranslate"><span class="pre">minPos</span></code> is initially 1,
+and we compare to the elements of data at index 2, 3, 4, and 5….</p>
+<p>We won’t do the full algorithmic analysis here. Selection Sort is interesting because
+it does most of its work through <em>comparisons</em>, with the same number of them no matter
+how the data are ordered, exactly
+$N \cdot \frac{N-1}{2}$, which is
+$O(N^2)$ The
+number of <em>exchanges</em> is O(N). The comparisons are a non-trivial cost,
+however, and do show
+in our own performance experiments with randomly-generated data.</p>
+</section>
+<section id="insertion-sort">
+<h2>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Link to this heading">#</a></h2>
+<p>In the Insertion Sort algorithm, we build up a longer and longer sorted
+list from the bottom of the array. We repeatedly insert the next element
+into the sorted part of the array by sliding it down (using our familiar
+<code class="docutils literal notranslate"><span class="pre">Exchange()</span></code> method) to its proper position.</p>
+<p>Consider the earlier example array as we illustrate some of the steps.
+I use the symbol ‘-’ for an element that we know to
+be in the sorted list at the beginning of the array,
+and ‘&#64;’ over the next one we are trying to insert <em>at</em> the right position.
+We start with a one-element sorted list and try to position the second element:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        -  @
+ data: 12  8 -5 22  9  2
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>After each outer loop in sequence we end up with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        -  -  @
+ data:  8 12 -5 22  9  2
+index:  0  1  2  3  4  5
+
+        -  -  -  @
+ data: -5  8 12 22  9  2
+index:  0  1  2  3  4  5
+
+        -  -  -  -  @
+ data: -5  8 12 22  9  2
+index:  0  1  2  3  4  5
+
+        -  -  -  -  -  @
+ data: -5  8  9 12 22  2
+index:  0  1  2  3  4  5
+
+        -  -  -  -  -  -
+ data: -5  2  8  9 12 22
+index:  0  1  2  3  4  5
+</pre></div>
+</div>
+<p>Let us illustrate several times just through the inner loop, the first time,
+when the 8 is moved into
+position from index <code class="docutils literal notranslate"><span class="pre">j</span></code> = 1, so <code class="docutils literal notranslate"><span class="pre">i</span></code> starts at 1. We show the letter i
+over the data at index <code class="docutils literal notranslate"><span class="pre">i</span></code>, and show the comparison test to be done with a <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>
+with a ‘?’ over it.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>          ? i
+ data: 12 &gt; 8  -5  22   9   2   1&gt;0 and 12&gt;8: true, so swap, loop
+index:  0   1   2   3   4   5
+
+        i
+ data:  8  12  -5  22   9   2   0&gt;0 false, skip comparison of data, end loop
+index:  0   1   2   3   4   5
+</pre></div>
+</div>
+<p>Let us also illustrate at a later time through the inner loop, when the 9 is moved into
+position from index <code class="docutils literal notranslate"><span class="pre">j</span></code> = 4, so <code class="docutils literal notranslate"><span class="pre">i</span></code> starts at 4.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                      ? i
+ data: -5   8  12  22 &gt; 9   2  4&gt;0 and 22&gt;9: true, so swap, loop
+index:  0   1   2   3   4   5
+
+                  ? i
+ data: -5   8  12 &gt; 9  22   2  3&gt;0 and 12&gt;9: true, so swap, loop
+index:  0   1   2   3   4   5
+
+              ? i
+ data: -5   8 &gt; 9  12  22   2  2&gt;0 and 8&gt;9: false, end inner loop
+index:  0   1   2   3   4   5
+</pre></div>
+</div>
+<p>The 9 started at index <code class="docutils literal notranslate"><span class="pre">j</span></code> = 4, and now the list is sorted up through index 4.</p>
+<p>This will require as many exchanges as Bubble Sort,
+since only one inversion is removed per exchange. So Insertion Sort also
+requires $O(N^2)$ exchanges. On average Insertion Sort requires
+only half as many comparisons as Bubble Sort, since the average distance an
+element must move for random input is one-half the length of the sorted
+portion.</p>
+</section>
+<section id="shell-sort">
+<span id="index-3"></span><h2>Shell Sort<a class="headerlink" href="#shell-sort" title="Link to this heading">#</a></h2>
+<p>Shell Sort is basically a trick to make Insertion Sort run faster. If
+you take a quick glance at the code and look beyond the presence of
+two additional <em>outer loops</em>, you’ll notice that the code looks very similar.</p>
+<p>Since Insertion Sort removes one inversion per exchange, it cannot run
+faster than the number of inversions in the data, which in worst case is
+$O(N^2)$. Of course, it can’t run faster than N, either, because
+it must look at each element, whether or not the element is out of
+position. We can’t do any thing about the lower bound O(N), but we can
+do something about the number of steps to remove inversions.</p>
+<p>The trick in Shell Sort is to start off swapping elements that are
+further apart. While this may remove only one inversion sometimes,
+often many more inversions are removed with intervening elements.
+Shell Sort considers the subsequences of elements spaced k
+elements apart. There are k such sequences starting at positions 0
+through k-1 in the array. In these sorts, elements k positions apart are
+exchanged, removing between 1 and 2(k-1)+1 inversions.</p>
+<p>Swapping elements far apart is not sufficient, generally, so
+a Shell Sort will do several
+passes with decreasing values of k, ending with k=1.
+The following examples experiment
+with different series of values of k.</p>
+<p>In this first example, we sort all subsequences of elements 8 apart,
+then 4, 2, and 1. Please note that these intervals are to show how the
+method works–not how the method works <em>best</em>.</p>
+<p>In general, shell sort with sequences of jump sizes that
+are powers of one another doesn’t
+do as well as one where most jump sizes are not multiples of others,
+mixing up the data more.
+In addition, the number of intervals must be increased as the size of the array to
+be sorted increases, which explains why we allow an <em>arbitrary</em> array of intervals
+to be specified.</p>
+<p>Without too much explanation, we show how you can choose the intervals differently
+in an <em>improved</em> shell sort, where the intervals have been chosen so as not to be
+multiples of one another.</p>
+<p>Donald Knuth has suggested a couple of methods for computing the intervals:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}h_0 = 1\\h_{k+1} = 3 h_k + 1\\t = \lfloor log_3 n \rfloor - 1\end{aligned}\end{align} \]</div>
+<p>Here we are using notation for the <em>floor</em> function
+$\lfloor x \rfloor$ means the largest integer $\le x$.</p>
+<p>This results in a sequence 1, 4, 13, 40, 121…. You stop computing values in the
+sequence when $t = log_3 n - 1$. (So for n=50,000, you should have about 9-10
+intervals.)</p>
+<p>For completeness, we note that $log_3 n$ must be sufficiently large (and &gt; 2)
+for this method to work. Our code ensures this by taking the <em>maximum</em> of
+$log_3 n$ and 1.</p>
+<p>Knuth also suggests:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}h_0 = 1\\h_{k+1} = 2 h_k + 1\\t = \lfloor log_2 n \rfloor - 1\end{aligned}\end{align} \]</div>
+<p>This results in a sequence 1, 3, 7, 15, 31….</p>
+<p>Here is the improvement to our naive method that dynamically calculates
+the intervals based on the first suggestion of Knuth:</p>
+<p>Shell sort is a complex sorting algorithm to make “work well”, which is why it is not
+seen often in practice. It is, however, making a bit of a comeback in embedded systems.</p>
+<p>We nevertheless think it is a very cool algorithm to have heard of as a computer science
+student and think it has promise in a number of situations, especially in systems where
+there are limits on available memory (e.g. embedded systems).</p>
+</section>
+<section id="quicksort">
+<span id="index-4"></span><h2>Quicksort<a class="headerlink" href="#quicksort" title="Link to this heading">#</a></h2>
+<p>Also known as <strong>Partition Sort</strong>, this sort is a more advanced example that uses <em>recursion</em>. We list it because it is one of the best sorts for <em>random</em> data, having an <em>average</em> time behavior of $O(N  \log N)$. Quicksort is a rather interesting case. While it has an excellent average behavior, it has a worst case performance of $O(N ^2)$.</p>
+<p>Though the initial call is to sort an entire array, this is accomplished by
+dealing with sections, so the main work is done in the version with the
+two extra parameters, giving the lowest and highest index considered.</p>
+<p>It picks an arbitrary element as <em>pivot</em>, and then swaps
+elements with values above and below the pivot until the part of the array
+being processed is in three sections:</p>
+<ol class="arabic simple">
+<li><p>elements &lt;= pivot;</p></li>
+<li><p>possibly an element equal to pivot</p></li>
+<li><p>elements &gt;= pivot.</p></li>
+</ol>
+<p>Though sections 1 and 3 are not sorted, there are no inversions <em>between</em> any two
+separate sections, so only the smaller sections 1 and 3 need to be sorted <em>separately</em>,
+and only then if they have at least two elements. They can be sorted
+by calling the <em>same</em> function,
+but with a smaller range of indices to deal with in each case.
+These <em>recursive</em> calls stop when a part is reduced to one element.</p>
+<p id="index-5">Another optional glimpse at an advanced topic: The outer <code class="docutils literal notranslate"><span class="pre">while</span></code> loop
+in lines 11-20 has fairly complicated logic. To prove it is correct
+overall, you can state and prove the simpler <em>loop invariant</em> expressed
+in the comments above the loop, lines 7-10. This allows the conclusion
+after the loop in comment lines 21-24.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{rubric}</span> <span class="pre">Footnotes</span></code></p>
+<p>[1] For a full theoretical treatment, we recommend the outstanding textbook by Niklaus Wirth: Algorithms + Data Structures = Programs, Prentice Hall, 1976, who invented the Pascal language. Also adapted are some examples from Thomas W. Christopher’s animated sorting algorithms <a class="reference external" href="http://tools-of-computing.com/tc/CS/Sorts/SortAlgorithms.htm">page</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/10-algorithms"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1001-searching.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Searching</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1003-complexity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Complexity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exchanging-array-elements">Exchanging Array Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bubble-sort">Bubble Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-sort">Selection Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">Insertion Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell-sort">Shell Sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quicksort">Quicksort</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

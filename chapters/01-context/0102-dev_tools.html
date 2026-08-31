@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Development Tools &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/01-context/0102-dev_tools';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="C# Program Structure" href="0103-program_structure.html" />
+    <link rel="prev" title="Computing Concepts" href="0101-cs_ideas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0100-context-intro.html">Introduction</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/01-context/0102-dev_tools.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/01-context/0102-dev_tools.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Development Tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#net-net-sdk">.NET &amp; .NET SDK</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-net-sdk">The .NET SDK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#net-runtime">.NET Runtime</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-apps-shell">Terminal Apps &amp; Shell</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories-and-files">Creating Directories and Files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ide">IDE</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-repl-csharprepl">C# REPL (<code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-in-c-repl">Expressions in C# REPL</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-development-tools">Other Development Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-workflow-basics">Git Workflow Basics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-habits">Core habits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-single-developer-loop">Suggested single-developer loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-team-loop">Suggested team loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-message-quality">Commit message quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflict-basics">Merge conflict basics</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="development-tools">
+<span id="index-0"></span><span id="id1"></span><h1>Development Tools<a class="headerlink" href="#development-tools" title="Link to this heading">#</a></h1>
+<p>The tools required for this book include the .NET SDK, VS Code, and the C# extension
+(a VS Code extension). In addition, we will also use the command line interface
+(CLI, the Command Prompt in Windows or shell in macOS/Linux, or just “the terminal”)
+for certain operations from time to time.</p>
+<section id="net-net-sdk">
+<h2>.NET &amp; .NET SDK<a class="headerlink" href="#net-net-sdk" title="Link to this heading">#</a></h2>
+<p><strong>.NET</strong> (pronounced “dot net”) is a free, open-source, cross-platform framework developed and maintained by Microsoft. It provides the runtime environment, libraries, and tools needed to build and run applications on Windows, macOS, and Linux. Originally released as the Windows-only <strong>.NET Framework</strong> in 2002, Microsoft later rebuilt it from the ground up as the cross-platform <strong>.NET Core</strong>, which has since evolved into the unified <strong>.NET</strong> platform (starting with .NET 5 in 2020). Today, .NET is one of the most widely used application development platforms in the industry.</p>
+<p>At the heart of .NET is the <strong>Common Language Runtime (CLR)</strong>, which manages program execution — handling memory allocation, garbage collection, and type safety so that developers can focus on application logic rather than low-level system management. .NET also ships with a rich <strong>Base Class Library (BCL)</strong> offering thousands of built-in types and utilities for tasks ranging from file I/O and networking to cryptography and data access. Languages such as C#, F#, and Visual Basic (VB.NET), along with third-party languages, all compile to a common intermediate language that runs on the CLR, making .NET a true multi-language platform.</p>
+<section id="the-net-sdk">
+<h3>The .NET SDK<a class="headerlink" href="#the-net-sdk" title="Link to this heading">#</a></h3>
+<p>A software development kit (SDK) is a collection of software development tools in one installable package.
+They facilitate the creation of applications by having a <em>compiler</em>, debugger and sometimes a software framework.
+SDKs are normally specific to a hardware platform and operating system combination.</p>
+</section>
+<section id="net-runtime">
+<h3>.NET Runtime<a class="headerlink" href="#net-runtime" title="Link to this heading">#</a></h3>
+<p>As part of the .NET SDK, the <strong>.NET runtime</strong> is a virtual machine that converts the compiled intermediate code into
+machine code to be executed on the CPU. In addition, the .NET runtime provides an environment, that performs
+services such as exception handling and garbage collection.</p>
+</section>
+</section>
+<section id="terminal-apps-shell">
+<h2>Terminal Apps &amp; Shell<a class="headerlink" href="#terminal-apps-shell" title="Link to this heading">#</a></h2>
+<p>Having some knowledge of using the command line interface (CLI, often referred to as command prompt in Windows,
+“shell” in Linux/macOS, or <em>command line</em>/<em>terminal</em> in general) is necessary when learning how to code. Major operating systems all have CLIs for users to interact with the operating system by issuing text commands in the terminal rather than using the graphical user interface (GUI). Different operating systems are shipped with different default terminal applications (or “terminal emulators” as they emulate the locally-attached dumb terminals in the old time).</p>
+<p>When we open a terminal application, a default <em>shell</em> program is running as a command line interpreter program
+that takes <strong>commands</strong> (therefore “command line”) from users for the computer to execute. The terminal applications can run
+different shells and they work similarly. We use the shell languages to, e.g., move around the OS directory structure, manipulate files and folders, and manage software packages, etc.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>Common Terminal App</p></th>
+<th class="head"><p>Common Shell Language</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>Terminal.app</p></td>
+<td><p>Bash, Zsh</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux Desktop</p></td>
+<td><p>GNOME Terminal, Konsole, etc.</p></td>
+<td><p>usually Bash</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>PowerShell, Terminal, Command Prompt (CMD.exe)</p></td>
+<td><p>PowerShell, Batch</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When you open the CLI application, you use the keyboard (without a mouse) to issue shell commands (note that in most modern systems, you can still use a mouse for highlighting and copy-n-paste). In the terminal, you see a <strong>shell prompt</strong> followed by a <strong>cursor</strong> (maybe blinking), which is where you type to issue your commands.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Windows (PowerShell)</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">C:\Users\user_name&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+macOS / Linux (Bash)</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">user_name@computer_name:~$</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For Windows users, you may issue <code class="docutils literal notranslate"><span class="pre">wsl</span></code> to switch from the default PowerShell to Windows Subsystem for Linux (WSL)
+to use Bash as your shell. Your command prompt will change to <code class="docutils literal notranslate"><span class="pre">user_name&#64;computer_name:/mnt/c/Users/user_name$</span></code>.
+For the purpose of this book, you may use PowerShell and use the Bash commands with a slightly different interface.</p>
+<p>Unix-like OSs (such as Unix, macOS, and Linux) system are file-based, meaning the design principle dictates that
+everything in the system is a file, and the files are organized as a tree-like file system structure. In the
+command line, a <em>file path</em> is then used to specify the location of a file in a the computer’s file system structure.
+The file system structure begins with the root (<code class="docutils literal notranslate"><span class="pre">/</span></code>), with a number of default first level directories representing the
+functionalities. For example, oen of the first the default location after logging in is the user’s home directory, which is specified
+as /home/USER_NAME.</p>
+<blockquote>
+<div><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/linux_directory_tree.gif"><img alt="../../_images/linux_directory_tree.gif" src="../../_images/linux_directory_tree.gif" style="width: 401.6px; height: 192.8px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">A hypothetical Linux directory tree</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>To start navigating around the file system structure, some of the essential commands include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> (list storage) to show the files and directories in the current directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> (present working directory) to see the full path of the current directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code> <em>folder</em> (make directory) to create a new directory called <em>folder</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">*path*</span></code> (change directory) to change in the <em>path</em> directory in the directory tree structure (path “..” means the upper level directory).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^+C</span></code> (hold the Control key and then hit the C key) to terminate a process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">*filename*</span></code> (Mac) to create an empty file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new-item</span> <span class="pre">*filename*</span></code> (PowerShell) to create an empty file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exit</span></code> to exit out of the terminal app.</p></li>
+</ul>
+<p>Some special pathname characters are commonly used for specifying paths:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> is the root of the system’s file directory tree structure</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> is the user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> is the pathname of the directory one-level up of the current directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> means the current directory; but when placed at the beginning of a file, it makes the file a hidden file.</p></li>
+</ul>
+<section id="creating-directories-and-files">
+<h3>Creating Directories and Files<a class="headerlink" href="#creating-directories-and-files" title="Link to this heading">#</a></h3>
+<p>To create a project diretory and a test file, do the following:</p>
+<ol class="arabic simple">
+<li><p>Terminal application: Open your terminal app (Windows PowerShell or macOS Terminal).</p></li>
+<li><p>Create directories:</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Create a directory called <code class="docutils literal notranslate"><span class="pre">workspace</span></code> in your home directory (<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">workspace</span></code>), then change directory into the workspace directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">workspace</span></code>)</p></li>
+<li><p>Create a directory called <code class="docutils literal notranslate"><span class="pre">tests</span></code> in the workspace directory ((<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">tests</span></code>)), then change directory into the tests directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">tests</span></code>).</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Create a file: Create an empty file called test.txt (<code class="docutils literal notranslate"><span class="pre">new-item</span> <span class="pre">test.txt</span></code> for Windows and <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">test.txt</span></code> for macOS).</p></li>
+<li><p>Make sure the files is created: Use the list storage command (<code class="docutils literal notranslate"><span class="pre">ls</span></code> then Enter) to list the files to make sure the file test.txt is created.</p></li>
+<li><p>Change directory to your user home directory: Change your location back to the user home directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../..</span></code>).</p></li>
+<li><p>Exit out of terminal app: <code class="docutils literal notranslate"><span class="pre">exit</span></code> then Enter to exit.</p></li>
+</ol>
+<p>The whole process should look similar to this in Windows:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">&gt;</span> <span class="n">mkdir</span> <span class="n">workspace</span>                 <span class="c">### create the workspace directory in user home directory</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">&gt;</span> <span class="nb">cd </span><span class="n">workspace</span>                    <span class="c">### change directory into workspace</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">workspace</span><span class="p">&gt;</span> <span class="n">mkdir</span> <span class="n">tests</span>           <span class="c">### create the tests directory</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">workspace</span><span class="p">&gt;</span> <span class="nb">cd </span><span class="n">tests</span>              <span class="c">### change into the test directory</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">workspace</span><span class="p">\</span><span class="n">tests</span><span class="p">&gt;</span> <span class="nb">new-item</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span>   <span class="c">### create an empty file; use "touch test.txt" if you use macOS.</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">workspace</span><span class="p">\</span><span class="n">tests</span><span class="p">&gt;</span> <span class="nb">ls </span>             <span class="c">### list storage to see the file</span>
+<span class="n">test</span><span class="p">.</span><span class="n">txt</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">workspace</span><span class="p">\</span><span class="n">tests</span><span class="p">&gt;</span> <span class="nb">cd </span><span class="p">../..</span>        <span class="c">### change to the upper directory twice to user home directory</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">&gt;</span><span class="n">exit</span>                             <span class="c">### exit --&gt; Enter to leave the terminal</span>
+</pre></div>
+</div>
+<p>If you use macOS, the process should look similar enough:</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/shell_create_workspace_tests.jpg"><img alt="../../_images/shell_create_workspace_tests.jpg" src="../../_images/shell_create_workspace_tests.jpg" style="width: 217.7px; height: 94.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Creating a workspace directory, tests subdirectory, and a test file in macOS.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>To rename a file or a directory, use the <code class="docutils literal notranslate"><span class="pre">mv</span></code> (“move”) command. For example:
+<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">ist_1551</span> <span class="pre">introcscs</span></code> will rename a folder called ist_1551 to introcscs.</p></li>
+<li><p>To remove/delete a file, use <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*file_name*</span></code>.</p></li>
+<li><p>To remove an empty directory, use <code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">*directory_name*</span></code>.</p></li>
+<li><p>To remove a directory and all its content, use <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">*directory_name*</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="ide">
+<h2>IDE<a class="headerlink" href="#ide" title="Link to this heading">#</a></h2>
+<p>Integrated development environment (IDE) applications play a critical role in software development workflow and
+usually contains tools such as source-code editor, build automation tools, and a debugger.
+IDEs commonly used by professionals developers are: Visual Studio Code, Visual Studio, IntelliJ IDEA, Notepad++, and Vim.</p>
+<p>Visual Studio Code (VS Code) is an editor with plenty of features. It has turned from a text
+editor into an integrated development editor (IDE) with a large number of
+extensions available to enhance and enrich its tools and features. A great advantage of learning
+VS Code is that it is extremely versatile. Once you learn how to use it, you can use it for
+almost every other programming languages and technology as long as they involve editing and coding.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/popular_ide.jpg"><img alt="../../_images/popular_ide.jpg" src="../../_images/popular_ide.jpg" style="width: 348.0px; height: 191.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Visual Studio Code remains the preferred IDE across all developers. <a class="footnote-reference brackets" href="#id3" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="vs-code">
+<h3>VS Code<a class="headerlink" href="#vs-code" title="Link to this heading">#</a></h3>
+<p>The Visual Studio Code (VS Code) editor, powered by plenty of extensions, has made the editor a very powerful tool for coding and programming and worth learning.</p>
+<p>The popular IDE/editor VS Code user interface include several panes:</p>
+<ol class="arabic simple">
+<li><p>Activity Bar - Where you change Views. For example, the default view is Explorer (<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M7.5 22.5H17.595C17.07 23.4 16.11 24 15 24H7.5C4.185 24 1.5 21.315 1.5 18V6C1.5 4.89 2.1 3.93 3 3.405V18C3 20.475 5.025 22.5 7.5 22.5ZM21 8.121V18C21 19.6545 19.6545 21 18 21H7.5C5.8455 21 4.5 19.6545 4.5 18V3C4.5 1.3455 5.8455 0 7.5 0H12.879C13.4715 0 14.0505 0.24 14.4705 0.6585L20.3415 6.5295C20.766 6.954 21 7.5195 21 8.121ZM13.5 6.75C13.5 7.164 13.8375 7.5 14.25 7.5H19.1895L13.5 1.8105V6.75ZM19.5 18V9H14.25C13.0095 9 12 7.9905 12 6.75V1.5H7.5C6.672 1.5 6 2.1735 6 3V18C6 18.8265 6.672 19.5 7.5 19.5H18C18.828 19.5 19.5 18.8265 19.5 18Z"/></svg>) for managing files.</p></li>
+<li><p>Primary Side Bar</p></li>
+<li><p>Editor</p></li>
+<li><p>Panel (toggled by <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M15 12.5C15 13.881 13.881 15 12.5 15H3.5C2.119 15 1 13.881 1 12.5V3.5C1 2.119 2.119 1 3.5 1H12.5C13.881 1 15 2.119 15 3.5V12.5ZM2 10H14V3.5C14 2.672 13.328 2 12.5 2H3.5C2.672 2 2 2.672 2 3.5V10Z"/></svg> where TERMINAL resides)</p></li>
+<li><p>Status Bar</p></li>
+</ol>
+<p><strong>Activity Bar</strong>: In the Activity Bar on the left of the window, you can access different
+Views such as:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Search - Provides global search and replace across your open folder.</p></li>
+<li><p>Source Control - VS Code includes Git source control by default.</p></li>
+<li><p>Run - VS Code’s Run and Debug View displays variables, call stacks, and breakpoints.</p></li>
+<li><p>Extensions - Install and manage your extensions within VS Code.</p></li>
+<li><p>Custom views - Views contributed by extensions.</p></li>
+</ol>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/vscode_interface.jpg"><img alt="../../_images/vscode_interface.jpg" src="../../_images/vscode_interface.jpg" style="width: 600.0px; height: 398.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Basic elements in VS Code user interface</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Terminal</strong>: In the Panel section (), you have access to the TERMINAL and other console tabs. Note that:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The TERMINAL is exactly the same as your terminal application.</p></li>
+<li><p>When you open a project by issuing <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">.</span></code> in the project directory, the terminal will be default
+to the project directory.</p></li>
+<li><p>You may use Cmd+J (Ctl+J) to toggle the Panel to use the terminal.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Command Palette</strong>: In addition to the UI elements, an important key combination to learn is
+<code class="docutils literal notranslate"><span class="pre">Ctl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">P</span></code> on Windows and Linux, or <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Command</span> <span class="pre">+</span> <span class="pre">P</span></code> on Mac. Command
+palette gives access to all the functionalities within VS Code. For example,
+if you type <code class="docutils literal notranslate"><span class="pre">.NET</span></code> at the command palette, you get to access the .NET commands
+and features as follows.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/command_pallette_dontnet.jpg"><img alt="../../_images/command_pallette_dontnet.jpg" src="../../_images/command_pallette_dontnet.jpg" style="width: 228.0px; height: 84.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Using vscode Command Palette</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="c-repl-csharprepl">
+<h2>C# REPL (<code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>)<a class="headerlink" href="#c-repl-csharprepl" title="Link to this heading">#</a></h2>
+<p>While VS Code and .NET templates have made coding C# easy, a REPL (Read–Evaluate–Print-Loop, or language <strong>shell</strong>/<strong>interpreter</strong>) provides immediate evaluation (execution and result return), which can be very useful as you get to see immediate feedback of your code. This means direct <strong>execution</strong> of C# code without creating projects and files, which is very handy for learning and testing syntax.</p>
+<p>To use C# REPL (<a class="reference external" href="https://github.com/waf/CSharpRepl">CSharpRepl</a>):</p>
+<ul class="simple">
+<li><p>Installation: CSharpRepl can be installed by issuing <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">tool</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">csharprepl</span></code> at command line.</p></li>
+<li><p>Invocation: CSharpRepl is invoked by using the <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> command at command line.</p></li>
+</ul>
+<p>We want to use start by using <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> so that we can run some
+quick-and-dirty C# code for practice and testing purposes.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span><span class="p">&gt;</span> <span class="n">csharprepl</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">C</span><span class="c"># REPL (Read Eval Print Loop)!</span>
+<span class="nb">Type </span><span class="n">C</span><span class="c"># expressions and statements at the prompt and press Enter to evaluate them.</span>
+<span class="nb">Type </span><span class="n">help</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">more</span><span class="p">,</span> <span class="n">exit</span> <span class="n">to</span> <span class="n">quit</span><span class="p">,</span> <span class="n">and</span> <span class="nb">clear </span><span class="n">to</span> <span class="nb">clear </span><span class="n">your</span> <span class="n">terminal</span><span class="p">.</span>
+
+<span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> prompt tells you that the C# interpreter has started and is awaiting input. This allows you to test C# code interactively without having to create a project, modify it, save it, and run <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> to test it.</p>
+<p>When you are done with <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>, you can enter <code class="docutils literal notranslate"><span class="pre">exit</span></code> to quit the shell.</p>
+<p>The <em>repl</em> part in csharprepl is an acronym for the <em>Read-Evaluate-Print Loop</em> (REPL). A REPL is a language shell provides simple interactive computer programming environment that runs code piecewise. It evaluates expressions immediately and prints the result on a line without a prompt. The REPL can evaluate arbitrary C# expressions. It is very handy for testing as you get used to C# syntax.</p>
+<section id="expressions-in-c-repl">
+<h3>Expressions in C# REPL<a class="headerlink" href="#expressions-in-c-repl" title="Link to this heading">#</a></h3>
+<p>Start csharprepl and enter what comes after the prompt and the REPL prints the results directly.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span>
+<span class="mi">5</span>
+<span class="o">&gt;</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span>
+<span class="mi">7</span>
+<span class="o">&gt;</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>In the Math class, you could enter something like 4(10) for multiplication, but in C#, you need to use the multiplication operator <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="mi">10</span>
+<span class="mi">40</span>
+<span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="other-development-tools">
+<h2>Other Development Tools<a class="headerlink" href="#other-development-tools" title="Link to this heading">#</a></h2>
+<p>There are plenty of development tools that are worthy of our time to learn, except that we would
+not be able to learn all of them in one semester. A short list of those tools would include:</p>
+<ul class="simple">
+<li><p>Version Control (such as GitHub)</p></li>
+<li><p>Containerization (Docker)</p></li>
+<li><p>Shell Scripting (Bash)</p></li>
+</ul>
+</section>
+<section id="git-workflow-basics">
+<h2>Git Workflow Basics<a class="headerlink" href="#git-workflow-basics" title="Link to this heading">#</a></h2>
+<p>Version control protects your progress and enables team collaboration.</p>
+<section id="core-habits">
+<h3>Core habits<a class="headerlink" href="#core-habits" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Commit small logical changes.</p></li>
+<li><p>Write meaningful commit messages.</p></li>
+<li><p>Pull before starting major work.</p></li>
+<li><p>Avoid mixing unrelated changes in one commit.</p></li>
+</ol>
+</section>
+<section id="suggested-single-developer-loop">
+<h3>Suggested single-developer loop<a class="headerlink" href="#suggested-single-developer-loop" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull
+git<span class="w"> </span>status
+git<span class="w"> </span>add<span class="w"> </span>&lt;files&gt;
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implement CSV parsing validation"</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+<section id="suggested-team-loop">
+<h3>Suggested team loop<a class="headerlink" href="#suggested-team-loop" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/score-summary
+<span class="c1"># work + tests</span>
+git<span class="w"> </span>add<span class="w"> </span>&lt;files&gt;
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add score summary report"</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/score-summary
+</pre></div>
+</div>
+<p>Then open a pull request and request review.</p>
+</section>
+<section id="commit-message-quality">
+<h3>Commit message quality<a class="headerlink" href="#commit-message-quality" title="Link to this heading">#</a></h3>
+<p>Weak:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;update&quot;</span></code></p></li>
+</ul>
+<p>Strong:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Validate</span> <span class="pre">malformed</span> <span class="pre">CSV</span> <span class="pre">rows</span> <span class="pre">before</span> <span class="pre">parsing</span> <span class="pre">scores&quot;</span></code></p></li>
+</ul>
+</section>
+<section id="merge-conflict-basics">
+<h3>Merge conflict basics<a class="headerlink" href="#merge-conflict-basics" title="Link to this heading">#</a></h3>
+<p>When conflict markers appear:</p>
+<ol class="arabic simple">
+<li><p>read both versions carefully</p></li>
+<li><p>decide final merged code</p></li>
+<li><p>remove markers</p></li>
+<li><p>run tests</p></li>
+<li><p>commit merge result</p></li>
+</ol>
+<p class="rubric">Footnotes</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>For a comprehensive introduction to the interface of VS Code, see: <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface">https://code.visualstudio.com/docs/getstarted/userinterface</a></p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/01-context"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0101-cs_ideas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Computing Concepts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0103-program_structure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">C# Program Structure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#net-net-sdk">.NET &amp; .NET SDK</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-net-sdk">The .NET SDK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#net-runtime">.NET Runtime</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-apps-shell">Terminal Apps &amp; Shell</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories-and-files">Creating Directories and Files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ide">IDE</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">VS Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-repl-csharprepl">C# REPL (<code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-in-c-repl">Expressions in C# REPL</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-development-tools">Other Development Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-workflow-basics">Git Workflow Basics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-habits">Core habits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-single-developer-loop">Suggested single-developer loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-team-loop">Suggested team loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commit-message-quality">Commit message quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-conflict-basics">Merge conflict basics</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

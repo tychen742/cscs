@@ -1,0 +1,621 @@
+sup,
+a.footnote-reference {
+    font-size: 0.6em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+button.thebelab-button.thebelab-run-button {
+    padding-left: 0 !important;
+}
+
+div.thebelab-cell.thebelab-cell>div.thebelab-input {
+    border-left: none !important;
+    margin-left: 0 !important;
+}
+
+div.thebelab-cell.thebelab-cell>div.thebelab-output,
+div.thebelab-cell>div.thebelab-output,
+div.thebelab-output {
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+div.cell_output.docutils.container {
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+div.thebelab-cell.thebelab-cell>div.thebelab-input {
+    padding: 0 !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+.thebelab-input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.thebelab-input,
+.thebelab-cell .thebelab-input,
+.thebelab-cell.thebelab-cell .thebelab-input {
+    margin: 0 !important;
+}
+
+.thebelab-cell .jp-OutputArea {
+    margin-top: 6px !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+}
+
+.tag_thebe-interactive .thebelab-cell .jp-OutputArea {
+    margin-top: 3px !important;
+    padding-top: 3px !important;
+}
+
+.output.text_plain.highlight-myst-ansi.notranslate {
+    margin: 0 !important;
+}
+
+div.output {
+    margin: 0 !important;
+}
+
+.thebelab-button {
+    margin: 0 !important;
+}
+
+body {
+    font-size: 0.85rem;
+    line-height: 1.28;
+    counter-reset: exercise-counter;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.25;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.2em !important;
+}
+
+h2 {
+    margin: 1.5rem 0 0.75rem 0;
+    font-size: 1.5rem !important;
+}
+
+h3 {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.1rem !important;
+}
+
+h4 {
+    margin-top: 0.75rem;
+    font-size: 1.05rem !important;
+}
+
+p {
+    font-size: inherit !important;
+    margin-bottom: 0.5rem;
+}
+
+li {
+    font-size: inherit !important;
+    line-height: 1.25 !important;
+}
+
+.bd-article-container .bd-content ul,
+.bd-article-container .bd-content ol {
+    margin-top: 0.3rem;
+    margin-bottom: 0.75rem !important;
+}
+
+.bd-article-container .bd-content li {
+    margin-bottom: 0.125rem !important;
+}
+
+nav.bd-links p.caption {
+    margin-top: 0.45rem !important;
+    margin-bottom: 0.15rem !important;
+}
+
+html[data-theme=light] {
+    --sbt-color-announcement: #616161;
+    --pst-color-primary: #176de8;
+}
+
+.bd-sidebar-primary {
+    line-height: 1.25 !important;
+}
+
+/* Fix oversized font when sidebar is toggled open (drawer/navbar mode) */
+div.bd-toc-item.navbar-nav,
+div.bd-toc-item.navbar-nav a,
+div.bd-toc-item.navbar-nav p.caption,
+div.bd-toc-item.navbar-nav li {
+    font-size: 0.85rem !important;
+}
+
+/* Keep right "Contents" drawer font size consistent with compact sidebar text */
+#pst-secondary-sidebar,
+#pst-secondary-sidebar .sidebar-secondary-item,
+#pst-secondary-sidebar .sidebar-secondary-item a,
+#pst-secondary-sidebar .toc-entry a,
+#pst-secondary-sidebar .nav-link {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
+/* Stronger override for off-canvas/toggled right TOC drawer variants */
+#pst-secondary-sidebar .sidebar-secondary-items,
+#pst-secondary-sidebar .sidebar-secondary-items__start,
+#pst-secondary-sidebar .sidebar-secondary-items__title,
+#pst-secondary-sidebar nav.bd-toc-nav,
+#pst-secondary-sidebar nav.bd-toc-nav ul,
+#pst-secondary-sidebar nav.bd-toc-nav li,
+#pst-secondary-sidebar nav.bd-toc-nav a,
+.sidebar-secondary-item,
+.sidebar-secondary-item a,
+nav.bd-toc-nav,
+nav.bd-toc-nav li,
+nav.bd-toc-nav a {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
+nav.bd-links li>a {
+    padding: .1rem .25rem !important;
+}
+
+/* Tighter left sidebar line spacing */
+.bd-sidebar-primary nav.bd-links li,
+.bd-sidebar-primary nav.bd-links li>a {
+    line-height: 1.2 !important;
+}
+
+.bd-content .sd-tab-set>input:checked+label {
+    background-color: var(--pst-color-on-background);
+    border-color: var(--pst-color-primary) var(--pst-color-primary) transparent;
+    border-radius: .125rem .125rem 0 0;
+    border-style: solid solid none;
+    border-width: .125rem .125rem 0;
+    color: var(--pst-color-primary);
+    transform: translateY(.125rem);
+}
+
+/* =============================================================
+   STATIC PAGE: code cell input/output styling
+   
+   - Cell input: green left border, light background
+   - Cell output: no left border, separated from input by top border
+   - pre inside output: no green left border (that's only for input)
+   ============================================================= */
+
+/* Base pre styling - no green by default */
+pre {
+    background-color: #f7f7f7 !important;
+    color: #222 !important;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 0.8rem !important;
+    border-left: 1px solid #ddd;
+}
+
+/* Green left border ONLY on input code blocks */
+div.cell_input pre,
+div.cell_input .highlight pre {
+    border-left: 1px solid #1b5e20 !important;
+    border-bottom-left-radius: 0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Output pre: no green border, slightly different bg to distinguish */
+div.cell_output pre {
+    border-left: 1px solid #c3c3c3 !important;
+    background-color: #fafafa !important;
+    border-top-left-radius: 0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Static code/output cells: gentle hover feedback like interactive cells */
+div.cell:hover div.cell_input pre,
+div.cell:hover div.cell_input .highlight pre,
+div.cell:hover div.cell_output pre {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Gap and separator between cell_input and cell_output */
+div.cell_input {
+    border: none !important;
+    margin-bottom: 0 !important;
+}
+
+div.cell_output {
+    border-top: 1px solid #e8e8e8 !important;
+    margin-top: 6px !important;
+    padding-top: 6px !important;
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+table.dataframe,
+table {
+    border-collapse: collapse !important;
+    width: auto !important;
+    margin: 0 auto 1em auto !important;
+}
+
+.dataframe td,
+.dataframe th,
+table td,
+table th {
+    padding: 2px 6px !important;
+    line-height: 1.2 !important;
+}
+
+table td p,
+table th p,
+table.dataframe th,
+table.dataframe td {
+    font-size: 0.85rem !important;
+    color: #333 !important;
+}
+
+/* Inline code inside tables */
+table td code,
+table th code {
+    font-size: 0.8rem !important;
+}
+
+/* Match output table text to code-cell size */
+div.cell_output table td,
+div.cell_output table th,
+div.cell_output table td p,
+div.cell_output table th p,
+div.cell_output table.dataframe td,
+div.cell_output table.dataframe th,
+.jp-OutputArea table td,
+.jp-OutputArea table th,
+.jp-OutputArea table td p,
+.jp-OutputArea table th p,
+.jp-OutputArea table.dataframe td,
+.jp-OutputArea table.dataframe th {
+    font-size: 0.8rem !important;
+}
+
+table thead tr,
+table.dataframe thead tr {
+    color: #555 !important;
+    font-weight: 500 !important;
+    background-color: #f9f9f9 !important;
+    border-bottom: 2px solid #eee !important;
+}
+
+table.dataframe thead th,
+table thead th {
+    color: #222 !important;
+    font-weight: 500 !important;
+    background-color: #f9f9f9 !important;
+}
+
+table.dataframe tbody th,
+table tbody th {
+    color: #222 !important;
+    font-weight: 500 !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+table.dataframe tbody tr,
+table tbody tr {
+    font-weight: 400 !important;
+}
+
+table.dataframe tbody tr:hover,
+table.dataframe tbody tr th:hover,
+table tbody tr:hover {
+    background-color: #ebf7ee !important;
+}
+
+.simple.glossary>dt {
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+
+:root {
+    --pst-sidebar-font-size: 0.85rem;
+    --pst-sidebar-secondary-font-size: 0.85rem;
+}
+
+.highlight {
+    font-size: 0.9rem !important;
+}
+
+.thebelab-cell.thebelab-cell {
+    padding: 0 8px 8px 8px !important;
+    margin: 0 0 8px 0 !important;
+    margin-left: 0 !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s !important;
+    border: 1px solid #ddd !important;
+    border-left: 1px solid #1b5e20 !important;
+    border-radius: 6px !important;
+    background-color: #f7f7f7 !important;
+    font-size: 0.8rem !important;
+}
+
+.thebelab-cell.thebelab-cell .thebelab-input {
+    background-color: inherit !important;
+    border: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    padding: 8px !important;
+    display: block !important;
+    overflow: visible !important;
+}
+
+.thebelab-cell .jp-OutputArea pre,
+.thebelab-cell .thebelab-output pre {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Interactive output should match static style (divider + neutral left edge) */
+.thebelab-cell .jp-OutputArea,
+.thebelab-cell .thebelab-output {
+    border-left: none !important;
+}
+
+/* Final interactive cell shape: green input edge + single divider + output */
+.thebelab-cell > .thebelab-input {
+    border-left: none !important;
+}
+
+.thebelab-cell > .thebelab-output {
+    border-top: 1px solid #ededed !important;
+}
+
+.thebelab-cell.thebelab-cell .highlight-python {
+    margin: 8px 0 !important;
+    padding: 8px !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.thebelab-cell .thebelab-input>* {
+    margin: 0 !important;
+}
+
+.thebelab-cell .thebelab-input pre {
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    color: inherit !important;
+}
+
+.thebelab-cell:hover {
+    border: 1px solid #790303;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thebelab-button {
+    font-size: 0.8rem;
+    padding: 4px;
+    background-color: #f7f7f7 !important;
+    color: #999 !important;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin-top: 0px !important;
+}
+
+.thebelab-button:hover {
+    color: #333 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.thebelab-buttons {
+    text-align: left !important;
+    margin-top: 0px !important;
+    border: none !important;
+}
+
+.cell_output,
+.thebelab-output {
+    font-size: 0.8rem !important;
+    margin-bottom: 1em !important;
+}
+
+.tag_hide-input .admonition-title,
+.tag_hide-input summary {
+    font-weight: normal;
+    margin-bottom: 0.25rem !important;
+}
+
+p.admonition-title {
+    margin: 0px 10px 5px 0px;
+    font-weight: normal !important;
+}
+
+.tag_hide-input details {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.tag_hide-input .admonition,
+.tag_hide-input details.admonition,
+.tag_thebe-interactive .admonition,
+.tag_thebe-interactive details.admonition {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+    border-top-left-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.admonition,
+.sd-admonition {
+    border-left: 1px solid !important;
+}
+
+.thebe-launch-button::after {
+    content: "...";
+    font-size: 0.85em;
+    color: #c3c2c2;
+    font-style: italic;
+}
+
+.thebe-launch-button.thebelab-active::after {
+    content: "";
+}
+
+div.output_stream,
+div.cell_output {
+    font-size: 0.75rem !important;
+}
+
+div.output_stream pre,
+div.cell_output pre {
+    font-size: 0.75rem !important;
+}
+
+div.output_stream pre span,
+div.cell_output pre span {
+    font-size: 0.75rem !important;
+}
+
+div.cell.docutils.container,
+div.container.cell,
+div.cell {
+    margin-bottom: 0.5rem !important;
+}
+
+div.cell.tag_thebe-interactive {
+    /* counter-increment: exercise-counter; */
+    margin-bottom: 0.75rem !important;
+    /* padding: 8px !important; */
+    /* border-left: 1px solid #AD2327; */
+    /* counter-increment */
+    padding: 0 !important;
+}
+
+/* Tighter spacing for exercise cells */
+.tag_thebe-interactive .cell_input,
+.tag_thebe-interactive div.cell_input {
+    margin-bottom: 0.25rem !important;
+}
+
+.tag_thebe-interactive .cell_output,
+.tag_thebe-interactive div.cell_output {
+    margin-top: 3px !important;
+    padding-top: 3px !important;
+}
+
+/* div.cell.tag_thebe-interactive::before {
+    content: "✏️ Interactive Exercise " counter(exercise-counter);
+    display: block;
+    font-size: 0.85em;
+    color: #66010b;
+    font-weight: bold;
+    margin-bottom: 8px;
+} */
+
+div.cell.tag_thebe-interactive {
+    padding: 8px;
+}
+
+button.sidebar-toggle.primary-toggle {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 480px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+.thebelab-cell>.thebelab-input {
+    padding: 0 !important;
+}
+
+/* NOTE: do NOT put border:none here — it overrides the green border-left
+   set in .thebelab-cell.thebelab-cell .thebelab-input above */
+
+/* Ensure exercise cell output (moved outside <details> by JS) is always visible */
+div.thebelab-output,
+.thebelab-cell .thebelab-output {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Style the jp-OutputArea wrapper that JS moved outside <details> for exercise cells */
+.tag_hide-input>div[data-moved-out="1"] {
+    border-top: 1px solid #e8e8e8 !important;
+    margin-top: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 2px !important;
+    padding-left: 12px !important;
+    background-color: #fafafa !important;
+    border-radius: 0 0 6px 6px !important;
+}
+
+.tag_hide-input .cell_output,
+.tag_hide-input .thebelab-output {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* =============================================================
+   DEMO CELL OUTPUT VISIBILITY
+   'thebe-is-active' is added to body by our own JS (custom.js)
+   when Thebe activates (Thebe 0.8.2 never sets thebelab-active).
+
+   _config.yml predefinedOutput: true (default) (made false 02-21-2026), so static outputs
+   are visible. When Thebe activates, demo cell outputs are hidden
+   until student clicks run. Exercise cells (tag_hide-input) are
+   exempt — their static output stays visible always.
+   ============================================================= */
+
+/* Hide demo cell output when Thebe is active */
+body.thebe-is-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
+    display: none !important;
+}
+
+/* Show output after student clicks run */
+body.thebe-is-active .cell.cell-has-run .jp-OutputArea {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Exercise cells: jp-OutputArea always visible */
+body.thebe-is-active .tag_hide-input .jp-OutputArea {
+    display: block !important;
+    visibility: visible !important;
+}

@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The for Statement &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/05-iteration/0502-for-statements';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="While-Statements" href="0503-while-statement.html" />
+    <link rel="prev" title="Iteration" href="0501-iteration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0500-iteration-intro.html">Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/05-iteration/0502-for-statements.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/05-iteration/0502-for-statements.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The for Statement</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-syntax">For Statement Syntax</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-sequence">Execution sequence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements"><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-for-loop">Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-loop-step-patterns">Additional Loop Step Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-in-loop-header">Step in loop header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-essentials"><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Essentials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-statement"><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Statement</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-in-foreach"><code class="docutils literal notranslate"><span class="pre">break</span></code> in <code class="docutils literal notranslate"><span class="pre">foreach</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-for-statement">
+<span id="for-statement"></span><span id="index-0"></span><h1>The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement<a class="headerlink" href="#the-for-statement" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> statement executes a statement or a block of statements
+while a specified <strong>Boolean expression</strong> evaluates to true. Such evaluation involves
+comparing the local loop counter variable (an <strong>integer counter</strong> that increments/decrements over every loop)
+to a preset value. Since the number of loops is controlled by comparing the counter with the <strong>preset value</strong>,
+you need to specify the preset value to decide the number of times you want to run the code block when defining
+a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop statement.</p>
+<section id="for-statement-syntax">
+<span id="for-loop-header"></span><h2>For Statement Syntax<a class="headerlink" href="#for-statement-syntax" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code> loops are usually favored for iteration because the
+all the information about the local loop variable are available in one place at the top,
+which helps quickly visualize the overall sequence in the loop.</p>
+<p>The C# for loop statement syntax is:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">initializer</span><span class="o">*</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">condition</span><span class="o">*</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">iterator</span><span class="o">*</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// code block (statements)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let us practice in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> or VS Code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop has four parts, a three-section semicolon-separated <strong>header</strong>
+and a <strong>body</strong>:</p>
+<ul class="simple">
+<li><p><strong>Initializer</strong>: This section is a <strong>variable declaration statement</strong> that
+declares a <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">loop</span> <span class="pre">variable</span></code> (or <code class="docutils literal notranslate"><span class="pre">iterator</span> <span class="pre">variable</span></code> or the counter) and initialize it with an initial value.</p></li>
+<li><p><strong>Condition</strong>: The condition section is a <strong>boolean expression</strong> that determines
+if the next iteration in the loop should be executed or should the loop be terminated. If it evaluates to true,
+the next iteration is executed; otherwise, the loop is exited.</p></li>
+<li><p><strong>Iterator</strong>: The iterator (<strong>iteration expression</strong>) section that defines what happens to the counter after each
+execution of the body of the loop. A common behavior is reassigning
+(increment or decrement) the value of the counter.</p></li>
+<li><p>The <strong>body</strong> of the loop, which must be a statement or a block of statements.</p></li>
+</ul>
+<p>In the example above, the <em>initializer</em> is <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1</span></code>, <em>condition</em> is <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">n</span></code>,
+and <em>iterator</em> is <code class="docutils literal notranslate"><span class="pre">i++</span></code> (see <a class="reference internal" href="../02-var_data/0203-operators.html#arithmetic-operators"><span class="std std-ref">arithmetic operators</span></a>).</p>
+<p>Note that the initializer section is executed <strong>only once</strong>, before entering the loop.
+Also, the declared variable is local to the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop heading and
+the loop body and can not be accessed from outside the for statement.</p>
+<p>The two semicolons are always needed in the <code class="docutils literal notranslate"><span class="pre">for</span></code> heading, but any of the
+parts they normally separate may be omitted.
+If the condition part is omitted, the condition is
+interpreted as always true, leading to an infinite loop, that can only
+terminate due to a <code class="docutils literal notranslate"><span class="pre">return</span></code> or <a class="reference internal" href="#break-continue"><span class="std std-ref">break statement</span></a> in the body.</p>
+<p><strong>Header variation</strong></p>
+<p>The declaration of a for loop header is flexible. There may be several variables of the
+same type initialized, separated by commas. Also, at the end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop heading,
+the iteration portion may include more than one expression, also separated by commas.
+For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} {1}"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Guess what this does, and then paste it into csharprepl to check.</p>
+<section id="execution-sequence">
+<span id="index-1"></span><h3>Execution sequence<a class="headerlink" href="#execution-sequence" title="Link to this heading">#</a></h3>
+<p>For the execution sequence of for loops, note that the different parts of
+the heading are used at different times:</p>
+<ul class="simple">
+<li><p>When starting the statement, the initialization is done, and then
+the test of condition (boolean expression).</p></li>
+<li><p>After finishing the body and returning to the heading, the iteration operations
+are done, followed by the test.</p></li>
+</ul>
+</section>
+</section>
+<section id="break-and-continue-statements">
+<span id="break-continue"></span><span id="index-2"></span><h2><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements<a class="headerlink" href="#break-and-continue-statements" title="Link to this heading">#</a></h2>
+<p>The basic syntax of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is simplistic. Here we are using the
+<code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements to learn the pragmatic coding practice of the <code class="docutils literal notranslate"><span class="pre">for</span></code>
+loops by connecting to our understanding of conditional/selection statements.</p>
+<p>When performing iteration, there will be times that you want to alter the code execution
+sequence by skipping part or all of the iterations. If you only want to break out of
+the <em>enclosing loop</em>, but <em>not</em> out of the whole method or the outer loop (in case of
+nested looping), use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">break;</span></code></p>
+</div></blockquote>
+<p>in place of <code class="docutils literal notranslate"><span class="pre">return</span></code>, since return will break out the current method. With the <code class="docutils literal notranslate"><span class="pre">break</span></code>
+statement, execution continues after terminating the enclosing iteration statement.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements only make practical sense
+inside of an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that is inside the loop. In the following examples,
+you see a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement with a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement enclosed in a
+<code class="docutils literal notranslate"><span class="pre">conditional/selection</span></code> statement.</p>
+<p>Assuming that variable <code class="docutils literal notranslate"><span class="pre">target</span></code> already has a string value and variable <code class="docutils literal notranslate"><span class="pre">arr</span></code> is an array of
+strings. With your knowledge about <code class="docutils literal notranslate"><span class="pre">arr.Length</span></code> and <code class="docutils literal notranslate"><span class="pre">arr[i]</span></code> from <a class="reference internal" href="../02-var_data/0202-data_types.html#string"><span class="std std-ref">String (string)</span></a>, read
+the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">   </span><span class="c1">// loop for arr.Length times</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">               </span><span class="c1">// if one of arr == targe</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w">                    </span><span class="c1">// set found to true</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w">                           </span><span class="c1">// break out of the enclosing loop</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="w">                             </span><span class="c1">// if found == true (from the previous block)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Target found at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Target not found"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When an element in <code class="docutils literal notranslate"><span class="pre">arr</span></code> is reached that matches <code class="docutils literal notranslate"><span class="pre">target</span></code>, execution breaks out
+of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and move on to the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(found)</span></code> statement block below.</p>
+<p>Now, observe an alternate implementation with a <code class="docutils literal notranslate"><span class="pre">compound</span> <span class="pre">condition</span></code> (<a class="reference internal" href="../04-decision/0401-intro-decision.html#compound-boolean-expressions"><span class="std std-ref">Compound Boolean Expressions</span></a>) in the heading
+and no <code class="docutils literal notranslate"><span class="pre">break</span></code> is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">found</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Target found at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Target not found"</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the code exit because the condition section of the if statement header
+has an expression <code class="docutils literal notranslate"><span class="pre">!found</span></code> (<a class="reference internal" href="../02-var_data/0203-operators.html#logical-operators"><span class="std std-ref">C# Operator Types</span></a>), meaning found is not true.
+The shows that since <code class="docutils literal notranslate"><span class="pre">break</span></code> statements rely on the logic of the conditional statement,
+if the condition can be embedded in the header of the loop, you don’t have to use break.
+However, if you are designing a loop that has multiple exit criteria, using break statements
+can make the code much less verbose in the header’s condition section, and hence easier to
+follow because the if statement conditions and the immediate break action may be clearly
+presented.</p>
+</section>
+<section id="nested-for-loop">
+<span id="id1"></span><h2>Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop<a class="headerlink" href="#nested-for-loop" title="Link to this heading">#</a></h2>
+<p>There will be times when <strong>nested</strong> loops are are required for the problem scenario.
+A nested loop can look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">outer</span><span class="o">-</span><span class="n">Loop</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// body of outer-loop</span>
+<span class="w">   </span><span class="n">inner</span><span class="o">-</span><span class="n">Loop</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// body of inner-loop</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Continuing with our discussion on <code class="docutils literal notranslate"><span class="pre">break</span></code>, let’s say we are in a situation like the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(....)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="c1">// some statements of outer for loop</span>
+
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(....)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">...</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">...</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="p">...</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="c1">// some statements of outer for look</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The break statement is in the inner loop. If it is reached, the inner loop ends,
+but the <strong>inner loop</strong> is just a <strong>single statement</strong> inside the outer loop,
+and <strong>the outer loop continues</strong>.
+If the outer loop continuation condition remains true,
+the inner loop will be executed again. As an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} -- {1}"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you determine the output of the preceding code? Try it in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> or a test project
+in your tests folder.</p>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> Statement</p>
+<p>For completeness we mention the much less used <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">continue;</span></code></p>
+</div></blockquote>
+<p>A <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement:
+- does not break out of the whole loop statement.
+- break/skips the execution of the rest of the <em>body</em> in the current enclosing loop iteration.
+- starts the next enclosing loop iteration.</p>
+<p>In the simplest situations, a <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement just avoids an extra <code class="docutils literal notranslate"><span class="pre">else</span></code> clause.
+It can considerably shorten code if the test is inside of complicated, deeply nested
+<code class="docutils literal notranslate"><span class="pre">if</span></code> statements. As an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">           </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} -- {1}"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you determine the output of the preceding code? Try it in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> or a test project
+in your tests folder.</p>
+</section>
+<section id="additional-loop-step-patterns">
+<h2>Additional Loop Step Patterns<a class="headerlink" href="#additional-loop-step-patterns" title="Link to this heading">#</a></h2>
+<p>The following examples were moved from <code class="docutils literal notranslate"><span class="pre">0503-for-examples</span></code> to keep all <code class="docutils literal notranslate"><span class="pre">for</span></code> step patterns in one section.</p>
+</section>
+<section id="step-in-loop-header">
+<h2>Step in loop header<a class="headerlink" href="#step-in-loop-header" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">i++</span></code> is a common pattern and it increments by 1. Also common in the iterator/step section of
+the loop header is using assignment statement to control stepping:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or the equivalent short-hand compound assignment operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means to increment the variable i by k.</p>
+<p id="index-3">Most C# binary operations have a similar variation. For instance
+if <em>op</em> is <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">%</span></code>,</p>
+<blockquote>
+<div><p><strong>variable</strong> <em>op</em>= <em>expression</em></p>
+</div></blockquote>
+<p>means the same as</p>
+<blockquote>
+<div><p><strong>variable</strong> = <strong>variable</strong> op <em>expression</em></p>
+</div></blockquote>
+<p>For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>is the same as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="foreach-essentials">
+<span id="tables"></span><span id="index-4"></span><h2><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Essentials<a class="headerlink" href="#foreach-essentials" title="Link to this heading">#</a></h2>
+<p>This short section was consolidated from the previous standalone <code class="docutils literal notranslate"><span class="pre">foreach</span></code> page.</p>
+</section>
+</section>
+<section id="foreach-statement">
+<span id="foreach-syntax"></span><h1><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Statement<a class="headerlink" href="#foreach-statement" title="Link to this heading">#</a></h1>
+<p id="index-5">A C# <code class="docutils literal notranslate"><span class="pre">foreach</span></code> works like a for loop, except it does not use the header
+(initializer, condition, and iterator) for <code class="docutils literal notranslate"><span class="pre">conditional</span></code> looping flow control. Instead,
+the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop iterates through each element in a given sequence or collection of data and
+runs a set of instructions once for each of the elements. In other words, the
+<code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop is used exclusively to loop through elements in an array
+(or other data sets).</p>
+<p>In the case of <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in C#, the local loop variable refers to the index of an
+array whereas, in the case of a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop, the loop variable refers to
+the <code class="docutils literal notranslate"><span class="pre">values</span></code> of the array.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, the loop variable is of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. The reason for this is,
+here the <code class="docutils literal notranslate"><span class="pre">loop</span> <span class="pre">variable</span></code> refers to the index position of the array. For the <code class="docutils literal notranslate"><span class="pre">foreach</span></code>
+loop, the <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">type</span></code> of the <code class="docutils literal notranslate"><span class="pre">loop</span> <span class="pre">variable</span></code> must be the same as the
+<em>type of the values stored in the array</em>. For example, if you have a string array,
+then the loop variable must be of type string.</p>
+<p>The syntax of the foreach loop is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>foreach (type variableName in arrayName)
+{
+   // code block to be executed
+}
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">foreach</span></code> statement only works with an object that holds a sequence or collection of data.
+We will see many more kinds of sequences later. For now we can illustrate
+with a string, which is a sequence of characters. Observe and test the
+following two pieces of code in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> to see how <code class="docutils literal notranslate"><span class="pre">foreach</span></code>
+differs from the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p>
+<p>Say you want to print out some Unicode/ASCII code
+for certain characters. To achieve that using C# <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, the code could look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; string str = "ABCabc";
+&gt; for (int i = 0; i &lt; 6; i++)
+  {
+      Console.WriteLine("Unicode for {0} is {1}", i, (int)str[i]);
+  }
+Unicode for 0 is 65
+Unicode for 1 is 66
+Unicode for 2 is 67
+Unicode for 3 is 97
+Unicode for 4 is 98
+Unicode for 5 is 99
+
+&gt;
+</pre></div>
+</div>
+<p>As you can see, with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, you refer to the individual characters by its index
+and then cast it to <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(int)str[i]
+</pre></div>
+</div>
+<p>Since strings are considered as arrays consisting of <code class="docutils literal notranslate"><span class="pre">char</span></code> type characters, we can loop
+through a string using a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> statement using type <code class="docutils literal notranslate"><span class="pre">char</span></code> and <em>cast</em> to print out
+the underlying <code class="docutils literal notranslate"><span class="pre">int</span></code> Unicode value of each character. To achieve the same results using
+the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop, the code would look like the following (pay attention to the local
+loop variable <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">ch</span></code>; type is required as usual):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; string str = "ABCabc";
+  foreach (char ch in str) {
+     Console.WriteLine("Unicode for {0} is {1}.", ch, (int)ch);
+  }
+Unicode for A is 65.
+Unicode for B is 66.
+Unicode for C is 67.
+Unicode for a is 97.
+Unicode for b is 98.
+Unicode for c is 99.
+</pre></div>
+</div>
+<p>As you can see, in a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop, we do not rely on array indexing to refer to the
+elements. Instead, we refer to the elements directly with the local loop variable (<code class="docutils literal notranslate"><span class="pre">ch</span></code>)
+declared with the type (<code class="docutils literal notranslate"><span class="pre">char</span></code> in this case).</p>
+<p>As you see in the preceding example, the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> heading feeds us one
+character from <code class="docutils literal notranslate"><span class="pre">str</span></code> each time through, using the name <code class="docutils literal notranslate"><span class="pre">ch</span></code>
+to refer to it. Since any new variable name must be declared with a type in C#,
+so <code class="docutils literal notranslate"><span class="pre">ch</span></code> is preceded in the heading by its type, <code class="docutils literal notranslate"><span class="pre">char</span></code>. Then we can use
+<code class="docutils literal notranslate"><span class="pre">ch</span></code> inside the body of the loop.</p>
+<p><strong>``foreach`` vs. for loop</strong></p>
+<p>Some of the advantages/disadvantages of <code class="docutils literal notranslate"><span class="pre">foreach</span></code> over the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop are:</p>
+<ul class="simple">
+<li><p>foreach not involve variable setup (iterates over each element of the array).</p></li>
+<li><p>foreach are more concise and readable than the indexing <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p></li>
+</ul>
+<p>The foreach loop does have some limitations: [1]</p>
+<ul class="simple">
+<li><p>They don’t keep track of the index of the item.</p></li>
+<li><p>They cannot iterate backwards. The loop can only go forward in one step.</p></li>
+<li><p>If you wish to modify the array, the foreach loop isn’t the most suitable option.</p></li>
+<li><p>The foreach loop cannot execute two-decision statements at once.</p></li>
+</ul>
+<p><em>If</em> you have explicit need to refer to the indices of the items in the sequence,
+then a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> statement does not work for you.</p>
+<section id="break-in-foreach">
+<h2><code class="docutils literal notranslate"><span class="pre">break</span></code> in <code class="docutils literal notranslate"><span class="pre">foreach</span></code><a class="headerlink" href="#break-in-foreach" title="Link to this heading">#</a></h2>
+<p>With a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop, which has no explicit continuation condition,
+the <code class="docutils literal notranslate"><span class="pre">break</span></code> could be more clearly useful. Here is a variant if you do not care
+about the specific location of the target:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bool found = false;
+
+foreach (string s in a) {
+   if (s == target)
+   {
+      found = true;
+      break;
+   }
+}
+
+if (found) {
+   Console.WriteLine("Target found");
+} else {
+   Console.WriteLine("Target not found");
+}
+</pre></div>
+</div>
+<p><strong>Note</strong> that for the for and foreach loops, you could do all the same things
+with <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, which you will learn in subsequent chapters, but there
+are many situations where <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loops and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are more convenient
+and easier to read.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{rubric}</span> <span class="pre">Footnotes</span></code></p>
+<p>[1] For a discussion of C# for loop vs foreach loop, see
+<a class="reference external" href="https://www.simplilearn.com/tutorials/c-sharp-tutorial/c-sharp-foreach">Understanding What Is C# Foreach Loop</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/05-iteration"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0501-iteration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Iteration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0503-while-statement.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">While-Statements</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statement-syntax">For Statement Syntax</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-sequence">Execution sequence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-continue-statements"><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-for-loop">Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-loop-step-patterns">Additional Loop Step Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-in-loop-header">Step in loop header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-essentials"><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Essentials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#foreach-statement"><code class="docutils literal notranslate"><span class="pre">foreach</span></code> Statement</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-in-foreach"><code class="docutils literal notranslate"><span class="pre">break</span></code> in <code class="docutils literal notranslate"><span class="pre">foreach</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

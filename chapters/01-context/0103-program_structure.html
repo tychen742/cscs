@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>C# Program Structure &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/01-context/0103-program_structure';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preview Questions" href="assignments/preview.html" />
+    <link rel="prev" title="Development Tools" href="0102-dev_tools.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0100-context-intro.html">Introduction</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/01-context/0103-program_structure.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/01-context/0103-program_structure.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>C# Program Structure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-net-templates">The .NET Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-console-app">A Console App</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">C# Program Structure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-c-project">Creating a C# Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-cs">The Program.cs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-level-statements">Top-Level Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-mode">Script Mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-and-projects">Solutions and Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-curly-braces-and-semicolon">Comments, Curly Braces, and Semicolon</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements-code-blocks">Compound Statements (Code Blocks)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="c-program-structure">
+<span id="program-structure"></span><span id="index-0"></span><h1>C# Program Structure<a class="headerlink" href="#c-program-structure" title="Link to this heading">#</a></h1>
+<section id="the-net-templates">
+<h2>The .NET Templates<a class="headerlink" href="#the-net-templates" title="Link to this heading">#</a></h2>
+<p>The .NET SDK comes with built-in templates for creating projects and files, including console apps,
+class libraries, unit test projects, etc. For learning purposes, we will mainly use the console app
+template. To see the list of templates, you may issue the <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">list</span></code> command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nb">PS </span><span class="n">C</span><span class="p">:\&gt;</span> <span class="n">dotnet</span> <span class="n">new</span> <span class="n">list</span>
+</span><span class="n">These</span> <span class="n">templates</span> <span class="n">matched</span> <span class="n">your</span> <span class="n">input</span><span class="p">:</span>
+
+<span class="n">Template</span> <span class="n">Name</span>                       <span class="n">Short</span> <span class="n">Name</span>      <span class="n">Language</span>    <span class="n">Tags</span> 
+<span class="p">----------------------------------</span>  <span class="p">--------------</span>  <span class="p">----------</span>  <span class="p">------------------------</span>
+<span class="n">API</span> <span class="n">Controller</span>                      <span class="n">apicontroller</span>   <span class="p">[</span><span class="n">C</span><span class="c">#]        Web/ASP.NET </span>
+<span class="n">ASP</span><span class="p">.</span><span class="n">NET</span> <span class="n">Core</span> <span class="n">Empty</span>                  <span class="n">web</span>             <span class="p">[</span><span class="n">C</span><span class="c">#],F#     Web/Empty </span>
+<span class="n">ASP</span><span class="p">.</span><span class="n">NET</span> <span class="n">Core</span> <span class="n">Web</span> <span class="n">API</span>                <span class="n">webapi</span>          <span class="p">[</span><span class="n">C</span><span class="c">#],F#     Web/Web API/API/Service </span>
+<span class="p">...</span>
+<span class="n">ASP</span><span class="p">.</span><span class="n">NET</span> <span class="n">Core</span> <span class="n">Web</span> <span class="n">App</span> <span class="p">(</span><span class="n">Razor</span> <span class="n">Pages</span><span class="p">)</span>  <span class="n">webapp</span><span class="p">,</span><span class="n">razor</span>    <span class="p">[</span><span class="n">C</span><span class="c">#],F#     Web/MVC/Razor Pages </span>
+<span class="n">Blazor</span> <span class="n">Web</span> <span class="n">App</span>                      <span class="n">blazor</span>          <span class="p">[</span><span class="n">C</span><span class="c">#]        Web/Blazor/WebAssembly </span>
+<span class="n">Class</span> <span class="n">Library</span>                       <span class="n">classlib</span>        <span class="p">[</span><span class="n">C</span><span class="c">#],F#,VB  Common/Library </span>
+<span class="hll"><span class="n">Console</span> <span class="n">App</span>                         <span class="n">console</span>         <span class="p">[</span><span class="n">C</span><span class="c">#],F#,VB  Common/Console </span>
+</span><span class="p">...</span>
+</pre></div>
+</div>
+</section>
+<section id="a-console-app">
+<h2>A Console App<a class="headerlink" href="#a-console-app" title="Link to this heading">#</a></h2>
+<p>We can try out the Console App template, which will give us a “Hello, World” message
+when executing. In the terminal, let us
+change directory (<code class="docutils literal notranslate"><span class="pre">cd</span></code>) into the test directory and issue command <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code>.
+The .NET SDK will generate a project for us, which will include the following files and
+directories:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> file</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">obj</span></code> folder</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">testPrj.csproj</span></code> file</p></li>
+<li><p>Also, a <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory will be created later after the project is built.</p></li>
+</ol>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="no">[username]</span><span class="p">&gt;</span> <span class="nb">cd </span><span class="n">test</span>
+</span><span class="hll"><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span><span class="p">&gt;</span> <span class="n">dotnet</span> <span class="n">new</span> <span class="n">console</span>
+</span><span class="n">The</span> <span class="n">template</span> <span class="s2">"Console App"</span> <span class="n">was</span> <span class="n">created</span> <span class="n">successfully</span><span class="p">.</span>
+
+<span class="n">Processing</span> <span class="n">post-creation</span> <span class="n">actions</span><span class="p">...</span>
+<span class="n">Restoring</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span><span class="p">\</span><span class="n">test</span><span class="p">.</span><span class="n">csproj</span><span class="p">:</span>
+<span class="n">Restore</span> <span class="n">succeeded</span><span class="p">.</span>
+
+
+<span class="hll"><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span><span class="p">&gt;</span> <span class="nb">ls</span>
+</span>    <span class="n">Directory</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span>
+
+<span class="n">Mode</span>                 <span class="n">LastWriteTime</span>         <span class="n">Length</span> <span class="n">Name</span>
+<span class="p">----</span>                 <span class="p">-------------</span>         <span class="p">------</span> <span class="p">----</span>
+<span class="n">d</span><span class="p">-----</span>         <span class="n">3</span><span class="p">/</span><span class="n">12</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">40</span> <span class="n">PM</span>                <span class="n">obj</span>
+<span class="n">-a</span><span class="p">----</span>         <span class="n">3</span><span class="p">/</span><span class="n">12</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">40</span> <span class="n">PM</span>             <span class="n">40</span> <span class="n">Program</span><span class="p">.</span><span class="n">cs</span>
+<span class="n">-a</span><span class="p">----</span>         <span class="n">3</span><span class="p">/</span><span class="n">12</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">40</span> <span class="n">PM</span>            <span class="n">253</span> <span class="n">test</span><span class="p">.</span><span class="n">csproj</span>
+
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>From the terminal we can open vscode by typing <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">.</span></code> and hit Enter (the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> means the current directory; namely, open VS Code and use this current directory as project folder).</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">PS C:\Users\tcn85\test&gt; code .</span>
+<span class="go">PS C:\Users\tcn85\test&gt;</span>
+</pre></div>
+</div>
+<p>VS Code will open. We then choose the Explorer (<i class="far fa-copy"></i>) view and click on the Program.cs file. You will see that the Program.cs looks
+simple as below and we are working the executable code directly.</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The template is very succinct because of after C#9 there’s a feature called <strong>top-level statements</strong>, with which you write and execute code without the boilerplate <code class="docutils literal notranslate"><span class="pre">class</span></code> and <code class="docutils literal notranslate"><span class="pre">Main</span></code> method wrapper because he compiler automatically generates a Program class with an entry point method for the application and adds a set of implicit <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">using</span></code> directives such as Microsoft.NET.Sdk to include the most common namespaces.</p>
+<p>While top-level statements are friendly to new users and is the default when you create a new project using <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code>, there’s a limit that only one file in a project can have top-level statements. Therefore, as we learn more about C# programming, you will need to learn how to structure your code using namespaces and classes.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>There can be only one entry point (the <code class="docutils literal notranslate"><span class="pre">Main()</span></code> method) per C# project, but a project can have many <code class="docutils literal notranslate"><span class="pre">.cs</span></code> files.</strong></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">.csproj</span></code> file defines a project, and a project can only have <strong>one entry point</strong> — either one file with top-level statements, or one <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">Main()</span></code> method. However, a project can contain as many <code class="docutils literal notranslate"><span class="pre">.cs</span></code> files as you like; all extra <code class="docutils literal notranslate"><span class="pre">.cs</span></code> files just define additional classes or helpers that the entry point can use. If you have two programs that each need their own <code class="docutils literal notranslate"><span class="pre">Main()</span></code>, they must be <strong>two separate projects</strong> (two separate <code class="docutils literal notranslate"><span class="pre">.csproj</span></code> files).</p>
+</div>
+</section>
+<section id="id1">
+<h2>C# Program Structure<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="creating-a-c-project">
+<h3>Creating a C# Project<a class="headerlink" href="#creating-a-c-project" title="Link to this heading">#</a></h3>
+<p>To use the conventional C# program style, you use the <code class="docutils literal notranslate"><span class="pre">--use-program-main</span></code> option to create a console app project with the <code class="docutils literal notranslate"><span class="pre">Main</span></code> method. In the example below, we create a test2 folder, change into the test2 folder, then issue <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> with the option <code class="docutils literal notranslate"><span class="pre">--use-program-main</span></code> to create the project with conventional <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> structure:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">&gt;</span> <span class="n">mkdir</span> <span class="n">test2</span>
+    <span class="n">Directory</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span>
+<span class="n">Mode</span>                 <span class="n">LastWriteTime</span>         <span class="n">Length</span> <span class="n">Name</span>
+<span class="p">----</span>                 <span class="p">-------------</span>         <span class="p">------</span> <span class="p">----</span>
+<span class="n">d</span><span class="p">-----</span>         <span class="n">3</span><span class="p">/</span><span class="n">13</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">12</span> <span class="n">AM</span>                <span class="n">test2</span>
+
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">&gt;</span> <span class="nb">cd </span><span class="n">test2</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test2</span><span class="p">&gt;</span> <span class="n">dotnet</span> <span class="n">new</span> <span class="n">console</span> <span class="p">-</span><span class="n">-use-program-main</span>
+<span class="n">The</span> <span class="n">template</span> <span class="s2">"Console App"</span> <span class="n">was</span> <span class="n">created</span> <span class="n">successfully</span><span class="p">.</span>
+
+<span class="n">Processing</span> <span class="n">post-creation</span> <span class="n">actions</span><span class="p">...</span>
+<span class="n">Restoring</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test2</span><span class="p">\</span><span class="n">test2</span><span class="p">.</span><span class="n">csproj</span><span class="p">:</span>
+<span class="n">Restore</span> <span class="n">succeeded</span><span class="p">.</span>
+
+<span class="n">After</span> <span class="n">creating</span> <span class="n">the</span> <span class="n">project</span><span class="p">,</span> <span class="n">we</span> <span class="n">first</span> <span class="p">`</span><span class="n">ls</span><span class="p">`</span> <span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="n">the</span> <span class="n">folder</span> <span class="n">to</span> <span class="n">see</span> <span class="n">what</span> <span class="n">files</span> <span class="n">and</span> <span class="n">directories</span> <span class="n">are</span> <span class="n">there</span><span class="p">.</span>
+
+<span class="p">```</span><span class="n">powershell</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test2</span><span class="p">&gt;</span> <span class="nb">ls</span>
+    <span class="n">Directory</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="no">[username]</span><span class="p">\</span><span class="n">test2</span>
+<span class="n">Mode</span>                 <span class="n">LastWriteTime</span>         <span class="n">Length</span> <span class="n">Name</span>
+<span class="p">----</span>                 <span class="p">-------------</span>         <span class="p">------</span> <span class="p">----</span>
+<span class="n">d</span><span class="p">-----</span>         <span class="n">3</span><span class="p">/</span><span class="n">13</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">12</span> <span class="n">AM</span>                <span class="n">obj</span>
+<span class="n">-a</span><span class="p">----</span>         <span class="n">3</span><span class="p">/</span><span class="n">13</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">12</span> <span class="n">AM</span>            <span class="n">140</span> <span class="n">Program</span><span class="p">.</span><span class="n">cs</span>
+<span class="n">-a</span><span class="p">----</span>         <span class="n">3</span><span class="p">/</span><span class="n">13</span><span class="p">/</span><span class="n">2026</span>  <span class="n">12</span><span class="p">:</span><span class="n">12</span> <span class="n">AM</span>            <span class="n">253</span> <span class="n">test2</span><span class="p">.</span><span class="n">csproj</span>
+</pre></div>
+</div>
+<p>This will give us the same project files as running <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> without the <code class="docutils literal notranslate"><span class="pre">--use-program-main</span></code> option, but the <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> file will be different. Opening the <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> and you see the template code as:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">testPrj</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The boilerplate code above actually means we formally wrap our C# code around in layers when our project scale go beyond a simple script:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────┐
+│  namespace testPrj                      │
+│  ┌───────────────────────────────────┐  │
+│  │  class Program                    │  │
+│  │  ┌─────────────────────────────┐  │  │
+│  │  │  static void Main(string[]) │  │  │
+│  │  │  {                          │  │  │
+│  │  │      // statements here     │  │  │
+│  │  │  }                          │  │  │
+│  │  └─────────────────────────────┘  │  │
+│  └───────────────────────────────────┘  │
+└─────────────────────────────────────────┘
+</pre></div>
+</div>
+</section>
+<section id="the-program-cs">
+<h3>The Program.cs<a class="headerlink" href="#the-program-cs" title="Link to this heading">#</a></h3>
+<p>Some important concepts that you need to learn from this template code example here so we have better ideas about the basic structure of C# programs.</p>
+<ol class="arabic" id="using-system">
+<li><p><code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">System;</span></code>:</p>
+<p>Starting .NET 6, <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">System</span></code> is implicit as defined in the <code class="docutils literal notranslate"><span class="pre">.csproj</span></code> file so it is not shown in the Program.cs file. We should know that, <code class="docutils literal notranslate"><span class="pre">System</span></code> is a root-level <strong>namespace</strong> that contains basic defined value and reference types. The <code class="docutils literal notranslate"><span class="pre">using</span></code> directive allows you to use the types defined in a namespace without specifying the fully qualified namespace of that type. For example, <code class="docutils literal notranslate"><span class="pre">Console</span></code> is a class inside the
+<code class="docutils literal notranslate"><span class="pre">System</span></code> namespace and we use its <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> method to print to the console by typing <code class="docutils literal notranslate"><span class="pre">Console.WriteLine()</span></code>, less the <code class="docutils literal notranslate"><span class="pre">System</span></code> part.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span><span class="w">  </span><span class="c1">// instead of System.Console.WriteLine</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" id="namespace" start="2">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">namespace</span></code></strong>:
+The <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword is used to declare a scope to organize types (such as classes). For example, following the template’s program structure, we may define a namespace as below to contain unique code elements such as class, interface, struct, which will be implemented to create functionalities for the application.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">SampleNamespace</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">class</span><span class="w"> </span><span class="nc">SampleClass</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">interface</span><span class="w"> </span><span class="n">ISampleInterface</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">SampleStruct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">SampleEnum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">delegate</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SampleDelegate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Nested</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">SampleClass2</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>An example of namespace is the <code class="docutils literal notranslate"><span class="pre">System</span></code> namespace in .NET, which defines some of the fundamental types. When we run
+<code class="docutils literal notranslate"><span class="pre">Console.WriteLine(&quot;Hello,</span> <span class="pre">World&quot;);</span></code>, we are actually running
+<code class="docutils literal notranslate"><span class="pre">System.Console.WriteLine(&quot;Hello</span> <span class="pre">World!&quot;);</span></code> We do not specify “System” because it is “imported” (by the hidden <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">System</span></code>) already and we can use the fundamental features (e.g., <code class="docutils literal notranslate"><span class="pre">Console</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Math</span></code>, etc) within the namespace. Software engineers use namespace the same way to organize the functionalities in applications. <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">class</span></code></strong>:
+A class is a blueprint for creating objects. It is a user-defined reference type that defines:</p>
+<ul class="simple">
+<li><p><strong>fields/properties</strong> (data that describe the object), and</p></li>
+<li><p><strong>methods</strong> (functions that define the object’s behavior).</p></li>
+</ul>
+<p>By convention, each class is defined in its own file, named after the class (e.g., MyClass.cs).</p>
+</li>
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">Main</span></code></strong> method:
+The <strong>Main method</strong> is the <strong>entry point</strong> of a C# application and therefore
+the first method invoked when an application is executed. There is only one
+entry point in a C# program.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>:
+A method (function) is an object-oriented term for function, which is a series
+of statements designed to perform certain task. In C#, just like Java, the
+<em>Main method</em> is the entry point of the program, meaning it is the first
+method invoked when a program is executed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">static</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">void</span></code>:</p>
+<ul class="simple">
+<li><p>The modifier <code class="docutils literal notranslate"><span class="pre">static</span></code> means the method can be called without creating
+a new object from the class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span></code> means the Main method does not return anything.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string[]</span> <span class="pre">args</span></code>:
+The <code class="docutils literal notranslate"><span class="pre">args</span></code> are called “command line arguments” and in this example the type is
+string array; meaning when calling this method you send the arguments in and they are zero-indexed as an array.</p></li>
+</ol>
+</section>
+<section id="top-level-statements">
+<h3>Top-Level Statements<a class="headerlink" href="#top-level-statements" title="Link to this heading">#</a></h3>
+<p>When you create a real console project with <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> (without the option <code class="docutils literal notranslate"><span class="pre">--use-program-main</span></code>), the generated <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> uses <strong>top-level statements</strong> (the default since .NET 6), which lets you write code without explicitly declaring <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Program</span></code> and <code class="docutils literal notranslate"><span class="pre">Main</span></code>. You still create a project and it still compiles into a proper executable, but the compiler automatically wraps the top-level statements into an entry point, which is equivalent to the explicit <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Program</span></code> / <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">Main</span></code>. As you might have noticed, the <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">//</span> <span class="n">See</span> <span class="n">https</span><span class="p">://</span><span class="n">aka</span><span class="p">.</span><span class="n">ms</span><span class="p">/</span><span class="nb">new-console</span><span class="n">-template</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="script-mode">
+<h3>Script Mode<a class="headerlink" href="#script-mode" title="Link to this heading">#</a></h3>
+<p>When you enable the <strong>Live Code</strong> mode of the page, you can write and run C# inside the code cells (but not markdown cells), the .NET Interactive kernel, similar to <strong><code class="docutils literal notranslate"><span class="pre">csharprepl</span></code></strong>, runs code in <strong>script mode</strong>: you write statements directly without creating a project wrapping code in a <code class="docutils literal notranslate"><span class="pre">namespace</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, or <code class="docutils literal notranslate"><span class="pre">Main</span></code> method. This is similar to how Python or JavaScript work in their REPL.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Script mode (notebook)</p></th>
+<th class="head"><p>Top-level statements (project)</p></th>
+<th class="head"><p>Explicit <code class="docutils literal notranslate"><span class="pre">Main</span></code> (project)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">namespace</span></code> declaration</p></td>
+<td><p>not supported</p></td>
+<td><p>optional</p></td>
+<td><p>optional</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Program</span></code> / <code class="docutils literal notranslate"><span class="pre">Main</span></code></p></td>
+<td><p>can do but not needed</p></td>
+<td><p>can do but not needed</p></td>
+<td><p>required</p></td>
+</tr>
+<tr class="row-even"><td><p>Compiles to <code class="docutils literal notranslate"><span class="pre">.exe</span></code></p></td>
+<td><p>interpreted/runs in-memory</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>How to create</p></td>
+<td><p>.NET Interactive notebooks</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> (default)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span> <span class="pre">--use-program-main</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In this book, notebooks use <strong>script mode</strong> for interactive exploration, while the companion C# projects use <strong>top-level statements</strong> or the explicit <code class="docutils literal notranslate"><span class="pre">Main</span></code> form depending on context.</p>
+</section>
+</section>
+<section id="solutions-and-projects">
+<h2>Solutions and Projects<a class="headerlink" href="#solutions-and-projects" title="Link to this heading">#</a></h2>
+<p>For simple project, you can create a project without creating a solution. To do that, create a directory in command line, and issue the command such as <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span> <span class="pre">--use-program-main</span></code> to use the .NET templates for creating new projects. A <code class="docutils literal notranslate"><span class="pre">.csproj</span></code> file will be created and you know that this is a project folder.</p>
+<p>For more complicated projects, the .NET platform uses <strong>solutions</strong> and <strong>projects</strong> to organize code items in specific structure. A solution is a <strong>container</strong> or <strong>workspace</strong> for one or more projects, and each project would contain source code files. A web app solution, for example, may include a website project, a database project, and a server-side API project; and each of the project will be named differently under different project folders inside the solution directory.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌────────────────────────────────────────────────────────────────────┐
+│                            MySolution.sln                          │
+│                   Solution file – groups all projects              │
+│                                                                    │
+│ ┌────────────────┐  ref  ┌────────────────┐ ref ┌────────────────┐ │
+│ │  MyApp.API     │ ────▶ │  MyApp.Core    │◀────│  MyApp.Infra   │ │
+│ │                │       │                │     │                │ │
+│ │ .csproj        │       │ .csproj        │     │ .csproj        │ │
+│ │ Controllers,   │       │ Models,        │     │ DB,            │ │
+│ │ endpoints      │       │ interfaces     │     │ repositories   │ │
+│ └────────────────┘       └───────▲────────┘     └────────────────┘ │
+│                               ref│                                 │
+│                         ┌────────┴───────┐                         │
+│                         │  MyApp.Tests   │                         │
+│                         │                │                         │
+│                         │ .csproj        │                         │
+│                         │ Unit &amp;         │                         │
+│                         │ integration    │                         │
+│                         │ tests          │                         │
+│                         └────────────────┘                         │
+└────────────────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+<p>To create a solution as a workspace, we use the command <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">sln</span></code> in the solution directory. You then create all your project directories in the solution directory, and then create a new project in each of the project directories using the .NET templates (e.g., Console App or Web App).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MySolution/
+├── MySolution.sln
+├── MyApp/
+│   └── MyApp.csproj
+├── MyLibrary/
+│   └── MyLibrary.csproj
+└── MyTests/
+    └── MyTests.csproj
+</pre></div>
+</div>
+<p>To manage your projects and solutions, you can:</p>
+<ol class="arabic">
+<li><p>Create a new solution</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dotnet<span class="w"> </span>new<span class="w"> </span>sln<span class="w"> </span>-n<span class="w"> </span>MySolution
+</pre></div>
+</div>
+</li>
+<li><p>Create a project</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>MyApp
+dotnet<span class="w"> </span>new<span class="w"> </span>classlib<span class="w"> </span>-n<span class="w"> </span>MyLibrary
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add projects to the solution</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dotnet<span class="w"> </span>sln<span class="w"> </span>MySolution.sln<span class="w"> </span>add<span class="w"> </span>MyApp/MyApp.csproj
+dotnet<span class="w"> </span>sln<span class="w"> </span>MySolution.sln<span class="w"> </span>add<span class="w"> </span>MyLibrary/MyLibrary.csproj
+</pre></div>
+</div>
+</li>
+<li><p>Common solution commands for further management of projects and solutions include:</p></li>
+</ol>
+<div style="width: fit-content; margin-left: 2rem;">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>List projects in solution</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">sln</span> <span class="pre">list</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Remove a project</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">sln</span> <span class="pre">remove</span> <span class="pre">MyApp/MyApp.csproj</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Add project reference</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">add</span> <span class="pre">MyApp</span> <span class="pre">reference</span> <span class="pre">MyLibrary</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Build entire solution</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">build</span> <span class="pre">MySolution.sln</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Run a specific project</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span> <span class="pre">--project</span> <span class="pre">MyApp</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Add a NuGet package</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">add</span> <span class="pre">MyApp</span> <span class="pre">package</span> <span class="pre">Newtonsoft.Json</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><p>If you create a project in a folder using VS Code’s “Create .NET Project” button in the Explorer view, a solution will be created with the same name as the project. To manage solutions, the Solution Explorer in VS Code can be used, with the <strong>C# Dev Kit</strong> extension installed. The Solution Explorer panel in the sidebar allows you to:</p>
+<ul class="simple">
+<li><p>Add/remove projects</p></li>
+<li><p>Manage NuGet packages</p></li>
+<li><p>View project references</p></li>
+<li><p>Run/debug projects
+<a class="footnote-reference brackets" href="#id5" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p></li>
+</ul>
+</section>
+<section id="comments-curly-braces-and-semicolon">
+<h2>Comments, Curly Braces, and Semicolon<a class="headerlink" href="#comments-curly-braces-and-semicolon" title="Link to this heading">#</a></h2>
+<p>Comments are important as they make code more readable. C# offers single-line and multiple-line
+comments:</p>
+<p><strong>Single-line Comments</strong>: Single-line comments start with two forward slashes (//). Any text between // and the end of the line is ignored by C# (will not be executed).</p>
+<p><strong>Multi-line Comments</strong>: Multi-line comments start with /* and ends with */. Any text between /* and */ will be ignored by C#.</p>
+<p>The <strong>curly braces { }</strong> in C# mark the beginning and the end of a block of code.</p>
+<p><strong>Semicolons</strong> work as statement terminator character in C# and are required because they prevent syntax ambiguities.
+Semicolons after method or accessor block, however, is not allowed.</p>
+<section id="compound-statements-code-blocks">
+<h3>Compound Statements (Code Blocks)<a class="headerlink" href="#compound-statements-code-blocks" title="Link to this heading">#</a></h3>
+<p>A code block (or simply “block”), also referred to as a compound statement, is the grouping of multiple statements into a
+single statement. While each statement that ends with a semicolon, often it makes sense to see a block of
+statements as one lexical unit. In C#, a code block is delimited by a pair of curly braces to include
+a list of statements. For example, the following code shows an if statement, you can see the two highlighted
+code blocks being compound statements because the statements inside the curly braces. More specifically,
+line 4-9 is a compound statement of the if statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w">  </span><span class="c1">// try a negative value to test the else branch</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">area</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">radius</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// calculate the area of the circle</span>
+<span class="w">    </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"The area of the circle is: {area:0.00}"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{radius} is not a valid radius."</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area of the circle is: 78.54
+</pre></div>
+</div>
+</div>
+</div>
+<p class="rubric">Footnotes</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>To learn more about the .NET System namespace, see the .NET API documentation at <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system?view=net-8.0">https://learn.microsoft.com/en-us/dotnet/api/system?view=net-8.0</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>To manage .NET solutions and projects, see, for example, <a class="reference external" href="https://www.linkedin.com/pulse/managing-net-solution-files-dotnet-sln-sukhpinder-singh-arqvc/">https://www.linkedin.com/pulse/managing-net-solution-files-dotnet-sln-sukhpinder-singh-arqvc/</a></p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/01-context"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0102-dev_tools.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Development Tools</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignments/preview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-net-templates">The .NET Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-console-app">A Console App</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">C# Program Structure</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-c-project">Creating a C# Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-program-cs">The Program.cs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-level-statements">Top-Level Statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-mode">Script Mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-and-projects">Solutions and Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-curly-braces-and-semicolon">Comments, Curly Braces, and Semicolon</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements-code-blocks">Compound Statements (Code Blocks)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

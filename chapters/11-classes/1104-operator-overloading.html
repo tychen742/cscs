@@ -1,0 +1,998 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Operator Overloading &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/11-classes/1104-operator-overloading';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preview Questions" href="assignments/preview.html" />
+    <link rel="prev" title="Class Instance" href="1103-class-instance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="1100-classes-intro.html">Classes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/11-classes/1104-operator-overloading.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/11-classes/1104-operator-overloading.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operator Overloading</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-parameters-of-the-same-type">Method Parameters of the Same Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-definitions">Operator Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pictorial-playing-computer">Pictorial Playing Computer</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="operator-overloading">
+<span id="rational"></span><span id="index-0"></span><h1>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Link to this heading">#</a></h1>
+<p><strong>This section is for your further learning/exercise and the Rational class is referenced
+by other sections</strong></p>
+<p>Like other numbers, we think of a rational number as a unit,
+but all rational numbers can be most easily represented as a fraction,
+a ratio of two integers. We can create a class Rational, so</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Rational r = new Rational(2, 3);
+</pre></div>
+</div>
+<p>would create a new Rational number for the mathematical expression, 2/3.</p>
+<p>Our previous simple class examples have mostly been ways of
+collecting related data, with limited methods beyond getters and setters.
+Rational numbers also have lots of obvious operations defined on them.
+Our Rational example we will use most of the concepts for object so far,
+and add a few more, to provide a rich practical class
+with a variety of methods.</p>
+<p>Thinking ahead to what we would like for our rational numbers, here is
+some testing code. Hopefully the method names are clear and reasonable.
+in the illustration
+we operate on a single rational number, and do calculation with a pair,
+and parse string literals. The code is from
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/test_rational/test_rational.cs">test_rational/test_rational.cs</a>:</p>
+<p>One non-obvious method is <code class="docutils literal notranslate"><span class="pre">CompareTo</span></code>. This one method allows
+all the usual comparison operators to be used with the result.
+We will discuss it more in <a class="reference internal" href="#rationals-revisited"><span class="std std-ref">Method Parameters of the Same Type</span></a>.</p>
+<p>The results we would like when running this testing code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6/(-10) simplifies to -3/5
+reciprocal of -3/5 is -5/3
+-3/5 negated is 3/5
+-3/5 + 1/2 is -1/10
+-3/5 - 1/2 is -11/10
+-3/5 * 1/2 is -3/10
+(-3/5) / (1/2) is -6/5
+1/2 &gt; -3/5 ? true
+-3/5 as a double is -0.6
+1/2 as a decimal is 0.5
+Parse "-12/30" to Rational: -2/5
+Parse "123" to Rational: 123
+Parse "1.125" to Rational: 9/8
+</pre></div>
+</div>
+<p>A Rational has a numerator and a denominator. We must remember that data.
+Each individual Rational that we use will have its own numerator and
+denominator, which we store as the instance variables
+(and which we abbreviate since we are lazy):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public class Rational
+{
+   private int num;
+   private int denom;
+   // ...
+</pre></div>
+</div>
+<p>We could have a very simple constructor that just copies in values for
+the numerator and denominator. However, there is an extra wrinkle with
+rational numbers: They can be represented many ways. You remember from
+grade school being told to “reduce to lowest terms”. This will keep
+our internal representations unique, and use the smallest numbers.</p>
+<p>Intermediate operations and initial constructor parameters
+will not always be in lowest terms. To reduce to lowest terms
+we need to divide the original numerator and denominator by their
+<a class="reference internal" href="../05-iteration/0503-while-statement.html#gcd"><span class="std std-ref">GCD Example with a while Loop</span></a>. We include a <em>static</em> GCD method taken from that section,
+and make the adjustment to lowest terms in a helping method, <code class="docutils literal notranslate"><span class="pre">Normalize</span></code>,
+that is called by the constructor:</p>
+<p id="index-1">There are several things to note about this method:</p>
+<ul class="simple">
+<li><p>It is <em>private</em>.
+It is only used as a helping method, called from inside of Rational. It
+is not a part of the public interface used from other classes.</p></li>
+<li><p>We need to deal with a 0 denominator somehow. We should be causing an
+<em>exception</em>, but that is an advanced topic, so we wimp out and just
+change the denominator to 1.</p></li>
+<li><p>There is one other technical issue in getting a unique representation: The
+denominator could start off being negative.
+If that is the case, we change the sign of
+both the numerator and denominator, so we always end up with a positive
+denominator. We will use this fact in several places.</p></li>
+<li><p>It calls a static method of the class, <code class="docutils literal notranslate"><span class="pre">GCD</span></code>. Classes can have both
+instance and static methods. It is fine for an instance method like
+<code class="docutils literal notranslate"><span class="pre">Normalize</span></code> to call a static method: The instance variables cannot be
+accessed. Here <code class="docutils literal notranslate"><span class="pre">GCD</span></code> is passed all its data explicitly through
+its parameters.</p></li>
+</ul>
+<p>The complete constructor, using <code class="docutils literal notranslate"><span class="pre">Normalize</span></code>, is below.
+Note that by the time we
+are done constructing a new Rational, it is in this normalized form: lowest
+terms and positive denominator:</p>
+<p>The call to the <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> method is another place where we have a
+call without dot notation, since it
+is acting on the same object as for the constructor.</p>
+<p>We mentioned that instance method <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> calls static method <code class="docutils literal notranslate"><span class="pre">GCD</span></code>,
+and this is fine. The reverse is not true:</p>
+<p>Inside a <code class="docutils literal notranslate"><span class="pre">static</span></code> method there
+is <em>no</em> current object. A common compiler error is caused when you
+try to have a static method call
+an instance method without dot notation for a specific object.
+The shorthand notation
+without an explicit object reference and dot cannot be used, because
+there is no
+current object to reference implicitly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void AnInstanceMethod()
+{
+      ...
+}
+
+public static void AStaticMethod()  // no current object
+{
+       AnInstanceMethod();  // COMPILER ERROR CAUSED
+}
+</pre></div>
+</div>
+<p>On the other hand, there is no issue when
+an instance method calls a static method. (The instance variables are just
+inaccessible inside the static method.)</p>
+<p>The Rational class has the usual getter methods, to access the
+obvious parts of its state:</p>
+<p>We certainly want to be able to display a Rational as a string version:</p>
+<p>Note that we simplify so you would see “3” rather than “3/1”. This is also
+a place where the normalization to have a positive denominator comes in:
+a negative Rational will always have a leading “-” as in “-5/9” rather than
+“5/-9”</p>
+<p>With a Rational, several other conversions make sense: to <code class="docutils literal notranslate"><span class="pre">double</span></code>
+and <code class="docutils literal notranslate"><span class="pre">decimal</span></code> approximations.</p>
+<p>So far we have returned built-in types. What if we wanted to generate
+the reciprocal of a Rational? That would be another Rational. It is
+legal to return the type of the class that you are defining!
+How do we make a new Rational?
+We have a constructor! We can easily use it. The reciprocal
+swaps the numerator and denominator. It is also easy to negate
+a Rational:</p>
+<p>Static methods are still useful.
+For example, in analogy with the other numeric types
+we may want a static <code class="docutils literal notranslate"><span class="pre">Parse</span></code> method
+to act on a string parameter and return a new Rational.</p>
+<p>The most obvious kind of string to parse would be one like <code class="docutils literal notranslate"><span class="pre">&quot;2/3&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;-10/77&quot;</span></code>,
+which we can split at the <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.
+Integers are also rational numbers, so we would like to parse <code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code>.
+Finally decimal strings can be converted to rational numbers,
+so we would like to parse <code class="docutils literal notranslate"><span class="pre">&quot;123.45&quot;</span></code>.</p>
+<p>See how our <code class="docutils literal notranslate"><span class="pre">Parse</span></code> method below distinguishes and handles
+all the cases. It constructs integer strings,
+<code class="docutils literal notranslate"><span class="pre">parts[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">parts[1]</span></code>, for both the numerator and denominator,
+and then parses the integers. Note that the method <em>is</em> <code class="docutils literal notranslate"><span class="pre">static</span></code>.
+There is no Rational
+being referred to when it starts, but in this case the method <em>returns</em> one.</p>
+<p>That last case is the trickiest. For example <code class="docutils literal notranslate"><span class="pre">&quot;123.45&quot;</span></code> becomes 12345/100
+(before being reduced to lowest terms).
+Note that there were originally <em>two</em> digits after the decimal point
+and then the denominator gets <em>two</em> zeroes to have the right power of 10:</p>
+<section id="method-parameters-of-the-same-type">
+<span id="rationals-revisited"></span><h2>Method Parameters of the Same Type<a class="headerlink" href="#method-parameters-of-the-same-type" title="Link to this heading">#</a></h2>
+</section>
+<section id="operator-definitions">
+<span id="defining-operators"></span><h2>Operator Definitions<a class="headerlink" href="#operator-definitions" title="Link to this heading">#</a></h2>
+<p>We can deal with the current object without using dot notation. What if we are
+dealing with <em>more than one</em> Rational, the current one <em>and</em> another one,
+like the parameter in Multiply:</p>
+<p>We can mix the shorthand notation for the current object’s fields
+and dot notation for another
+<em>named</em> object: <code class="docutils literal notranslate"><span class="pre">num</span></code> and <code class="docutils literal notranslate"><span class="pre">denom</span></code> refer to the fields in the <em>current</em> object, and
+<code class="docutils literal notranslate"><span class="pre">f.num</span></code> and <code class="docutils literal notranslate"><span class="pre">f.denom</span></code> refer to fields for the other
+<code class="docutils literal notranslate"><span class="pre">Rational</span></code>, the parameter <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p>We do not refer to the fields of <code class="docutils literal notranslate"><span class="pre">f</span></code> through the public methods
+<code class="docutils literal notranslate"><span class="pre">GetNumerator</span></code> and <code class="docutils literal notranslate"><span class="pre">GetDenominator</span></code>.
+Though <code class="docutils literal notranslate"><span class="pre">f</span></code> is not the same <em>object</em>, it is the same <em>type</em>:</p>
+<p>Private members of <em>another</em> object of the <em>same</em> type are
+accessible from method definitions in the class.</p>
+<p>There are a number of other arithmetic methods in the source code for Rational
+that return a new Rational result of the arithmetic operation. They <em>do</em> review
+your knowledge of arithmetic! They do <em>not</em> add further C# syntax.</p>
+<p>The whole code for Rational is in <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/rational_nunit/rational.cs">rational_nunit/rational.cs</a>.
+The testing code we started with, in
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/test_rational/test_rational.cs">test_rational/test_rational.cs</a>
+uses all the methods. We will see more advance ways to test Rational
+in <a class="reference internal" href="../13-exceptions-testing/1303-testing.html#unit-testing"><span class="std std-ref">Unit Testing</span></a>.</p>
+<p>There is also a more convenient version of Rational,
+using advanced concepts, in <a class="reference internal" href="#defining-operators"><span class="std std-ref">Operator Definitions</span></a>.</p>
+</section>
+<section id="pictorial-playing-computer">
+<h2>Pictorial Playing Computer<a class="headerlink" href="#pictorial-playing-computer" title="Link to this heading">#</a></h2>
+<p>Let us start pictorially playing computer on <code class="file docutils literal notranslate"><span class="pre">test_rational.cs</span></code>,
+as a review of much of the previous sections. We explicitly show a local variable
+<code class="docutils literal notranslate"><span class="pre">this</span></code> to identify the current object in an instance method or constructor.</p>
+<p>The first line of <code class="docutils literal notranslate"><span class="pre">Main</span></code>,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Rational f = new Rational(6, -10);
+</pre></div>
+</div>
+<p>creates a new Rational, so it calls the constructor. At the very beginning of the
+constructor, a prototype <code class="docutils literal notranslate"><span class="pre">Rational</span></code> is already created as the current object,
+so immediately, there is a <code class="docutils literal notranslate"><span class="pre">this</span></code>.
+The parameters 6, and -10 are passed, initializing the explicit local
+variables <code class="docutils literal notranslate"><span class="pre">numerator</span></code> and <code class="docutils literal notranslate"><span class="pre">denominator</span></code>.
+The figure illustrates the memory state at the beginning of the constructor call:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callConstructor.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>Note the immediate value assigned to the numeric instance variables is zero: This is
+as discussed in <a class="reference internal" href="../07-arrays/0701-onedim.html#default-fields"><span class="std std-ref">Default Initializations</span></a>.
+Of course we do not want to keep those default values:
+The constructor finds the value of the local variable <code class="docutils literal notranslate"><span class="pre">numerator</span></code>, and needs to
+assign the value 6 to a variable <code class="docutils literal notranslate"><span class="pre">num</span></code>. The compiler has looked
+first for a local variable <code class="docutils literal notranslate"><span class="pre">num</span></code>, and found none.
+Then it looked <em>second</em> for an instance variable in the object pointed to
+by <code class="docutils literal notranslate"><span class="pre">this</span></code>. It found <code class="docutils literal notranslate"><span class="pre">num</span></code> there. Now it copies the 6 into that location.
+Similarly for <code class="docutils literal notranslate"><span class="pre">denominator</span></code> and <code class="docutils literal notranslate"><span class="pre">denom</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callConstructorCopied.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>Then the constructor calls <code class="docutils literal notranslate"><span class="pre">Normalize</span></code>.
+Since <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> is also an instance method,
+a reference to <code class="docutils literal notranslate"><span class="pre">this</span></code> is passed implicitly.
+While illustrating the memory state for more than one active method,
+we separate each one with a horizontal segment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callNormalize.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>Later <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> calls <code class="docutils literal notranslate"><span class="pre">GCD</span></code>. Since <code class="docutils literal notranslate"><span class="pre">GCD</span></code> is static, note that the local
+variables for <code class="docutils literal notranslate"><span class="pre">GCD</span></code> do <em>not</em> contain a reference to <code class="docutils literal notranslate"><span class="pre">this</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callGCD.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>At the end of <code class="docutils literal notranslate"><span class="pre">GCD</span></code> the <code class="docutils literal notranslate"><span class="pre">int</span></code> 2 is returned and initializes
+<code class="docutils literal notranslate"><span class="pre">n</span></code> in the calling method <code class="docutils literal notranslate"><span class="pre">Normalize</span></code>.
+Then <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> modifies the instance variable pointed to by <code class="docutils literal notranslate"><span class="pre">this</span></code>,
+and finishes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/finishNormalize.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>That is the same object <code class="docutils literal notranslate"><span class="pre">this</span></code> in the constructor.
+Just before the constructor completes we have:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/finishConstructor.png</span> <span class="pre">:width:</span> <span class="pre">124</span> <span class="pre">pt</span></code></p>
+<p>Then in <code class="docutils literal notranslate"><span class="pre">Main</span></code> the constructor’s <code class="docutils literal notranslate"><span class="pre">this</span></code> is the reference to the new object
+initializing <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/setF.png</span> <span class="pre">:width:</span> <span class="pre">120</span> <span class="pre">pt</span></code></p>
+<p>Consider the next line of <code class="docutils literal notranslate"><span class="pre">Main</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Console.WriteLine("6/(-10) simplifies to {0}", f);
+</pre></div>
+</div>
+<p>We omit the internals of the WriteLine call, except to note that it must convert
+the reference <code class="docutils literal notranslate"><span class="pre">f</span></code> to a string. As with any object,
+it does this by calling the <code class="docutils literal notranslate"><span class="pre">ToString</span></code> method for <code class="docutils literal notranslate"><span class="pre">f</span></code>,
+so the implicit <code class="docutils literal notranslate"><span class="pre">this</span></code> in the call to <code class="docutils literal notranslate"><span class="pre">ToString</span></code> refers to the same object as <code class="docutils literal notranslate"><span class="pre">f</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callToString.png</span> <span class="pre">:width:</span> <span class="pre">196.5</span> <span class="pre">pt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ToString</span></code> returns “-3/5”, and it gets printed as part of the line generated
+by <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>….</p>
+<p>We skip the similar details through two more <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> statements and the
+initialization of <code class="docutils literal notranslate"><span class="pre">h</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Rational h = new Rational(1,2);
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>
+statement after that needs to evaluate <code class="docutils literal notranslate"><span class="pre">f.Add(h)</span></code>, generating a call to <code class="docutils literal notranslate"><span class="pre">Add</span></code>.
+The next figure shows the two local variables in <code class="docutils literal notranslate"><span class="pre">Main</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code>, each
+pointing to a <code class="docutils literal notranslate"><span class="pre">Rational</span></code> object. The image shows the situation
+in the call to <code class="docutils literal notranslate"><span class="pre">Add</span></code>, just before the end of the return statement,
+when the new Rational is being constructed.</p>
+<p>In the local variables for the method <code class="docutils literal notranslate"><span class="pre">Add</span></code>
+see what the implicit <code class="docutils literal notranslate"><span class="pre">this</span></code> refers to, and what the
+(local to <code class="docutils literal notranslate"><span class="pre">Add</span></code>) variable <code class="docutils literal notranslate"><span class="pre">f</span></code> refer to. As the figure shows,
+this use of a local variable
+<code class="docutils literal notranslate"><span class="pre">f</span></code> is independent of the <code class="docutils literal notranslate"><span class="pre">f</span></code> in <code class="docutils literal notranslate"><span class="pre">Main</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/callAdd.png</span> <span class="pre">:width:</span> <span class="pre">132</span> <span class="pre">pt</span></code></p>
+<p>Since the return statement in <code class="docutils literal notranslate"><span class="pre">Add</span></code> creates a new object,
+the figure shows a call to the
+constructor from inside <code class="docutils literal notranslate"><span class="pre">Add</span></code>. We do not go through the details of another
+constructor call, but
+<code class="docutils literal notranslate"><span class="pre">this</span></code> in the constructor points to the Rational shown and returned by
+<code class="docutils literal notranslate"><span class="pre">Add</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/endAdd.png</span> <span class="pre">:width:</span> <span class="pre">132</span> <span class="pre">pt</span></code></p>
+<p>which gets sent to the <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> statement
+and gets printed in <code class="docutils literal notranslate"><span class="pre">Main</span></code> as in the earlier code.</p>
+<p>Make sure you see how the pictures reinforce these important ideas:</p>
+<ul class="simple">
+<li><p>Keeping track of the <code class="docutils literal notranslate"><span class="pre">this</span></code> with
+constructors and instance methods (but not static methods).</p></li>
+<li><p>The aliasing of <code class="docutils literal notranslate"><span class="pre">Rational</span></code> objects used as parameters explicitly or
+implicitly (<code class="docutils literal notranslate"><span class="pre">this</span></code>).</p></li>
+</ul>
+<p>We have played computer before in procedural programming,
+following individually explicitly named
+variables. This has allowed us to follow loops clearly after the code is
+written. The pictorial version with multiple object references and method calls
+is also useful for checking on code that is written with many object
+references.</p>
+<p>When first <em>writing</em> code with object references that you are manipulating,
+a picture of the setup
+showing the references in your data is also helpful.
+New object-oriented programmers often have a hard time referring to the
+data they want to work with.
+If you have a picture of the data relationships
+you can point with a finger to a part that you want to use.
+For example
+in the call to <code class="docutils literal notranslate"><span class="pre">Add</span></code>, one piece of data you need for your arithmetic is
+the <code class="docutils literal notranslate"><span class="pre">num</span></code> field in <code class="docutils literal notranslate"><span class="pre">f</span></code>. Then you must be carful to note
+that <em>only local variables can be referenced directly</em>
+(including the implicit <code class="docutils literal notranslate"><span class="pre">this</span></code>). If you want to refer to data that is not a local
+variable, you must follow the reference path arrow that leads <em>from a local variable</em> to
+an instance field that you want to reference.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/pathToNum.png</span> <span class="pre">:width:</span> <span class="pre">132</span> <span class="pre">pt</span></code></p>
+<p>Then use the proper object-oriented notation to refer to the path.
+In the example, it takes one step,
+from local variable <code class="docutils literal notranslate"><span class="pre">f</span></code> to its field <code class="docutils literal notranslate"><span class="pre">num</span></code>, referred to as <code class="docutils literal notranslate"><span class="pre">f.num</span></code>.
+Similarly the current object’s <code class="docutils literal notranslate"><span class="pre">num</span></code> is connected through <code class="docutils literal notranslate"><span class="pre">this</span></code>, but C# shorthand
+allows <code class="docutils literal notranslate"><span class="pre">this.</span></code> to be omitted. And so on, for <code class="docutils literal notranslate"><span class="pre">f.denom</span></code> and <code class="docutils literal notranslate"><span class="pre">denom</span></code>.</p>
+<p>Visually following such paths will be even more important later, when we construct
+more complex types of objects, and you need to follow
+a path through <em>several</em> references in sequence.</p>
+<div class="cell docutils container" id="index-2">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">SomeMath</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So why the distinction? We have mentioned that new objects created in a class are
+accessed indirectly via a reference, as with an array. As a general category,
+they are called <em>reference objects</em>. We distinguished the types <code class="docutils literal notranslate"><span class="pre">int</span></code> and
+<code class="docutils literal notranslate"><span class="pre">double</span></code> and <code class="docutils literal notranslate"><span class="pre">bool</span></code>, where the actual value of the data is stored in the space
+for a variable of the type. They are <em>value types</em>. A struct is also a value
+type. In practice this is efficient for small objects of a fixed size.
+We made Rational a class because
+you have already seen the class construct with
+<code class="docutils literal notranslate"><span class="pre">static</span></code> entries, and classes are more generally useful.
+In fact being a <code class="docutils literal notranslate"><span class="pre">struct</span></code> would be a good choice for Rational,
+since it only contains two integers. Its size is no more than one <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+<p>The behavior of a Rational is the same either way, because it is immutable. If we
+allowed mutating methods, then a class version and a struct version would not behave
+the same way, due to the fact the reference types can have aliases,
+and value types cannot.</p>
+<p>There are some more complicated situations where there are further distinctions between
+classes and structs, but we shall not concern ourselves
+with those fine advanced points in this book.</p>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/11-classes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1103-class-instance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class Instance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignments/preview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-parameters-of-the-same-type">Method Parameters of the Same Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-definitions">Operator Definitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pictorial-playing-computer">Pictorial Playing Computer</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

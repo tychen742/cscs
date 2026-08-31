@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1D Arrays &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/07-arrays/0701-onedim';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2D &amp; ND Arrays" href="0702-twodim.html" />
+    <link rel="prev" title="Arrays" href="0700-arrays-intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0700-arrays-intro.html">Arrays</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/07-arrays/0701-onedim.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/07-arrays/0701-onedim.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1D Arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays">Creating Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-array-elements">Accessing Array Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-to-main">Parameters to Main</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-adder">Command Line Adder</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-and-aliases">References and Aliases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-initializations">Default Initializations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="d-arrays">
+<span id="one-dim-arrays"></span><span id="index-0"></span><h1>1D Arrays<a class="headerlink" href="#d-arrays" title="Link to this heading">#</a></h1>
+<p id="index-1">An array is a <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">structure</span></code> that contains a number of variables that are accessed
+through computed indices. The variables contained in an array, also called the
+<code class="docutils literal notranslate"><span class="pre">elements</span></code> of the array, are all of the same type, and this type is called the
+<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">type</span></code> of the array. [1]</p>
+<p>In C#, an array is a structure representing a <strong>fixed length</strong> <code class="docutils literal notranslate"><span class="pre">ordered</span></code> collection of
+values or objects with the <strong>same type</strong>. Arrays make it easier to organize and
+operate on large amounts of data. For example, rather than creating 100 integer
+variables, you can just create one array that stores all those integers and access
+them using array indices. [2]</p>
+<p>You have learned that a string is an immutable <code class="docutils literal notranslate"><span class="pre">sequence</span></code> of characters and how to
+loop through the sequence. Arrays provide more general sequences, with the
+same indexing notation, but with free choice of the <code class="docutils literal notranslate"><span class="pre">type</span></code> of the items in the
+sequence, and the ability to <code class="docutils literal notranslate"><span class="pre">change</span></code> the elements in the sequence.</p>
+<section id="creating-arrays">
+<h2>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Link to this heading">#</a></h2>
+<p>A C# <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">variable</span></code> is declared similarly to a non-array variable, with the
+addition of square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) after the <code class="docutils literal notranslate"><span class="pre">type</span></code> specifier to denote it as an array.
+So, the general form for declaring an array variable of the element type is:</p>
+<blockquote>
+<div><p><strong>type</strong><code class="docutils literal notranslate"><span class="pre">[]</span></code> variableName;</p>
+</div></blockquote>
+<p>For example, if you want to create an array called <code class="docutils literal notranslate"><span class="pre">a</span></code> with the type <code class="docutils literal notranslate"><span class="pre">int</span></code>
+for elements, you declare the array variable as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a;
+</pre></div>
+</div>
+<p>In this declaration, you do <em>not</em> know how many elements will be in this array
+from the preceding declaration. You must give further information to create the
+corresponding <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">object</span></code>. A new object can be created using the <code class="docutils literal notranslate"><span class="pre">new</span></code>
+syntax. An array must get a definite length, which can be a literal integer or
+any integer expression. The general syntax to create a new array is</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">new</span></code> <strong>type</strong><code class="docutils literal notranslate"><span class="pre">[</span></code> <em>length</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></p>
+</div></blockquote>
+<p>After the type, there are square brackets enclosing an expression for the length
+of the array - this length is unchangeable after creation. For example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a;
+a = new int[4];
+</pre></div>
+</div>
+<p>or, you may combine with the declaration,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a = new int[4];
+</pre></div>
+</div>
+<p>to creates an array that holds 4 integers. After specifying the number of the elements
+of the array, the default initial values are also assigned. For example, numerical
+arrays get initialized to all 0’s (false for boolean, the character with Unicode
+number zero for char, and null for objects and string) with this syntax by default, so when you loop
+through the array variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; foreach (int i in a)
+  {
+      Console.Write(i);
+  }
+0000
+&gt;
+</pre></div>
+</div>
+<p>An <strong>array initializer</strong> consists of a sequence of variable initializers,
+enclosed by “<code class="docutils literal notranslate"><span class="pre">{</span></code>” and”<code class="docutils literal notranslate"><span class="pre">}</span></code>” tokens and separated by “<code class="docutils literal notranslate"><span class="pre">,</span></code>” tokens.
+An array initializer can be used in a variable declaration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a = {0, 2, 4, 6, 8};
+</pre></div>
+</div>
+<p>which is a shorthand for the equivalent <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">creation</span> <span class="pre">expression</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] a = new int[] {0, 2, 4, 6, 8};
+</pre></div>
+</div>
+<p>Note that the actual data for an array is <em>not</em> stored directly in the memory location
+allocated by the declaration. The array could have any number of items, and hence
+the memory requirements are not known at compile time. Like all other object
+(as opposed to primitive) types, what is actually stored at the memory location declared
+for <code class="docutils literal notranslate"><span class="pre">a</span></code> is a <em>reference</em> to the actual place where the data for the array is stored.
+In actual compiler implementation, this reference is an address in memory. In the diagram
+below, you see the object references with an arrow <em>pointing</em> to the actual location
+for the object’s data after <code class="docutils literal notranslate"><span class="pre">a</span></code> is initialized:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/newArray1.png</span> <span class="pre">:align:</span> <span class="pre">center</span> <span class="pre">:alt:</span> <span class="pre">new</span> <span class="pre">array</span> <span class="pre">:width:</span> <span class="pre">300</span> <span class="pre">pt</span></code></p>
+<p>The small box beside <code class="docutils literal notranslate"><span class="pre">a</span></code> is meant to indicate the memory space allocated when <code class="docutils literal notranslate"><span class="pre">a</span></code> is
+declared. As you can see that space does not actually contain the array, but rather a
+<em>reference</em> to the array, pointing to the actual sequence of data for the array.
+Also, in the diagram you see the indices associated with each element, though they
+are not actual a part of what is stored in memory.</p>
+</section>
+<section id="accessing-array-elements">
+<h2>Accessing Array Elements<a class="headerlink" href="#accessing-array-elements" title="Link to this heading">#</a></h2>
+<p id="index-2">The elements inside an array can to referenced with the same index notation used
+earlier for strings.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a[2]
+</pre></div>
+</div>
+<p>refers to the element at index 2 (third element because of 0 based indexing).</p>
+<p>Unlike with strings, this element can not only be read, but also be assigned to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a[0] = 7;
+a[1] = 5;
+a[2] = 9;
+a[3] = 6;
+</pre></div>
+</div>
+<p>These four assignment statements
+would replace the original 0 values for each element in the array.</p>
+<p>This is a verbose way to specify all array values. An array with the
+same final data could be created with the single declaration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] b = {7, 5, 9, 6};
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/newArray2.png</span> <span class="pre">:align:</span> <span class="pre">center</span> <span class="pre">:alt:</span> <span class="pre">new</span> <span class="pre">array</span> <span class="pre">initialized</span> <span class="pre">with</span> <span class="pre">braces</span> <span class="pre">:width:</span> <span class="pre">300</span> <span class="pre">pt</span></code></p>
+<p>The list in braces ONLY is allowed as an initialization of a variable
+in a <em>declaration</em>, not in a later assignment statement.
+Technically it is an initializer, not an array literal.</p>
+<p>Individual array elements can <em>both</em> be used in expressions, and be assigned to.
+Continuing with the earlier example code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a[2] = 4*a[1] - a[3];
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">a[2]</span></code> now equals 4*5 - 6 = 14.</p>
+<p>Arrays, like strings, have a <code class="docutils literal notranslate"><span class="pre">Length</span></code> property:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Console.WriteLine(b.Length); // prints 4
+</pre></div>
+</div>
+<p>just like with strings. In practice array elements are almost always referred
+to with an index variable. A very common pattern is to deal with each element
+in sequence, and the syntax is the same as for a string. Print all elements
+of array <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for (int i= 0; i &lt; b.Length, i++) {
+   Console.WriteLine(b[i]);
+}
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">foreach</span></code> syntax would be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>foreach ( int x in b) {
+   Console.WriteLine(x);
+}
+</pre></div>
+</div>
+<p>while the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop syntax would be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; int[] a = { 1, 2, 3, 4, 5 };
+&gt; int i = 0;
+&gt; while ( i &lt; a.Length){
+   Console.Write(a[i]);
+   i++;
+  }
+12345
+&gt;
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop, the <code class="docutils literal notranslate"><span class="pre">int</span></code> type for <code class="docutils literal notranslate"><span class="pre">x</span></code> matches the element type of the array <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>The shorter <code class="docutils literal notranslate"><span class="pre">foreach</span></code> syntax is not as general as the <code class="docutils literal notranslate"><span class="pre">for</span></code> syntax.
+For example, to print only the first <em>3</em> elements of b:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for(int i= 0; i &lt; 3; i++) {
+   Console.WriteLine(b[i]);
+}
+</pre></div>
+</div>
+<p>but the <code class="docutils literal notranslate"><span class="pre">foreach</span></code> syntax would not work, since it must process <em>all</em> elements.</p>
+<p>Also, you may use the <code class="docutils literal notranslate"><span class="pre">for</span></code> syntax to assign new values to the array elements,
+rather than just use the values in expressions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for(int i= 0; i &lt; b.Length; i++) {
+   b[i] = 5*i;
+}
+</pre></div>
+</div>
+<p>Now the array <code class="docutils literal notranslate"><span class="pre">b</span></code> of our earlier examples (of length 4) would now contain 0, 5,
+10, and 15.</p>
+<p>There is no analog of <em>changing</em> the value of <code class="docutils literal notranslate"><span class="pre">b[i]</span></code> with a
+<code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop. To change values in an array, we must
+assign to each location in the array by <em>index</em>.
+A <code class="docutils literal notranslate"><span class="pre">foreach</span></code> loop only provides the <em>value</em> of each sequence element
+for us to read.</p>
+<p>We have had the array indices so far be given by a single symbol,
+which is the most common case in practice, but in fact what appears
+inside the square braces can be any <code class="docutils literal notranslate"><span class="pre">int</span></code> <em>expression</em>.
+Like parentheses, square brackets <em>delimit</em>
+the inside expression, which gets evaluated first, before the array value is
+looked up. Consider this csharprepl sequence:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; int[] a = {5, 9, 15, -4};
+&gt; int i = 2;
+&gt; a[i];
+15
+</pre></div>
+</div>
+<p>This should be clear. Now think first, what should <code class="docutils literal notranslate"><span class="pre">a[i+1]</span></code> be?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; a[i+1];
+-4
+</pre></div>
+</div>
+<p>In steps: <code class="docutils literal notranslate"><span class="pre">a[i+1]</span></code> is <code class="docutils literal notranslate"><span class="pre">a[2+1]</span></code> is <code class="docutils literal notranslate"><span class="pre">a[3]</span></code> is -4. Be careful,
+<code class="docutils literal notranslate"><span class="pre">a[i+1]</span></code> is <em>NOT</em> <code class="docutils literal notranslate"><span class="pre">a[i]</span> <span class="pre">+</span> <span class="pre">1</span></code> (which would be 16).</p>
+<p id="printstrings"><span id="index-3"></span>The code above to print each element of an array performs a
+unified and possibly useful operation, so it would make sense to
+encapsulate it into a function. A function can take any type as a
+parameter, so an array type is perfectly reasonable! Above we
+printed each element of an array of integers. This time let’s choose strings,
+so the formal parameter is an array of strings: <code class="docutils literal notranslate"><span class="pre">string[]</span></code>.</p>
+<p>With this definition, the code fragment</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>string[] hamlet = {"To be", "or not", "to be!"};
+PrintStrings(hamlet);
+</pre></div>
+</div>
+<p>would print:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>To be
+or not
+to be!
+</pre></div>
+</div>
+<p>Here we are just reading the data from the array parameter.
+We will see that there are more wrinkles to array parameters in <a class="reference internal" href="#alias"><span class="std std-ref">References and Aliases</span></a>.</p>
+<p id="index-4">An array type can also be
+returned like any other type. Examine the function definition:</p>
+<p>This code follows a standard pattern for functions returning an array:</p>
+<ul class="simple">
+<li><p>In order to return an array, we must <em>first create</em> a new array
+with the <code class="docutils literal notranslate"><span class="pre">new</span></code> syntax. We must set the proper length (<code class="docutils literal notranslate"><span class="pre">n</span></code> here).</p></li>
+<li><p>And we are not done with one line of creation: Since the array has
+multiple parts, we need a loop to assign all the values. We have a simple
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loop to assign to each element in turn.</p></li>
+<li><p>Finally we must return the array that we created!</p></li>
+</ul>
+</section>
+<section id="parameters-to-main">
+<span id="command-line-param"></span><span id="index-5"></span><h2>Parameters to Main<a class="headerlink" href="#parameters-to-main" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Main</span></code> method may take an array of strings as parameter, as in example
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/print_param/print_param.cs">print_param/print_param.cs</a>:</p>
+<p>By convention, the formal parameter for <code class="docutils literal notranslate"><span class="pre">Main</span></code> is called <code class="docutils literal notranslate"><span class="pre">args</span></code>,
+short for arguments.</p>
+<p>Compile (<code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">build</span></code>) and run (<code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code>) the program from the command line.
+Run it with some things at the end of the line in <code class="docutils literal notranslate"><span class="pre">macOS</span></code> like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
+</pre></div>
+</div>
+<p>or in <code class="docutils literal notranslate"><span class="pre">Windows</span></code> like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PS C:\Users\[username]\workspace\introcscs\Ch08Arrays&gt; dotnet run hi there 123
+</pre></div>
+</div>
+<p>and it should print for you:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>There are 3 command line parameters.
+hi
+there
+123
+</pre></div>
+</div>
+<p>See what quoted strings do. Use command line parameters (with the quotes)
+<code class="docutils literal notranslate"><span class="pre">&quot;hi</span> <span class="pre">there&quot;</span> <span class="pre">123</span></code>. This should print for you:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>There are 2 command line parameters.
+hi there
+123
+</pre></div>
+</div>
+<section id="command-line-adder">
+<span id="command-line-adder-exercise"></span><h3>Command Line Adder<a class="headerlink" href="#command-line-adder" title="Link to this heading">#</a></h3>
+<p>A code block in the Main method of your project that calculates and prints
+the sum of three command line parameters taken from user input:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2 5 22
+</pre></div>
+</div>
+<p>then the program prints 29.</p>
+<p>The code could look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>////////// args array from command line.
+int sum = 0;
+for (int i = 0; i &lt; args.Length; i++)
+{
+      sum = sum + int.Parse(args[i]);
+}
+Console.WriteLine(sum);
+</pre></div>
+</div>
+<p>Here we are using the <code class="docutils literal notranslate"><span class="pre">arg</span></code> array directly just like the preceding section.</p>
+<p>To run the code this time, go down to your project’s bin/Debug/net8.0 directory
+from the command line, and run <code class="docutils literal notranslate"><span class="pre">ls</span></code>. You will find the executables (the <code class="docutils literal notranslate"><span class="pre">.dll</span></code> or <code class="docutils literal notranslate"><span class="pre">.exe</span></code>
+files) that you can execute. In <code class="docutils literal notranslate"><span class="pre">Windows</span></code>, it should look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0&gt; Ch08Arrays.exe 2 5 22
+</pre></div>
+</div>
+<p>and you will see the output. You can also run the project by issuing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PS C:\Users\[username]\workspace\introcscs\Ch08Arrays&gt; dotnet run 2 5 22
+</pre></div>
+</div>
+<p>as before to see the same output. In earlier version of <code class="docutils literal notranslate"><span class="pre">macOS</span></code>, you run this
+with <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> in your project folder at command line with the arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
+</pre></div>
+</div>
+<p>or in more current versions of <code class="docutils literal notranslate"><span class="pre">macOS</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
+</pre></div>
+</div>
+<p>and you will see the output of the sum of the integers.</p>
+<p>Just like the preceding section, this shows that the <code class="docutils literal notranslate"><span class="pre">string[]</span> <span class="pre">args</span></code> in the Main method is a <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">array</span></code> taking its
+elements from the command line when the project is executed in the command line with arguments provided.</p>
+<p>Also, this code execution shows us the location of the executable files in the project.</p>
+<span class="target" id="split"><span id="index-6"></span></span></section>
+</section>
+<section id="references-and-aliases">
+<span id="alias"></span><span id="index-7"></span><h2>References and Aliases<a class="headerlink" href="#references-and-aliases" title="Link to this heading">#</a></h2>
+<p>Object variables, like arrays, are references,
+and this has important implications for
+assignment.</p>
+<p>With a primitive type like an <code class="docutils literal notranslate"><span class="pre">int</span></code>, an assignment copies the data:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/intCopy.png</span> <span class="pre">:align:</span> <span class="pre">center</span> <span class="pre">:alt:</span> <span class="pre">copying</span> <span class="pre">an</span> <span class="pre">int</span> <span class="pre">:width:</span> <span class="pre">90</span> <span class="pre">pt</span></code></p>
+<p>In the diagram, the contents of the memory box labeled <code class="docutils literal notranslate"><span class="pre">b</span></code> is copied to the
+memory box labeled <code class="docutils literal notranslate"><span class="pre">d</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">d</span></code> starts off equal to the value of <code class="docutils literal notranslate"><span class="pre">b</span></code>,
+but can later be changed independently.</p>
+<p>Contrast an assignment with arrays. The value that is copied is the <em>reference</em>,
+not the array data itself, so both end up pointing at the <em>same</em> actual array:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{image}</span> <span class="pre">../../figures/arrayAlias.png</span> <span class="pre">:align:</span> <span class="pre">center</span> <span class="pre">:alt:</span> <span class="pre">copying</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">reference</span> <span class="pre">:width:</span> <span class="pre">300</span> <span class="pre">pt</span></code></p>
+<p>Hereafter, array assignments like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b[2] = -10;
+d[1] = 55;
+</pre></div>
+</div>
+<p>would both change the <em>same</em> array. Now <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">d</span></code> are essentially
+names for the same thing (the actual array). The technical term matches English:
+The names are <em>aliases</em>.</p>
+<p>This may seem like a pretty silly discussion. Why bother to give two different
+names to the same object? Isn’t one enough? In fact it is very important
+in function/method calls. An array reference can be passed as an actual value,
+and it is the array <em>reference</em> that is copied to the formal parameter, so
+the formal parameter name is an <strong>alias</strong> for the actual parameter name.</p>
+<p>If an array passed as a parameter to a method has elements changed in the
+method, then the change affects the actual parameter array.
+The change <em>remains</em> in the actual parameter array <em>after</em>
+the method has terminated.</p>
+<p id="index-8">For example, consider the following function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Modify a by multiplying all elements by multiplier.
+static void Scale(int[] a, int multiplier)
+{
+   for (int i = 0; i &lt; a.Length; i++) {
+      a[i] *= multiplier;  // or:  a[i] = a[i] * multiplier
+   }
+}
+</pre></div>
+</div>
+<p>The fragment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int[] nums = {2, 4, 1};
+Scale(nums, 5);
+</pre></div>
+</div>
+<p>would <em>change</em> nums, so it ends up containing elements 10, 20, and 5.</p>
+</section>
+<section id="default-initializations">
+<span id="default-fields"></span><span id="index-9"></span><h2>Default Initializations<a class="headerlink" href="#default-initializations" title="Link to this heading">#</a></h2>
+<p>Did you notice that when the first example array of integers was created,
+it was filled with zeros? It is a safety feature of C# that the internal fields
+of objects always get a specific value, not random data. Here are the defaults:</p>
+<p>```{eval-rst}
+.. csv-table:: Default Values
+:header: “Type”, “Value”
+:widths: 30, 10</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>"primitive numeric types", "0"
+"bool", "false"
+"all object types", "null"
+
+
+:::{warning}
+An array with elements of object type, like `string[]`,
+without a specific initializer,
+gets initialized to all `null` values. The creation is totally
+legal, but if you try to use the created value, like
+</pre></div>
+</div>
+<p>string[] words = new string[10];
+Console.WriteLine(words[0].Length); // run time error here</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The error is because `null` is not an object - it does not have a `Length`
+property. If, for example,
+you want an array of empty strings you would need to initialize it with
+a loop:
+</pre></div>
+</div>
+<p>string[] words = new string[10];
+for (int i = 0; i &lt; words.Length; i++) {
+words[i] = ““;
+}</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>:::
+
+## LINQ Methods
+
+
+:::{note}
+Language-Integrated Query ([LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)) is the name for a set of technologies based
+on the integration of query capabilities directly into the C# language.
+:::
+
+All the arrays in C# are derived from an abstract base class [System.Array](https://learn.microsoft.com/en-us/dotnet/api/system.array?view=netframework-4.7.2).
+The Array class implements the `IEnumerable interface`, so you can LINQ
+extension methods such as Max( ), Min( ), Sum( ), reverse( ), etc on arrays:
+</pre></div>
+</div>
+<p>int[] nums = new int[5]{ 10, 15, 16, 8, 6 };</p>
+<p>nums.Max(); // returns 16
+nums.Min(); // returns 6
+nums.Sum(); // returns 55
+nums.Average(); // returns 55</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{rubric} Footnotes
+</pre></div>
+</div>
+<p>[1] See <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/arrays">Arrays</a> in Microsoft Langauge Reference.</p>
+<p>[2] See <a class="reference external" href="https://www.codecademy.com/learn/learn-c-sharp/modules/learn-csharp-arrays/cheatsheet">C# Arrays</a> of codeacademy.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/07-arrays"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0700-arrays-intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0702-twodim.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2D &amp; ND Arrays</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-arrays">Creating Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-array-elements">Accessing Array Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-to-main">Parameters to Main</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-adder">Command Line Adder</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references-and-aliases">References and Aliases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-initializations">Default Initializations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

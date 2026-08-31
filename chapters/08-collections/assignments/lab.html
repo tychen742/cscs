@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab: Collections &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/08-collections/assignments/lab';</script>
+    <script src="../../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Chapter Review" href="review.html" />
+    <link rel="prev" title="Preview Questions" href="preview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../0800-collections-intro.html">Collections</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preview.html">Preview Questions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/08-collections/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/08-collections/assignments/lab.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab: Collections</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goals-for-this-lab">Goals for this lab:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-files">Download files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fakehelpverbose-class">The FakeHelpVerbose Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fakehelp-class">The FakeHelp Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getparagraphs">GetParagraphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdictionary">GetDictionary</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="lab-collections">
+<h1>Lab: Collections<a class="headerlink" href="#lab-collections" title="Link to this heading">#</a></h1>
+<p>Notes on Assignments:</p>
+<ul class="simple">
+<li><p><strong>Notes on GAI</strong>: Note that the course policy is that you should not use generative AI (GAI)
+without authorization. GAI’s are great tools and you should learn how to use it, but
+they are tools and should be used to facilitate but not replace your learning.
+If you are suspected to have used GAI tools to generate answers
+to the assignment questions instead of using it as a learning tool, you may be
+called up to explain/reproduce your work. If you fail to demonstrate your
+competence, all your <strong>related assignments throughout the semester will be
+regraded as 0</strong>. For example, if you fail to produce good code in <code class="docutils literal notranslate"><span class="pre">while</span></code> loops
+in midterm exam, your <em>lab06 while loop homework and lab</em> will be re-evaluated.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Create a dotnet console app project (see <a class="reference internal" href="../../01-context/assignments/lab.html#create-project"><span class="std std-ref">Creating a C# Project</span></a> if you need to) in your
+<code class="docutils literal notranslate"><span class="pre">introcscs</span></code> directory (<code class="docutils literal notranslate"><span class="pre">C:\Users\*USERNAME*\workspace\introcscs</span></code> for Windows or <code class="docutils literal notranslate"><span class="pre">COMPUTER:introcscs</span> <span class="pre">USERNAME$</span></code>
+for macOS) ; call it <strong>Ch09CollectionsLab</strong>.</p></li>
+<li><p>Inside the folder, issue the command <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">console</span></code> to create the project in the folder.</p></li>
+<li><p>Still inside the project directory, type <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">.</span></code> to start VS Code with the folder as the default folder.</p></li>
+<li><p>Prepare your code in VS Code using the file <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> to code unless otherwise specified.</p></li>
+<li><p>The namespace of this project is <em>IntroCSCS</em>.</p></li>
+<li><p>The class name of this project is <em>Ch09CollectionsLab</em>.</p></li>
+<li><p>When executing code, you will start with the Main() method in a designated class/file.</p></li>
+<li><p>You will prepare methods in the same class or project to be called from the Main() method.</p></li>
+<li><p>Use a Word document to prepare your assignment.</p></li>
+<li><p>Number the questions and <strong>annotate</strong> your answers (using // in code) to show your understanding.</p></li>
+<li><p>For coding questions, screenshot and paste 1) your code in VS Code and 2) the
+results of the code’s execution (<strong>command prompt</strong> and <strong>username</strong> are part of the execution).</p></li>
+</ol>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<section id="goals-for-this-lab">
+<h3>Goals for this lab:<a class="headerlink" href="#goals-for-this-lab" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Read a text file.</p></li>
+<li><p>Work with loops.</p></li>
+<li><p>Work with a Dictionary and a List.</p></li>
+<li><p>Retrieve a random entry.</p></li>
+</ul>
+<p>This project has a program called <code class="docutils literal notranslate"><span class="pre">We-Give-Answer!</span></code> as in <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/fake_help_verbose/fake_help_verbose.cs">fake_help_verbose/fake_help_verbose.cs</a>
+that has some fake AI/virtual assistant capacity. The program is working but all the response texts are
+hard-coded in the program and that is not ideal for maintenance. Your team want to use external text
+files so that you can manage response texts with ease. For that your colleagues have prepared a file
+called <code class="docutils literal notranslate"><span class="pre">fake_help.cs</span></code>. <strong>Your job is to complete this new program</strong>.</p>
+<p>Your team has designed this new program to be structured a little differently from the verbose version.
+A <strong>helper class</strong> <code class="docutils literal notranslate"><span class="pre">file_util.cs</span></code> (<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/file_util.cs">file_util.cs</a>) is added to
+contain the functionalities of handling files. You need to work on the file to provide such functionalities.
+You will need to complete short versions of methods <code class="docutils literal notranslate"><span class="pre">GetParagraphs</span></code> and <code class="docutils literal notranslate"><span class="pre">GetDictionary</span></code> in <code class="docutils literal notranslate"><span class="pre">file_util.cs</span></code>.</p>
+<p><strong>Testing</strong>:
+When you complete this function, the program should behave
+just like the earlier <strong>verbose</strong> version with the hard-coded data: Using a <strong>dictionary value</strong>
+if it finds the right <strong>key</strong>, or choosing a <strong>random response</strong> if there is no key match.</p>
+<p>This should also be an extremely short amount of coding!
+Think of following through the data file, and get the corresponding
+sequence of instructions to handle the data in the exact same sequence.</p>
+</section>
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Link to this heading">#</a></h2>
+<section id="download-files">
+<h3>Download files<a class="headerlink" href="#download-files" title="Link to this heading">#</a></h3>
+<p>Download the following files by going to the github repositories and use the download raw files to download
+individual files and move them to the project folder:</p>
+<ol class="arabic simple">
+<li><p>fake_help_verbose (<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/tree/master/fake_help_verbose">fake_help_verbose</a>),</p></li>
+<li><p>fake_help.cs (<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/tree/master/dict_lab_stub">dict_lab_stub</a>) along with the following files:</p></li>
+<li><p>file_util.cs</p></li>
+<li><p>help_not_defaults.txt</p></li>
+<li><p>help_not_responses.txt, and</p></li>
+<li><p>the UI class (<code class="docutils literal notranslate"><span class="pre">ui.cs</span></code> at <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/tree/master/ui">ui</a>) so you don’t have to write the user input code.</p></li>
+</ol>
+<p>Note that some of the files are data files (*.txt).</p>
+<p>For now, you may keep the namespace <code class="docutils literal notranslate"><span class="pre">IntroCS</span></code> and change them later for organization purpose.</p>
+</section>
+<section id="the-fakehelpverbose-class">
+<h3>The FakeHelpVerbose Class<a class="headerlink" href="#the-fakehelpverbose-class" title="Link to this heading">#</a></h3>
+<p>Open the working program, the downloaded take_help_verbose.cs (<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/fake_help_verbose/fake_help_verbose.cs">fake_help_verbose/fake_help_verbose.cs</a>) and
+look at how the methods <code class="docutils literal notranslate"><span class="pre">Main</span></code>, <code class="docutils literal notranslate"><span class="pre">Response</span></code>, <code class="docutils literal notranslate"><span class="pre">GetParagraphs()</span></code> and <code class="docutils literal notranslate"><span class="pre">GetDictionary()</span></code> work together
+to provide the <strong>Fake Help</strong> functionality.</p>
+<p>To run the program (take_help_verbose.cs), you need to change the <code class="docutils literal notranslate"><span class="pre">Main</span></code> method in fake_help.cs to something
+else such as <code class="docutils literal notranslate"><span class="pre">main</span></code> as you are allowed to have only one Main in a program and both fake_help.cs and
+fake_help_verbose.cs have a <code class="docutils literal notranslate"><span class="pre">Main</span></code> method. You have to rename or comment out one of them to run the other.</p>
+<p>All the strings for the responses are pre-coded for you there, but if
+you were writing your own methods, it would be a pain. There is all the
+repetitious code to make multiline strings and then to add to the
+<code class="docutils literal notranslate"><span class="pre">List</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>. That’s why you will later provide simple versatile methods to
+fill a <code class="docutils literal notranslate"><span class="pre">List&lt;string&gt;</span></code> or a <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;string,</span> <span class="pre">string&gt;</span></code> so that you only need
+you to write the string data itself into a text file, with the only
+overhead being a few extra newlines.</p>
+<p>For now, run the program to see how this fake AI/virtual look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>username<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\i</span>ntrocscs<span class="se">\C</span>h09CollectionLab&gt;<span class="w"> </span>dotnet<span class="w"> </span>run
+Welcome<span class="w"> </span>to<span class="w"> </span>We-Give-Answers!<span class="w">               </span>//<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>prompt<span class="w"> </span><span class="k">for</span><span class="w"> </span>user<span class="w"> </span>action
+What<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>say?
+
+Enter<span class="w"> </span><span class="s1">'bye'</span><span class="w"> </span>to<span class="w"> </span>end<span class="w"> </span>our<span class="w"> </span>session.<span class="w">           </span>//<span class="w"> </span>input<span class="w"> </span><span class="s2">"bye"</span><span class="w"> </span>to<span class="w"> </span>escape<span class="w"> </span>the<span class="w"> </span><span class="k">while</span><span class="w"> </span>loop<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+&gt;
+</pre></div>
+</div>
+<p><strong>The Main method</strong>: Look back into the code, in the <code class="docutils literal notranslate"><span class="pre">Main</span></code> method, you see that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">guessList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetParagraphs</span><span class="p">();</span><span class="w">                </span><span class="c1">// create a filled string list guessList from GetParagraph</span>
+<span class="w">      </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">responses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetDictionary</span><span class="p">();</span><span class="w">  </span><span class="c1">// create a filled dictionary response from GetDictionary</span>
+
+<span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"\n&gt; "</span><span class="p">;</span><span class="w">                                  </span><span class="c1">// create a string variable and initialize it as prompt</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">@"Welcome to We-Give-Answers!          // prompt user input;</span>
+<span class="s">What do you have to say?"</span><span class="p">);</span><span class="w">                                    </span><span class="c1">// the @ means the string is a verbatim string literal; escape sequence is ignored</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"\nEnter 'bye' to end our session."</span><span class="p">);</span><span class="w">      </span><span class="c1">// \n means print a new line</span>
+
+<span class="w">      </span><span class="kt">string</span><span class="w"> </span><span class="n">fromUser</span><span class="p">;</span><span class="w">                                         </span><span class="c1">// create another string variable</span>
+<span class="w">      </span><span class="k">do</span><span class="w">                                                       </span><span class="c1">// use do-while loop to loop at least once and keep looping</span>
+<span class="w">      </span><span class="p">{</span><span class="w">                                                        </span><span class="c1">// until the condition is met</span>
+<span class="w">         </span><span class="n">fromUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptLine</span><span class="p">(</span><span class="n">prompt</span><span class="p">).</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Trim</span><span class="p">();</span><span class="w">    </span><span class="c1">// user UI's PromptLine to read user input and save it to fromUser</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fromUser</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"bye"</span><span class="p">)</span><span class="w">                                </span><span class="c1">// condition: if user does not enter 'bye'...</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="n">fromUser</span><span class="p">,</span><span class="w"> </span><span class="n">guessList</span><span class="p">,</span><span class="w"> </span><span class="n">responses</span><span class="p">);</span><span class="w">  </span><span class="c1">// call Response(); throw the args to Response()</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="sc">'\n'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">answer</span><span class="p">);</span><span class="w">                  </span><span class="c1">// print returned string from Response in a new line</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fromUser</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"bye"</span><span class="p">);</span><span class="w">                             </span><span class="c1">// condition: when user input "bye", terminate the while loop</span>
+
+<span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">@"                                    // Good bye with verbatim string literal</span>
+<span class="s">We-Give-Answers</span>
+<span class="s">thanks you for your patronage.</span>
+<span class="s">Call again if we can help you</span>
+<span class="s">with any other problem!"</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">GetParagraphs()</span></code> and <code class="docutils literal notranslate"><span class="pre">GetDictionary()</span></code> in this class actually does one
+thing: <strong>To add texts to the List/Dictionary variables</strong>:</p>
+<p><strong>The GetParagraph method</strong>: The <code class="docutils literal notranslate"><span class="pre">GetParagraph()</span></code> method, taking no arguments, returns a string list of paragraphs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public static List&lt;string&gt; GetParagraphs()         // when called, return a string list
+{
+   List&lt;string&gt; all = new List&lt;string&gt;();          // create the new "all" string list variable
+   all.Add(@"No other customer has ever complained // add string to the variable using "Add()"
+about this before.  What is your system
+configuration?");
+   all.Add(@"That sounds odd. Could you describe   // add string to the variable using "Add()"
+that problem in more detail?");
+   // ...
+   all.Add("Could you elaborate on that?");        // add string to the variable using "Add()"
+   return all;                                     // return the string list variable all
+</pre></div>
+</div>
+<p><strong>The GetDictionary method</strong>: The <code class="docutils literal notranslate"><span class="pre">GetDictionary()</span></code> method, taking no arguments,
+creates and returns a dictionary of keyword:paragraph (key:value) pairs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public static Dictionary&lt;string, string&gt; GetDictionary()             // the method returns a Dictionary&lt;string, string&gt; type
+{
+   Dictionary&lt;string, string&gt; d = new Dictionary&lt;string, string&gt;();  // create Dictionary variable d
+   d["crash"] = @"Well, it never crashes on our system.              // add key:value pair to d
+It must have something to do with your system.
+Tell me more about your configuration.";
+   d["slow"] = @"I think this has to do with your hardware.          // add key:value pair to d
+   // ...                                                            // keep adding...
+   d["linux"] = @"We take Linux support very seriously.
+But there are some problems.
+Most have to do with incompatible glibc versions.
+Can you be a bit more precise?";
+   return d;                                                         // return dictionary d to caller
+</pre></div>
+</div>
+<p><strong>The Response method</strong>: <code class="docutils literal notranslate"><span class="pre">Response()</span></code> takes three arguments and returns:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>a paragraph value from the <strong>responses</strong> dictionary (created by <code class="docutils literal notranslate"><span class="pre">GetDictionary()</span></code>) if
+the user input matches the paragraph’s key; or</p></li>
+<li><p>a <strong>random</strong> paragraph from the string list <strong>guessList</strong> (created by <code class="docutils literal notranslate"><span class="pre">GetParagraphs()</span></code>).</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public static string Response(string fromUser, List&lt;string&gt; guessList,
+                                 Dictionary&lt;string, string&gt; responses)
+{
+   char[] sep = "\t !@#$%^&amp;*()_+{}|[]\\:\";&lt;&gt;?,./".ToCharArray(); // define separators
+   string[] words = fromUser.ToLower().Split(sep);                // make fromUser lower case and split the words
+   foreach (string word in words) {                               // loop through the words
+      if (responses.ContainsKey(word)) {                          // if a word (keyword) matches a "responses" dictionary key
+         return responses[word];            }         }           // return the value (msg) by that key
+   return guessList[rand.Next(guessList.Count)];                  // if the word is not a key in "response", return a random "guess"
+}
+</pre></div>
+</div>
+</section>
+<section id="the-fakehelp-class">
+<h3>The FakeHelp Class<a class="headerlink" href="#the-fakehelp-class" title="Link to this heading">#</a></h3>
+<p><strong>help_not_defaults.txt</strong>: First, look into your lab project for the first data file:
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/help_not_defaults.txt">help_not_defaults.txt</a>,
+and the beginning is shown below:</p>
+<p>You can see that it includes the data for the welcome and goodbye strings, as seen in
+<code class="docutils literal notranslate"><span class="pre">FakeHelpVerbose</span> <span class="pre">(fake_help_verbose.cs)</span></code>, followed by all the data to go in
+the list variable <code class="docutils literal notranslate"><span class="pre">guessList</span></code> of random answers.</p>
+<p>One complication is that many of these strings take up several lines, in what we call
+a <em>paragraph</em>. We follow a standard convention for putting paragraphs into plain text:
+Put a blank line after a paragraph to mark its end. As you can see, that is how
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/help_not_defaults.txt">help_not_defaults.txt</a> is set up.</p>
+<p>Now look in your copy of the class FakeHelp (<code class="docutils literal notranslate"><span class="pre">fake_help.cs</span></code>), you will see that it is
+very similar to class FakeHelpVerbose in <code class="docutils literal notranslate"><span class="pre">fake_help_verbose.cs</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">StreamReader</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamReader</span><span class="p">(</span><span class="s">"help_not_defaults.txt"</span><span class="p">);</span>
+<span class="c1">// special data is in the first two paragraphs</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">welcome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUtil</span><span class="p">.</span><span class="n">ReadParagraph</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">goodbye</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUtil</span><span class="p">.</span><span class="n">ReadParagraph</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">guessList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// rest of the file gives a</span>
+<span class="n">FileUtil</span><span class="p">.</span><span class="n">GetParagraphs</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span><span class="w"> </span><span class="c1">// list of random responses</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamReader</span><span class="p">(</span><span class="s">"help_not_responses.txt"</span><span class="p">);</span>
+<span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">responses</span><span class="w"> </span><span class="o">=</span>
+<span class="n">FileUtil</span><span class="p">.</span><span class="n">GetDictionary</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+<span class="n">reader</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">welcome</span><span class="p">);</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"&gt;"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Enter 'bye' to end our session."</span><span class="p">);</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">fromUser</span><span class="p">;</span>
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="n">fromUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptLine</span><span class="p">(</span><span class="n">prompt</span><span class="p">).</span><span class="n">ToLower</span><span class="p">().</span><span class="n">Trim</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fromUser</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"bye"</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Response</span><span class="p">(</span><span class="n">fromUser</span><span class="p">,</span><span class="w"> </span><span class="n">guessList</span><span class="p">,</span><span class="w"> </span><span class="n">responses</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">""</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">answer</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fromUser</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">"bye"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">""</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">goodbye</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">StreamReader</span></code> is set up to read from the right file.</p></li>
+<li><p>The the <code class="docutils literal notranslate"><span class="pre">FileUtil</span></code> methods <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code>, <code class="docutils literal notranslate"><span class="pre">GetParagraphs</span></code>, and <code class="docutils literal notranslate"><span class="pre">GetDictionary</span></code> are used to provide
+the text data needed.</p></li>
+</ul>
+<p>All of the additions you need to make are in the bodies of method
+definitions in the class <code class="docutils literal notranslate"><span class="pre">FileUtil</span></code>. Look back to <code class="docutils literal notranslate"><span class="pre">Main</span></code> in <code class="docutils literal notranslate"><span class="pre">fake_help.cs</span></code> to
+see how the methods from <code class="docutils literal notranslate"><span class="pre">FileUtil</span></code> are actually used:
+.. definitions in the class <code class="docutils literal notranslate"><span class="pre">FileUtil</span></code>. Look back to <code class="docutils literal notranslate"><span class="pre">Main</span></code> in <code class="docutils literal notranslate"><span class="pre">FakeAdvise</span></code> to</p>
+<ul class="simple">
+<li><p>It creates the <code class="docutils literal notranslate"><span class="pre">List</span></code> <code class="docutils literal notranslate"><span class="pre">guessList</span></code> and the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> <code class="docutils literal notranslate"><span class="pre">responses</span></code>
+using more general functions that you need to fill in.</p></li>
+</ul>
+<ul>
+<li><p>The stubs are put in the class <code class="docutils literal notranslate"><span class="pre">FileUtil</span></code> for easy reuse.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Main</span></code> calls these methods and chooses the files to read.</p></li>
+<li><p>The results will look the same as the original program to the user, but the second version will
+be easier for a programmer to read and generalize: It will be easier in other situations
+where you want lots of canned data in your program (like in a game you might write).</p></li>
+<li><p>The stub should run as is (mostly saying things are not implemented).</p></li>
+<li><p>Test out your work at every stage!</p></li>
+</ul>
+<h3 class="rubric" id="readparagraph">ReadParagraph</h3>
+<p>The first method to complete in
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/file_util.cs">file_util.cs</a>
+is useful by itself and later for use in the
+<code class="docutils literal notranslate"><span class="pre">GetParagraphs</span></code> and <code class="docutils literal notranslate"><span class="pre">GetDictionary</span></code> that you will complete. See the stub:</p>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{literalinclude} ../../examples/dict_lab_stub/file_util.cs
+:dedent: 6
+:end-before: chunk
+:start-after: ReadParagraph chunk
+</pre></div>
+</div>
+<p>The first call to <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code>, using the file illustrated above, should
+return the following (showing the escape codes for the newlines):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>"Welcome to We-Give-Answers!\nWhat do you have to say?\n"
+</pre></div>
+</div>
+<p>and then the reader should be set to read the goodbye paragraph
+(the next time <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code> is called).</p>
+<p>To code, you can read lines one at a time, and append them to the part of the
+paragraph read so far. There is one thing to watch out for: The
+<code class="docutils literal notranslate"><span class="pre">ReadLine</span></code> function <em>throws away</em> the following newline (<code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>) in the input. You
+need to preserve it, so be sure to explicitly add a newline, back onto
+your paragraph string after each nonempty line is added. The returned
+paragraph should end with a single newline.</p>
+<p>Throw away the empty line
+in the input after the paragraph. Make sure you stop after reading
+the empty line. It is very important that you advance the reader
+to the right place, to be ready to read the next paragraph.</p>
+<p>Be careful of a pitfall with files: You can only read a given chunk once:
+If you read again, with the exact same syntax,
+you get the <em>next</em> line of the file. The <code class="docutils literal notranslate"><span class="pre">ReadLine</span></code> method
+has the <em>side effect</em> of advancing the reading position in the file.</p>
+<p><strong>Testing</strong>: This first short <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code> function should actually be most of
+the code that you write for the lab! The program is set up so you can immediately
+run the program and test <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code>: It is called to read in the welcome string
+and the goodbye string for the program, so if those come correctly to the screen, you
+can advance to the next two parts.</p>
+</section>
+<section id="getparagraphs">
+<h3>GetParagraphs<a class="headerlink" href="#getparagraphs" title="Link to this heading">#</a></h3>
+<p>Since you have <code class="docutils literal notranslate"><span class="pre">ReadParagraph</span></code> at your disposal, you now only need to
+insert a <em>few remaining lines of code</em> to complete the next method
+<code class="docutils literal notranslate"><span class="pre">GetParagraphs</span></code>, that reads to the end of the file, and likely
+processes more than one paragraph.</p>
+<p>Look again at
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/help_not_defaults.txt">help_not_defaults.txt</a>,
+to see how the data is set up.</p>
+<p>This lab requires very few lines of code. Be sure to read the examples
+and instructions carefully (several times). A lot of ideas get packed
+into the few lines!</p>
+<p><strong>Testing</strong>: After writing <code class="docutils literal notranslate"><span class="pre">GetParagraphs</span></code>, the random
+responses in the lab project program should work as the user enters lines in the program.</p>
+</section>
+<section id="getdictionary">
+<h3>GetDictionary<a class="headerlink" href="#getdictionary" title="Link to this heading">#</a></h3>
+<p>The last stub to complete in <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/file_util.cs">file_util.cs</a>
+is <code class="docutils literal notranslate"><span class="pre">GetDictionary</span></code>. Its
+stub also takes a <code class="docutils literal notranslate"><span class="pre">StreamReader</span></code> as parameter. In
+<code class="docutils literal notranslate"><span class="pre">Main</span></code> this method is called to read from
+<a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/dict_lab_stub/help_not_responses.txt">help_not_responses.txt</a>.
+Here are the first few lines:</p>
+<p>Here is the stub of the function to complete, reading such data:</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/08-collections/assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="preview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="review.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goals-for-this-lab">Goals for this lab:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-files">Download files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fakehelpverbose-class">The FakeHelpVerbose Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fakehelp-class">The FakeHelp Class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getparagraphs">GetParagraphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getdictionary">GetDictionary</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

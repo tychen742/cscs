@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Input and Output &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/0206-input_output';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preview Questions" href="assignments/preview.html" />
+    <link rel="prev" title="Operators" href="0203-operators.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0200-var_type-intro.html">Variables &amp; Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0203-operators.html">Operators</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/02-var_data/0206-input_output.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/02-var_data/0206-input_output.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Input and Output</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-reading-from-the-keyboard">Input: Reading from the Keyboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-the-ui-class">User Input: The UI class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-type-conversion-in-input">Casting (Type Conversion) in Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#console-writeline">Console.WriteLine()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-formatting">Composite formatting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specifiers">Format Specifiers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-interpolation">String Interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-the-console">Writing to the Console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-formatting-with-loop-output">Table Formatting with Loop Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-output-console-write">Format Output: Console.Write()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-tables">Formatting Tables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="input-and-output">
+<span id="io"></span><h1>Input and Output<a class="headerlink" href="#input-and-output" title="Link to this heading">#</a></h1>
+<section id="input-reading-from-the-keyboard">
+<span id="read-from-console"></span><span id="index-0"></span><h2>Input: Reading from the Keyboard<a class="headerlink" href="#input-reading-from-the-keyboard" title="Link to this heading">#</a></h2>
+<p>At console or terminal, input is done in two parts: Prompt and read.
+Because the lack of better visual cues, we use a <em>prompt</em> to instruct the user
+how to respond. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Enter your name: "</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The user input from keyboard is automatically shown
+in the terminal or console window. For a program to take in the characters typed,
+another method in the <code class="docutils literal notranslate"><span class="pre">Console</span></code> class is used:
+<code class="docutils literal notranslate"><span class="pre">Console.ReadLine</span></code>.</p>
+<p>The read method reads the data from a line typed at the keyboard by the user.
+When the user presses the Enter (Return) key, the sequence of characters,
+form the string <em>value</em> of the read method.</p>
+<p>With any method producing a value, the value is <em>lost</em> unless it
+is <em>immediately</em> used. We therefore assign the value from the read method
+to a variable like in</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">                                </span><span class="c1">// declare variable</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Enter your name: "</span><span class="p">);</span><span class="w">     </span><span class="c1">// prompt for input</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span><span class="w">                  </span><span class="c1">// save value to variable</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or read in one line</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Enter your name: "</span><span class="p">);</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">                    </span><span class="c1">// print to test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a variable containing the value for us to operate on.</p>
+</section>
+<section id="user-input-the-ui-class">
+<span id="the-ui-class"></span><span id="index-1"></span><h2>User Input: The UI class<a class="headerlink" href="#user-input-the-ui-class" title="Link to this heading">#</a></h2>
+<p>Andrew N. Harrington and George Thiruvathukal (2021) have prepared some useful
+C# utility methods for convenient user input and the code is available on <a class="reference external" href="https://github.com/LoyolaChicagoBooks/introcs-csharp-examples/blob/master/ui/ui.cs">github</a>.</p>
+<p>To use the code, go to the github repository, and do the following:</p>
+<ol class="arabic simple">
+<li><p>Make sure the path is <code class="docutils literal notranslate"><span class="pre">introcs-csharp-examples/ui/ui.cs</span></code> and the file name is <code class="docutils literal notranslate"><span class="pre">ui.cs</span></code>.</p></li>
+<li><p>Make sure the <em>Code</em> tab is selected and you are seeing the source code.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">raw</span> <span class="pre">files</span></code> icon or simply highlight the whole code.</p></li>
+<li><p>In your project folder, create a new file and name it <code class="docutils literal notranslate"><span class="pre">ui.cs</span></code>.</p></li>
+<li><p>Paste the copied code to the file.</p></li>
+<li><p>Change the namespace of the file from IntroCS to <code class="docutils literal notranslate"><span class="pre">IntroCSCS</span></code>.</p></li>
+</ol>
+<p>Alternatively, you may just download <code class="docutils literal notranslate"><span class="pre">ui.cs</span></code> as a raw file from github and place it in the
+project folder with the Program.cs file and change the file’s namespace from IntroCS
+to IntroCSCS.</p>
+<p>Now you can use the input methods in your code. For example, you may use its
+<code class="docutils literal notranslate"><span class="pre">PromptInt</span></code> method to prompting a user input of integer type:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">ui.cs</span></code> is added alongside <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code> in the <strong>same project folder</strong> — this works because a project can contain many <code class="docutils literal notranslate"><span class="pre">.cs</span></code> files. Remember: <strong>one entry point (the <code class="docutils literal notranslate"><span class="pre">Main()</span></code> method) per project, but a project can have many <code class="docutils literal notranslate"><span class="pre">.cs</span></code> files.</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptInt</span><span class="p">(</span><span class="s">"Enter integer leg: "</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="casting-type-conversion-in-input">
+<h2>Casting (Type Conversion) in Input<a class="headerlink" href="#casting-type-conversion-in-input" title="Link to this heading">#</a></h2>
+<p>The default value from <code class="docutils literal notranslate"><span class="pre">Console.ReadLine()</span></code> is of string type and
+when we want the user to supply numbers, we need to explicitly convert the
+strings to the proper kind of number. We cannot convert the string type to
+int implicitly because strings are immutable in C#. Instead, you need to parse
+the string and assign to the intended data type.</p>
+<p>There are C# built-in methods to do that. <code class="docutils literal notranslate"><span class="pre">int.Parse</span></code> takes a string parameter
+that should be the characters in an <code class="docutils literal notranslate"><span class="pre">int</span></code>, like “123” or “-25”, and
+produces the corresponding <code class="docutils literal notranslate"><span class="pre">int</span></code> value, like 123 or -25:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Enter your age: "</span><span class="p">);</span><span class="w">      </span><span class="c1">// prompt</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">ageInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span><span class="w">          </span><span class="c1">// save input to variable</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ageInput</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span><span class="w">      </span><span class="c1">// check type: string</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ageInput</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ageInput</span><span class="p">);</span><span class="w">               </span><span class="c1">// casting type to int</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">age</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">age</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The double type works similarly as the int type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"34.5"</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or, in VS Code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"34.5"</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="console-writeline">
+<span id="substitution-in-writeline"></span><h2>Console.WriteLine()<a class="headerlink" href="#console-writeline" title="Link to this heading">#</a></h2>
+<p>The method <code class="docutils literal notranslate"><span class="pre">Console.Write()</span></code> does not create a new line when executing.
+We can make use of this in cases such as reading user input</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Enter you first name: "</span><span class="p">);</span><span class="w">    </span><span class="c1">// input will start here</span>
+<span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hiya, "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"!"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You have seen output (“print” or “echo”) from the very beginning when creating
+the console app project (<code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">console</span> <span class="pre">new</span></code>) and see the executing line of:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Naturally, we can print variables in addition to the string literal. For example,
+extending our input code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Enter your name: "</span><span class="p">);</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello,"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">        </span><span class="c1">// use + for concatenation</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="composite-formatting">
+<span id="format-strings"></span><h2>Composite formatting<a class="headerlink" href="#composite-formatting" title="Link to this heading">#</a></h2>
+<p>Instead of using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, <strong>composite format</strong> (the
+“fill-in-the-braces”) gives us better control over output using <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code>
+by using positional <strong>string format index</strong> to separate the string and the data variables.</p>
+<p>In composite formatting, you use two arguments: 1) a composite format <strong>string</strong> with
+<strong>parameter specifier</strong> (<code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">item</span></code> index) and 2) an <strong>object list</strong>. When printing,
+the objects (variables or literal values) substitute the parameter specifiers one by one.</p>
+<p>Observe the last two statements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstName</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Enter you first name: "</span><span class="p">);</span><span class="w">    </span><span class="c1">// input will start here</span>
+<span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hiya, "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"!"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hiya, {0}!"</span><span class="p">,</span><span class="w"> </span><span class="n">firstName</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can imagine that there would be {1}, {2}… like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hiya, {0} {1}!"</span><span class="p">,</span><span class="w"> </span><span class="n">firstName</span><span class="p">,</span><span class="w"> </span><span class="n">lastName</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With composite formatting, we have the flexibility of writing the output string
+and place the variables anywhere we prefer in the string.</p>
+<p>A more elaborate silly examples that you could test in csharp would be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Peter"</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Piper"</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pick"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} {1}, {0} {1}, {2}."</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">what</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It would print:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Peter</span><span class="w"> </span><span class="n">Piper</span><span class="p">,</span><span class="w"> </span><span class="n">Peter</span><span class="w"> </span><span class="n">Piper</span><span class="p">,</span><span class="w"> </span><span class="n">pick</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>where parameter 0 is <code class="docutils literal notranslate"><span class="pre">first</span></code> (value <code class="docutils literal notranslate"><span class="pre">&quot;Peter&quot;</span></code>),
+parameter 1 is <code class="docutils literal notranslate"><span class="pre">last</span></code> ( value <code class="docutils literal notranslate"><span class="pre">&quot;Piper&quot;</span></code>), and
+parameter 2 is <code class="docutils literal notranslate"><span class="pre">what</span></code> (value <code class="docutils literal notranslate"><span class="pre">&quot;pick&quot;</span></code>).</p>
+<p>As an example, try the following in csharprepl:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} plus {1} is {2}; {0} times {1} is {3}."</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>to see it prints:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">35</span><span class="p">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note the following features of the parameters after the first string:</p>
+<ul class="simple">
+<li><p>These parameters can be any expression,
+and the expressions get evaluated before printing.</p></li>
+<li><p>These parameters to be substituted can be of any type.</p></li>
+<li><p>These parameters are automatically converted to a string form, just as in the
+use of the string <code class="docutils literal notranslate"><span class="pre">+</span></code> operation.</p></li>
+</ul>
+<p>In fact the simple use of format strings shown so far can be completed replaced by
+long expressions with <code class="docutils literal notranslate"><span class="pre">+</span></code>, if that is your taste.</p>
+<section id="format-specifiers">
+<h3>Format Specifiers<a class="headerlink" href="#format-specifiers" title="Link to this heading">#</a></h3>
+<p>In addition to printing out strings using composite formatting as seen above, a common
+way to format strings is using the string.Format() method to save the value of the
+variable into another string. For example, we may save a format string to a variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"There are {0} balls"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also, C# has <strong>format specifiers</strong> <a class="footnote-reference brackets" href="#format-specifiers-1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for different data types when
+formatting data.
+For example, <code class="docutils literal notranslate"><span class="pre">D</span></code> for Decimal type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6324</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"{{{0:D}}}"</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+<span class="c1">// The example displays the following output:</span>
+<span class="c1">//       {6324}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may format two strings together. In the example below, the <code class="docutils literal notranslate"><span class="pre">{1,6:D}</span></code>
+format item takes the second item, format it also as a decimal and the
+string length will be 6 characters (right-aligned and padded with empty strings;
+the 6 here is the <code class="docutils literal notranslate"><span class="pre">alignment</span> <span class="pre">component</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"{0:D}  {1,6:D}"</span><span class="p">,</span><span class="w"> </span><span class="mi">634</span><span class="p">,</span><span class="w"> </span><span class="mi">868</span><span class="p">);</span><span class="w"> </span><span class="c1">// result: 634     868</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">C</span></code> for currency:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">myNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0:C}"</span><span class="p">,</span><span class="w"> </span><span class="n">myNumber</span><span class="p">);</span>
+
+<span class="c1">// The example displays the following output</span>
+<span class="c1">// if en-US is the current culture:</span>
+<span class="c1">//        $100.00</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="string-interpolation">
+<span id="id2"></span><h2>String Interpolation<a class="headerlink" href="#string-interpolation" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">$</span></code> character identifies a string literal as an <strong>interpolated string</strong>. An interpolated
+string is a string literal that might contain interpolation expressions. When an
+interpolated string is resolved to a result string, the compiler replaces items with
+interpolation expressions by the string representations of the expression results.
+String interpolation provides a more readable, convenient syntax to format strings.
+To identify a string literal as an interpolated string, prepend it with the <code class="docutils literal notranslate"><span class="pre">$</span></code> symbol.</p>
+<p>Compare <strong>composite formatting</strong> and <strong>string interpolation</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mark"</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span>
+
+<span class="c1">// Composite formatting:</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello, {0}! Today is {1}, it's {2:HH:mm} now."</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="p">);</span>
+<span class="c1">// String interpolation:</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."</span><span class="p">);</span>
+<span class="c1">// Both calls produce the same output that is similar to:</span>
+<span class="c1">// Hello, Mark! Today is Wednesday, it's 19:40 now.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-to-the-console">
+<h2>Writing to the Console<a class="headerlink" href="#writing-to-the-console" title="Link to this heading">#</a></h2>
+<p>In csharprepl, you can type an expression and immediately see the result
+of its evaluation. This is good for test out syntax. In a regular C# program
+run from a file like in VS Code, you must explicitly give instructions to print to a
+console/terminal.</p>
+<p>This printing is accomplished through a method with a long name: <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code>.
+Like with math, you can pass a method a value to work on, by placing it in
+parentheses after the name of the method.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Console</span></code> is a C# class maintained by the system, that
+interacts with the terminal or console window where text output
+appears for the program. A method defined in that class is <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>.
+To refer to a method like <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> in a different class, you must indicate
+the location of the method with the “dot” notation shown:
+class name, then <code class="docutils literal notranslate"><span class="pre">.</span></code>, then the method. This
+gives the more elaborate name needed in the program.</p>
+<p id="index-2">The <code class="docutils literal notranslate"><span class="pre">Console.WriteLine</span></code> method automatically makes the printing
+position advance to the next line, as when you press the Enter or Return key.
+A variant, <code class="docutils literal notranslate"><span class="pre">Console.Write</span></code>, prints the parameter exactly, and nothing else.</p>
+<p class="rubric">Footnotes</p>
+</section>
+<section id="table-formatting-with-loop-output">
+<h2>Table Formatting with Loop Output<a class="headerlink" href="#table-formatting-with-loop-output" title="Link to this heading">#</a></h2>
+<p>The following examples were moved from iteration worked examples to keep formatting topics centralized in Input/Output.</p>
+</section>
+<section id="format-output-console-write">
+<h2>Format Output: Console.Write()<a class="headerlink" href="#format-output-console-write" title="Link to this heading">#</a></h2>
+<p>Thus far all of our <code class="docutils literal notranslate"><span class="pre">for</span></code> loops have used a sequence of successive integers.
+You can do a quick test in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us make the output neater by using the format string (<a class="reference internal" href="#format-strings"><span class="std std-ref">Composite formatting</span></a>) and
+the <code class="docutils literal notranslate"><span class="pre">Console.Write()</span></code> method:</p>
+</section>
+<section id="formatting-tables">
+<span id="left-justification"></span><h2>Formatting Tables<a class="headerlink" href="#formatting-tables" title="Link to this heading">#</a></h2>
+<p>Reports commonly include tables, often with successive lines generated by
+a consistent formula and therefore a good example for coding. As a simple first table, we can show the square,
+cube, and square root of numbers 1 through 10.
+The Math class has a method <code class="docutils literal notranslate"><span class="pre">Sqrt</span></code>, so we take the square root with the <code class="docutils literal notranslate"><span class="pre">Math.Sqrt</span></code>
+method. The pattern is consistent, so we can loop easily:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} {1} {2} {3}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The numbers will be there, but the output is not pretty:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1 1 1
+2 4 8 1.4142135623731
+3 9 27 1.73205080756888
+4 16 64 2
+5 25 125 2.23606797749979
+6 36 216 2.44948974278318
+7 49 343 2.64575131106459
+8 64 512 2.82842712474619
+9 81 729 3
+10 100 1000 3.16227766016838
+</pre></div>
+</div>
+<p>First we might not need all those digits in the square root approximations.
+We can replace <code class="docutils literal notranslate"><span class="pre">{3}</span></code> by <code class="docutils literal notranslate"><span class="pre">{3:F4}</span></code> to just show 4 decimal places.</p>
+<p>We can adjust the spacing to make nice
+columns by using a further formatting option. The longest entries are all
+in the last row, where they take up, 2, 3, 4, and 6 columns (for 3.1623).
+Change the format string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0,2} {1,3} {2,4} {3,6:F4}"</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and we generate the neater output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 1   1    1 1.0000
+ 2   4    8 1.4142
+ 3   9   27 1.7321
+ 4  16   64 2.0000
+ 5  25  125 2.2361
+ 6  36  216 2.4495
+ 7  49  343 2.6458
+ 8  64  512 2.8284
+ 9  81  729 3.0000
+10 100 1000 3.1623
+</pre></div>
+</div>
+<p>We are using two new formatting forms:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p>index</p>
+<p><code class="docutils literal notranslate"><span class="pre">,</span></code></p>
+<p>fieldWidth</p>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>and</p>
+<p><code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p>index</p>
+<p><code class="docutils literal notranslate"><span class="pre">,</span></code></p>
+<p>fieldWidth</p>
+<p><code class="docutils literal notranslate"><span class="pre">:F</span></code></p>
+<h1 class="rubric" id="id3"></h1>
+<p><code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+</div></blockquote>
+<p>where index, fieldWidth, and # are replaces by specific literal integers.
+The new part with the comma (not colon) and fieldWidth, sets the <em>minimum</em>
+number of columns used for the substituted string, padding with blanks as needed.</p>
+<p><em>If the string to be inserted is wider than the fieldWidth,</em>
+then the <em>whole</em> string is inserted, <em>ignoring</em> the fieldWidth. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"stuff"</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"123456789"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0,9}\n{0,7}\n{0,5}\n{0,3}"</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>generates:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>123456789
+    stuff
+  stuff
+stuff
+stuff
+</pre></div>
+</div>
+<p>filling 9, 7, and then 5 columns, by padding with 4, 2, and 0 blanks.
+<em>The last line sticks out past the proposed 3-column fieldWidth.</em></p>
+<p>One more thing to add to our power table is a heading. We might want:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n   square    cube    root
+</pre></div>
+</div>
+<p>To make the data line up with the heading titles,
+we can expand the columns, with code in example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0,2}{1,7}{2,5}{3,7}"</span><span class="p">,</span>
+<span class="w">              </span><span class="s">"n"</span><span class="p">,</span><span class="w"> </span><span class="s">"square"</span><span class="p">,</span><span class="w"> </span><span class="s">"cube"</span><span class="p">,</span><span class="w"> </span><span class="s">"root"</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0,2}{1,7}{2,5}{3,7:F4}"</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>generating the output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> n  square    cube    root
+ 1       1       1  1.0000
+ 2       4       8  1.4142
+ 3       9      27  1.7321
+ 4      16      64  2.0000
+ 5      25     125  2.2361
+ 6      36     216  2.4495
+ 7      49     343  2.6458
+ 8      64     512  2.8284
+ 9      81     729  3.0000
+10     100    1000  3.1623
+</pre></div>
+</div>
+<p>Note how we make sure the columns are consistent in the heading and further rows:
+We used a format string for the headings with the same field widths as
+in the body of the table. A separate variation: We also reduced the length
+of the format string by putting all the substitution expressions in braces
+right beside each other, and generate the space between columns with a
+larger field width.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="format-specifiers-1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings">.NET Standard numeric format strings</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/02-var_data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0203-operators.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Operators</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignments/preview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-reading-from-the-keyboard">Input: Reading from the Keyboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-the-ui-class">User Input: The UI class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-type-conversion-in-input">Casting (Type Conversion) in Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#console-writeline">Console.WriteLine()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-formatting">Composite formatting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specifiers">Format Specifiers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-interpolation">String Interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-to-the-console">Writing to the Console</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-formatting-with-loop-output">Table Formatting with Loop Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-output-console-write">Format Output: Console.Write()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-tables">Formatting Tables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

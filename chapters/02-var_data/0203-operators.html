@@ -1,0 +1,1502 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Operators &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/0203-operators';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Input and Output" href="0206-input_output.html" />
+    <link rel="prev" title="Types" href="0202-data_types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0200-var_type-intro.html">Variables &amp; Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0202-data_types.html">Types</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/02-var_data/0203-operators.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/02-var_data/0203-operators.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Operators</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-operator-types">C# Operator Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-2">Assignment Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-3">Arithmetic Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-5">Logical Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise-operators">Bitwise Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-examples">Operation Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remainders">Remainders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical">Logical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise">Bitwise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-precedence">Operator Precedence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-operator-reference">C# Operator Reference</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="operators">
+<h1>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h1>
+<p>Operators in programming languages are symbols that tells the
+compiler or interpreter to perform specific operations. The
+operand combined with the operator makes an operation. In
+an operation, an <em>operand</em> is the data that is being operated on.
+The position of the operator, with respect to its
+operands, may be prefix, infix or postfix.</p>
+<p>Common simple operators include</p>
+<ul class="simple">
+<li><p><em>arithmetic</em> (e.g. addition with +),</p></li>
+<li><p><em>comparison</em> (relational) (e.g. “greater than” with &gt;),</p></li>
+<li><p><em>logical</em> (e.g. AND, also written &amp;&amp; in some languages), and</p></li>
+<li><p><em>assignment</em> (e.g., =, +=) operators.</p></li>
+</ul>
+<p>Additional types of operators include assignment (usually = or :=),
+field access in a record or object (usually .), and bitwise and
+shift operators.</p>
+<p>Operators can be categorized based on the number of operands
+required. The three categories of operators based on the
+number of operands they require are:</p>
+<ul class="simple">
+<li><p>Unary operators: which require one operand (e.g., ++, !)</p></li>
+<li><p>Binary operators: which require two operands (e.g., +)</p></li>
+<li><p>Ternary operators: which require three operands (e.g., condition ? consequent : alternative)</p></li>
+</ul>
+<p id="arithmetic-operators"><span id="index-0"></span>The table below summarizes key C# operators.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Operators</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Assignment</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code> <code class="docutils literal notranslate"><span class="pre">+=</span></code> <code class="docutils literal notranslate"><span class="pre">-=</span></code> <code class="docutils literal notranslate"><span class="pre">*=</span></code> <code class="docutils literal notranslate"><span class="pre">/=</span></code> <code class="docutils literal notranslate"><span class="pre">%=</span></code> <code class="docutils literal notranslate"><span class="pre">++</span></code> <code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p>Assign and update values</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Arithmetic</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> <code class="docutils literal notranslate"><span class="pre">/</span></code> <code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Mathematical operations</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">14</span> <span class="pre">/</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">14</span> <span class="pre">%</span> <span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Comparison</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code> <code class="docutils literal notranslate"><span class="pre">!=</span></code> <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>Compare values, return <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Logical</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">||</span></code> <code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p>Combine or invert <code class="docutils literal notranslate"><span class="pre">bool</span></code> expressions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">10</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Bitwise</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">|</span></code> <code class="docutils literal notranslate"><span class="pre">^</span></code> <code class="docutils literal notranslate"><span class="pre">~</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Bit-level operations on integers</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&amp;</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&lt;&lt;</span> <span class="pre">1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="c-operator-types">
+<span id="index-1"></span><span id="logical-operators"></span><span id="assignment-operators"></span><h2>C# Operator Types<a class="headerlink" href="#c-operator-types" title="Link to this heading">#</a></h2>
+<p>Every expression in C# is built from <strong>operands</strong> (values or variables) and
+<strong>operators</strong> (symbols that define the operation). Operators are grouped by
+what they do to their operands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>C# vs Other Languages</strong>: Different language may have different operators doing the same thing.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>C#</p></th>
+<th class="head"><p>C / C++</p></th>
+<th class="head"><p>Python</p></th>
+<th class="head"><p>JavaScript</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Logical AND / OR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">and</span></code> <code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> <code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Logical NOT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Integer division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code> (auto when both <code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code> (auto)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p>no built-in</p></td>
+</tr>
+<tr class="row-odd"><td><p>Remainder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Exponentiation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Math.Pow(x,</span> <span class="pre">y)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Increment</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">++</span></code> <code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">++</span></code> <code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p>no <code class="docutils literal notranslate"><span class="pre">++</span></code>/<code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">++</span></code> <code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>String equality</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code> (value)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code> (pointer!)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code> (loose) / <code class="docutils literal notranslate"><span class="pre">===</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Null coalescing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">??</span></code></p></td>
+<td><p>—</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">or</span></code> idiom</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">??</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In C# and JS, <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">\|\|</span></code> use <em>short-circuit</em> evaluation: the right-hand side
+is only evaluated if needed. Python’s <code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code> do the same but return one of
+the operands rather than a strict <code class="docutils literal notranslate"><span class="pre">bool</span></code>. C/C++ lack a dedicated boolean type
+in older standards — <code class="docutils literal notranslate"><span class="pre">0</span></code> is false, anything else is true. <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</div>
+<section id="index-2">
+<span id="id2"></span><h3>Assignment Operators<a class="headerlink" href="#index-2" title="Link to this heading">#</a></h3>
+<p>An <strong>assignment operator</strong> stores a value into a variable. The basic form is
+<code class="docutils literal notranslate"><span class="pre">=</span></code>, which should not be confused with <code class="docutils literal notranslate"><span class="pre">==</span></code> (equality test). C# also provides
+<strong>compound assignment operators</strong> that combine an arithmetic operation with
+assignment in one step, making code more concise:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">   </span><span class="c1">// assign</span>
+<span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">       </span><span class="c1">// x is now 13  (same as: x = x + 3)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">       </span><span class="c1">// x is now 11</span>
+<span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w">          </span><span class="c1">// x is now 12  (post-increment)</span>
+</pre></div>
+</div>
+</section>
+<section id="index-3">
+<span id="id3"></span><h3>Arithmetic Operators<a class="headerlink" href="#index-3" title="Link to this heading">#</a></h3>
+<p><strong>Arithmetic operators</strong> perform standard mathematical operations. An important
+subtlety in C# is <strong>integer division</strong>: when both operands are <code class="docutils literal notranslate"><span class="pre">int</span></code>, the <code class="docutils literal notranslate"><span class="pre">/</span></code>
+operator truncates toward zero and discards any remainder. To get a decimal
+result, at least one operand must be a <code class="docutils literal notranslate"><span class="pre">double</span></code> (or another floating-point
+type):</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">     </span><span class="c1">// → 3  (integer division, remainder discarded)</span>
+<span class="mf">10.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">   </span><span class="c1">// → 3.333...  (double division)</span>
+<span class="mi">10</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">     </span><span class="c1">// → 1  (remainder)</span>
+</pre></div>
+</div>
+</section>
+<section id="comparison-operators">
+<span id="index-4"></span><h3>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Link to this heading">#</a></h3>
+<p><strong>Comparison operators</strong> (also called <em>relational operators</em>) compare two
+values and always return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> — either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. They are the
+primary building blocks of conditions in <code class="docutils literal notranslate"><span class="pre">if</span></code> statements and loops:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// false — equality (note: two equals signs, not one)</span>
+<span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// true  — not equal</span>
+<span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">    </span><span class="c1">// true  — greater than</span>
+</pre></div>
+</div>
+<p>A very common bug is writing <code class="docutils literal notranslate"><span class="pre">=</span></code> (assignment) instead of <code class="docutils literal notranslate"><span class="pre">==</span></code> (equality test)
+inside a condition. C# will often catch this as a compile-time error.</p>
+</section>
+<section id="index-5">
+<span id="id4"></span><h3>Logical Operators<a class="headerlink" href="#index-5" title="Link to this heading">#</a></h3>
+<p><strong>Logical operators</strong> combine <code class="docutils literal notranslate"><span class="pre">bool</span></code> expressions to build compound conditions.
+C# evaluates them using <em>short-circuit</em> rules: for <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, if the left side is
+<code class="docutils literal notranslate"><span class="pre">false</span></code>, the right side is skipped; for <code class="docutils literal notranslate"><span class="pre">||</span></code>, if the left side is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the
+right side is skipped. This matters when the right side has side-effects or
+could throw an exception.</p>
+<p>Precedence: <code class="docutils literal notranslate"><span class="pre">!</span></code> binds tightest, then <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, then <code class="docutils literal notranslate"><span class="pre">||</span></code>. Use parentheses for
+clarity when mixing them:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">   </span><span class="c1">// false — both must be true</span>
+<span class="n">x</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">   </span><span class="c1">// true  — at least one must be true</span>
+<span class="o">!</span><span class="n">x</span><span class="p">;</span><span class="w">       </span><span class="c1">// false — inverts x</span>
+</pre></div>
+</div>
+</section>
+<section id="bitwise-operators">
+<span id="index-6"></span><h3>Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Link to this heading">#</a></h3>
+<p><strong>Bitwise operators</strong> work on the individual bits of integer values. They are
+used in low-level programming, flags, masks, and performance-sensitive code.
+Each bit in the result is computed independently from the corresponding bits of
+the operands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  5 in binary  →  0101
+  3 in binary  →  0011
+  5 &amp; 3        →  0001  (AND: 1 only where both are 1)
+  5 | 3        →  0111  (OR:  1 where either is 1)
+  5 ^ 3        →  0110  (XOR: 1 where exactly one is 1)
+</pre></div>
+</div>
+<p>Shift operators (<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>) move bits left or right, which is equivalent to
+multiplying or dividing by powers of 2:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">// → 10  (5 × 2)</span>
+<span class="mi">5</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">// → 2   (5 ÷ 2, integer)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="operation-examples">
+<h2>Operation Examples<a class="headerlink" href="#operation-examples" title="Link to this heading">#</a></h2>
+<section id="assignment">
+<h3>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> operator assigns a value. Compound operators (<code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, etc.) combine an operation with assignment. <code class="docutils literal notranslate"><span class="pre">++</span></code> and <code class="docutils literal notranslate"><span class="pre">--</span></code> increment or decrement by 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">x</span><span class="o">++</span><span class="w">       </span><span class="c1">// post-increment operator; x++ increments the value of variable x after it's evaluated in an expression</span>
+<span class="n">x</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="o">++</span><span class="n">x</span><span class="w">       </span><span class="c1">// pre-increment operator; ++x increments the value of variable x before it's evaluated in an expression</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arithmetic">
+<h3>Arithmetic<a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h3>
+<p>Basic arithmetic operations on numeric types:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w">   </span><span class="c1">// 13 — addition</span>
+<span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w">   </span><span class="c1">// 7  — subtraction</span>
+<span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w">   </span><span class="c1">// 30 — multiplication</span>
+<span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="w">   </span><span class="c1">// 3  — integer division (truncates toward zero)</span>
+<span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="w">   </span><span class="c1">// 1  — remainder</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="division">
+<span id="division-and-remainders"></span><span id="index-7"></span><h3>Division<a class="headerlink" href="#division" title="Link to this heading">#</a></h3>
+<p>Division can be a little tricky in C#. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="mf">5.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+<span class="mf">14.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS0201</span><span class="p">:</span> <span class="n">Only</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">call</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">decrement</span><span class="p">,</span> <span class="k">await</span><span class="p">,</span> <span class="ow">and</span> <span class="n">new</span> <span class="nb">object</span> <span class="n">expressions</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">as</span> <span class="n">a</span> <span class="n">statement</span>
+
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS0201</span><span class="p">:</span> <span class="n">Only</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">call</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">decrement</span><span class="p">,</span> <span class="k">await</span><span class="p">,</span> <span class="ow">and</span> <span class="n">new</span> <span class="nb">object</span> <span class="n">expressions</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">as</span> <span class="n">a</span> <span class="n">statement</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But C# will implicitly turn the following expression to an <code class="docutils literal notranslate"><span class="pre">int</span></code> type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="mi">14</span><span class="o">/</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="dni-plaintext"><pre>3</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style></div></div>
+</div>
+<p>Adding a decimal point would inform C# that you are using <code class="docutils literal notranslate"><span class="pre">double</span></code> instead of <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="mf">14.0</span><span class="o">/</span><span class="mf">4.0</span>
+<span class="mf">14.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="w">      </span><span class="c1">// one of the operands is double type</span>
+<span class="mf">6.0</span><span class="o">/</span><span class="mf">3.0</span><span class="w">       </span><span class="c1">// when the remainder is 0, the quotient is an int.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that C# stores values with only a limited precision, so the results of
+mathematical operations are only approximate in general. The following
+is an example that shows the <code class="docutils literal notranslate"><span class="pre">double</span></code> type has a precision of ~15-17 digits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="dni-plaintext"><pre>0.3333333333333333</pre></div><style>
+.dni-code-hint {
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dni-treeview {
+    white-space: nowrap;
+}
+.dni-treeview td {
+    vertical-align: top;
+    text-align: start;
+}
+details.dni-treeview {
+    padding-left: 1em;
+}
+table td {
+    text-align: start;
+}
+table tr { 
+    vertical-align: top; 
+    margin: 0em 0px;
+}
+table tr td pre 
+{ 
+    vertical-align: top !important; 
+    margin: 0em 0px !important;
+} 
+table th {
+    text-align: start;
+}
+</style></div></div>
+</div>
+</section>
+<section id="remainders">
+<h3>Remainders<a class="headerlink" href="#remainders" title="Link to this heading">#</a></h3>
+<p>Remainder is used to check if a number is divisible by another number.
+The remainder operator <code class="docutils literal notranslate"><span class="pre">%</span></code> computes the remainder after dividing its
+left-hand operand by its right-hand operand.</p>
+<p>Try in the <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="mi">14</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">7</span>
+<span class="mi">14</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// x now contains 2</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// x now contains 4</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// x now contains 0</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// x now contains 4</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// x now contains -4</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// x now contains 4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The precedence of <code class="docutils literal notranslate"><span class="pre">%</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code>, and hence
+higher than addition and subtraction, <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+</section>
+<section id="comparison">
+<h3>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h3>
+<p>Comparison operators return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1003</span><span class="p">:</span> <span class="n">Syntax</span> <span class="n">error</span><span class="p">,</span> <span class="s1">','</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1003</span><span class="p">:</span> <span class="n">Syntax</span> <span class="n">error</span><span class="p">,</span> <span class="s1">','</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1003</span><span class="p">:</span> <span class="n">Syntax</span> <span class="n">error</span><span class="p">,</span> <span class="s1">','</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1003</span><span class="p">:</span> <span class="n">Syntax</span> <span class="n">error</span><span class="p">,</span> <span class="s1">'&gt;'</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logical">
+<h3>Logical<a class="headerlink" href="#logical" title="Link to this heading">#</a></h3>
+<p>Logical operators combine or invert <code class="docutils literal notranslate"><span class="pre">bool</span></code> expressions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bitwise">
+<h3>Bitwise<a class="headerlink" href="#bitwise" title="Link to this heading">#</a></h3>
+<p>Bitwise operators work directly on the binary representation of integers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c1">// binary: x = 0101, y = 0011</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="w">    </span><span class="c1">// Bitwise AND:  0101 &amp; 0011 = 0001 → 1</span>
+<span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">y</span><span class="w">    </span><span class="c1">// Bitwise OR:   0101 | 0011 = 0111 → 7</span>
+<span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">y</span><span class="w">    </span><span class="c1">// Bitwise XOR:  0101 ^ 0011 = 0110 → 6</span>
+<span class="o">~</span><span class="n">x</span><span class="w">       </span><span class="c1">// Bitwise NOT:  ~0101 = ...11111010 → -6</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1">// Left shift:   0101 &lt;&lt; 1 = 1010 → 10</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1">// Right shift:  0101 &gt;&gt; 1 = 0010 → 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS1002</span><span class="p">:</span> <span class="p">;</span> <span class="n">expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="operator-precedence">
+<span id="precedence"></span><span id="index-8"></span><h2>Operator Precedence<a class="headerlink" href="#operator-precedence" title="Link to this heading">#</a></h2>
+<p>Earlier lines have higher precedence.
+Only operators used in this book are included:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>obj.field  f(x)  a[i]  n++  n--  new
++  -  ! (Type)x  (Unary operators)
+* / %
++ - (binary)
+&lt; &gt; &lt;= &gt;=
+== !=
+&amp;&amp;
+||
+=  *=  /=  %=  +=  -=
+</pre></div>
+</div>
+<p>All symbols are listed at the beginning of the index.</p>
+<p>Parentheses for grouping are encouraged with less common combinations, even if not strictly necessary.</p>
+</section>
+<section id="c-operator-reference">
+<h2>C# Operator Reference<a class="headerlink" href="#c-operator-reference" title="Link to this heading">#</a></h2>
+<p>A more detailed overview of all the operators in C#:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No.</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><strong>Assignment</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>Assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
+<td><p>Add and assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
+<td><p>Subtract and assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
+<td><p>Multiply and assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
+<td><p>Divide and assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
+<td><p>Remainder and assign</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">++</span></code></p></td>
+<td><p>Increment by 1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x++</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p>Decrement by 1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x--</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><strong>Arithmetic</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Subtraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">-</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">15</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5.0</span> <span class="pre">/</span> <span class="pre">2.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2.5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Remainder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">14</span> <span class="pre">%</span> <span class="pre">4</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><strong>Comparison</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>Equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>Not equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>Greater than</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>Less than</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&lt;</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>Greater than or equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&gt;=</span> <span class="pre">5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>Less than or equal to</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&lt;=</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><strong>Logical</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
+<td><p>AND — both must be <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">&amp;&amp;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">10</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
+<td><p>OR — at least one <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">||</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">10</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p>NOT — inverts value</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!(x</span> <span class="pre">&gt;</span> <span class="pre">10)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><strong>Bitwise</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p>Bitwise AND</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&amp;</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>Bitwise OR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">|</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>Bitwise XOR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">^</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Bitwise NOT (complement)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-6</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
+<td><p>Left shift</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&lt;&lt;</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Right shift</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">&gt;&gt;</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p><strong>Ternary</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">:</span></code></p></td>
+<td><p>Conditional — if/else shorthand</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">?</span> <span class="pre">&quot;pos&quot;</span> <span class="pre">:</span> <span class="pre">&quot;neg&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;pos&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;neg&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p><strong>Null Coalescing</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">??</span></code></p></td>
+<td><p>Return left if not null, else right</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">??</span> <span class="pre">&quot;Unknown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;Unknown&quot;</span></code> if <code class="docutils literal notranslate"><span class="pre">name</span></code> is <code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">??=</span></code></p></td>
+<td><p>Assign only if null</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">??=</span> <span class="pre">&quot;Unknown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span></code> set to <code class="docutils literal notranslate"><span class="pre">&quot;Unknown&quot;</span></code> if <code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p><strong>Type Testing</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">is</span></code></p></td>
+<td><p>Check if object is a type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">int</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">as</span></code></p></td>
+<td><p>Cast to type, returns null if fails</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">as</span> <span class="pre">string</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code> or <code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typeof</span></code></p></td>
+<td><p>Get type information</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">typeof(int)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">System.Int32</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p><strong>Member Access</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>Access member of object</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj.Name</span></code></p></td>
+<td><p>value of <code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">?.</span></code></p></td>
+<td><p>Access member, null if object is null</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">obj?.Name</span></code></p></td>
+<td><p>value or <code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p>Access element by index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">arr[0]</span></code></p></td>
+<td><p>first element</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>* For exponentiation, C# uses <code class="docutils literal notranslate"><span class="pre">Math.Pow()</span></code> where Python uses <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
+<p class="rubric">Footnotes</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>For a complete discussion on C# operators, see the
+<a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/">C# documentation on operators</a>.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/02-var_data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0202-data_types.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0206-input_output.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Input and Output</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-operator-types">C# Operator Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-2">Assignment Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-3">Arithmetic Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index-5">Logical Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise-operators">Bitwise Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-examples">Operation Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remainders">Remainders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logical">Logical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise">Bitwise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-precedence">Operator Precedence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-operator-reference">C# Operator Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

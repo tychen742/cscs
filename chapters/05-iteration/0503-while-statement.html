@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>While-Statements &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/05-iteration/0503-while-statement';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preview Questions" href="assignments/preview.html" />
+    <link rel="prev" title="The for Statement" href="0502-for-statements.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0500-iteration-intro.html">Iteration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/05-iteration/0503-while-statement.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/05-iteration/0503-while-statement.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>While-Statements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">While-Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loops">Infinite loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-examples">While Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operations">String Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-investment">Long Term Investment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strange-sequence-exercise">Strange Sequence Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-exercise-ii">Roundoff Exercise II</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-loops">Do-While Loops</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while">Do-While Loops</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-example-right-triangle"><code class="docutils literal notranslate"><span class="pre">do-while</span></code> Example: Right Triangle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd-example-with-a-while-loop">GCD Example with a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dangerous-semicolon">
+<span id="while-statements"></span><span id="index-0"></span><span id="id1"></span><h1>While-Statements<a class="headerlink" href="#dangerous-semicolon" title="Link to this heading">#</a></h1>
+<p>Just like the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, the while loop deals with iteration (<em>repetition</em> or <em>loops</em>).
+The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is <strong>condition-controlled</strong>, as opposing to <code class="docutils literal notranslate"><span class="pre">for</span></code> loop , which is
+<strong>count-controlled</strong>. This means a while loop runs a set of instructions continuously
+as long as the given <strong>boolean condition</strong> evaluates true, no matter how many loops it takes.
+Only when the condition is evaluated to NOT true, then the loop terminates.</p>
+<p>The flowchart of a while loop looks like the graph below, note that
+the sequential flow of a program is altered with the loops, just like with method calls
+and conditional statements: [1]</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/flowchart-while-loop.jpg"><img alt="flowchart while loop" src="../../_images/flowchart-while-loop.jpg" style="width: 250px;" />
+</a>
+</figure>
+<p>For <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, it is common to initialize a variable to be used in the
+condition, therefore the syntax would look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span>
+
+<span class="nf">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">condition</span><span class="o">*</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// statement(s)</span>
+<span class="c1">// iterator expression</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that, because the condition (boolean expression) is evaluated before each execution
+of the loop body (#4-6), a while loop can executes <strong>zero</strong> (if the condition
+evaluates to false immediately) or more times.</p>
+<p>You should test the following code, less the comments, in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> to get familiar with
+the C# while loop:</p>
+<p>int n = 0; // initialization</p>
+<p>while (n &lt; 5) // conditional expression in the while loop header
+{
+Console.Write(n); // body of while loop
+n++; // iterator (iterator expression)/update
+}</p>
+<p>// output: 01234</p>
+<p>Note that this <code class="docutils literal notranslate"><span class="pre">while</span></code> loop code above is just the same as a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
+<p>for (int i = 0; i &lt; 5; i++)
+{
+Console.Write(i);
+}</p>
+<p>// output: 01234</p>
+<p>Both code have <code class="docutils literal notranslate"><span class="pre">initializer</span></code>, <code class="docutils literal notranslate"><span class="pre">conditional</span> <span class="pre">expression</span></code>, and <code class="docutils literal notranslate"><span class="pre">iterator</span> <span class="pre">expression</span></code>
+( see <a class="reference internal" href="0502-for-statements.html#for-loop-header"><span class="std std-ref">For Statement Syntax</span></a>); except that in <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, the three sections are</p>
+<p>placed together in the header, while they are placed in different locations in
+the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**Stepping**
+
+Test yourself: Follow the code below to figure out what is printed:
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">       </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="n">Compare</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">below</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="w">    </span><span class="n">Do</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">produce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">result</span><span class="o">?</span><span class="w"> </span><span class="n">Now</span><span class="p">,</span><span class="w"> </span><span class="n">compare</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">          </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="n">Make</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">interpret</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">csharprepl</span><span class="w"> </span><span class="k">or</span>
+<span class="n">VS</span><span class="w"> </span><span class="n">Code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">out</span><span class="p">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="infinite-loops">
+<h2>Infinite loops<a class="headerlink" href="#infinite-loops" title="Link to this heading">#</a></h2>
+<p>Just like <a class="reference internal" href="0502-for-statements.html#for-statement"><span class="std std-ref">The for Statement</span></a>, manipulating the header sections will
+change the behavior of the loop. Test the following code in your <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code> and be ready
+to issue <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">+</span> <span class="pre">C</span></code> to terminate the process:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; int n = 0;
+&gt; while (n &lt; 5)
+{
+   Console.Write(n);
+}
+000000000000000000000000000000...
+</pre></div>
+</div>
+<p>Observing the code, you see that the variable <code class="docutils literal notranslate"><span class="pre">n</span></code> is not being updated in the body
+of the while loop. Since <code class="docutils literal notranslate"><span class="pre">n</span></code> is not updated, the value stays as 0, and the boolean
+condition <code class="docutils literal notranslate"><span class="pre">(n</span> <span class="pre">&lt;</span> <span class="pre">5&gt;)</span></code> is always evaluated to be <code class="docutils literal notranslate"><span class="pre">true</span></code>, an infinite loop is therefore
+formed since (n &lt; 5) will stay true and, while the boolean condition is tested true, the
+body of the while loop will be executed and print out <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>If you want the while loop body of the while statement to run at least once, the boolean
+condition has to be true for the first evaluation. After that, the iterator (e.g., n++)
+in the body of the while statement needs to work to exit the loop by making the condition
+section untrue. The preceding code does not have an iterator expression and therefore
+the loop becomes infinite.</p>
+<p>For your possible interest, you may want to test the following <code class="docutils literal notranslate"><span class="pre">for</span></code> statement. Again,
+be ready to issue <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">+</span> <span class="pre">C</span></code> to terminate the process:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; for (int i = 0; i &lt; 5;)
+  {
+      Console.Write(i);
+  }
+</pre></div>
+</div>
+<p>After testing the code above, you should get better idea about how boolean expressions
+controls the code execution in loop.</p>
+<p><strong>while (true)</strong></p>
+<p>As an exercise, observe the following code. You should be able to see that the condition
+section has a value of <code class="docutils literal notranslate"><span class="pre">true</span></code> instead of an expression and reason the outcome of the
+code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; while (true)
+  {
+      Console.Write(0);
+  }
+</pre></div>
+</div>
+<p>An infinite loop can happen when:</p>
+<ol class="arabic simple">
+<li><p>The loop has no terminating condition.</p></li>
+<li><p>The loop has a terminating condition that cannot be met.</p></li>
+</ol>
+<p>An embedded system such as a cartridge-based video game console typically does not
+have an <code class="docutils literal notranslate"><span class="pre">exit</span></code> condition and the loop runs until the console is powered off. The
+same infinite loop design can be seen in operating systems or web servers, where the
+systems keep monitor input and give output and do not halt until crash, turned off,
+or reset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{rubric}</span> <span class="pre">Footnotes</span></code></p>
+<p>[1] The flowchart is from <a class="reference external" href="https://www.geeksforgeeks.org/c-while-loop/#">geeksforgeeks.org</a></p>
+</section>
+<section id="while-examples">
+<h2>While Examples<a class="headerlink" href="#while-examples" title="Link to this heading">#</a></h2>
+<p>The following examples were consolidated from <code class="docutils literal notranslate"><span class="pre">0602-while-examples</span></code>.</p>
+</section>
+<section id="string-operations">
+<h2>String Operations<a class="headerlink" href="#string-operations" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">string</span></code> type represents a sequence of zero or more Unicode characters
+(the <code class="docutils literal notranslate"><span class="pre">char</span></code> type) with indices. We can therefore access the characters in a
+string using array notation with index values. Consider the following method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">IntroCSCS</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">Ch06WhileLoop</span>
+<span class="w">   </span><span class="p">{</span>
+
+<span class="w">      </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Please enter a string: "</span><span class="p">);</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="w">         </span><span class="n">OneCharPerLine</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OneCharPerLine</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">         </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are using <code class="docutils literal notranslate"><span class="pre">(i</span> <span class="pre">&lt;</span> <span class="pre">s.Length)</span></code> because we want to loop through all the characters.
+Since array indexing is 0-based, the index of the last character is the
+<em>length of the string - 1</em>. In the code here, it is s.Length - 1. To represent this
+number, we use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To print out the characters, we loop through the string use the array indices <code class="docutils literal notranslate"><span class="pre">s[i]</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To print out the characters one by one, we update the local loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code>
+with step of 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>or the more commonly used equivalent form:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="long-term-investment">
+<span id="savings-exercise"></span><span id="index-1"></span><h2>Long Term Investment<a class="headerlink" href="#long-term-investment" title="Link to this heading">#</a></h2>
+<p>The idea here is to see how many years it will take for an investment account to
+grow to at least a given value, assuming a compounded hypothetical annual return
+rate. Here’s what we will do:</p>
+<ol class="arabic simple">
+<li><p>Prompts the user for three numbers:</p>
+<ol class="arabic simple">
+<li><p>The monthly investment.</p></li>
+<li><p>The annual percentage for return as a decimal. For index funds (mutual or ETF,
+Exchange Traded Funds), it seems to be reasonable to have annualized 5% return.</p></li>
+<li><p>The final balance desired.</p></li>
+</ol>
+</li>
+</ol>
+<p>#. Print the initial balance, 0, and the balance each year until
+the desired amount is reached. Round displayed amounts
+to two decimal places, as usual.</p>
+<p>The math: The amount next year is the amount now times
+(1 + interest fraction),
+so if I have $500 now and the interest rate is .04,
+I have $500*(1.04) = $520 after one year, and after two years I have,
+$520*(1.04) = $540.80.
+If I enter into the program a $500 starting balance, .04 interest rate and
+a target of $550, the program prints:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="mf">500.00</span>
+<span class="mf">520.00</span>
+<span class="mf">540.80</span>
+<span class="mf">563.42</span>
+</pre></div>
+</div>
+<section id="strange-sequence-exercise">
+<span id="strange-seq-ex"></span><span id="index-2"></span><h3>Strange Sequence Exercise<a class="headerlink" href="#strange-sequence-exercise" title="Link to this heading">#</a></h3>
+<p>Save the example program <a class="reference external" href="https://github.com/mstbit/introcs-csharp-examples/blob/master/strange_seq_stub/strange_seq.cs">strange_seq_stub/strange_seq.cs</a>
+in a project of your own.</p>
+<p>There are three functions to complete. Do one at a time and test.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Jump</span></code>: First complete the definitions of function <code class="docutils literal notranslate"><span class="pre">Jump</span></code>.
+For any integer <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">Jump(n)</span></code> is <code class="docutils literal notranslate"><span class="pre">n/2</span></code> if <code class="docutils literal notranslate"><span class="pre">n</span></code> is even,
+and <code class="docutils literal notranslate"><span class="pre">3*n+1</span></code> if <code class="docutils literal notranslate"><span class="pre">n</span></code> is odd.
+In the <code class="docutils literal notranslate"><span class="pre">Jump</span></code> function definition use an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code>
+statement. Hint <a class="footnote-reference brackets" href="#oddeven" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">PrintStrangeSequence</span></code>:
+You can start with one number, say n = 3, and <em>keep</em> applying the
+<code class="docutils literal notranslate"><span class="pre">Jump</span></code> function to the <em>last</em> number given,
+and see how the numbers jump around!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Jump</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">Jump</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">Jump</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="n">Jump</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="n">Jump</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="o">/</span><span class="mi">2</span><span class="w">  </span><span class="o">=</span><span class="w">   </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">Jump</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="mi">4</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">Jump</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="w">  </span><span class="o">=</span><span class="w">   </span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This process of repeatedly applying the same function to the most recent result
+is called function <em>iteration</em>. In this case you see that iterating the
+<code class="docutils literal notranslate"><span class="pre">Jump</span></code> function, starting from n=3, eventually reaches the value 1.</p>
+<p>It is an <em>open research question</em> whether iterating the Jump function
+from an integer <code class="docutils literal notranslate"><span class="pre">n</span></code> will eventually reach 1,
+for <em>every</em> starting integer <code class="docutils literal notranslate"><span class="pre">n</span></code> greater than 1.
+Researchers have only found examples of <code class="docutils literal notranslate"><span class="pre">n</span></code> where it is true.
+Still, no general argument has been made to apply to the
+<em>infinite</em> number of possible starting integers.</p>
+<p>In the PrintStrangeSequence you iterate the <code class="docutils literal notranslate"><span class="pre">Jump</span></code> function
+starting from parameter value <code class="docutils literal notranslate"><span class="pre">n</span></code>, as long as the current number is not 1.
+If you start with 1, stop immediately.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CountStrangeSequence</span></code>: Iterate the <code class="docutils literal notranslate"><span class="pre">Jump</span></code> function as in
+<code class="docutils literal notranslate"><span class="pre">PrintStrangeSequence</span></code>. Instead of printing each number in the sequence,
+just count them, and return the count.</p>
+</section>
+<section id="roundoff-exercise-ii">
+<span id="roundoff2"></span><span id="index-3"></span><h3>Roundoff Exercise II<a class="headerlink" href="#roundoff-exercise-ii" title="Link to this heading">#</a></h3>
+<p>Write a program to complete and test the function with this heading
+and documentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">/// Return the largest possible number y, so in C#: x+y = x</span>
+<span class="c1">/// If x is Infinity return Infinity.</span>
+<span class="c1">/// If x is -Infinity, return double.MaxValue.</span>
+<span class="c1">/// Assume x is not NaN (which is equal to nothing).</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">Epsilon</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hint: The non-exceptional case can have some similarity
+to the bisection in the best root approximation example:
+start with two endpoints, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, where <code class="docutils literal notranslate"><span class="pre">x+a</span> <span class="pre">=</span> <span class="pre">x</span></code> and
+<code class="docutils literal notranslate"><span class="pre">x+b</span> <span class="pre">&gt;</span> <span class="pre">x</span></code>, and reduce the interval size by half….</p>
+</section>
+</section>
+<section id="do-while-loops">
+<h2>Do-While Loops<a class="headerlink" href="#do-while-loops" title="Link to this heading">#</a></h2>
+<p>The following content was consolidated from <code class="docutils literal notranslate"><span class="pre">0603-do-while</span></code>.</p>
+</section>
+</section>
+<section id="do-while">
+<span id="index-4"></span><span id="id3"></span><h1>Do-While Loops<a class="headerlink" href="#do-while" title="Link to this heading">#</a></h1>
+<p>The general form of a <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> statement (referred to as the “<code class="docutils literal notranslate"><span class="pre">do</span></code> statement” in
+the C# language reference <a class="footnote-reference brackets" href="#id5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>) is:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span>
+
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// statement(s)</span>
+<span class="w">  </span><span class="c1">// iterator expression</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop is a variation of the <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loop</span></code>. The <code class="docutils literal notranslate"><span class="pre">do</span></code> statement executes a statement or a block of statements, followed by a Boolean expression to decide the continuation of the iteration. Because that expression is evaluated <strong>after</strong> each execution of the loop, a do loop executes <strong>one or more</strong> times. The <code class="docutils literal notranslate"><span class="pre">do</span></code> loop differs from the <em>while</em> loop, which executes <em>zero or more</em> times.</p>
+<p>Compare the <code class="docutils literal notranslate"><span class="pre">do-while</span></code> general syntax with the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop below and you should see clearly the difference in logic.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">initialization</span>
+
+<span class="nf">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">condition</span><span class="o">*</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// statement(s)</span>
+<span class="w">  </span><span class="c1">// iterator expression</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, if the condition evaluates to false from
+the very beginning, the body of statements will not be executed at all.
+In a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> statement, the body statement(s) is <em>always</em> executed at least
+once, then the iteration continues if the followed condition tested true.
+This logic can be seen in the flowchart:</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/flowchart-do-while-loop.jpg"><img alt="flowchart do-while loop" src="../../_images/flowchart-do-while-loop.jpg" style="width: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Flowchart of a do-while loop.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As a comparison, the while and do-while loops differ in several ways:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>while</p></th>
+<th class="head"><p>do-while</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Condition</p></td>
+<td><p>checked before body statement is executed.</p></td>
+<td><p>checked after body statement is executed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Body statement</p></td>
+<td><p>may be executed zero times.</p></td>
+<td><p>is executed at least once.</p></td>
+</tr>
+<tr class="row-even"><td><p>Semicolon</p></td>
+<td><p>no semicolon at the end of loop header: <code class="docutils literal notranslate"><span class="pre">while(condition)</span></code></p></td>
+<td><p>semicolon at the end of loop header: <code class="docutils literal notranslate"><span class="pre">while(condition);</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop Variable</p></td>
+<td><p>initialized before the execution of loop.</p></td>
+<td><p>initialized before or within the loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>Control</p></td>
+<td><p>entry-controlled.</p></td>
+<td><p>exit-controlled.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Syntax</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">while(condition)</span> <span class="pre">{</span> <span class="pre">statement(s);</span> <span class="pre">}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">{</span> <span class="pre">statement(s);</span> <span class="pre">}</span> <span class="pre">while(condition);</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To get familiar with the do-while loop syntax, you should practice the following code in <code class="docutils literal notranslate"><span class="pre">csharprepl</span></code>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="n">n</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// output: 01234</span>
+</pre></div>
+</div>
+<section id="do-while-example-right-triangle">
+<h2><code class="docutils literal notranslate"><span class="pre">do-while</span></code> Example: Right Triangle<a class="headerlink" href="#do-while-example-right-triangle" title="Link to this heading">#</a></h2>
+<p>Suppose you want the user to enter three integers for sides of a right triangle. If they do not make a right triangle, say so and make the user try again. One way to look at the while statement rubric is:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">condition</span>
+<span class="nf">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">accomplish</span><span class="w"> </span><span class="n">something</span>
+<span class="w">   </span><span class="k">set</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">condition</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Using input methods in the UI class</strong>: In this example, you will solicit user input for three times. While you may do so by using three Console.Write() and Console.ReadLine() lines to save the user input data, you may also try using the customized user input methods in the UI class (for how to use
+the methods, see <a class="reference internal" href="../02-var_data/0206-input_output.html#the-ui-class"><span class="std std-ref">User Input: The UI class</span></a>).</p>
+<p>In cases like this, we would like to intake user data, perform certain operations to the data that are too complicated for the while header condition, then make the decision about the iteration. A <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop works better because we want to collect user input first, perform some calculation, before we tell the user that their input is correct or not:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Think of integer sides for a right triangle."</span><span class="p">);</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptInt</span><span class="p">(</span><span class="s">"Enter integer leg: "</span><span class="p">);</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptInt</span><span class="p">(</span><span class="s">"Enter another integer leg: "</span><span class="p">);</span>
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptInt</span><span class="p">(</span><span class="s">"Enter integer hypotenuse: "</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Not a right triangle: Try again!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS0103</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="s1">'UI'</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">context</span>
+
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS0103</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="s1">'UI'</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">context</span>
+
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> <span class="n">error</span> <span class="n">CS0103</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="s1">'UI'</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">context</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop is the <em>one</em> place where you <em>do</em> want a semicolon
+right after a condition, unlike the places mentioned in
+<a class="reference internal" href="#dangerous-semicolon"><span class="std std-ref">While-Statements</span></a>. At least if you omit it here you
+are likely to get a compiler error rather than a difficult logical
+bug.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop, like the example above,
+can accomplish exactly the same thing as the <code class="docutils literal notranslate"><span class="pre">while</span></code>
+loop rubric at the beginning of this section. It has the general form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>do {
+   set data for condition
+   if (condition) {
+       accomplish something
+   }
+} while (condition);
+</pre></div>
+</div>
+<p>In the example above note that the declaration of <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> is
+<em>before</em> the <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code>
+loop. You can try moving the declaration inside the braces for the loop body,
+and see the compiler error that you get!</p>
+<p>Recall the variables declared inside
+a braces-delimited block have scope <em>local to that block</em>. The condition at
+the end of the loop is <em>outside</em> that scope. Hence the declaration of variables that
+you want in the final test or for later use after the loop must be
+declared <em>before</em> the <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<p class="rubric">Footnotes</p>
+</section>
+<section id="gcd-example-with-a-while-loop">
+<span id="gcd"></span><h2>GCD Example with a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop<a class="headerlink" href="#gcd-example-with-a-while-loop" title="Link to this heading">#</a></h2>
+<p>A compact and practical loop example is Euclid’s algorithm for the greatest common divisor (GCD):</p>
+<ul class="simple">
+<li><p>Continue while <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">!=</span> <span class="pre">0</span></code>.</p></li>
+<li><p>Compute remainder <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code>.</p></li>
+<li><p>Shift values: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">r</span></code>.</p></li>
+<li><p>When the loop ends, <code class="docutils literal notranslate"><span class="pre">a</span></code> is the GCD.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">/// Return the greatest common divisor of nonnegative numbers, not both 0.</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GreatestCommonDivisor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="oddeven" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>If you divide an even number by 2, what is the remainder? Use this idea
+in your <code class="docutils literal notranslate"><span class="pre">if</span></code> condition.</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<p>For an introduction of the while loop, see: <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements#1392-the-while-statement"> the while loop in C# Language Reference</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/05-iteration"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0502-for-statements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignments/preview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Preview Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">While-Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loops">Infinite loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-examples">While Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operations">String Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-investment">Long Term Investment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strange-sequence-exercise">Strange Sequence Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-exercise-ii">Roundoff Exercise II</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-loops">Do-While Loops</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while">Do-While Loops</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-while-example-right-triangle"><code class="docutils literal notranslate"><span class="pre">do-while</span></code> Example: Right Triangle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd-example-with-a-while-loop">GCD Example with a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

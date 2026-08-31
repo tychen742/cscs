@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>StreamWriter &#8212; Introduction to Computer Science in C#</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06-files-text/0602-file-operations';</script>
+    <script src="../../_static/custom.js?v=6efaefa1"></script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Text Operations" href="0603-text-operations.html" />
+    <link rel="prev" title="Files As Streams" href="0601-stream-file.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../preface.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">C# Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/lab.html">Lab 01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">Input and Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/lab.html">Lab 02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/lab.html">Lab 03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">Switch Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/lab.html">Lab 04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">Homework: Grade Calculation from Individual Scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-arrays/0700-arrays-intro.html">Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0701-onedim.html">1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/0702-twodim.html">2D &amp; ND Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/lab.html">Lab: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-arrays/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-collections/0800-collections-intro.html">Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0801-collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0802-list.html">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/0803-dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/lab.html">Lab: Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0600-files-text-intro.html">Files and Text</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0601-stream-file.html">Files As Streams</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="0603-text-operations.html">Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0606-regex.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/lab.html">Lab: Files</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="assignments/hw-gradefiles.html">Homework: Grade File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/review.html">Chapter Review</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-classes/1100-classes-intro.html">Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1101-class-syntax.html">Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1102-properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1103-class-instance.html">Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/1104-operator-overloading.html">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/lab.html">Lab: Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/hw-booklist.html">Homework: Book List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-classes/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-oop/1200-oop-intro.html">OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1201-intro-oop.html">Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1202-encapsulation.html">Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1203-inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1204-polymorphism.html">Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/1205-abstraction.html">Abstraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/lab.html">Lab: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-oop/assignments/review.html">Review Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-datastructure/0900-datastructure-intro.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0901-intro-ds.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/0902-collection-examples.html">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/lab.html">Lab: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-datastructure/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-algorithms/1000-algorithms-intro.html">Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1001-searching.html">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1002-sorting.html">Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/1003-complexity.html">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/lab.html">Lab: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-algorithms/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">Unit Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">Lab: Exceptions, Debugging &amp; Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">Chapter Review</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-selected-topics/1400-selected-topics-intro.html">Selected Topics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1401-recursion.html">Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1402-lambdas.html">Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/1403-linq.html">LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/preview.html">Preview Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/lab.html">Lab: Recursion, Lambdas, and LINQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-selected-topics/assignments/review.html">Chapter Review: Selected Topics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-modern-csharp/1500-modern-csharp-intro.html">Modern C# Next</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1501-pattern-matching.html">Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1502-records.html">Record Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1503-nullable.html">Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1504-generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-modern-csharp/1505-async.html">Async and Await</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tychen742/cscs/main?urlpath=tree/./chapters/06-files-text/0602-file-operations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/06-files-text/0602-file-operations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>StreamWriter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">Writing Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-path">Directory path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#streamreader"><code class="docutils literal notranslate"><span class="pre">StreamReader</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-to-end-of-stream">Reading to End of Stream</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-strings">Path Strings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-in-c">Paths in C#</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-directory-class">The Directory Class</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="streamwriter">
+<span id="filewrite"></span><span id="index-0"></span><h1><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code><a class="headerlink" href="#streamwriter" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">FileStream</span></code> class provides a <code class="docutils literal notranslate"><span class="pre">stream</span></code> of bytes[] of data for file operations, supporting both synchronous
+and asynchronous read and write operations. To use the FileStream class in C#, first of all,
+you need to include the <code class="docutils literal notranslate"><span class="pre">System.IO</span> <span class="pre">namespace</span></code> and then you need to create an
+<code class="docutils literal notranslate"><span class="pre">instance</span></code> of the FileStream class in order to use its functionalities to, for example,
+create a new file or to open an existing file.</p>
+<p>For handling files, the <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code> class is more popular in writing files
+and it is very helpful in writing text data into a file. It is easy to use and provides
+a complete set of constructors <a class="footnote-reference brackets" href="#constructor" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and methods to work on it. Specifically,
+the <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code> class in C# is used for writing characters to stream in a particular format.</p>
+<section id="writing-files">
+<h2>Writing Files<a class="headerlink" href="#writing-files" title="Link to this heading">#</a></h2>
+<p>Observe the following program (<code class="docutils literal notranslate"><span class="pre">first_file.cs</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">IntroCSCS</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">class</span><span class="w"> </span><span class="nc">Ch07File</span><span class="w">  </span><span class="c1">// basics of file writing</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">         </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">             </span><span class="n">StreamWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamWriter</span><span class="p">(</span><span class="s">"sample.txt"</span><span class="p">);</span>
+<span class="w">             </span><span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"This program is writing"</span><span class="p">);</span>
+<span class="w">             </span><span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"our first file."</span><span class="p">);</span>
+<span class="w">             </span><span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the code:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">System.IO</span></code> namespace:
+: - Namespace: Note the <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">System.IO</span></code> namespace being used at the top. It gives the program
+access to the functionalities in the System.IO namespace. For your current concern,
+this means a number of classes that contains many <strong>methods</strong> that you use.</p>
+<ul class="simple">
+<li><p>You will always need to be using <code class="docutils literal notranslate"><span class="pre">System.IO</span></code> when working with files. Here is a slightly
+different use of a dot, <code class="docutils literal notranslate"><span class="pre">.</span></code>, to indicate a <em>subsidiary</em> namespace. Under System.IO,
+there are plenty of classes (with methods defined inside) for system IO operations,
+such as:
+- File,
+- StreamWriter,
+- FileStream,
+- StreamReader,
+- Directory,
+- Path, etc.</p></li>
+</ul>
+</li>
+<li><p>The StreamWriter Class:
+: - variable: The first line of the body of <code class="docutils literal notranslate"><span class="pre">Main</span></code> creates a <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code>
+object assigned to the variable <code class="docutils literal notranslate"><span class="pre">writer</span></code>.</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code> links C# to your computer’s file system for writing, not reading.</p></li>
+<li><p>Files are objects, like a Random, and you use the <code class="docutils literal notranslate"><span class="pre">new</span></code> syntax to create a new one.</p></li>
+<li><p>The StreamWriter class parameter (“constructor”, to be covered in later chapters)
+gives the name of the file to connect to the program, <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code>, which is the
+same as the file name we saw created by the program.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the file already existed, the old contents are <em>destroyed</em> silently by creating a <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code>.</p>
+</div>
+</li>
+<li><p>writer.WriteLine():
+The writer variable is of data type (or just type) StreamWriter and
+StreamWriter has method WriteLine() just like the Console class. The difference is that
+Console.WriteLine writes to the console/terminal, whereas StreamWriter.WriteLine writes
+out a data stream to a file followed by a newline character.</p>
+<div class="admonition note" id="index-1">
+<p class="admonition-title">Note</p>
+<p>Just as you can use a <a class="reference internal" href="../02-var_data/0206-input_output.html#format-strings"><span class="std std-ref">Composite formatting</span></a> with
+functions <code class="docutils literal notranslate"><span class="pre">Write</span></code> and <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code> of the <code class="docutils literal notranslate"><span class="pre">Console</span></code> class,
+you can also use a format string with the corresponding methods of a
+<code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code>, and embed fields by using braces in
+the format string.</p>
+</div>
+</li>
+<li><p>writer.Close():
+The Close() method closes the current StreamWriter object and the underlying stream.
+The Close() method is important for cleaning up. Until this line, this C# program
+controls the file, and nothing may be actually written to the operating system file
+yet: Since initiating a file operation is thousands of times slower than memory
+operations, C# <em>buffers</em> data, saving small amounts and writing a larger chunk all at once.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The call to the <code class="docutils literal notranslate"><span class="pre">Close</span></code> method is essential for C# to make sure everything is really
+written, and to relinquish control of the file for use by other programs. It is a common bug
+to write a program where you have the code to add all the data you
+want to a file, but the program does not end up creating a file.
+Usually this means you forgot to close the file!</p>
+</div>
+</li>
+</ul>
+<section id="directory-path">
+<h3>Directory path<a class="headerlink" href="#directory-path" title="Link to this heading">#</a></h3>
+<p>If you do not use any operating system directory separators in the name
+(<code class="docutils literal notranslate"><span class="pre">'\'</span></code> or <code class="docutils literal notranslate"><span class="pre">'/'</span></code>, depending on your operating system), then the file will lie in the
+<strong>current directory</strong>. For example, you may create a <code class="docutils literal notranslate"><span class="pre">data</span></code> directory under your
+introcscs directory and place all data files in it.</p>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+</section>
+<section id="streamreader">
+<span id="fileread"></span><span id="index-2"></span><h1><code class="docutils literal notranslate"><span class="pre">StreamReader</span></code><a class="headerlink" href="#streamreader" title="Link to this heading">#</a></h1>
+<p>In the sample code (<code class="docutils literal notranslate"><span class="pre">first_file.cs</span></code>) of Writing Files from last section, you specified
+a file <code class="file docutils literal notranslate"><span class="pre">sample.txt</span></code>, which currently exists in the present project folder.
+The code is as seen below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">IntroCSCS</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">class</span><span class="w"> </span><span class="nc">Ch07File</span><span class="w">  </span><span class="c1">// basics of file writing</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">         </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="n">StreamWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamWriter</span><span class="p">(</span><span class="s">"sample.txt"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"This program is writing"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"our first file."</span><span class="p">);</span>
+<span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, take a look at the following code (<code class="docutils literal notranslate"><span class="pre">print_first_file.cs</span></code>) and compare to
+the code above (<code class="docutils literal notranslate"><span class="pre">first_file.cs</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">IntroCSCS</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">PrintFirstFile</span><span class="w">  </span><span class="c1">// basics of reading file lines</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">StreamReader</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamReader</span><span class="p">(</span><span class="s">"sample.txt"</span><span class="p">);</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span><span class="w">  </span><span class="c1">// first line // string? ==&gt; nullable</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">         </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span><span class="w">         </span><span class="c1">// second line</span>
+<span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">         </span><span class="n">reader</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you have read a file and used it in a program.</p>
+<p>In the first line of <code class="docutils literal notranslate"><span class="pre">Main</span></code>, the file (<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code>) is again associated
+with a C# variable name (<code class="docutils literal notranslate"><span class="pre">reader</span></code>), this time for reading as a <code class="docutils literal notranslate"><span class="pre">StreamReader</span></code>,
+instead of a <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code>, object. A <code class="docutils literal notranslate"><span class="pre">StreamReader</span></code> can only open an existing
+file, so <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> must already exist.</p>
+<p>Again we have parallel names to those used with <code class="docutils literal notranslate"><span class="pre">Console</span></code>, but in this case
+the <code class="docutils literal notranslate"><span class="pre">ReadLine</span></code> method returns the next line from the file. Here the string from
+the file line is assigned to the variable <code class="docutils literal notranslate"><span class="pre">line</span></code>. Each call the ReadLine reads the
+next line of the file. Such behavior is similar to the <code class="docutils literal notranslate"><span class="pre">Console.ReadLine()</span></code> that you
+know about but different as <code class="docutils literal notranslate"><span class="pre">StreamReader.ReadLine()</span></code> reads the next line from the
+input <code class="docutils literal notranslate"><span class="pre">stream</span></code> (or null if the end of the input stream is reached) rather than from
+user command line input.</p>
+<p>Finally, using the <code class="docutils literal notranslate"><span class="pre">Close</span></code> method is generally optional with files being read.
+There is nothing to lose if a program ends without closing a file that was being
+read.</p>
+<section id="reading-to-end-of-stream">
+<span id="endofstream"></span><span id="index-3"></span><h2>Reading to End of Stream<a class="headerlink" href="#reading-to-end-of-stream" title="Link to this heading">#</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">first_file.cs</span></code>, we explicitly coded reading two lines. You will often
+want to process each line in a file, without knowing the total number of
+lines at the time when you were programming. This means that files provide us with our
+second kind of a <code class="docutils literal notranslate"><span class="pre">sequence</span></code>: the sequence of lines in the file!
+To process all of them will require a loop and a new test to make sure that you
+have not yet come to the end of the file’s stream: You can use the <code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code>
+property. It has the wrong sense (true at the end of the file), so we negate it,
+testing for <code class="docutils literal notranslate"><span class="pre">!reader.EndOfStream</span></code> to <em>continue</em> reading.
+The example program <code class="docutils literal notranslate"><span class="pre">print_file_lines.cs</span></code> below reads and prints the contents of
+a file specified by the user, one line at a time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">IntroCSCS</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">PrintFileLines</span><span class="w">  </span><span class="c1">// demo of using EndOfStream test</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="n">userFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UI</span><span class="p">.</span><span class="n">PromptLine</span><span class="p">(</span><span class="s">"Enter name of file to print: "</span><span class="p">);</span>
+<span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamReader</span><span class="p">(</span><span class="n">userFileName</span><span class="p">);</span>
+<span class="w">         </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">reader</span><span class="p">.</span><span class="n">EndOfStream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">reader</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p id="index-4"><code class="docutils literal notranslate"><span class="pre">var</span></code></p>
+<blockquote>
+<div><p>For conciseness (and variety) we declared <code class="docutils literal notranslate"><span class="pre">reader</span></code>
+using the more compact syntax with <code class="docutils literal notranslate"><span class="pre">var</span></code>:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamReader</span><span class="p">(</span><span class="n">userFileName</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">var</span></code> in place of a declared type to shorten your code
+with a couple of restrictions:</p>
+<ul class="simple">
+<li><p>Use an initializer, from which the type of the variable can be inferred.</p></li>
+<li><p>Declare a local variable inside a method body or in a loop heading.</p></li>
+<li><p>Declare only a single variable in the statement.</p></li>
+</ul>
+<p>We could have used this syntax long ago, but as the type names become longer,
+it is more useful!</p>
+</div></blockquote>
+<p>You can run this program. You need an existing file to read. An obvious file is
+the source file itself: <code class="file docutils literal notranslate"><span class="pre">print_file_lines.cs</span></code>. Or, if you have implemented/tested
+the files by placing the code in your <code class="docutils literal notranslate"><span class="pre">Program.cs</span></code>, you may use the <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> file
+here. In the latter case, you should see:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="p">:</span><span class="w"> </span><span class="n">sample</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">writing</span>
+<span class="n">our</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">file</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Things to note about reading from files:</p>
+<ul class="simple" id="index-5">
+<li><p>Reading from a file returns the part read, of course. Never forget the
+<em>side effect</em>: The location in the file advances past the part just read.
+The next read does <em>not</em> return the <em>same</em> thing as last time. It returns
+the <em>next</em> part of the file.</p></li>
+<li><p>Our <code class="docutils literal notranslate"><span class="pre">while</span></code> test conditions so far have been in a sense “backward looking”:
+We have tested a variable that has <em>already been set</em>.
+The test with <code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code> is <em>forward looking</em>: looking at what has not
+been processed yet. Other than making sure the file is opened, there is no
+variable that needs to be set before a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop testing for <code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code>.</p></li>
+<li><p>If you use ReadLine at the end of the file, the special value <code class="docutils literal notranslate"><span class="pre">null</span></code> (no object)
+is returned. <em>This</em> is not an error, but if you try to apply any string methods
+to the <code class="docutils literal notranslate"><span class="pre">null</span></code> value returned, <em>then</em> you get an error!</p></li>
+</ul>
+<p>Though <code class="docutils literal notranslate"><span class="pre">print_file_lines.cs</span></code> was a nice simple illustration of a loop reading
+lines, it was very verbose considering the final effect of the program,
+just to print the whole file.
+You can read the entire remaining contents of a file
+as a single (multiline) string, using the
+<code class="docutils literal notranslate"><span class="pre">StreamReader</span></code> method <code class="docutils literal notranslate"><span class="pre">ReadToEnd</span></code>. In place of the reading and printing
+loop we could have just had:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">wholeFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">ReadToEnd</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">wholeFile</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ReadToEnd</span></code> does not strip off a newline, unlike <code class="docutils literal notranslate"><span class="pre">ReadLine</span></code>,
+so we do not want to add an extra newline
+when writing. Here we can use the <code class="docutils literal notranslate"><span class="pre">Write</span></code> method instead of <code class="docutils literal notranslate"><span class="pre">WriteLine</span></code>.</p>
+</section>
+</section>
+<section id="path-strings">
+<span id="index-7"></span><span id="readtoend"></span><span id="index-6"></span><span id="id2"></span><h1>Path Strings<a class="headerlink" href="#path-strings" title="Link to this heading">#</a></h1>
+<p>When a program is running, there is alway a <em>current directory</em> (or,
+<strong>present working directory</strong>, <code class="docutils literal notranslate"><span class="pre">pwd</span></code>). Files in the present working directory can
+be referred to by their simple names, e.g., <em>sample.txt</em>, so
+project files can be referred to by their simple names because they are in the same
+directory.</p>
+<p>Referring to files not in the current directory is more complicated.
+You should be aware from using the Windows Explorer or the macOS Finder that
+files and directories are located in a hierarchy of directories in the
+file system. On a Mac, the file system is unified in
+one hierarchy. On Windows, each storage drive has its own hierarchy.</p>
+<p id="index-8">Files are generally referred to by a chain of directories before
+the final name of the file desired. A <em>path string</em> (or simply <strong>path</strong>) is used
+to represent such a sequence of names. Elements of the directory chain are separated
+by operating system specific punctuation symbols: In Windows the separator is
+backslash, <code class="docutils literal notranslate"><span class="pre">\</span></code>, and on a Mac it is (forward) slash, <code class="docutils literal notranslate"><span class="pre">/</span></code>. For example, on a Mac the path</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/anh
+</pre></div>
+</div>
+<p>starts with a /, meaning the <strong>root</strong> or top directory in the hierarchy, and Users is
+a subdirectory, and anh is a subdirectory of Users (in this case the home directory
+for the user with login anh). It is similar with Windows, except there may be a drive
+in the beginning, and the separator is a \, so</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C:\Windows\System32
+</pre></div>
+</div>
+<p>is on C: drive; Windows is a subdirectory of the root directory \, and System32 is
+a subdirectory of Windows. Each drive in Windows has a separate file hierarchy
+underneath it.</p>
+<p id="index-9">Paths starting from the root of a file system, with <code class="docutils literal notranslate"><span class="pre">\</span></code> or <code class="docutils literal notranslate"><span class="pre">/</span></code> are called
+<strong>absolute paths</strong> or <strong>full paths</strong> because they begin with the root of the file hierarchy.
+Since there is always a current directory, it makes sense to allow a path to be <em>relative</em>
+to the current directory. In that case do <em>not</em> start with the slash that would
+indicate the root directory. For example, if the current directory is
+your user home directory, you likely have a subdirectory <code class="file docutils literal notranslate"><span class="pre">Downloads</span></code>, and the
+<code class="file docutils literal notranslate"><span class="pre">Downloads</span></code> directory might contain <code class="file docutils literal notranslate"><span class="pre">examples.zip</span></code>. From the home directory,
+this file could be referred to as <code class="file docutils literal notranslate"><span class="pre">Downloads\examples.zip</span></code> in Windows or
+<code class="file docutils literal notranslate"><span class="pre">Downloads/examples.zip</span></code> on a Mac.</p>
+<p>Referring to files in the current directory just by their plain file name is
+actually an example of using relative paths.</p>
+<p id="index-10">With relative paths, you sometimes want to move up the directory hierarchy: <code class="docutils literal notranslate"><span class="pre">..</span></code>
+(two periods) refers to the directory one level up the chain.</p>
+<p>For example, suppose you have a <code class="docutils literal notranslate"><span class="pre">data</span></code> directory under your <code class="docutils literal notranslate"><span class="pre">introcscs</span></code> directory,
+and you place your sample.txt in the data directory. When running your project from the
+project directory (Ch07File), you would refer to the sample.txt file to read as
+<code class="file docutils literal notranslate"><span class="pre">..\data\sample.txt</span></code> in Windows or
+<code class="file docutils literal notranslate"><span class="pre">../data/sample.txt</span></code> in macOS. Follow this one step at a time:
+Starting from the <code class="file docutils literal notranslate"><span class="pre">Ch07File</span></code> project folder, where the program is running,
+go up one folder (<code class="file docutils literal notranslate"><span class="pre">..</span></code>) to the <code class="docutils literal notranslate"><span class="pre">introcscs</span></code> folder, then down into the
+<code class="file docutils literal notranslate"><span class="pre">data</span></code> folder, and refer to the <code class="file docutils literal notranslate"><span class="pre">sample.txt</span></code> file in that folder.</p>
+<p id="index-11">Occasionally you need to
+refer explicitly to the current directory: It is referred to as <code class="file docutils literal notranslate"><span class="pre">.</span></code>. (a single
+period).</p>
+<section id="paths-in-c">
+<span id="index-12"></span><h2>Paths in C#<a class="headerlink" href="#paths-in-c" title="Link to this heading">#</a></h2>
+<p>The differing versions of paths for Windows and a Mac are a pain to deal with. Luckily C#
+abstracts away the differences. It has a <code class="docutils literal notranslate"><span class="pre">Path</span></code> class in the <code class="docutils literal notranslate"><span class="pre">System.IO</span></code>
+namespace that provides many handy functions for dealing with paths in
+an operating system independent way:</p>
+<p>For one thing, C# knows the path separator character for your operating system,
+<code class="docutils literal notranslate"><span class="pre">Path.DirectorySeparatorChar</span></code>.</p>
+<p>More useful is the function <code class="docutils literal notranslate"><span class="pre">Path.Combine</span></code>, which takes any number of string parameters
+for sequential parts of a path, and creates a single string appropriate for the
+current operating system. For example,
+<code class="docutils literal notranslate"><span class="pre">Path.Combine(&quot;bin&quot;,</span> <span class="pre">&quot;Debug&quot;)</span></code> will return <code class="docutils literal notranslate"><span class="pre">&quot;bin\Debug&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;bin/debug&quot;</span></code>
+as appropriate.
+<code class="docutils literal notranslate"><span class="pre">Path.Combine(&quot;..&quot;,</span> <span class="pre">&quot;data&quot;,</span> <span class="pre">&quot;sample.txt&quot;)</span></code> will return a string with characters
+<code class="docutils literal notranslate"><span class="pre">..\data\sample.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">../data/sample.txt</span></code>.</p>
+<p>Even if you know you are going to be on Windows, file paths are a problem because
+<code class="docutils literal notranslate"><span class="pre">\</span></code> is the string escape character. To enter the Windows path solve explicitly
+you would need to have <code class="docutils literal notranslate"><span class="pre">&quot;..\\data\\sample.txt&quot;</span></code>, or the raw string prefix,
+<code class="docutils literal notranslate"><span class="pre">&#64;</span></code> can come to the rescue: <code class="docutils literal notranslate"><span class="pre">&#64;&quot;..\data\sample.txt&quot;</span></code>.</p>
+<p>Path strings are used by the <a class="reference internal" href="#directory-class"><span class="std std-ref">The Directory Class</span></a> and by the <a class="reference internal" href="0601-stream-file.html#file-class"><span class="std std-ref">Simple File Handling: File Class</span></a>.
+You can look at the <code class="docutils literal notranslate"><span class="pre">Path</span></code> class in the C# Language Reference
+for many other operations with path strings.</p>
+</section>
+<section id="the-directory-class">
+<span id="directory-class"></span><h2>The Directory Class<a class="headerlink" href="#the-directory-class" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Directory</span></code> class is in the <code class="docutils literal notranslate"><span class="pre">System.IO</span></code> namespace.
+Directories in the file system are referenced by <a class="reference internal" href="#path-strings"><span class="std std-ref">Path Strings</span></a>.
+You can look at the C# language reference for a wide variety of functions in the
+<code class="docutils literal notranslate"><span class="pre">Directory</span></code> class including ones to list all the files in a directory
+or to check if a path string represents an actual directory.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="constructor" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>The concept and use of constructor will be covered in subsequent chapters
+regarding object-oriented programming.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tychen742/cscs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/06-files-text"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-csharp'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0601-stream-file.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Files As Streams</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="0603-text-operations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Text Operations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">Writing Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-path">Directory path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#streamreader"><code class="docutils literal notranslate"><span class="pre">StreamReader</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-to-end-of-stream">Reading to End of Stream</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#path-strings">Path Strings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-in-c">Paths in C#</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-directory-class">The Directory Class</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
