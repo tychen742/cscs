@@ -37,10 +37,9 @@ html:
   use_repository_button: false
   use_multitoc_numbering: false
 
-# Launch button settings (optional - for Binder/JupyterHub)
+# Launch button settings for the local .NET Interactive server.
 launch_buttons:
   thebe: true
-  binderhub_url: "https://mybinder.org"
 
 # # Repository info (optional)
 repository:
@@ -88,10 +87,12 @@ sphinx:
       selector: "div.cell"
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
-      kernel_name: ".net-csharp"
       kernelOptions:
-        name: ".net-csharp"
+        kernelName: ".net-csharp"
         path: "."
+        serverSettings:
+          baseUrl: "http://127.0.0.1:8888"
+          token: ""
 
     rst_prolog: |
       .. role:: repsrc
@@ -104,10 +105,3 @@ sphinx:
 
       .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
 
-
-# thebe:
-#   kernel_name: .net-csharp
-#   jupyter_url: https://thinkcscs.org
-#   token: "f99ce0beab7542478f2abf92c77d4d9e"
-#   use_thebe_lite: false
-#   binder_url: ""
