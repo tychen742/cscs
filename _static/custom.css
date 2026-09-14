@@ -573,20 +573,35 @@ div.cell.tag_thebe-interactive {
 }
 
 .cscs-stdin-panel {
-    align-items: end;
     display: grid;
     gap: 6px;
     grid-column: 1 / -1;
-    grid-template-columns: minmax(12rem, 28rem) max-content;
-    max-width: 36rem;
+    max-width: 32rem;
+}
+
+.cscs-stdin-heading {
+    color: #52616b;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.cscs-stdin-hint {
+    color: #6b7780;
+    font-size: 0.72rem;
+    margin-left: 8px;
 }
 
 .cscs-stdin-label {
     color: #52616b;
     display: grid;
     font-size: 0.8rem;
-    gap: 3px;
+    gap: 2px;
     line-height: 1.2;
+}
+
+.cscs-stdin-fields {
+    display: grid;
+    gap: 6px;
 }
 
 .cscs-stdin-input {
@@ -594,14 +609,9 @@ div.cell.tag_thebe-interactive {
     font-family: var(--pst-font-family-monospace);
     font-size: 0.85rem;
     line-height: 1.35;
-    min-height: 3.2rem;
-    padding: 6px 8px;
-    resize: vertical;
+    min-height: 2rem;
+    padding: 4px 8px;
     width: 100%;
-}
-
-.cscs-execution-controls .cscs-stdin-submit-button {
-    align-self: end;
 }
 
 .cscs-execution-output {

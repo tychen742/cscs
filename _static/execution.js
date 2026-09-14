@@ -43,22 +43,18 @@ function initializeCsharpExecution() {
         stdinPanel.className = "cscs-stdin-panel";
         stdinPanel.hidden = true;
 
-        const stdinLabel = document.createElement("label");
-        stdinLabel.className = "cscs-stdin-label";
-        stdinLabel.textContent = "Input";
+        const stdinHeading = document.createElement("div");
+        stdinHeading.className = "cscs-stdin-heading";
+        stdinHeading.textContent = "Input";
 
-        const stdinInput = document.createElement("textarea");
-        stdinInput.className = "cscs-stdin-input";
-        stdinInput.rows = 2;
-        stdinInput.spellcheck = false;
-        stdinInput.placeholder = "One input value per line";
-        stdinLabel.appendChild(stdinInput);
+        const stdinHint = document.createElement("span");
+        stdinHint.className = "cscs-stdin-hint";
+        stdinHint.textContent = "Enter/Return to input";
+        stdinHeading.appendChild(stdinHint);
 
-        const stdinSubmitButton = document.createElement("button");
-        stdinSubmitButton.type = "button";
-        stdinSubmitButton.className = "cscs-stdin-submit-button";
-        stdinSubmitButton.textContent = "Enter";
-        stdinPanel.append(stdinLabel, stdinSubmitButton);
+        const stdinFields = document.createElement("div");
+        stdinFields.className = "cscs-stdin-fields";
+        stdinPanel.append(stdinHeading, stdinFields);
 
         const output = document.createElement("pre");
         output.className = "cscs-execution-output";
@@ -138,23 +134,16 @@ function initializeCsharpExecution() {
             await runCurrentCode();
         });
 
-        stdinSubmitButton.addEventListener("click", runCurrentCode);
-
-        stdinInput.addEventListener("keydown", async (event) => {
-            if (event.key !== "Enter" || event.shiftKey) return;
-            event.preventDefault();
-            await runCurrentCode();
-        });
-
         function requestStdin() {
             stdinRequested = true;
+            renderStdinFields(countConsoleInputs(editor.value));
             stdinPanel.hidden = false;
-            stdinInput.focus();
+            stdinFields.querySelector("input")?.focus();
         }
 
         async function runCurrentCode() {
             runButton.disabled = true;
-            stdinSubmitButton.disabled = true;
+            setStdinFieldsDisabled(true);
             runButton.textContent = "Running...";
             output.hidden = false;
             output.className = "cscs-execution-output is-running";
@@ -181,7 +170,7 @@ function initializeCsharpExecution() {
                             [...contextUsings, ...contextDeclarations].join("\n\n"),
                             currentCode
                         ],
-                        stdin: stdinPanel.hidden ? "" : normalizeStdin(stdinInput.value)
+                        stdin: collectStdin()
                     })
                 });
                 const result = await response.json();
@@ -197,9 +186,53 @@ function initializeCsharpExecution() {
                 output.className = "cscs-execution-output is-error";
             } finally {
                 runButton.disabled = false;
-                stdinSubmitButton.disabled = false;
+                setStdinFieldsDisabled(false);
                 runButton.textContent = "Run C#";
             }
+        }
+
+        function renderStdinFields(count) {
+            const previousValues = Array.from(stdinFields.querySelectorAll("input")).map((input) => input.value);
+            stdinFields.replaceChildren();
+
+            for (let index = 0; index < count; index += 1) {
+                const label = document.createElement("label");
+                label.className = "cscs-stdin-label";
+                label.textContent = count === 1 ? "Line 1" : `Line ${index + 1}`;
+
+                const input = document.createElement("input");
+                input.type = "text";
+                input.className = "cscs-stdin-input";
+                input.spellcheck = false;
+                input.autocomplete = "off";
+                input.value = previousValues[index] || "";
+                input.placeholder = `Input for ReadLine ${index + 1}`;
+                input.addEventListener("keydown", async (event) => {
+                    if (event.key !== "Enter") return;
+                    event.preventDefault();
+                    const nextInput = stdinFields.querySelectorAll("input")[index + 1];
+                    if (nextInput) {
+                        nextInput.focus();
+                        return;
+                    }
+                    await runCurrentCode();
+                });
+
+                label.appendChild(input);
+                stdinFields.appendChild(label);
+            }
+        }
+
+        function collectStdin() {
+            if (stdinPanel.hidden) return "";
+            const lines = Array.from(stdinFields.querySelectorAll("input")).map((input) => input.value);
+            return lines.length ? `${lines.join("\n")}\n` : "";
+        }
+
+        function setStdinFieldsDisabled(disabled) {
+            stdinFields.querySelectorAll("input").forEach((input) => {
+                input.disabled = disabled;
+            });
         }
     });
 
@@ -226,12 +259,20 @@ function initializeCsharpExecution() {
         return source.replace(/^\s*%{1,2}csharp\s*\r?\n/i, "");
     }
 
-    function normalizeStdin(source) {
-        return source && !source.endsWith("\n") ? `${source}\n` : source;
+    function usesConsoleInput(source) {
+        return countConsoleInputs(source) > 0;
     }
 
-    function usesConsoleInput(source) {
-        return /\bConsole\s*\.\s*ReadLine\s*\(/.test(source);
+    function countConsoleInputs(source) {
+        return stripCsharpComments(source).match(/\bConsole\s*\.\s*ReadLine\s*\(/g)?.length || 0;
+    }
+
+    function stripCsharpComments(source) {
+        return source
+            .replace(/\/\*[\s\S]*?\*\//g, "")
+            .split("\n")
+            .map((line) => line.replace(/\/\/.*$/, ""))
+            .join("\n");
     }
 
     function isReusableDeclaration(source) {
