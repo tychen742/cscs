@@ -307,7 +307,7 @@ static string WrapLooseMembers(string source)
     var entryPoint = hasUpperMain
         ? string.Empty
         : hasLowerMain
-            ? Environment.NewLine + "    public static void Main(string[] args) => main(args);" + Environment.NewLine
+            ? string.Empty
             : Environment.NewLine + "    public static void Main() { }" + Environment.NewLine;
 
     return "public class Program" + Environment.NewLine +

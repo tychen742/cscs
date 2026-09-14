@@ -8,6 +8,15 @@ Published sample cells must run in the browser and return compiler errors,
 program output, and timeout information. The browser sends code to the task
 execution API, which compiles and runs it in the Dockerized .NET SDK.
 
+The book intentionally uses both complete C# programs and partial teaching
+snippets. A complete program should include its own `using` directives, type
+declaration, and correctly cased `Main` entry point when it is meant to model a
+full source file. A teaching snippet may show loose method members so the
+lesson can focus on method design, parameters, or tracing. The runner may wrap
+loose method members in a temporary class so they compile, but it must not
+silently translate `main` to `Main`; incorrect entry-point casing should remain
+visible in the source so examples can be fixed intentionally.
+
 Status: implemented and tested locally.
 
 ## 2. Sample editing and execution

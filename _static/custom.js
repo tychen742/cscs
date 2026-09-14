@@ -215,7 +215,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Account menu and development login UI for the database-backed API.
 document.addEventListener('DOMContentLoaded', function () {
-    const apiBaseUrl = window.CSCS_EXECUTION_API || 'http://localhost:8080';
+    const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
+        window.CSCS_EXECUTION_API ||
+        'http://localhost:8080';
     const sidebar = document.querySelector('.bd-sidebar-primary');
     const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
     if (!sidebarContent || document.querySelector('.cscs-account')) return;
