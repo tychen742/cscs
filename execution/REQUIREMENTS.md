@@ -8,8 +8,9 @@ Published sample cells must run in the browser and return compiler errors,
 program output, and timeout information. The browser sends code to the task
 execution API, which compiles and runs it in the Dockerized .NET SDK.
 Cells that use `Console.ReadLine()` need browser-provided standard input. The
-client sends optional `stdin` text with one input value per line; the execution
-API pipes that text into the child process before waiting for output.
+client shows one input field for each `Console.ReadLine()` call and sends
+optional `stdin` text with one input value per line; the execution API pipes
+that text into the child process before waiting for output.
 
 The book intentionally uses both complete C# programs and partial teaching
 snippets. A complete program should include its own `using` directives, type
