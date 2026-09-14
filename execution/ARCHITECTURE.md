@@ -11,6 +11,21 @@ root filesystem, a non-root user, a no-new-privileges policy, a temporary
 filesystem, a process limit, a memory limit, and a fifteen-second execution
 limit. The service is bound to `127.0.0.1` and is not a public code runner.
 
+Known production risk: submitted C# currently executes inside the same
+container that hosts the API process. The container limits reduce host-level
+blast radius, but malicious or runaway student code can still compete with the
+API process for CPU, memory, process slots, and temporary filesystem space. It
+can also read files mounted into the service container, including the book
+workspace used by the development authoring workflow. Before student-facing
+online execution is exposed beyond a trusted local deployment, move execution
+into a separate worker boundary. The preferred production treatment is an API
+container that queues jobs for isolated runner workers, with no repository
+mount, no application secrets, no database access, strict timeout and resource
+limits, and text-only result handoff back to the API. A bounded worker pool is
+likely a better first production step than starting a brand-new container for
+every click, because it preserves isolation while controlling latency and
+resource use.
+
 The execution layer is intentionally separate from the Jupyter Book build and
 does not depend on Binder, Jupyter, or .NET Interactive. The browser client
 provides sample execution, editable sample copies, and inline exercise editing.
@@ -58,5 +73,5 @@ implemented first; markdown-cell boundary mapping remains a follow-up.
 Before public deployment, replace development SQLite with a server database or
 deliberate managed SQLite strategy, add migrations and backups, implement email
 verification and password recovery through IONOS SMTP, add rate limits and
-stronger execution isolation, and define a controlled Git commit/publish
-workflow.
+stronger execution isolation through separate runner workers, and define a
+controlled Git commit/publish workflow.

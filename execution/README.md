@@ -45,6 +45,13 @@ The service is bound to localhost for development. It must not be exposed
 publicly until authentication, rate limiting, stronger per-execution isolation,
 and a production deployment design have been added.
 
+The current runner executes submitted C# inside the API service container. This
+is acceptable for the local-first development model, but it is not an adequate
+student-facing public sandbox. A production deployment should move code
+execution into separate isolated runner workers with no repository mount, no
+application secrets, no database access, strict resource limits, and a bounded
+queue or worker pool.
+
 The development Compose setup stores the SQLite database in the named
 `cscs-data` volume. Do not use SQLite as the eventual multi-instance
 production database without a deliberate migration to a server database.
