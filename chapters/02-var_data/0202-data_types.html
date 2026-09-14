@@ -1,179 +1,115 @@
 
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="../../" >
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Types &#8212; Introduction to Computer Science in C#</title>
-  
-  
-  
-  <script data-cfasync="false">
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Types — Introduction to Computer Science in C#</title>
+<script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
+<!--
     this give us a css class that will be invisible only if js is disabled
   -->
-  <noscript>
-    <style>
+<noscript>
+<style>
       .pst-js-only { display: none !important; }
 
     </style>
-  </noscript>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2d660907" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/my-styles.css?v=300d08ac" />
-  
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
-
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = "div.cell"; const thebe_selector_input = "div.cell_input"; const thebe_selector_output = "div.cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/0202-data_types';</script>
-    <script src="../../_static/custom.js?v=6efaefa1"></script>
-    <link rel="icon" href="../../_static/favicon.png"/>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Operators" href="0203-operators.html" />
-    <link rel="prev" title="Variables" href="0201-variables.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
-  
-  <dialog id="pst-search-dialog">
-    
-<form class="bd-search d-flex align-items-center"
-      action="../../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=9c3e77be" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=0f4030a8" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/my-styles.css?v=300d08ac" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-var_data/0202-data_types';</script>
+<script src="../../_static/custom.js?v=39412762"></script>
+<script src="../../_static/execution.js?v=6da2a54e"></script>
+<link href="../../_static/favicon.png" rel="icon"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="0203-operators.html" rel="next" title="Operators"/>
+<link href="0201-variables.html" rel="prev" title="Variables"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
 </div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-    
-  
-
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
 <a class="navbar-brand logo" href="../../preface.html">
-  
-  
-  
-  
-  
-    
-    
-      
-    
-    
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Introduction to Computer Science in C# - Home"/>
-    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Introduction to Computer Science in C# - Home"/>
-  
-  
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<div class="sidebar-primary-item">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../preface.html">
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../preface.html">
                     Think CS in C#
                 </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">Computing Concepts</a></li>
@@ -216,9 +152,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">Iteration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">While-Statements</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/preview.html">Preview Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/lab.html">Lab: for Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">Homework: Grade Calculation</a></li>
@@ -246,19 +180,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../08-collections/assignments/review.html">Chapter Review</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children cscs-markdown-cell" data-cscs-cell-id="8a7dce1f" data-cscs-cell-index="5" data-cscs-cell-type="markdown"><a class="reference internal" href="../06-files-text/0600-files-text-intro.html">Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/0601-stream-file.html">Files As Streams</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/0602-file-operations.html"><code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/0603-text-operations.html">Text Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/0606-regex.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/preview.html">Preview Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/lab.html">Lab: Files</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/hw-gradefiles.html">Homework: Grade File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06-files-text/assignments/review.html">Chapter Review</a></li>
-
 </ul>
 </details></li>
 </ul>
@@ -343,186 +273,86 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">Group Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">Index</a></li>
 </ul>
-
-    </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
-  </div>
-
-
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</button></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
 </div>
-
-
-
-
-
-
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
+</div></div>
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../../_sources/chapters/02-var_data/0202-data_types.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
+<button aria-expanded="false" aria-label="Download this page" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-download"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm btn-download-source-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="../../_sources/chapters/02-var_data/0202-data_types.ipynb" target="_blank" title="Download source file">
 <span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
+<i class="fas fa-file"></i>
+</span>
 <span class="btn__text-container">.ipynb</span>
 </a>
 </li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
+<li>
+<button class="btn btn-sm btn-download-pdf-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" onclick="window.print()" title="Print to PDF">
 <span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
+<i class="fas fa-file-pdf"></i>
+</span>
 <span class="btn__text-container">.pdf</span>
 </button>
 </li>
-      
-  </ul>
+</ul>
 </div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
+<button class="btn btn-sm btn-fullscreen-button pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
 <span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
+<i class="fas fa-expand"></i>
+</span>
 </button>
-
-
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
 </button>
-
-
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+<button aria-label="Search" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
 </button>
 </div></div>
-      
-    </div>
-  
 </div>
 </div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Types</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Types</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-types-in-c">Common Data Types in C#</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-built-in-type-system">C# Built-in Type System</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-in-action">Data Types in Action</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell cscs-markdown-cell cscs-markdown-cell" data-cscs-cell-id="101afd7c" data-cscs-cell-index="38" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#data-types-in-action">Data Types in Action</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-types">Integer Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-types">Floating-Point Types</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-bool">Boolean (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
@@ -536,17 +366,13 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type Conversion</a></li>
 </ul>
-            </nav>
-        </div>
-    </div>
+</nav>
 </div>
-
-              
-                
+</div>
+</div>
 <div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section id="types">
+<article class="bd-article">
+<section id="types">
 <span id="index-0"></span><h1>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h1>
 <p>In C#, <strong>everything is a type</strong>. Every value you store, every variable you declare, and every expression you write has a type. A <strong>type</strong> defines three things:</p>
 <ul class="simple">
@@ -717,7 +543,7 @@ defined types and their memory size can be seen in the table below.</p>
 <td><p><strong>*</strong> <strong><code class="docutils literal notranslate"><span class="pre">string</span></code></strong></p></td>
 <td><p>2 bytes per character</p></td>
 <td><p></p></td>
-<td><p>Sequence of characters, double quotes <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;</span></code></p></td>
+<td><p>Sequence of characters, double quotes <code class="docutils literal notranslate"><span class="pre">"Hello"</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -730,7 +556,7 @@ unsigned. A signed type uses its bytes to represent an equal number of positive
 and negative numbers; whereas an unsigned type (such as <code class="docutils literal notranslate"><span class="pre">ushort</span></code>, <code class="docutils literal notranslate"><span class="pre">uint</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">ulong</span></code>) uses its bytes to represent only positive numbers. The difference between
 singed and unsigned numbers can be seen from the example below:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="224a9d15" data-cscs-cell-index="3" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Signed integral types:"</span><span class="p">);</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"sbyte   : {sbyte.MinValue} to {sbyte.MaxValue} \t\t\t\t\t (max: 2^8-1)"</span><span class="p">);</span>
@@ -764,7 +590,7 @@ ulong  : 0 to 18446744073709551615 			 (2^64)
 </div>
 </div>
 </div>
-<p>You should see the output as below:</p>
+<p class="cscs-markdown-cell" data-cscs-cell-id="56d477bf" data-cscs-cell-index="4" data-cscs-cell-type="markdown">You should see the output as below:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Signed integral types:
 sbyte  : -128 to 127
 short  : -32768 to 32767
@@ -821,7 +647,7 @@ choice is <code class="docutils literal notranslate"><span class="pre">int</span
 values, which doubles the positive range but disallows negatives.</p>
 <p>Numeric literals default to <code class="docutils literal notranslate"><span class="pre">int</span></code>. Use suffixes to specify other types:
 <code class="docutils literal notranslate"><span class="pre">L</span></code>/<code class="docutils literal notranslate"><span class="pre">l</span></code> for <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>/<code class="docutils literal notranslate"><span class="pre">u</span></code> for <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <code class="docutils literal notranslate"><span class="pre">UL</span></code>/<code class="docutils literal notranslate"><span class="pre">ul</span></code> for <code class="docutils literal notranslate"><span class="pre">ulong</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="aab41809" data-cscs-cell-index="9" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">population</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">_147_483_647</span><span class="p">;</span><span class="w">        </span><span class="c1">// int max (~2.1 billion); _ is a digit separator</span>
 <span class="kt">long</span><span class="w"> </span><span class="n">worldPopulation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="n">_000_000_000L</span><span class="p">;</span><span class="w"> </span><span class="c1">// needs L suffix — too large for int</span>
@@ -890,7 +716,7 @@ like <code class="docutils literal notranslate"><span class="pre">0.300000000000
 <p>For money or anything where exact decimal rounding matters, use <code class="docutils literal notranslate"><span class="pre">decimal</span></code>,
 which stores numbers in base 10 internally and avoids this problem entirely.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="b7026f2d" data-cscs-cell-index="11" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14F</span><span class="p">;</span>
 <span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.141592653589793</span><span class="p">;</span><span class="w">    </span><span class="c1">// default decimal literal type</span>
@@ -914,7 +740,7 @@ of any comparison or logical expression, and is the required type for <code clas
 conditions and loop guards.</p>
 <p>Unlike C/C++, C# does <strong>not</strong> allow integers to be used as booleans — <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(1)</span></code>
 is a compile-time error.</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="db60a9d4" data-cscs-cell-index="13" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">isOnline</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">hasExpired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
@@ -959,8 +785,8 @@ cast to and from <code class="docutils literal notranslate"><span class="pre">in
 </tbody>
 </table>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">'A'</span></code> (char) is different from <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code> (string of length 1).</p>
-<div class="cell docutils container">
+<p>Note that <code class="docutils literal notranslate"><span class="pre">'A'</span></code> (char) is different from <code class="docutils literal notranslate"><span class="pre">"A"</span></code> (string of length 1).</p>
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="0c1a1ad4" data-cscs-cell-index="15" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">letter</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">digit</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="sc">'7'</span><span class="p">;</span>
@@ -986,13 +812,13 @@ cast to and from <code class="docutils literal notranslate"><span class="pre">in
 are <strong>immutable</strong> — operations like concatenation return a new string.</p>
 <p>Key features:</p>
 <ul class="simple">
-<li><p><strong>Interpolation</strong>: embed expressions with <code class="docutils literal notranslate"><span class="pre">$&quot;...{expr}...&quot;</span></code></p></li>
-<li><p><strong>Verbatim literals</strong>: prefix with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to treat backslashes literally (useful
+<li><p><strong>Interpolation</strong>: embed expressions with <code class="docutils literal notranslate"><span class="pre">$"...{expr}..."</span></code></p></li>
+<li><p><strong>Verbatim literals</strong>: prefix with <code class="docutils literal notranslate"><span class="pre">@</span></code> to treat backslashes literally (useful
 for file paths)</p></li>
 <li><p><strong>Common members</strong>: <code class="docutils literal notranslate"><span class="pre">.Length</span></code>, <code class="docutils literal notranslate"><span class="pre">.ToUpper()</span></code>, <code class="docutils literal notranslate"><span class="pre">.ToLower()</span></code>, <code class="docutils literal notranslate"><span class="pre">.Contains()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">.Substring()</span></code>, <code class="docutils literal notranslate"><span class="pre">.Replace()</span></code>, indexing with <code class="docutils literal notranslate"><span class="pre">[i]</span></code></p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="44e37469" data-cscs-cell-index="17" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
 <span class="kt">string</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"Hello, {name}!"</span><span class="p">;</span><span class="w">     </span><span class="c1">// string interpolation</span>
@@ -1011,8 +837,8 @@ for file paths)</p></li>
 </div>
 </div>
 </div>
-<p>A string is a <strong>sequence of characters</strong> — each character has a numeric
-index starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>. For example, in <code class="docutils literal notranslate"><span class="pre">&quot;formosa&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'f'</span></code> is at index 0
+<p class="cscs-markdown-cell" data-cscs-cell-id="0b4f845e" data-cscs-cell-index="18" data-cscs-cell-type="markdown">A string is a <strong>sequence of characters</strong> — each character has a numeric
+index starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>. For example, in <code class="docutils literal notranslate"><span class="pre">"formosa"</span></code>, <code class="docutils literal notranslate"><span class="pre">'f'</span></code> is at index 0
 and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is at index 6. The last character is always at index <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1040,7 +866,7 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 </table>
 </div>
 <p>When represented in code, indexing works like the example below.</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="79a9625b" data-cscs-cell-index="19" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ilha formosa"</span><span class="p">;</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
@@ -1053,13 +879,13 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 </div>
 </div>
 </div>
-<p>Note that, in the example above, the output is a character since strings consist of characters. Note that the <code class="docutils literal notranslate"><span class="pre">char</span></code> type literals are created by delimiting the characters by <strong>single quotation</strong> marks.</p>
+<p class="cscs-markdown-cell" data-cscs-cell-id="ebb291a3" data-cscs-cell-index="20" data-cscs-cell-type="markdown">Note that, in the example above, the output is a character since strings consist of characters. Note that the <code class="docutils literal notranslate"><span class="pre">char</span></code> type literals are created by delimiting the characters by <strong>single quotation</strong> marks.</p>
 </section>
 <section id="creating-a-string">
 <h3>Creating a String<a class="headerlink" href="#creating-a-string" title="Link to this heading">#</a></h3>
 <p>There are many ways to declare and initialize a variable of type string, most of them involve using an assignment statement to assign the variable with a value.</p>
 <p>As an example, to create a string variable in C# REPL:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="ea07f693" data-cscs-cell-index="22" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Monday"</span><span class="p">;</span><span class="w"> </span>
 <span class="n">dayOfWeek</span>
@@ -1068,7 +894,7 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 </div>
 </div>
 <p>For the different ways of <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#declaring-and-initializing-strings">declaring and initializing</a> a string variable, see below:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="6e60c1ea" data-cscs-cell-index="24" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma warning disable CS8632</span>
 
@@ -1115,12 +941,12 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 </div>
 </div>
 </div>
-<p>Since this is a console app, we use the TERMINAL in VS Code to do <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> to see the project outcome. Make sure you are in the right project directory, though.</p>
+<p class="cscs-markdown-cell" data-cscs-cell-id="227a0f30" data-cscs-cell-index="25" data-cscs-cell-type="markdown">Since this is a console app, we use the TERMINAL in VS Code to do <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">run</span></code> to see the project outcome. Make sure you are in the right project directory, though.</p>
 </section>
 <section id="string-concatenation">
 <span id="index-8"></span><span id="id2"></span><h3>String Concatenation<a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h3>
 <p>String concatenation is to join stings together. In C#, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator is used to perform concatenation. Note C# uses the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator for both arithmetic addition and concatenation. To concatenate two strings together:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="e588e593" data-cscs-cell-index="27" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tsangyao"</span><span class="p">;</span><span class="w">    </span><span class="c1">// assign value to variable</span>
 <span class="kt">string</span><span class="w"> </span><span class="n">lastName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">" Chen"</span><span class="p">;</span>
@@ -1137,7 +963,7 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 </div>
 <p>C# can also concatenate values of different data types. The example below
 shows you how to concatenate data of string type and int type:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="22f89798" data-cscs-cell-index="29" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
 <span class="s">"I spent "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" dollars on coffee this week."</span>
@@ -1152,7 +978,7 @@ shows you how to concatenate data of string type and int type:</p>
 to show quotation marks as part of a string, the situation becomes tricky. Consider the
 following string toBe1. We see that there is a syntax error at (1,18) (line# 1, character# 18)
 when trying to put a quotation inside the string:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="874b96a2" data-cscs-cell-index="31" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">toBe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="n">To</span><span class="w"> </span><span class="n">be</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="s">" is a speech given by Prince Hamlet."</span><span class="p">;</span>
 </pre></div>
@@ -1175,15 +1001,15 @@ when trying to put a quotation inside the string:</p>
 </div>
 </div>
 </div>
-<p>To make the quotation work, we need to use the special character backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> as <em>escape character</em>,
+<p class="cscs-markdown-cell" data-cscs-cell-id="5ba9fdeb" data-cscs-cell-index="32" data-cscs-cell-type="markdown">To make the quotation work, we need to use the special character backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> as <em>escape character</em>,
 meaning that the character following it should be treated specially: They turns
 special characters into string characters.</p>
 <p>string toBe2 = “”To be, or not to be” is a speech given by Prince Hamlet.”;</p>
 <p>Console.WriteLine(toBe2);</p>
-<p>In our example above, the <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">\&quot;To</span> <span class="pre">be</span></code> and <code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">be\&quot;</span></code> are escaped and
-therefore special character <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> can be treated as string and shown as intended.</p>
+<p class="cscs-markdown-cell" data-cscs-cell-id="00287840" data-cscs-cell-index="34" data-cscs-cell-type="markdown">In our example above, the <code class="docutils literal notranslate"><span class="pre">"</span></code> in <code class="docutils literal notranslate"><span class="pre">\"To</span> <span class="pre">be</span></code> and <code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">be\"</span></code> are escaped and
+therefore special character <code class="docutils literal notranslate"><span class="pre">"</span></code> can be treated as string and shown as intended.</p>
 <p>Another example would look like the following.</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="5f53fcdb" data-cscs-cell-index="35" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Goog morning!"</span><span class="p">);</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"He said, \"Goog morning!\"."</span><span class="p">);</span>
@@ -1197,7 +1023,7 @@ He said, "Goog morning!".
 </div>
 </div>
 </div>
-<p>Common special cases to be escaped include:</p>
+<p class="cscs-markdown-cell" data-cscs-cell-id="d63fc570" data-cscs-cell-index="36" data-cscs-cell-type="markdown">Common special cases to be escaped include:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Escape character</p></th>
@@ -1205,8 +1031,8 @@ He said, "Goog morning!".
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (quote)</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\"</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">"</span></code> (quote)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\'</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'</span></code> ( single quote in char literal)</p></td>
@@ -1225,9 +1051,9 @@ He said, "Goog morning!".
 </div>
 <p>The newline character (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) inserts a new line and move the cursor
 to the beginning of the new line. This is useful because C# string literals
-are characters delimited by double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> in one line. <a class="footnote-reference brackets" href="#footnote-1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> To
+are characters delimited by double quotation marks <code class="docutils literal notranslate"><span class="pre">"</span></code> in one line. <a class="footnote-reference brackets" href="#footnote-1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> To
 print to multiple lines, we use <code class="docutils literal notranslate"><span class="pre">\n</span></code> like:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="528a7e4b" data-cscs-cell-index="37" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Good morning. Good afternoon. Good evening."</span><span class="p">);</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Good morning. \nGood afternoon. \nGood evening."</span><span class="p">);</span>
@@ -1250,7 +1076,7 @@ Good evening.
 objects have <em>instance properties</em> and <em>instance methods</em>. Some examples of C# string
 properties and methods are:</p>
 <p>The length of a string can be found using the <code class="docutils literal notranslate"><span class="pre">Length</span></code> property:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="a001a943" data-cscs-cell-index="39" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="p">;</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"The length of the txt string is: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">txt</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
@@ -1265,7 +1091,7 @@ properties and methods are:</p>
 </div>
 <p>There are many string methods available <a class="footnote-reference brackets" href="#footnote-2" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. As examples, ToUpper() and ToLower()
 return a copy of the string converted to uppercase or lowercase:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="cf8b85e9" data-cscs-cell-index="41" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">txt</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">());</span><span class="w">   </span><span class="c1">// Outputs "HELLO WORLD"</span>
@@ -1306,7 +1132,7 @@ because precision or range may be lost:</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">GetType()</span></code> to inspect a variable’s type at runtime. When types are <em>not</em>
 cast properly, C# raises a compile-time error. For example, assigning a <code class="docutils literal notranslate"><span class="pre">double</span></code>
 directly to an <code class="docutils literal notranslate"><span class="pre">int</span></code> fails:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="f7191c06" data-cscs-cell-index="43" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
@@ -1314,9 +1140,9 @@ directly to an <code class="docutils literal notranslate"><span class="pre">int<
 </div>
 </div>
 </div>
-<p>Note that if you choose to agree with the message and perform a type casting, you lose the
+<p class="cscs-markdown-cell" data-cscs-cell-id="1175a152" data-cscs-cell-index="44" data-cscs-cell-type="markdown">Note that if you choose to agree with the message and perform a type casting, you lose the
 precision of <code class="docutils literal notranslate"><span class="pre">double</span></code> over an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="ed369cc1" data-cscs-cell-index="45" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span><span class="w">       </span><span class="c1">// create a double type variable d</span>
 <span class="n">d</span>
@@ -1331,7 +1157,7 @@ precision of <code class="docutils literal notranslate"><span class="pre">double
 <p id="index-11">Rounding is similar to casting a floating type to possible as it gives us an <code class="docutils literal notranslate"><span class="pre">int</span></code> type.
 The function <code class="docutils literal notranslate"><span class="pre">Math.Round</span></code> will round to a mathematical integer, but leaves
 the type unchanged. So we need to perform a type casting after rounding:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="2c878cdc" data-cscs-cell-index="47" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
 <span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
@@ -1345,10 +1171,10 @@ the type unchanged. So we need to perform a type casting after rounding:</p>
 </div>
 </div>
 </div>
-<p>Casting from int to double is usually not necessary but cause of implicit conversion.
+<p class="cscs-markdown-cell" data-cscs-cell-id="4a9c6d30" data-cscs-cell-index="48" data-cscs-cell-type="markdown">Casting from int to double is usually not necessary but cause of implicit conversion.
 A use case for this would be when doing divisions, where <code class="docutils literal notranslate"><span class="pre">double</span></code> would work better than
 <code class="docutils literal notranslate"><span class="pre">int</span></code>. As an example, using csharprepl, we see that:</p>
-<div class="cell docutils container">
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="6a787c9d" data-cscs-cell-index="49" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
@@ -1359,31 +1185,30 @@ A use case for this would be when doing divisions, where <code class="docutils l
 </div>
 </div>
 <p class="rubric">Footnotes</p>
-<hr class="footnotes docutils" />
+<hr class="footnotes docutils"/>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id5" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a href="#id1" role="doc-backlink">1</a><span class="fn-bracket">]</span></span>
 <p>For the full C# type system reference, see the
 <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types">Types section in C# reference)</a>.</p>
 </aside>
 <aside class="footnote brackets" id="footnote-1" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a href="#id3" role="doc-backlink">2</a><span class="fn-bracket">]</span></span>
 <p>You can use <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim">verbatim text</a> to achieve multiple line text.</p>
 </aside>
 <aside class="footnote brackets" id="footnote-2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a href="#id4" role="doc-backlink">3</a><span class="fn-bracket">]</span></span>
 <p>See <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0#methods">String methods</a> for a complete list.</p>
 </aside>
 </aside>
 </section>
 </section>
-
-    <script type="text/x-thebe-config">
+<script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "tychen742/cscs",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1396,54 +1221,34 @@ A use case for this would be when doing divisions, where <code class="docutils l
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = '.net-csharp'</script>
-
-                </article>
-              
-
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
+<script>kernelName = '.net-csharp'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="0201-variables.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Variables</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="0203-operators.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Operators</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
+<a class="left-prev" href="0201-variables.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Variables</p>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+</a>
+<a class="right-next" href="0203-operators.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Operators</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item"><div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+<nav aria-labelledby="pst-page-navigation-heading-2" class="page-toc" id="pst-page-toc-nav">
+<ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-types-in-c">Common Data Types in C#</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-built-in-type-system">C# Built-in Type System</a></li>
 </ul>
@@ -1462,50 +1267,31 @@ A use case for this would be when doing divisions, where <code class="docutils l
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type Conversion</a></li>
 </ul>
-  </nav></div>
-
+</nav></div>
 </div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
+</div>
+<footer class="bd-footer-content">
 <div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
+<div class="footer-item">
 <p class="component-author">
 By Tsangyao Chen, Ph.D.
 </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
 </div>
-          </footer>
-        
-
-      </main>
-    </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
-
-  <footer class="bd-footer">
-  </footer>
-  </body>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
+</footer>
+</body>
 </html>
