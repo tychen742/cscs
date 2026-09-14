@@ -32,7 +32,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Notebooks use the `csharp` kernel; named `XXYY-slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
 - Preferred 3 content section notebooks per chapter (one per class meeting)
 - Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
-- Each chapter has `assignments/` subfolder with `index`, `preview`, `lab`, `review` notebooks
+- Each chapter has `assignments/` subfolder with `index`, `preview`, `lab`, `review`, and `project` notebooks
 - Chapter sequence is ch01–ch15; project instructions live in `chapters/appendices/`
 - Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
@@ -67,19 +67,25 @@ Footnote cells must be independent markdown cells.
 
 ## Assignments (per chapter)
 
-Each chapter must have three assignment notebooks in this order:
+Each chapter should have four assignment notebooks in this order:
 
 | Type | File pattern | Specs |
 | ---- | ----------- | ----- |
-| Preview quiz | `NN0X-preview` | 5–10 conceptual questions from the content sections |
-| Lab | `NN0X-lab` | ~5 connected technical questions on one theme; each question builds on previous output |
-| Review (homework) | `NN0X-review` | 5–10 questions; majority are coding practice directly on the chapter's topics |
+| Preview quiz | `NN0X-preview` | Multiple-choice questions from the content sections |
+| Lab | `NN0X-lab` | Five connected coding questions on one theme; each question builds on previous output |
+| Review (homework) | `NN0X-review` | Five true/false questions and five coding questions |
+| Project | `NN0X-project` | A cumulative deliverable that applies the chapter's concepts in a VS Code project |
 
-Labs should eventually evolve into full project solutions that students can demonstrate on GitHub.
+The project notebook should connect the chapter to the semester project or a
+standalone project milestone. It should include the goal, starter-project
+link, expected files, run/test commands, deliverable, and submission method.
+Projects should be submitted from VS Code/GitHub rather than as browser drafts.
 
 ## Working Rules
 
 - Verify C# examples compile and run
+- Every browser-runnable code cell must be executable from the beginning of the cell. Include required variable declarations, collection setup, and imports in the cell itself; do not require students to run a previous cell to create hidden state.
+- If a lesson intentionally teaches state across multiple cells, label the cells as a sequence and provide a standalone reset/setup cell.
 - Always show diffs when proposing changes to existing content
 - When evaluating a chapter: are essential topics covered? Are sections organized soundly?
 

@@ -37,10 +37,6 @@ html:
   use_repository_button: false
   use_multitoc_numbering: false
 
-# Launch button settings for the local .NET Interactive server.
-launch_buttons:
-  thebe: true
-
 # # Repository info (optional)
 repository:
   url: https://github.com/tychen742/cscs
@@ -52,6 +48,7 @@ sphinx:
   recursive_update: true
   local_extensions:
     lexer_alias: _ext
+    notebook_cell_metadata: _ext
   extra_extensions:
     - sphinx.ext.todo
     - sphinx.ext.mathjax
@@ -68,6 +65,7 @@ sphinx:
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
       - custom.js
+      - execution.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     todo_include_todos: true
     numfig: true
@@ -78,21 +76,6 @@ sphinx:
     nb_number_source_lines: false
     copyright: "2024, Tsangyao Chen, Ph.D."
     html_show_copyright: false
-
-    thebe_config:
-      repository_url: https://github.com/tychen742/cscs
-      bootstrap: false
-      requestKernel: true
-      predefinedOutput: false
-      selector: "div.cell"
-      selector_input: "div.cell_input"
-      selector_output: "div.cell_output"
-      kernelOptions:
-        kernelName: ".net-csharp"
-        path: "."
-        serverSettings:
-          baseUrl: "http://127.0.0.1:8888"
-          token: ""
 
     rst_prolog: |
       .. role:: repsrc

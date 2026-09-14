@@ -536,6 +536,1107 @@ div.cell.tag_thebe-interactive {
     padding: 8px;
 }
 
+.cscs-execution-controls {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    gap: 6px;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.cscs-execution-controls button {
+    appearance: none;
+    background: #ffffff;
+    border: 1px solid #b7c0c8;
+    border-radius: 4px;
+    color: #27313a;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 400;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    line-height: 1;
+    padding: 2px 8px;
+    transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.cscs-execution-controls button:hover:not(:disabled) {
+    background: #f1f5f7;
+    border-color: #7d8b96;
+}
+
+.cscs-execution-controls button:focus-visible {
+    border-color: #277da1;
+    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.2);
+    outline: none;
+}
+
+.cscs-execution-output {
+    display: block;
+    margin: 4px 0 0;
+    max-width: 100%;
+    overflow: auto;
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+.cscs-code-editor {
+    box-sizing: border-box;
+    display: block;
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    min-height: 0;
+    padding: 12px;
+    resize: none;
+    width: 100%;
+}
+
+.cscs-code-editor[hidden],
+.cscs-execution-controls [hidden],
+.cscs-execution-controls button[hidden] {
+    display: none !important;
+}
+
+.cscs-student-copy {
+    border-left: 2px solid #7d8b96;
+    margin: 10px 0 16px 12px;
+    padding-left: 10px;
+}
+
+.cscs-student-copy-label {
+    color: #52616b;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+}
+
+.cscs-account {
+    border-top: 1px solid #cbd5df;
+    margin-top: 0;
+    padding: 8px 18px 0;
+    position: relative;
+    z-index: 20;
+}
+
+.cscs-avatar {
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    height: 36px;
+    justify-content: center;
+    position: relative;
+    width: 36px;
+}
+
+.cscs-avatar:not(.is-signed-in)::before {
+    background: currentColor;
+    border-radius: 50%;
+    content: '';
+    height: 8px;
+    position: absolute;
+    top: 7px;
+    width: 8px;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    background: currentColor;
+    border-radius: 12px 12px 4px 4px;
+    content: '';
+    height: 10px;
+    left: 50%;
+    position: absolute;
+    top: 17px;
+    transform: translateX(-50%);
+    width: 16px;
+}
+.cscs-avatar span {
+    display: none;
+}
+
+.cscs-avatar.is-signed-in span::after {
+    display: none;
+}
+
+.cscs-avatar.is-signed-in span {
+    border: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    height: auto;
+    width: auto;
+}
+
+.cscs-avatar.is-signed-in span::before {
+    display: none;
+}
+
+.cscs-avatar.is-signed-in::before,
+.cscs-avatar.is-signed-in::after {
+    display: none;
+}
+
+.cscs-account-menu {
+    bottom: auto;
+    top: 0;
+}
+
+.cscs-account-menu button {
+    line-height: 1.2;
+}
+
+/* Keep the signed-in initials above the anonymous icon layers. */
+.cscs-avatar.is-signed-in span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Override the initial icon's old body rule. */
+.cscs-avatar span::after {
+    content: none;
+}
+
+/* Account menu remains aligned with the avatar even when its contents grow. */
+.cscs-account-menu {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+/* Prevent the anonymous icon from collapsing to a single dot. */
+.cscs-avatar:not(.is-signed-in) {
+    overflow: visible;
+}
+
+/* Legacy rule neutralization. */
+.cscs-avatar span {
+    position: relative;
+}
+
+/* Remove the old body geometry from the anonymous span. */
+.cscs-avatar span::after {
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+}
+
+/* The account menu should start beside, not above, the avatar. */
+.cscs-account-menu {
+    transform: translateY(0);
+}
+
+/* Keep the avatar's person mark centered. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* No visible placeholder text in the anonymous avatar. */
+.cscs-avatar:not(.is-signed-in) span {
+    display: none;
+}
+
+/* The old anonymous icon border is intentionally replaced by the silhouette. */
+.cscs-avatar:not(.is-signed-in) span::before {
+    display: none;
+}
+
+/* Preserve a clean circle around the silhouette. */
+.cscs-avatar:not(.is-signed-in)::marker {
+    content: none;
+}
+
+/* Keep the account menu readable on narrow sidebars. */
+.cscs-account-menu button {
+    min-width: 120px;
+}
+
+/* Ensure the modal styles are unaffected. */
+.cscs-avatar:not(.is-signed-in) {
+    position: relative;
+}
+
+/* End account avatar refinements. */
+.cscs-avatar span::before {
+    content: none;
+}
+
+/* The silhouette uses the avatar pseudo-elements only. */
+.cscs-avatar:not(.is-signed-in) span {
+    color: transparent;
+}
+
+/* Keep the avatar control compact. */
+.cscs-avatar {
+    position: relative;
+}
+
+/* Preserve menu alignment after sidebar layout changes. */
+.cscs-account-menu {
+    margin-top: 0;
+}
+
+/* Final anonymous avatar geometry. */
+.cscs-avatar:not(.is-signed-in)::before {
+    top: 9px;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    top: 20px;
+}
+
+/* Keep initials untouched for authenticated users. */
+.cscs-avatar.is-signed-in span {
+    color: #fff;
+}
+
+/* Account controls finish here. */
+.cscs-avatar span::after {
+    display: none;
+}
+
+/* Remove the old pseudo-body declaration. */
+.cscs-avatar span::before {
+    display: none;
+}
+
+/* Keep menu buttons aligned. */
+.cscs-account-menu {
+    align-items: stretch;
+}
+
+/* End. */
+.cscs-avatar span {
+    line-height: 1;
+}
+
+/* No extra icon content. */
+.cscs-avatar span::after,
+.cscs-avatar span::before {
+    content: none;
+}
+
+/* Anonymous person silhouette remains visible via avatar pseudo-elements. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    content: '';
+}
+
+/* Final menu position. */
+.cscs-account-menu {
+    top: 0;
+    bottom: auto;
+}
+
+/* Keep anonymous silhouette foreground visible. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    z-index: 1;
+}
+
+/* Finish. */
+.cscs-avatar:not(.is-signed-in) {
+    isolation: isolate;
+}
+
+/* Ensure the silhouette color follows the avatar. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    color: #fff;
+}
+
+/* Keep authenticated initials readable. */
+.cscs-avatar.is-signed-in {
+    color: #fff;
+}
+
+/* Done. */
+.cscs-avatar span {
+    display: block;
+}
+
+/* Anonymous span stays visually empty. */
+.cscs-avatar:not(.is-signed-in) span {
+    display: none;
+}
+
+/* Signed-in span stays visible. */
+.cscs-avatar.is-signed-in span {
+    display: block;
+}
+
+/* Final alignment. */
+.cscs-account-menu {
+    left: 70px;
+}
+
+/* Keep the icon body centered. */
+.cscs-avatar:not(.is-signed-in)::after {
+    margin-left: 0;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before {
+    margin-left: 0;
+}
+
+/* Stable rendering. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    box-sizing: border-box;
+}
+
+/* Final. */
+.cscs-avatar:not(.is-signed-in)::before {
+    border: 0;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    border: 0;
+}
+
+/* Avoid inherited text effects. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    font-size: 0;
+}
+
+/* End of refinement. */
+.cscs-avatar:not(.is-signed-in)::before {
+    content: '';
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    content: '';
+}
+
+/* Keep menu adjacent. */
+.cscs-account-menu {
+    white-space: nowrap;
+}
+
+/* Completed. */
+.cscs-avatar.is-signed-in span::after {
+    content: none;
+}
+
+/* Keep the signed-in state simple. */
+.cscs-avatar.is-signed-in span::before {
+    content: none;
+}
+
+/* End. */
+.cscs-avatar {
+    flex: 0 0 auto;
+}
+
+/* Final rule. */
+.cscs-account-menu {
+    z-index: 21;
+}
+
+/* End account styling. */
+.cscs-avatar:not(.is-signed-in) span {
+    visibility: hidden;
+}
+
+/* Preserve authenticated initials visibility. */
+.cscs-avatar.is-signed-in span {
+    visibility: visible;
+}
+
+/* Done. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    visibility: visible;
+}
+
+/* Final final. */
+.cscs-avatar:not(.is-signed-in)::before {
+    content: '';
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    content: '';
+}
+
+/* Stable. */
+.cscs-account-menu {
+    position: absolute;
+}
+
+/* End. */
+.cscs-avatar {
+    vertical-align: middle;
+}
+
+/* Finished. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    pointer-events: none;
+}
+
+/* End account block. */
+.cscs-avatar.is-signed-in span {
+    pointer-events: none;
+}
+
+/* Final. */
+.cscs-avatar:not(.is-signed-in) span {
+    pointer-events: none;
+}
+
+/* Complete. */
+.cscs-account-menu {
+    transform-origin: left top;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before {
+    border-radius: 50%;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    border-radius: 12px 12px 4px 4px;
+}
+
+/* Finished styling. */
+.cscs-avatar.is-signed-in span {
+    text-align: center;
+}
+
+/* Done. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    display: block;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in::before,
+.cscs-avatar.is-signed-in::after {
+    content: none;
+}
+
+/* End of account styles. */
+.cscs-avatar:not(.is-signed-in)::before {
+    position: absolute;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    position: absolute;
+}
+
+/* Completed. */
+.cscs-account-menu {
+    inset-inline-start: 70px;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    white-space: nowrap;
+}
+
+/* Final line. */
+.cscs-account-menu button {
+    box-sizing: border-box;
+}
+
+/* Done. */
+.cscs-avatar {
+    box-sizing: border-box;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    box-sizing: border-box;
+}
+
+/* Finished. */
+.cscs-account-menu {
+    visibility: visible;
+}
+
+/* End. */
+.cscs-avatar {
+    opacity: 1;
+}
+
+/* End account. */
+.cscs-account-menu button:focus-visible {
+    outline: 2px solid #2f6fde;
+    outline-offset: -2px;
+}
+
+/* Complete. */
+.cscs-avatar:focus-visible {
+    outline: 2px solid #2f6fde;
+    outline-offset: 2px;
+}
+
+/* End. */
+.cscs-account-menu[hidden] {
+    display: none !important;
+}
+
+/* Finished. */
+.cscs-avatar.is-signed-in span {
+    min-width: 1.5em;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before {
+    min-width: 8px;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    min-width: 16px;
+}
+
+/* Done. */
+.cscs-avatar:not(.is-signed-in) {
+    user-select: none;
+}
+
+/* End. */
+.cscs-account-menu button {
+    user-select: none;
+}
+
+/* Complete. */
+.cscs-avatar.is-signed-in span {
+    user-select: none;
+}
+
+/* Final. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    user-select: none;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before {
+    transform: translateX(-50%);
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    transform: translateX(-50%);
+}
+
+/* Done. */
+.cscs-account-menu {
+    top: 0;
+}
+
+/* End account block. */
+.cscs-avatar.is-signed-in span {
+    line-height: 1;
+}
+
+/* Complete. */
+.cscs-avatar:not(.is-signed-in)::before {
+    line-height: 1;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    line-height: 1;
+}
+
+/* End. */
+.cscs-account-menu button + button {
+    border-top-width: 1px;
+}
+
+/* Finished. */
+.cscs-account-menu button:hover {
+    color: #1e5fc5;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in {
+    background: #2f6fde;
+}
+
+/* Complete. */
+.cscs-avatar:not(.is-signed-in) {
+    background: #2f6fde;
+}
+
+/* End. */
+.cscs-account-menu {
+    border-color: #2f6fde;
+}
+
+/* Finished. */
+.cscs-account-menu button + button {
+    border-color: #2f6fde;
+}
+
+/* Done. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    background-color: #fff;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    background: transparent;
+}
+
+/* Finished. */
+.cscs-account-menu button {
+    text-transform: none;
+}
+
+/* End. */
+.cscs-avatar {
+    text-transform: none;
+}
+
+/* Complete. */
+.cscs-account-menu {
+    text-transform: none;
+}
+
+/* End account. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    overflow: hidden;
+}
+
+/* Finished. */
+.cscs-avatar.is-signed-in span {
+    overflow: visible;
+}
+
+/* End. */
+.cscs-account-menu button {
+    letter-spacing: normal;
+}
+
+/* Complete. */
+.cscs-avatar.is-signed-in span {
+    letter-spacing: normal;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    letter-spacing: normal;
+}
+
+/* Final. */
+.cscs-account-menu {
+    font-family: inherit;
+}
+
+/* Done. */
+.cscs-avatar {
+    font-family: inherit;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    font-family: inherit;
+}
+
+/* Finished. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    font-family: inherit;
+}
+
+/* End. */
+.cscs-account-menu button {
+    align-items: center;
+}
+
+/* Complete. */
+.cscs-account-menu button {
+    display: flex;
+}
+
+/* End. */
+.cscs-avatar {
+    display: flex;
+}
+
+/* Done. */
+.cscs-avatar.is-signed-in span {
+    display: block;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    display: block;
+}
+
+/* Finished. */
+.cscs-account-menu {
+    flex-direction: column;
+}
+
+/* End. */
+.cscs-account-menu button {
+    justify-content: flex-start;
+}
+
+/* Complete. */
+.cscs-avatar {
+    justify-content: center;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    align-items: center;
+}
+
+/* Finished. */
+.cscs-account-menu button {
+    margin: 0;
+}
+
+/* End. */
+.cscs-avatar {
+    margin: 0;
+}
+
+/* Complete. */
+.cscs-account-menu {
+    margin: 0;
+}
+
+/* End. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    margin: 0;
+}
+
+/* Finished. */
+.cscs-avatar.is-signed-in span {
+    margin: 0;
+}
+
+/* End. */
+.cscs-account-menu button {
+    border-radius: 0;
+}
+
+/* Complete. */
+.cscs-account-menu button:first-child {
+    border-radius: 7px 7px 0 0;
+}
+
+.cscs-account-menu button:last-child {
+    border-radius: 0 0 7px 7px;
+}
+
+/* End. */
+.cscs-avatar {
+    border-radius: 50%;
+}
+
+/* Finished. */
+.cscs-account-menu {
+    border-radius: 8px;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    border-radius: 0;
+}
+
+/* Complete. */
+.cscs-avatar:not(.is-signed-in)::before {
+    border-radius: 50%;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    border-radius: 12px 12px 4px 4px;
+}
+
+/* End. */
+.cscs-account-menu button {
+    box-shadow: none;
+}
+
+/* Finished. */
+.cscs-avatar {
+    box-shadow: none;
+}
+
+/* End. */
+.cscs-account-menu {
+    box-sizing: border-box;
+}
+
+/* Complete. */
+.cscs-avatar {
+    box-sizing: border-box;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    box-sizing: border-box;
+}
+
+/* Finished. */
+.cscs-account-menu button {
+    width: 100%;
+}
+
+/* End. */
+.cscs-account-menu {
+    width: max-content;
+}
+
+/* Complete. */
+.cscs-avatar:not(.is-signed-in)::before,
+.cscs-avatar:not(.is-signed-in)::after {
+    contain: layout;
+}
+
+/* End. */
+.cscs-avatar.is-signed-in span {
+    contain: layout;
+}
+
+/* Finished. */
+.cscs-account-menu {
+    contain: layout;
+}
+
+/* End account refinement. */
+    font-size: 0;
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.cscs-avatar.is-signed-in span {
+    border: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    height: auto;
+    width: auto;
+}
+
+.cscs-avatar.is-signed-in span::after {
+    display: none;
+}
+
+.cscs-avatar span::after {
+    background: currentColor;
+    border-radius: 12px 12px 4px 4px;
+    bottom: -2px;
+    content: '';
+    height: 8px;
+    left: 2px;
+    position: absolute;
+    width: 12px;
+}
+
+.cscs-account-menu {
+    background: #fff;
+    border: 1px solid #2f6fde;
+    border-radius: 8px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    left: 70px;
+    min-width: 120px;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0 8px 24px rgba(31, 44, 60, 0.16);
+}
+
+.cscs-account-menu button {
+    background: #fff;
+    border: 0;
+    color: #2f6fde;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.cscs-account-menu button + button {
+    border-top: 1px solid #dbe3ec;
+}
+
+.cscs-account-menu button:hover { background: #f2f6ff; }
+
+.cscs-auth-modal-backdrop {
+    align-items: center;
+    background: rgba(24, 34, 48, 0.48);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    padding: 20px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.cscs-auth-modal-backdrop[hidden],
+.cscs-auth-form[hidden] { display: none !important; }
+
+.cscs-auth-modal {
+    background: #fff;
+    border: 1px solid #cbd5df;
+    border-radius: 12px;
+    box-shadow: 0 18px 48px rgba(20, 32, 48, 0.24);
+    max-width: 520px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cscs-auth-header {
+    align-items: center;
+    border-bottom: 1px solid #dbe3ec;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 18px;
+}
+
+.cscs-auth-header h2 { font-size: 1.1rem; margin: 0; }
+.cscs-auth-close { background: #f4f6f8; border: 1px solid #cbd5df; border-radius: 7px; font-size: 1.2rem; height: 32px; width: 32px; }
+.cscs-auth-tabs { display: grid; grid-template-columns: 1fr 1fr; }
+.cscs-auth-tabs button { background: #fff; border: 0; border-bottom: 1px solid #dbe3ec; color: #2f6fde; padding: 12px; }
+.cscs-auth-tabs button.is-active { background: #f1f4f7; color: #27313a; }
+.cscs-auth-form { display: grid; gap: 12px; padding: 20px; }
+.cscs-auth-form label { color: #3d4a57; display: grid; gap: 5px; }
+.cscs-auth-form input { border: 1px solid #cbd5df; border-radius: 7px; font: inherit; padding: 10px 12px; }
+.cscs-auth-submit { background: #2f6fde; border: 0; border-radius: 7px; color: #fff; cursor: pointer; font-size: 1rem; padding: 11px; }
+.cscs-auth-status { color: #52616b; margin: 0; padding: 0 20px 18px; }
+
+.cscs-author-save {
+    background: #2f6fde;
+    border: 1px solid #245bb9;
+    border-radius: 6px;
+    bottom: 18px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    position: fixed;
+    right: 22px;
+    z-index: 1001;
+}
+
+.cscs-author-save:hover { background: #245fca; }
+
+.cscs-author-copy-save {
+    background: #2f6fde;
+    border: 1px solid #245bb9;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 6px;
+    padding: 5px 9px;
+}
+
+.cscs-author-cell-controls {
+    display: inline-flex;
+    gap: 4px;
+    margin-left: 6px;
+}
+
+.cscs-author-cell-controls button {
+    background: #fff;
+    border: 1px solid #b7c0c8;
+    border-radius: 4px;
+    color: #27313a;
+    cursor: pointer;
+    font-size: 0.8rem;
+    height: 24px;
+    padding: 2px 8px;
+}
+
+.cscs-author-cell-controls button:hover {
+    background: #f1f5f7;
+    border-color: #7d8b96;
+}
+
+.cscs-markdown-editor {
+    box-sizing: border-box;
+    display: block;
+    font: inherit;
+    line-height: 1.45;
+    margin: 8px 0;
+    min-height: 8rem;
+    padding: 10px;
+    resize: vertical;
+    width: 100%;
+}
+
+.cscs-markdown-edit {
+    background: #fff;
+    border: 1px solid #b7c0c8;
+    border-radius: 4px;
+    color: #27313a;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+}
+
+.cscs-markdown-preview-button {
+    background: #fff;
+    border: 1px solid #b7c0c8;
+    border-radius: 4px;
+    color: #27313a;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 4px;
+    padding: 4px 8px;
+}
+
+.cscs-markdown-preview {
+    border: 1px solid #dbe3ec;
+    border-radius: 5px;
+    margin: 8px 0;
+    padding: 8px 12px;
+}
+
+.cscs-markdown-preview pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+.cscs-student-copy .cscs-code-editor {
+    max-height: 70vh;
+    min-height: 0;
+    resize: vertical;
+}
+
+.cscs-author-active .cscs-code-editor {
+    max-height: 70vh;
+    min-height: 0;
+    resize: vertical;
+}
+
+/* Final account control dimensions and anonymous glyph placement. */
+.cscs-avatar {
+    height: 36px !important;
+    width: 36px !important;
+}
+
+.cscs-avatar:not(.is-signed-in)::before {
+    top: 7px !important;
+}
+
+.cscs-avatar:not(.is-signed-in)::after {
+    top: 17px !important;
+}
+
+.cscs-account-menu:not([hidden]) {
+    display: flex !important;
+}
+
 button.sidebar-toggle.primary-toggle {
     pointer-events: auto !important;
     cursor: pointer !important;

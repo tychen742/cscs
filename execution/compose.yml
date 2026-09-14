@@ -1,0 +1,36 @@
+services:
+  execution-api:
+    build:
+      context: ..
+      dockerfile: execution/Dockerfile
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      CSCS_ALLOWED_ORIGINS: "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000"
+      CSCS_DB_PATH: "/data/cscs.db"
+      CSCS_DATA_PROTECTION_PATH: "/data/keys"
+      CSCS_BOOK_ROOT: "/workspace"
+      CSCS_BACKUP_ROOT: "/data/notebook-backups"
+      CSCS_ADMIN_EMAILS: "${CSCS_ADMIN_EMAILS:-}"
+      SMTP_HOST: "${SMTP_HOST:-smtp.ionos.com}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_SECURITY: "${SMTP_SECURITY:-STARTTLS}"
+      SMTP_USERNAME: "${SMTP_USERNAME:-support@thinkcscs.org}"
+      SMTP_FROM: "${SMTP_FROM:-support@thinkcscs.org}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:?Set SMTP_PASSWORD in execution/.env}"
+    volumes:
+      - cscs-data:/data
+      - ..:/workspace
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,size=256m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 128
+    mem_limit: 512m
+    restart: unless-stopped
+
+volumes:
+  cscs-data:

@@ -213,6 +213,381 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Account menu and development login UI for the database-backed API.
+document.addEventListener('DOMContentLoaded', function () {
+    const apiBaseUrl = window.CSCS_EXECUTION_API || 'http://localhost:8080';
+    const sidebar = document.querySelector('.bd-sidebar-primary');
+    const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
+    if (!sidebarContent || document.querySelector('.cscs-account')) return;
+
+    const account = document.createElement('div');
+    account.className = 'cscs-account';
+    account.innerHTML = `
+        <button class="cscs-avatar" type="button" aria-label="Account" aria-expanded="false">
+            <span aria-hidden="true">●</span>
+        </button>
+        <div class="cscs-account-menu" hidden>
+            <button type="button" data-auth-action="login">Sign in</button>
+            <button type="button" data-auth-action="register">Sign up</button>
+        </div>`;
+    sidebarContent.appendChild(account);
+
+    const modal = document.createElement('div');
+    modal.className = 'cscs-auth-modal-backdrop';
+    modal.hidden = true;
+    modal.innerHTML = `
+        <section class="cscs-auth-modal" role="dialog" aria-modal="true" aria-labelledby="cscs-auth-title">
+            <header class="cscs-auth-header">
+                <h2 id="cscs-auth-title">Course account</h2>
+                <button type="button" class="cscs-auth-close" aria-label="Close">&times;</button>
+            </header>
+            <div class="cscs-auth-tabs" role="tablist">
+                <button type="button" data-auth-tab="login" role="tab">Sign in</button>
+                <button type="button" data-auth-tab="register" role="tab">Sign up</button>
+            </div>
+            <form class="cscs-auth-form" data-auth-form="login">
+                <label>University ID or email<input name="email" type="email" autocomplete="username" required></label>
+                <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+                <button class="cscs-auth-submit" type="submit">Sign in</button>
+            </form>
+            <form class="cscs-auth-form" data-auth-form="register" hidden>
+                <label>Display name<input name="displayName" autocomplete="name" required></label>
+                <label>Email<input name="email" type="email" autocomplete="email" required></label>
+                <label>Password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
+                <button class="cscs-auth-submit" type="submit">Create account</button>
+            </form>
+            <p class="cscs-auth-status" aria-live="polite"></p>
+        </section>`;
+    document.body.appendChild(modal);
+
+    const avatar = account.querySelector('.cscs-avatar');
+    const menu = account.querySelector('.cscs-account-menu');
+    const status = modal.querySelector('.cscs-auth-status');
+
+    async function updateAccountMenu() {
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/auth/me`, { credentials: 'include' });
+            if (!response.ok) return;
+            const user = await response.json();
+            const initials = user.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+            avatar.querySelector('span').textContent = initials;
+            avatar.classList.add('is-signed-in');
+            account.querySelector('.cscs-account-menu').innerHTML = `
+                ${user.isAdmin ? '<button type="button" data-account-action="Author">Author</button>' : ''}
+                <button type="button" data-account-action="Attempts">Attempts</button>
+                <button type="button" data-account-action="Score Report">Score Report</button>
+                <button type="button" data-account-action="Users">Users</button>
+                <button type="button" data-account-action="Assignments">Assignments</button>
+                <button type="button" data-account-action="Log out">Log out</button>`;
+            account.querySelectorAll('[data-account-action]').forEach(button => {
+                button.addEventListener('click', async () => {
+                    if (button.dataset.accountAction !== 'Log out') {
+                        if (button.dataset.accountAction === 'Author') {
+                            await enableAuthorMode();
+                            return;
+                        }
+                        status.textContent = `${button.dataset.accountAction} is not available yet.`;
+                        showModal('login');
+                        return;
+                    }
+                    await fetch(`${apiBaseUrl}/v1/auth/logout`, { method: 'POST', credentials: 'include' });
+                    window.location.reload();
+                });
+            });
+        } catch (_) {
+            // The book remains usable when the local API is offline.
+        }
+    }
+
+    function showModal(mode) {
+        modal.hidden = false;
+        menu.hidden = true;
+        avatar.setAttribute('aria-expanded', 'false');
+        setMode(mode);
+    }
+
+    function setMode(mode) {
+        modal.querySelectorAll('[data-auth-tab]').forEach(tab => {
+            tab.classList.toggle('is-active', tab.dataset.authTab === mode);
+            tab.setAttribute('aria-selected', tab.dataset.authTab === mode ? 'true' : 'false');
+        });
+        modal.querySelectorAll('[data-auth-form]').forEach(form => {
+            form.hidden = form.dataset.authForm !== mode;
+        });
+        status.textContent = '';
+    }
+
+    avatar.addEventListener('click', () => {
+        menu.hidden = !menu.hidden;
+        avatar.setAttribute('aria-expanded', String(!menu.hidden));
+    });
+    account.querySelectorAll('[data-auth-action]').forEach(button => {
+        button.addEventListener('click', () => showModal(button.dataset.authAction));
+    });
+    modal.querySelector('.cscs-auth-close').addEventListener('click', () => { modal.hidden = true; });
+    modal.addEventListener('click', event => { if (event.target === modal) modal.hidden = true; });
+    modal.querySelectorAll('[data-auth-tab]').forEach(tab => {
+        tab.addEventListener('click', () => setMode(tab.dataset.authTab));
+    });
+
+    modal.querySelectorAll('[data-auth-form]').forEach(form => {
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            const formData = Object.fromEntries(new FormData(form));
+            const isRegister = form.dataset.authForm === 'register';
+            const endpoint = isRegister ? '/v1/auth/register' : '/v1/auth/login';
+            const submit = form.querySelector('.cscs-auth-submit');
+            submit.disabled = true;
+            status.textContent = 'Working...';
+            try {
+                const response = await fetch(`${apiBaseUrl}${endpoint}`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(result.error || 'The account request failed.');
+                status.textContent = isRegister ? 'Account created. You are signed in.' : 'Signed in.';
+                avatar.classList.add('is-signed-in');
+                await updateAccountMenu();
+                window.setTimeout(() => {
+                    modal.hidden = true;
+                }, 450);
+            } catch (error) {
+                status.textContent = error.message;
+            } finally {
+                submit.disabled = false;
+            }
+        });
+    });
+    updateAccountMenu();
+
+    async function enableAuthorMode() {
+        const path = window.location.pathname
+            .replace(/^\//, '')
+            .replace(/\.html$/, '.ipynb');
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/source?path=${encodeURIComponent(path)}`, {
+                credentials: 'include'
+            });
+            if (!response.ok) throw new Error('The notebook source could not be loaded.');
+            const notebook = await response.json();
+            const codeCells = Array.from(document.querySelectorAll('div.cscs-code-cell .cell_input pre'));
+            const notebookCodeCells = codeCells.map(element => {
+                const cell = element.closest('.cscs-code-cell');
+                const index = Number(cell?.dataset.cscsCellIndex);
+                return { element, index, sourceCell: notebook.cells[index], editor: cell?.querySelector('.cscs-code-editor') };
+            });
+            notebookCodeCells.forEach(({ element, sourceCell }) => {
+                if (sourceCell) {
+                    const cell = element.closest('.cell');
+                    const editor = cell?.querySelector('.cscs-code-editor');
+                    const editButton = cell?.querySelector('.cscs-edit-button');
+                    const resetButton = cell?.querySelector('.cscs-reset-button');
+                    const sourceText = Array.isArray(sourceCell.source)
+                        ? sourceCell.source.join('')
+                        : sourceCell.source;
+                    if (editor && typeof sourceText === 'string') {
+                        editor.value = normalizeCode(sourceText);
+                    }
+                    sourceCell.source = sourceText;
+                    if (editButton) editButton.hidden = false;
+                    if (resetButton) resetButton.hidden = true;
+                    addAuthorCellControls(cell, editButton, editor, element);
+                }
+            });
+            const markdownCells = [];
+            document.querySelectorAll('[data-cscs-cell-type="markdown"]').forEach(element => {
+                const index = Number(element.dataset.cscsCellIndex);
+                const sourceCell = notebook.cells[index];
+                if (!sourceCell || element.dataset.cscsMarkdownReady === 'true') return;
+                const source = Array.isArray(sourceCell.source) ? sourceCell.source.join('') : sourceCell.source;
+                const editor = document.createElement('textarea');
+                editor.className = 'cscs-markdown-editor';
+                editor.value = source || '';
+                editor.hidden = true;
+                const preview = document.createElement('div');
+                preview.className = 'cscs-markdown-preview';
+                preview.hidden = true;
+                const button = document.createElement('button');
+                button.className = 'cscs-markdown-edit';
+                button.type = 'button';
+                button.textContent = 'Edit markdown';
+                button.hidden = true;
+                button.addEventListener('click', () => {
+                    const editing = editor.hidden;
+                    editor.hidden = !editing;
+                    element.hidden = editing;
+                    preview.hidden = true;
+                    button.textContent = editing ? 'Done markdown' : 'Edit markdown';
+                });
+                const previewButton = document.createElement('button');
+                previewButton.className = 'cscs-markdown-preview-button';
+                previewButton.type = 'button';
+                previewButton.textContent = 'Preview markdown';
+                previewButton.hidden = true;
+                previewButton.addEventListener('click', () => {
+                    preview.innerHTML = renderMarkdownPreview(editor.value);
+                    preview.hidden = false;
+                    editor.hidden = true;
+                });
+                element.dataset.cscsMarkdownReady = 'true';
+                const markdownContainer = /^H[1-6]$/.test(element.tagName)
+                    ? element.closest('section') || element.parentElement
+                    : element.parentElement;
+                markdownContainer?.append(editor, preview, button, previewButton);
+                markdownCells.push({ element, editor, preview, sourceCell });
+            });
+            window.cscsAuthorState = { path, notebook, notebookCodeCells, markdownCells, codeCells };
+            document.body.classList.add('cscs-author-active');
+            document.querySelectorAll('.cscs-markdown-edit, .cscs-markdown-preview-button').forEach(button => { button.hidden = false; });
+            addAuthorSaveControl();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    function addAuthorSaveControl() {
+        if (document.querySelector('.cscs-author-save')) return;
+        const save = document.createElement('button');
+        save.className = 'cscs-author-save';
+        save.type = 'button';
+        save.textContent = 'Save notebook';
+        const saveNotebook = async () => {
+            const state = window.cscsAuthorState;
+            state.notebookCodeCells.forEach(({ element, sourceCell, editor }) => {
+                if (sourceCell) sourceCell.source = editor?.value ?? element.textContent;
+            });
+            state.markdownCells.forEach(({ editor, sourceCell }) => {
+                if (sourceCell) sourceCell.source = editor.value;
+            });
+            const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/save`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ path: state.path, content: JSON.stringify(state.notebook, null, 1) })
+            });
+            const result = await response.json();
+            save.textContent = response.ok ? 'Saved' : (result.message || 'Save failed');
+            if (response.ok) closeInlineEditors();
+            window.setTimeout(() => { save.textContent = 'Save notebook'; }, 2500);
+        };
+        window.cscsSaveNotebook = saveNotebook;
+        save.addEventListener('click', saveNotebook);
+        document.body.appendChild(save);
+        document.querySelectorAll('.cscs-student-copy').forEach(copy => {
+            if (copy.querySelector('.cscs-author-copy-save')) return;
+            const copySave = document.createElement('button');
+            copySave.type = 'button';
+            copySave.className = 'cscs-author-copy-save';
+            copySave.textContent = 'Save notebook';
+            copySave.addEventListener('click', () => save.click());
+            copy.appendChild(copySave);
+        });
+    }
+
+    function addAuthorCellControls(cell, editButton, editor, codeElement) {
+        if (!cell || cell.querySelector('.cscs-author-cell-controls')) return;
+        const runButton = cell.querySelector('.cscs-run-button');
+        const controls = cell.querySelector('.cscs-execution-controls');
+        if (!runButton || !controls) return;
+
+        if (editButton) editButton.hidden = true;
+        const authorControls = document.createElement('span');
+        authorControls.className = 'cscs-author-cell-controls';
+
+        const authorButton = document.createElement('button');
+        authorButton.type = 'button';
+        authorButton.textContent = 'Author';
+        authorButton.addEventListener('click', () => editButton?.click());
+
+        const doneButton = document.createElement('button');
+        doneButton.type = 'button';
+        doneButton.textContent = 'Done';
+        doneButton.hidden = true;
+        doneButton.addEventListener('click', () => editButton?.click());
+
+        const inlineButton = document.createElement('button');
+        inlineButton.type = 'button';
+        inlineButton.textContent = 'Inline';
+        inlineButton.addEventListener('click', () => {
+            const highlight = codeElement.closest('.highlight-csharp');
+            const isOpen = editor.dataset.inlineOpen === 'true';
+            editor.hidden = isOpen;
+            if (highlight) highlight.hidden = !isOpen;
+            inlineButton.textContent = isOpen ? 'Inline' : 'Done';
+            editor.dataset.inlineOpen = String(!isOpen);
+            if (!isOpen) {
+                const staticCodeHeight = codeElement.closest('.cell_input')?.offsetHeight || codeElement.offsetHeight;
+                editor.style.height = `${staticCodeHeight + 32}px`;
+            }
+        });
+
+        const saveButton = document.createElement('button');
+        saveButton.type = 'button';
+        saveButton.textContent = 'Save';
+        saveButton.addEventListener('click', () => window.cscsSaveNotebook?.());
+
+        authorControls.append(authorButton, doneButton, inlineButton, saveButton);
+        controls.appendChild(authorControls);
+
+        const originalEdit = editButton;
+        originalEdit.addEventListener('click', () => {
+            const copy = controls.closest('.cscs-student-copy');
+            if (copy) {
+                authorButton.hidden = true;
+                doneButton.hidden = false;
+            } else {
+                authorButton.hidden = false;
+                doneButton.hidden = true;
+            }
+        });
+    }
+
+    function closeInlineEditors() {
+        document.querySelectorAll('.cscs-code-editor[data-inline-open="true"]').forEach(editor => {
+            const cell = editor.closest('.cell');
+            const highlight = cell?.querySelector('.highlight-csharp');
+            editor.hidden = true;
+            editor.dataset.inlineOpen = 'false';
+            if (highlight) highlight.hidden = false;
+            const inlineButton = cell?.querySelector('.cscs-author-cell-controls button:nth-child(3)');
+            if (inlineButton) inlineButton.textContent = 'Inline';
+        });
+    }
+
+    function renderMarkdownPreview(source) {
+        const escaped = source.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const lines = escaped.split('\n');
+        let inCode = false;
+        const output = [];
+        lines.forEach(line => {
+            if (line.trim().startsWith('```')) {
+                output.push(inCode ? '</code></pre>' : '<pre><code>');
+                inCode = !inCode;
+            } else if (inCode) {
+                output.push(line);
+            } else if (/^###\s+/.test(line)) {
+                output.push(`<h3>${line.replace(/^###\s+/, '')}</h3>`);
+            } else if (/^##\s+/.test(line)) {
+                output.push(`<h2>${line.replace(/^##\s+/, '')}</h2>`);
+            } else if (/^#\s+/.test(line)) {
+                output.push(`<h1>${line.replace(/^#\s+/, '')}</h1>`);
+            } else if (/^[-*]\s+/.test(line)) {
+                output.push(`<li>${line.replace(/^[-*]\s+/, '')}</li>`);
+            } else if (line.trim()) {
+                output.push(`<p>${line.replace(/`([^`]+)`/g, '<code>$1</code>')}</p>`);
+            }
+        });
+        return output.join('');
+    }
+
+    function normalizeCode(source) {
+        return source.replace(/^\s*%{1,2}csharp\s*\r?\n/i, '');
+    }
+});
+
 
 // Override Thebe config to use JupyterHub instead of Binder
 // Override Thebe config BEFORE it loads

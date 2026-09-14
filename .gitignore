@@ -15,6 +15,9 @@ data/*.csv
 # .NET / C#
 bin/
 obj/
+.env
+.env.*
+!.env.example
 *.user
 *.suo
 *.userosscache
