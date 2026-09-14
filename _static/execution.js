@@ -39,14 +39,44 @@ function initializeCsharpExecution() {
         runButton.className = "cscs-run-button";
         runButton.textContent = "Run C#";
 
+        const stdinPanel = document.createElement("div");
+        stdinPanel.className = "cscs-stdin-panel";
+        stdinPanel.hidden = true;
+
+        const stdinLabel = document.createElement("label");
+        stdinLabel.className = "cscs-stdin-label";
+        stdinLabel.textContent = "Input";
+
+        const stdinInput = document.createElement("textarea");
+        stdinInput.className = "cscs-stdin-input";
+        stdinInput.rows = 2;
+        stdinInput.spellcheck = false;
+        stdinInput.placeholder = "One input value per line";
+        stdinLabel.appendChild(stdinInput);
+
+        const stdinSubmitButton = document.createElement("button");
+        stdinSubmitButton.type = "button";
+        stdinSubmitButton.className = "cscs-stdin-submit-button";
+        stdinSubmitButton.textContent = "Enter";
+        stdinPanel.append(stdinLabel, stdinSubmitButton);
+
         const output = document.createElement("pre");
         output.className = "cscs-execution-output";
         output.hidden = true;
         output.setAttribute("aria-live", "polite");
 
-        controls.append(editButton, resetButton, runButton);
+        controls.append(editButton, resetButton, runButton, stdinPanel);
         cell.appendChild(controls);
         cell.appendChild(output);
+        let stdinRequested = false;
+
+        const updateStdinVisibility = () => {
+            if (!usesConsoleInput(editor.value)) {
+                stdinRequested = false;
+                stdinPanel.hidden = true;
+            }
+        };
+        updateStdinVisibility();
 
         editButton.addEventListener("click", () => {
             if (isStudentCopy) {
@@ -91,10 +121,40 @@ function initializeCsharpExecution() {
 
         resetButton.addEventListener("click", () => {
             editor.value = normalizeCode(codeElement.textContent);
+            stdinRequested = false;
+            updateStdinVisibility();
+        });
+
+        editor.addEventListener("input", () => {
+            stdinRequested = false;
+            updateStdinVisibility();
         });
 
         runButton.addEventListener("click", async () => {
+            if (usesConsoleInput(editor.value) && !stdinRequested) {
+                requestStdin();
+                return;
+            }
+            await runCurrentCode();
+        });
+
+        stdinSubmitButton.addEventListener("click", runCurrentCode);
+
+        stdinInput.addEventListener("keydown", async (event) => {
+            if (event.key !== "Enter" || event.shiftKey) return;
+            event.preventDefault();
+            await runCurrentCode();
+        });
+
+        function requestStdin() {
+            stdinRequested = true;
+            stdinPanel.hidden = false;
+            stdinInput.focus();
+        }
+
+        async function runCurrentCode() {
             runButton.disabled = true;
+            stdinSubmitButton.disabled = true;
             runButton.textContent = "Running...";
             output.hidden = false;
             output.className = "cscs-execution-output is-running";
@@ -120,7 +180,8 @@ function initializeCsharpExecution() {
                         cells: [
                             [...contextUsings, ...contextDeclarations].join("\n\n"),
                             currentCode
-                        ]
+                        ],
+                        stdin: stdinPanel.hidden ? "" : normalizeStdin(stdinInput.value)
                     })
                 });
                 const result = await response.json();
@@ -136,9 +197,10 @@ function initializeCsharpExecution() {
                 output.className = "cscs-execution-output is-error";
             } finally {
                 runButton.disabled = false;
+                stdinSubmitButton.disabled = false;
                 runButton.textContent = "Run C#";
             }
-        });
+        }
     });
 
     function createTaskId(pathname) {
@@ -164,6 +226,14 @@ function initializeCsharpExecution() {
         return source.replace(/^\s*%{1,2}csharp\s*\r?\n/i, "");
     }
 
+    function normalizeStdin(source) {
+        return source && !source.endsWith("\n") ? `${source}\n` : source;
+    }
+
+    function usesConsoleInput(source) {
+        return /\bConsole\s*\.\s*ReadLine\s*\(/.test(source);
+    }
+
     function isReusableDeclaration(source) {
         return /^\s*(?:(?:public|private|protected|internal|static|async|partial|sealed|abstract)\s+)*(?:class|struct|record|enum|interface)\b/m.test(source) ||
             /^\s*(?:(?:public|private|protected|internal|static|async)\s+)*(?:[\w<>,?\[\]]+\s+)+\w+\s*\([^;]*\)\s*(?:=>|\{)/m.test(source);
@@ -176,6 +246,7 @@ function initializeCsharpExecution() {
             /\bstatic\s+void\s+main\s*\(/.test(source) ||
             /^\s*(?:public|private|protected|internal)\s+(?:static\s+)?[\w<>,?\[\]]+\s+\w+\s*\(/m.test(source);
     }
+
 }
 
 if (document.readyState === "loading") {

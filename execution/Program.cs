@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 const int maxCellCount = 20;
 const int maxCodeLength = 100_000;
+const int maxStdinLength = 10_000;
 const int executionTimeoutMilliseconds = 15_000;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -185,8 +186,13 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
         return Results.BadRequest(new { error = $"Each cell must be at most {maxCodeLength} characters." });
     }
 
+    if ((request.Stdin?.Length ?? 0) > maxStdinLength)
+    {
+        return Results.BadRequest(new { error = $"Input must be at most {maxStdinLength} characters." });
+    }
+
     var source = BuildSource(cells.Select(NormalizeCell).ToList(), request.PrefixCellCount);
-    var result = await ExecuteAsync(source, taskId, cancellationToken);
+    var result = await ExecuteAsync(source, taskId, request.Stdin, cancellationToken);
     return Results.Ok(result);
 });
 
@@ -194,7 +200,7 @@ app.Run();
 
 bool IsAdmin(string? email) => email is not null && adminEmails.Contains(email);
 
-static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, CancellationToken cancellationToken)
+static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, CancellationToken cancellationToken)
 {
     var executionDirectory = Path.Combine(Path.GetTempPath(), $"cscs-{Guid.NewGuid():N}");
     DirectoryCopy("/app/runner-template", executionDirectory);
@@ -208,6 +214,7 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, Ca
             WorkingDirectory = executionDirectory,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
+            RedirectStandardInput = true,
             UseShellExecute = false,
             CreateNoWindow = true
         };
@@ -222,6 +229,9 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, Ca
         {
             return new ExecutionResult(taskId, string.Empty, "Unable to start the C# compiler.", -1, false);
         }
+
+        await process.StandardInput.WriteAsync(stdin ?? string.Empty);
+        process.StandardInput.Close();
 
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         timeout.CancelAfter(executionTimeoutMilliseconds);
@@ -358,6 +368,6 @@ static void DirectoryCopy(string sourceDirectory, string destinationDirectory)
     }
 }
 
-public sealed record ExecutionRequest(string? Code, List<string>? Cells, int PrefixCellCount = 0);
+public sealed record ExecutionRequest(string? Code, List<string>? Cells, string? Stdin, int PrefixCellCount = 0);
 
 public sealed record ExecutionResult(string TaskId, string Output, string Error, int ExitCode, bool TimedOut);
