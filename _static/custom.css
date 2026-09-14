@@ -572,6 +572,38 @@ div.cell.tag_thebe-interactive {
     outline: none;
 }
 
+.cscs-stdin-panel {
+    align-items: end;
+    display: grid;
+    gap: 6px;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(12rem, 28rem) max-content;
+    max-width: 36rem;
+}
+
+.cscs-stdin-label {
+    color: #52616b;
+    display: grid;
+    font-size: 0.8rem;
+    gap: 3px;
+    line-height: 1.2;
+}
+
+.cscs-stdin-input {
+    box-sizing: border-box;
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    min-height: 3.2rem;
+    padding: 6px 8px;
+    resize: vertical;
+    width: 100%;
+}
+
+.cscs-execution-controls .cscs-stdin-submit-button {
+    align-self: end;
+}
+
 .cscs-execution-output {
     display: block;
     margin: 4px 0 0;
