@@ -263,16 +263,16 @@ static string BuildSource(IReadOnlyList<string> cells, int prefixCellCount)
 
     if (prefixCellCount == 0)
     {
-        return string.Join(Environment.NewLine, usingLines) + Environment.NewLine + current;
+        return string.Join(Environment.NewLine, usingLines) + Environment.NewLine + WrapLooseMembers(current);
     }
 
     return string.Join(
         Environment.NewLine,
         usingLines) + Environment.NewLine +
         "Console.SetOut(TextWriter.Null);" + Environment.NewLine +
-        prefix + Environment.NewLine +
+        WrapLooseMembers(prefix) + Environment.NewLine +
         "Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });" +
-        Environment.NewLine + current;
+        Environment.NewLine + WrapLooseMembers(current);
 }
 
 static string NormalizeCell(string source)
@@ -296,6 +296,43 @@ static string RemoveUsingDirectives(string source, ICollection<string> usingLine
     }
 
     return string.Join('\n', body);
+}
+
+static string WrapLooseMembers(string source)
+{
+    if (!NeedsProgramWrapper(source)) return source;
+
+    var hasUpperMain = Regex.IsMatch(source, "\\bstatic\\s+void\\s+Main\\s*\\(", RegexOptions.Multiline);
+    var hasLowerMain = Regex.IsMatch(source, "\\bstatic\\s+void\\s+main\\s*\\(", RegexOptions.Multiline);
+    var entryPoint = hasUpperMain
+        ? string.Empty
+        : hasLowerMain
+            ? Environment.NewLine + "    public static void Main(string[] args) => main(args);" + Environment.NewLine
+            : Environment.NewLine + "    public static void Main() { }" + Environment.NewLine;
+
+    return "public class Program" + Environment.NewLine +
+           "{" + Environment.NewLine +
+           Indent(source) +
+           entryPoint +
+           "}";
+}
+
+static bool NeedsProgramWrapper(string source)
+{
+    if (string.IsNullOrWhiteSpace(source)) return false;
+    if (Regex.IsMatch(source, "^\\s*(?:public\\s+|internal\\s+|private\\s+|protected\\s+)?(?:static\\s+)?(?:class|struct|record|enum|interface)\\s+\\w+", RegexOptions.Multiline))
+        return false;
+    if (Regex.IsMatch(source, "^\\s*namespace\\s+\\w+", RegexOptions.Multiline))
+        return false;
+
+    return Regex.IsMatch(source, "^\\s*(?:public|private|protected|internal)\\s+(?:static\\s+)?[\\w<>,?\\[\\]]+\\s+\\w+\\s*\\(", RegexOptions.Multiline);
+}
+
+static string Indent(string source)
+{
+    return string.Join(
+        Environment.NewLine,
+        source.Split('\n').Select(line => string.IsNullOrWhiteSpace(line) ? line.TrimEnd('\r') : "    " + line.TrimEnd('\r')));
 }
 
 static string CleanOutput(string output)
