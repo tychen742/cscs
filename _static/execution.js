@@ -170,7 +170,9 @@ function initializeCsharpExecution() {
     function isCompleteProgram(source) {
         return /\bnamespace\s+\w+/.test(source) ||
             /\bclass\s+Program\b/.test(source) ||
-            /\bstatic\s+void\s+Main\s*\(/.test(source);
+            /\bstatic\s+void\s+Main\s*\(/.test(source) ||
+            /\bstatic\s+void\s+main\s*\(/.test(source) ||
+            /^\s*(?:public|private|protected|internal)\s+(?:static\s+)?[\w<>,?\[\]]+\s+\w+\s*\(/m.test(source);
     }
 }
 
