@@ -151,25 +151,11 @@ function initializeCsharpExecution() {
 
             try {
                 const currentCode = editor.value;
-                const contextElements = cells
-                    .slice(0, cellIndex)
-                    .map((candidate) => candidate.querySelector(".cell_input pre"))
-                    .filter(Boolean);
-                const contextUsings = contextElements
-                    .flatMap((element) => extractUsingDirectives(normalizeCode(element.textContent)));
-                const contextDeclarations = isCompleteProgram(currentCode)
-                    ? []
-                    : contextElements
-                        .map((element) => normalizeCode(element.textContent))
-                        .filter(isReusableDeclaration);
                 const response = await fetch(`${apiBaseUrl}/v1/tasks/${taskId}/execute`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        cells: [
-                            [...contextUsings, ...contextDeclarations].join("\n\n"),
-                            currentCode
-                        ],
+                        code: currentCode,
                         stdin: collectStdin()
                     })
                 });
@@ -248,13 +234,6 @@ function initializeCsharpExecution() {
         return encodeURIComponent(slug || "home");
     }
 
-    function extractUsingDirectives(source) {
-        return source
-            .split("\n")
-            .map((line) => line.trim())
-            .filter((line) => /^using\s+.+;\s*$/.test(line));
-    }
-
     function normalizeCode(source) {
         return source.replace(/^\s*%{1,2}csharp\s*\r?\n/i, "");
     }
@@ -273,19 +252,6 @@ function initializeCsharpExecution() {
             .split("\n")
             .map((line) => line.replace(/\/\/.*$/, ""))
             .join("\n");
-    }
-
-    function isReusableDeclaration(source) {
-        return /^\s*(?:(?:public|private|protected|internal|static|async|partial|sealed|abstract)\s+)*(?:class|struct|record|enum|interface)\b/m.test(source) ||
-            /^\s*(?:(?:public|private|protected|internal|static|async)\s+)*(?:[\w<>,?\[\]]+\s+)+\w+\s*\([^;]*\)\s*(?:=>|\{)/m.test(source);
-    }
-
-    function isCompleteProgram(source) {
-        return /\bnamespace\s+\w+/.test(source) ||
-            /\bclass\s+Program\b/.test(source) ||
-            /\bstatic\s+void\s+Main\s*\(/.test(source) ||
-            /\bstatic\s+void\s+main\s*\(/.test(source) ||
-            /^\s*(?:public|private|protected|internal)\s+(?:static\s+)?[\w<>,?\[\]]+\s+\w+\s*\(/m.test(source);
     }
 
 }
