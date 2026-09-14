@@ -1,5 +1,7 @@
 function initializeCsharpExecution() {
-    const apiBaseUrl = window.CSCS_EXECUTION_API || "http://localhost:8080";
+    const apiBaseUrl = localStorage.getItem("CSCS_EXECUTION_API") ||
+        window.CSCS_EXECUTION_API ||
+        "http://localhost:8080";
     const taskId = createTaskId(window.location.pathname);
 
     const cells = Array.from(document.querySelectorAll("div.cell"));
