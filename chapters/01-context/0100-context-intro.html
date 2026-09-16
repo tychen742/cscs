@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Introduction — Introduction to Computer Science in C#</title>
+<title>Getting Started with C# — Introduction to Computer Science in C#</title>
 <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
@@ -111,7 +111,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children cscs-markdown-cell" data-cscs-cell-id="620a4d7b-98cf-4861-b2a7-111fd4ffdbbe" data-cscs-cell-index="0" data-cscs-cell-type="markdown"><a class="current reference internal" href="#">Introduction</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children cscs-markdown-cell" data-cscs-cell-id="18c30455" data-cscs-cell-index="0" data-cscs-cell-type="markdown"><a class="current reference internal" href="#">Getting Started with C#</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="0101-cs_ideas.html">Computing Concepts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="0102-dev_tools.html">Development Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="0103-program_structure.html">C# Program Structure</a></li>
@@ -378,7 +378,7 @@
 </div>
 </div>
 <div class="onlyprint" id="jb-print-docs-body">
-<h1>Introduction</h1>
+<h1>Getting Started with C#</h1>
 <!-- Table of contents -->
 <div id="print-main-content">
 <div id="jb-print-toc">
@@ -387,27 +387,32 @@
 </div>
 <div id="searchbox"></div>
 <article class="bd-article">
-<section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<!-- chapter-intro -->
+<section id="getting-started-with-c">
+<h1>Getting Started with C#<a class="headerlink" href="#getting-started-with-c" title="Link to this heading">#</a></h1>
 <p>Every program you write runs on a physical machine, is written in a language with rules, and is built by a developer using specific tools. This chapter sets the context: what computing is, how C# fits in, and how to set up a working environment.</p>
-<h2>Why this chapter matters</h2>
-<p class="cscs-markdown-cell" data-cscs-cell-id="63bbfb63" data-cscs-cell-index="1" data-cscs-cell-type="markdown">Jumping straight into syntax without context leads to confusion later. Understanding the big picture — hardware, software, compilers, and IDEs — gives you a mental model that makes every later topic clearer.</p>
 <ul class="simple">
 <li><p>Programs are instructions executed by hardware through layers of abstraction</p></li>
 <li><p>A compiler translates C# source into machine-runnable code</p></li>
 <li><p>An IDE integrates editing, building, and debugging in one place</p></li>
 <li><p>Every C# program follows a predictable structural template</p></li>
 </ul>
-<h2>Learning goals</h2>
-<p class="cscs-markdown-cell" data-cscs-cell-id="a6a527fd" data-cscs-cell-index="2" data-cscs-cell-type="markdown">By the end of this chapter, you should be able to:</p>
-<ul class="simple">
-<li><p>explain the role of hardware, operating system, and language runtime</p></li>
-<li><p>identify the parts of a basic C# program (namespace, class, Main)</p></li>
-<li><p>compile and run a simple program using your development tools</p></li>
-<li><p>describe what a compiler and interpreter do differently</p></li>
-</ul>
-<h2>Chapter flow</h2>
+<p>Jumping straight into syntax without context leads to confusion later. Understanding the big picture — hardware, software, compilers, and IDEs — gives you a mental model that makes every later topic clearer.</p>
+<h2>Video</h2>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/ZVGutgqBMUM" width="560"></iframe>
+<blockquote>
+<div><p><em><a class="reference external" href="https://youtube.com/watch?v=ZVGutgqBMUM">Getting Started with C# &amp; .NET in VS Code (Official Beginner Guide) (9:49)</a> by Visual Studio Code</em></p>
+</div></blockquote>
+<p>This video remains hosted by YouTube and belongs to its creator, the official Visual Studio Code channel.</p>
+<h2>Learning Objectives</h2>
+<p class="cscs-markdown-cell" data-cscs-cell-id="06e01b92" data-cscs-cell-index="2" data-cscs-cell-type="markdown">By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p>Explain how source code becomes a running program through compilation or interpretation</p></li>
+<li><p>Identify the parts of a basic C# program, including the namespace, class, and Main entry point</p></li>
+<li><p>Install and verify a working .NET SDK and VS Code development environment</p></li>
+<li><p>Create and run a C# console application from the command line</p></li>
+<li><p>Use basic Git commands to track and commit changes to your code</p></li>
+</ol>
+<h2>Chapter Flow</h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="0101-cs_ideas.html">Computing Concepts</a></li>
@@ -421,6 +426,119 @@
 </li>
 </ul>
 </div>
+<h2>Glossary</h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>#</p></th>
+<th class="head"><p>Term</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>IPO Model</p></td>
+<td><p>The Input-Process-Output model describing how a program takes input, transforms it, and produces output.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p>SDLC</p></td>
+<td><p>Software Development Life Cycle; the stages a program moves through from planning to maintenance.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p>Algorithm</p></td>
+<td><p>A precise, step-by-step procedure for solving a problem or completing a task.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p>Expression</p></td>
+<td><p>A piece of code that evaluates to a value.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p>Compilation</p></td>
+<td><p>Translating source code into machine-runnable code before the program runs.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p>Interpretation</p></td>
+<td><p>Executing source code directly, line by line, without a separate compile step.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td><p>Compiler</p></td>
+<td><p>A tool that translates source code into an executable program.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td><p>Interpreter</p></td>
+<td><p>A tool that reads and executes source code directly.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td><p>Exception</p></td>
+<td><p>An unexpected condition that disrupts a program’s normal flow at run time.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>10</p></td>
+<td><p>.NET SDK</p></td>
+<td><p>The Software Development Kit that provides the tools needed to build and run .NET/C# programs.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>11</p></td>
+<td><p>.NET Runtime</p></td>
+<td><p>The environment that executes compiled .NET programs.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>12</p></td>
+<td><p>Terminal / Shell</p></td>
+<td><p>A text-based interface for running commands on your computer.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>13</p></td>
+<td><p>IDE</p></td>
+<td><p>Integrated Development Environment; a tool that combines editing, building, and debugging.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>14</p></td>
+<td><p>VS Code</p></td>
+<td><p>A free, cross-platform code editor commonly used for C# development.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>15</p></td>
+<td><p>REPL</p></td>
+<td><p>Read-Eval-Print Loop; an interactive environment (like csharprepl) for trying out code one expression at a time.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>16</p></td>
+<td><p>Git</p></td>
+<td><p>A version control system for tracking changes to code over time.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>17</p></td>
+<td><p>Commit</p></td>
+<td><p>A saved snapshot of changes in a Git repository.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>18</p></td>
+<td><p>Merge Conflict</p></td>
+<td><p>A situation where Git can’t automatically combine changes from two sources.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>19</p></td>
+<td><p>.NET Template</p></td>
+<td><p>A starter project structure generated by the <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span></code> command.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>20</p></td>
+<td><p>Console App</p></td>
+<td><p>A program that runs in a terminal window rather than a graphical window.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>21</p></td>
+<td><p>Program.cs</p></td>
+<td><p>The default file name containing a C# program’s entry point.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>22</p></td>
+<td><p>Top-Level Statements</p></td>
+<td><p>A modern C# feature that lets you write a program’s entry-point code without an explicit <code class="docutils literal notranslate"><span class="pre">Main</span></code> method wrapper.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>23</p></td>
+<td><p>Solution</p></td>
+<td><p>A container (<code class="docutils literal notranslate"><span class="pre">.sln</span></code>) that groups one or more related C# projects.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>24</p></td>
+<td><p>Project</p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">.csproj</span></code>-defined unit of code that compiles into an app or library.</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>25</p></td>
+<td><p>Code Block</p></td>
+<td><p>A group of statements enclosed in curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><a href="overview.html" style="color: var(--pst-color-link, #176de8);" target="_blank">Chapter Overview Slides</a></h2>
 </section>
 <script type="text/x-thebe-config">
     {
