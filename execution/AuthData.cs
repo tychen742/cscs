@@ -20,6 +20,12 @@ public sealed class UserAccount
     [MaxLength(512)]
     public required string PasswordHash { get; set; }
 
+    [MaxLength(64)]
+    public string BookId { get; set; } = "cscs";
+
+    [MaxLength(64)]
+    public string? CourseId { get; set; }
+
     public DateTime CreatedUtc { get; set; }
 }
 

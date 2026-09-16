@@ -14,8 +14,8 @@ const int executionTimeoutMilliseconds = 15_000;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
-var databasePath = Environment.GetEnvironmentVariable("CSCS_DB_PATH") ?? "/tmp/cscs.db";
-Directory.CreateDirectory(Path.GetDirectoryName(databasePath) ?? "/tmp");
+var databaseConnectionString = Environment.GetEnvironmentVariable("CSCS_DB_CONNECTION")
+    ?? throw new InvalidOperationException("CSCS_DB_CONNECTION must be set to a Postgres connection string.");
 var dataProtectionPath = Environment.GetEnvironmentVariable("CSCS_DATA_PROTECTION_PATH") ?? "/tmp/cscs-keys";
 Directory.CreateDirectory(dataProtectionPath);
 var adminEmails = (Environment.GetEnvironmentVariable("CSCS_ADMIN_EMAILS") ?? string.Empty)
@@ -27,7 +27,7 @@ var allowedOrigins = (Environment.GetEnvironmentVariable("CSCS_ALLOWED_ORIGINS")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
-builder.Services.AddDbContext<CscsDbContext>(options => options.UseSqlite($"Data Source={databasePath}"));
+builder.Services.AddDbContext<CscsDbContext>(options => options.UseNpgsql(databaseConnectionString));
 builder.Services.AddSingleton<NotebookRepository>();
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
@@ -50,7 +50,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var database = scope.ServiceProvider.GetRequiredService<CscsDbContext>();
-    database.Database.EnsureCreated();
+    database.Database.Migrate();
 }
 app.UseCors();
 app.UseAuthentication();
