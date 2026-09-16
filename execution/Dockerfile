@@ -15,6 +15,7 @@ COPY execution/Program.cs execution/
 COPY execution/AuthData.cs execution/
 COPY execution/NotebookValidation.cs execution/
 COPY execution/NotebookRepository.cs execution/
+COPY execution/Migrations execution/Migrations
 COPY execution/runner-template runner-template
 RUN dotnet restore runner-template/runner-template.csproj \
     && dotnet build runner-template/runner-template.csproj --no-restore \
