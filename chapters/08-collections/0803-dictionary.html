@@ -427,7 +427,8 @@ a <code class="docutils literal notranslate"><span class="pre">Dictionary</span>
 reference is through a key, not a sequential index, as in:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="43434c26" data-cscs-cell-index="10" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
 <span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -436,7 +437,10 @@ reference is through a key, not a sequential index, as in:</p>
 <p class="cscs-markdown-cell" data-cscs-cell-id="e292d336" data-cscs-cell-index="11" data-cscs-cell-type="markdown">or, you can use the Dictionary.Add() method:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="f2046c71" data-cscs-cell-index="12" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -446,13 +450,13 @@ as a table showing the {key, value} pairs and type. Here is a longer csharprepl 
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="03f93ef1" data-cscs-cell-index="14" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="n">e2sp</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">);</span>
 <span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
 <span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
 <span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="w">                     </span><span class="c1">// the Count property gives the length of the dictionary</span>
-<span class="n">e2sp</span><span class="p">;</span>
-<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0}, {1}; {2}"</span><span class="p">,</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"three"</span><span class="p">])</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span><span class="w">  </span><span class="c1">// the Count property gives the length of the dictionary</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0}, {1}; {2}"</span><span class="p">,</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">],</span><span class="w"> </span><span class="n">e2sp</span><span class="p">[</span><span class="s">"three"</span><span class="p">]);</span>
 </pre></div>
 </div>
 </div>
@@ -464,7 +468,11 @@ Item[] property (the indexer[] square brackets) such as dict[“aaa”] = “AAA
 with <code class="docutils literal notranslate"><span class="pre">foreach</span></code> and the property <code class="docutils literal notranslate"><span class="pre">Keys</span></code>:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="f8d873b4" data-cscs-cell-index="16" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -474,7 +482,11 @@ with <code class="docutils literal notranslate"><span class="pre">foreach</span>
 <p class="cscs-markdown-cell" data-cscs-cell-id="c77fb17a" data-cscs-cell-index="17" data-cscs-cell-type="markdown">To loop through the dictionary and access both the key and value in each entry, you may do:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="73b76f6d" data-cscs-cell-index="18" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">.</span><span class="n">Keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e2sp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"{0} : {1}"</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -495,8 +507,12 @@ implementation remembers the order in which keys were added.</p>
 Note the method <code class="docutils literal notranslate"><span class="pre">ContainsKey</span></code>:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="23eaea16" data-cscs-cell-index="21" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"seven"</span><span class="p">)</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"three"</span><span class="p">)</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"seven"</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="s">"three"</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -505,14 +521,18 @@ Note the method <code class="docutils literal notranslate"><span class="pre">Con
 collections, a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> has a <code class="docutils literal notranslate"><span class="pre">Clear</span></code> method:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="ef3c560f" data-cscs-cell-index="23" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"two"</span><span class="p">)</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
-<span class="n">e2sp</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
-<span class="n">e2sp</span>
-<span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e2sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"uno"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">[</span><span class="s">"two"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"dos"</span><span class="p">;</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"three"</span><span class="p">,</span><span class="w"> </span><span class="s">"tres"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"two"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">);</span>
+<span class="n">e2sp</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">e2sp</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

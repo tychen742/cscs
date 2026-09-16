@@ -658,8 +658,8 @@ values, which doubles the positive range but disallows negatives.</p>
 <span class="c1">// Signed vs unsigned: same bits, different interpretation</span>
 <span class="kt">int</span><span class="w">  </span><span class="n">signed</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="kt">uint</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint</span><span class="p">)</span><span class="n">signed</span><span class="p">;</span><span class="w">           </span><span class="c1">// becomes 4294967295 (all bits set)</span>
-<span class="n">signed</span>
-<span class="n">unsigned</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">signed</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">unsigned</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -723,11 +723,11 @@ which stores numbers in base 10 internally and avoids this problem entirely.</p>
 <span class="kt">decimal</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">19.99M</span><span class="p">;</span><span class="w">          </span><span class="c1">// use M suffix for decimal</span>
 
 <span class="c1">// Precision difference</span>
-<span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="w">                        </span><span class="c1">// 0.30000000000000004 — binary rounding</span>
-<span class="mf">0.1M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2M</span><span class="w">                      </span><span class="c1">// 0.3 — decimal is exact</span>
-<span class="n">f</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
-<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
-<span class="n">price</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.30000000000000004 — binary rounding</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="mf">0.1M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2M</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.3 — decimal is exact</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">price</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -749,10 +749,10 @@ is a compile-time error.</p>
 <span class="kt">bool</span><span class="w"> </span><span class="n">inRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">   </span><span class="c1">// true</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">isEven</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">        </span><span class="c1">// false</span>
 
-<span class="n">isOnline</span>
-<span class="n">inRange</span>
-<span class="n">isEven</span>
-<span class="n">isEven</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">isOnline</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">inRange</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">isEven</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">isEven</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -797,10 +797,10 @@ cast to and from <code class="docutils literal notranslate"><span class="pre">in
 <span class="kt">int</span><span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">letter</span><span class="p">;</span><span class="w">            </span><span class="c1">// 65 — implicit cast to int</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)(</span><span class="n">code</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 'B' — explicit cast back</span>
 
-<span class="n">letter</span>
-<span class="n">code</span>
-<span class="n">back</span>
-<span class="n">unicode</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">letter</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">back</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">unicode</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -825,14 +825,14 @@ for file paths)</p></li>
 <span class="kt">string</span><span class="w"> </span><span class="n">path</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">@"C:\Users\Alice\docs"</span><span class="p">;</span><span class="w"> </span><span class="c1">// verbatim: backslashes are literal</span>
 
 <span class="c1">// Common operations</span>
-<span class="n">name</span><span class="p">.</span><span class="n">Length</span><span class="w">                              </span><span class="c1">// 5</span>
-<span class="n">name</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">()</span><span class="w">                           </span><span class="c1">// "ALICE"</span>
-<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w">                                  </span><span class="c1">// 'A' — char at index 0</span>
-<span class="n">name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"lic"</span><span class="p">)</span><span class="w">                     </span><span class="c1">// true</span>
-<span class="n">name</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">)</span><span class="w">             </span><span class="c1">// "Bob"</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span><span class="w">  </span><span class="c1">// 5</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">());</span><span class="w">  </span><span class="c1">// "ALICE"</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">  </span><span class="c1">// 'A' — char at index 0</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"lic"</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">));</span><span class="w">  </span><span class="c1">// "Bob"</span>
 
-<span class="n">greeting</span>
-<span class="n">path</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">greeting</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -888,7 +888,7 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="ea07f693" data-cscs-cell-index="22" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Monday"</span><span class="p">;</span><span class="w"> </span>
-<span class="n">dayOfWeek</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -951,12 +951,7 @@ and <code class="docutils literal notranslate"><span class="pre">'a'</span></cod
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tsangyao"</span><span class="p">;</span><span class="w">    </span><span class="c1">// assign value to variable</span>
 <span class="kt">string</span><span class="w"> </span><span class="n">lastName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">" Chen"</span><span class="p">;</span>
 
-<span class="n">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lastName</span><span class="w">              </span><span class="c1">// concatenation</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tsangyao Chen
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lastName</span><span class="p">);</span><span class="w">  </span><span class="c1">// concatenation</span>
 </pre></div>
 </div>
 </div>
@@ -966,7 +961,7 @@ shows you how to concatenate data of string type and int type:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="22f89798" data-cscs-cell-index="29" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">;</span>
-<span class="s">"I spent "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" dollars on coffee this week."</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"I spent "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aLargeAmountOf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" dollars on coffee this week."</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1159,14 +1154,16 @@ The function <code class="docutils literal notranslate"><span class="pre">Math.R
 the type unchanged. So we need to perform a type casting after rounding:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="2c878cdc" data-cscs-cell-index="47" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
-<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span>
 <span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Round</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">        </span><span class="c1">// rounding and re-assignment</span>
-<span class="n">d</span>
-<span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span><span class="w">               </span><span class="c1">// the type remains</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span><span class="w">  </span><span class="c1">// the type remains</span>
 <span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Round</span><span class="p">(</span><span class="n">d</span><span class="p">);</span><span class="w">   </span><span class="c1">// casting to int</span>
-<span class="n">i</span>
-<span class="n">i</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span><span class="w">               </span><span class="c1">// type correct</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">GetType</span><span class="p">());</span><span class="w">  </span><span class="c1">// type correct</span>
 </pre></div>
 </div>
 </div>
@@ -1178,8 +1175,8 @@ A use case for this would be when doing divisions, where <code class="docutils l
 <div class="cell_input docutils container">
 <div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
-<span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="w">               </span><span class="c1">// an integer division</span>
-<span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="w">      </span><span class="c1">// intended operation; casting required</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">);</span><span class="w">  </span><span class="c1">// an integer division</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">numerator</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">denominator</span><span class="p">);</span><span class="w">  </span><span class="c1">// intended operation; casting required</span>
 </pre></div>
 </div>
 </div>

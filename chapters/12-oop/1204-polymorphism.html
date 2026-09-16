@@ -463,10 +463,10 @@ base class method overrides the derived class method, when they share the same n
 
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Animal</span><span class="w">                      </span><span class="c1">// Derived class (child)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">animalSound</span><span class="p">()</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">animalSound</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">animalSound</span><span class="p">();</span>
-<span class="w">            </span><span class="c1">// or base.animalSound();       // the base keyword refer</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"The cat says: meow"</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// or base.animalSound();       // the base keyword refers to the parent class</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -478,12 +478,12 @@ base class method overrides the derived class method, when they share the same n
 <span class="w">            </span><span class="n">Animal</span><span class="w"> </span><span class="n">myAnimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Animal</span><span class="p">();</span><span class="w"> </span><span class="c1">// Create a Animal object</span>
 <span class="w">            </span><span class="n">Animal</span><span class="w"> </span><span class="n">myPig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pig</span><span class="p">();</span><span class="w">       </span><span class="c1">// Create a Pig object</span>
 <span class="w">            </span><span class="n">Animal</span><span class="w"> </span><span class="n">myDog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w">       </span><span class="c1">// Create a Dog object</span>
-<span class="w">            </span><span class="n">Animal</span><span class="w"> </span><span class="n">myDog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span><span class="w">       </span><span class="c1">// Create a Cat object</span>
+<span class="w">            </span><span class="n">Animal</span><span class="w"> </span><span class="n">myCat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span><span class="w">       </span><span class="c1">// Create a Cat object</span>
 
 <span class="w">            </span><span class="n">myAnimal</span><span class="p">.</span><span class="n">animalSound</span><span class="p">();</span><span class="w">         </span><span class="c1">// The animal makes a sound</span>
 <span class="w">            </span><span class="n">myPig</span><span class="p">.</span><span class="n">animalSound</span><span class="p">();</span><span class="w">            </span><span class="c1">// The pig says: wee wee</span>
 <span class="w">            </span><span class="n">myDog</span><span class="p">.</span><span class="n">animalSound</span><span class="p">();</span><span class="w">            </span><span class="c1">// The dog says: bow wow</span>
-<span class="w">            </span><span class="n">myCat</span><span class="p">.</span><span class="n">animalSound</span><span class="p">();</span><span class="w">            </span><span class="c1">// The animal makes a sound</span>
+<span class="w">            </span><span class="n">myCat</span><span class="p">.</span><span class="n">animalSound</span><span class="p">();</span><span class="w">            </span><span class="c1">// The cat says: meow</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </pre></div>

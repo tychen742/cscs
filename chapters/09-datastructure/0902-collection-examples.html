@@ -490,7 +490,8 @@ adding and removing elements in a <code class="docutils literal notranslate"><sp
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="8a9675d2" data-cscs-cell-index="15" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
@@ -504,7 +505,7 @@ adding and removing elements in a <code class="docutils literal notranslate"><sp
 <span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="w">  </span><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">stack</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -515,9 +516,13 @@ adding and removing elements in a <code class="docutils literal notranslate"><sp
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="e735daf3" data-cscs-cell-index="19" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span>
-<span class="n">stack</span><span class="p">.</span><span class="n">Pop</span><span class="p">()</span>
-<span class="n">stack</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Pop</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -527,8 +532,12 @@ adding and removing elements in a <code class="docutils literal notranslate"><sp
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="1c045b75" data-cscs-cell-index="21" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span>
-<span class="n">stack</span><span class="p">.</span><span class="n">Peek</span><span class="p">()</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="n">Peek</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
@@ -538,7 +547,11 @@ adding and removing elements in a <code class="docutils literal notranslate"><sp
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="5b887186" data-cscs-cell-index="23" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Stack is empty"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
@@ -568,7 +581,8 @@ allows adding and removing elements in a first-in-first-out manner. [#profession
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="64c83514" data-cscs-cell-index="27" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 1"</span><span class="p">);</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 1"</span><span class="p">);</span>
 <span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 2"</span><span class="p">);</span>
 <span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 3"</span><span class="p">);</span>
 </pre></div>
@@ -582,7 +596,7 @@ allows adding and removing elements in a first-in-first-out manner. [#profession
 <span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 1"</span><span class="p">);</span>
 <span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 2"</span><span class="p">);</span>
 <span class="w">  </span><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 3"</span><span class="p">);</span>
-<span class="n">queue</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">queue</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -593,9 +607,13 @@ front element from the queue:</p></li>
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="bd1ab5e6" data-cscs-cell-index="31" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span>
-<span class="n">queue</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">()</span>
-<span class="n">queue</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 1"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 2"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 3"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">queue</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">queue</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -605,7 +623,11 @@ front element from the queue:</p></li>
 </ul>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="5fc423b7" data-cscs-cell-index="33" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-polyglot-notebook notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 1"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 2"</span><span class="p">);</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="s">"Task 3"</span><span class="p">);</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Queue is empty"</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>

@@ -438,7 +438,8 @@ the variable will store. For example, to create a list of string type:</p>
 informally displays the values of a <code class="docutils literal notranslate"><span class="pre">List</span></code> with Name and Type in a table like:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="10486890" data-cscs-cell-index="13" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">words</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -449,8 +450,8 @@ end of the variable declaration), the <code class="docutils literal notranslate"
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="11b28674" data-cscs-cell-index="15" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="n">words</span><span class="p">;</span>
-<span class="n">words</span><span class="p">.</span><span class="n">Count</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -505,13 +506,14 @@ and <code class="docutils literal notranslate"><span class="pre">RemoveAt</span>
 <code class="docutils literal notranslate"><span class="pre">Remove</span></code> returns whether the List has been changed:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="0f56a7a3" data-cscs-cell-index="25" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">);</span>
-<span class="n">words</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Cherry"</span><span class="w"> </span><span class="p">};</span>
+<span class="n">words</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
 <span class="n">words</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Avocado"</span><span class="p">);</span>
 <span class="n">words</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Durian"</span><span class="p">);</span>
-<span class="n">words</span>
-<span class="n">words</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">words</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+<span class="n">words</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -528,8 +530,9 @@ so the index decreases for the elements after the removed one:</p>
 <p>You can check for membership in a <code class="docutils literal notranslate"><span class="pre">List</span></code> with <code class="docutils literal notranslate"><span class="pre">Contains</span></code>:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="11602105" data-cscs-cell-index="29" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">)</span>
-<span class="n">words</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">)</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">));</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -537,8 +540,9 @@ so the index decreases for the elements after the removed one:</p>
 <p class="cscs-markdown-cell" data-cscs-cell-id="fac41358" data-cscs-cell-index="30" data-cscs-cell-type="markdown">You can also remove all elements at once:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="e1802b84" data-cscs-cell-index="31" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
-<span class="n">words</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">words</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

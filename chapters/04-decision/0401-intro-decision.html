@@ -654,7 +654,10 @@ There are four separate combinations, and we could handle this with a
 chain of compound conditions checking for one at a time:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="7fc24d2c" data-cscs-cell-index="13" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">urgent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Be sure ..."</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -675,7 +678,10 @@ answers by nesting <code class="docutils literal notranslate"><span class="pre">
 using an if-else statement with nested if-else sub-statements:</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="8aa12c93" data-cscs-cell-index="15" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">urgent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">important</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">urgent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Be sure ..."</span><span class="p">);</span>
 <span class="w">   </span><span class="p">}</span>

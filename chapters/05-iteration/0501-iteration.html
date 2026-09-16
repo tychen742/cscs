@@ -473,9 +473,9 @@ the old value in the body of the for statement until next next iteration.</p>
 <div class="cell docutils container cscs-code-cell" data-cscs-cell-id="6adb9026" data-cscs-cell-index="6" data-cscs-cell-type="code">
 <div class="cell_input docutils container">
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<span class="n">num</span>
-<span class="n">num</span><span class="o">++</span><span class="w">       </span><span class="c1">// postfix expression, the value remains</span>
-<span class="n">num</span><span class="w">         </span><span class="c1">// i is evaluated again. Now it shows 4.</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="n">num</span><span class="o">++</span><span class="p">;</span><span class="w">       </span><span class="c1">// postfix expression, the value remains</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">  </span><span class="c1">// i is evaluated again. Now it shows 4.</span>
 </pre></div>
 </div>
 </div>
