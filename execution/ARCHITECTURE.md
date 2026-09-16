@@ -34,7 +34,7 @@ provides sample execution, editable sample copies, and inline exercise editing.
 
 The API now includes a first database-backed account layer:
 
-- SQLite stores local development accounts.
+- Postgres stores accounts, applied via EF Core Migrations at startup.
 - Passwords are stored as PBKDF2 hashes.
 - Cookie sessions use persisted ASP.NET data-protection keys.
 - Registration, login, current-user, and logout endpoints are available.
@@ -70,8 +70,8 @@ implemented first; markdown-cell boundary mapping remains a follow-up.
 
 ## Future production work
 
-Before public deployment, replace development SQLite with a server database or
-deliberate managed SQLite strategy, add migrations and backups, implement email
-verification and password recovery through IONOS SMTP, add rate limits and
-stronger execution isolation through separate runner workers, and define a
-controlled Git commit/publish workflow.
+Before public deployment, add automated Postgres backups (`pg_dump` or WAL
+archiving) and a tested rollback path, implement email verification and
+password recovery through IONOS SMTP, add rate limits and stronger execution
+isolation through separate runner workers, and define a controlled Git
+commit/publish workflow.

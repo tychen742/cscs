@@ -50,7 +50,7 @@ This requires an authentication provider, a durable database, and versioned
 save/load API endpoints. Browser `localStorage` is not sufficient because it
 is not tied to an account and cannot synchronize across devices.
 
-Status: initial local authentication and SQLite persistence implemented; exercise
+Status: authentication and Postgres persistence implemented; exercise
 drafts and assignment management remain next.
 
 Authentication implementation status:

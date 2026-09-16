@@ -1,7 +1,7 @@
 function initializeCsharpExecution() {
     const apiBaseUrl = localStorage.getItem("CSCS_EXECUTION_API") ||
         window.CSCS_EXECUTION_API ||
-        "http://localhost:8080";
+        (location.hostname.endsWith("thinkcscs.org") ? "https://thinkcscs.org/cscs-exec" : "http://localhost:8080");
     const taskId = createTaskId(window.location.pathname);
 
     const cells = Array.from(document.querySelectorAll("div.cell"));

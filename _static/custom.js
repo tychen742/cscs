@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
         window.CSCS_EXECUTION_API ||
-        'http://localhost:8080';
+        (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
     const sidebar = document.querySelector('.bd-sidebar-primary');
     const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
     if (!sidebarContent || document.querySelector('.cscs-account')) return;
