@@ -52,9 +52,10 @@ execution into separate isolated runner workers with no repository mount, no
 application secrets, no database access, strict resource limits, and a bounded
 queue or worker pool.
 
-The development Compose setup stores the SQLite database in the named
-`cscs-data` volume. Do not use SQLite as the eventual multi-instance
-production database without a deliberate migration to a server database.
+The Compose setup runs Postgres as a sibling `postgres` service, with data in
+the named `cscs-postgres-data` volume. Schema changes go through EF Core
+Migrations (`dotnet ef migrations add ...`); the API applies pending
+migrations automatically at startup via `Database.Migrate()`.
 
 ## Authentication API
 
@@ -67,9 +68,9 @@ GET  /v1/auth/me        return the current authenticated user
 POST /v1/auth/logout    clear the session
 ```
 
-Passwords are stored as PBKDF2 hashes, never plaintext. SQLite stores the
-development account data, and ASP.NET data-protection keys are persisted in the
-same volume so sessions survive API container restarts.
+Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores
+account data, and ASP.NET data-protection keys are persisted in the `cscs-data`
+volume so sessions survive API container restarts.
 
 ## Notebook validation
 
