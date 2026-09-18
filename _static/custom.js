@@ -20,6 +20,82 @@
 
 console.log("Custom JS loaded!");
 
+// Convert appendix chapter numbers to letters (A, B, C ...)
+document.addEventListener('DOMContentLoaded', function () {
+    function toAlpha(n) { return String.fromCharCode(64 + parseInt(n, 10)); }
+    function convertNum(text) {
+        return text.replace(/^(\d+)(\.)/, function(_, n, dot) { return toAlpha(n) + dot; });
+    }
+
+    // 1. Sidebar links under the "Appendices" caption — text is plain "1. Title"
+    document.querySelectorAll('.caption-text').forEach(function(caption) {
+        if (caption.textContent.trim() !== 'Appendices') return;
+        var ul = caption.closest('p').nextElementSibling;
+        if (!ul) return;
+        ul.querySelectorAll('a.reference').forEach(function(a) {
+            a.childNodes.forEach(function(node) {
+                if (node.nodeType === Node.TEXT_NODE)
+                    node.textContent = convertNum(node.textContent);
+            });
+        });
+    });
+
+    // Detect appendix page: active sidebar list is under "Appendices"
+    var onAppendixPage = false;
+    document.querySelectorAll('.caption-text').forEach(function(caption) {
+        if (caption.textContent.trim() === 'Appendices') {
+            var ul = caption.closest('p').nextElementSibling;
+            if (ul && ul.classList.contains('current')) onAppendixPage = true;
+        }
+    });
+    if (!onAppendixPage) return;
+
+    // 2. Page headings: <span class="section-number">
+    document.querySelectorAll('.section-number').forEach(function(span) {
+        span.textContent = convertNum(span.textContent);
+    });
+
+    var headingSectionNumber = document.querySelector('h1 .section-number');
+    var appendixLetterMatch = headingSectionNumber && headingSectionNumber.textContent.match(/^([A-Z])\./);
+    if (appendixLetterMatch) {
+        var appendixLetter = appendixLetterMatch[1];
+        var figureLabelsByHash = {};
+        var figureCount = 0;
+
+        document.querySelectorAll('figure[id] figcaption .caption-number').forEach(function(span) {
+            if (!span.textContent.trim().match(/^Fig\./)) return;
+            var figure = span.closest('figure[id]');
+            if (!figure) return;
+
+            figureCount += 1;
+            var label = 'Fig. ' + appendixLetter + '.' + figureCount;
+            span.textContent = label + ' ';
+            figureLabelsByHash['#' + figure.id] = label;
+        });
+
+        document.querySelectorAll('a.reference.internal[href] .std-numref').forEach(function(span) {
+            var link = span.closest('a.reference.internal[href]');
+            var url;
+            try {
+                url = new URL(link.getAttribute('href'), window.location.href);
+            } catch (e) {
+                return;
+            }
+            if (url.pathname !== window.location.pathname) return;
+            if (!figureLabelsByHash[url.hash]) return;
+            span.textContent = figureLabelsByHash[url.hash];
+        });
+    }
+
+    // 3. Prev/next footer: only convert links pointing into /appendices/
+    document.querySelectorAll('.left-prev[href], .right-next[href]').forEach(function(a) {
+        if (a.href.includes('/appendices/'))
+            a.querySelectorAll('.section-number').forEach(function(span) {
+                span.textContent = convertNum(span.textContent);
+            });
+    });
+});
+
 // Filter noisy, non-actionable browser/extension errors from console output.
 (function setupConsoleNoiseFilter() {
     const originalError = console.error.bind(console);

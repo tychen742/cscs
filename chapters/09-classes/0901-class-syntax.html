@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>9.1. Class Syntax — Introduction to Computer Science in C#</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+<noscript>
+<style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=9c3e77be" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=7e7eac02" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/my-styles.css?v=300d08ac" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'chapters/09-classes/0901-class-syntax';</script>
+<script src="../../_static/custom.js?v=838f0cd8"></script>
+<script src="../../_static/execution.js?v=60875690"></script>
+<link href="../../_static/favicon.png" rel="icon"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="0902-properties.html" rel="next" title="9.2. Properties"/>
+<link href="0900-classes-intro.html" rel="prev" title="9. Classes"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../preface.html">
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
+</a></div>
+<div class="sidebar-primary-item">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">1. Getting Started with C#</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">1.1. Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">1.2. Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">1.3. C# Program Structure</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-context/assignments/index.html">1.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/preview.html">1.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/lab.html">1.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/review.html">1.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">2. Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">2.2. Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">2.3. Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">2.4. Input and Output</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../02-var_data/assignments/index.html">2.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/preview.html">2.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/lab.html">2.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/review.html">2.5.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">3. Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">3.2. Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">3.3. Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">3.4. Static Methods</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-methods/assignments/index.html">3.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/preview.html">3.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/lab.html">3.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/review.html">3.5.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">4. Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">4.1. Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">4.2. Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">4.3. Switch Statement</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-decision/assignments/index.html">4.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/preview.html">4.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/lab.html">4.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/review.html">4.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">5. Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">5.1. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">5.2. The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">5.4. While-Statements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05-iteration/assignments/index.html">5.6. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/preview.html">5.6.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/lab.html">5.6.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">5.6.3. Homework: Grade Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">5.6.4. Homework: Grade Calculation 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/review.html">5.6.5. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-arrays/0600-arrays-intro.html">6. Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-arrays/0601-onedim.html">6.1. 1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-arrays/0602-twodim.html">6.2. 2D &amp; ND Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../06-arrays/assignments/index.html">6.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/preview.html">6.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/lab.html">6.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/review.html">6.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-collections/0700-collections-intro.html">7. Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0701-collections.html">7.1. Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0702-list.html">7.2. List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0703-dictionary.html">7.3. Dictionary</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-collections/assignments/index.html">7.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/preview.html">7.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/lab.html">7.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/review.html">7.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-files-text/0800-files-text-intro.html">8. Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0801-stream-file.html">8.1. Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0802-file-operations.html">8.2. <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0803-text-operations.html">8.5. Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0806-regex.html">8.6. Regular Expressions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../08-files-text/assignments/index.html">8.7. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/preview.html">8.7.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/lab.html">8.7.2. Lab: Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/hw-gradefiles.html">8.7.4. Homework: Grade Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/review.html">8.7.5. Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="0900-classes-intro.html">9. Classes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.1. Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0902-properties.html">9.2. Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0903-class-instance.html">9.3. Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0904-operator-overloading.html">9.4. Operator Overloading</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="assignments/index.html">9.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="assignments/preview.html">9.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignments/lab.html">9.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignments/hw-booklist.html">9.5.3. Homework: Book List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignments/review.html">9.5.4. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-oop/1000-oop-intro.html">10. OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1001-intro-oop.html">10.1. Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1002-encapsulation.html">10.2. Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1003-inheritance.html">10.3. Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1004-polymorphism.html">10.4. Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1005-abstraction.html">10.5. Abstraction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../10-oop/assignments/index.html">10.6. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/preview.html">10.6.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/lab.html">10.6.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/review.html">10.6.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-datastructure/1100-datastructure-intro.html">11. Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-datastructure/1101-intro-ds.html">11.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-datastructure/1102-collection-examples.html">11.2. Data Structures</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-datastructure/assignments/index.html">11.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/preview.html">11.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/lab.html">11.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/review.html">11.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-algorithms/1200-algorithms-intro.html">12. Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1201-searching.html">12.1. Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1202-sorting.html">12.2. Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1203-complexity.html">12.3. Complexity</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-algorithms/assignments/index.html">12.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/preview.html">12.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/lab.html">12.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/review.html">12.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">13. Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">13.1. Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">13.2. Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">13.3. Unit Testing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../13-exceptions-testing/assignments/index.html">13.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">13.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">13.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">13.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-functional-patterns/1400-functional-patterns-intro.html">14. Functional Patterns</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1401-recursion.html">14.1.1. Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1402-lambdas.html">14.1.2. Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1403-linq.html">14.1.3. LINQ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../14-functional-patterns/assignments/index.html">14.1.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/preview.html">14.1.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/lab.html">14.1.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/review.html">14.1.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15-pattern-records/1500-pattern-records-intro.html">15. Pattern Matching &amp; Records</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-pattern-records/1501-pattern-matching.html">15.1. Pattern Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-pattern-records/1502-records.html">15.2. Record Types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../15-pattern-records/assignments/index.html">15.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../15-pattern-records/assignments/preview.html">15.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-pattern-records/assignments/lab.html">15.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-pattern-records/assignments/review.html">15.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../16-generics-async/1600-generics-async-intro.html">16. Generics, Nullability &amp; Async</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1601-nullable.html">16.1. Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1602-generics.html">16.2. Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1603-async.html">16.3. Async and Await</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../16-generics-async/assignments/index.html">16.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/preview.html">16.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/lab.html">16.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/review.html">16.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">1. Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">2. Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">3. Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">4. Index</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
+</div></div>
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<div class="dropdown dropdown-source-buttons">
+<button aria-expanded="false" aria-label="Source repositories" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fab fa-github"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm btn-source-repository-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="https://github.com/tychen742/cscs" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+<li><a class="btn btn-sm btn-source-edit-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="https://github.com/tychen742/cscs/edit/main/./chapters/09-classes/0901-class-syntax.ipynb" target="_blank" title="Suggest edit">
+<span class="btn__icon-container">
+<i class="fas fa-pencil-alt"></i>
+</span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="dropdown dropdown-download-buttons">
+<button aria-expanded="false" aria-label="Download this page" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-download"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm btn-download-source-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="../../_sources/chapters/09-classes/0901-class-syntax.ipynb" target="_blank" title="Download source file">
+<span class="btn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+<li>
+<button class="btn btn-sm btn-download-pdf-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" onclick="window.print()" title="Print to PDF">
+<span class="btn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+</ul>
+</div>
+<button class="btn btn-sm btn-fullscreen-button pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button>
+<button aria-label="Search" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Class Syntax</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="c91dd9d6" data-cscs-cell-index="1" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#overview">9.1.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="3004c5e4" data-cscs-cell-index="2" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#declaring-classes">9.1.2. Declaring Classes</a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="6d3aa324" data-cscs-cell-index="3" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#using-a-class">9.1.3. Using a Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">9.1.4. Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-classes-methods">9.1.5. Static Classes &amp; Methods</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section id="class-syntax">
+<span id="class"></span><span id="index-0"></span><h1><span class="section-number">9.1. </span>Class Syntax<a class="headerlink" href="#class-syntax" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">9.1.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>To understand class and object-oriented programming (OOP), some important basic concepts learn first inlcude:</p>
+<ul class="simple">
+<li><p><strong>Class</strong>: A class is a blueprint, prototype, or template.</p></li>
+<li><p><strong>Class Members</strong>: In C#, a class contains members, which include <strong>fields</strong>, properties, <strong>methods</strong>, and events.</p></li>
+<li><p><strong>Class Instance</strong>: An <code class="docutils literal notranslate"><span class="pre">object</span></code> is an <code class="docutils literal notranslate"><span class="pre">instance</span></code> of a class. Namely, an object is created based on a
+class and therefore is an instance of that class. An object can be created using the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword.</p></li>
+</ul>
+<p>There are related terminology that you will see about class and OOP:</p>
+<ul class="simple">
+<li><p><strong>Field</strong>: A field is a variable of any type that is declared directly in a class or struct. Fields are
+members of their containing type. A field stores a piece of data within an object. It acts like a
+variable and may have a different value for each instance of a type. [1]</p></li>
+<li><p><strong>Property</strong>: Properties expose fields. Fields should (almost always) be kept private to a class and accessed via
+get and set properties.</p></li>
+<li><p>The <strong>this</strong> Keyword: In C#, the this keyword refers to the current instance of a class.</p></li>
+<li><p><strong>Reference Types</strong>: A type that is defined as a class is a reference type. Other types include: interface, struct, delegate, or enum.</p></li>
+<li><p><strong>Constructor</strong>: In C#, a constructor is called when an object is created to set default values. A constructor must have the
+<strong>same name</strong> as the enclosing class. Using constructor is not obligatory in C#. If no constructors are specified in a class, the compiler
+automatically creates a parameterless constructor.</p></li>
+</ul>
+</section>
+<section id="declaring-classes">
+<h2><span class="section-number">9.1.2. </span>Declaring Classes<a class="headerlink" href="#declaring-classes" title="Link to this heading">#</a></h2>
+<p>To declare a class, you need to use the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword and give a unique <code class="docutils literal notranslate"><span class="pre">identifier</span></code> (name) to the class. For example,
+you want to create a customer class to include some data and methods in one unit:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// [access modifier] - [class] - [identifier]</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Customer</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// Fields, properties, methods and events go here...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Attributes to be considered when creating a class include:</p>
+<ul class="simple">
+<li><p>Access Modifiers: The default access for a class type is internal. Basic levels of access for a class include [2] :</p>
+<ul>
+<li><p><strong>public</strong>: Access is not restricted. Anyone code can create instances of this class.</p></li>
+<li><p><strong>protected</strong>: Access is limited to the containing class or types derived from the containing class.</p></li>
+<li><p><strong>internal</strong>: Access is limited to the current assembly. [3]</p></li>
+<li><p><strong>private</strong>: Access is limited to the containing type.</p></li>
+</ul>
+</li>
+<li><p>Class Identifier: A unique name for the class. An identifier is the name you assign to a type (class, interface, struct, delegate, or enum),
+member, variable, or namespace. An identifier begins with a letter or underscore. As a convention, use PascalCase for class names and method names.</p></li>
+<li><p>Class Body: The class body is surrounded by { }. The behavior and data are defined in the class body, including <strong>fields</strong>, properties, <strong>methods</strong>, and events on a class and
+are collectively referred to as <strong>class members</strong>.</p></li>
+<li><p>Base Class or Super Class: Optional. Name of the class’s superclass; preceded by a colon (:).</p></li>
+<li><p>Interfaces: Interface names implemented by the class; preceded by a colon (:).</p></li>
+</ul>
+</section>
+<section id="using-a-class">
+<h2><span class="section-number">9.1.3. </span>Using a Class<a class="headerlink" href="#using-a-class" title="Link to this heading">#</a></h2>
+<p>In the following example, there is a class called <code class="docutils literal notranslate"><span class="pre">Program</span></code> with a Main method. We define another class
+called <code class="docutils literal notranslate"><span class="pre">DoMath</span></code> and then, in the Main method of the Program class, 1) instantiate an object of the DoMath class by
+using the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword and 2) use the dot notation (<code class="docutils literal notranslate"><span class="pre">.</span></code>) to access a method defined in DoMath:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>internal class Program
+{
+   static void Main(string[] args)
+   {
+      DoMath doMath = new DoMath();    // create an object using the new keyword
+      int aSum = doMath.Sum(2, 2);     // use the [object].[method] syntax to use the methods
+      Console.WriteLine(aSum);         // output 4
+   }
+}
+
+class DoMath                           // class accessability level is default to internal
+{
+   public int Sum(int num1, int num2)
+   {
+      var total = num1 + num2;
+      return total;
+   }
+}
+</pre></div>
+</div>
+<p>In addition to store data as local variables and call methods in the same class,
+now we have alternatives for storing and accessing data in the methods within
+a new class that we write. Just like using the <code class="docutils literal notranslate"><span class="pre">UI</span></code> class or <code class="docutils literal notranslate"><span class="pre">Random</span></code> class, we
+now can better design, extend, and organize program functionalities.</p>
+<p>When you use classes like StreamReader, you create a new StreamReader object using the <code class="docutils literal notranslate"><span class="pre">new</span></code>
+keyword and then use the <code class="docutils literal notranslate"><span class="pre">ReadLine</span></code> method (example in csharprepl):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; StreamReader reader = new StreamReader("ui.cs");
+&gt; string line = reader.ReadLine();
+&gt; line
+"using System;"
+&gt;
+</pre></div>
+</div>
+<p>As you can see, we are using the <code class="docutils literal notranslate"><span class="pre">member</span> <span class="pre">access</span> <span class="pre">operator</span> <span class="pre">(.)</span></code> to access a member
+of a namespace or a type. Calls to instance methods are always attached to a specific object.
+That has always been the part through the <code class="docutils literal notranslate"><span class="pre">.</span></code> of</p>
+<blockquote>
+<div><p><em>object</em><code class="docutils literal notranslate"><span class="pre">.</span></code><em>method</em><code class="docutils literal notranslate"><span class="pre">(</span></code> … <code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+</div></blockquote>
+<span class="target" id="index-1"></span></section>
+<section id="constructors">
+<span id="index-2"></span><h2><span class="section-number">9.1.4. </span>Constructors<a class="headerlink" href="#constructors" title="Link to this heading">#</a></h2>
+<p>The constructor is a special method in the class:</p>
+<ol class="arabic simple">
+<li><p>Its <code class="docutils literal notranslate"><span class="pre">name</span></code> is the same as the name of its type. For example, if we create a class named <code class="docutils literal notranslate"><span class="pre">Contact</span></code>, then the
+constructor method is also called <code class="docutils literal notranslate"><span class="pre">Contact</span></code>.</p></li>
+<li><p>Its method <code class="docutils literal notranslate"><span class="pre">signature</span></code> includes only an optional access modifier, the method name, and its parameter list</p></li>
+<li><p>Its method <code class="docutils literal notranslate"><span class="pre">signature</span></code> has <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">return</span> <span class="pre">type</span></code> (and <em>no</em> <code class="docutils literal notranslate"><span class="pre">static</span></code>). Implicitly you are creating a default object from the class.</p></li>
+<li><p>The constructor can have parameters like a regular method. That means giving values to its fields. For example,
+you may want to store this <em>state</em> (the current condition of a system, such as the values of the variables) in
+instance variables <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">phone</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> if you are creating a Contact type:</p></li>
+</ol>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="w">      </span><span class="k">public</span><span class="w"> </span><span class="nf">Contact</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">phoneNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">emailAddress</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
+<span class="w">         </span><span class="n">phone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phoneNumber</span><span class="p">;</span>
+<span class="w">         </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emailAddress</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>While the local variables in the formal parameters disappear after the constructor terminates,
+we want the data to live on as the state of the object. In order to remember state after the
+constructor terminates, we must <em>make sure the information gets into the instance variables</em>
+for the object. This is the basic operation of most constructors: Copy desired formal
+parameters in to initialize the state in the fields. That is all our simple
+code above does.</p>
+<p>To further explain how constructors work, take a look at the following code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>internal class Program
+{
+   static void Main(string[] args)
+   {
+      CheckID check = new CheckID("taylor swift");
+   }
+}
+
+class CheckID
+{
+   public string name;           // this is an instance field (variable)
+   public CheckID(string name)
+   {
+      this.name = name;          // The "this" keyword refers to the current instance of the class
+   }
+
+   public void PrintResult()
+   {
+      // ... if ID for this name exists ...
+      Console.WriteLine($"{name} has an existing ID!"); // using the "name" variable in method
+   }                             // output "taylor swift has an existing ID!"
+   // ....
+   // ....
+}
+</pre></div>
+</div>
+</section>
+<section id="static-classes-methods">
+<span id="index-3"></span><h2><span class="section-number">9.1.5. </span>Static Classes &amp; Methods<a class="headerlink" href="#static-classes-methods" title="Link to this heading">#</a></h2>
+<p>In some conditions you may want to create <strong>static classes</strong> that provide static methods without
+instantiation. That means you do not need to use the <code class="docutils literal notranslate"><span class="pre">new</span></code> operator keyword to create a variable
+of the class type. Also, without the class instance variable, you access the members of a static
+class by using the class name itself. For example, if you have a static class called SomeMath:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>static class SomeMath
+{
+   public static int Sum(int a, int b)    // a public static method
+   {
+      return a + b;
+   }
+}
+</pre></div>
+</div>
+<p>To use the Sum method in the SomeMath class, you call it directly without creating a new object:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>internal class Program
+{
+   static void Main(string[] args)
+   {
+      int aSum = SomeMath.Sum(2, 2);
+      Console.WriteLine(aSum);      // output 4
+   }
+}
+</pre></div>
+</div>
+<p>As another example, in the .NET Class Library, the <code class="docutils literal notranslate"><span class="pre">static</span></code> <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.math">System.Math</a>
+class contains methods that perform mathematical operations, without any requirement to store or
+retrieve data that is unique to a particular instance of the <a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.math">Math</a>
+class. You can use the math methods directly in your code by referring to the static class name <code class="docutils literal notranslate"><span class="pre">Math</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>double dub = -3.14;
+Console.WriteLine(Math.Abs(dub));               // 3.14
+Console.WriteLine(Math.Floor(dub));             // -4
+Console.WriteLine(Math.Round(Math.Abs(dub)));   // 3
+</pre></div>
+</div>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/09-classes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = '.net-csharp'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="0900-classes-intro.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title"><span class="section-number">9. </span>Classes</p>
+</div>
+</a>
+<a class="right-next" href="0902-properties.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title"><span class="section-number">9.2. </span>Properties</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item"><div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav aria-labelledby="pst-page-navigation-heading-2" class="page-toc" id="pst-page-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-classes">9.1.2. Declaring Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-class">9.1.3. Using a Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructors">9.1.4. Constructors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-classes-methods">9.1.5. Static Classes &amp; Methods</a></li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>

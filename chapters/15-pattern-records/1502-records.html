@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>15.2. Record Types — Introduction to Computer Science in C#</title>
+<script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+<!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+<noscript>
+<style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+</noscript>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet"/>
+<link href="../../_static/pygments.css?v=03e43079" rel="stylesheet" type="text/css"/>
+<link href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" rel="stylesheet" type="text/css"/>
+<link href="../../_static/togglebutton.css?v=9c3e77be" rel="stylesheet" type="text/css"/>
+<link href="../../_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-thebe.css?v=4fa983c6" rel="stylesheet" type="text/css"/>
+<link href="../../_static/sphinx-design.min.css?v=95c83b7e" rel="stylesheet" type="text/css"/>
+<link href="../../_static/custom.css?v=7e7eac02" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/my-styles.css?v=300d08ac" rel="stylesheet" type="text/css"/>
+<!-- So that users can add custom icons -->
+<script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" rel="preload"/>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="../../_static/copybutton.js?v=f281be69"></script>
+<script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script src="../../_static/design-tabs.js?v=f930bc37"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+<script>DOCUMENTATION_OPTIONS.pagename = 'chapters/15-pattern-records/1502-records';</script>
+<script src="../../_static/custom.js?v=838f0cd8"></script>
+<script src="../../_static/execution.js?v=60875690"></script>
+<link href="../../_static/favicon.png" rel="icon"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="assignments/index.html" rel="next" title="15.3. Assignments"/>
+<link href="1501-pattern-matching.html" rel="prev" title="15.1. Pattern Matching"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+<meta content="" name="docsearch:version"/>
+</head>
+<body data-bs-root-margin="0px 0px -60%" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-default-mode="" data-offset="180">
+<div class="skip-link d-print-none" id="pst-skip-link"><a href="#main-content">Skip to main content</a></div>
+<div id="pst-scroll-pixel-helper"></div>
+<button class="btn rounded-pill" id="pst-back-to-top" type="button">
+<i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<dialog id="pst-search-dialog">
+<form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search this book..." autocapitalize="off" autocomplete="off" autocorrect="off" class="form-control" name="q" placeholder="Search this book..." spellcheck="false" type="search"/>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+</dialog>
+<div class="pst-async-banner-revealer d-none">
+<aside aria-label="Version warning" class="d-none d-print-none" id="bd-header-version-warning"></aside>
+</div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+</header>
+<div class="bd-container">
+<div class="bd-container__inner bd-page-width">
+<dialog id="pst-primary-sidebar-modal"></dialog>
+<div class="bd-sidebar-primary bd-sidebar" id="pst-primary-sidebar">
+<div class="sidebar-header-items sidebar-primary__section">
+</div>
+<div class="sidebar-primary-items__start sidebar-primary__section">
+<div class="sidebar-primary-item">
+<a class="navbar-brand logo" href="../../preface.html">
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-light" src="../../_static/logo.svg"/>
+<img alt="Introduction to Computer Science in C# - Home" class="logo__image only-dark pst-js-only" src="../../_static/logo.svg"/>
+</a></div>
+<div class="sidebar-primary-item">
+<button aria-label="Search" class="btn search-button-field search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span class="search-button__default-text">Search</span>
+<span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+<div class="sidebar-primary-item"><nav aria-label="Main" class="bd-links bd-docs-nav">
+<div class="bd-toc-item navbar-nav active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../preface.html">
+                    Think CS in C#
+                </a>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-context/0100-context-intro.html">1. Getting Started with C#</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0101-cs_ideas.html">1.1. Computing Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0102-dev_tools.html">1.2. Development Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-context/0103-program_structure.html">1.3. C# Program Structure</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-context/assignments/index.html">1.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/preview.html">1.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/lab.html">1.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-context/assignments/review.html">1.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-var_data/0200-var_type-intro.html">2. Variables &amp; Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0201-variables.html">2.1. Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0202-data_types.html">2.2. Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0203-operators.html">2.3. Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-var_data/0206-input_output.html">2.4. Input and Output</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../02-var_data/assignments/index.html">2.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/preview.html">2.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/lab.html">2.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-var_data/assignments/review.html">2.5.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-methods/0300-methods-intro.html">3. Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0301-intro-methods.html">3.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0302-signature_call.html">3.2. Designing Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0303-parameter.html">3.3. Method Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-methods/0304-summary.html">3.4. Static Methods</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-methods/assignments/index.html">3.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/preview.html">3.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/lab.html">3.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-methods/assignments/review.html">3.5.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-decision/0400-decision-intro.html">4. Conditionals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0401-intro-decision.html">4.1. Boolean Expressions &amp; Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0402-ifstatement.html">4.2. Conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-decision/0406-switch.html">4.3. Switch Statement</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-decision/assignments/index.html">4.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/preview.html">4.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/lab.html">4.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-decision/assignments/review.html">4.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-iteration/0500-iteration-intro.html">5. Iteration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0501-iteration.html">5.1. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0502-for-statements.html">5.2. The <code class="docutils literal notranslate"><span class="pre">for</span></code> Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-iteration/0503-while-statement.html">5.4. While-Statements</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../05-iteration/assignments/index.html">5.6. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/preview.html">5.6.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/lab.html">5.6.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation.html">5.6.3. Homework: Grade Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/homework-gradecalculation2.html">5.6.4. Homework: Grade Calculation 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05-iteration/assignments/review.html">5.6.5. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Data and I/O</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-arrays/0600-arrays-intro.html">6. Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-arrays/0601-onedim.html">6.1. 1D Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-arrays/0602-twodim.html">6.2. 2D &amp; ND Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../06-arrays/assignments/index.html">6.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/preview.html">6.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/lab.html">6.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06-arrays/assignments/review.html">6.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-collections/0700-collections-intro.html">7. Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0701-collections.html">7.1. Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0702-list.html">7.2. List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-collections/0703-dictionary.html">7.3. Dictionary</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-collections/assignments/index.html">7.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/preview.html">7.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/lab.html">7.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-collections/assignments/review.html">7.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-files-text/0800-files-text-intro.html">8. Files and Text</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0801-stream-file.html">8.1. Files As Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0802-file-operations.html">8.2. <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0803-text-operations.html">8.5. Text Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-files-text/0806-regex.html">8.6. Regular Expressions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../08-files-text/assignments/index.html">8.7. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/preview.html">8.7.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/lab.html">8.7.2. Lab: Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/hw-gradefiles.html">8.7.4. Homework: Grade Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08-files-text/assignments/review.html">8.7.5. Chapter Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Object-Oriented</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-classes/0900-classes-intro.html">9. Classes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-classes/0901-class-syntax.html">9.1. Class Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-classes/0902-properties.html">9.2. Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-classes/0903-class-instance.html">9.3. Class Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-classes/0904-operator-overloading.html">9.4. Operator Overloading</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../09-classes/assignments/index.html">9.5. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../09-classes/assignments/preview.html">9.5.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-classes/assignments/lab.html">9.5.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-classes/assignments/hw-booklist.html">9.5.3. Homework: Book List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09-classes/assignments/review.html">9.5.4. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-oop/1000-oop-intro.html">10. OOP Principles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1001-intro-oop.html">10.1. Introduction: OOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1002-encapsulation.html">10.2. Encapsulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1003-inheritance.html">10.3. Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1004-polymorphism.html">10.4. Polymorphism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-oop/1005-abstraction.html">10.5. Abstraction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../10-oop/assignments/index.html">10.6. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/preview.html">10.6.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/lab.html">10.6.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-oop/assignments/review.html">10.6.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. DSA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-datastructure/1100-datastructure-intro.html">11. Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-datastructure/1101-intro-ds.html">11.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-datastructure/1102-collection-examples.html">11.2. Data Structures</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-datastructure/assignments/index.html">11.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/preview.html">11.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/lab.html">11.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-datastructure/assignments/review.html">11.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-algorithms/1200-algorithms-intro.html">12. Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1201-searching.html">12.1. Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1202-sorting.html">12.2. Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-algorithms/1203-complexity.html">12.3. Complexity</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-algorithms/assignments/index.html">12.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/preview.html">12.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/lab.html">12.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-algorithms/assignments/review.html">12.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part V. Advanced Topics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../13-exceptions-testing/1300-exceptions-debugging-intro.html">13. Exceptions &amp; Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1301-error-handling.html">13.1. Error Handling and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1302-debugging-workflow.html">13.2. Debugging Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13-exceptions-testing/1303-testing.html">13.3. Unit Testing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../13-exceptions-testing/assignments/index.html">13.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/preview.html">13.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/lab.html">13.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13-exceptions-testing/assignments/review.html">13.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-functional-patterns/1400-functional-patterns-intro.html">14. Functional Patterns</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1401-recursion.html">14.1.1. Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1402-lambdas.html">14.1.2. Lambda Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14-functional-patterns/1403-linq.html">14.1.3. LINQ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../14-functional-patterns/assignments/index.html">14.1.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/preview.html">14.1.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/lab.html">14.1.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14-functional-patterns/assignments/review.html">14.1.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children cscs-markdown-cell" data-cscs-cell-id="rec00" data-cscs-cell-index="0" data-cscs-cell-type="markdown"><a class="reference internal" href="1500-pattern-records-intro.html">15. Pattern Matching &amp; Records</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1501-pattern-matching.html">15.1. Pattern Matching</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">15.2. Record Types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="assignments/index.html">15.3. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="assignments/preview.html">15.3.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignments/lab.html">15.3.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignments/review.html">15.3.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../16-generics-async/1600-generics-async-intro.html">16. Generics, Nullability &amp; Async</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1601-nullable.html">16.1. Nullable Types and Null Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1602-generics.html">16.2. Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../16-generics-async/1603-async.html">16.3. Async and Await</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../16-generics-async/assignments/index.html">16.4. Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/preview.html">16.4.1. Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/lab.html">16.4.2. Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../16-generics-async/assignments/review.html">16.4.3. Review</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendices/resources.html">1. Useful Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/command-line.html">2. Command Line Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/project.html">3. Group Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/cs-index.html">4. Index</a></li>
+</ul>
+</div>
+</nav></div>
+</div>
+<div class="sidebar-primary-items__end sidebar-primary__section">
+<div class="sidebar-primary-item">
+<div class="flat" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="ethical-ad-placement">
+</div></div>
+</div>
+</div>
+<main class="bd-main" id="main-content" role="main">
+<div class="sbt-scroll-pixel-helper"></div>
+<div class="bd-content">
+<div class="bd-article-container">
+<div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+<div class="header-article-items__start">
+<div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle primary sidebar">
+<span class="fa-solid fa-bars"></span>
+</button></div>
+</div>
+<div class="header-article-items__end">
+<div class="header-article-item">
+<div class="article-header-buttons">
+<div class="dropdown dropdown-source-buttons">
+<button aria-expanded="false" aria-label="Source repositories" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fab fa-github"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm btn-source-repository-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="https://github.com/tychen742/cscs" target="_blank" title="Source repository">
+<span class="btn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+<li><a class="btn btn-sm btn-source-edit-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="https://github.com/tychen742/cscs/edit/main/./chapters/15-pattern-records/1502-records.ipynb" target="_blank" title="Suggest edit">
+<span class="btn__icon-container">
+<i class="fas fa-pencil-alt"></i>
+</span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="dropdown dropdown-download-buttons">
+<button aria-expanded="false" aria-label="Download this page" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+<i class="fas fa-download"></i>
+</button>
+<ul class="dropdown-menu">
+<li><a class="btn btn-sm btn-download-source-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" href="../../_sources/chapters/15-pattern-records/1502-records.ipynb" target="_blank" title="Download source file">
+<span class="btn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+<li>
+<button class="btn btn-sm btn-download-pdf-button dropdown-item" data-bs-placement="left" data-bs-toggle="tooltip" onclick="window.print()" title="Print to PDF">
+<span class="btn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+</ul>
+</div>
+<button class="btn btn-sm btn-fullscreen-button pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="btn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<button aria-label="Color mode" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" data-bs-placement="bottom" data-bs-title="Color mode" data-bs-toggle="tooltip">
+<i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+<i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+<i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+</button>
+<button aria-label="Search" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Search">
+<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Toggle secondary sidebar">
+<span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+</div>
+</div>
+</div>
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Record Types</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell cscs-markdown-cell cscs-markdown-cell cscs-markdown-cell" data-cscs-cell-id="rec06" data-cscs-cell-index="6" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#what-record-gives-you">15.2.1. What <code class="docutils literal notranslate"><span class="pre">record</span></code> Gives You</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-based-equality">15.2.1.1. Value-Based Equality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-expressions">15.2.1.2. <code class="docutils literal notranslate"><span class="pre">with</span></code> Expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deconstruction">15.2.1.3. Deconstruction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="rec08" data-cscs-cell-index="8" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#positional-vs-standard-records">15.2.2. Positional vs. Standard Records</a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="init00" data-cscs-cell-index="9" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#init-only-properties">15.2.3. Init-Only Properties</a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="rec09" data-cscs-cell-index="12" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#record-struct">15.2.4. <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="rec10" data-cscs-cell-index="13" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#record-vs-class-vs-struct">15.2.5. <code class="docutils literal notranslate"><span class="pre">record</span></code> vs. <code class="docutils literal notranslate"><span class="pre">class</span></code> vs. <code class="docutils literal notranslate"><span class="pre">struct</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry cscs-markdown-cell" data-cscs-cell-id="rec11" data-cscs-cell-index="14" data-cscs-cell-type="markdown"><a class="reference internal nav-link" href="#practice">15.2.6. Practice</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div id="searchbox"></div>
+<article class="bd-article">
+<section id="record-types">
+<h1><span class="section-number">15.2. </span>Record Types<a class="headerlink" href="#record-types" title="Link to this heading">#</a></h1>
+<p>If you have ever grouped values together without writing a full class — for example with a tuple —
+<code class="docutils literal notranslate"><span class="pre">record</span></code> will feel familiar. Here we look at what <code class="docutils literal notranslate"><span class="pre">record</span></code> actually provides and when to prefer it over a <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p>
+<section id="what-record-gives-you">
+<h2><span class="section-number">15.2.1. </span>What <code class="docutils literal notranslate"><span class="pre">record</span></code> Gives You<a class="headerlink" href="#what-record-gives-you" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">record</span></code> is a reference type (like a <code class="docutils literal notranslate"><span class="pre">class</span></code>) with four things added automatically:</p>
+<ol class="arabic simple">
+<li><p><strong>Value-based equality</strong> — two records are equal if all their properties are equal</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></strong> — prints all property values readably</p></li>
+<li><p><strong>Deconstruction</strong> — unpack into variables like a tuple</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">with</span></code> expressions</strong> — create a copy with selected properties changed</p></li>
+</ol>
+<section id="value-based-equality">
+<h3><span class="section-number">15.2.1.1. </span>Value-Based Equality<a class="headerlink" href="#value-based-equality" title="Link to this heading">#</a></h3>
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="rec03" data-cscs-cell-index="3" data-cscs-cell-type="code">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="nf">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">   </span><span class="c1">// True  — same values</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">   </span><span class="c1">// False</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">        </span><span class="c1">// Point { X = 1, Y = 2 }</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="with-expressions">
+<h3><span class="section-number">15.2.1.2. </span><code class="docutils literal notranslate"><span class="pre">with</span></code> Expressions<a class="headerlink" href="#with-expressions" title="Link to this heading">#</a></h3>
+<p>Create a modified copy without mutating the original.</p>
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="rec05" data-cscs-cell-index="5" data-cscs-cell-type="code">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Age</span><span class="p">);</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">alice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">olderAlice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alice</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">alice</span><span class="p">);</span><span class="w">       </span><span class="c1">// Person { Name = Alice, Age = 30 }</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">olderAlice</span><span class="p">);</span><span class="w">  </span><span class="c1">// Person { Name = Alice, Age = 31 }</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">alice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">olderAlice</span><span class="p">);</span><span class="w">  </span><span class="c1">// False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deconstruction">
+<h3><span class="section-number">15.2.1.3. </span>Deconstruction<a class="headerlink" href="#deconstruction" title="Link to this heading">#</a></h3>
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="rec07" data-cscs-cell-index="7" data-cscs-cell-type="code">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="nf">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"x={x}, y={y}"</span><span class="p">);</span><span class="w">  </span><span class="c1">// x=3, y=7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="positional-vs-standard-records">
+<h2><span class="section-number">15.2.2. </span>Positional vs. Standard Records<a class="headerlink" href="#positional-vs-standard-records" title="Link to this heading">#</a></h2>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Positional — compact; properties are init-only</span>
+<span class="k">record</span><span class="w"> </span><span class="nf">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span>
+
+<span class="c1">// Standard — more control over property visibility/mutability</span>
+<span class="k">record</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">Age</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use <strong>positional</strong> for immutable value-like data (coordinates, domain events, DTO return values). Use <strong>standard</strong> when some properties need to be mutable.</p>
+</section>
+<section id="init-only-properties">
+<h2><span class="section-number">15.2.3. </span>Init-Only Properties<a class="headerlink" href="#init-only-properties" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">init</span></code> is like <code class="docutils literal notranslate"><span class="pre">set</span></code>, but only callable during object construction. It makes individual properties settable at creation time while remaining immutable afterward — without needing a positional record.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">Age</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is what the compiler generates automatically for positional record properties.</p>
+<div class="cell docutils container cscs-code-cell" data-cscs-cell-id="init01" data-cscs-cell-index="10" data-cscs-cell-type="code">
+<div class="cell_input docutils container">
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="n">Person</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">Age</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">};</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w">  </span><span class="c1">// Person { Name = Alice, Age = 30 }</span>
+
+<span class="c1">// p.Age = 31;  // compile error — init-only after construction</span>
+
+<span class="c1">// Works fine in object initializer:</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// creates a copy</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">q</span><span class="p">);</span><span class="w">  </span><span class="c1">// Person { Name = Alice, Age = 31 }</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p class="cscs-markdown-cell" data-cscs-cell-id="init02" data-cscs-cell-index="11" data-cscs-cell-type="markdown">Init-only properties are also common in regular classes when you want immutable-after-creation semantics without making the whole type a record:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Config</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Host</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"localhost"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">Port</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">init</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8080</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="record-struct">
+<h2><span class="section-number">15.2.4. </span><code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code><a class="headerlink" href="#record-struct" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code> gives the same conveniences on a <em>value type</em> — allocated on the stack, copied on assignment.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">record</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nf">Size</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Height</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Prefer <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code> for tiny, frequently-created data (e.g., 2D coordinates in a game loop). Prefer <code class="docutils literal notranslate"><span class="pre">record</span></code> (class) for everything else.</p>
+</section>
+<section id="record-vs-class-vs-struct">
+<h2><span class="section-number">15.2.5. </span><code class="docutils literal notranslate"><span class="pre">record</span></code> vs. <code class="docutils literal notranslate"><span class="pre">class</span></code> vs. <code class="docutils literal notranslate"><span class="pre">struct</span></code><a class="headerlink" href="#record-vs-class-vs-struct" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">class</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">record</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">struct</span></code> / <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Equality</p></td>
+<td><p>Reference</p></td>
+<td><p>Value</p></td>
+<td><p>Value</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">with</span></code> expression</p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Auto <code class="docutils literal notranslate"><span class="pre">ToString</span></code></p></td>
+<td><p>✗</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heap allocated</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><p>✗</p></td>
+</tr>
+<tr class="row-even"><td><p>Inheritance</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><p>✗</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">record</span></code> when your type is primarily <strong>data</strong> — no complex behaviour, identity does not matter, immutability is preferred.</p>
+</section>
+<section id="practice">
+<h2><span class="section-number">15.2.6. </span>Practice<a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">Temperature(double</span> <span class="pre">Celsius)</span></code> and add a computed property <code class="docutils literal notranslate"><span class="pre">Fahrenheit</span></code>. Print two equal temperatures and verify <code class="docutils literal notranslate"><span class="pre">==</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">with</span></code>, create a sequence: start with <code class="docutils literal notranslate"><span class="pre">Person("Bob",</span> <span class="pre">20)</span></code>, then produce versions at age 21, 22, 23 without mutation.</p></li>
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span> <span class="pre">Vector2(float</span> <span class="pre">X,</span> <span class="pre">float</span> <span class="pre">Y)</span></code> and write an <code class="docutils literal notranslate"><span class="pre">Add</span></code> method that returns a new <code class="docutils literal notranslate"><span class="pre">Vector2</span></code>.</p></li>
+</ol>
+<p class="rubric">Footnotes</p>
+</section>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-csharp"
+        },
+        kernelOptions: {
+            name: ".net-csharp",
+            path: "./chapters/15-pattern-records"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = '.net-csharp'</script>
+</article>
+<footer class="prev-next-footer d-print-none">
+<div class="prev-next-area">
+<a class="left-prev" href="1501-pattern-matching.html" title="previous page">
+<i class="fa-solid fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title"><span class="section-number">15.1. </span>Pattern Matching</p>
+</div>
+</a>
+<a class="right-next" href="assignments/index.html" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title"><span class="section-number">15.3. </span>Assignments</p>
+</div>
+<i class="fa-solid fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+<dialog id="pst-secondary-sidebar-modal"></dialog>
+<div class="bd-sidebar-secondary bd-toc" id="pst-secondary-sidebar"><div class="sidebar-secondary-items sidebar-secondary__inner">
+<div class="sidebar-secondary-item"><div class="page-toc tocsection onthispage" id="pst-page-navigation-heading-2">
+<i class="fa-solid fa-list"></i> Contents
+  </div>
+<nav aria-labelledby="pst-page-navigation-heading-2" class="page-toc" id="pst-page-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-record-gives-you">15.2.1. What <code class="docutils literal notranslate"><span class="pre">record</span></code> Gives You</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-based-equality">15.2.1.1. Value-Based Equality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-expressions">15.2.1.2. <code class="docutils literal notranslate"><span class="pre">with</span></code> Expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deconstruction">15.2.1.3. Deconstruction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-vs-standard-records">15.2.2. Positional vs. Standard Records</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-only-properties">15.2.3. Init-Only Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#record-struct">15.2.4. <code class="docutils literal notranslate"><span class="pre">record</span> <span class="pre">struct</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#record-vs-class-vs-struct">15.2.5. <code class="docutils literal notranslate"><span class="pre">record</span></code> vs. <code class="docutils literal notranslate"><span class="pre">class</span></code> vs. <code class="docutils literal notranslate"><span class="pre">struct</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice">15.2.6. Practice</a></li>
+</ul>
+</nav></div>
+</div></div>
+</div>
+<footer class="bd-footer-content">
+<div class="bd-footer-content__inner container">
+<div class="footer-item">
+<p class="component-author">
+By Tsangyao Chen, Ph.D.
+</p>
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+<div class="footer-item">
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script defer="" src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer="" src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+<footer class="bd-footer">
+</footer>
+</body>
+</html>
