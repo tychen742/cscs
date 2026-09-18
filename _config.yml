@@ -20,6 +20,8 @@ parse:
     if_else_if: "`if`-`else`-`if`"
     do_while: "`do`-`while`"
     vscode: "Visual Studio Code"
+    vscode_toggle: "View > Appearance > Panel"
+    vscode_terminal: "Terminal"
     repsrc: "https://github.com/tychen742/cscs/tree/main/examples"
     # repsrc: "examples"  # local copy of repo examples
 
@@ -93,4 +95,3 @@ sphinx:
       .. |do-while| replace:: ``do``\ -``while``
 
       .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples
-
