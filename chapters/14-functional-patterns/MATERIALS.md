@@ -1,4 +1,8 @@
-# Chapter Materials — Selected Topics
+# Chapter Materials — Functional Patterns
+
+## Landing Page
+
+- `1400-functional-patterns-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

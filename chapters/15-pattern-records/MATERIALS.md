@@ -1,25 +1,23 @@
-# Chapter Materials — Modern C#
+# Chapter Materials — Pattern Matching & Records
 
 ## Landing Page
 
-- `1500-modern-csharp-intro.ipynb` — Chapter landing page
+- `1500-pattern-records-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
 - `1501-pattern-matching.ipynb` — Pattern matching
 - `1502-records.ipynb` — Records
-- `1503-nullable.ipynb` — Nullable reference types
-- `1504-generics.ipynb` — Generics
-- `1505-async.ipynb` — Async / await
 
 ## Assignments
 
-- `assignments/1508-lab-solutions.ipynb` — 1508 Lab Solutions
 - `assignments/index.ipynb` — Index
 - `assignments/lab.ipynb` — Lab
+- `assignments/lab-solutions.ipynb` — Lab solutions (not in TOC; instructor reference)
 - `assignments/preview.ipynb` — Preview
 - `assignments/review.ipynb` — Review
 
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+- Split from the former "Modern C#" chapter (2026-09-18): nullable, generics, and async/await moved to Ch.16.

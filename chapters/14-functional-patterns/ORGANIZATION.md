@@ -1,4 +1,4 @@
-# Chapter Organization — Selected Topics
+# Chapter Organization — Functional Patterns
 
 ## Learning Objectives
 

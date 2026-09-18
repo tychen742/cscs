@@ -33,7 +33,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Preferred 3 content section notebooks per chapter (one per class meeting)
 - Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
 - Each chapter has `assignments/` subfolder with `index`, `preview`, `lab`, `review`, and `project` notebooks
-- Chapter sequence is ch01–ch15; project instructions live in `chapters/appendices/`
+- Chapter sequence is ch01–ch16; project instructions live in `chapters/appendices/`
 - Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
 - Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding

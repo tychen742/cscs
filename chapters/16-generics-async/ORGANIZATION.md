@@ -1,4 +1,4 @@
-# Chapter Organization — Modern C#
+# Chapter Organization — Generics, Nullability & Async
 
 ## Learning Objectives
 
@@ -6,8 +6,6 @@
 
 ## Sequence
 
-- Pattern matching
-- Records
 - Nullable reference types
 - Generics
 - Async / await

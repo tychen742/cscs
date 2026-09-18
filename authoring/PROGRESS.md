@@ -39,21 +39,22 @@ Status values: `Draft` · `In Progress` · `Needs Review` · `Complete`
 | Chapter | Title | Assignments | Status | Notes |
 | ------- | ----- | ----------- | ------ | ----- |
 | 13 | Exceptions & Testing | preview, lab, review | In Progress | |
-| 14 | Selected Topics | preview, lab, review | In Progress | |
-| 15 | Modern C\# | preview, lab, review | In Progress | |
+| 14 | Functional Patterns | preview, lab, review | In Progress | Renamed from "Selected Topics" (2026-09-18) to avoid colliding with the Part V caption |
+| 15 | Pattern Matching & Records | preview, lab, review | In Progress | Split from "Modern C#" (2026-09-18); was overloaded with 5 topics |
+| 16 | Generics, Nullability & Async | preview, lab, review | In Progress | Split from "Modern C#" (2026-09-18); was overloaded with 5 topics |
 
 ## Appendix
 
 | Item | Title | Status | Notes |
 | ---- | ----- | ------ | ----- |
-| 16 | Resources | In Progress | |
-| 16 | Command Line | In Progress | |
-| 16 | Index | In Progress | |
+| A1 | Resources | In Progress | |
+| A2 | Command Line | In Progress | |
+| A3 | Index | In Progress | |
 
 ## Pending Actions
 
 1. Verify `jbb` builds cleanly after TOC restructuring
 2. Remove `examples/Properties/` stub folders (~134) and `examples/bin/` output folders (~125) from `materials/examples/`
-3. Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (missing generics/async)
+3. ~~Review `1508-lab.ipynb` intro sentence~~ — resolved by the Ch.15/16 split (2026-09-18); each lab's intro sentence now matches its own chapter's topics
 4. Check cross-references between Ch.9 data structures and Ch.15 records
 5. Delete stale root files: `requirements.txt_OLD`, empty `test` file, `_ext/__pycache__/`

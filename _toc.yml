@@ -210,7 +210,7 @@ parts:
                 title: Review
 
   - caption: "Part V. Advanced Topics"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/13-exceptions-testing/1300-exceptions-debugging-intro
         sections:
@@ -227,36 +227,48 @@ parts:
               - file: chapters/13-exceptions-testing/assignments/review
                 title: Review
 
-      - file: chapters/14-selected-topics/1400-selected-topics-intro
+      - file: chapters/14-functional-patterns/1400-functional-patterns-intro
         sections:
-          - file: chapters/14-selected-topics/1401-recursion
-          - file: chapters/14-selected-topics/1402-lambdas
-          - file: chapters/14-selected-topics/1403-linq
-          - file: chapters/14-selected-topics/assignments/index
+          - file: chapters/14-functional-patterns/1401-recursion
+          - file: chapters/14-functional-patterns/1402-lambdas
+          - file: chapters/14-functional-patterns/1403-linq
+          - file: chapters/14-functional-patterns/assignments/index
             title: Assignments
             sections:
-              - file: chapters/14-selected-topics/assignments/preview
+              - file: chapters/14-functional-patterns/assignments/preview
                 title: Preview
-              - file: chapters/14-selected-topics/assignments/lab
+              - file: chapters/14-functional-patterns/assignments/lab
                 title: Lab
-              - file: chapters/14-selected-topics/assignments/review
+              - file: chapters/14-functional-patterns/assignments/review
                 title: Review
 
-      - file: chapters/15-modern-csharp/1500-modern-csharp-intro
+      - file: chapters/15-pattern-records/1500-pattern-records-intro
         sections:
-          - file: chapters/15-modern-csharp/1501-pattern-matching
-          - file: chapters/15-modern-csharp/1502-records
-          - file: chapters/15-modern-csharp/1503-nullable
-          - file: chapters/15-modern-csharp/1504-generics
-          - file: chapters/15-modern-csharp/1505-async
-          - file: chapters/15-modern-csharp/assignments/index
+          - file: chapters/15-pattern-records/1501-pattern-matching
+          - file: chapters/15-pattern-records/1502-records
+          - file: chapters/15-pattern-records/assignments/index
             title: Assignments
             sections:
-              - file: chapters/15-modern-csharp/assignments/preview
+              - file: chapters/15-pattern-records/assignments/preview
                 title: Preview
-              - file: chapters/15-modern-csharp/assignments/lab
+              - file: chapters/15-pattern-records/assignments/lab
                 title: Lab
-              - file: chapters/15-modern-csharp/assignments/review
+              - file: chapters/15-pattern-records/assignments/review
+                title: Review
+
+      - file: chapters/16-generics-async/1600-generics-async-intro
+        sections:
+          - file: chapters/16-generics-async/1601-nullable
+          - file: chapters/16-generics-async/1602-generics
+          - file: chapters/16-generics-async/1603-async
+          - file: chapters/16-generics-async/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/16-generics-async/assignments/preview
+                title: Preview
+              - file: chapters/16-generics-async/assignments/lab
+                title: Lab
+              - file: chapters/16-generics-async/assignments/review
                 title: Review
 
   - caption: "Appendices"

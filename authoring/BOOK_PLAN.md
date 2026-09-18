@@ -29,7 +29,7 @@ Five parts:
 | II | Data and I/O | 06 Files & Text, 07 Arrays, 08 Collections |
 | III | Object-Oriented | 11 Classes, 12 OOP Principles |
 | IV | DSA | 09 Data Structures, 10 Algorithms |
-| V | Advanced Topics | 13 Exceptions & Testing, 14 Selected Topics, 15 Modern C\# |
+| V | Advanced Topics | 13 Exceptions & Testing, 14 Functional Patterns, 15 Pattern Matching & Records, 16 Generics, Nullability & Async |
 
 Appendix covers resources, command line, and index.
 
