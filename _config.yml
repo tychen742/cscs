@@ -2,10 +2,13 @@
 title: Introduction to Computer Science in C#
 author: Tsangyao Chen, Ph.D.
 logo: figures/logo.svg
+only_build_toc_files: true
 
 # Force re-execution of notebooks on each build
 execute:
   execute_notebooks: "off"   # set to "auto" to run C# notebooks on build
+  stderr_output: show
+  output_cache: false     ### what's this?
 
 # MyST substitutions (available in .ipynb and .md files)
 parse:
@@ -21,7 +24,7 @@ parse:
     # repsrc: "examples"  # local copy of repo examples
 
 # Only build files listed in _toc.yml
-only_build_toc_files: true
+# only_build_toc_files: true ### ===> in up 1st section
 
 # Exclude virtualenv and other non-book content
 exclude_patterns:
@@ -34,8 +37,11 @@ exclude_patterns:
 # HTML-specific settings
 html:
   use_issues_button: false
-  use_repository_button: false
-  use_multitoc_numbering: true
+  use_repository_button: true
+  use_edit_page_button: true
+  # use_multitoc_numbering: true
+  use_numbered_headings: true
+  number_toc_depth: 4
 
 # # Repository info (optional)
 repository:
