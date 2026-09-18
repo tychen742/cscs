@@ -99,6 +99,12 @@ def assign_section_numbers(self, env: BuildEnvironment) -> List[str]:
 
 def patch_numbering(app):
     TocTreeCollector.assign_section_numbers = assign_section_numbers
+    try:
+        from sphinx_external_toc.collectors import TocTreeCollectorWithStyles
+    except Exception:
+        return
+
+    TocTreeCollectorWithStyles.assign_section_numbers = assign_section_numbers
 
 
 def setup(app):
