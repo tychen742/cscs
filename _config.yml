@@ -35,7 +35,7 @@ exclude_patterns:
 html:
   use_issues_button: false
   use_repository_button: false
-  use_multitoc_numbering: false
+  use_multitoc_numbering: true
 
 # # Repository info (optional)
 repository:
@@ -49,6 +49,7 @@ sphinx:
   local_extensions:
     lexer_alias: _ext
     notebook_cell_metadata: _ext
+    appendix_numbering: _ext
   extra_extensions:
     - sphinx.ext.todo
     - sphinx.ext.mathjax

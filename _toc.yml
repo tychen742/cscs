@@ -3,7 +3,7 @@ root: preface
 
 parts:
   - caption: "Part I. Fundamentals"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/01-context/0100-context-intro
         sections:
@@ -89,7 +89,7 @@ parts:
                 title: Review
 
   - caption: "Part II. Data and I/O"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/07-arrays/0700-arrays-intro
         sections:
@@ -139,7 +139,7 @@ parts:
                 title: Review
 
   - caption: "Part III. Object-Oriented"
-    numbered: false
+    numbered: true
     chapters:
       - file: chapters/11-classes/1100-classes-intro
         sections:
@@ -177,7 +177,7 @@ parts:
                 title: Review
 
   - caption: "Part IV. DSA"
-    numbered: false
+    numbered: true
     chapters:
 
       - file: chapters/09-datastructure/0900-datastructure-intro
@@ -259,8 +259,9 @@ parts:
               - file: chapters/15-modern-csharp/assignments/review
                 title: Review
 
-  - caption: "Appendix"
-    numbered: false
+  - caption: "Appendices"
+    numbered: true
+    restart_numbering: true
     chapters:
       - file: chapters/appendices/resources
       - file: chapters/appendices/command-line
