@@ -1,0 +1,59 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: cscs
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Cache Jupyter execution outputs
+        uses: actions/cache@v4
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-cache-${{ hashFiles('**/*.ipynb') }}
+          restore-keys: |
+            jupyter-cache-
+
+      - name: Build Jupyter Book
+        run: jupyter-book build .
+
+      - name: Add chapter slide decks
+        run: cp -R _html_extra/chapters/. _build/html/chapters/
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ vars.DEPLOY_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to production
+        run: |
+          rsync -avz --no-perms --no-owner --no-group --omit-dir-times --exclude "reports/" \
+            _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/cscs/
+
+      - name: Deploy API assets when present
+        if: ${{ hashFiles('_html_extra/api/**') != '' }}
+        run: |
+          rsync -avz --no-perms --no-owner --no-group --omit-dir-times \
+            _html_extra/api/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/cscs/api/
