@@ -367,6 +367,128 @@ table tbody tr:hover {
     font-size: 0.9rem !important;
 }
 
+/* C# syntax highlighting tuned for teaching code.
+   Scope to Pygments' C# blocks so other languages keep their own palettes. */
+html[data-theme="light"] .highlight-csharp .highlight {
+    color: #1f2937;
+}
+
+html[data-theme="light"] .highlight-csharp .k,
+html[data-theme="light"] .highlight-csharp .kc,
+html[data-theme="light"] .highlight-csharp .kd,
+html[data-theme="light"] .highlight-csharp .kn,
+html[data-theme="light"] .highlight-csharp .kp,
+html[data-theme="light"] .highlight-csharp .kr,
+html[data-theme="light"] .highlight-csharp .ow {
+    color: #7c3aed !important;
+}
+
+html[data-theme="light"] .highlight-csharp .kt,
+html[data-theme="light"] .highlight-csharp .nc {
+    color: #b45309 !important;
+}
+
+html[data-theme="light"] .highlight-csharp .nf,
+html[data-theme="light"] .highlight-csharp .fm {
+    color: #0369a1 !important;
+}
+
+html[data-theme="light"] .highlight-csharp .s,
+html[data-theme="light"] .highlight-csharp .s1,
+html[data-theme="light"] .highlight-csharp .s2,
+html[data-theme="light"] .highlight-csharp .sa,
+html[data-theme="light"] .highlight-csharp .sb,
+html[data-theme="light"] .highlight-csharp .sc,
+html[data-theme="light"] .highlight-csharp .sd,
+html[data-theme="light"] .highlight-csharp .se,
+html[data-theme="light"] .highlight-csharp .sh,
+html[data-theme="light"] .highlight-csharp .si,
+html[data-theme="light"] .highlight-csharp .sx {
+    color: #047857 !important;
+}
+
+html[data-theme="light"] .highlight-csharp .m,
+html[data-theme="light"] .highlight-csharp .mi,
+html[data-theme="light"] .highlight-csharp .mf,
+html[data-theme="light"] .highlight-csharp .mh,
+html[data-theme="light"] .highlight-csharp .mo,
+html[data-theme="light"] .highlight-csharp .il {
+    color: #c2410c !important;
+}
+
+html[data-theme="light"] .highlight-csharp .c,
+html[data-theme="light"] .highlight-csharp .c1,
+html[data-theme="light"] .highlight-csharp .cm,
+html[data-theme="light"] .highlight-csharp .cs {
+    color: #6b7280 !important;
+    font-style: italic;
+}
+
+html[data-theme="light"] .highlight-csharp .o,
+html[data-theme="light"] .highlight-csharp .p {
+    color: #0891b2 !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .highlight {
+    color: #d4d4d4;
+}
+
+html[data-theme="dark"] .highlight-csharp .k,
+html[data-theme="dark"] .highlight-csharp .kc,
+html[data-theme="dark"] .highlight-csharp .kd,
+html[data-theme="dark"] .highlight-csharp .kn,
+html[data-theme="dark"] .highlight-csharp .kp,
+html[data-theme="dark"] .highlight-csharp .kr,
+html[data-theme="dark"] .highlight-csharp .ow {
+    color: #c586c0 !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .kt,
+html[data-theme="dark"] .highlight-csharp .nc {
+    color: #d7ba7d !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .nf,
+html[data-theme="dark"] .highlight-csharp .fm {
+    color: #4fc1ff !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .s,
+html[data-theme="dark"] .highlight-csharp .s1,
+html[data-theme="dark"] .highlight-csharp .s2,
+html[data-theme="dark"] .highlight-csharp .sa,
+html[data-theme="dark"] .highlight-csharp .sb,
+html[data-theme="dark"] .highlight-csharp .sc,
+html[data-theme="dark"] .highlight-csharp .sd,
+html[data-theme="dark"] .highlight-csharp .se,
+html[data-theme="dark"] .highlight-csharp .sh,
+html[data-theme="dark"] .highlight-csharp .si,
+html[data-theme="dark"] .highlight-csharp .sx {
+    color: #ce9178 !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .m,
+html[data-theme="dark"] .highlight-csharp .mi,
+html[data-theme="dark"] .highlight-csharp .mf,
+html[data-theme="dark"] .highlight-csharp .mh,
+html[data-theme="dark"] .highlight-csharp .mo,
+html[data-theme="dark"] .highlight-csharp .il {
+    color: #b5cea8 !important;
+}
+
+html[data-theme="dark"] .highlight-csharp .c,
+html[data-theme="dark"] .highlight-csharp .c1,
+html[data-theme="dark"] .highlight-csharp .cm,
+html[data-theme="dark"] .highlight-csharp .cs {
+    color: #858585 !important;
+    font-style: italic;
+}
+
+html[data-theme="dark"] .highlight-csharp .o,
+html[data-theme="dark"] .highlight-csharp .p {
+    color: #4ec9b0 !important;
+}
+
 .thebelab-cell.thebelab-cell {
     padding: 0 8px 8px 8px !important;
     margin: 0 0 8px 0 !important;
