@@ -298,6 +298,13 @@ GitHub as the source of submitted project history.
 
 Persistence requirements:
 
+- Anonymous reading continuity uses browser `localStorage` for the last page and
+	scroll position. This supports "Continue Reading" on the same browser without
+	requiring a login.
+- Authenticated reading continuity is stored in the database by user and book,
+	so a student can continue from the same page across browsers or devices.
+- Cookies are used for authentication/session identity only. They should not be
+	the storage location for reading progress, drafts, assignments, or grades.
 - Browser drafts are associated with the authenticated student, assignment ID,
 	exercise ID, and starter version.
 - Published prompts and starter files are versioned with the book repository.

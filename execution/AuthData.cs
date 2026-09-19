@@ -5,6 +5,14 @@ using Microsoft.EntityFrameworkCore;
 public sealed class CscsDbContext(DbContextOptions<CscsDbContext> options) : DbContext(options)
 {
     public DbSet<UserAccount> Users => Set<UserAccount>();
+    public DbSet<ReadingProgress> ReadingProgress => Set<ReadingProgress>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ReadingProgress>()
+            .HasIndex(progress => new { progress.UserAccountId, progress.BookId })
+            .IsUnique();
+    }
 }
 
 public sealed class UserAccount
@@ -27,6 +35,30 @@ public sealed class UserAccount
     public string? CourseId { get; set; }
 
     public DateTime CreatedUtc { get; set; }
+
+    public List<ReadingProgress> ReadingProgress { get; set; } = [];
+}
+
+public sealed class ReadingProgress
+{
+    public int Id { get; set; }
+
+    public int UserAccountId { get; set; }
+
+    public UserAccount? UserAccount { get; set; }
+
+    [MaxLength(64)]
+    public string BookId { get; set; } = "cscs";
+
+    [MaxLength(512)]
+    public required string PageUrl { get; set; }
+
+    [MaxLength(240)]
+    public required string PageTitle { get; set; }
+
+    public int ScrollY { get; set; }
+
+    public DateTime UpdatedUtc { get; set; }
 }
 
 public static class PasswordService
@@ -63,3 +95,4 @@ public static class PasswordService
 
 public sealed record RegisterRequest(string? Email, string? Password, string? DisplayName);
 public sealed record LoginRequest(string? Email, string? Password);
+public sealed record ReadingProgressRequest(string? BookId, string? PageUrl, string? PageTitle, int ScrollY);

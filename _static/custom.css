@@ -1702,6 +1702,42 @@ div.cell.tag_thebe-interactive {
 .cscs-auth-submit { background: #2f6fde; border: 0; border-radius: 7px; color: #fff; cursor: pointer; font-size: 1rem; padding: 11px; }
 .cscs-auth-status { color: #52616b; margin: 0; padding: 0 20px 18px; }
 
+.cscs-continue-reading {
+    background: #f6f9ff;
+    border: 1px solid #c8d8f2;
+    border-radius: 8px;
+    margin: 12px 12px 8px;
+    padding: 10px;
+}
+
+.cscs-continue-reading p {
+    color: #52616b;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+}
+
+.cscs-continue-reading button {
+    background: transparent;
+    border: 0;
+    color: #245fca;
+    cursor: pointer;
+    display: block;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.cscs-continue-reading button:hover,
+.cscs-continue-reading button:focus {
+    color: #17458f;
+    text-decoration: underline;
+}
+
 .cscs-author-save {
     background: #2f6fde;
     border: 1px solid #245bb9;

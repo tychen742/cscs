@@ -62,6 +62,19 @@ Authentication implementation status:
 - administrator access is controlled by `CSCS_ADMIN_EMAILS`
 - email verification and password recovery are not yet implemented
 
+## 4. Reading continuity
+
+Readers should be able to return to the page they were last reading. Anonymous
+readers use browser `localStorage`, which works on the same browser and device.
+Logged-in readers save the last page, title, scroll position, and timestamp to
+the database so they can continue across browsers or devices.
+
+Cookies are only for authentication/session identity. They should not store
+reading progress, exercise drafts, assignment state, or grades.
+
+Status: browser-local reading progress implemented; authenticated reading
+progress API implemented.
+
 ## Later persistence roadmap
 
 The future application database should support three related domains:

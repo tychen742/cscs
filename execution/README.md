@@ -72,6 +72,20 @@ Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores
 account data, and ASP.NET data-protection keys are persisted in the `cscs-data`
 volume so sessions survive API container restarts.
 
+## Reading progress API
+
+Anonymous reading continuity is stored in the browser with `localStorage`.
+Logged-in reading continuity is stored in Postgres and keyed to the
+authenticated user:
+
+```text
+GET  /v1/progress/reading   return the user's last reading page
+POST /v1/progress/reading   save page URL, title, scroll position, and timestamp
+```
+
+The authentication cookie identifies the user. The cookie does not store
+reading progress; it only lets the API read and update the database record.
+
 ## Notebook validation
 
 The first authoring endpoint validates notebook structure before any future save:

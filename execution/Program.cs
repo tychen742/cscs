@@ -88,7 +88,7 @@ app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, Clai
     if (string.IsNullOrWhiteSpace(request.Path) || request.Content is null)
         return Results.BadRequest(new { error = "Path and content are required." });
 
-    var result = await repository.SaveAsync(request.Path, request.Content, email, cancellationToken);
+    var result = await repository.SaveAsync(request.Path, request.Content, email!, cancellationToken);
     return result.Saved ? Results.Ok(result) : Results.BadRequest(result);
 }).RequireAuthorization();
 
@@ -165,6 +165,80 @@ app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext databa
     return user is null
         ? Results.Unauthorized()
     : Results.Ok(new { user.Id, user.Email, user.DisplayName, IsAdmin = adminEmails.Contains(user.Email) });
+}).RequireAuthorization();
+
+app.MapGet("/v1/progress/reading", async (ClaimsPrincipal principal, CscsDbContext database) =>
+{
+    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
+
+    var progress = await database.ReadingProgress
+        .Where(item => item.UserAccountId == id && item.BookId == "cscs")
+        .SingleOrDefaultAsync();
+
+    return progress is null
+        ? Results.NoContent()
+        : Results.Ok(new
+        {
+            progress.BookId,
+            progress.PageUrl,
+            progress.PageTitle,
+            progress.ScrollY,
+            progress.UpdatedUtc
+        });
+}).RequireAuthorization();
+
+app.MapPost("/v1/progress/reading", async (ReadingProgressRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
+{
+    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
+
+    var bookId = string.IsNullOrWhiteSpace(request.BookId) ? "cscs" : request.BookId.Trim();
+    var pageUrl = request.PageUrl?.Trim();
+    var pageTitle = request.PageTitle?.Trim();
+    if (bookId.Length > 64 ||
+        string.IsNullOrWhiteSpace(pageUrl) ||
+        pageUrl.Length > 512 ||
+        !pageUrl.StartsWith("/", StringComparison.Ordinal) ||
+        string.IsNullOrWhiteSpace(pageTitle))
+    {
+        return Results.BadRequest(new { error = "A valid book ID, page URL, and page title are required." });
+    }
+
+    var progress = await database.ReadingProgress
+        .Where(item => item.UserAccountId == id && item.BookId == bookId)
+        .SingleOrDefaultAsync();
+
+    if (progress is null)
+    {
+        progress = new ReadingProgress
+        {
+            UserAccountId = id,
+            BookId = bookId,
+            PageUrl = pageUrl,
+            PageTitle = pageTitle[..Math.Min(pageTitle.Length, 240)],
+            ScrollY = Math.Max(0, request.ScrollY),
+            UpdatedUtc = DateTime.UtcNow
+        };
+        database.ReadingProgress.Add(progress);
+    }
+    else
+    {
+        progress.PageUrl = pageUrl;
+        progress.PageTitle = pageTitle[..Math.Min(pageTitle.Length, 240)];
+        progress.ScrollY = Math.Max(0, request.ScrollY);
+        progress.UpdatedUtc = DateTime.UtcNow;
+    }
+
+    await database.SaveChangesAsync();
+    return Results.Ok(new
+    {
+        progress.BookId,
+        progress.PageUrl,
+        progress.PageTitle,
+        progress.ScrollY,
+        progress.UpdatedUtc
+    });
 }).RequireAuthorization();
 
 app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest request, CancellationToken cancellationToken) =>

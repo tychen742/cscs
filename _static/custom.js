@@ -666,6 +666,187 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Reading continuity: localStorage first, database sync when signed in.
+document.addEventListener('DOMContentLoaded', function () {
+    const storageKey = 'cscs:lastReadingPage';
+    const pendingScrollKey = 'cscs:pendingScroll';
+    const bookId = 'cscs';
+    const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
+        window.CSCS_EXECUTION_API ||
+        (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
+    const sidebar = document.querySelector('.bd-sidebar-primary');
+    const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
+
+    function currentPageUrl() {
+        return window.location.pathname + window.location.search + window.location.hash;
+    }
+
+    function currentPageTitle() {
+        const heading = document.querySelector('main h1') || document.querySelector('h1');
+        return (heading?.textContent || document.title || 'Current page').replace(/\s+/g, ' ').trim();
+    }
+
+    function shouldTrackPage() {
+        const path = window.location.pathname;
+        return (
+            path.endsWith('.html') &&
+            !path.endsWith('/index.html') &&
+            !path.endsWith('/chapters/preface.html') &&
+            !path.endsWith('/genindex.html') &&
+            !path.endsWith('/search.html')
+        );
+    }
+
+    function safeJson(value) {
+        try {
+            return JSON.parse(value);
+        } catch (_) {
+            return null;
+        }
+    }
+
+    function readLocalProgress() {
+        return safeJson(localStorage.getItem(storageKey));
+    }
+
+    function writeLocalProgress(progress) {
+        localStorage.setItem(storageKey, JSON.stringify(progress));
+        renderContinueReading(progress);
+    }
+
+    function makeProgress() {
+        return {
+            bookId,
+            pageUrl: currentPageUrl(),
+            pageTitle: currentPageTitle(),
+            scrollY: Math.max(0, Math.round(window.scrollY || 0)),
+            updatedUtc: new Date().toISOString()
+        };
+    }
+
+    function saveLocalProgress() {
+        const progress = makeProgress();
+        writeLocalProgress(progress);
+        return progress;
+    }
+
+    async function syncProgress(progress) {
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/progress/reading`, {
+                method: 'POST',
+                credentials: 'include',
+                keepalive: true,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(progress)
+            });
+            if (response.ok) {
+                const remote = await response.json();
+                writeLocalProgress(normalizeProgress(remote));
+            }
+        } catch (_) {
+            // Anonymous readers and offline local builds keep browser-local progress.
+        }
+    }
+
+    async function loadRemoteProgress() {
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/progress/reading`, { credentials: 'include' });
+            if (response.status === 204 || response.status === 401 || response.status === 403) return;
+            if (!response.ok) return;
+            const remote = normalizeProgress(await response.json());
+            const local = readLocalProgress();
+            if (!local || Date.parse(remote.updatedUtc) > Date.parse(local.updatedUtc || 0)) {
+                writeLocalProgress(remote);
+            }
+        } catch (_) {
+            // The API is optional for static/local reading.
+        }
+    }
+
+    function normalizeProgress(progress) {
+        return {
+            bookId: progress.bookId || progress.BookId || bookId,
+            pageUrl: progress.pageUrl || progress.PageUrl || '/',
+            pageTitle: progress.pageTitle || progress.PageTitle || 'Continue reading',
+            scrollY: Number(progress.scrollY ?? progress.ScrollY ?? 0),
+            updatedUtc: progress.updatedUtc || progress.UpdatedUtc || new Date().toISOString()
+        };
+    }
+
+    function renderContinueReading(progress) {
+        if (!sidebarContent || !progress?.pageUrl) return;
+        let panel = document.querySelector('.cscs-continue-reading');
+        if (progress.pageUrl === currentPageUrl()) {
+            panel?.remove();
+            return;
+        }
+        if (!panel) {
+            panel = document.createElement('div');
+            panel.className = 'cscs-continue-reading';
+            sidebarContent.appendChild(panel);
+        }
+        const label = progress.pageTitle || 'Continue reading';
+        panel.innerHTML = `
+            <p>Continue Reading</p>
+            <button type="button"></button>`;
+        const button = panel.querySelector('button');
+        button.textContent = label;
+        button.addEventListener('click', () => {
+            localStorage.setItem(pendingScrollKey, JSON.stringify({
+                pageUrl: progress.pageUrl,
+                scrollY: progress.scrollY || 0
+            }));
+            if (progress.pageUrl === currentPageUrl()) {
+                restorePendingScroll();
+            } else {
+                window.location.href = progress.pageUrl;
+            }
+        });
+    }
+
+    function restorePendingScroll() {
+        const pending = safeJson(localStorage.getItem(pendingScrollKey));
+        if (!pending || pending.pageUrl !== currentPageUrl()) return;
+        localStorage.removeItem(pendingScrollKey);
+        window.setTimeout(() => {
+            window.scrollTo({ top: Math.max(0, Number(pending.scrollY || 0)), behavior: 'smooth' });
+        }, 100);
+    }
+
+    function throttle(fn, wait) {
+        let timeout = null;
+        return function () {
+            if (timeout) return;
+            timeout = window.setTimeout(() => {
+                timeout = null;
+                fn();
+            }, wait);
+        };
+    }
+
+    const initialLocal = readLocalProgress();
+    if (initialLocal) renderContinueReading(initialLocal);
+    restorePendingScroll();
+
+    const saveAndSync = throttle(() => {
+        if (!shouldTrackPage()) return;
+        const progress = saveLocalProgress();
+        syncProgress(progress);
+    }, 3000);
+
+    if (shouldTrackPage()) {
+        window.addEventListener('scroll', saveAndSync, { passive: true });
+        window.addEventListener('pagehide', () => {
+            const progress = saveLocalProgress();
+            syncProgress(progress);
+        });
+
+        const progress = saveLocalProgress();
+        syncProgress(progress);
+    }
+    loadRemoteProgress();
+});
+
 
 // Override Thebe config to use JupyterHub instead of Binder
 // Override Thebe config BEFORE it loads
