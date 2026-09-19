@@ -129,6 +129,28 @@ nav.bd-links p.caption {
     margin-bottom: 0.15rem !important;
 }
 
+/* Sphinx's local contents directive wraps headings in a toc-backref link.
+   Keep those headings visually consistent with ordinary headings. */
+.bd-content h1 a.toc-backref,
+.bd-content h2 a.toc-backref,
+.bd-content h3 a.toc-backref,
+.bd-content h4 a.toc-backref,
+.bd-content h5 a.toc-backref,
+.bd-content h6 a.toc-backref {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.bd-content h1 a.toc-backref:hover,
+.bd-content h2 a.toc-backref:hover,
+.bd-content h3 a.toc-backref:hover,
+.bd-content h4 a.toc-backref:hover,
+.bd-content h5 a.toc-backref:hover,
+.bd-content h6 a.toc-backref:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
 /* The book root lives at chapters/preface. PyData renders that nested root
    as a separate home-link above Part I; the logo already serves that purpose. */
 .bd-sidebar-primary nav.bd-links .bd-sidenav__home-link {
