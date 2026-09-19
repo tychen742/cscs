@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0300-methods-intro.ipynb` — Chapter landing page
+- `0300-methods.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

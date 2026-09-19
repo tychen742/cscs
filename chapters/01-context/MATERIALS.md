@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0100-context-intro.ipynb` — Chapter landing page
+- `0100-getting-started.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

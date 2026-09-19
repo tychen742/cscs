@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0900-files-text-intro.ipynb` — Chapter landing page
+- `0900-files-text.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

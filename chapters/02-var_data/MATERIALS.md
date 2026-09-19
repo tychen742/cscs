@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0200-var_type-intro.ipynb` — Chapter landing page
+- `0200-variables-types.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

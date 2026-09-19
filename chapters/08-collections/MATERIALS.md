@@ -6,7 +6,7 @@ orphan: true
 
 ## Landing Page
 
-- `0800-collections-intro.ipynb` — Chapter landing page
+- `0800-data-collections.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

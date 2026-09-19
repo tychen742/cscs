@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `1000-classes-intro.ipynb` — Chapter landing page
+- `1000-classes.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

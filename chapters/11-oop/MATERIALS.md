@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `1100-oop-intro.ipynb` — Chapter landing page
+- `1100-oop-principles.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

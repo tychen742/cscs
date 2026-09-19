@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0400-decision-intro.ipynb` — Chapter landing page
+- `0400-conditionals.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0600-exceptions-debugging-intro.ipynb` — Chapter landing page
+- `0600-exceptions-testing.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

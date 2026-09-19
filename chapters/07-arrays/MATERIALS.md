@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0700-arrays-intro.ipynb` — Chapter landing page
+- `0700-arrays.ipynb` — Chapter landing page
 
 ## Section Notebooks
 

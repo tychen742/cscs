@@ -5,7 +5,7 @@ parts:
   - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
-      - file: chapters/01-context/0100-context-intro
+      - file: chapters/01-context/0100-getting-started
         sections:
           - file: chapters/01-context/0101-cs_ideas
           - file: chapters/01-context/0102-dev_tools
@@ -22,7 +22,7 @@ parts:
               - file: chapters/01-context/assignments/homework
                 title: Homework
 
-      - file: chapters/02-var_data/0200-var_type-intro
+      - file: chapters/02-var_data/0200-variables-types
         sections:
           - file: chapters/02-var_data/0201-variables
           - file: chapters/02-var_data/0202-data_types
@@ -38,7 +38,7 @@ parts:
               - file: chapters/02-var_data/assignments/homework
                 title: Homework
 
-      - file: chapters/03-methods/0300-methods-intro
+      - file: chapters/03-methods/0300-methods
         sections:
           - file: chapters/03-methods/0301-intro-methods
           - file: chapters/03-methods/0302-signature_call
@@ -54,7 +54,7 @@ parts:
               - file: chapters/03-methods/assignments/homework
                 title: Homework
 
-      - file: chapters/04-decision/0400-decision-intro
+      - file: chapters/04-decision/0400-conditionals
         sections:
           - file: chapters/04-decision/0401-intro-decision
           - file: chapters/04-decision/0402-ifstatement
@@ -69,7 +69,7 @@ parts:
               - file: chapters/04-decision/assignments/homework
                 title: Homework
 
-      - file: chapters/05-iteration/0500-iteration-intro
+      - file: chapters/05-iteration/0500-iteration
         sections:
           - file: chapters/05-iteration/0501-iteration
           - file: chapters/05-iteration/0502-for-statements
@@ -88,7 +88,7 @@ parts:
               - file: chapters/05-iteration/assignments/homework
                 title: Homework
 
-      - file: chapters/06-exceptions-testing/0600-exceptions-debugging-intro
+      - file: chapters/06-exceptions-testing/0600-exceptions-testing
         sections:
           - file: chapters/06-exceptions-testing/0601-error-handling
           - file: chapters/06-exceptions-testing/0602-debugging-workflow
@@ -107,7 +107,7 @@ parts:
   - caption: "Part II. Data and I/O"
     numbered: true
     chapters:
-      - file: chapters/07-arrays/0700-arrays-intro
+      - file: chapters/07-arrays/0700-arrays
         sections:
           - file: chapters/07-arrays/0701-onedim
           - file: chapters/07-arrays/0702-twodim
@@ -121,14 +121,11 @@ parts:
               - file: chapters/07-arrays/assignments/homework
                 title: Homework
 
-      - file: chapters/08-collections/0800-collections-intro
+      - file: chapters/08-collections/0800-data-collections
         sections:
           - file: chapters/08-collections/0801-collections
-            title: Choosing Data Collections
           - file: chapters/08-collections/0802-list
-            title: Lists
           - file: chapters/08-collections/0803-dictionary
-            title: Dictionaries
           - file: chapters/08-collections/assignments/index
             title: Assignments
             sections:
@@ -139,7 +136,7 @@ parts:
               - file: chapters/08-collections/assignments/homework
                 title: Homework
 
-      - file: chapters/09-files-text/0900-files-text-intro
+      - file: chapters/09-files-text/0900-files-text
         sections:
           - file: chapters/09-files-text/0901-stream-file
           - file: chapters/09-files-text/0902-file-operations
@@ -160,7 +157,7 @@ parts:
   - caption: "Part III. Object-Oriented Information Systems"
     numbered: true
     chapters:
-      - file: chapters/10-classes/1000-classes-intro
+      - file: chapters/10-classes/1000-classes
         sections:
           - file: chapters/10-classes/1001-class-syntax
           - file: chapters/10-classes/1002-properties
@@ -178,7 +175,7 @@ parts:
               - file: chapters/10-classes/assignments/homework
                 title: Homework
 
-      - file: chapters/11-oop/1100-oop-intro
+      - file: chapters/11-oop/1100-oop-principles
         sections:
           - file: chapters/11-oop/1101-intro-oop
           - file: chapters/11-oop/1102-encapsulation

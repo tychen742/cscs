@@ -2,7 +2,7 @@
 
 ## Landing Page
 
-- `0500-iteration-intro.ipynb` — Chapter landing page
+- `0500-iteration.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
