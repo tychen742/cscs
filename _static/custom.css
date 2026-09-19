@@ -222,15 +222,19 @@ div.cell_input .highlight pre {
 
 /* Jupyter Book renders source line numbers as spans inside the same <pre>.
    Treat them as a quiet gutter so they guide reading without becoming code. */
+div.cell_input .highlight pre:has(span.linenos) {
+    padding-left: 0.35rem !important;
+}
+
 div.cell_input .highlight span.linenos {
     box-sizing: border-box;
     color: #6b7280 !important;
     display: inline-block;
     font-variant-numeric: tabular-nums;
-    margin-right: 0.9rem;
-    min-width: 2.25rem;
+    margin-right: 0.7rem;
+    min-width: 1.75rem;
     padding-left: 0 !important;
-    padding-right: 0.65rem !important;
+    padding-right: 0.45rem !important;
     text-align: right;
     user-select: none;
     border-right: 1px solid #d6dde5;
