@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Trees and Binary Search Trees
+# Chapter Organization — Trees
 
 ## Learning Objectives
 

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Searching and Sorting
+# Chapter Organization — Search & Sort
 
 ## Learning Objectives
 

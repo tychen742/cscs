@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Graph Data Structures
+# Chapter Materials — Graphs
 
 ## Sequence
 

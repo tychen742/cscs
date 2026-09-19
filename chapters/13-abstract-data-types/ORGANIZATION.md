@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Abstract Data Types
+# Chapter Organization — ADTs
 
 ## Learning Objectives
 

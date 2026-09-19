@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Greedy Algorithms and Graph Optimization
+# Chapter Materials — Greedy Algorithms
 
 ## Sequence
 

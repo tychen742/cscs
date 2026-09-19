@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Advanced Graphs, Strings, and Limits
+# Chapter Materials — Advanced Algorithms
 
 ## Sequence
 

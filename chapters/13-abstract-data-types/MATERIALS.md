@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Abstract Data Types
+# Chapter Materials — ADTs
 
 ## Active Notebooks
 

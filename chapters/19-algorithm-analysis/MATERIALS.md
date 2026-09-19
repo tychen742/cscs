@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Algorithm Analysis
+# Chapter Materials — Analysis
 
 ## Landing Page
 

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Graph Data Structures
+# Chapter Organization — Graphs
 
 ## Learning Objectives
 

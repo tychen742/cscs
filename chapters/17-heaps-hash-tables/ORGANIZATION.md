@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Heaps and Hash Tables
+# Chapter Organization — Hashing & Heaps
 
 ## Learning Objectives
 

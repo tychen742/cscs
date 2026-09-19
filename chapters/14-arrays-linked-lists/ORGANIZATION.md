@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Arrays and Linked Lists
+# Chapter Organization — Linear Lists
 
 ## Learning Objectives
 

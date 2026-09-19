@@ -37,8 +37,8 @@ Five parts:
 | I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing |
 | II | Data and I/O | 07 Arrays, 08 Data Collections, 09 Files & Text |
 | III | Object-Oriented Information Systems | 10 Classes, 11 OOP Principles, 12 Databases |
-| IV | Data Structures | 13 ADTs, 14 Arrays & Linked Lists, 15 Stacks & Queues, 16 Trees, 17 Heaps & Hash Tables, 18 Graph Structures |
-| V | Algorithms | 19 Analysis, 20 Divide and Conquer, 21 Searching & Sorting, 22 Greedy Algorithms, 23 Dynamic Programming, 24 Advanced Algorithms |
+| IV | Data Structures | 13 ADTs, 14 Linear Lists, 15 Stacks & Queues, 16 Trees, 17 Hashing & Heaps, 18 Graphs |
+| V | Algorithms | 19 Analysis, 20 Recursion, 21 Search & Sort, 22 Greedy Algorithms, 23 Dynamic Programming, 24 Advanced Algorithms |
 
 Appendix covers resources, command line, and index.
 
@@ -136,21 +136,21 @@ chapter.
 
 #### Part IV: Data Structures
 
-13. Abstract data types, interfaces, generics, references, and memory
-14. Arrays, dynamic arrays, and linked lists
-15. Stacks, queues, and deques
-16. Trees and binary search trees
-17. Heaps, priority queues, and hash tables
-18. Graph representations and graph data structures
+13. ADTs: abstract data types, interfaces, generics, references, and memory
+14. Linear lists: arrays, dynamic arrays, and linked lists
+15. Stacks & queues: LIFO, FIFO, deque operations, and implementations
+16. Trees: hierarchy, traversal, and binary search trees
+17. Hashing & heaps: priority queues, heaps, hash tables, sets, and dictionaries
+18. Graphs: vertices, edges, adjacency, and graph representations
 
 #### Part V: Algorithms
 
-19. Algorithm analysis, correctness, asymptotic notation, and recurrences
-20. Recursion and divide-and-conquer design
-21. Searching and sorting algorithms
-22. Greedy algorithms and graph optimization
-23. Dynamic programming and backtracking
-24. Advanced graph algorithms, string algorithms, and computational limits
+19. Analysis: correctness, asymptotic notation, space growth, and recurrences
+20. Recursion: recursive methods, call-stack reasoning, and divide-and-conquer
+21. Search & sort: searching, sorting, preconditions, and comparison costs
+22. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
+23. Dynamic programming: memoization, tabulation, backtracking, and pruning
+24. Advanced algorithms: graph traversal, string matching, and computational limits
 
 The chapter number is the weekly organizing unit; it does not limit the
 number of notebooks inside a chapter. Each chapter should normally include a

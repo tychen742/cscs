@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Advanced Graphs, Strings, and Limits
+# Chapter Organization — Advanced Algorithms
 
 ## Learning Objectives
 

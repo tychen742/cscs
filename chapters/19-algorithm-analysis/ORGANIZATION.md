@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Algorithm Analysis
+# Chapter Organization — Analysis
 
 ## Learning Objectives
 

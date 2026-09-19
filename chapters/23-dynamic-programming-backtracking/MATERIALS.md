@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Dynamic Programming and Backtracking
+# Chapter Materials — Dynamic Programming
 
 ## Sequence
 

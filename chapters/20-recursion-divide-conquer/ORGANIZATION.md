@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Recursion and Divide-and-Conquer
+# Chapter Organization — Recursion
 
 ## Learning Objectives
 

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Stacks, Queues, and Deques
+# Chapter Materials — Stacks & Queues
 
 ## Sequence
 

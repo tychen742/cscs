@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Heaps and Hash Tables
+# Chapter Materials — Hashing & Heaps
 
 ## Sequence
 

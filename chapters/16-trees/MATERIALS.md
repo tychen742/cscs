@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Trees and Binary Search Trees
+# Chapter Materials — Trees
 
 ## Sequence
 

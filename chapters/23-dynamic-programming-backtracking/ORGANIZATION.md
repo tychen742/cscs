@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Dynamic Programming and Backtracking
+# Chapter Organization — Dynamic Programming
 
 ## Learning Objectives
 

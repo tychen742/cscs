@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Recursion and Divide-and-Conquer
+# Chapter Materials — Recursion
 
 ## Sequence
 

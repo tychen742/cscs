@@ -44,23 +44,23 @@ book unless they are listed in the TOC.
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
-| 13 | `chapters/13-abstract-data-types` | Abstract Data Types | preview, lab, homework | In Progress | Landing filename normalized to `1300-abstract-data-types.ipynb` |
-| 14 | `chapters/14-arrays-linked-lists` | Arrays and Linked Lists | preview, lab, homework | In Progress | First content and assignment pass added |
-| 15 | `chapters/15-stacks-queues` | Stacks and Queues | preview, lab, homework | In Progress | First content and assignment pass added |
-| 16 | `chapters/16-trees` | Trees and Binary Search Trees | preview, lab, homework | In Progress | First content and assignment pass added |
-| 17 | `chapters/17-heaps-hash-tables` | Heaps and Hash Tables | preview, lab, homework | In Progress | First content and assignment pass added |
-| 18 | `chapters/18-graphs` | Graph Data Structures | preview, lab, homework | In Progress | First content and assignment pass added |
+| 13 | `chapters/13-abstract-data-types` | ADTs | preview, lab, homework | In Progress | Landing filename normalized to `1300-abstract-data-types.ipynb` |
+| 14 | `chapters/14-arrays-linked-lists` | Linear Lists | preview, lab, homework | In Progress | First content and assignment pass added |
+| 15 | `chapters/15-stacks-queues` | Stacks & Queues | preview, lab, homework | In Progress | First content and assignment pass added |
+| 16 | `chapters/16-trees` | Trees | preview, lab, homework | In Progress | First content and assignment pass added |
+| 17 | `chapters/17-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | First content and assignment pass added |
+| 18 | `chapters/18-graphs` | Graphs | preview, lab, homework | In Progress | First content and assignment pass added |
 
 ## Part V — Algorithms
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
-| 19 | `chapters/19-algorithm-analysis` | Algorithm Analysis | preview, lab, homework | In Progress | First content and assignment pass added |
-| 20 | `chapters/20-recursion-divide-conquer` | Recursion and Divide-and-Conquer | preview, lab, homework | In Progress | First content and assignment pass added |
-| 21 | `chapters/21-searching-sorting` | Searching and Sorting | preview, lab, homework | In Progress | First content and assignment pass added |
-| 22 | `chapters/22-greedy-graph-optimization` | Greedy Graph Optimization | preview, lab, homework | In Progress | First content and assignment pass added |
-| 23 | `chapters/23-dynamic-programming-backtracking` | Dynamic Programming and Backtracking | preview, lab, homework | In Progress | First content and assignment pass added |
-| 24 | `chapters/24-advanced-graphs-strings-limits` | Advanced Graphs, Strings, and Limits | preview, lab, homework | In Progress | First content and assignment pass added |
+| 19 | `chapters/19-algorithm-analysis` | Analysis | preview, lab, homework | In Progress | First content and assignment pass added |
+| 20 | `chapters/20-recursion-divide-conquer` | Recursion | preview, lab, homework | In Progress | First content and assignment pass added |
+| 21 | `chapters/21-searching-sorting` | Search & Sort | preview, lab, homework | In Progress | First content and assignment pass added |
+| 22 | `chapters/22-greedy-graph-optimization` | Greedy Algorithms | preview, lab, homework | In Progress | First content and assignment pass added |
+| 23 | `chapters/23-dynamic-programming-backtracking` | Dynamic Programming | preview, lab, homework | In Progress | First content and assignment pass added |
+| 24 | `chapters/24-advanced-graphs-strings-limits` | Advanced Algorithms | preview, lab, homework | In Progress | First content and assignment pass added |
 
 ## Non-TOC and Staging Tracks
 

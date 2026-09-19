@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Greedy Algorithms and Graph Optimization
+# Chapter Organization — Greedy Algorithms
 
 ## Learning Objectives
 

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Searching and Sorting
+# Chapter Materials — Search & Sort
 
 ## Sequence
 

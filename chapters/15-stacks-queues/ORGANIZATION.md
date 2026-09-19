@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Stacks, Queues, and Deques
+# Chapter Organization — Stacks & Queues
 
 ## Learning Objectives
 

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Arrays and Linked Lists
+# Chapter Materials — Linear Lists
 
 ## Sequence
 
