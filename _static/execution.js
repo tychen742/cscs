@@ -13,7 +13,7 @@ function initializeCsharpExecution() {
         cell.dataset.cscsExecutionReady = "true";
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
-        editor.value = normalizeCode(codeElement.textContent);
+        editor.value = normalizeCode(getExecutableCodeText(codeElement));
         editor.spellcheck = false;
         editor.hidden = true;
         codeElement.closest(".cell_input").appendChild(editor);
@@ -116,7 +116,7 @@ function initializeCsharpExecution() {
         });
 
         resetButton.addEventListener("click", () => {
-            editor.value = normalizeCode(codeElement.textContent);
+            editor.value = normalizeCode(getExecutableCodeText(codeElement));
             stdinRequested = false;
             updateStdinVisibility();
         });
@@ -236,6 +236,12 @@ function initializeCsharpExecution() {
 
     function normalizeCode(source) {
         return source.replace(/^\s*%{1,2}csharp\s*\r?\n/i, "");
+    }
+
+    function getExecutableCodeText(codeElement) {
+        const clone = codeElement.cloneNode(true);
+        clone.querySelectorAll(".linenos").forEach((lineNumber) => lineNumber.remove());
+        return clone.textContent || "";
     }
 
     function usesConsoleInput(source) {

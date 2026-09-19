@@ -81,8 +81,9 @@ sphinx:
     highlight_options:
       default: { linenos: false }
       # csharp: { linenos: true }
-    nb_number_source_lines: false
-    copyright: "2024, Tsangyao Chen, Ph.D."
+    nb_number_source_lines: true
+    nb_remove_code_outputs: true
+    copyright: "Tsangyao Chen, Ph.D."
     html_show_copyright: false
 
     rst_prolog: |
