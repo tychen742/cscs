@@ -82,7 +82,7 @@ sphinx:
       default: { linenos: false }
       # csharp: { linenos: true }
     nb_number_source_lines: true
-    nb_remove_code_outputs: true
+    nb_remove_code_outputs: false
     copyright: "Tsangyao Chen, Ph.D."
     html_show_copyright: false
 

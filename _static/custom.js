@@ -687,9 +687,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function shouldTrackPage() {
-        const path = window.location.pathname;
+        return isTrackablePageUrl(currentPageUrl());
+    }
+
+    function isTrackablePageUrl(pageUrl) {
+        let path = pageUrl || '';
+        try {
+            path = new URL(pageUrl, window.location.href).pathname;
+        } catch (_) {
+            path = pageUrl.split(/[?#]/)[0];
+        }
+        path = path.replace(/\/+$/, '');
         return (
-            path.endsWith('.html') &&
+            (path.endsWith('.html') || path === '') &&
+            path !== '' &&
+            path !== '/' &&
+            path !== '/chapters/preface' &&
             !path.endsWith('/index.html') &&
             !path.endsWith('/chapters/preface.html') &&
             !path.endsWith('/genindex.html') &&
@@ -706,10 +719,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function readLocalProgress() {
-        return safeJson(localStorage.getItem(storageKey));
+        const progress = safeJson(localStorage.getItem(storageKey));
+        if (progress?.pageUrl && !isTrackablePageUrl(progress.pageUrl)) {
+            localStorage.removeItem(storageKey);
+            return null;
+        }
+        return progress;
     }
 
     function writeLocalProgress(progress) {
+        if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl)) return;
         localStorage.setItem(storageKey, JSON.stringify(progress));
         renderContinueReading(progress);
     }
@@ -725,12 +744,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function saveLocalProgress() {
+        if (!shouldTrackPage()) return null;
         const progress = makeProgress();
         writeLocalProgress(progress);
         return progress;
     }
 
     async function syncProgress(progress) {
+        if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl)) return;
         try {
             const response = await fetch(`${apiBaseUrl}/v1/progress/reading`, {
                 method: 'POST',
@@ -754,6 +775,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (response.status === 204 || response.status === 401 || response.status === 403) return;
             if (!response.ok) return;
             const remote = normalizeProgress(await response.json());
+            if (!isTrackablePageUrl(remote.pageUrl)) return;
             const local = readLocalProgress();
             if (!local || Date.parse(remote.updatedUtc) > Date.parse(local.updatedUtc || 0)) {
                 writeLocalProgress(remote);
@@ -776,6 +798,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderContinueReading(progress) {
         if (!sidebarContent || !progress?.pageUrl) return;
         let panel = document.querySelector('.cscs-continue-reading');
+        if (!isTrackablePageUrl(progress.pageUrl)) {
+            panel?.remove();
+            return;
+        }
         if (progress.pageUrl === currentPageUrl()) {
             panel?.remove();
             return;
