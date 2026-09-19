@@ -10,10 +10,13 @@ function initializeCsharpExecution() {
         const codeElement = cell.querySelector(".cell_input pre");
         if (!codeElement || cell.dataset.cscsExecutionReady === "true") return;
 
+        const executableCode = normalizeCode(getExecutableCodeText(codeElement));
+        if (isCsharpSetupOnly(executableCode)) return;
+
         cell.dataset.cscsExecutionReady = "true";
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
-        editor.value = normalizeCode(getExecutableCodeText(codeElement));
+        editor.value = executableCode;
         editor.spellcheck = false;
         editor.hidden = true;
         codeElement.closest(".cell_input").appendChild(editor);
@@ -258,6 +261,18 @@ function initializeCsharpExecution() {
             .split("\n")
             .map((line) => line.replace(/\/\/.*$/, ""))
             .join("\n");
+    }
+
+    function isCsharpSetupOnly(source) {
+        const lines = stripCsharpComments(source)
+            .split("\n")
+            .map((line) => line.trim())
+            .filter(Boolean);
+
+        return lines.length > 0 && lines.every((line) => {
+            return /^using\s+(static\s+)?[\w.]+(\s*=\s*[\w.]+)?\s*;$/.test(line) ||
+                /^#\w+/.test(line);
+        });
     }
 
 }

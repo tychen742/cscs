@@ -813,7 +813,9 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>Continue Reading</p>
             <button type="button">
                 <span></span>
-                <strong aria-hidden="true">→</strong>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M6 4.75A2.75 2.75 0 0 1 8.75 2h6.5A2.75 2.75 0 0 1 18 4.75v16.1a.75.75 0 0 1-1.17.62L12 18.22l-4.83 3.25A.75.75 0 0 1 6 20.85V4.75Z"></path>
+                </svg>
             </button>`;
         const button = panel.querySelector('button');
         button.querySelector('span').textContent = label;

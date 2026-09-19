@@ -1755,10 +1755,12 @@ div.cell.tag_thebe-interactive {
     white-space: nowrap;
 }
 
-.cscs-continue-reading button strong {
+.cscs-continue-reading button svg {
     color: #5f4de0;
+    fill: currentColor;
     flex: 0 0 auto;
-    font-size: 1rem;
+    height: 1.15rem;
+    width: 1.15rem;
 }
 
 .cscs-continue-reading button:hover,
