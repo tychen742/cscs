@@ -393,4 +393,9 @@ parts:
       - file: chapters/appendices/resources
       - file: chapters/appendices/command-line
       - file: chapters/appendices/project
-      - file: chapters/appendices/cs-index
+
+  - caption: "Index"
+    numbered: false
+    chapters:
+      - url: https://thinkcscs.org/genindex.html
+        title: Index
