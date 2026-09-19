@@ -26,6 +26,9 @@ Use before finalizing any chapter. Adapted from `rubrics/chapter-quality.md` in 
 - [ ] Each section includes at least one code example
 - [ ] Every content section ends with a Footnotes block (`{rubric} Footnotes`)
 - [ ] All C# code examples compile and run correctly
+- [ ] Part I may use `csharprepl` for quick demonstrations and syntax testing; REPL transcripts are labeled clearly
+- [ ] Required labs, homework, projects, and later-chapter examples use Project/Application mode semantics: no required REPL-only bare expressions, hidden cross-cell state, or unassigned local variables
+- [ ] Application-mode examples that should display a value use `Console.WriteLine(...)`; Part I REPL examples transition toward runnable C# application-mode equivalents
 
 ## Assignments
 

@@ -195,26 +195,38 @@ requiring a separate top-level chapter.
 - Web or mobile development (aspirational future direction)
 - Advanced frameworks (.NET ecosystem beyond core C\#)
 
-## Interactive C# and REPL Teaching
+## C# Tooling Progression
 
-The book should use a two-stage learning model. In the first stage, students
-use `csharprepl` and the terminal for short, immediate experiments. This keeps
-setup friction low for business students who may not yet understand projects,
-compilation, or IDE workflows, while giving them a concrete experience of
-running code and reading compiler feedback.
+The book uses a staged C# tooling model. In **Part I: Fundamentals**, students
+may use `csharprepl` heavily for quick demonstrations, expression testing, and
+syntax learning. This lowers friction while students are still learning what
+variables, expressions, conditionals, loops, methods, exceptions, and tests do.
 
-In the second stage, students move into VS Code and standalone C# source code.
-The transition should be gradual and purposeful: students need to learn
-declarations, methods, classes, `Main`, compilation, and how program state
-differs between one execution and another. The goal is not to make every
-student an expert in build tooling in one pass, but to ensure that the tools
-become understandable as the course progresses.
+The durable workflow for the book is still **Project/Application mode**:
+students read the book, practice with browser `Run C#` cells when useful, and
+do sustained work in VS Code using normal .NET console applications. As soon as
+examples become multi-step, file-based, tested, or submitted for labs and
+projects, they should move toward source files, compilation, debugging, and
+predictable application execution.
 
-The local `csharprepl` and terminal experience is part of the instruction and
-should not be replaced by the browser execution service. The browser runner is
-an additional access path for demonstrations, review, and students who need a
-low-friction way to try code online. It should support both REPL-like snippets
-and standalone C# examples without making either workflow mandatory too early.
+`dotnet-script` and similar script tools may be mentioned as optional
+exploration tools, but they are not a required course dependency unless a
+specific assignment says so.
+
+Authoring rule:
+
+- Use `Console.WriteLine(...)` when a runnable cell should display an
+  expression value in application-mode code.
+- In Part I, REPL transcripts may use bare expressions when the goal is quick
+  demonstration or syntax testing. Label those examples as `csharprepl` examples
+  so students understand why a value appears without `Console.WriteLine`.
+- Do not let required labs, homework, projects, or later-chapter examples depend
+  on REPL-only behavior such as hidden cross-cell state or reading unassigned
+  local variables.
+- Explicitly initialize local variables in application-mode examples, including
+  with `default` when teaching default values.
+- When a Part I REPL transcript teaches a concept that students will also need
+  in projects, include or soon transition to a normal runnable C# equivalent.
 
 For browser reliability, every runnable code cell should work from the
 beginning of the cell. A cell must include the variables, collections, and
@@ -229,8 +241,10 @@ cells become common, add a synchronized line-number gutter using CodeMirror or
 another editor component rather than relying on a plain `<textarea>`.
 
 Do not make the curriculum depend on Binder, Jupyter kernels, .NET Interactive,
-or REPL-only syntax. Any REPL-specific expression should have a standalone C#
-equivalent before it becomes a required example.
+or `dotnet-script`. `csharprepl` is part of the Part I learning workflow, but
+not the final programming model of the book. The browser runner may support
+REPL-like conveniences, but online examples used beyond quick Part I
+demonstrations should continue to work as normal C# console-application code.
 
 This decision should be revisited when designing first-semester chapters and
 assignments, especially the first variables, methods, collections, and classes
