@@ -2,14 +2,14 @@
 
 ## Landing Page
 
-- `0900-classes-intro.ipynb` — Chapter landing page
+- `1000-classes-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `0901-class-syntax.ipynb` — Class syntax
-- `0902-properties.ipynb` — Properties and fields
-- `0903-class-instance.ipynb` — Creating and using instances
-- `0904-operator-overloading.ipynb` — Operator overloading
+- `1001-class-syntax.ipynb` — Class syntax
+- `1002-properties.ipynb` — Properties and fields
+- `1003-class-instance.ipynb` — Creating and using instances
+- `1004-operator-overloading.ipynb` — Operator overloading
 
 ## Assignments
 

@@ -325,7 +325,7 @@ public BookList()
 - `chapters/11-classes/assignments/hw-booklist.ipynb` cell 9 (BookList class)
 - `chapters/12-oop/1204-polymorphism.ipynb` cell 13 (Method Overloading)
 - `chapters/12-oop/1205-abstraction.ipynb` cell 4 (Abstract Classes)
-- `chapters/06-exceptions-testing/1303-testing.ipynb` cell 3 (Simple Testing)
+- `chapters/06-exceptions-testing/0603-testing.ipynb` cell 3 (Simple Testing)
 
 ## Original Category C (mixed/other, from the first scan pass) — 38 cells
 

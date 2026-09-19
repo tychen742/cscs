@@ -88,12 +88,12 @@ parts:
               - file: chapters/05-iteration/assignments/homework
                 title: Homework
 
-      - file: chapters/06-exceptions-testing/1300-exceptions-debugging-intro
+      - file: chapters/06-exceptions-testing/0600-exceptions-debugging-intro
         sections:
-          - file: chapters/06-exceptions-testing/1301-error-handling
-          - file: chapters/06-exceptions-testing/1302-debugging-workflow
-          - file: chapters/06-exceptions-testing/1303-testing
-          - file: chapters/06-exceptions-testing/1304-nullable
+          - file: chapters/06-exceptions-testing/0601-error-handling
+          - file: chapters/06-exceptions-testing/0602-debugging-workflow
+          - file: chapters/06-exceptions-testing/0603-testing
+          - file: chapters/06-exceptions-testing/0604-nullable
           - file: chapters/06-exceptions-testing/assignments/index
             title: Assignments
             sections:
@@ -107,89 +107,89 @@ parts:
   - caption: "Part II. Data and I/O"
     numbered: true
     chapters:
-      - file: chapters/06-arrays/0600-arrays-intro
+      - file: chapters/07-arrays/0700-arrays-intro
         sections:
-          - file: chapters/06-arrays/0601-onedim
-          - file: chapters/06-arrays/0602-twodim
-          - file: chapters/06-arrays/assignments/index
+          - file: chapters/07-arrays/0701-onedim
+          - file: chapters/07-arrays/0702-twodim
+          - file: chapters/07-arrays/assignments/index
             title: Assignments
             sections:
-              - file: chapters/06-arrays/assignments/preview
+              - file: chapters/07-arrays/assignments/preview
                 title: Preview
-              - file: chapters/06-arrays/assignments/lab
+              - file: chapters/07-arrays/assignments/lab
                 title: Lab
-              - file: chapters/06-arrays/assignments/homework
+              - file: chapters/07-arrays/assignments/homework
                 title: Homework
 
-      - file: chapters/07-collections/0700-collections-intro
+      - file: chapters/08-collections/0800-collections-intro
         sections:
-          - file: chapters/07-collections/0701-collections
-          - file: chapters/07-collections/0702-list
-          - file: chapters/07-collections/0703-dictionary
-          - file: chapters/07-collections/assignments/index
+          - file: chapters/08-collections/0801-collections
+          - file: chapters/08-collections/0802-list
+          - file: chapters/08-collections/0803-dictionary
+          - file: chapters/08-collections/assignments/index
             title: Assignments
             sections:
-              - file: chapters/07-collections/assignments/preview
+              - file: chapters/08-collections/assignments/preview
                 title: Preview
-              - file: chapters/07-collections/assignments/lab
+              - file: chapters/08-collections/assignments/lab
                 title: Lab
-              - file: chapters/07-collections/assignments/homework
+              - file: chapters/08-collections/assignments/homework
                 title: Homework
 
-      - file: chapters/08-files-text/0800-files-text-intro
+      - file: chapters/09-files-text/0900-files-text-intro
         sections:
-          - file: chapters/08-files-text/0801-stream-file
-          - file: chapters/08-files-text/0802-file-operations
-          - file: chapters/08-files-text/0803-text-operations
-          - file: chapters/08-files-text/0806-regex
-          - file: chapters/08-files-text/assignments/index
+          - file: chapters/09-files-text/0901-stream-file
+          - file: chapters/09-files-text/0902-file-operations
+          - file: chapters/09-files-text/0903-text-operations
+          - file: chapters/09-files-text/0906-regex
+          - file: chapters/09-files-text/assignments/index
             title: Assignments
             sections:
-              - file: chapters/08-files-text/assignments/preview
+              - file: chapters/09-files-text/assignments/preview
                 title: Preview
-              - file: chapters/08-files-text/assignments/lab
+              - file: chapters/09-files-text/assignments/lab
                 title: Lab
-              - file: chapters/08-files-text/assignments/hw-gradefiles
+              - file: chapters/09-files-text/assignments/hw-gradefiles
                 title: "Homework: Grade Files"
-              - file: chapters/08-files-text/assignments/homework
+              - file: chapters/09-files-text/assignments/homework
                 title: Homework
 
   - caption: "Part III. Object-Oriented Information Systems"
     numbered: true
     chapters:
-      - file: chapters/09-classes/0900-classes-intro
+      - file: chapters/10-classes/1000-classes-intro
         sections:
-          - file: chapters/09-classes/0901-class-syntax
-          - file: chapters/09-classes/0902-properties
-          - file: chapters/09-classes/0903-class-instance
-          - file: chapters/09-classes/0904-operator-overloading
-          - file: chapters/09-classes/assignments/index
+          - file: chapters/10-classes/1001-class-syntax
+          - file: chapters/10-classes/1002-properties
+          - file: chapters/10-classes/1003-class-instance
+          - file: chapters/10-classes/1004-operator-overloading
+          - file: chapters/10-classes/assignments/index
             title: Assignments
             sections:
-              - file: chapters/09-classes/assignments/preview
+              - file: chapters/10-classes/assignments/preview
                 title: Preview
-              - file: chapters/09-classes/assignments/lab
+              - file: chapters/10-classes/assignments/lab
                 title: Lab
-              - file: chapters/09-classes/assignments/hw-booklist
+              - file: chapters/10-classes/assignments/hw-booklist
                 title: "Homework: Book List"
-              - file: chapters/09-classes/assignments/homework
+              - file: chapters/10-classes/assignments/homework
                 title: Homework
 
-      - file: chapters/10-oop/1000-oop-intro
+      - file: chapters/11-oop/1100-oop-intro
         sections:
-          - file: chapters/10-oop/1001-intro-oop
-          - file: chapters/10-oop/1002-encapsulation
-          - file: chapters/10-oop/1003-inheritance
-          - file: chapters/10-oop/1004-polymorphism
-          - file: chapters/10-oop/1005-abstraction
-          - file: chapters/10-oop/assignments/index
+          - file: chapters/11-oop/1101-intro-oop
+          - file: chapters/11-oop/1102-encapsulation
+          - file: chapters/11-oop/1103-inheritance
+          - file: chapters/11-oop/1104-polymorphism
+          - file: chapters/11-oop/1105-abstraction
+          - file: chapters/11-oop/assignments/index
             title: Assignments
             sections:
-              - file: chapters/10-oop/assignments/preview
+              - file: chapters/11-oop/assignments/preview
                 title: Preview
-              - file: chapters/10-oop/assignments/lab
+              - file: chapters/11-oop/assignments/lab
                 title: Lab
-              - file: chapters/10-oop/assignments/homework
+              - file: chapters/11-oop/assignments/homework
                 title: Homework
 
       - file: chapters/12-databases/1200-databases
@@ -203,7 +203,7 @@ parts:
     numbered: true
     chapters:
 
-      - file: chapters/13-abstract-data-types/1100-datastructure-intro
+      - file: chapters/13-abstract-data-types/1300-abstract-data-types
         sections:
           - file: chapters/13-abstract-data-types/1301-adt-contracts
           - file: chapters/13-abstract-data-types/1302-representations-costs

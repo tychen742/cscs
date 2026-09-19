@@ -22,7 +22,7 @@ No active section notebooks are currently present in this folder.
 
 ## Migration Targets
 
-- Nullable reference type material -> `chapters/06-exceptions-testing/1304-nullable.ipynb`
+- Nullable reference type material -> `chapters/06-exceptions-testing/0604-nullable.ipynb`
 - Generic programming material -> `chapters/13-abstract-data-types/1303-generics.ipynb`
 - Async/await material -> `chapters/12-databases/1205-async.ipynb`
 

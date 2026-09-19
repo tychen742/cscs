@@ -2,14 +2,14 @@
 
 ## Landing Page
 
-- `1300-exceptions-debugging-intro.ipynb` — Chapter landing page
+- `0600-exceptions-debugging-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `1301-error-handling.ipynb` — Exception handling
-- `1302-debugging-workflow.ipynb` — Debugging workflow
-- `1303-testing.ipynb` — Unit testing
-- `1304-nullable.ipynb` — Nullable types and null operators
+- `0601-error-handling.ipynb` — Exception handling
+- `0602-debugging-workflow.ipynb` — Debugging workflow
+- `0603-testing.ipynb` — Unit testing
+- `0604-nullable.ipynb` — Nullable types and null operators
 
 ## Assignments
 

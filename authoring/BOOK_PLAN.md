@@ -5,17 +5,24 @@
 - **Title**: Introduction to Computer Science in C\#
 - **Format**: Jupyter Book (open access, online)
 - **Inspired by**: introcs.cs.luc.edu — aims to be a better-structured open alternative
+- **Scope note**: despite the working title, this book is not only an
+	introductory programming text. It spans a two-semester sequence from first
+	programming concepts through data structures and algorithmic problem solving.
 
 ## Audience
 
-- College students in an introductory CS/programming course
-- No prior programming experience assumed
-- Focus: CS and IT concepts, not just syntax
+- College students in a two-semester CS/programming sequence
+- No prior programming experience assumed at the start of Semester 1
+- Semester 1 supports beginning programmers; Semester 2 supports students who
+	have completed the programming and information-systems foundation
+- Focus: CS and IT concepts, data structures, algorithms, and programming
+	practice, not just syntax
 
 ## Goals
 
 - Teach C# programming through a CS and IT conceptual lens
-- Cover both programming mechanics and computer science ideas
+- Cover programming mechanics, information-systems practice, data structures,
+	and algorithmic problem solving
 - Each chapter is one week's named student-facing unit. Each chapter contains
 	several notebooks or sections, including explanation, examples, practice,
 	and assignments.
@@ -28,7 +35,7 @@ Five parts:
 | Part | Topic | Chapters |
 | ---- | ----- | -------- |
 | I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing |
-| II | Data and I/O | 07 Arrays, 08 Collections, 09 Files & Text |
+| II | Data and I/O | 07 Arrays, 08 Data Collections, 09 Files & Text |
 | III | Object-Oriented Information Systems | 10 Classes, 11 OOP Principles, 12 Databases |
 | IV | Data Structures | 13 ADTs, 14 Arrays & Linked Lists, 15 Stacks & Queues, 16 Trees, 17 Heaps & Hash Tables, 18 Graph Structures |
 | V | Algorithms | 19 Analysis, 20 Divide and Conquer, 21 Searching & Sorting, 22 Greedy Algorithms, 23 Dynamic Programming, 24 Advanced Algorithms |
@@ -41,61 +48,62 @@ See `_toc.yml` for the authoritative notebook order.
 
 ## Two-Semester Course Design
 
-The book is designed to support the two-course IST programming sequence while
-providing a stronger computer-science foundation than either course schedule
-requires on its own. The courses are applied programming courses for
-information systems and business students, not a direct copy of the former
-Java algorithms and data-structures sequence.
+This book now contains two semesters of material. The intended split is:
+
+- **Semester 1: Programming and Information Systems Foundations** — Chapters
+	1-12.
+- **Semester 2: Data Structures and Algorithms Foundations** — Chapters 13-24.
+
+The book should remain usable as a single open text, but each semester needs a
+clear instructional arc, assessment plan, and project rhythm. Instructors may
+assign only the relevant semester in a given course.
 
 ### Semester 1: Programming and Information Systems Foundations
 
-Semester 1 introduces programming in C# and ends with introductory object
-orientation. Its required sequence is:
+Semester 1 introduces programming in C# and ends with persistent
+information-system data. Its required sequence is:
 
 1. computing context, development tools, and program structure (Chapter 1)
 2. variables, types, expressions, and console input/output (Chapter 2)
 3. methods, parameters, and decomposition (Chapter 3)
-4. decisions and iteration (Chapters 4–5)
-5. arrays and collections (Chapters 6–7)
-6. files, text processing, and regular expressions (Chapter 8)
-7. classes, properties, instances, and introductory object-oriented principles
-	 (Chapters 9–10)
+4. decisions and iteration (Chapters 4-5)
+5. exceptions, debugging, and testing (Chapter 6)
+6. arrays and collections (Chapters 7-8)
+7. files, text processing, and regular expressions (Chapter 9)
+8. classes, properties, instances, and object-oriented principles
+	 (Chapters 10-11)
+9. database concepts, SQL, and persistent information-system data (Chapter 12)
 
 The semester should include a project that grows from single-file programs into
-a small multi-class information-system application. The final weeks should be
-used for integration, testing, documentation, and demonstration rather than
-introducing unrelated advanced language features.
+a small multi-class information-system application. The final weeks should
+include integration, testing, documentation, demonstration, and a small C#
+database workflow.
 
-### Semester 2: Data Perspective and Information-System Applications
+### Semester 2: Data Structures and Algorithms Foundations
 
-Semester 2 assumes the programming foundation from Semester 1 and continues
-through the applied information-system topics in the IST-1552 schedule. Its
-required sequence is:
+Semester 2 assumes the programming and information-systems foundation from
+Semester 1. It introduces abstract data types, implementation choices,
+operation costs, and algorithm design. Its required sequence is:
 
-1. arrays, lists, and collection-oriented data processing
-2. text processing and structured data transformation
-3. memory, references, objects, and program state
-4. classes, inheritance, polymorphism, and interfaces
-5. database concepts, SQL, and persistent information-system data
+1. abstract data types, interfaces, generics, references, and memory
+	 (Chapter 13)
+2. linear structures: arrays, dynamic arrays, linked lists, stacks, queues, and
+	 deques (Chapters 14-15)
+3. trees, heaps, hash tables, and graph representations (Chapters 16-18)
+4. algorithm analysis, recursion, searching, and sorting (Chapters 19-21)
+5. greedy algorithms, dynamic programming, backtracking, and advanced graph or
+	 string algorithms (Chapters 22-24)
 
-The current Chapters 6–10 provide most of the programming, collections, text,
-and introductory OOP material for this semester. Database concepts and SQL
-remain a planned content gap and should be added as a chapter or substantial
-appendix before the book is presented as a complete 1552 text. Async
-programming, advanced functional patterns, and algorithm analysis are
-supplemental unless the course schedule explicitly requires them.
-
-Each semester should have its own project arc. Semester 1 emphasizes program
-construction and basic decomposition. Semester 2 emphasizes data modeling,
-object-oriented design, text and collection processing, and connecting an
-application to persistent data.
+Semester 2 should have its own project arc. It should emphasize choosing
+representations, explaining tradeoffs, implementing reusable data structures,
+testing invariants, and applying algorithms to realistic data problems.
 
 ### Proposed 24-Chapter Layout
 
 The book should use a simple one-chapter-per-week structure. The first twelve
 chapters cover the applied programming and information-systems foundation. The
-next twelve chapters support two separate follow-on courses: six chapters for
-Data Structures and six chapters for Algorithms.
+next twelve chapters cover the data structures and algorithms foundation for
+the second semester.
 
 #### Part I: Fundamentals
 
@@ -109,7 +117,7 @@ Data Structures and six chapters for Algorithms.
 #### Part II: Data and I/O
 
 7. Arrays and multidimensional data
-8. Collections: lists, dictionaries, and sets
+8. Data Collections: lists, dictionaries, and sets
 9. Files, streams, and text processing
 
 #### Part III: Object-Oriented Information Systems
@@ -119,11 +127,12 @@ Data Structures and six chapters for Algorithms.
 	interfaces
 12. Databases, SQL, and persistent information-system data
 
-Chapters 1–12 form the complete introductory programming book for the two
-IST courses. Chapter 6 appears before classes so students practice failure
-handling, debugging, and tests before larger object-oriented projects. Memory,
-references, and program state should be introduced where they support Chapters
-7–11 rather than treated as an isolated advanced chapter.
+Chapters 1-12 form the complete first-semester programming and
+information-systems foundation. Chapter 6 appears before classes so students
+practice failure handling, debugging, and tests before larger object-oriented
+projects. Memory, references, and program state should be introduced where
+they support Chapters 7-11 rather than treated as an isolated advanced
+chapter.
 
 #### Part IV: Data Structures
 
@@ -148,11 +157,11 @@ number of notebooks inside a chapter. Each chapter should normally include a
 landing notebook, two or three content notebooks, and an assignments area with
 Preview, Lab, and Homework work.
 
-### Later Courses: Data Structures and Algorithms
+### Semester 2 Depth: Data Structures and Algorithms
 
-Data Structures and Algorithms are separate courses and should not be treated
-as missing weeks in the 1551/1552 sequence. Chapters 13–24 are organized as
-two focused six-chapter sequences.
+Data Structures and Algorithms form the second-semester arc. Chapters 13-24
+are organized as two focused six-chapter sequences: data structures first,
+then algorithms.
 
 The detailed chapter organization is listed in Parts IV and V above. Existing
 chapter filenames and stable assignment IDs should be preserved during the
@@ -170,8 +179,8 @@ The book should distinguish three levels of material:
 	future courses, or students continuing into data science and software work.
 
 The two-semester design should preserve the book's broader foundation without
-quietly turning every advanced topic into a prerequisite for the introductory
-courses.
+quietly turning every advanced topic into a prerequisite for the first-semester
+course.
 
 ### Weekly Pacing
 
@@ -223,7 +232,7 @@ Do not make the curriculum depend on Binder, Jupyter kernels, .NET Interactive,
 or REPL-only syntax. Any REPL-specific expression should have a standalone C#
 equivalent before it becomes a required example.
 
-This decision should be revisited when designing introductory chapters and
+This decision should be revisited when designing first-semester chapters and
 assignments, especially the first variables, methods, collections, and classes
 activities.
 

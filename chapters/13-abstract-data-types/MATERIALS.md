@@ -6,15 +6,14 @@ orphan: true
 
 ## Active Notebooks
 
-- `1100-datastructure-intro.ipynb` — Chapter landing page
+- `1300-abstract-data-types.ipynb` — Chapter landing page
 - `1301-adt-contracts.ipynb` — ADT contracts, interfaces, and invariants
 - `1302-representations-costs.ipynb` — representations, references, and operation costs
 - `1303-generics.ipynb` — Generics
 
 ## Non-TOC Source Material
 
-- `1101-intro-ds.ipynb` — older data-structures survey
-- `1102-collection-examples.ipynb` — older collection examples
+- The older `1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` source notebooks have been moved to `../08-collections/` for later reuse. Their reusable collection overview and `List<T>` basics have already been migrated into active Chapter 8 sections.
 
 ## Sequence
 
@@ -32,6 +31,5 @@ expand it into a true ADT and implementation foundation for the DSA course.
 ## Coverage Gaps
 
 The active notebooks and assignment set now provide first-pass ADT framing.
-Later passes should add more worked examples, improve any browser grading
-metadata, and decide what to migrate or remove from the older `1101` and
-`1102` source notebooks.
+Later passes should add more worked examples and improve any browser grading
+metadata.

@@ -2,12 +2,12 @@
 
 ## Landing Page
 
-- `0600-arrays-intro.ipynb` — Chapter landing page
+- `0700-arrays-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `0601-onedim.ipynb` — One-dimensional arrays
-- `0602-twodim.ipynb` — Two-dimensional arrays
+- `0701-onedim.ipynb` — One-dimensional arrays
+- `0702-twodim.ipynb` — Two-dimensional arrays
 
 ## Assignments
 

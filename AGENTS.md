@@ -9,11 +9,14 @@ Read `~/ai_shared/skills/book-authoring/SKILL.md` for all pedagogy, structure, a
 
 ## Project Context
 
-- College-level introductory C# programming and computer science textbook (CSCS course)
+- College-level introductory to intermediat C# programming and computer science textbook (CSCS course)
 - Audience: students new to or early in programming; no prior experience assumed
 - Inspired by introcs.cs.luc.edu — aims to be a better-structured open alternative
 - This book is about CS and IT, not just programming syntax — conceptual parts are important
+- As a context, use management and business examples.
 - Published as a Jupyter Book
+- All code cells are runnable through Docker instance.
+- 
 
 ## Memory
 
@@ -35,7 +38,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Each chapter has an `assignments/` subfolder. The standard student-facing
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
-- Chapter sequence is ch01–ch16; project instructions live in `chapters/appendices/`
+- Chapter sequence is ch01–ch24; project instructions live in `chapters/appendices/`
 - Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
 - Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding
@@ -71,17 +74,17 @@ Footnote cells must be independent markdown cells.
 
 Each chapter should normally include these student-facing assignments in this order:
 
-| Type | File pattern | Specs |
-| ---- | ----------- | ----- |
-| Preview quiz | `NN0X-preview` | Multiple-choice questions from the content sections |
-| Lab | `NN0X-lab` | Connected coding practice on one theme; each question builds on previous output |
-| Homework | `NN0X-homework` | Five true/false questions and five coding questions |
+| Type         | File pattern      | Specs                                                                           |
+| ------------ | ----------------- | ------------------------------------------------------------------------------- |
+| Preview quiz | `NN0X-preview`  | Multiple-choice questions from the content sections                             |
+| Lab          | `NN0X-lab`      | Connected coding practice on one theme; each question builds on previous output |
+| Homework     | `NN0X-homework` | Five true/false questions and five coding questions                             |
 
 Projects are separate optional assignment tracks, not required for every
 chapter:
 
-| Type | File pattern | Specs |
-| ---- | ----------- | ----- |
+| Type    | File pattern     | Specs                                                                             |
+| ------- | ---------------- | --------------------------------------------------------------------------------- |
 | Project | `NN0X-project` | A cumulative deliverable that applies the chapter's concepts in a VS Code project |
 
 The project notebook should connect the chapter to the semester project or a

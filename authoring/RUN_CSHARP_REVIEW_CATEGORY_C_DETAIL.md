@@ -345,7 +345,7 @@ interface Animal
 }
 ```
 
-## `chapters/06-exceptions-testing/1301-error-handling.ipynb` cell 8 — File I/O with Safe Handling
+## `chapters/06-exceptions-testing/0601-error-handling.ipynb` cell 8 — File I/O with Safe Handling
 Error codes: CS0841
 
 ```csharp
@@ -372,7 +372,7 @@ catch (IOException ex)
 }
 ```
 
-## `chapters/06-exceptions-testing/1303-testing.ipynb` cell 6 — The Unit Testing Process
+## `chapters/06-exceptions-testing/0603-testing.ipynb` cell 6 — The Unit Testing Process
 Error codes: CS5001
 
 ```csharp

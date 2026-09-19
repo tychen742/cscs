@@ -23,8 +23,10 @@ connected to the ADT examples by showing how one implementation can support
 multiple element types without sacrificing compile-time type checking.
 
 The older `1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` notebooks
-are source material, not active sections. They repeat earlier collection
-coverage and should be mined later for examples only where they support ADT
+have been moved to Chapter 8 as non-TOC source material for later reuse. Their
+reusable collection overview and `List<T>` basics have already been migrated
+into active Chapter 8 sections. Any remaining stack, queue, or tuple material
+should stay out of this ADT chapter unless a later revision uses it to support
 contracts or representation tradeoffs.
 
 ## Coverage Gaps
@@ -32,5 +34,5 @@ contracts or representation tradeoffs.
 The active chapter now moves from ADT contract to representation tradeoffs to
 generic implementation. The preview, lab, and homework assignments now align
 with this flow. Remaining work: add more worked examples, tune assignment
-metadata for any grader integration, and decide whether to remove or archive
-the old survey notebooks after useful material is migrated.
+metadata for any grader integration, and keep the ADT chapter focused on
+contracts, representations, operation costs, and generic implementations.
