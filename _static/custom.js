@@ -674,9 +674,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
         window.CSCS_EXECUTION_API ||
         (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
-    const sidebar = document.querySelector('.bd-sidebar-primary');
-    const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
-
     function currentPageUrl() {
         return window.location.pathname + window.location.search + window.location.hash;
     }
@@ -796,7 +793,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function renderContinueReading(progress) {
-        if (!sidebarContent || !progress?.pageUrl) return;
+        if (!progress?.pageUrl) return;
         let panel = document.querySelector('.cscs-continue-reading');
         if (!isTrackablePageUrl(progress.pageUrl)) {
             panel?.remove();
@@ -809,14 +806,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!panel) {
             panel = document.createElement('div');
             panel.className = 'cscs-continue-reading';
-            sidebarContent.appendChild(panel);
+            document.body.appendChild(panel);
         }
         const label = progress.pageTitle || 'Continue reading';
         panel.innerHTML = `
             <p>Continue Reading</p>
-            <button type="button"></button>`;
+            <button type="button">
+                <span></span>
+                <strong aria-hidden="true">→</strong>
+            </button>`;
         const button = panel.querySelector('button');
-        button.textContent = label;
+        button.querySelector('span').textContent = label;
         button.addEventListener('click', () => {
             localStorage.setItem(pendingScrollKey, JSON.stringify({
                 pageUrl: progress.pageUrl,

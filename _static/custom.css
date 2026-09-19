@@ -129,6 +129,12 @@ nav.bd-links p.caption {
     margin-bottom: 0.15rem !important;
 }
 
+/* The book root lives at chapters/preface. PyData renders that nested root
+   as a separate home-link above Part I; the logo already serves that purpose. */
+.bd-sidebar-primary nav.bd-links .bd-sidenav__home-link {
+    display: none !important;
+}
+
 html[data-theme=light] {
     --sbt-color-announcement: #616161;
     --pst-color-primary: #176de8;
@@ -1703,19 +1709,25 @@ div.cell.tag_thebe-interactive {
 .cscs-auth-status { color: #52616b; margin: 0; padding: 0 20px 18px; }
 
 .cscs-continue-reading {
-    background: #f6f9ff;
+    background: rgba(255, 255, 255, 0.96);
     border: 1px solid #c8d8f2;
     border-radius: 8px;
-    margin: 12px 12px 8px;
-    padding: 10px;
+    box-shadow: 0 10px 28px rgba(25, 42, 70, 0.16);
+    max-width: min(260px, calc(100vw - 32px));
+    padding: 0.75rem 0.85rem;
+    position: fixed;
+    right: 1.15rem;
+    top: 25vh;
+    width: 240px;
+    z-index: 1030;
 }
 
 .cscs-continue-reading p {
-    color: #52616b;
-    font-size: 0.78rem;
+    color: #5a6573;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 0 0 6px;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.35rem;
     text-transform: uppercase;
 }
 
@@ -1724,18 +1736,47 @@ div.cell.tag_thebe-interactive {
     border: 0;
     color: #245fca;
     cursor: pointer;
-    display: block;
-    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    justify-content: space-between;
     line-height: 1.25;
     padding: 0;
     text-align: left;
     width: 100%;
 }
 
+.cscs-continue-reading button span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cscs-continue-reading button strong {
+    color: #5f4de0;
+    flex: 0 0 auto;
+    font-size: 1rem;
+}
+
 .cscs-continue-reading button:hover,
 .cscs-continue-reading button:focus {
     color: #17458f;
-    text-decoration: underline;
+    outline: 2px solid rgba(47, 111, 222, 0.18);
+    outline-offset: 3px;
+    text-decoration: none;
+}
+
+@media (max-width: 960px) {
+    .cscs-continue-reading {
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        top: auto;
+        width: auto;
+    }
 }
 
 .cscs-author-save {
