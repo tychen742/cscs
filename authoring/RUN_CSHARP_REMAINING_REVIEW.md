@@ -9,7 +9,7 @@ Of 184 total REPL-pattern cells (92 bare-expression + 92 cross-cell-reference), 
 - `chapters/02-var_data/0202-data_types.ipynb` cell 45 (Type Conversion): definite-assignment teaching claim is inaccurate for C# locals; needs content judgment
 - `chapters/02-var_data/0206-input_output.ipynb` cell 31 (Composite formatting): prose text was inside the code cell, not a real expression
 - `chapters/02-var_data/assignments/lab.ipynb` cell 6 (User Input): intentional '...' student fill-in stub
-- `chapters/02-var_data/assignments/review.ipynb` cell 1 (Chapter Review): likely an intentional operator-precedence/type-error prediction exercise
+- `chapters/02-var_data/assignments/homework.ipynb` cell 1 (Homework): likely an intentional operator-precedence/type-error prediction exercise
 - `chapters/04-decision/0401-intro-decision.ipynb` cell 5 (Boolean Expressions): trailing prose text was inside the code cell
 - `chapters/05-iteration/0502-for-statements.ipynb` cell 13 (Nested `for` Loop): pure pseudocode outline (outer-Loop/inner-Loop aren't valid identifiers), not real code
 - `chapters/05-iteration/0502-for-statements.ipynb` cell 15 (Nested `for` Loop): pure pseudocode outline with literal '....' placeholders
@@ -31,7 +31,7 @@ These had a compile error code that looked REPL-shaped but the actual cell is so
 string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
 ```
 
-### `chapters/02-var_data/assignments/review.ipynb` cell 5 — Chapter Review
+### `chapters/02-var_data/assignments/homework.ipynb` cell 5 — Homework
 ```csharp
    int x= (int)5.8;
    double y = (double)6;
@@ -40,7 +40,7 @@ string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
 
 ```
 
-### `chapters/04-decision/assignments/review.ipynb` cell 13 — Chapter Review
+### `chapters/04-decision/assignments/homework.ipynb` cell 13 — Homework
 ```csharp
     public class Test1
     {
@@ -173,7 +173,7 @@ bool File.Exists(string filenamePath)
 
 ```
 
-### `chapters/06-files-text/assignments/review.ipynb` cell 1 — Chapter Review
+### `chapters/06-files-text/assignments/homework.ipynb` cell 1 — Homework
 ```csharp
    if (inFile.ReadLine().Contains("!")) {
       Console.WriteLine(inFile.ReadLine() + "\n contains the symbol !")
@@ -208,14 +208,14 @@ for (int i = 0; i < table2.Length; i++)
 
 ```
 
-### `chapters/07-arrays/assignments/review.ipynb` cell 7 — Chapter Review
+### `chapters/07-arrays/assignments/homework.ipynb` cell 7 — Homework
 ```csharp
     static void f(int num)
     //...
 
 ```
 
-### `chapters/07-arrays/assignments/review.ipynb` cell 11 — Chapter Review
+### `chapters/07-arrays/assignments/homework.ipynb` cell 11 — Homework
 ```csharp
     static void f(int[] nums)
     //...
@@ -232,7 +232,7 @@ Console.WriteLine(words)
 Console.WriteLine(words)
 ```
 
-### `chapters/08-collections/assignments/review.ipynb` cell 3 — Chapter Review
+### `chapters/08-collections/assignments/homework.ipynb` cell 3 — Homework
 ```csharp
     words.Clear()
 
@@ -276,8 +276,8 @@ public BookList()
 - `chapters/04-decision/0401-intro-decision.ipynb` cell 6 (Boolean Expressions)
 - `chapters/04-decision/0402-ifstatement.ipynb` cell 7 (else-if Statements)
 - `chapters/04-decision/0406-switch.ipynb` cell 2 (Switch Statement)
-- `chapters/04-decision/assignments/review.ipynb` cell 3 (Chapter Review)
-- `chapters/04-decision/assignments/review.ipynb` cell 5 (Chapter Review)
+- `chapters/04-decision/assignments/homework.ipynb` cell 3 (Homework)
+- `chapters/04-decision/assignments/homework.ipynb` cell 5 (Homework)
 - `chapters/05-iteration/0502-for-statements.ipynb` cell 27 (Step in loop header)
 - `chapters/05-iteration/0502-for-statements.ipynb` cell 29 (Step in loop header)
 - `chapters/05-iteration/assignments/lab.ipynb` cell 46 (Sum To `n`)
@@ -296,17 +296,17 @@ public BookList()
 - `chapters/03-methods/assignments/lab.ipynb` cell 4 (Return Statement)
 - `chapters/03-methods/assignments/lab.ipynb` cell 8 (Return Statement)
 - `chapters/03-methods/assignments/lab.ipynb` cell 10 (Return Statement)
-- `chapters/03-methods/assignments/review.ipynb` cell 1 (Chapter Review)
-- `chapters/03-methods/assignments/review.ipynb` cell 3 (Chapter Review)
-- `chapters/03-methods/assignments/review.ipynb` cell 7 (Chapter Review)
-- `chapters/03-methods/assignments/review.ipynb` cell 9 (Chapter Review)
-- `chapters/03-methods/assignments/review.ipynb` cell 11 (Chapter Review)
+- `chapters/03-methods/assignments/homework.ipynb` cell 1 (Homework)
+- `chapters/03-methods/assignments/homework.ipynb` cell 3 (Homework)
+- `chapters/03-methods/assignments/homework.ipynb` cell 7 (Homework)
+- `chapters/03-methods/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/03-methods/assignments/homework.ipynb` cell 11 (Homework)
 - `chapters/04-decision/assignments/lab.ipynb` cell 10 (Calculate Weekly Wages)
-- `chapters/04-decision/assignments/review.ipynb` cell 1 (Chapter Review)
+- `chapters/04-decision/assignments/homework.ipynb` cell 1 (Homework)
 - `chapters/06-files-text/0603-text-operations.ipynb` cell 27 (Structured Lines)
 - `chapters/07-arrays/assignments/lab.ipynb` cell 3 (Lab: Arrays)
-- `chapters/07-arrays/assignments/review.ipynb` cell 9 (Chapter Review)
-- `chapters/07-arrays/assignments/review.ipynb` cell 13 (Chapter Review)
+- `chapters/07-arrays/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/07-arrays/assignments/homework.ipynb` cell 13 (Homework)
 - `chapters/08-collections/0802-list-dictionary.ipynb` cell 37 (List Constructors and Methods)
 - `chapters/08-collections/0802-list.ipynb` cell 39 (Exercise: Generic List)
 - `chapters/08-collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
@@ -315,9 +315,9 @@ public BookList()
 
 ### "Predict the output across scenarios //a/b/c/d" reasoning exercise — likely never meant to run as one program; consider markdown instead (4 cells)
 
-- `chapters/04-decision/assignments/review.ipynb` cell 7 (Chapter Review)
-- `chapters/04-decision/assignments/review.ipynb` cell 9 (Chapter Review)
-- `chapters/04-decision/assignments/review.ipynb` cell 11 (Chapter Review)
+- `chapters/04-decision/assignments/homework.ipynb` cell 7 (Homework)
+- `chapters/04-decision/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/04-decision/assignments/homework.ipynb` cell 11 (Homework)
 - `chapters/12-oop/1205-abstraction.ipynb` cell 10 (!powershell)
 
 ### all_names_locally_redeclared_already (4 cells)
@@ -325,7 +325,7 @@ public BookList()
 - `chapters/11-classes/assignments/hw-booklist.ipynb` cell 9 (BookList class)
 - `chapters/12-oop/1204-polymorphism.ipynb` cell 13 (Method Overloading)
 - `chapters/12-oop/1205-abstraction.ipynb` cell 4 (Abstract Classes)
-- `chapters/13-exceptions-testing/1303-testing.ipynb` cell 3 (Simple Testing)
+- `chapters/06-exceptions-testing/1303-testing.ipynb` cell 3 (Simple Testing)
 
 ## Original Category C (mixed/other, from the first scan pass) — 38 cells
 

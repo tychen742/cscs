@@ -7,10 +7,10 @@
 ## Sequence
 
 - Introduction to collections
-- List and Dictionary (combined draft)
 - List<T>
 - Dictionary<K,V>
 
 ## Notes
 
-<!-- Dependency constraints, pacing notes, or known issues -->
+- Review `0702-list-dictionary.ipynb` and merge any useful content into the active List and Dictionary notebooks before removing or archiving it.
+- Consider sets as applied extension material after lists and dictionaries are stable.

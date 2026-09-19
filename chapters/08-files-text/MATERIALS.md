@@ -2,14 +2,14 @@
 
 ## Landing Page
 
-- `0600-files-text-intro.ipynb` — Chapter landing page
+- `0800-files-text-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `0601-stream-file.ipynb` — Streams and file basics
-- `0602-file-operations.ipynb` — File read / write operations
-- `0603-text-operations.ipynb` — Text processing
-- `0606-regex.ipynb` — Regular expressions
+- `0801-stream-file.ipynb` — Streams and file basics
+- `0802-file-operations.ipynb` — File read / write operations
+- `0803-text-operations.ipynb` — Text processing
+- `0806-regex.ipynb` — Regular expressions
 
 ## Assignments
 
@@ -17,8 +17,9 @@
 - `assignments/index.ipynb` — Index
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview
-- `assignments/review.ipynb` — Review
+- `assignments/homework.ipynb` — Homework
 
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+- Clean up section headings in `0802-file-operations.ipynb` so StreamWriter, StreamReader, paths, and directories appear as coherent subsections rather than competing notebook-level titles.

@@ -145,8 +145,8 @@ references, and program state should be introduced where they support Chapters
 
 The chapter number is the weekly organizing unit; it does not limit the
 number of notebooks inside a chapter. Each chapter should normally include a
-landing notebook, two or three content notebooks, and an assignments notebook
-with preview, lab, and review work.
+landing notebook, two or three content notebooks, and an assignments area with
+Preview, Lab, and Homework work.
 
 ### Later Courses: Data Structures and Algorithms
 
@@ -240,9 +240,15 @@ The book recognizes four assignment types:
 | Type | Purpose | Required shape |
 | --- | --- | --- |
 | Preview | Prepare for class | Multiple-choice questions based on the content |
-| Lab | Practice the week's technical skills | Five connected coding questions |
+| Lab | Practice technical skills through guided hands-on work | Connected coding questions on one theme |
 | Homework | Reinforce concepts and coding | Five true/false questions and five coding questions |
 | Project | Apply concepts in a durable artifact | A cumulative VS Code project milestone or deliverable |
+
+Preview, Lab, and Homework are the regular chapter assignment set for technical
+book chapters.
+Student-facing post-class reinforcement should be called **Homework**, not
+Review. Existing `homework.ipynb` pages are the standard post-class assignment files
+during chapter cleanup.
 
 The Project assignment is distinct from the Lab. A Lab is a guided practice
 sequence that can be completed in the browser or locally. A Project produces a
@@ -367,6 +373,7 @@ typical progression is:
 6. document, demonstrate, and submit the project
 
 The full project specification and rubric should live in an appendix, while
-weekly labs link to only the deliverable needed at that point. This keeps the
-book complete for instruction while giving students a manageable next step and
-giving VS Code projects a clear purpose throughout the semester.
+relevant labs or project assignment pages link to only the deliverable needed
+at that point. This keeps the book complete for instruction while giving
+students a manageable next step and giving VS Code projects a clear purpose
+throughout the semester.

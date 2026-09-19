@@ -31,6 +31,32 @@ Core. It may provide instructor-facing reference material, but examples for
 students should remain smaller and explicit enough to show the SQL and data
 model directly.
 
+## Current Active Notebooks
+
+- `1200-databases.ipynb` — Chapter landing page
+- `1206-relational-model.ipynb` — relational model, tables, keys, and relationships
+- `1207-sql-queries.ipynb` — `SELECT`, filtering, sorting, aggregation, and joins
+- `1208-sql-changes.ipynb` — `INSERT`, `UPDATE`, `DELETE`, and parameterized commands
+- `1209-csharp-database-workflow.ipynb` — a small C# database workflow
+
+## Non-TOC Source Material
+
+- `1201-lambdas.ipynb` — Lambda expressions
+- `1202-linq.ipynb` — LINQ
+- `1203-pattern-matching.ipynb` — Pattern matching
+- `1204-records.ipynb` — Record types
+- `1205-async.ipynb` — Async and await
+
+## Coverage Gaps
+
+The current active notebooks now establish first-pass database coverage. Later
+passes should deepen the worked examples and add assignments for:
+
+- a full setup-and-run SQLite project
+- a semester-project persistence milestone
+- more join and aggregation practice
+- testable repository-style methods
+
 ## Planned Assignments
 
 - Preview: relational terms and SQL reading

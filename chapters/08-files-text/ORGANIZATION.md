@@ -13,4 +13,5 @@
 
 ## Notes
 
-<!-- Dependency constraints, pacing notes, or known issues -->
+- The active coverage is sound: streams/file basics, read/write operations, text processing, and regular expressions.
+- Clean up the file-operations notebook structure before polishing objectives or glossary terms.

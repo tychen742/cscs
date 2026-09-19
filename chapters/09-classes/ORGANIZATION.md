@@ -9,8 +9,9 @@
 - Class syntax
 - Properties and fields
 - Creating and using instances
-- Operator overloading
+- Operator overloading (applied extension)
 
 ## Notes
 
-<!-- Dependency constraints, pacing notes, or known issues -->
+- Strengthen core coverage of object identity, references, constructors, fields/properties, encapsulation, and class design.
+- Keep operator overloading as optional extension content after students can design and use ordinary classes.

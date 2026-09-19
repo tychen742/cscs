@@ -32,7 +32,9 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Notebooks use the `csharp` kernel; named `XXYY-slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
 - Preferred 3 content section notebooks per chapter (one per class meeting)
 - Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
-- Each chapter has `assignments/` subfolder with `index`, `preview`, `lab`, `review`, and `project` notebooks
+- Each chapter has an `assignments/` subfolder. The standard student-facing
+  assignments are `index`, `preview`, `lab`, and `homework`; projects are added
+  when the chapter needs a durable VS Code deliverable.
 - Chapter sequence is ch01–ch16; project instructions live in `chapters/appendices/`
 - Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
@@ -54,7 +56,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 
 ### Footnotes
 
-Every content section (not preview, lab, or review) must end with a Footnotes block:
+Every content section (not preview, lab, homework, or project assignments) must end with a Footnotes block:
 
 ````markdown
 ```{rubric} Footnotes
@@ -65,21 +67,29 @@ Every content section (not preview, lab, or review) must end with a Footnotes bl
 
 Footnote cells must be independent markdown cells.
 
-## Assignments (per chapter)
+## Assignments
 
-Each chapter should have four assignment notebooks in this order:
+Each chapter should normally include these student-facing assignments in this order:
 
 | Type | File pattern | Specs |
 | ---- | ----------- | ----- |
 | Preview quiz | `NN0X-preview` | Multiple-choice questions from the content sections |
-| Lab | `NN0X-lab` | Five connected coding questions on one theme; each question builds on previous output |
-| Review (homework) | `NN0X-review` | Five true/false questions and five coding questions |
+| Lab | `NN0X-lab` | Connected coding practice on one theme; each question builds on previous output |
+| Homework | `NN0X-homework` | Five true/false questions and five coding questions |
+
+Projects are separate optional assignment tracks, not required for every
+chapter:
+
+| Type | File pattern | Specs |
+| ---- | ----------- | ----- |
 | Project | `NN0X-project` | A cumulative deliverable that applies the chapter's concepts in a VS Code project |
 
 The project notebook should connect the chapter to the semester project or a
 standalone project milestone. It should include the goal, starter-project
 link, expected files, run/test commands, deliverable, and submission method.
 Projects should be submitted from VS Code/GitHub rather than as browser drafts.
+
+Post-class reinforcement uses `homework.ipynb`.
 
 ## Working Rules
 
@@ -88,6 +98,15 @@ Projects should be submitted from VS Code/GitHub rather than as browser drafts.
 - If a lesson intentionally teaches state across multiple cells, label the cells as a sequence and provide a standalone reset/setup cell.
 - Always show diffs when proposing changes to existing content
 - When evaluating a chapter: are essential topics covered? Are sections organized soundly?
+
+## Audit Workflow
+
+When auditing the book or a chapter, follow the `book-authoring` skill's
+"Auditing a Book" section. Start with `AGENTS.md`, `authoring/BOOK_PLAN.md`,
+`authoring/PROGRESS.md`, and `_toc.yml`, then compare the target chapter's
+`MATERIALS.md`, `ORGANIZATION.md`, landing page, content notebooks, assignments,
+slides, runnable code, and build output. Report findings before editing unless
+the user explicitly asks for a fix pass.
 
 ## Semester Constraints
 

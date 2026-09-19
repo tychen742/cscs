@@ -2,7 +2,7 @@
 
 ## 1. Cleanup
 
-1. [ ] place preview, lab, review into an Assignment folder, and also create solutions for them. i've got some ideas and will discuss with you.
+1. [ ] Standardize assignment folders around Preview, Lab, and Homework, and create solutions where needed. Legacy review pages have been renamed to `homework.ipynb`.
 2. [ ] NN00 intro vs NN01 intro.
 3. [ ] normalize the chapter folders to match the book chapters online and normalize the section filenames.
 4. [ ] Add one chapter to Appendices about Tooling.

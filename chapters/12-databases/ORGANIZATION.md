@@ -16,21 +16,22 @@ By the end of this chapter, students should be able to:
 
 ## Sequence
 
-- Persistent data and the relational model
-- Tables, keys, relationships, and basic normalization
-- Lambda expressions as data-processing functions
-- LINQ queries: filtering, projection, ordering, grouping, and aggregation
-- Records, pattern matching, and domain data models
-- SQL queries: SELECT, WHERE, ORDER BY, aggregation, and joins
-- INSERT, UPDATE, DELETE, parameterized C# commands, and resource management
-- Asynchronous file and database I/O
-- Database project milestone and review
+- relational model: tables, rows, columns, primary keys, foreign keys, and relationships
+- SQL queries: `SELECT`, `WHERE`, `ORDER BY`, grouping, aggregation, and joins
+- SQL change commands: `INSERT`, `UPDATE`, `DELETE`, and parameters
+- C# database workflow: connection, command, parameters, execution, and result mapping
 
 ## Notes
 
 This chapter is the twelfth introductory chapter and the bridge from
 object-oriented information-system design to later database and analytics
 courses. It should teach the concepts and a small working workflow, not attempt
-to become a full database-administration course. The migrated lambda, LINQ,
-record, pattern-matching, and async notebooks are supporting sections of this
-chapter rather than separate advanced-topic chapters.
+to become a full database-administration course. The former lambda, LINQ,
+record, pattern-matching, and async notebooks remain source material, but the
+active Chapter 12 sequence now teaches databases and SQL directly.
+
+## Coverage Gaps
+
+This first database pass covers the promised topics. Later passes should add a
+complete SQLite project, more worked examples, preview/lab/homework notebooks,
+and a semester-project persistence milestone.

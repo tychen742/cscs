@@ -16,7 +16,7 @@
 - `assignments/lab-versioncontrol.ipynb` — Lab Versioncontrol
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview
-- `assignments/review.ipynb` — Review
+- `assignments/homework.ipynb` — Homework
 
 ## Notes
 

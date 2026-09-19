@@ -16,7 +16,7 @@
 - `assignments/index.ipynb` — Index
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview
-- `assignments/review.ipynb` — Review
+- `assignments/homework.ipynb` — Homework
 
 ## Notes
 

@@ -118,7 +118,7 @@ Error codes: CS5001
 using System.Text.RegularExpressions;
 ```
 
-## `chapters/07-arrays/assignments/review.ipynb` cell 3 — Chapter Review
+## `chapters/07-arrays/assignments/homework.ipynb` cell 3 — Homework
 Error codes: CS0200
 
 ```csharp
@@ -207,7 +207,7 @@ Error codes: CS0026
    Console.Write(this);
 ```
 
-## `chapters/11-classes/assignments/review.ipynb` cell 1 — Chapter Review
+## `chapters/11-classes/assignments/homework.ipynb` cell 1 — Homework
 Error codes: CS5001
 
 ```csharp
@@ -221,7 +221,7 @@ Error codes: CS5001
     }
 ```
 
-## `chapters/11-classes/assignments/review.ipynb` cell 3 — Chapter Review
+## `chapters/11-classes/assignments/homework.ipynb` cell 3 — Homework
 Error codes: CS5001
 
 ```csharp
@@ -234,7 +234,7 @@ Error codes: CS5001
     }
 ```
 
-## `chapters/11-classes/assignments/review.ipynb` cell 5 — Chapter Review
+## `chapters/11-classes/assignments/homework.ipynb` cell 5 — Homework
 Error codes: CS5001
 
 ```csharp
@@ -345,7 +345,7 @@ interface Animal
 }
 ```
 
-## `chapters/13-exceptions-testing/1301-error-handling.ipynb` cell 8 — File I/O with Safe Handling
+## `chapters/06-exceptions-testing/1301-error-handling.ipynb` cell 8 — File I/O with Safe Handling
 Error codes: CS0841
 
 ```csharp
@@ -372,7 +372,7 @@ catch (IOException ex)
 }
 ```
 
-## `chapters/13-exceptions-testing/1303-testing.ipynb` cell 6 — The Unit Testing Process
+## `chapters/06-exceptions-testing/1303-testing.ipynb` cell 6 — The Unit Testing Process
 Error codes: CS5001
 
 ```csharp

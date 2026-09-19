@@ -14,4 +14,5 @@
 
 ## Notes
 
-<!-- Dependency constraints, pacing notes, or known issues -->
+- The current active TOC uses one section per OOP pillar plus an introduction. A later content pass may combine related sections to reduce fragmentation while still making the four pillars visible.
+- Emphasize interfaces and composition over deep inheritance when explaining modern C# design.

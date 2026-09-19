@@ -2,14 +2,14 @@
 
 ## Landing Page
 
-- `1100-classes-intro.ipynb` — Chapter landing page
+- `0900-classes-intro.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `1101-class-syntax.ipynb` — Class syntax
-- `1102-properties.ipynb` — Properties and fields
-- `1103-class-instance.ipynb` — Creating and using instances
-- `1104-operator-overloading.ipynb` — Operator overloading
+- `0901-class-syntax.ipynb` — Class syntax
+- `0902-properties.ipynb` — Properties and fields
+- `0903-class-instance.ipynb` — Creating and using instances
+- `0904-operator-overloading.ipynb` — Operator overloading
 
 ## Assignments
 
@@ -17,8 +17,9 @@
 - `assignments/index.ipynb` — Index
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview
-- `assignments/review.ipynb` — Review
+- `assignments/homework.ipynb` — Homework
 
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+- Operator overloading should be treated as applied extension material. Core class coverage should emphasize object identity, references, constructors, fields/properties, encapsulation, and class design.
