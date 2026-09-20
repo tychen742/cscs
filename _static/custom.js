@@ -1053,7 +1053,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 const editor = document.createElement('textarea');
                 editor.className = 'cscs-markdown-editor';
                 editor.value = source || '';
-                editor.hidden = true;
+                const editCopy = document.createElement('div');
+                editCopy.className = 'cscs-markdown-copy cscs-student-copy';
+                editCopy.hidden = true;
+                const editLabel = document.createElement('div');
+                editLabel.className = 'cscs-student-copy-label';
+                editLabel.textContent = 'Your version';
+                editCopy.append(editLabel, editor);
                 const preview = document.createElement('div');
                 preview.className = 'cscs-markdown-preview';
                 preview.hidden = true;
@@ -1096,6 +1102,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     preview.innerHTML = renderMarkdownPreview(editor.value);
                     preview.hidden = false;
                     showRenderedElements(false);
+                    editCopy.hidden = true;
                 };
                 const setDraftActionsVisible = isVisible => {
                     resetButton.hidden = !isVisible;
@@ -1106,7 +1113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         editor.value = markdownFromRenderedElements(elements);
                     }
                     markdownMode = null;
-                    editor.hidden = true;
+                    editCopy.hidden = true;
                     editor.classList.remove('is-inline');
                     setInlineEditable(false);
                     setDraftActionsVisible(false);
@@ -1117,12 +1124,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const openMarkdownMode = mode => {
                     markdownMode = mode;
                     editor.classList.toggle('is-inline', mode === 'inline');
-                    editor.hidden = mode === 'inline';
+                    editCopy.hidden = mode !== 'edit';
                     preview.hidden = true;
                     setDraftActionsVisible(true);
                     editButton.textContent = mode === 'edit' ? 'Done' : 'Edit';
                     inlineButton.textContent = mode === 'inline' ? 'Done' : 'Inline';
-                    showRenderedElements(mode === 'inline');
+                    showRenderedElements(true);
                     setInlineEditable(mode === 'inline');
                     if (mode === 'inline') {
                         elements[0]?.focus();
@@ -1150,14 +1157,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         element.innerHTML = originalHtml[index] || '';
                     });
                     preview.hidden = true;
+                    showRenderedElements(true);
                 });
                 previewButton.addEventListener('click', () => {
+                    if (markdownMode === 'inline') {
+                        editor.value = markdownFromRenderedElements(elements);
+                    }
                     preview.innerHTML = renderMarkdownPreview(editor.value);
                     preview.hidden = false;
                 });
                 controls.append(editButton, inlineButton, resetButton, previewButton);
-                elements[0].before(editor, preview);
-                elements[elements.length - 1].after(controls);
+                elements[elements.length - 1].after(editCopy, preview, controls);
                 markdownCells.push({ elements, editor, preview, sourceCell });
             });
             window.cscsAuthorState = { path, notebook, notebookCodeCells, markdownCells, codeCells };

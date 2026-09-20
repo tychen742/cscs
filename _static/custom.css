@@ -1980,6 +1980,15 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     width: 100%;
 }
 
+.cscs-markdown-copy {
+    max-width: 100%;
+}
+
+.cscs-markdown-copy .cscs-markdown-editor {
+    font-family: var(--pst-font-family-monospace);
+    margin: 0;
+}
+
 .cscs-markdown-editor.is-inline {
     font-size: 0.92rem;
     margin: 4px 0 8px;
