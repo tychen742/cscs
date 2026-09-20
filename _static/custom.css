@@ -1966,6 +1966,26 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-top: 0.65rem;
 }
 
+.cscs-new-cell.is-done {
+    border-left-color: #cbd5df;
+}
+
+.cscs-new-cell.is-done .cscs-student-copy-label {
+    color: #6b7780;
+    font-size: 0.78rem;
+}
+
+.cscs-new-cell-preview {
+    border: 0;
+    border-radius: 0;
+    margin: 0.25rem 0 0.35rem;
+    padding: 0;
+}
+
+.cscs-new-cell-preview > :last-child {
+    margin-bottom: 0;
+}
+
 .cscs-new-cell-actions {
     display: inline-flex;
     gap: 4px;

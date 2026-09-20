@@ -1442,7 +1442,7 @@ document.addEventListener('DOMContentLoaded', function () {
         saveButton.textContent = 'Save notebook';
         saveButton.addEventListener('click', () => window.cscsSaveNotebook?.());
         const preview = document.createElement('div');
-        preview.className = 'cscs-markdown-preview';
+        preview.className = 'cscs-markdown-preview cscs-new-cell-preview';
         preview.hidden = true;
         doneButton.addEventListener('click', () => {
             preview.innerHTML = renderMarkdownPreview(editor.value);
@@ -1450,6 +1450,8 @@ document.addEventListener('DOMContentLoaded', function () {
             editor.hidden = true;
             doneButton.hidden = true;
             previewButton.textContent = 'Edit';
+            panel.classList.add('is-done');
+            label.textContent = 'New markdown cell';
         });
         previewButton.addEventListener('click', () => {
             if (editor.hidden) {
@@ -1457,6 +1459,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 preview.hidden = true;
                 doneButton.hidden = false;
                 previewButton.textContent = 'Preview';
+                panel.classList.remove('is-done');
+                label.textContent = 'Your version: new markdown cell';
                 editor.focus();
             } else {
                 preview.innerHTML = renderMarkdownPreview(editor.value);
