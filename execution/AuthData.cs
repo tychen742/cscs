@@ -34,9 +34,21 @@ public sealed class UserAccount
     [MaxLength(64)]
     public string? CourseId { get; set; }
 
+    public UserRole Role { get; set; } = UserRole.Student;
+
     public DateTime CreatedUtc { get; set; }
 
     public List<ReadingProgress> ReadingProgress { get; set; } = [];
+}
+
+public enum UserRole
+{
+    Student = 0,
+    TA = 10,
+    Instructor = 20,
+    Editor = 30,
+    Author = 40,
+    Admin = 50
 }
 
 public sealed class ReadingProgress

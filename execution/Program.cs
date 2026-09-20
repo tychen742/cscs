@@ -81,10 +81,10 @@ app.MapPost("/v1/admin/notebooks/validate", async (HttpRequest request) =>
     }
 });
 
-app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, ClaimsPrincipal principal, NotebookRepository repository, CancellationToken cancellationToken) =>
+app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, ClaimsPrincipal principal, CscsDbContext database, NotebookRepository repository, CancellationToken cancellationToken) =>
 {
     var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (!IsAdmin(email)) return Results.Forbid();
+    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
     if (string.IsNullOrWhiteSpace(request.Path) || request.Content is null)
         return Results.BadRequest(new { error = "Path and content are required." });
 
@@ -92,10 +92,10 @@ app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, Clai
     return result.Saved ? Results.Ok(result) : Results.BadRequest(result);
 }).RequireAuthorization();
 
-app.MapGet("/v1/admin/notebooks/source", async (string path, ClaimsPrincipal principal, NotebookRepository repository, CancellationToken cancellationToken) =>
+app.MapGet("/v1/admin/notebooks/source", async (string path, ClaimsPrincipal principal, CscsDbContext database, NotebookRepository repository, CancellationToken cancellationToken) =>
 {
     var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (!IsAdmin(email)) return Results.Forbid();
+    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
     var result = await repository.ReadAsync(path, cancellationToken);
     return result.Found
         ? Results.Content(result.Content!, "application/json")
@@ -123,6 +123,7 @@ app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext d
         Email = email,
         DisplayName = displayName,
         PasswordHash = PasswordService.Hash(request.Password),
+        Role = GetEffectiveRole(email, UserRole.Student),
         CreatedUtc = DateTime.UtcNow
     };
     database.Users.Add(user);
@@ -162,9 +163,23 @@ app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext databa
     var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
     if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
     var user = await database.Users.FindAsync(id);
-    return user is null
-        ? Results.Unauthorized()
-    : Results.Ok(new { user.Id, user.Email, user.DisplayName, IsAdmin = adminEmails.Contains(user.Email) });
+    if (user is null) return Results.Unauthorized();
+
+    var role = GetEffectiveRole(user.Email, user.Role);
+    return Results.Ok(new
+    {
+        user.Id,
+        user.Email,
+        user.DisplayName,
+        Role = role.ToString(),
+        IsAdmin = role == UserRole.Admin,
+        IsAuthor = role == UserRole.Author,
+        IsEditor = role == UserRole.Editor,
+        IsInstructor = role == UserRole.Instructor,
+        IsTA = role == UserRole.TA,
+        CanAuthor = CanAuthor(role),
+        Roles = GetRoleNames(role).ToArray()
+    });
 }).RequireAuthorization();
 
 app.MapGet("/v1/progress/reading", async (ClaimsPrincipal principal, CscsDbContext database) =>
@@ -272,7 +287,28 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
 
 app.Run();
 
-bool IsAdmin(string? email) => email is not null && adminEmails.Contains(email);
+async Task<bool> CanAuthorAsync(string? email, CscsDbContext database, CancellationToken cancellationToken)
+{
+    if (email is null) return false;
+    if (adminEmails.Contains(email)) return true;
+    var role = await database.Users
+        .Where(user => user.Email == email)
+        .Select(user => user.Role)
+        .SingleOrDefaultAsync(cancellationToken);
+    return CanAuthor(role);
+}
+
+UserRole GetEffectiveRole(string email, UserRole databaseRole) =>
+    adminEmails.Contains(email) ? UserRole.Admin : databaseRole;
+
+bool CanAuthor(UserRole role) =>
+    role is UserRole.Admin or UserRole.Author or UserRole.Editor or UserRole.Instructor or UserRole.TA;
+
+IEnumerable<string> GetRoleNames(UserRole role)
+{
+    yield return role.ToString().ToLowerInvariant();
+    if (CanAuthor(role)) yield return "authoring";
+}
 
 static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, CancellationToken cancellationToken)
 {

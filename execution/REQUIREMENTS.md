@@ -72,7 +72,8 @@ Authentication implementation status:
 - PBKDF2 password hashing is implemented
 - cookie sessions and `/v1/auth/me` are working
 - logout is implemented
-- administrator access is controlled by `CSCS_ADMIN_EMAILS`
+- user roles are stored as the `UserAccount.Role` database enum; `CSCS_ADMIN_EMAILS`
+  is only a bootstrap/emergency admin override
 - email verification and password recovery are not yet implemented
 
 ## 4. Reading continuity
@@ -95,7 +96,7 @@ The future application database should support three related domains:
 ### Users
 
 - authenticated user identity
-- student, instructor, and administrator roles
+- student, TA, instructor, editor, author, and administrator roles
 - course or class membership
 - account and sign-in metadata
 
@@ -134,7 +135,8 @@ truth.
 Current admin-authoring backend status:
 
 - notebook JSON validator implemented
-- authenticated admin save endpoint implemented
+- authenticated role-gated save endpoint implemented for `Admin`, `Author`,
+  `Editor`, `Instructor`, and `TA`
 - chapter notebook path restriction implemented
 - timestamped backup before replacement implemented
 - atomic file write implemented

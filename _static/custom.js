@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
             avatar.querySelector('span').textContent = initials;
             avatar.classList.add('is-signed-in');
             account.querySelector('.cscs-account-menu').innerHTML = `
-                ${user.isAdmin ? '<button type="button" data-account-action="Author">Author</button>' : ''}
+                ${user.canAuthor ? '<button type="button" data-account-action="Author">Author</button>' : ''}
                 <button type="button" data-account-action="Attempts">Attempts</button>
                 <button type="button" data-account-action="Score Report">Score Report</button>
                 <button type="button" data-account-action="Users">Users</button>
@@ -475,11 +475,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     addAuthorCellControls(cell, editButton, editor, element);
                 }
             });
-            const markdownCells = [];
+            const markdownGroups = new Map();
             document.querySelectorAll('[data-cscs-cell-type="markdown"]').forEach(element => {
                 const index = Number(element.dataset.cscsCellIndex);
                 const sourceCell = notebook.cells[index];
-                if (!sourceCell || element.dataset.cscsMarkdownReady === 'true') return;
+                if (!sourceCell || sourceCell.cell_type !== 'markdown' || element.dataset.cscsMarkdownReady === 'true') return;
+                if (!markdownGroups.has(index)) {
+                    markdownGroups.set(index, { index, sourceCell, elements: [] });
+                }
+                markdownGroups.get(index).elements.push(element);
+                element.dataset.cscsMarkdownReady = 'true';
+            });
+            const markdownCells = [];
+            markdownGroups.forEach(group => {
+                const { sourceCell, elements } = group;
+                if (!elements.length) return;
                 const source = Array.isArray(sourceCell.source) ? sourceCell.source.join('') : sourceCell.source;
                 const editor = document.createElement('textarea');
                 editor.className = 'cscs-markdown-editor';
@@ -494,11 +504,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 button.textContent = 'Edit markdown';
                 button.hidden = true;
                 button.addEventListener('click', () => {
-                    const editing = editor.hidden;
-                    editor.hidden = !editing;
-                    element.hidden = editing;
+                    const opening = editor.hidden;
+                    editor.hidden = !opening;
                     preview.hidden = true;
-                    button.textContent = editing ? 'Done markdown' : 'Edit markdown';
+                    elements.forEach(element => {
+                        element.hidden = true;
+                    });
+                    if (!opening) {
+                        preview.innerHTML = renderMarkdownPreview(editor.value);
+                        preview.hidden = false;
+                    }
+                    button.textContent = opening ? 'Done markdown' : 'Edit markdown';
                 });
                 const previewButton = document.createElement('button');
                 previewButton.className = 'cscs-markdown-preview-button';
@@ -508,14 +524,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewButton.addEventListener('click', () => {
                     preview.innerHTML = renderMarkdownPreview(editor.value);
                     preview.hidden = false;
-                    editor.hidden = true;
                 });
-                element.dataset.cscsMarkdownReady = 'true';
-                const markdownContainer = /^H[1-6]$/.test(element.tagName)
-                    ? element.closest('section') || element.parentElement
-                    : element.parentElement;
-                markdownContainer?.append(editor, preview, button, previewButton);
-                markdownCells.push({ element, editor, preview, sourceCell });
+                elements[0].before(editor, preview);
+                elements[elements.length - 1].after(button, previewButton);
+                markdownCells.push({ elements, editor, preview, sourceCell });
             });
             window.cscsAuthorState = { path, notebook, notebookCodeCells, markdownCells, codeCells };
             document.body.classList.add('cscs-author-active');
@@ -621,25 +633,44 @@ document.addEventListener('DOMContentLoaded', function () {
         const escaped = source.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         const lines = escaped.split('\n');
         let inCode = false;
+        let inList = false;
         const output = [];
+        const closeList = () => {
+            if (inList) {
+                output.push('</ul>');
+                inList = false;
+            }
+        };
         lines.forEach(line => {
             if (line.trim().startsWith('```')) {
+                closeList();
                 output.push(inCode ? '</code></pre>' : '<pre><code>');
                 inCode = !inCode;
             } else if (inCode) {
                 output.push(line);
             } else if (/^###\s+/.test(line)) {
+                closeList();
                 output.push(`<h3>${line.replace(/^###\s+/, '')}</h3>`);
             } else if (/^##\s+/.test(line)) {
+                closeList();
                 output.push(`<h2>${line.replace(/^##\s+/, '')}</h2>`);
             } else if (/^#\s+/.test(line)) {
+                closeList();
                 output.push(`<h1>${line.replace(/^#\s+/, '')}</h1>`);
             } else if (/^[-*]\s+/.test(line)) {
+                if (!inList) {
+                    output.push('<ul>');
+                    inList = true;
+                }
                 output.push(`<li>${line.replace(/^[-*]\s+/, '')}</li>`);
             } else if (line.trim()) {
+                closeList();
                 output.push(`<p>${line.replace(/`([^`]+)`/g, '<code>$1</code>')}</p>`);
+            } else {
+                closeList();
             }
         });
+        closeList();
         return output.join('');
     }
 

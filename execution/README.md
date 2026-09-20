@@ -105,8 +105,11 @@ management, rate limits, and account recovery before public release.
 
 ## Admin notebook save
 
-Set `CSCS_ADMIN_EMAILS` to a comma-separated list of trusted administrator
-emails. After login, an administrator can call:
+Authoring access is controlled by the `UserAccount.Role` enum in the database:
+`Student`, `TA`, `Instructor`, `Editor`, `Author`, or `Admin`. Set
+`CSCS_ADMIN_EMAILS` only as a bootstrap/emergency list for trusted
+administrators before role management UI is available. After login, a user with
+the `Admin`, `Author`, `Editor`, `Instructor`, or `TA` role can call:
 
 ```text
 POST /v1/admin/notebooks/save
@@ -124,10 +127,12 @@ The matching source endpoint is:
 GET /v1/admin/notebooks/source?path=chapters/08-collections/0802-list.ipynb
 ```
 
-Both endpoints require an authenticated email listed in `CSCS_ADMIN_EMAILS`.
+Both endpoints require an authenticated user whose database role is `Admin`,
+`Author`, `Editor`, `Instructor`, or `TA`. Emails listed in `CSCS_ADMIN_EMAILS`
+are treated as effective admins as a bootstrap/emergency override.
 The book build adds stable `data-cscs-cell-id` and `data-cscs-cell-index`
 attributes through `_ext/notebook_cell_metadata.py`, allowing the browser
-editor to map rendered code cells back to the original notebook.
+editor to map rendered code and markdown cells back to the original notebook.
 
 ## SMTP configuration
 

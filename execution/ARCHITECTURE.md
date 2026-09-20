@@ -59,14 +59,16 @@ The intended authoring workflow is a lightweight CMS layer over the existing
 6. Git remains responsible for synchronization, review, history, and rollback.
 
 The current save endpoint is `POST /v1/admin/notebooks/save`. It requires an
-authenticated user whose email appears in `CSCS_ADMIN_EMAILS`. Browser author
-controls and Git publish automation are the next integration steps.
+authenticated user whose `UserAccount.Role` database enum is `Admin`, `Author`,
+`Editor`, `Instructor`, or `TA`. Emails in `CSCS_ADMIN_EMAILS` are treated as
+effective admins only as a bootstrap/emergency override. Browser author
+controls expose markdown and code-cell editors only to those authoring roles.
+Git publish automation remains a later integration step.
 
 During the Jupyter Book build, `_ext/notebook_cell_metadata.py` annotates
-rendered code cells with their source notebook cell ID, index, and type. The
-browser authoring layer uses this metadata to map rendered cells back to the
-original `.ipynb` safely instead of relying on DOM order. Code-cell mapping is
-implemented first; markdown-cell boundary mapping remains a follow-up.
+rendered code and markdown cells with their source notebook cell ID, index, and
+type. The browser authoring layer uses this metadata to map rendered cells back
+to the original `.ipynb` safely instead of relying on DOM order.
 
 ## Future production work
 
