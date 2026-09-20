@@ -135,11 +135,34 @@ def annotate_notebook_page(app, html_path):
                         break
 
     markers.sort(key=lambda item: item[0])
+    marked_source_indices = {source_index for _, source_index, _, _ in markers}
+    anchored_markdown_indices = set()
+    for source_index, source_cell in enumerate(cells):
+        if source_cell.get("cell_type") != "markdown":
+            continue
+        source = source_cell.get("source", "")
+        if isinstance(source, list):
+            source = "".join(source)
+        if _markdown_anchor(source):
+            anchored_markdown_indices.add(source_index)
+
     for marker_index, (start, source_index, cell_type, node) in enumerate(markers):
         if cell_type != "markdown":
             continue
         source_cell = cells[source_index]
-        end = markers[marker_index + 1][0] if marker_index + 1 < len(markers) else len(nodes)
+        next_marker = markers[marker_index + 1] if marker_index + 1 < len(markers) else None
+        end = next_marker[0] if next_marker is not None else len(nodes)
+        next_source_index = next_marker[1] if next_marker is not None else len(cells)
+        missed_markdown_indices = [
+            index for index in anchored_markdown_indices
+            if source_index < index < next_source_index and index not in marked_source_indices
+        ]
+        if missed_markdown_indices:
+            # When a later markdown cell could not be anchored in the rendered
+            # HTML, do not let the previous cell claim the intervening page.
+            # The browser authoring UI can still edit the matched anchor block,
+            # but it will not hide or overwrite unrelated rendered cells.
+            end = start + 1
         for block in nodes[start:end]:
             if block.name == "div" and "cell" in block.get("class", []):
                 break

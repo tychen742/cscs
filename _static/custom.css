@@ -1934,6 +1934,17 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     border-color: #7d8b96;
 }
 
+.cscs-author-sync-warning {
+    color: #6b5b12;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 0.35rem 0 0.6rem;
+}
+
+.cscs-execution-controls .cscs-author-sync-warning {
+    margin-left: 0.5rem;
+}
+
 .cscs-markdown-editor {
     box-sizing: border-box;
     display: block;
@@ -1946,7 +1957,14 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     width: 100%;
 }
 
-.cscs-markdown-edit {
+.cscs-markdown-controls {
+    align-items: center;
+    display: inline-flex;
+    gap: 0.35rem;
+    margin: 0.35rem 0 0.6rem;
+}
+
+.cscs-markdown-controls button {
     background: #fff;
     border: 1px solid #b7c0c8;
     border-radius: 4px;
@@ -1956,15 +1974,9 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     padding: 4px 8px;
 }
 
-.cscs-markdown-preview-button {
-    background: #fff;
-    border: 1px solid #b7c0c8;
-    border-radius: 4px;
-    color: #27313a;
-    cursor: pointer;
-    font-size: 0.8rem;
-    margin-left: 4px;
-    padding: 4px 8px;
+.cscs-markdown-controls button:hover {
+    background: #f1f5f7;
+    border-color: #7d8b96;
 }
 
 .cscs-markdown-preview {

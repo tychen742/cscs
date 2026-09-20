@@ -992,15 +992,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) throw new Error('The notebook source could not be loaded.');
             const notebook = await response.json();
             const codeCells = Array.from(document.querySelectorAll('div.cscs-code-cell .cell_input pre'));
-            const notebookCodeCells = codeCells.map(element => {
+            const notebookCodeCells = [];
+            codeCells.map(element => {
                 const cell = element.closest('.cscs-code-cell');
                 const index = Number(cell?.dataset.cscsCellIndex);
-                return { element, index, sourceCell: notebook.cells[index], editor: cell?.querySelector('.cscs-code-editor') };
-            });
-            notebookCodeCells.forEach(({ element, sourceCell }) => {
-                if (sourceCell) {
+                return { cell, element, index, sourceCell: notebook.cells[index], editor: cell?.querySelector('.cscs-code-editor') };
+            }).forEach(({ cell, element, sourceCell, editor }) => {
+                if (sourceCell && renderedCellMatchesSource(cell, sourceCell)) {
                     const cell = element.closest('.cell');
-                    const editor = cell?.querySelector('.cscs-code-editor');
                     const editButton = cell?.querySelector('.cscs-edit-button');
                     const resetButton = cell?.querySelector('.cscs-reset-button');
                     const sourceText = Array.isArray(sourceCell.source)
@@ -1013,6 +1012,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (editButton) editButton.hidden = false;
                     if (resetButton) resetButton.hidden = true;
                     addAuthorCellControls(cell, editButton, editor, element);
+                    notebookCodeCells.push({ element, sourceCell, editor });
+                } else if (cell) {
+                    markAuthorCellOutOfSync(cell);
                 }
             });
             const markdownGroups = new Map();
@@ -1020,6 +1022,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const index = Number(element.dataset.cscsCellIndex);
                 const sourceCell = notebook.cells[index];
                 if (!sourceCell || sourceCell.cell_type !== 'markdown' || element.dataset.cscsMarkdownReady === 'true') return;
+                if (!renderedCellMatchesSource(element, sourceCell)) {
+                    markAuthorMarkdownOutOfSync(element);
+                    element.dataset.cscsMarkdownReady = 'out-of-sync';
+                    return;
+                }
                 if (!markdownGroups.has(index)) {
                     markdownGroups.set(index, { index, sourceCell, elements: [] });
                 }
@@ -1031,6 +1038,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 const { sourceCell, elements } = group;
                 if (!elements.length) return;
                 const source = Array.isArray(sourceCell.source) ? sourceCell.source.join('') : sourceCell.source;
+                const renderedTextLength = elements.reduce((total, element) => total + element.textContent.trim().length, 0);
+                const maxExpectedBlocks = estimateMarkdownBlockCount(source) + 3;
+                if (elements.length > maxExpectedBlocks || renderedTextLength > source.length * 4 + 1000) {
+                    console.warn('[cscs authoring] Skipping suspicious markdown cell mapping', {
+                        sourceLength: source.length,
+                        renderedTextLength,
+                        renderedBlocks: elements.length,
+                        maxExpectedBlocks
+                    });
+                    elements.forEach(element => { element.dataset.cscsMarkdownReady = 'suspicious'; });
+                    return;
+                }
                 const editor = document.createElement('textarea');
                 editor.className = 'cscs-markdown-editor';
                 editor.value = source || '';
@@ -1038,44 +1057,117 @@ document.addEventListener('DOMContentLoaded', function () {
                 const preview = document.createElement('div');
                 preview.className = 'cscs-markdown-preview';
                 preview.hidden = true;
-                const button = document.createElement('button');
-                button.className = 'cscs-markdown-edit';
-                button.type = 'button';
-                button.textContent = 'Edit markdown';
-                button.hidden = true;
-                button.addEventListener('click', () => {
-                    const opening = editor.hidden;
-                    editor.hidden = !opening;
-                    preview.hidden = true;
-                    elements.forEach(element => {
-                        element.hidden = true;
-                    });
-                    if (!opening) {
-                        preview.innerHTML = renderMarkdownPreview(editor.value);
-                        preview.hidden = false;
-                    }
-                    button.textContent = opening ? 'Done markdown' : 'Edit markdown';
-                });
+                const controls = document.createElement('div');
+                controls.className = 'cscs-markdown-controls';
+                controls.hidden = true;
+                const editButton = document.createElement('button');
+                editButton.className = 'cscs-markdown-edit';
+                editButton.type = 'button';
+                editButton.textContent = 'Edit';
+                const inlineButton = document.createElement('button');
+                inlineButton.className = 'cscs-markdown-inline';
+                inlineButton.type = 'button';
+                inlineButton.textContent = 'Inline';
+                const resetButton = document.createElement('button');
+                resetButton.className = 'cscs-markdown-reset';
+                resetButton.type = 'button';
+                resetButton.textContent = 'Reset';
+                resetButton.hidden = true;
                 const previewButton = document.createElement('button');
                 previewButton.className = 'cscs-markdown-preview-button';
                 previewButton.type = 'button';
-                previewButton.textContent = 'Preview markdown';
+                previewButton.textContent = 'Preview';
                 previewButton.hidden = true;
+                let markdownMode = null;
+                const originalSource = source || '';
+                const showDraftPreview = () => {
+                    preview.innerHTML = renderMarkdownPreview(editor.value);
+                    preview.hidden = false;
+                    elements.forEach(element => {
+                        element.hidden = true;
+                    });
+                };
+                const setDraftActionsVisible = isVisible => {
+                    resetButton.hidden = !isVisible;
+                    previewButton.hidden = !isVisible;
+                };
+                const closeMarkdownMode = () => {
+                    markdownMode = null;
+                    editor.hidden = true;
+                    setDraftActionsVisible(false);
+                    editButton.textContent = 'Edit';
+                    inlineButton.textContent = 'Inline';
+                    showDraftPreview();
+                };
+                const openMarkdownMode = mode => {
+                    markdownMode = mode;
+                    editor.hidden = false;
+                    preview.hidden = true;
+                    setDraftActionsVisible(true);
+                    editButton.textContent = mode === 'edit' ? 'Done' : 'Edit';
+                    inlineButton.textContent = mode === 'inline' ? 'Done' : 'Inline';
+                    elements.forEach(element => {
+                        element.hidden = mode === 'inline';
+                    });
+                    editor.focus();
+                };
+                editButton.addEventListener('click', () => {
+                    if (markdownMode === 'edit') {
+                        closeMarkdownMode();
+                    } else {
+                        openMarkdownMode('edit');
+                    }
+                });
+                inlineButton.addEventListener('click', () => {
+                    if (markdownMode === 'inline') {
+                        closeMarkdownMode();
+                    } else {
+                        openMarkdownMode('inline');
+                    }
+                });
+                resetButton.addEventListener('click', () => {
+                    editor.value = originalSource;
+                    preview.hidden = true;
+                });
                 previewButton.addEventListener('click', () => {
                     preview.innerHTML = renderMarkdownPreview(editor.value);
                     preview.hidden = false;
                 });
+                controls.append(editButton, inlineButton, resetButton, previewButton);
                 elements[0].before(editor, preview);
-                elements[elements.length - 1].after(button, previewButton);
+                elements[elements.length - 1].after(controls);
                 markdownCells.push({ elements, editor, preview, sourceCell });
             });
             window.cscsAuthorState = { path, notebook, notebookCodeCells, markdownCells, codeCells };
             document.body.classList.add('cscs-author-active');
-            document.querySelectorAll('.cscs-markdown-edit, .cscs-markdown-preview-button').forEach(button => { button.hidden = false; });
+            document.querySelectorAll('.cscs-markdown-controls').forEach(controls => { controls.hidden = false; });
             addAuthorSaveControl();
         } catch (error) {
             alert(error.message);
         }
+    }
+
+    function renderedCellMatchesSource(renderedElement, sourceCell) {
+        const renderedId = renderedElement?.dataset?.cscsCellId || '';
+        const sourceId = sourceCell?.id || sourceCell?.metadata?.id || '';
+        return Boolean(renderedId && sourceId && renderedId === sourceId);
+    }
+
+    function markAuthorCellOutOfSync(cell) {
+        if (!cell || cell.querySelector('.cscs-author-sync-warning')) return;
+        const warning = document.createElement('div');
+        warning.className = 'cscs-author-sync-warning';
+        warning.textContent = 'Authoring unavailable: source out of sync. Rebuild before editing.';
+        const controls = cell.querySelector('.cscs-execution-controls');
+        (controls || cell).appendChild(warning);
+    }
+
+    function markAuthorMarkdownOutOfSync(element) {
+        if (!element || element.nextElementSibling?.classList.contains('cscs-author-sync-warning')) return;
+        const warning = document.createElement('div');
+        warning.className = 'cscs-author-sync-warning';
+        warning.textContent = 'Authoring unavailable: source out of sync. Rebuild before editing.';
+        element.after(warning);
     }
 
     function addAuthorSaveControl() {
@@ -1212,6 +1304,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         closeList();
         return output.join('');
+    }
+
+    function estimateMarkdownBlockCount(source) {
+        const text = source || '';
+        const paragraphBlocks = text
+            .split(/\n\s*\n/)
+            .map(block => block.trim())
+            .filter(Boolean).length;
+        const structuralLines = text
+            .split('\n')
+            .filter(line => /^\s*(#{1,6}\s+|[-*]\s+|\d+\.\s+|```|\|)/.test(line)).length;
+        return Math.max(1, paragraphBlocks + structuralLines);
     }
 
     function normalizeCode(source) {
