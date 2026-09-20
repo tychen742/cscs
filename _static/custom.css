@@ -2154,11 +2154,13 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 .cscs-auth-modal {
     border-radius: 8px !important;
     bottom: min(5.25rem, calc(100vh - min(72vh, 20rem) - 0.75rem)) !important;
+    display: grid !important;
+    grid-template-rows: auto auto minmax(0, 1fr) auto !important;
     left: min(5rem, calc(100vw - min(82vw, 18rem) - 0.75rem)) !important;
-    max-height: min(72vh, 20rem) !important;
-    max-width: 18rem !important;
+    max-height: min(88vh, 31rem) !important;
+    max-width: 24rem !important;
     position: absolute !important;
-    width: min(82vw, 18rem) !important;
+    width: min(88vw, 24rem) !important;
 }
 
 .cscs-auth-header {
@@ -2182,6 +2184,8 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-auth-form {
     gap: 0.55rem !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
     padding: 0.75rem !important;
 }
 
@@ -2191,6 +2195,32 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-auth-submit {
     padding: 0.5rem 0.6rem !important;
+}
+
+.cscs-auth-link-button {
+    align-self: start !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: var(--pst-color-link, #176de8) !important;
+    cursor: pointer !important;
+    font: inherit !important;
+    font-size: 0.9rem !important;
+    line-height: 1.25 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.cscs-auth-link-button:hover,
+.cscs-auth-link-button:focus {
+    color: var(--pst-color-link-hover, #0b57d0) !important;
+    text-decoration: underline !important;
+}
+
+.cscs-auth-status {
+    border-top: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    margin: 0 !important;
+    min-height: 2.15rem !important;
+    padding: 0.45rem 0.75rem !important;
 }
 
 @media (max-width: 768px) {
@@ -2253,6 +2283,7 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 .cscs-auth-modal {
     bottom: auto !important;
     left: auto !important;
+    max-height: min(31rem, calc(100vh - 5rem)) !important;
     right: 0.75rem !important;
     top: 4.25rem !important;
 }

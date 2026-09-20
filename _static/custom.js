@@ -331,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <form class="cscs-auth-form" data-auth-form="login">
                 <label>University ID or email<input name="email" type="email" autocomplete="username" required></label>
                 <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+                <button class="cscs-auth-link-button" type="button" data-auth-action="forgot-password">Forgot password?</button>
                 <button class="cscs-auth-submit" type="submit">Sign in</button>
             </form>
             <form class="cscs-auth-form" data-auth-form="register" hidden>
@@ -405,7 +406,17 @@ document.addEventListener('DOMContentLoaded', function () {
         avatar.setAttribute('aria-expanded', String(!menu.hidden));
     });
     account.querySelectorAll('[data-auth-action]').forEach(button => {
-        button.addEventListener('click', () => showModal(button.dataset.authAction));
+        button.addEventListener('click', () => {
+            const action = button.dataset.authAction;
+            if (action === 'forgot-password') {
+                status.textContent = 'Password reset is not available yet. Ask your instructor or course administrator to reset your password.';
+                return;
+            }
+            showModal(action);
+        });
+    });
+    modal.querySelector('[data-auth-action="forgot-password"]').addEventListener('click', () => {
+        status.textContent = 'Password reset is not available yet. Ask your instructor or course administrator to reset your password.';
     });
     modal.querySelector('.cscs-auth-close').addEventListener('click', () => { modal.hidden = true; });
     modal.addEventListener('click', event => { if (event.target === modal) modal.hidden = true; });
