@@ -212,6 +212,11 @@ app.MapPost("/v1/auth/email-verification/confirm", async (EmailVerificationCompl
     var verificationToken = await database.EmailVerificationTokens
         .Include(token => token.UserAccount)
         .SingleOrDefaultAsync(token => token.TokenHash == tokenHash);
+    if (verificationToken?.UserAccount?.EmailVerifiedUtc is not null)
+    {
+        return Results.Ok(new { message = "Email already verified. You can sign in now." });
+    }
+
     if (verificationToken is null ||
         verificationToken.UserAccount is null ||
         verificationToken.UsedUtc is not null ||
