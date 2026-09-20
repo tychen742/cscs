@@ -216,6 +216,8 @@ function initializeCsharpExecution() {
             editMode = mode;
             const isEditing = mode !== "view";
 
+            cell.classList.toggle("cscs-is-editing", isEditing);
+            cell.dataset.cscsEditMode = mode;
             editButton.hidden = mode === "inline";
             inlineButton.hidden = mode === "edit";
             resetButton.hidden = !isEditing;

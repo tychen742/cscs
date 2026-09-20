@@ -289,26 +289,49 @@ div.cell:hover div.cell_output pre {
 }
 
 div.cell_input pre.cscs-inline-editing {
+    border-color: #7aa7d9 !important;
+    border-left-color: #2563eb !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14), 0 6px 18px rgba(37, 99, 235, 0.08) !important;
     cursor: text;
 }
 
 div.cell_input pre.cscs-inline-editing:focus {
-    border-color: #ccd3db !important;
-    border-left-color: #1b5e20 !important;
-    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.12) !important;
+    border-color: #4f8edc !important;
+    border-left-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 8px 22px rgba(37, 99, 235, 0.10) !important;
     outline: none;
 }
 
-div.cell_input pre.cscs-inline-editing .cscs-code-line {
+div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input {
+    position: relative;
+}
+
+div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input::after {
+    background: #2563eb;
+    border-radius: 999px;
+    color: #ffffff;
+    content: "Editing";
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 4px 7px;
+    position: absolute;
+    right: 10px;
+    text-transform: uppercase;
+    top: 8px;
+}
+
+div.cell_input pre .cscs-code-line {
     display: block;
     min-height: 1.45em;
 }
 
-div.cell_input pre.cscs-inline-editing .linenos {
+div.cell_input pre .cscs-code-line .linenos {
     pointer-events: none;
 }
 
-div.cell_input pre.cscs-inline-editing .cscs-code-line-content {
+div.cell_input pre .cscs-code-line-content {
     display: inline-block;
     min-width: calc(100% - 3rem);
     outline: none;
@@ -846,10 +869,17 @@ div.cell.tag_thebe-interactive {
     width: 100%;
 }
 
+.cscs-student-copy .cscs-code-editor:not([hidden]),
+div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidden]) {
+    border-color: #7aa7d9;
+    border-left-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14), 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
 .cscs-code-editor:focus {
-    border-color: #ccd3db;
-    border-left-color: #1b5e20;
-    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.12);
+    border-color: #4f8edc;
+    border-left-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 8px 22px rgba(37, 99, 235, 0.10);
     outline: none;
 }
 
