@@ -2281,12 +2281,181 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     font-size: 0.78rem !important;
 }
 
-.cscs-user-row select {
+.cscs-user-controls {
+    display: grid !important;
+    gap: 0.35rem !important;
+}
+
+.cscs-user-row select,
+.cscs-user-row input {
     border: 1px solid #cbd5df !important;
     border-radius: 6px !important;
     font: inherit !important;
     max-width: 8rem !important;
     padding: 0.35rem !important;
+}
+
+body.cscs-admin-open {
+    overflow: hidden !important;
+}
+
+.cscs-admin-workspace {
+    background: var(--pst-color-background, #fff) !important;
+    color: var(--pst-color-text-base, #27313a) !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    inset: 0 !important;
+    position: fixed !important;
+    z-index: 3000 !important;
+}
+
+.cscs-admin-header {
+    align-items: center !important;
+    border-bottom: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    display: grid !important;
+    gap: 1rem !important;
+    grid-template-columns: minmax(12rem, 1fr) auto auto !important;
+    padding: 0.85rem 1rem !important;
+}
+
+.cscs-admin-kicker {
+    color: #52616b !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em !important;
+    margin: 0 0 0.15rem !important;
+    text-transform: uppercase !important;
+}
+
+.cscs-admin-header h1 {
+    font-size: 1.35rem !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+}
+
+.cscs-admin-nav {
+    border: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    border-radius: 7px !important;
+    display: inline-flex !important;
+    overflow: hidden !important;
+}
+
+.cscs-admin-nav button,
+.cscs-admin-close {
+    background: #fff !important;
+    border: 0 !important;
+    color: var(--pst-color-link, #176de8) !important;
+    cursor: pointer !important;
+    font: inherit !important;
+    padding: 0.45rem 0.7rem !important;
+}
+
+.cscs-admin-nav button + button {
+    border-left: 1px solid var(--pst-color-border, #dbe3ec) !important;
+}
+
+.cscs-admin-nav button.is-active {
+    background: #eef4ff !important;
+    color: #27313a !important;
+}
+
+.cscs-admin-nav button:disabled {
+    color: #8a96a3 !important;
+    cursor: not-allowed !important;
+}
+
+.cscs-admin-close {
+    border: 1px solid var(--pst-color-border, #cbd5df) !important;
+    border-radius: 7px !important;
+}
+
+.cscs-admin-main {
+    background: #f6f8fb !important;
+    min-height: 0 !important;
+    overflow: auto !important;
+    padding: 1rem !important;
+}
+
+.cscs-admin-panel {
+    background: #fff !important;
+    border: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    border-radius: 8px !important;
+    margin: 0 auto !important;
+    max-width: 68rem !important;
+    overflow: hidden !important;
+}
+
+.cscs-admin-toolbar {
+    align-items: center !important;
+    border-bottom: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    display: grid !important;
+    gap: 0.75rem !important;
+    grid-template-columns: minmax(12rem, 22rem) minmax(8rem, 1fr) !important;
+    padding: 0.75rem !important;
+}
+
+.cscs-admin-toolbar input {
+    border: 1px solid #cbd5df !important;
+    border-radius: 7px !important;
+    font: inherit !important;
+    padding: 0.45rem 0.6rem !important;
+}
+
+.cscs-admin-status {
+    color: #52616b !important;
+    font-size: 0.86rem !important;
+    justify-self: end !important;
+}
+
+.cscs-admin-content {
+    overflow-x: auto !important;
+}
+
+.cscs-admin-users-table {
+    display: grid !important;
+    min-width: 86rem !important;
+}
+
+.cscs-admin-users-head,
+.cscs-admin-user-row {
+    align-items: center !important;
+    display: grid !important;
+    gap: 0.75rem !important;
+    grid-template-columns: minmax(9rem, 1fr) minmax(15rem, 1.4fr) 10rem 8rem 8rem 8rem 8rem 8rem 8rem !important;
+    padding: 0.55rem 0.75rem !important;
+}
+
+.cscs-admin-users-head {
+    background: #f6f8fb !important;
+    color: #52616b !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+.cscs-admin-user-row {
+    border-top: 1px solid var(--pst-color-border, #edf1f5) !important;
+}
+
+.cscs-admin-user-row span {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.cscs-admin-user-row select,
+.cscs-admin-user-row input {
+    border: 1px solid #cbd5df !important;
+    border-radius: 7px !important;
+    font: inherit !important;
+    padding: 0.35rem 0.45rem !important;
+    width: 100% !important;
+}
+
+.cscs-admin-empty {
+    color: #52616b !important;
+    margin: 0 !important;
+    padding: 1rem !important;
 }
 
 @media (max-width: 768px) {
@@ -2295,6 +2464,28 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
         left: 0.75rem !important;
         right: 0.75rem !important;
         width: auto !important;
+    }
+
+    .cscs-admin-header {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cscs-admin-nav {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .cscs-admin-nav button + button {
+        border-left: 0 !important;
+        border-top: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    }
+
+    .cscs-admin-toolbar {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cscs-admin-status {
+        justify-self: start !important;
     }
 }
 

@@ -43,6 +43,15 @@ public sealed class UserAccount
     [MaxLength(64)]
     public string? CourseId { get; set; }
 
+    public Institution Institution { get; set; } = Institution.MissouriST;
+
+    [MaxLength(64)]
+    public string? InstitutionId { get; set; } = "mst";
+
+    public int AcademicYear { get; set; } = 2026;
+
+    public Semester Semester { get; set; } = Semester.Fall;
+
     public UserRole Role { get; set; } = UserRole.Student;
 
     public DateTime CreatedUtc { get; set; }
@@ -60,6 +69,21 @@ public enum UserRole
     Editor = 30,
     Author = 40,
     Admin = 50
+}
+
+public enum Institution
+{
+    Unknown = 0,
+    MissouriST = 10,
+    UniversityOfMissouriSystem = 20
+}
+
+public enum Semester
+{
+    Unknown = 0,
+    Spring = 10,
+    Summer = 20,
+    Fall = 30
 }
 
 public sealed class ReadingProgress
@@ -167,7 +191,7 @@ public sealed record RegisterRequest(string? Email, string? Password, string? Di
 public sealed record LoginRequest(string? Email, string? Password);
 public sealed record ProfileUpdateRequest(string? DisplayName);
 public sealed record PasswordChangeRequest(string? CurrentPassword, string? NewPassword);
-public sealed record UserRoleUpdateRequest(string? Role);
+public sealed record UserRoleUpdateRequest(string? Role, string? Institution, string? InstitutionId, int? AcademicYear, string? Semester);
 public sealed record PasswordResetRequest(string? Email, string? PageUrl);
 public sealed record PasswordResetCompleteRequest(string? Token, string? Password);
 public sealed record EmailVerificationCompleteRequest(string? Token);

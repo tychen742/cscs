@@ -137,11 +137,17 @@ app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext d
     }
 
     var now = DateTime.UtcNow;
+    var institution = InferInstitution(email);
+    var semester = InferSemester(now);
     var user = new UserAccount
     {
         Email = email,
         DisplayName = displayName,
         PasswordHash = PasswordService.Hash(request.Password),
+        Institution = institution,
+        InstitutionId = InferInstitutionId(institution),
+        AcademicYear = InferAcademicYear(now),
+        Semester = semester,
         Role = GetEffectiveRole(email, UserRole.Student),
         CreatedUtc = now,
         EmailVerifiedUtc = adminEmails.Contains(email) ? now : null
@@ -378,6 +384,10 @@ app.MapGet("/v1/admin/users", async (ClaimsPrincipal principal, CscsDbContext da
         user.Id,
         user.Email,
         user.DisplayName,
+        Institution = user.Institution.ToString(),
+        user.InstitutionId,
+        user.AcademicYear,
+        Semester = user.Semester.ToString(),
         Role = GetEffectiveRole(user.Email, user.Role).ToString(),
         IsEmailVerified = user.EmailVerifiedUtc != null,
         user.CreatedUtc,
@@ -391,12 +401,40 @@ app.MapPatch("/v1/admin/users/{id:int}", async (int id, UserRoleUpdateRequest re
     var user = await database.Users.FindAsync([id], cancellationToken);
     if (user is null) return Results.NotFound(new { error = "User not found." });
     if (adminEmails.Contains(user.Email)) return Results.BadRequest(new { error = "Bootstrap admin role is controlled by CSCS_ADMIN_EMAILS." });
-    if (!Enum.TryParse<UserRole>(request.Role, ignoreCase: true, out var role))
+    if (request.Role is not null && !Enum.TryParse<UserRole>(request.Role, ignoreCase: true, out _))
     {
         return Results.BadRequest(new { error = "Choose a valid role." });
     }
+    if (request.Institution is not null && !Enum.TryParse<Institution>(request.Institution, ignoreCase: true, out _))
+    {
+        return Results.BadRequest(new { error = "Choose a valid institution." });
+    }
+    var institutionId = request.InstitutionId?.Trim();
+    if (institutionId?.Length > 64)
+    {
+        return Results.BadRequest(new { error = "Institution ID must be 64 characters or fewer." });
+    }
+    if (request.AcademicYear is not null && (request.AcademicYear < 2000 || request.AcademicYear > 2100))
+    {
+        return Results.BadRequest(new { error = "Academic year must be between 2000 and 2100." });
+    }
+    if (request.Semester is not null && !Enum.TryParse<Semester>(request.Semester, ignoreCase: true, out _))
+    {
+        return Results.BadRequest(new { error = "Choose a valid semester." });
+    }
 
-    user.Role = role;
+    if (request.Role is not null) user.Role = Enum.Parse<UserRole>(request.Role, ignoreCase: true);
+    if (request.Institution is not null)
+    {
+        user.Institution = Enum.Parse<Institution>(request.Institution, ignoreCase: true);
+        if (request.InstitutionId is null)
+        {
+            user.InstitutionId = InferInstitutionId(user.Institution);
+        }
+    }
+    if (request.InstitutionId is not null) user.InstitutionId = string.IsNullOrWhiteSpace(institutionId) ? null : institutionId;
+    if (request.AcademicYear is not null) user.AcademicYear = request.AcademicYear.Value;
+    if (request.Semester is not null) user.Semester = Enum.Parse<Semester>(request.Semester, ignoreCase: true);
     await database.SaveChangesAsync(cancellationToken);
     return Results.Ok(ToAccountDto(user, GetEffectiveRole(user.Email, user.Role)));
 }).RequireAuthorization();
@@ -538,11 +576,42 @@ bool CanAuthor(UserRole role) =>
 bool CanManageUsers(UserRole role) =>
     role is UserRole.Admin or UserRole.Instructor;
 
+Institution InferInstitution(string email)
+{
+    var normalized = email.Trim().ToLowerInvariant();
+    if (normalized.EndsWith("@mst.edu", StringComparison.Ordinal)) return Institution.MissouriST;
+    if (normalized.EndsWith("@umsystem.edu", StringComparison.Ordinal)) return Institution.UniversityOfMissouriSystem;
+    return Institution.MissouriST;
+}
+
+string? InferInstitutionId(Institution institution) => institution switch
+{
+    Institution.MissouriST => "mst",
+    Institution.UniversityOfMissouriSystem => "umsystem",
+    _ => null
+};
+
+int InferAcademicYear(DateTime now) =>
+    now.Month >= 8 ? now.Year : now.Year - 1;
+
+Semester InferSemester(DateTime now) => now.Month switch
+{
+    >= 1 and <= 5 => Semester.Spring,
+    >= 6 and <= 7 => Semester.Summer,
+    _ => Semester.Fall
+};
+
 object ToAccountDto(UserAccount user, UserRole role) => new
 {
     user.Id,
     user.Email,
     user.DisplayName,
+    Institution = user.Institution.ToString(),
+    user.InstitutionId,
+    user.AcademicYear,
+    Semester = user.Semester.ToString(),
+    user.CreatedUtc,
+    user.EmailVerifiedUtc,
     Role = role.ToString(),
     IsAdmin = role == UserRole.Admin,
     IsAuthor = role == UserRole.Author,

@@ -90,8 +90,17 @@ User management is role-gated. Users whose effective role is `Admin` or
 
 ```text
 GET   /v1/admin/users       list user account profiles
-PATCH /v1/admin/users/{id}  update a user's database role
+PATCH /v1/admin/users/{id}  update a user's database role or institution
 ```
+
+Roles are stored as the `UserRole` enum (`Student`, `TA`, `Instructor`,
+`Editor`, `Author`, `Admin`). Institutions are stored as the `Institution` enum
+(`Unknown`, `MissouriST`, `UniversityOfMissouriSystem`) plus an optional
+`InstitutionId` string for the campus/system identifier. New accounts infer an
+initial institution and institution ID from the email domain when possible.
+Course term metadata is stored as `AcademicYear` (the starting calendar year of
+the academic year, such as `2026` for 2026-2027) and the `Semester` enum
+(`Unknown`, `Spring`, `Summer`, `Fall`).
 
 ## Reading progress API
 

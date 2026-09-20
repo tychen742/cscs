@@ -139,6 +139,9 @@ namespace execution.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AcademicYear")
+                        .HasColumnType("integer");
+
                     b.Property<string>("BookId")
                         .IsRequired()
                         .HasMaxLength(64)
@@ -164,12 +167,22 @@ namespace execution.Migrations
                     b.Property<DateTime?>("EmailVerifiedUtc")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("Institution")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("InstitutionId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(512)
                         .HasColumnType("character varying(512)");
 
                     b.Property<int>("Role")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Semester")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

@@ -359,6 +359,10 @@ document.addEventListener('DOMContentLoaded', function () {
             <form class="cscs-auth-form" data-auth-form="profile" hidden>
                 <label>Display name<input name="displayName" autocomplete="name" required></label>
                 <label>Email<input name="email" type="email" disabled></label>
+                <label>Institution<input name="institution" disabled></label>
+                <label>Institution ID<input name="institutionId" disabled></label>
+                <label>Academic year<input name="academicYear" disabled></label>
+                <label>Semester<input name="semester" disabled></label>
                 <label>Role<input name="role" disabled></label>
                 <button class="cscs-auth-submit" type="submit">Save profile</button>
                 <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="change-password">Change password</button>
@@ -411,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             return;
                         }
                         if (button.dataset.accountAction === 'Users') {
-                            await showUsers();
+                            openAdminWorkspace('users');
                             return;
                         }
                         status.textContent = `${button.dataset.accountAction} is not available yet.`;
@@ -448,6 +452,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function setStatus(message) {
         status.textContent = message || '';
+    }
+
+    function openAdminWorkspace(section) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('cscsAdmin', section);
+        url.hash = '';
+        window.open(url.toString(), '_blank', 'noopener');
+        menu.hidden = true;
+        avatar.setAttribute('aria-expanded', 'false');
     }
 
     function getSearchToken(...names) {
@@ -607,6 +620,10 @@ document.addEventListener('DOMContentLoaded', function () {
         removeSearchTokens('verifyToken', 'verificationToken', 'emailVerificationToken');
     }
     updateAccountMenu();
+    const adminSection = new URLSearchParams(window.location.search).get('cscsAdmin');
+    if (adminSection) {
+        showAdminWorkspace(adminSection);
+    }
 
     async function showProfile() {
         showModal('profile');
@@ -619,6 +636,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const form = modal.querySelector('[data-auth-form="profile"]');
             form.elements.displayName.value = user.displayName || '';
             form.elements.email.value = user.email || '';
+            form.elements.institution.value = formatInstitution(user.institution);
+            form.elements.institutionId.value = user.institutionId || '';
+            form.elements.academicYear.value = formatAcademicYear(user.academicYear);
+            form.elements.semester.value = formatSemester(user.semester);
             form.elements.role.value = user.role || '';
             setStatus('');
         } catch (error) {
@@ -644,38 +665,275 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function renderUsers(users) {
         const list = modal.querySelector('.cscs-users-list');
+        const institutions = ['Unknown', 'MissouriST', 'UniversityOfMissouriSystem'];
+        const semesters = ['Spring', 'Summer', 'Fall'];
         const roles = ['Student', 'TA', 'Instructor', 'Editor', 'Author', 'Admin'];
         list.innerHTML = users.map(user => `
             <div class="cscs-user-row" data-user-id="${user.id}">
                 <div class="cscs-user-main">
                     <strong>${escapeHtml(user.displayName || user.email)}</strong>
                     <span>${escapeHtml(user.email)}</span>
-                    <span>${user.isEmailVerified ? 'Verified' : 'Unverified'}</span>
+                    <span>${formatInstitution(user.institution)}${user.institutionId ? ` (${escapeHtml(user.institutionId)})` : ''} · ${formatTerm(user.academicYear, user.semester)} · ${user.isEmailVerified ? 'Verified' : 'Unverified'}</span>
                 </div>
-                <select aria-label="Role for ${escapeHtml(user.email)}">
-                    ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
-                </select>
+                <div class="cscs-user-controls">
+                    <select data-user-field="institution" aria-label="Institution for ${escapeHtml(user.email)}">
+                        ${institutions.map(institution => `<option value="${institution}" ${institution === user.institution ? 'selected' : ''}>${formatInstitution(institution)}</option>`).join('')}
+                    </select>
+                    <input data-user-field="academicYear" value="${escapeHtml(user.academicYear || '')}" inputmode="numeric" maxlength="4" aria-label="Academic year for ${escapeHtml(user.email)}">
+                    <select data-user-field="semester" aria-label="Semester for ${escapeHtml(user.email)}">
+                        ${semesters.map(semester => `<option value="${semester}" ${semester === user.semester ? 'selected' : ''}>${formatSemester(semester)}</option>`).join('')}
+                    </select>
+                    <select data-user-field="role" aria-label="Role for ${escapeHtml(user.email)}">
+                        ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
+                    </select>
+                </div>
             </div>
         `).join('');
         list.querySelectorAll('.cscs-user-row select').forEach(select => {
             select.addEventListener('change', async () => {
                 const row = select.closest('.cscs-user-row');
+                const body = select.dataset.userField === 'institution'
+                    ? { institution: select.value }
+                    : select.dataset.userField === 'semester'
+                        ? { semester: select.value }
+                        : { role: select.value };
                 select.disabled = true;
-                setStatus('Saving role...');
+                setStatus('Saving user...');
                 try {
                     const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
                         method: 'PATCH',
                         credentials: 'include',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ role: select.value })
+                        body: JSON.stringify(body)
                     });
                     const result = await response.json().catch(() => ({}));
-                    if (!response.ok) throw new Error(result.error || 'Role could not be saved.');
-                    setStatus('Role saved.');
+                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
+                    setStatus('User saved.');
                 } catch (error) {
                     setStatus(error.message);
                 } finally {
                     select.disabled = false;
+                }
+            });
+        });
+    }
+
+    async function showAdminWorkspace(section) {
+        let workspace = document.querySelector('.cscs-admin-workspace');
+        if (!workspace) {
+            workspace = document.createElement('div');
+            workspace.className = 'cscs-admin-workspace';
+            workspace.innerHTML = `
+                <header class="cscs-admin-header">
+                    <div>
+                        <p class="cscs-admin-kicker">Course admin</p>
+                        <h1>Users</h1>
+                    </div>
+                    <nav class="cscs-admin-nav" aria-label="Admin sections">
+                        <button type="button" data-admin-section="users">Users</button>
+                        <button type="button" disabled>Attempts</button>
+                        <button type="button" disabled>Score Report</button>
+                        <button type="button" disabled>Assignments</button>
+                    </nav>
+                    <button class="cscs-admin-close" type="button">Back to book</button>
+                </header>
+                <main class="cscs-admin-main">
+                    <section class="cscs-admin-panel">
+                        <div class="cscs-admin-toolbar">
+                            <input type="search" placeholder="Filter users" aria-label="Filter users">
+                            <span class="cscs-admin-status" aria-live="polite"></span>
+                        </div>
+                        <div class="cscs-admin-content"></div>
+                    </section>
+                </main>`;
+            document.body.appendChild(workspace);
+            workspace.querySelector('.cscs-admin-close').addEventListener('click', () => {
+                const cleanUrl = new URL(window.location.href);
+                cleanUrl.searchParams.delete('cscsAdmin');
+                window.location.href = cleanUrl.toString();
+            });
+        }
+
+        document.body.classList.add('cscs-admin-open');
+        workspace.querySelectorAll('[data-admin-section]').forEach(button => {
+            button.classList.toggle('is-active', button.dataset.adminSection === section);
+        });
+        if (section === 'users') {
+            await loadAdminUsers(workspace);
+        } else {
+            workspace.querySelector('.cscs-admin-content').innerHTML = '<p class="cscs-admin-empty">This admin section is not available yet.</p>';
+        }
+    }
+
+    async function loadAdminUsers(workspace) {
+        const status = workspace.querySelector('.cscs-admin-status');
+        const content = workspace.querySelector('.cscs-admin-content');
+        const filter = workspace.querySelector('.cscs-admin-toolbar input');
+        const institutions = ['Unknown', 'MissouriST', 'UniversityOfMissouriSystem'];
+        const semesters = ['Spring', 'Summer', 'Fall'];
+        const roles = ['Student', 'TA', 'Instructor', 'Editor', 'Author', 'Admin'];
+        status.textContent = 'Loading users...';
+        content.innerHTML = '';
+
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/admin/users`, { credentials: 'include' });
+            const users = await response.json().catch(() => []);
+            if (!response.ok) throw new Error(users.error || 'Users could not be loaded.');
+
+            const render = () => {
+                const query = filter.value.trim().toLowerCase();
+                const visibleUsers = users.filter(user => {
+                    const haystack = `${user.displayName || ''} ${user.email || ''} ${user.role || ''} ${formatInstitution(user.institution)} ${user.institutionId || ''} ${formatTerm(user.academicYear, user.semester)}`.toLowerCase();
+                    return haystack.includes(query);
+                });
+                content.innerHTML = `
+                    <div class="cscs-admin-users-table" role="table" aria-label="Course users">
+                        <div class="cscs-admin-users-head" role="row">
+                            <span role="columnheader">Name</span>
+                            <span role="columnheader">Email</span>
+                            <span role="columnheader">Institution</span>
+                            <span role="columnheader">Institution ID</span>
+                            <span role="columnheader">Academic Year</span>
+                            <span role="columnheader">Semester</span>
+                            <span role="columnheader">Role</span>
+                            <span role="columnheader">Verified</span>
+                            <span role="columnheader">Created</span>
+                        </div>
+                        ${visibleUsers.map(user => `
+                            <div class="cscs-admin-user-row" role="row" data-user-id="${user.id}">
+                                <span role="cell">${escapeHtml(user.displayName || '')}</span>
+                                <span role="cell">${escapeHtml(user.email || '')}</span>
+                                <span role="cell">
+                                    <select data-user-field="institution" aria-label="Institution for ${escapeHtml(user.email || '')}">
+                                        ${institutions.map(institution => `<option value="${institution}" ${institution === user.institution ? 'selected' : ''}>${formatInstitution(institution)}</option>`).join('')}
+                                    </select>
+                                </span>
+                                <span role="cell">
+                                    <input data-user-field="institutionId" value="${escapeHtml(user.institutionId || '')}" maxlength="64" aria-label="Institution ID for ${escapeHtml(user.email || '')}">
+                                </span>
+                                <span role="cell">
+                                    <input data-user-field="academicYear" value="${escapeHtml(user.academicYear || '')}" inputmode="numeric" maxlength="4" aria-label="Academic year for ${escapeHtml(user.email || '')}">
+                                </span>
+                                <span role="cell">
+                                    <select data-user-field="semester" aria-label="Semester for ${escapeHtml(user.email || '')}">
+                                        ${semesters.map(semester => `<option value="${semester}" ${semester === user.semester ? 'selected' : ''}>${formatSemester(semester)}</option>`).join('')}
+                                    </select>
+                                </span>
+                                <span role="cell">
+                                    <select data-user-field="role" aria-label="Role for ${escapeHtml(user.email || '')}">
+                                        ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
+                                    </select>
+                                </span>
+                                <span role="cell">${formatDate(user.emailVerifiedUtc)}</span>
+                                <span role="cell">${formatDate(user.createdUtc)}</span>
+                            </div>
+                        `).join('')}
+                    </div>`;
+                if (!visibleUsers.length) {
+                    content.innerHTML = '<p class="cscs-admin-empty">No users match that filter.</p>';
+                }
+                bindAdminRoleControls(workspace, users);
+                status.textContent = `${visibleUsers.length} user${visibleUsers.length === 1 ? '' : 's'}`;
+            };
+
+            filter.oninput = render;
+            render();
+        } catch (error) {
+            status.textContent = '';
+            content.innerHTML = `<p class="cscs-admin-empty">${escapeHtml(error.message)}</p>`;
+        }
+    }
+
+    function bindAdminRoleControls(workspace, users) {
+        const status = workspace.querySelector('.cscs-admin-status');
+        workspace.querySelectorAll('.cscs-admin-user-row select').forEach(select => {
+            select.addEventListener('change', async () => {
+                const row = select.closest('.cscs-admin-user-row');
+                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
+                const field = select.dataset.userField;
+                const previousValue = field === 'institution' ? user?.institution : field === 'semester' ? user?.semester : user?.role;
+                const body = field === 'institution'
+                    ? { institution: select.value }
+                    : field === 'semester'
+                        ? { semester: select.value }
+                    : { role: select.value };
+                select.disabled = true;
+                status.textContent = 'Saving user...';
+                try {
+                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
+                        method: 'PATCH',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body)
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
+                    if (user && field === 'institution') {
+                        user.institution = result.institution || select.value;
+                        user.institutionId = result.institutionId || '';
+                        const idInput = row.querySelector('input[data-user-field="institutionId"]');
+                        if (idInput) idInput.value = user.institutionId;
+                    }
+                    if (user && field === 'role') user.role = select.value;
+                    if (user && field === 'semester') user.semester = select.value;
+                    status.textContent = 'User saved.';
+                } catch (error) {
+                    if (previousValue) select.value = previousValue;
+                    status.textContent = error.message;
+                } finally {
+                    select.disabled = false;
+                }
+            });
+        });
+        workspace.querySelectorAll('.cscs-admin-user-row input[data-user-field="institutionId"]').forEach(input => {
+            input.addEventListener('change', async () => {
+                const row = input.closest('.cscs-admin-user-row');
+                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
+                const previousValue = user?.institutionId || '';
+                input.disabled = true;
+                status.textContent = 'Saving user...';
+                try {
+                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
+                        method: 'PATCH',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ institutionId: input.value })
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
+                    if (user) user.institutionId = input.value.trim();
+                    status.textContent = 'User saved.';
+                } catch (error) {
+                    input.value = previousValue;
+                    status.textContent = error.message;
+                } finally {
+                    input.disabled = false;
+                }
+            });
+        });
+        workspace.querySelectorAll('.cscs-admin-user-row input[data-user-field="academicYear"]').forEach(input => {
+            input.addEventListener('change', async () => {
+                const row = input.closest('.cscs-admin-user-row');
+                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
+                const previousValue = String(user?.academicYear || '');
+                input.disabled = true;
+                status.textContent = 'Saving user...';
+                try {
+                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
+                        method: 'PATCH',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ academicYear: Number(input.value) })
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
+                    if (user) user.academicYear = Number(input.value);
+                    status.textContent = 'User saved.';
+                } catch (error) {
+                    input.value = previousValue;
+                    status.textContent = error.message;
+                } finally {
+                    input.disabled = false;
                 }
             });
         });
@@ -689,6 +947,38 @@ document.addEventListener('DOMContentLoaded', function () {
             '"': '&quot;',
             "'": '&#39;'
         }[char]));
+    }
+
+    function formatInstitution(value) {
+        const labels = {
+            Unknown: 'Unknown',
+            MissouriST: 'Missouri S&T',
+            UniversityOfMissouriSystem: 'UM System'
+        };
+        return labels[value] || value || 'Unknown';
+    }
+
+    function formatDate(value) {
+        if (!value) return 'Not yet';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return 'Not yet';
+        return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function formatAcademicYear(value) {
+        const year = Number(value);
+        if (!Number.isInteger(year) || year <= 0) return '';
+        return `${year}-${String(year + 1).slice(-2)}`;
+    }
+
+    function formatSemester(value) {
+        return value || 'Unknown';
+    }
+
+    function formatTerm(academicYear, semester) {
+        const year = formatAcademicYear(academicYear);
+        const label = formatSemester(semester);
+        return year ? `${label} ${year}` : label;
     }
 
     async function enableAuthorMode() {
