@@ -296,6 +296,15 @@ project, then continue in VS Code. Conversely, a later browser upload/import
 feature may accept a `.cs` file for experimentation, but it should not replace
 GitHub as the source of submitted project history.
 
+Browser-runnable cells use two editing surfaces for the same underlying code
+draft. In view mode, show **Edit | Inline | Run**. **Edit** opens a separate
+"Your version" editor below the published sample; **Inline** replaces the
+rendered code block with an in-place editor. After either editing surface is
+opened, show **Done | Reset | Run**. **Done** returns to the published reading
+view, **Reset** restores the original sample source, and **Run** executes the
+current draft. This keeps quick reading experiments lightweight while still
+offering a larger editing surface when students need it.
+
 Persistence requirements:
 
 - Anonymous reading continuity uses browser `localStorage` for the last page and
@@ -339,7 +348,7 @@ cells inline. The authoring controls are:
 
 - **Author**: enable editing for the page's cells
 - **Save**: write the edited cell strings back to the same `.ipynb` source file
-- **Run C#**: execute the current C# cell through the execution service
+- **Run**: execute the current C# cell through the execution service
 - **Preview**: inspect the rendered page before publishing
 
 The notebook file remains the source of truth. Git remains the synchronization,

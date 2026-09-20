@@ -30,8 +30,12 @@ Status: implemented and tested locally.
 Teachers and students must be able to edit a sample cell, run the edited code,
 and see the new output without changing the published notebook source.
 
-The browser client should provide an Edit control, preserve the original code
-for Reset, and send the current editor contents to the execution API.
+The browser client should provide `Edit | Inline | Run` controls in view mode.
+`Edit` opens a separate student copy below the published sample. `Inline`
+replaces the rendered code block with an in-place editor. After either editing
+surface opens, the visible controls should become `Done | Reset | Run`. `Done`
+returns to reading view, `Reset` restores the original code, and `Run` sends
+the current editor contents to the execution API.
 
 Status: browser implementation in progress.
 

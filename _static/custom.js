@@ -586,28 +586,12 @@ document.addEventListener('DOMContentLoaded', function () {
         doneButton.hidden = true;
         doneButton.addEventListener('click', () => editButton?.click());
 
-        const inlineButton = document.createElement('button');
-        inlineButton.type = 'button';
-        inlineButton.textContent = 'Inline';
-        inlineButton.addEventListener('click', () => {
-            const highlight = codeElement.closest('.highlight-csharp');
-            const isOpen = editor.dataset.inlineOpen === 'true';
-            editor.hidden = isOpen;
-            if (highlight) highlight.hidden = !isOpen;
-            inlineButton.textContent = isOpen ? 'Inline' : 'Done';
-            editor.dataset.inlineOpen = String(!isOpen);
-            if (!isOpen) {
-                const staticCodeHeight = codeElement.closest('.cell_input')?.offsetHeight || codeElement.offsetHeight;
-                editor.style.height = `${staticCodeHeight + 32}px`;
-            }
-        });
-
         const saveButton = document.createElement('button');
         saveButton.type = 'button';
         saveButton.textContent = 'Save';
         saveButton.addEventListener('click', () => window.cscsSaveNotebook?.());
 
-        authorControls.append(authorButton, doneButton, inlineButton, saveButton);
+        authorControls.append(authorButton, doneButton, saveButton);
         controls.appendChild(authorControls);
 
         const originalEdit = editButton;
@@ -626,12 +610,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeInlineEditors() {
         document.querySelectorAll('.cscs-code-editor[data-inline-open="true"]').forEach(editor => {
             const cell = editor.closest('.cell');
-            const highlight = cell?.querySelector('.highlight-csharp');
-            editor.hidden = true;
-            editor.dataset.inlineOpen = 'false';
-            if (highlight) highlight.hidden = false;
-            const inlineButton = cell?.querySelector('.cscs-author-cell-controls button:nth-child(3)');
-            if (inlineButton) inlineButton.textContent = 'Inline';
+            const inlineButton = cell?.querySelector('.cscs-inline-button');
+            if (inlineButton && inlineButton.textContent.trim() === 'Done') {
+                inlineButton.click();
+            }
         });
     }
 

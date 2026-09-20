@@ -31,6 +31,11 @@ function initializeCsharpExecution() {
         editButton.className = "cscs-edit-button";
         editButton.textContent = "Edit";
 
+        const inlineButton = document.createElement("button");
+        inlineButton.type = "button";
+        inlineButton.className = "cscs-inline-button";
+        inlineButton.textContent = "Inline";
+
         const resetButton = document.createElement("button");
         resetButton.type = "button";
         resetButton.className = "cscs-reset-button";
@@ -40,7 +45,7 @@ function initializeCsharpExecution() {
         const runButton = document.createElement("button");
         runButton.type = "button";
         runButton.className = "cscs-run-button";
-        runButton.textContent = "Run C#";
+        runButton.textContent = "Run";
 
         const stdinPanel = document.createElement("div");
         stdinPanel.className = "cscs-stdin-panel";
@@ -64,10 +69,11 @@ function initializeCsharpExecution() {
         output.hidden = true;
         output.setAttribute("aria-live", "polite");
 
-        controls.append(editButton, resetButton, runButton, stdinPanel);
+        controls.append(editButton, inlineButton, resetButton, runButton, stdinPanel);
         cell.appendChild(controls);
         cell.appendChild(output);
         let stdinRequested = false;
+        let editMode = "view";
 
         const updateStdinVisibility = () => {
             if (!usesConsoleInput(editor.value)) {
@@ -84,9 +90,8 @@ function initializeCsharpExecution() {
                 codeElement.closest(".cell_input").appendChild(editor);
                 cell.append(controls, output);
                 copy?.remove();
-                resetButton.hidden = true;
-                editButton.textContent = "Edit";
                 isStudentCopy = false;
+                setEditMode("view");
                 return;
             }
             if (!isExercise && editor.hidden) {
@@ -101,8 +106,7 @@ function initializeCsharpExecution() {
                 editor.hidden = false;
                 isStudentCopy = true;
                 codeElement.closest(".highlight-csharp").hidden = false;
-                editButton.textContent = "Done";
-                resetButton.hidden = false;
+                setEditMode("edit");
                 const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
                 editor.style.height = `${staticCodeHeight + 32}px`;
                 return;
@@ -114,8 +118,23 @@ function initializeCsharpExecution() {
             }
             editor.hidden = !editing;
             codeElement.closest(".highlight-csharp").hidden = editing;
-            editButton.textContent = editing ? "Edit" : "Done";
-            resetButton.hidden = !editing;
+            setEditMode(editing ? "edit" : "view");
+        });
+
+        inlineButton.addEventListener("click", () => {
+            const opening = editMode !== "inline";
+            editor.hidden = !opening;
+            codeElement.closest(".highlight-csharp").hidden = opening;
+
+            if (opening) {
+                const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
+                editor.style.height = `${staticCodeHeight + 32}px`;
+                setEditMode("inline");
+                editor.focus();
+                return;
+            }
+
+            setEditMode("view");
         });
 
         resetButton.addEventListener("click", () => {
@@ -176,8 +195,21 @@ function initializeCsharpExecution() {
             } finally {
                 runButton.disabled = false;
                 setStdinFieldsDisabled(false);
-                runButton.textContent = "Run C#";
+                runButton.textContent = "Run";
             }
+        }
+
+        function setEditMode(mode) {
+            editMode = mode;
+            const isEditing = mode !== "view";
+
+            editButton.hidden = mode === "inline";
+            inlineButton.hidden = mode === "edit";
+            resetButton.hidden = !isEditing;
+
+            editButton.textContent = mode === "edit" ? "Done" : "Edit";
+            inlineButton.textContent = mode === "inline" ? "Done" : "Inline";
+            editor.dataset.inlineOpen = String(mode === "inline");
         }
 
         function renderStdinFields(count) {
