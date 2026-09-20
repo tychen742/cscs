@@ -71,6 +71,7 @@ GET  /v1/auth/me        return the current authenticated user
 POST /v1/auth/logout    clear the session
 GET  /v1/account/profile  return the current user's account profile
 PUT  /v1/account/profile  update the current user's display name
+PUT  /v1/account/password  change the current user's password
 ```
 
 Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores

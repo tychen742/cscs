@@ -327,6 +327,30 @@ app.MapPut("/v1/account/profile", async (ProfileUpdateRequest request, ClaimsPri
     return Results.Ok(ToAccountDto(user, role));
 }).RequireAuthorization();
 
+app.MapPut("/v1/account/password", async (PasswordChangeRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
+{
+    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
+    var user = await database.Users.FindAsync(id);
+    if (user is null) return Results.Unauthorized();
+
+    if (string.IsNullOrWhiteSpace(request.CurrentPassword) ||
+        string.IsNullOrWhiteSpace(request.NewPassword) ||
+        request.NewPassword.Length < 8)
+    {
+        return Results.BadRequest(new { error = "Provide your current password and a new password of at least 8 characters." });
+    }
+
+    if (!PasswordService.Verify(request.CurrentPassword, user.PasswordHash))
+    {
+        return Results.Json(new { error = "Current password is incorrect." }, statusCode: StatusCodes.Status403Forbidden);
+    }
+
+    user.PasswordHash = PasswordService.Hash(request.NewPassword);
+    await database.SaveChangesAsync();
+    return Results.Ok(new { message = "Password changed." });
+}).RequireAuthorization();
+
 app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext database) =>
 {
     var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);

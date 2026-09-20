@@ -166,6 +166,7 @@ public static class PasswordService
 public sealed record RegisterRequest(string? Email, string? Password, string? DisplayName, string? PageUrl);
 public sealed record LoginRequest(string? Email, string? Password);
 public sealed record ProfileUpdateRequest(string? DisplayName);
+public sealed record PasswordChangeRequest(string? CurrentPassword, string? NewPassword);
 public sealed record UserRoleUpdateRequest(string? Role);
 public sealed record PasswordResetRequest(string? Email, string? PageUrl);
 public sealed record PasswordResetCompleteRequest(string? Token, string? Password);

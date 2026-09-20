@@ -338,6 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <label>Display name<input name="displayName" autocomplete="name" required></label>
                 <label>Email<input name="email" type="email" autocomplete="email" required></label>
                 <label>Password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
+                <label>Confirm password<input name="passwordConfirm" type="password" minlength="8" autocomplete="new-password" required></label>
                 <button class="cscs-auth-submit" type="submit">Create account</button>
             </form>
             <form class="cscs-auth-form" data-auth-form="reset-request" hidden>
@@ -356,6 +357,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 <label>Email<input name="email" type="email" disabled></label>
                 <label>Role<input name="role" disabled></label>
                 <button class="cscs-auth-submit" type="submit">Save profile</button>
+                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="change-password">Change password</button>
+            </form>
+            <form class="cscs-auth-form" data-auth-form="change-password" hidden>
+                <label>Current password<input name="currentPassword" type="password" autocomplete="current-password" required></label>
+                <label>New password<input name="newPassword" type="password" minlength="8" autocomplete="new-password" required></label>
+                <label>Confirm new password<input name="newPasswordConfirm" type="password" minlength="8" autocomplete="new-password" required></label>
+                <button class="cscs-auth-submit" type="submit">Change password</button>
+                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="profile">Back to profile</button>
             </form>
             <section class="cscs-auth-form cscs-users-panel" data-auth-form="users" hidden>
                 <div class="cscs-users-list" aria-live="polite"></div>
@@ -471,8 +480,19 @@ document.addEventListener('DOMContentLoaded', function () {
             let endpoint = '/v1/auth/login';
             if (isRegister) endpoint = '/v1/auth/register';
             if (mode === 'profile') endpoint = '/v1/account/profile';
+            if (mode === 'change-password') endpoint = '/v1/account/password';
             if (mode === 'reset-request') endpoint = '/v1/auth/password-reset/request';
             if (mode === 'reset-complete') endpoint = '/v1/auth/password-reset/complete';
+            if (isRegister && formData.password !== formData.passwordConfirm) {
+                status.textContent = 'Passwords do not match.';
+                return;
+            }
+            if (mode === 'change-password' && formData.newPassword !== formData.newPasswordConfirm) {
+                status.textContent = 'New passwords do not match.';
+                return;
+            }
+            delete formData.passwordConfirm;
+            delete formData.newPasswordConfirm;
             if (isRegister) formData.pageUrl = window.location.href;
             if (mode === 'reset-request') formData.pageUrl = window.location.href;
             const submit = form.querySelector('.cscs-auth-submit');
@@ -480,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
             status.textContent = 'Working...';
             try {
                 const response = await fetch(`${apiBaseUrl}${endpoint}`, {
-                    method: mode === 'profile' ? 'PUT' : 'POST',
+                    method: mode === 'profile' || mode === 'change-password' ? 'PUT' : 'POST',
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -506,6 +526,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentUser = result;
                     avatar.querySelector('span').textContent = result.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
                     status.textContent = 'Profile saved.';
+                    return;
+                }
+                if (mode === 'change-password') {
+                    form.reset();
+                    setMode('profile');
+                    status.textContent = result.message || 'Password changed.';
                     return;
                 }
                 if (isRegister) {
