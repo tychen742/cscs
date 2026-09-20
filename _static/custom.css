@@ -780,10 +780,10 @@ div.cell.tag_thebe-interactive {
 }
 
 .cscs-execution-controls {
-    display: grid;
-    grid-template-columns: max-content max-content max-content;
-    gap: 6px;
     align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-top: 4px;
 }
 
@@ -799,9 +799,11 @@ div.cell.tag_thebe-interactive {
     height: 24px !important;
     min-height: 24px !important;
     max-height: 24px !important;
+    flex: 0 0 auto;
     line-height: 1;
     padding: 2px 8px;
     transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    width: auto;
 }
 
 .cscs-execution-controls button:hover:not(:disabled) {
