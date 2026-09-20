@@ -312,14 +312,14 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input::after {
     border-radius: 999px;
     color: #2563eb;
     content: "Editing";
-    font-size: 0.58rem;
-    font-weight: 650;
-    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0;
     line-height: 1;
-    padding: 3px 6px;
+    padding: 2px 6px;
     position: absolute;
     right: 10px;
-    text-transform: uppercase;
+    text-transform: none;
     top: 9px;
 }
 
