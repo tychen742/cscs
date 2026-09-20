@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -5,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace execution.Migrations
 {
     /// <inheritdoc />
+    [DbContext(typeof(CscsDbContext))]
+    [Migration("20260920190000_AddUserRole")]
     public partial class AddUserRole : Migration
     {
         /// <inheritdoc />

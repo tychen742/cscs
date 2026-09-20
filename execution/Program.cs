@@ -28,6 +28,10 @@ var exposePasswordResetLinks = builder.Environment.IsDevelopment() ||
     string.Equals(Environment.GetEnvironmentVariable("CSCS_EXPOSE_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
 var logPasswordResetLinks = exposePasswordResetLinks ||
     string.Equals(Environment.GetEnvironmentVariable("CSCS_LOG_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
+var exposeEmailVerificationLinks = builder.Environment.IsDevelopment() ||
+    string.Equals(Environment.GetEnvironmentVariable("CSCS_EXPOSE_EMAIL_VERIFICATION_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
+var logEmailVerificationLinks = exposeEmailVerificationLinks ||
+    string.Equals(Environment.GetEnvironmentVariable("CSCS_LOG_EMAIL_VERIFICATION_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
 var smtpHost = Environment.GetEnvironmentVariable("SMTP_HOST");
 var smtpFrom = Environment.GetEnvironmentVariable("SMTP_FROM");
 var smtpUsername = Environment.GetEnvironmentVariable("SMTP_USERNAME");
@@ -116,7 +120,7 @@ app.MapGet("/v1/admin/notebooks/source", async (string path, ClaimsPrincipal pri
         : Results.NotFound(new { error = result.Message });
 }).RequireAuthorization();
 
-app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext database) =>
+app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>
 {
     var email = request.Email?.Trim().ToLowerInvariant();
     var displayName = request.DisplayName?.Trim();
@@ -132,17 +136,44 @@ app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext d
         return Results.Conflict(new { error = "An account with that email already exists." });
     }
 
+    var now = DateTime.UtcNow;
     var user = new UserAccount
     {
         Email = email,
         DisplayName = displayName,
         PasswordHash = PasswordService.Hash(request.Password),
         Role = GetEffectiveRole(email, UserRole.Student),
-        CreatedUtc = DateTime.UtcNow
+        CreatedUtc = now,
+        EmailVerifiedUtc = adminEmails.Contains(email) ? now : null
     };
     database.Users.Add(user);
     await database.SaveChangesAsync();
-    return Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName });
+
+    if (user.EmailVerifiedUtc is null)
+    {
+        var token = PasswordService.CreateResetToken();
+        database.EmailVerificationTokens.Add(new EmailVerificationToken
+        {
+            UserAccountId = user.Id,
+            TokenHash = PasswordService.HashResetToken(token),
+            CreatedUtc = now,
+            ExpiresUtc = now.AddDays(2)
+        });
+        await database.SaveChangesAsync();
+
+        var verificationUrl = BuildTokenUrl(request.PageUrl, httpContext.Request, "verifyToken", token);
+        var emailSent = await SendEmailVerificationEmailAsync(user, verificationUrl, logger);
+        if (!emailSent && logEmailVerificationLinks)
+        {
+            logger.LogInformation("Email verification link for {Email}: {VerificationUrl}", user.Email, verificationUrl);
+        }
+
+        return exposeEmailVerificationLinks
+            ? Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. Check your email to verify your account before signing in.", verificationUrl, verificationToken = token })
+            : Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. Check your email to verify your account before signing in." });
+    }
+
+    return Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. You may sign in now." });
 });
 
 app.MapPost("/v1/auth/login", async (LoginRequest request, CscsDbContext database, HttpContext httpContext) =>
@@ -152,6 +183,10 @@ app.MapPost("/v1/auth/login", async (LoginRequest request, CscsDbContext databas
     if (user is null || string.IsNullOrWhiteSpace(request.Password) || !PasswordService.Verify(request.Password, user.PasswordHash))
     {
         return Results.Unauthorized();
+    }
+    if (user.EmailVerifiedUtc is null)
+    {
+        return Results.Json(new { error = "Check your email and verify your account before signing in." }, statusCode: StatusCodes.Status403Forbidden);
     }
 
     var claims = new[]
@@ -164,6 +199,31 @@ app.MapPost("/v1/auth/login", async (LoginRequest request, CscsDbContext databas
         CookieAuthenticationDefaults.AuthenticationScheme,
         new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)));
     return Results.Ok(new { user.Id, user.Email, user.DisplayName });
+});
+
+app.MapPost("/v1/auth/email-verification/confirm", async (EmailVerificationCompleteRequest request, CscsDbContext database) =>
+{
+    if (string.IsNullOrWhiteSpace(request.Token))
+    {
+        return Results.BadRequest(new { error = "Provide an email verification token." });
+    }
+
+    var tokenHash = PasswordService.HashResetToken(request.Token);
+    var verificationToken = await database.EmailVerificationTokens
+        .Include(token => token.UserAccount)
+        .SingleOrDefaultAsync(token => token.TokenHash == tokenHash);
+    if (verificationToken is null ||
+        verificationToken.UserAccount is null ||
+        verificationToken.UsedUtc is not null ||
+        verificationToken.ExpiresUtc < DateTime.UtcNow)
+    {
+        return Results.BadRequest(new { error = "That email verification link is invalid or has expired." });
+    }
+
+    verificationToken.UserAccount.EmailVerifiedUtc ??= DateTime.UtcNow;
+    verificationToken.UsedUtc = DateTime.UtcNow;
+    await database.SaveChangesAsync();
+    return Results.Ok(new { message = "Email verified. You can sign in now." });
 });
 
 app.MapPost("/v1/auth/password-reset/request", async (PasswordResetRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>
@@ -192,7 +252,7 @@ app.MapPost("/v1/auth/password-reset/request", async (PasswordResetRequest reque
     });
     await database.SaveChangesAsync();
 
-    var resetUrl = BuildPasswordResetUrl(request.PageUrl, httpContext.Request, token);
+    var resetUrl = BuildTokenUrl(request.PageUrl, httpContext.Request, "resetToken", token);
     var emailSent = await SendPasswordResetEmailAsync(user, resetUrl, logger);
     if (!emailSent && logPasswordResetLinks)
     {
@@ -389,7 +449,7 @@ IEnumerable<string> GetRoleNames(UserRole role)
     if (CanAuthor(role)) yield return "authoring";
 }
 
-string BuildPasswordResetUrl(string? pageUrl, HttpRequest request, string token)
+string BuildTokenUrl(string? pageUrl, HttpRequest request, string parameterName, string token)
 {
     var baseUrl = GetAllowedResetPageUrl(pageUrl);
     if (baseUrl is null)
@@ -401,7 +461,7 @@ string BuildPasswordResetUrl(string? pageUrl, HttpRequest request, string token)
     }
 
     var separator = baseUrl.Contains('?', StringComparison.Ordinal) ? "&" : "?";
-    return $"{baseUrl}{separator}resetToken={Uri.EscapeDataString(token)}";
+    return $"{baseUrl}{separator}{parameterName}={Uri.EscapeDataString(token)}";
 }
 
 string? GetAllowedResetPageUrl(string? pageUrl)
@@ -461,6 +521,51 @@ This link expires in 2 hours. If you did not request a password reset, you can i
     catch (Exception exception)
     {
         logger.LogError(exception, "Unable to send password reset email for {Email}", user.Email);
+        return false;
+    }
+}
+
+async Task<bool> SendEmailVerificationEmailAsync(UserAccount user, string verificationUrl, ILogger logger)
+{
+    if (string.IsNullOrWhiteSpace(smtpHost) ||
+        string.IsNullOrWhiteSpace(smtpFrom) ||
+        string.IsNullOrWhiteSpace(smtpUsername) ||
+        string.IsNullOrWhiteSpace(smtpPassword))
+    {
+        return false;
+    }
+
+    try
+    {
+        using var message = new MailMessage(smtpFrom, user.Email)
+        {
+            Subject = "Verify your Think CS C# account",
+            Body = $"""
+Hi {user.DisplayName},
+
+Use this link to verify your Think CS C# course account:
+
+{verificationUrl}
+
+This link expires in 2 days. If you did not create this account, you can ignore this email.
+"""
+        };
+
+#pragma warning disable SYSLIB0014
+        using var client = new SmtpClient(smtpHost, smtpPort)
+        {
+            EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
+                        smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
+                        smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
+            Credentials = new NetworkCredential(smtpUsername, smtpPassword)
+        };
+        await client.SendMailAsync(message);
+#pragma warning restore SYSLIB0014
+        return true;
+    }
+    catch (Exception exception)
+    {
+        logger.LogError(exception, "Unable to send email verification email for {Email}", user.Email);
         return false;
     }
 }

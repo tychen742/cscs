@@ -9,14 +9,22 @@ namespace execution.Migrations
 {
     /// <inheritdoc />
     [DbContext(typeof(CscsDbContext))]
-    [Migration("20260920203000_AddPasswordResetTokens")]
-    public partial class AddPasswordResetTokens : Migration
+    [Migration("20260920211500_AddEmailVerification")]
+    public partial class AddEmailVerification : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<DateTime>(
+                name: "EmailVerifiedUtc",
+                table: "Users",
+                type: "timestamp with time zone",
+                nullable: true);
+
+            migrationBuilder.Sql("UPDATE \"Users\" SET \"EmailVerifiedUtc\" = \"CreatedUtc\" WHERE \"EmailVerifiedUtc\" IS NULL;");
+
             migrationBuilder.CreateTable(
-                name: "PasswordResetTokens",
+                name: "EmailVerificationTokens",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -29,9 +37,9 @@ namespace execution.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PasswordResetTokens", x => x.Id);
+                    table.PrimaryKey("PK_EmailVerificationTokens", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PasswordResetTokens_Users_UserAccountId",
+                        name: "FK_EmailVerificationTokens_Users_UserAccountId",
                         column: x => x.UserAccountId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -39,14 +47,14 @@ namespace execution.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PasswordResetTokens_TokenHash",
-                table: "PasswordResetTokens",
+                name: "IX_EmailVerificationTokens_TokenHash",
+                table: "EmailVerificationTokens",
                 column: "TokenHash",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PasswordResetTokens_UserAccountId",
-                table: "PasswordResetTokens",
+                name: "IX_EmailVerificationTokens_UserAccountId",
+                table: "EmailVerificationTokens",
                 column: "UserAccountId");
         }
 
@@ -54,7 +62,11 @@ namespace execution.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PasswordResetTokens");
+                name: "EmailVerificationTokens");
+
+            migrationBuilder.DropColumn(
+                name: "EmailVerifiedUtc",
+                table: "Users");
         }
     }
 }

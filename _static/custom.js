@@ -447,6 +447,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isRegister) endpoint = '/v1/auth/register';
             if (mode === 'reset-request') endpoint = '/v1/auth/password-reset/request';
             if (mode === 'reset-complete') endpoint = '/v1/auth/password-reset/complete';
+            if (isRegister) formData.pageUrl = window.location.href;
             if (mode === 'reset-request') formData.pageUrl = window.location.href;
             const submit = form.querySelector('.cscs-auth-submit');
             submit.disabled = true;
@@ -475,8 +476,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     status.textContent = result.message || 'Password reset. Sign in with your new password.';
                     return;
                 }
-                status.textContent = isRegister ? 'Account created. You are signed in.' : 'Signed in.';
-                if (isLogin || isRegister) {
+                if (isRegister) {
+                    setMode('login');
+                    status.textContent = result.message || 'Account created. Check your email to verify your account before signing in.';
+                    return;
+                }
+                status.textContent = 'Signed in.';
+                if (isLogin) {
                     avatar.classList.add('is-signed-in');
                     await updateAccountMenu();
                     window.setTimeout(() => {
@@ -498,6 +504,28 @@ document.addEventListener('DOMContentLoaded', function () {
         status.textContent = 'Enter a new password to finish resetting your account.';
         const cleanUrl = new URL(window.location.href);
         cleanUrl.searchParams.delete('resetToken');
+        window.history.replaceState({}, '', cleanUrl);
+    }
+    const verifyToken = new URLSearchParams(window.location.search).get('verifyToken');
+    if (verifyToken) {
+        showModal('login');
+        status.textContent = 'Verifying email...';
+        fetch(`${apiBaseUrl}/v1/auth/email-verification/confirm`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token: verifyToken })
+        })
+            .then(async response => {
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(result.error || 'Email verification failed.');
+                status.textContent = result.message || 'Email verified. You can sign in now.';
+            })
+            .catch(error => {
+                status.textContent = error.message;
+            });
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('verifyToken');
         window.history.replaceState({}, '', cleanUrl);
     }
     updateAccountMenu();

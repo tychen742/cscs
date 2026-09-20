@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -7,6 +8,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace execution.Migrations
 {
     /// <inheritdoc />
+    [DbContext(typeof(CscsDbContext))]
+    [Migration("20260919190000_AddReadingProgress")]
     public partial class AddReadingProgress : Migration
     {
         /// <inheritdoc />

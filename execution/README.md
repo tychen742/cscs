@@ -64,6 +64,7 @@ The initial database-backed account flow is:
 ```text
 POST /v1/auth/register  create an account
 POST /v1/auth/login     create an HTTP-only cookie session
+POST /v1/auth/email-verification/confirm  verify a new account email
 POST /v1/auth/password-reset/request   create and email a password reset link
 POST /v1/auth/password-reset/complete  set a new password from a reset token
 GET  /v1/auth/me        return the current authenticated user
@@ -78,6 +79,8 @@ Password reset tokens are stored only as SHA-256 hashes and expire after 2
 hours. If SMTP is configured, the API emails the reset link. In development,
 or when `CSCS_EXPOSE_PASSWORD_RESET_LINKS=true`, the request endpoint also
 returns the reset token/link so the browser modal can be tested without email.
+New accounts must verify their email address before sign-in. Verification
+tokens are also stored only as SHA-256 hashes and expire after 2 days.
 
 ## Reading progress API
 

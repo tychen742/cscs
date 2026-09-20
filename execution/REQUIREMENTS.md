@@ -74,7 +74,8 @@ Authentication implementation status:
 - logout is implemented
 - user roles are stored as the `UserAccount.Role` database enum; `CSCS_ADMIN_EMAILS`
   is only a bootstrap/emergency admin override
-- email verification and password recovery are not yet implemented
+- email verification is implemented with expiring, single-use verification tokens and SMTP email
+- password recovery is implemented with expiring, single-use reset tokens and SMTP email
 
 ## 4. Reading continuity
 

@@ -8,6 +8,7 @@ public sealed class CscsDbContext(DbContextOptions<CscsDbContext> options) : DbC
     public DbSet<UserAccount> Users => Set<UserAccount>();
     public DbSet<ReadingProgress> ReadingProgress => Set<ReadingProgress>();
     public DbSet<PasswordResetToken> PasswordResetTokens => Set<PasswordResetToken>();
+    public DbSet<EmailVerificationToken> EmailVerificationTokens => Set<EmailVerificationToken>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -15,6 +16,9 @@ public sealed class CscsDbContext(DbContextOptions<CscsDbContext> options) : DbC
             .HasIndex(progress => new { progress.UserAccountId, progress.BookId })
             .IsUnique();
         modelBuilder.Entity<PasswordResetToken>()
+            .HasIndex(token => token.TokenHash)
+            .IsUnique();
+        modelBuilder.Entity<EmailVerificationToken>()
             .HasIndex(token => token.TokenHash)
             .IsUnique();
     }
@@ -42,6 +46,8 @@ public sealed class UserAccount
     public UserRole Role { get; set; } = UserRole.Student;
 
     public DateTime CreatedUtc { get; set; }
+
+    public DateTime? EmailVerifiedUtc { get; set; }
 
     public List<ReadingProgress> ReadingProgress { get; set; } = [];
 }
@@ -79,6 +85,24 @@ public sealed class ReadingProgress
 }
 
 public sealed class PasswordResetToken
+{
+    public int Id { get; set; }
+
+    public int UserAccountId { get; set; }
+
+    public UserAccount? UserAccount { get; set; }
+
+    [MaxLength(128)]
+    public required string TokenHash { get; set; }
+
+    public DateTime CreatedUtc { get; set; }
+
+    public DateTime ExpiresUtc { get; set; }
+
+    public DateTime? UsedUtc { get; set; }
+}
+
+public sealed class EmailVerificationToken
 {
     public int Id { get; set; }
 
@@ -139,8 +163,9 @@ public static class PasswordService
     }
 }
 
-public sealed record RegisterRequest(string? Email, string? Password, string? DisplayName);
+public sealed record RegisterRequest(string? Email, string? Password, string? DisplayName, string? PageUrl);
 public sealed record LoginRequest(string? Email, string? Password);
 public sealed record PasswordResetRequest(string? Email, string? PageUrl);
 public sealed record PasswordResetCompleteRequest(string? Token, string? Password);
+public sealed record EmailVerificationCompleteRequest(string? Token);
 public sealed record ReadingProgressRequest(string? BookId, string? PageUrl, string? PageTitle, int ScrollY);
