@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Text.Json;
@@ -22,6 +24,18 @@ var adminEmails = (Environment.GetEnvironmentVariable("CSCS_ADMIN_EMAILS") ?? st
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
     .Select(email => email.ToLowerInvariant())
     .ToHashSet(StringComparer.OrdinalIgnoreCase);
+var exposePasswordResetLinks = builder.Environment.IsDevelopment() ||
+    string.Equals(Environment.GetEnvironmentVariable("CSCS_EXPOSE_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
+var logPasswordResetLinks = exposePasswordResetLinks ||
+    string.Equals(Environment.GetEnvironmentVariable("CSCS_LOG_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
+var smtpHost = Environment.GetEnvironmentVariable("SMTP_HOST");
+var smtpFrom = Environment.GetEnvironmentVariable("SMTP_FROM");
+var smtpUsername = Environment.GetEnvironmentVariable("SMTP_USERNAME");
+var smtpPassword = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
+var smtpSecurity = Environment.GetEnvironmentVariable("SMTP_SECURITY") ?? "STARTTLS";
+var smtpPort = int.TryParse(Environment.GetEnvironmentVariable("SMTP_PORT"), out var configuredSmtpPort)
+    ? configuredSmtpPort
+    : 587;
 var allowedOrigins = (Environment.GetEnvironmentVariable("CSCS_ALLOWED_ORIGINS") ??
                       "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
@@ -150,6 +164,71 @@ app.MapPost("/v1/auth/login", async (LoginRequest request, CscsDbContext databas
         CookieAuthenticationDefaults.AuthenticationScheme,
         new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)));
     return Results.Ok(new { user.Id, user.Email, user.DisplayName });
+});
+
+app.MapPost("/v1/auth/password-reset/request", async (PasswordResetRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>
+{
+    var email = request.Email?.Trim().ToLowerInvariant();
+    var message = "If an account exists for that email, a password reset link has been created.";
+    if (string.IsNullOrWhiteSpace(email) || !email.Contains('@'))
+    {
+        return Results.Ok(new { message });
+    }
+
+    var user = await database.Users.SingleOrDefaultAsync(candidate => candidate.Email == email);
+    if (user is null)
+    {
+        return Results.Ok(new { message });
+    }
+
+    var now = DateTime.UtcNow;
+    var token = PasswordService.CreateResetToken();
+    database.PasswordResetTokens.Add(new PasswordResetToken
+    {
+        UserAccountId = user.Id,
+        TokenHash = PasswordService.HashResetToken(token),
+        CreatedUtc = now,
+        ExpiresUtc = now.AddHours(2)
+    });
+    await database.SaveChangesAsync();
+
+    var resetUrl = BuildPasswordResetUrl(request.PageUrl, httpContext.Request, token);
+    var emailSent = await SendPasswordResetEmailAsync(user, resetUrl, logger);
+    if (!emailSent && logPasswordResetLinks)
+    {
+        logger.LogInformation("Password reset link for {Email}: {ResetUrl}", user.Email, resetUrl);
+    }
+
+    return exposePasswordResetLinks
+        ? Results.Ok(new { message, resetUrl, resetToken = token })
+        : Results.Ok(new { message });
+});
+
+app.MapPost("/v1/auth/password-reset/complete", async (PasswordResetCompleteRequest request, CscsDbContext database) =>
+{
+    if (string.IsNullOrWhiteSpace(request.Token) ||
+        string.IsNullOrWhiteSpace(request.Password) ||
+        request.Password.Length < 8)
+    {
+        return Results.BadRequest(new { error = "Provide a reset token and a password of at least 8 characters." });
+    }
+
+    var tokenHash = PasswordService.HashResetToken(request.Token);
+    var resetToken = await database.PasswordResetTokens
+        .Include(token => token.UserAccount)
+        .SingleOrDefaultAsync(token => token.TokenHash == tokenHash);
+    if (resetToken is null ||
+        resetToken.UserAccount is null ||
+        resetToken.UsedUtc is not null ||
+        resetToken.ExpiresUtc < DateTime.UtcNow)
+    {
+        return Results.BadRequest(new { error = "That password reset link is invalid or has expired." });
+    }
+
+    resetToken.UserAccount.PasswordHash = PasswordService.Hash(request.Password);
+    resetToken.UsedUtc = DateTime.UtcNow;
+    await database.SaveChangesAsync();
+    return Results.Ok(new { message = "Password reset. Sign in with your new password." });
 });
 
 app.MapPost("/v1/auth/logout", async (HttpContext httpContext) =>
@@ -308,6 +387,82 @@ IEnumerable<string> GetRoleNames(UserRole role)
 {
     yield return role.ToString().ToLowerInvariant();
     if (CanAuthor(role)) yield return "authoring";
+}
+
+string BuildPasswordResetUrl(string? pageUrl, HttpRequest request, string token)
+{
+    var baseUrl = GetAllowedResetPageUrl(pageUrl);
+    if (baseUrl is null)
+    {
+        var origin = allowedOrigins.FirstOrDefault(origin => origin.StartsWith("https://thinkcscs.org", StringComparison.OrdinalIgnoreCase))
+            ?? allowedOrigins.FirstOrDefault()
+            ?? $"{request.Scheme}://{request.Host}";
+        baseUrl = $"{origin.TrimEnd('/')}/";
+    }
+
+    var separator = baseUrl.Contains('?', StringComparison.Ordinal) ? "&" : "?";
+    return $"{baseUrl}{separator}resetToken={Uri.EscapeDataString(token)}";
+}
+
+string? GetAllowedResetPageUrl(string? pageUrl)
+{
+    if (string.IsNullOrWhiteSpace(pageUrl)) return null;
+    if (!Uri.TryCreate(pageUrl, UriKind.Absolute, out var uri)) return null;
+
+    var origin = $"{uri.Scheme}://{uri.Authority}";
+    if (!allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase)) return null;
+
+    var builder = new UriBuilder(uri)
+    {
+        Fragment = string.Empty,
+        Query = string.Empty
+    };
+    return builder.Uri.ToString();
+}
+
+async Task<bool> SendPasswordResetEmailAsync(UserAccount user, string resetUrl, ILogger logger)
+{
+    if (string.IsNullOrWhiteSpace(smtpHost) ||
+        string.IsNullOrWhiteSpace(smtpFrom) ||
+        string.IsNullOrWhiteSpace(smtpUsername) ||
+        string.IsNullOrWhiteSpace(smtpPassword))
+    {
+        return false;
+    }
+
+    try
+    {
+        using var message = new MailMessage(smtpFrom, user.Email)
+        {
+            Subject = "Think CS C# password reset",
+            Body = $"""
+Hi {user.DisplayName},
+
+Use this link to reset your Think CS C# course account password:
+
+{resetUrl}
+
+This link expires in 2 hours. If you did not request a password reset, you can ignore this email.
+"""
+        };
+
+#pragma warning disable SYSLIB0014
+        using var client = new SmtpClient(smtpHost, smtpPort)
+        {
+            EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
+                        smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
+                        smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
+            Credentials = new NetworkCredential(smtpUsername, smtpPassword)
+        };
+        await client.SendMailAsync(message);
+#pragma warning restore SYSLIB0014
+        return true;
+    }
+    catch (Exception exception)
+    {
+        logger.LogError(exception, "Unable to send password reset email for {Email}", user.Email);
+        return false;
+    }
 }
 
 static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, CancellationToken cancellationToken)

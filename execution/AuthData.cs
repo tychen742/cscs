@@ -1,16 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
+using System.Text;
 using Microsoft.EntityFrameworkCore;
 
 public sealed class CscsDbContext(DbContextOptions<CscsDbContext> options) : DbContext(options)
 {
     public DbSet<UserAccount> Users => Set<UserAccount>();
     public DbSet<ReadingProgress> ReadingProgress => Set<ReadingProgress>();
+    public DbSet<PasswordResetToken> PasswordResetTokens => Set<PasswordResetToken>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ReadingProgress>()
             .HasIndex(progress => new { progress.UserAccountId, progress.BookId })
+            .IsUnique();
+        modelBuilder.Entity<PasswordResetToken>()
+            .HasIndex(token => token.TokenHash)
             .IsUnique();
     }
 }
@@ -73,6 +78,24 @@ public sealed class ReadingProgress
     public DateTime UpdatedUtc { get; set; }
 }
 
+public sealed class PasswordResetToken
+{
+    public int Id { get; set; }
+
+    public int UserAccountId { get; set; }
+
+    public UserAccount? UserAccount { get; set; }
+
+    [MaxLength(128)]
+    public required string TokenHash { get; set; }
+
+    public DateTime CreatedUtc { get; set; }
+
+    public DateTime ExpiresUtc { get; set; }
+
+    public DateTime? UsedUtc { get; set; }
+}
+
 public static class PasswordService
 {
     private const int SaltSize = 16;
@@ -103,8 +126,21 @@ public static class PasswordService
             return false;
         }
     }
+
+    public static string CreateResetToken()
+    {
+        return Convert.ToHexString(RandomNumberGenerator.GetBytes(32)).ToLowerInvariant();
+    }
+
+    public static string HashResetToken(string token)
+    {
+        var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(token.Trim()));
+        return Convert.ToHexString(bytes).ToLowerInvariant();
+    }
 }
 
 public sealed record RegisterRequest(string? Email, string? Password, string? DisplayName);
 public sealed record LoginRequest(string? Email, string? Password);
+public sealed record PasswordResetRequest(string? Email, string? PageUrl);
+public sealed record PasswordResetCompleteRequest(string? Token, string? Password);
 public sealed record ReadingProgressRequest(string? BookId, string? PageUrl, string? PageTitle, int ScrollY);

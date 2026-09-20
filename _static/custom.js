@@ -340,6 +340,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 <label>Password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
                 <button class="cscs-auth-submit" type="submit">Create account</button>
             </form>
+            <form class="cscs-auth-form" data-auth-form="reset-request" hidden>
+                <label>Email<input name="email" type="email" autocomplete="username" required></label>
+                <button class="cscs-auth-submit" type="submit">Send reset link</button>
+                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
+            </form>
+            <form class="cscs-auth-form" data-auth-form="reset-complete" hidden>
+                <input name="token" type="hidden">
+                <label>New password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
+                <button class="cscs-auth-submit" type="submit">Reset password</button>
+                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
+            </form>
             <p class="cscs-auth-status" aria-live="polite"></p>
         </section>`;
     document.body.appendChild(modal);
@@ -408,15 +419,16 @@ document.addEventListener('DOMContentLoaded', function () {
     account.querySelectorAll('[data-auth-action]').forEach(button => {
         button.addEventListener('click', () => {
             const action = button.dataset.authAction;
-            if (action === 'forgot-password') {
-                status.textContent = 'Password reset is not available yet. Ask your instructor or course administrator to reset your password.';
-                return;
-            }
             showModal(action);
         });
     });
     modal.querySelector('[data-auth-action="forgot-password"]').addEventListener('click', () => {
-        status.textContent = 'Password reset is not available yet. Ask your instructor or course administrator to reset your password.';
+        const loginEmail = modal.querySelector('[data-auth-form="login"] input[name="email"]').value;
+        modal.querySelector('[data-auth-form="reset-request"] input[name="email"]').value = loginEmail;
+        setMode('reset-request');
+    });
+    modal.querySelectorAll('[data-auth-mode]').forEach(button => {
+        button.addEventListener('click', () => setMode(button.dataset.authMode));
     });
     modal.querySelector('.cscs-auth-close').addEventListener('click', () => { modal.hidden = true; });
     modal.addEventListener('click', event => { if (event.target === modal) modal.hidden = true; });
@@ -428,8 +440,14 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('submit', async event => {
             event.preventDefault();
             const formData = Object.fromEntries(new FormData(form));
-            const isRegister = form.dataset.authForm === 'register';
-            const endpoint = isRegister ? '/v1/auth/register' : '/v1/auth/login';
+            const mode = form.dataset.authForm;
+            const isRegister = mode === 'register';
+            const isLogin = mode === 'login';
+            let endpoint = '/v1/auth/login';
+            if (isRegister) endpoint = '/v1/auth/register';
+            if (mode === 'reset-request') endpoint = '/v1/auth/password-reset/request';
+            if (mode === 'reset-complete') endpoint = '/v1/auth/password-reset/complete';
+            if (mode === 'reset-request') formData.pageUrl = window.location.href;
             const submit = form.querySelector('.cscs-auth-submit');
             submit.disabled = true;
             status.textContent = 'Working...';
@@ -442,12 +460,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 const result = await response.json().catch(() => ({}));
                 if (!response.ok) throw new Error(result.error || 'The account request failed.');
+                if (mode === 'reset-request') {
+                    if (result.resetToken) {
+                        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = result.resetToken;
+                        setMode('reset-complete');
+                        status.textContent = 'Development reset link created. Enter a new password.';
+                    } else {
+                        status.textContent = result.message || 'If an account exists for that email, a password reset link has been created.';
+                    }
+                    return;
+                }
+                if (mode === 'reset-complete') {
+                    setMode('login');
+                    status.textContent = result.message || 'Password reset. Sign in with your new password.';
+                    return;
+                }
                 status.textContent = isRegister ? 'Account created. You are signed in.' : 'Signed in.';
-                avatar.classList.add('is-signed-in');
-                await updateAccountMenu();
-                window.setTimeout(() => {
-                    modal.hidden = true;
-                }, 450);
+                if (isLogin || isRegister) {
+                    avatar.classList.add('is-signed-in');
+                    await updateAccountMenu();
+                    window.setTimeout(() => {
+                        modal.hidden = true;
+                    }, 450);
+                }
             } catch (error) {
                 status.textContent = error.message;
             } finally {
@@ -455,6 +490,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    const resetToken = new URLSearchParams(window.location.search).get('resetToken');
+    if (resetToken) {
+        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = resetToken;
+        showModal('reset-complete');
+        status.textContent = 'Enter a new password to finish resetting your account.';
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('resetToken');
+        window.history.replaceState({}, '', cleanUrl);
+    }
     updateAccountMenu();
 
     async function enableAuthorMode() {

@@ -30,4 +30,4 @@ orphan: true
 ## Notes
 
 - Source examples live in `materials/` at the project root.
-- Add `HashSet<T>`/sets only as an applied extension unless the active course requires them.
+- `HashSet<T>` is intentionally out of scope here — it is taught in Chapter 17 (Heaps and Hash Tables), paired with the hash-table explanation that motivates it. `0801-collections.ipynb`'s comparison table points there.

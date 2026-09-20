@@ -64,6 +64,8 @@ The initial database-backed account flow is:
 ```text
 POST /v1/auth/register  create an account
 POST /v1/auth/login     create an HTTP-only cookie session
+POST /v1/auth/password-reset/request   create and email a password reset link
+POST /v1/auth/password-reset/complete  set a new password from a reset token
 GET  /v1/auth/me        return the current authenticated user
 POST /v1/auth/logout    clear the session
 ```
@@ -71,6 +73,11 @@ POST /v1/auth/logout    clear the session
 Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores
 account data, and ASP.NET data-protection keys are persisted in the `cscs-data`
 volume so sessions survive API container restarts.
+
+Password reset tokens are stored only as SHA-256 hashes and expire after 2
+hours. If SMTP is configured, the API emails the reset link. In development,
+or when `CSCS_EXPOSE_PASSWORD_RESET_LINKS=true`, the request endpoint also
+returns the reset token/link so the browser modal can be tested without email.
 
 ## Reading progress API
 
@@ -139,4 +146,6 @@ editor to map rendered code and markdown cells back to the original notebook.
 IONOS configuration is represented in `.env.example`. Copy it to `.env` and
 set `SMTP_PASSWORD` locally; Docker Compose reads the values from that file.
 The real `.env` file must never be committed. Use server or deployment secrets
-for the password in production.
+for the password in production. Password reset email uses these same SMTP
+settings. If SMTP is unavailable, set `CSCS_LOG_PASSWORD_RESET_LINKS=true`
+temporarily to log reset links server-side for administrator-assisted recovery.
