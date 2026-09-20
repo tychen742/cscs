@@ -1080,12 +1080,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewButton.hidden = true;
                 let markdownMode = null;
                 const originalSource = source || '';
+                const showRenderedElements = isVisible => {
+                    elements.forEach(element => {
+                        element.hidden = !isVisible;
+                    });
+                };
                 const showDraftPreview = () => {
                     preview.innerHTML = renderMarkdownPreview(editor.value);
                     preview.hidden = false;
-                    elements.forEach(element => {
-                        element.hidden = true;
-                    });
+                    showRenderedElements(false);
                 };
                 const setDraftActionsVisible = isVisible => {
                     resetButton.hidden = !isVisible;
@@ -1094,6 +1097,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const closeMarkdownMode = () => {
                     markdownMode = null;
                     editor.hidden = true;
+                    editor.classList.remove('is-inline');
                     setDraftActionsVisible(false);
                     editButton.textContent = 'Edit';
                     inlineButton.textContent = 'Inline';
@@ -1101,14 +1105,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
                 const openMarkdownMode = mode => {
                     markdownMode = mode;
+                    editor.classList.toggle('is-inline', mode === 'inline');
                     editor.hidden = false;
                     preview.hidden = true;
                     setDraftActionsVisible(true);
                     editButton.textContent = mode === 'edit' ? 'Done' : 'Edit';
                     inlineButton.textContent = mode === 'inline' ? 'Done' : 'Inline';
-                    elements.forEach(element => {
-                        element.hidden = mode === 'inline';
-                    });
+                    showRenderedElements(mode === 'inline');
                     editor.focus();
                 };
                 editButton.addEventListener('click', () => {

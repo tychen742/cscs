@@ -65,10 +65,7 @@ effective admins only as a bootstrap/emergency override. Browser author
 controls expose markdown and code-cell editors only to those authoring roles.
 The mounted book root for this API must be a Git checkout. Browser authoring
 saves create ordinary Git working-tree changes in that checkout, and review,
-commit, push, rebuild, and rollback all happen through Git. Git commands should
-run on the host checkout, not inside the API container, because the bind mount
-may have host ownership that container Git treats as unsafe. Git publish
-automation remains a later integration step.
+commit, push, rebuild, and rollback all happen through Git.
 
 The optional browser `Sync` action calls `POST /v1/admin/git/sync`, which
 commits pending source changes, rebases on `origin/main`, and pushes to GitHub.
@@ -77,6 +74,12 @@ read-only host SSH mount and runs the API as the host checkout owner so SSH can
 read the private key without relaxing key permissions. For source write access,
 prefer a dedicated host group such as `cscs-authoring`; avoid `www-data` unless
 the web server itself must write notebook sources.
+
+GitHub Actions remains the production publishing path. On pushes to `main`, the
+workflow builds the Jupyter Book, deploys the built HTML to `/var/www/cscs/`,
+and then updates the server-side authoring checkout from `origin/main` when that
+checkout is clean. If the checkout has unsynced browser-authored changes, the
+workflow fails instead of overwriting them.
 
 During the Jupyter Book build, `_ext/notebook_cell_metadata.py` annotates
 rendered code and markdown cells with their source notebook cell ID, index, and

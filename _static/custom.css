@@ -1964,6 +1964,11 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 }
 
 .cscs-markdown-editor {
+    background: #fff;
+    border: 1px solid #cbd5df;
+    border-left: 2px solid #2563eb;
+    border-radius: 6px 6px 6px 0;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
     box-sizing: border-box;
     display: block;
     font: inherit;
@@ -1973,6 +1978,20 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     padding: 10px;
     resize: vertical;
     width: 100%;
+}
+
+.cscs-markdown-editor.is-inline {
+    font-size: 0.92rem;
+    margin: 4px 0 8px;
+    min-height: 4.5rem;
+    padding: 8px;
+}
+
+.cscs-markdown-editor:focus {
+    border-color: #4f8edc;
+    border-left-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+    outline: none;
 }
 
 .cscs-markdown-controls {

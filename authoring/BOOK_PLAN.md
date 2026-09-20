@@ -369,6 +369,12 @@ Publishing rebuilds the Jupyter Book from the saved notebook files; the browser
 editor does not create a second content format or require an immediate
 migration to a database-backed CMS.
 
+GitHub Actions is the production publishing bridge. A push to `main` builds the
+book, deploys the generated HTML to `/var/www/cscs/`, and refreshes the
+server-side authoring checkout from `origin/main` when that checkout is clean.
+If browser-authored changes are still unsynced on the server, the workflow
+should fail rather than overwrite them.
+
 A database is supporting infrastructure for authentication, roles, autosave
 drafts, edit locks, audit history, and recovery of unsaved work. It is not the
 canonical authoring store. The first implementation should prioritize safe

@@ -57,3 +57,18 @@ jobs:
         run: |
           rsync -avz --no-perms --no-owner --no-group --omit-dir-times \
             _html_extra/api/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/cscs/api/
+
+      - name: Sync authoring checkout
+        run: |
+          ssh ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }} '
+            set -eu
+            cd /home/tychen/workspace/cscs
+            git fetch origin main
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "The authoring checkout has unsynced local changes."
+              echo "Use the browser Sync button or resolve the server checkout before this job can update it."
+              git status --short
+              exit 1
+            fi
+            git reset --hard origin/main
+          '

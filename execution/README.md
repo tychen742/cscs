@@ -154,9 +154,7 @@ the persistent Docker volume.
 The mounted book root must be a Git checkout of the content repository. Browser
 authoring edits notebook files in that checkout, so online edits become normal
 Git working-tree changes that can be reviewed, committed, pushed, and rebuilt.
-Do not use a loose rsync-only mirror as the editable source of truth. Run
-`git status`, `git diff`, `git commit`, and `git push` from the host checkout
-that is bind-mounted into the container, not from inside the container.
+Do not use a loose rsync-only mirror as the editable source of truth.
 
 The matching source endpoint is:
 
@@ -175,6 +173,12 @@ on `origin/main`, and pushes to GitHub. In production, the API container must be
 able to run `git` and authenticate to GitHub. The current deployment mounts the
 host SSH configuration read-only into the API container, so the container user
 must be able to read that key without broadening SSH key permissions.
+
+After a push to `main`, GitHub Actions builds the book, deploys the generated
+HTML to `/var/www/cscs/`, and updates the server-side authoring checkout from
+`origin/main` if that checkout is clean. If the checkout contains unsynced
+browser-authored changes, the workflow stops so those changes can be synced or
+resolved explicitly.
 
 Both endpoints require an authenticated user whose database role is `Admin`,
 `Author`, `Editor`, `Instructor`, or `TA`. Emails listed in `CSCS_ADMIN_EMAILS`
