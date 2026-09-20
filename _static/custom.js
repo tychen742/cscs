@@ -1645,7 +1645,9 @@ document.addEventListener('DOMContentLoaded', function () {
             '.highlight',
             '.literal-block',
             '.admonition',
-            '.cell',
+            '.cscs-code-cell',
+            '.cell_input',
+            '.cell_output',
             '.math',
             '.mermaid'
         ].join(',');
