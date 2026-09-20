@@ -1106,10 +1106,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 let markdownMode = null;
                 const originalSource = source || '';
                 const originalHtml = elements.map(element => element.innerHTML);
+                const canInlineMarkdown = isMarkdownInlineSafe(originalSource, elements);
                 const showRenderedElements = isVisible => {
                     elements.forEach(element => {
                         element.hidden = !isVisible;
                     });
+                };
+                const restoreOriginalRenderedElements = () => {
+                    elements.forEach((element, index) => {
+                        element.innerHTML = originalHtml[index] || '';
+                    });
+                    preview.hidden = true;
+                    showRenderedElements(true);
                 };
                 const setInlineEditable = isEditable => {
                     elements.forEach(element => {
@@ -1127,10 +1135,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     resetButton.hidden = !isVisible;
                     previewButton.hidden = !isVisible;
                 };
+                if (!canInlineMarkdown) {
+                    inlineButton.disabled = true;
+                    inlineButton.classList.add('is-disabled');
+                    inlineButton.title = 'Inline editing is available for simple text markdown. Use Edit for code blocks, directives, tables, and other structured markdown.';
+                }
                 const closeMarkdownMode = () => {
                     if (markdownMode === 'inline') {
-                        editor.value = markdownFromRenderedElements(elements);
+                        const inlineChanged = elements.some((element, index) => element.innerHTML !== (originalHtml[index] || ''));
+                        editor.value = inlineChanged ? markdownFromRenderedElements(elements) : originalSource;
                     }
+                    const isUnchanged = editor.value === originalSource;
                     markdownMode = null;
                     editCopy.hidden = true;
                     editor.classList.remove('is-inline');
@@ -1138,9 +1153,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     setDraftActionsVisible(false);
                     editButton.textContent = 'Edit';
                     inlineButton.textContent = 'Inline';
-                    showDraftPreview();
+                    if (isUnchanged) {
+                        restoreOriginalRenderedElements();
+                    } else {
+                        showDraftPreview();
+                    }
                 };
                 const openMarkdownMode = mode => {
+                    if (mode === 'inline' && !canInlineMarkdown) return;
                     markdownMode = mode;
                     editor.classList.toggle('is-inline', mode === 'inline');
                     editCopy.hidden = mode !== 'edit';
@@ -1172,11 +1192,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 resetButton.addEventListener('click', () => {
                     editor.value = originalSource;
-                    elements.forEach((element, index) => {
-                        element.innerHTML = originalHtml[index] || '';
-                    });
-                    preview.hidden = true;
-                    showRenderedElements(true);
+                    restoreOriginalRenderedElements();
                 });
                 previewButton.addEventListener('click', () => {
                     if (markdownMode === 'inline') {
@@ -1600,6 +1616,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         closeList();
         return output.join('');
+    }
+
+    function isMarkdownInlineSafe(source, elements) {
+        const text = source || '';
+        if (/^\s*```/m.test(text)) return false;
+        if (/^\s*:::/m.test(text)) return false;
+        if (/^\s*```[{a-zA-Z]/m.test(text)) return false;
+        if (/^\s*\|.+\|\s*$/m.test(text)) return false;
+        if (/^\s*[-*+]\s+/m.test(text)) return false;
+        if (/^\s*\d+\.\s+/m.test(text)) return false;
+        if (/^\s*>/m.test(text)) return false;
+        if (/<[a-z][\s\S]*>/i.test(text)) return false;
+        const unsafeSelector = [
+            'pre',
+            'table',
+            'thead',
+            'tbody',
+            'tr',
+            'td',
+            'th',
+            'figure',
+            'img',
+            'svg',
+            'iframe',
+            'details',
+            'dl',
+            '.highlight',
+            '.literal-block',
+            '.admonition',
+            '.cell',
+            '.math',
+            '.mermaid'
+        ].join(',');
+        return !elements.some(element => element.matches?.(unsafeSelector) || element.querySelector?.(unsafeSelector));
     }
 
     function markdownFromRenderedElements(elements) {

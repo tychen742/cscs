@@ -2091,6 +2091,14 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     border-color: #7d8b96;
 }
 
+.cscs-markdown-controls button:disabled,
+.cscs-markdown-controls button.is-disabled {
+    background: #f6f8fa;
+    border-color: #d5dce3;
+    color: #8a96a3;
+    cursor: not-allowed;
+}
+
 .cscs-markdown-preview {
     border: 1px solid #dbe3ec;
     border-radius: 5px;
