@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
 ENV DOTNET_CLI_HOME=/tmp/dotnet \
+    NUGET_PACKAGES=/app/.nuget/packages \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 \
     DOTNET_CLI_TELEMETRY_OPTOUT=1 \
     DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE=1 \

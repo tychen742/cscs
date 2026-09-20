@@ -787,6 +787,7 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
         startInfo.ArgumentList.Add("-p:UseAppHost=false");
         startInfo.ArgumentList.Add("--project");
         startInfo.ArgumentList.Add(Path.Combine(executionDirectory, "runner-template.csproj"));
+        startInfo.Environment["NUGET_PACKAGES"] = "/app/.nuget/packages";
 
         using var process = Process.Start(startInfo);
         if (process is null)

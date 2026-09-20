@@ -498,9 +498,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    avatar.addEventListener('click', () => {
+    function closeAccountMenu() {
+        menu.hidden = true;
+        avatar.setAttribute('aria-expanded', 'false');
+    }
+
+    avatar.addEventListener('click', event => {
+        event.stopPropagation();
         menu.hidden = !menu.hidden;
         avatar.setAttribute('aria-expanded', String(!menu.hidden));
+    });
+    menu.addEventListener('click', event => {
+        event.stopPropagation();
+    });
+    document.addEventListener('click', event => {
+        if (!menu.hidden && !account.contains(event.target)) {
+            closeAccountMenu();
+        }
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !menu.hidden) {
+            closeAccountMenu();
+        }
     });
     account.querySelectorAll('[data-auth-action]').forEach(button => {
         button.addEventListener('click', () => {
@@ -993,6 +1012,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const notebook = await response.json();
             const codeCells = Array.from(document.querySelectorAll('div.cscs-code-cell .cell_input pre'));
             const notebookCodeCells = [];
+            const markdownCells = [];
             codeCells.map(element => {
                 const cell = element.closest('.cscs-code-cell');
                 const index = Number(cell?.dataset.cscsCellIndex);
@@ -1011,7 +1031,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     sourceCell.source = sourceText;
                     if (editButton) editButton.hidden = false;
                     if (resetButton) resetButton.hidden = true;
-                    addAuthorCellControls(cell, editButton, editor, element);
+                    addAuthorCellControls(cell, editButton, editor, element, sourceCell, markdownCells, notebookCodeCells);
                     notebookCodeCells.push({ element, sourceCell, editor });
                 } else if (cell) {
                     markAuthorCellOutOfSync(cell);
@@ -1033,7 +1053,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 markdownGroups.get(index).elements.push(element);
                 element.dataset.cscsMarkdownReady = 'true';
             });
-            const markdownCells = [];
             markdownGroups.forEach(group => {
                 const { sourceCell, elements } = group;
                 if (!elements.length) return;
@@ -1169,6 +1188,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 controls.append(editButton, inlineButton, resetButton, previewButton);
                 elements[elements.length - 1].after(editCopy, preview, controls);
                 markdownCells.push({ elements, editor, preview, sourceCell });
+                addAuthorInsertControls(controls, sourceCell, markdownCells, notebookCodeCells);
             });
             window.cscsAuthorState = { path, notebook, notebookCodeCells, markdownCells, codeCells };
             document.body.classList.add('cscs-author-active');
@@ -1290,7 +1310,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function addAuthorCellControls(cell, editButton, editor, codeElement) {
+    function addAuthorCellControls(cell, editButton, editor, codeElement, sourceCell, markdownCells, notebookCodeCells) {
         if (!cell || cell.querySelector('.cscs-author-cell-controls')) return;
         const runButton = cell.querySelector('.cscs-run-button');
         const controls = cell.querySelector('.cscs-execution-controls');
@@ -1318,6 +1338,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         authorControls.append(authorButton, doneButton, saveButton);
         controls.appendChild(authorControls);
+        addAuthorInsertControls(controls, sourceCell, markdownCells, notebookCodeCells);
 
         const originalEdit = editButton;
         originalEdit.addEventListener('click', () => {
@@ -1330,6 +1351,118 @@ document.addEventListener('DOMContentLoaded', function () {
                 doneButton.hidden = true;
             }
         });
+    }
+
+    function addAuthorInsertControls(container, sourceCell, markdownCells, notebookCodeCells) {
+        if (!container || !sourceCell || container.querySelector('.cscs-author-insert-controls')) return;
+        let insertionAnchor = sourceCell;
+        const insertControls = document.createElement('span');
+        insertControls.className = 'cscs-author-insert-controls';
+
+        const markdownButton = document.createElement('button');
+        markdownButton.type = 'button';
+        markdownButton.textContent = '+ Markdown';
+        markdownButton.addEventListener('click', () => {
+            const inserted = insertNotebookCellAfter(insertionAnchor, 'markdown');
+            insertionAnchor = inserted.sourceCell;
+            const panel = createNewMarkdownCellPanel(inserted.sourceCell, markdownCells);
+            container.after(panel);
+            panel.querySelector('textarea')?.focus();
+        });
+
+        const codeButton = document.createElement('button');
+        codeButton.type = 'button';
+        codeButton.textContent = '+ Code';
+        codeButton.addEventListener('click', () => {
+            const inserted = insertNotebookCellAfter(insertionAnchor, 'code');
+            insertionAnchor = inserted.sourceCell;
+            const panel = createNewCodeCellPanel(inserted.sourceCell, notebookCodeCells);
+            container.after(panel);
+            panel.querySelector('textarea')?.focus();
+        });
+
+        insertControls.append(markdownButton, codeButton);
+        container.appendChild(insertControls);
+    }
+
+    function insertNotebookCellAfter(anchorCell, cellType) {
+        const state = window.cscsAuthorState;
+        const cells = state?.notebook?.cells;
+        if (!Array.isArray(cells)) throw new Error('Notebook source is not loaded.');
+        const anchorIndex = Math.max(0, cells.indexOf(anchorCell));
+        const sourceCell = createNotebookCell(cellType);
+        cells.splice(anchorIndex + 1, 0, sourceCell);
+        return { sourceCell, index: anchorIndex + 1 };
+    }
+
+    function createNotebookCell(cellType) {
+        const id = `cscs_${Date.now().toString(36)}_${Math.random().toString(16).slice(2, 8)}`;
+        if (cellType === 'code') {
+            return {
+                cell_type: 'code',
+                execution_count: null,
+                id,
+                metadata: {},
+                outputs: [],
+                source: ['']
+            };
+        }
+        return {
+            cell_type: 'markdown',
+            id,
+            metadata: {},
+            source: ['']
+        };
+    }
+
+    function createNewMarkdownCellPanel(sourceCell, markdownCells) {
+        const panel = document.createElement('div');
+        panel.className = 'cscs-new-cell cscs-new-markdown-cell cscs-student-copy';
+        const label = document.createElement('div');
+        label.className = 'cscs-student-copy-label';
+        label.textContent = 'Your version: new markdown cell';
+        const editor = document.createElement('textarea');
+        editor.className = 'cscs-markdown-editor';
+        editor.placeholder = 'Write markdown here...';
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'cscs-new-cell-remove';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeInsertedCell(sourceCell, panel, markdownCells));
+        panel.append(label, editor, removeButton);
+        markdownCells.push({ elements: [], editor, preview: null, sourceCell });
+        return panel;
+    }
+
+    function createNewCodeCellPanel(sourceCell, notebookCodeCells) {
+        const panel = document.createElement('div');
+        panel.className = 'cscs-new-cell cscs-new-code-cell cscs-student-copy';
+        const label = document.createElement('div');
+        label.className = 'cscs-student-copy-label';
+        label.textContent = 'Your version: new code cell';
+        const editor = document.createElement('textarea');
+        editor.className = 'cscs-code-editor';
+        editor.placeholder = 'Write C# code here...';
+        const removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'cscs-new-cell-remove';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeInsertedCell(sourceCell, panel, notebookCodeCells));
+        panel.append(label, editor, removeButton);
+        notebookCodeCells.push({ element: null, sourceCell, editor });
+        return panel;
+    }
+
+    function removeInsertedCell(sourceCell, panel, trackedCells) {
+        const state = window.cscsAuthorState;
+        const cells = state?.notebook?.cells;
+        if (Array.isArray(cells)) {
+            const index = cells.indexOf(sourceCell);
+            if (index >= 0) cells.splice(index, 1);
+        }
+        const trackedIndex = trackedCells.findIndex(item => item.sourceCell === sourceCell);
+        if (trackedIndex >= 0) trackedCells.splice(trackedIndex, 1);
+        panel.remove();
     }
 
     function closeInlineEditors() {
