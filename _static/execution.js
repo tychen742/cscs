@@ -14,6 +14,7 @@ function initializeCsharpExecution() {
         if (isCsharpSetupOnly(executableCode)) return;
 
         cell.dataset.cscsExecutionReady = "true";
+        const originalCodeHtml = codeElement.innerHTML;
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
         editor.value = executableCode;
@@ -123,22 +124,33 @@ function initializeCsharpExecution() {
 
         inlineButton.addEventListener("click", () => {
             const opening = editMode !== "inline";
-            editor.hidden = !opening;
-            codeElement.closest(".highlight-csharp").hidden = opening;
 
             if (opening) {
-                const staticCodeHeight = codeElement.offsetHeight || codeElement.closest(".cell_input")?.offsetHeight || 48;
-                editor.style.height = `${Math.max(staticCodeHeight, 44)}px`;
+                editor.hidden = true;
+                codeElement.closest(".highlight-csharp").hidden = false;
                 setEditMode("inline");
-                editor.focus();
+                codeElement.contentEditable = "true";
+                codeElement.classList.add("cscs-inline-editing");
+                codeElement.querySelectorAll(".linenos").forEach((lineNumber) => {
+                    lineNumber.contentEditable = "false";
+                });
+                codeElement.focus();
                 return;
             }
 
+            syncEditorFromInline();
             setEditMode("view");
         });
 
         resetButton.addEventListener("click", () => {
             editor.value = normalizeCode(getExecutableCodeText(codeElement));
+            if (editMode === "inline") {
+                codeElement.innerHTML = originalCodeHtml;
+                codeElement.querySelectorAll(".linenos").forEach((lineNumber) => {
+                    lineNumber.contentEditable = "false";
+                });
+            }
+            editor.value = executableCode;
             stdinRequested = false;
             updateStdinVisibility();
         });
@@ -148,7 +160,15 @@ function initializeCsharpExecution() {
             updateStdinVisibility();
         });
 
+        codeElement.addEventListener("input", () => {
+            if (editMode !== "inline") return;
+            syncEditorFromInline();
+            stdinRequested = false;
+            updateStdinVisibility();
+        });
+
         runButton.addEventListener("click", async () => {
+            syncEditorFromInline();
             if (usesConsoleInput(editor.value) && !stdinRequested) {
                 requestStdin();
                 return;
@@ -211,6 +231,16 @@ function initializeCsharpExecution() {
             inlineButton.textContent = mode === "inline" ? "Done" : "Inline";
             editor.dataset.inlineOpen = String(mode === "inline");
             editor.classList.toggle("is-inline", mode === "inline");
+
+            if (mode !== "inline") {
+                codeElement.contentEditable = "false";
+                codeElement.classList.remove("cscs-inline-editing");
+            }
+        }
+
+        function syncEditorFromInline() {
+            if (editMode !== "inline") return;
+            editor.value = normalizeCode(getExecutableCodeText(codeElement));
         }
 
         function renderStdinFields(count) {

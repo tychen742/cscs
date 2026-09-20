@@ -288,6 +288,17 @@ div.cell:hover div.cell_output pre {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 }
 
+div.cell_input pre.cscs-inline-editing {
+    cursor: text;
+}
+
+div.cell_input pre.cscs-inline-editing:focus {
+    border-color: #ccd3db !important;
+    border-left-color: #1b5e20 !important;
+    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.12) !important;
+    outline: none;
+}
+
 /* Gap and separator between cell_input and cell_output */
 div.cell_input {
     border: none !important;
@@ -825,8 +836,8 @@ div.cell.tag_thebe-interactive {
 .cscs-code-editor.is-inline {
     margin: 0;
     min-height: 0;
-    overflow: auto;
-    padding: 8px 8px 8px 2.9rem;
+    overflow: hidden;
+    padding: 8px;
     resize: vertical;
 }
 
