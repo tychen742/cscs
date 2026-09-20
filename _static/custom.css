@@ -2202,6 +2202,44 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     }
 }
 
+/* Header placement for the account control. */
+.cscs-account-topbar {
+    align-items: center !important;
+    background: transparent !important;
+    border-top: 0 !important;
+    display: inline-flex !important;
+    gap: 0 !important;
+    margin: 0 0 0 0.25rem !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+.cscs-account-topbar .cscs-avatar {
+    height: 1.9rem !important;
+    min-height: 1.9rem !important;
+    min-width: 1.9rem !important;
+    width: 1.9rem !important;
+}
+
+.cscs-account-topbar .cscs-account-menu {
+    left: auto !important;
+    right: 0 !important;
+    top: calc(100% + 0.35rem) !important;
+    z-index: 1001 !important;
+}
+
+.cscs-account-topbar + .btn,
+.article-header-buttons .cscs-account-topbar {
+    flex: 0 0 auto !important;
+}
+
+.cscs-auth-modal {
+    bottom: auto !important;
+    left: auto !important;
+    right: 0.75rem !important;
+    top: 4.25rem !important;
+}
+
 button.sidebar-toggle.primary-toggle {
     pointer-events: auto !important;
     cursor: pointer !important;

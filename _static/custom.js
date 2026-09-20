@@ -295,14 +295,16 @@ document.addEventListener('DOMContentLoaded', function () {
         window.CSCS_EXECUTION_API ||
         (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
     const sidebar = document.querySelector('.bd-sidebar-primary');
-    const sidebarContent =
+    const accountHost =
+        document.querySelector('.article-header-buttons') ||
+        document.querySelector('.header-article-items__end') ||
         sidebar?.querySelector('.sidebar-primary-items__end') ||
         sidebar?.querySelector('.sidebar-primary-items__start') ||
         sidebar;
-    if (!sidebarContent || document.querySelector('.cscs-account')) return;
+    if (!accountHost || document.querySelector('.cscs-account')) return;
 
     const account = document.createElement('div');
-    account.className = 'cscs-account';
+    account.className = 'cscs-account cscs-account-topbar';
     account.innerHTML = `
         <button class="cscs-avatar" type="button" aria-label="Account" aria-expanded="false">
             <span aria-hidden="true">●</span>
@@ -311,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <button type="button" data-auth-action="login">Sign in</button>
             <button type="button" data-auth-action="register">Sign up</button>
         </div>`;
-    sidebarContent.appendChild(account);
+    accountHost.appendChild(account);
 
     const modal = document.createElement('div');
     modal.className = 'cscs-auth-modal-backdrop';
