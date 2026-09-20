@@ -289,7 +289,7 @@ div.cell:hover div.cell_output pre {
 }
 
 div.cell_input pre.cscs-inline-editing {
-    border-color: #7aa7d9 !important;
+    border-color: #5b9be8 !important;
     border-left-color: #2563eb !important;
     box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14), 0 6px 18px rgba(37, 99, 235, 0.08) !important;
     cursor: text;
@@ -307,19 +307,20 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input {
 }
 
 div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input::after {
-    background: #2563eb;
+    background: rgba(239, 246, 255, 0.95);
+    border: 1px solid rgba(37, 99, 235, 0.28);
     border-radius: 999px;
-    color: #ffffff;
+    color: #2563eb;
     content: "Editing";
-    font-size: 0.64rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 0.58rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
     line-height: 1;
-    padding: 4px 7px;
+    padding: 3px 6px;
     position: absolute;
     right: 10px;
     text-transform: uppercase;
-    top: 8px;
+    top: 9px;
 }
 
 div.cell_input pre .cscs-code-line {
@@ -871,7 +872,7 @@ div.cell.tag_thebe-interactive {
 
 .cscs-student-copy .cscs-code-editor:not([hidden]),
 div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidden]) {
-    border-color: #7aa7d9;
+    border-color: #5b9be8;
     border-left-color: #2563eb;
     box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14), 0 6px 18px rgba(37, 99, 235, 0.08);
 }
