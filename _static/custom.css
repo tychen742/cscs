@@ -2215,10 +2215,27 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 }
 
 .cscs-account-topbar .cscs-avatar {
-    height: 1.9rem !important;
-    min-height: 1.9rem !important;
-    min-width: 1.9rem !important;
-    width: 1.9rem !important;
+    font-size: 0.62rem !important;
+    height: 1.45rem !important;
+    min-height: 1.45rem !important;
+    min-width: 1.45rem !important;
+    width: 1.45rem !important;
+}
+
+.cscs-account-topbar .cscs-avatar:not(.is-signed-in)::before {
+    height: 0.4rem !important;
+    top: 0.33rem !important;
+    width: 0.4rem !important;
+}
+
+.cscs-account-topbar .cscs-avatar:not(.is-signed-in)::after {
+    bottom: 0.29rem !important;
+    height: 0.36rem !important;
+    width: 0.74rem !important;
+}
+
+.cscs-account-topbar .cscs-avatar.is-signed-in span {
+    font-size: 0.62rem !important;
 }
 
 .cscs-account-topbar .cscs-account-menu {
