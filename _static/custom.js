@@ -1214,6 +1214,36 @@ document.addEventListener('DOMContentLoaded', function () {
         window.cscsSaveNotebook = saveNotebook;
         save.addEventListener('click', saveNotebook);
         document.body.appendChild(save);
+        const sync = document.createElement('button');
+        sync.className = 'cscs-author-sync';
+        sync.type = 'button';
+        sync.textContent = 'Sync';
+        sync.addEventListener('click', async () => {
+            sync.textContent = 'Syncing...';
+            try {
+                const response = await fetch(`${apiBaseUrl}/v1/admin/git/sync`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: `Browser authoring updates from ${document.title || location.pathname}` })
+                });
+                const text = await response.text();
+                let result = {};
+                if (text) {
+                    try {
+                        result = JSON.parse(text);
+                    } catch {
+                        result = { message: text };
+                    }
+                }
+                if (!response.ok) throw new Error(result.message || `Sync failed (${response.status})`);
+                sync.textContent = result.head ? `Synced ${result.head}` : 'Synced';
+            } catch (error) {
+                sync.textContent = error.message || 'Sync failed';
+            }
+            window.setTimeout(() => { sync.textContent = 'Sync'; }, 4500);
+        });
+        document.body.appendChild(sync);
         document.querySelectorAll('.cscs-student-copy').forEach(copy => {
             if (copy.querySelector('.cscs-author-copy-save')) return;
             const copySave = document.createElement('button');

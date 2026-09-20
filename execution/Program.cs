@@ -47,6 +47,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 builder.Services.AddDbContext<CscsDbContext>(options => options.UseNpgsql(databaseConnectionString));
 builder.Services.AddSingleton<NotebookRepository>();
+builder.Services.AddSingleton<GitRepository>();
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
     .SetApplicationName("thinkcscs");
@@ -118,6 +119,14 @@ app.MapGet("/v1/admin/notebooks/source", async (string path, ClaimsPrincipal pri
     return result.Found
         ? Results.Content(result.Content!, "application/json")
         : Results.NotFound(new { error = result.Message });
+}).RequireAuthorization();
+
+app.MapPost("/v1/admin/git/sync", async (GitSyncRequest request, ClaimsPrincipal principal, CscsDbContext database, GitRepository repository, CancellationToken cancellationToken) =>
+{
+    var email = principal.FindFirstValue(ClaimTypes.Email);
+    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
+    var result = await repository.SyncAsync(email!, request.Message, cancellationToken);
+    return result.Synced ? Results.Ok(result) : Results.BadRequest(result);
 }).RequireAuthorization();
 
 app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>

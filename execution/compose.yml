@@ -25,8 +25,7 @@ services:
     volumes:
       - cscs-data:/data
       - ..:/workspace
-    group_add:
-      - "1000"
+      - /home/tychen/.ssh:/home/appuser/.ssh:ro
     read_only: true
     tmpfs:
       - /tmp:rw,nosuid,size=256m

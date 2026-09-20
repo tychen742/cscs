@@ -70,6 +70,14 @@ run on the host checkout, not inside the API container, because the bind mount
 may have host ownership that container Git treats as unsafe. Git publish
 automation remains a later integration step.
 
+The optional browser `Sync` action calls `POST /v1/admin/git/sync`, which
+commits pending source changes, rebases on `origin/main`, and pushes to GitHub.
+That container needs Git and GitHub credentials. The current deployment uses a
+read-only host SSH mount and runs the API as the host checkout owner so SSH can
+read the private key without relaxing key permissions. For source write access,
+prefer a dedicated host group such as `cscs-authoring`; avoid `www-data` unless
+the web server itself must write notebook sources.
+
 During the Jupyter Book build, `_ext/notebook_cell_metadata.py` annotates
 rendered code and markdown cells with their source notebook cell ID, index, and
 type. The browser authoring layer uses this metadata to map rendered cells back

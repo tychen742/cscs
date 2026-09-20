@@ -164,6 +164,18 @@ The matching source endpoint is:
 GET /v1/admin/notebooks/source?path=chapters/08-collections/0802-list.ipynb
 ```
 
+Browser authoring also exposes a Git sync endpoint:
+
+```text
+POST /v1/admin/git/sync
+```
+
+The endpoint commits pending source changes in the mounted Git checkout, rebases
+on `origin/main`, and pushes to GitHub. In production, the API container must be
+able to run `git` and authenticate to GitHub. The current deployment mounts the
+host SSH configuration read-only into the API container, so the container user
+must be able to read that key without broadening SSH key permissions.
+
 Both endpoints require an authenticated user whose database role is `Admin`,
 `Author`, `Editor`, `Instructor`, or `TA`. Emails listed in `CSCS_ADMIN_EMAILS`
 are treated as effective admins as a bootstrap/emergency override.

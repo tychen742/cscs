@@ -356,6 +356,7 @@ cells inline. The authoring controls are:
 
 - **Author**: enable editing for the page's cells
 - **Save**: write the edited cell strings back to the same `.ipynb` source file
+- **Sync**: commit pending browser-authored source changes and push them to GitHub
 - **Run**: execute the current C# cell through the execution service
 - **Preview**: inspect the rendered page before publishing
 

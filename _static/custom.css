@@ -1901,6 +1901,24 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-author-save:hover { background: #245fca; }
 
+.cscs-author-sync {
+    background: #fff;
+    border: 1px solid #245bb9;
+    border-radius: 6px;
+    bottom: 18px;
+    color: #245bb9;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    position: fixed;
+    right: 150px;
+    z-index: 1001;
+}
+
+.cscs-author-sync:hover {
+    background: #eef4ff;
+}
+
 .cscs-author-copy-save {
     background: #2f6fde;
     border: 1px solid #245bb9;
