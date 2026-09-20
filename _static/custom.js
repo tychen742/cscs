@@ -1437,6 +1437,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const previewButton = document.createElement('button');
         previewButton.type = 'button';
         previewButton.textContent = 'Preview';
+        const saveButton = document.createElement('button');
+        saveButton.type = 'button';
+        saveButton.textContent = 'Save notebook';
+        saveButton.addEventListener('click', () => window.cscsSaveNotebook?.());
         const preview = document.createElement('div');
         preview.className = 'cscs-markdown-preview';
         preview.hidden = true;
@@ -1459,7 +1463,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 preview.hidden = false;
             }
         });
-        actions.append(doneButton, previewButton, removeButton);
+        actions.append(doneButton, previewButton, saveButton, removeButton);
         panel.append(label, editor, preview, actions);
         markdownCells.push({ elements: [], editor, preview: null, sourceCell });
         return panel;
@@ -1487,6 +1491,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const doneButton = document.createElement('button');
         doneButton.type = 'button';
         doneButton.textContent = 'Done';
+        const saveButton = document.createElement('button');
+        saveButton.type = 'button';
+        saveButton.textContent = 'Save notebook';
+        saveButton.addEventListener('click', () => window.cscsSaveNotebook?.());
         const output = document.createElement('pre');
         output.className = 'cscs-execution-output';
         output.hidden = true;
@@ -1495,7 +1503,7 @@ document.addEventListener('DOMContentLoaded', function () {
             editor.hidden = !editor.hidden;
             doneButton.textContent = editor.hidden ? 'Edit' : 'Done';
         });
-        actions.append(runButton, doneButton, removeButton);
+        actions.append(runButton, doneButton, saveButton, removeButton);
         panel.append(label, editor, actions, output);
         notebookCodeCells.push({ element: null, sourceCell, editor });
         return panel;
