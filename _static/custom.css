@@ -299,6 +299,26 @@ div.cell_input pre.cscs-inline-editing:focus {
     outline: none;
 }
 
+div.cell_input pre.cscs-inline-editing .cscs-code-line {
+    display: block;
+    min-height: 1.45em;
+}
+
+div.cell_input pre.cscs-inline-editing .linenos {
+    pointer-events: none;
+}
+
+div.cell_input pre.cscs-inline-editing .cscs-code-line-content {
+    display: inline-block;
+    min-width: calc(100% - 3rem);
+    outline: none;
+    white-space: pre;
+}
+
+div.cell_input pre.cscs-inline-editing .cscs-code-line-content:focus {
+    outline: none;
+}
+
 /* Gap and separator between cell_input and cell_output */
 div.cell_input {
     border: none !important;

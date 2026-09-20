@@ -129,12 +129,7 @@ function initializeCsharpExecution() {
                 editor.hidden = true;
                 codeElement.closest(".highlight-csharp").hidden = false;
                 setEditMode("inline");
-                codeElement.contentEditable = "true";
-                codeElement.classList.add("cscs-inline-editing");
-                codeElement.querySelectorAll(".linenos").forEach((lineNumber) => {
-                    lineNumber.contentEditable = "false";
-                });
-                codeElement.focus();
+                activateInlineCodeEditor();
                 return;
             }
 
@@ -146,9 +141,7 @@ function initializeCsharpExecution() {
             editor.value = normalizeCode(getExecutableCodeText(codeElement));
             if (editMode === "inline") {
                 codeElement.innerHTML = originalCodeHtml;
-                codeElement.querySelectorAll(".linenos").forEach((lineNumber) => {
-                    lineNumber.contentEditable = "false";
-                });
+                activateInlineCodeEditor();
             }
             editor.value = executableCode;
             stdinRequested = false;
@@ -235,12 +228,128 @@ function initializeCsharpExecution() {
             if (mode !== "inline") {
                 codeElement.contentEditable = "false";
                 codeElement.classList.remove("cscs-inline-editing");
+                codeElement.querySelectorAll(".cscs-code-line-content").forEach((line) => {
+                    line.contentEditable = "false";
+                });
             }
         }
 
         function syncEditorFromInline() {
             if (editMode !== "inline") return;
+            const lineContents = Array.from(codeElement.querySelectorAll(".cscs-code-line-content"));
+            if (lineContents.length) {
+                editor.value = lineContents.map((line) => line.textContent || "").join("\n");
+                return;
+            }
             editor.value = normalizeCode(getExecutableCodeText(codeElement));
+        }
+
+        function activateInlineCodeEditor() {
+            if (!codeElement.querySelector(".cscs-code-line-content")) {
+                structureCodeLines();
+            }
+            codeElement.contentEditable = "false";
+            codeElement.classList.add("cscs-inline-editing");
+            codeElement.querySelectorAll(".linenos").forEach((lineNumber) => {
+                lineNumber.contentEditable = "false";
+            });
+            codeElement.querySelectorAll(".cscs-code-line-content").forEach((line) => {
+                line.contentEditable = "true";
+                line.spellcheck = false;
+            });
+            (codeElement.querySelector(".cscs-code-line-content") || codeElement).focus();
+        }
+
+        function structureCodeLines() {
+            const rawLines = splitCodeElementLines(codeElement);
+            const lineCountWidth = String(rawLines.length).length;
+            const fragment = document.createDocumentFragment();
+
+            rawLines.forEach((nodes, index) => {
+                const line = document.createElement("span");
+                line.className = "cscs-code-line";
+
+                const lineNumber = document.createElement("span");
+                lineNumber.className = "linenos";
+                lineNumber.textContent = String(index + 1).padStart(lineCountWidth, " ");
+                lineNumber.contentEditable = "false";
+
+                const content = document.createElement("span");
+                content.className = "cscs-code-line-content";
+                content.contentEditable = "true";
+                content.spellcheck = false;
+                nodes.forEach((node) => content.appendChild(node));
+                if (!content.childNodes.length) content.appendChild(document.createTextNode(""));
+
+                content.addEventListener("keydown", handleInlineLineKeydown);
+                line.append(lineNumber, content);
+                fragment.appendChild(line);
+            });
+
+            codeElement.replaceChildren(fragment);
+        }
+
+        function splitCodeElementLines(sourceElement) {
+            const lines = [[]];
+            const appendTextPart = (part) => {
+                if (part) lines[lines.length - 1].push(document.createTextNode(part));
+            };
+
+            sourceElement.childNodes.forEach((node) => {
+                if (node.nodeType === Node.ELEMENT_NODE && node.classList?.contains("linenos")) return;
+
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const parts = node.textContent.split("\n");
+                    parts.forEach((part, index) => {
+                        if (index > 0) lines.push([]);
+                        appendTextPart(part);
+                    });
+                    return;
+                }
+
+                lines[lines.length - 1].push(node.cloneNode(true));
+            });
+
+            return lines.length ? lines : [[]];
+        }
+
+        function handleInlineLineKeydown(event) {
+            if (event.key !== "Enter") return;
+            event.preventDefault();
+            insertInlineLineAfter(event.currentTarget);
+            syncEditorFromInline();
+        }
+
+        function insertInlineLineAfter(currentContent) {
+            const currentLine = currentContent.closest(".cscs-code-line");
+            if (!currentLine) return;
+
+            const nextLine = document.createElement("span");
+            nextLine.className = "cscs-code-line";
+
+            const lineNumber = document.createElement("span");
+            lineNumber.className = "linenos";
+            lineNumber.contentEditable = "false";
+
+            const content = document.createElement("span");
+            content.className = "cscs-code-line-content";
+            content.contentEditable = "true";
+            content.spellcheck = false;
+            content.addEventListener("keydown", handleInlineLineKeydown);
+
+            nextLine.append(lineNumber, content);
+            currentLine.after(nextLine);
+            renumberInlineLines();
+            content.focus();
+        }
+
+        function renumberInlineLines() {
+            const lines = Array.from(codeElement.querySelectorAll(".cscs-code-line"));
+            const lineCountWidth = String(lines.length).length;
+            lines.forEach((line, index) => {
+                const lineNumber = line.querySelector(".linenos");
+                if (lineNumber) lineNumber.textContent = String(index + 1).padStart(lineCountWidth, " ");
+            });
         }
 
         function renderStdinFields(count) {
