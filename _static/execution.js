@@ -342,6 +342,13 @@ function initializeCsharpExecution() {
         function handleInlineLineKeydown(event) {
             event.stopPropagation();
 
+            if (event.key === "Tab") {
+                event.preventDefault();
+                insertInlineTextAtCaret(event.currentTarget, "    ");
+                syncEditorFromInline();
+                return;
+            }
+
             if (event.key === "ArrowUp" || event.key === "ArrowDown") {
                 event.preventDefault();
                 moveInlineCaretVertically(event.currentTarget, event.key === "ArrowUp" ? -1 : 1);
@@ -417,6 +424,17 @@ function initializeCsharpExecution() {
             currentLine.after(nextLine);
             renumberInlineLines();
             setCaretOffset(content, 0);
+        }
+
+        function insertInlineTextAtCaret(currentContent, text) {
+            const range = getCurrentLineSelectionRange(currentContent);
+            if (!range) return;
+
+            if (!range.collapsed) range.deleteContents();
+
+            const insertedNode = document.createTextNode(text);
+            range.insertNode(insertedNode);
+            placeCaret(insertedNode, text.length);
         }
 
         function shouldMoveToPreviousLineEnd(currentContent) {
