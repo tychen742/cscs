@@ -1,0 +1,63 @@
+<svg viewBox="0 0 980 400" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>C# Collection Namespaces</title>
+
+  <!-- Diagram title -->
+  <text x="490" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2937">C# Collection Namespaces</text>
+
+  <!-- ===================== Column 1: System.Collections.Generic ===================== -->
+  <g>
+    <rect x="20" y="50" width="300" height="92" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="170" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a" font-family="SFMono-Regular, Menlo, Consolas, monospace">System.Collections.Generic</text>
+    <text x="170" y="98" text-anchor="middle" font-size="12.5" fill="#1e40af">Modern, type-safe collections.</text>
+    <text x="170" y="115" text-anchor="middle" font-size="12.5" fill="#1e40af">This book's primary focus.</text>
+
+    <line x1="170" y1="142" x2="170" y2="162" stroke="#93c5fd" stroke-width="2"/>
+
+    <rect x="45" y="162" width="250" height="34" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="170" y="184" text-anchor="middle" font-size="13" fill="#1e3a8a" font-family="SFMono-Regular, Menlo, Consolas, monospace">List&lt;T&gt;</text>
+
+    <rect x="45" y="206" width="250" height="34" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="170" y="228" text-anchor="middle" font-size="13" fill="#1e3a8a" font-family="SFMono-Regular, Menlo, Consolas, monospace">Dictionary&lt;TKey, TValue&gt;</text>
+
+    <rect x="45" y="250" width="250" height="34" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="170" y="272" text-anchor="middle" font-size="13" fill="#1e3a8a" font-family="SFMono-Regular, Menlo, Consolas, monospace">Stack&lt;T&gt;</text>
+
+    <rect x="45" y="294" width="250" height="34" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="170" y="316" text-anchor="middle" font-size="13" fill="#1e3a8a" font-family="SFMono-Regular, Menlo, Consolas, monospace">Queue&lt;T&gt;</text>
+  </g>
+
+  <!-- ===================== Column 2: System.Collections (legacy) ===================== -->
+  <g>
+    <rect x="340" y="50" width="300" height="92" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+    <text x="490" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="#374151" font-family="SFMono-Regular, Menlo, Consolas, monospace">System.Collections</text>
+    <text x="490" y="98" text-anchor="middle" font-size="12.5" fill="#4b5563">Legacy, non-generic collections.</text>
+    <text x="490" y="115" text-anchor="middle" font-size="12.5" fill="#4b5563">Store elements as object.</text>
+
+    <line x1="490" y1="142" x2="490" y2="162" stroke="#d1d5db" stroke-width="2"/>
+
+    <rect x="365" y="162" width="250" height="34" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="490" y="184" text-anchor="middle" font-size="13" fill="#374151" font-family="SFMono-Regular, Menlo, Consolas, monospace">ArrayList</text>
+
+    <rect x="365" y="206" width="250" height="34" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="490" y="228" text-anchor="middle" font-size="13" fill="#374151" font-family="SFMono-Regular, Menlo, Consolas, monospace">Hashtable</text>
+  </g>
+
+  <!-- ===================== Column 3: System.Collections.Concurrent ===================== -->
+  <g>
+    <rect x="660" y="50" width="300" height="92" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="810" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="#4c1d95" font-family="SFMono-Regular, Menlo, Consolas, monospace">System.Collections.Concurrent</text>
+    <text x="810" y="98" text-anchor="middle" font-size="12.5" fill="#5b21b6">Thread-safe collections for</text>
+    <text x="810" y="115" text-anchor="middle" font-size="12.5" fill="#5b21b6">concurrent programming.</text>
+
+    <line x1="810" y1="142" x2="810" y2="162" stroke="#c4b5fd" stroke-width="2"/>
+
+    <rect x="685" y="162" width="250" height="34" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="810" y="184" text-anchor="middle" font-size="10.5" fill="#4c1d95" font-family="SFMono-Regular, Menlo, Consolas, monospace">ConcurrentDictionary&lt;TKey, TValue&gt;</text>
+
+    <rect x="685" y="206" width="250" height="34" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="810" y="228" text-anchor="middle" font-size="13" fill="#4c1d95" font-family="SFMono-Regular, Menlo, Consolas, monospace">ConcurrentQueue&lt;T&gt;</text>
+
+    <rect x="685" y="250" width="250" height="34" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="810" y="272" text-anchor="middle" font-size="13" fill="#4c1d95" font-family="SFMono-Regular, Menlo, Consolas, monospace">ConcurrentBag&lt;T&gt;</text>
+  </g>
+</svg>
