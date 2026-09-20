@@ -1994,6 +1994,19 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     outline: none;
 }
 
+.cscs-markdown-inline-editing {
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+    cursor: text;
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+}
+
+.cscs-markdown-inline-editing:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.24);
+    outline: none;
+}
+
 .cscs-markdown-controls {
     align-items: center;
     display: inline-flex;

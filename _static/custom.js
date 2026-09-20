@@ -1080,9 +1080,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 previewButton.hidden = true;
                 let markdownMode = null;
                 const originalSource = source || '';
+                const originalHtml = elements.map(element => element.innerHTML);
                 const showRenderedElements = isVisible => {
                     elements.forEach(element => {
                         element.hidden = !isVisible;
+                    });
+                };
+                const setInlineEditable = isEditable => {
+                    elements.forEach(element => {
+                        element.contentEditable = isEditable ? 'true' : 'false';
+                        element.classList.toggle('cscs-markdown-inline-editing', isEditable);
                     });
                 };
                 const showDraftPreview = () => {
@@ -1095,9 +1102,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     previewButton.hidden = !isVisible;
                 };
                 const closeMarkdownMode = () => {
+                    if (markdownMode === 'inline') {
+                        editor.value = markdownFromRenderedElements(elements);
+                    }
                     markdownMode = null;
                     editor.hidden = true;
                     editor.classList.remove('is-inline');
+                    setInlineEditable(false);
                     setDraftActionsVisible(false);
                     editButton.textContent = 'Edit';
                     inlineButton.textContent = 'Inline';
@@ -1106,13 +1117,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 const openMarkdownMode = mode => {
                     markdownMode = mode;
                     editor.classList.toggle('is-inline', mode === 'inline');
-                    editor.hidden = false;
+                    editor.hidden = mode === 'inline';
                     preview.hidden = true;
                     setDraftActionsVisible(true);
                     editButton.textContent = mode === 'edit' ? 'Done' : 'Edit';
                     inlineButton.textContent = mode === 'inline' ? 'Done' : 'Inline';
-                    showRenderedElements(false);
-                    editor.focus();
+                    showRenderedElements(mode === 'inline');
+                    setInlineEditable(mode === 'inline');
+                    if (mode === 'inline') {
+                        elements[0]?.focus();
+                    } else {
+                        editor.focus();
+                    }
                 };
                 editButton.addEventListener('click', () => {
                     if (markdownMode === 'edit') {
@@ -1130,6 +1146,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 resetButton.addEventListener('click', () => {
                     editor.value = originalSource;
+                    elements.forEach((element, index) => {
+                        element.innerHTML = originalHtml[index] || '';
+                    });
                     preview.hidden = true;
                 });
                 previewButton.addEventListener('click', () => {
@@ -1188,7 +1207,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         sourceCell.source = serializeNotebookSource(editor?.value ?? element.textContent, sourceCell.source);
                     }
                 });
-                state.markdownCells.forEach(({ editor, sourceCell }) => {
+                state.markdownCells.forEach(({ elements, editor, sourceCell }) => {
+                    if (elements?.some(element => element.classList.contains('cscs-markdown-inline-editing'))) {
+                        editor.value = markdownFromRenderedElements(elements);
+                    }
                     if (sourceCell) sourceCell.source = serializeNotebookSource(editor.value, sourceCell.source);
                 });
                 const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/save`, {
@@ -1353,6 +1375,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         closeList();
         return output.join('');
+    }
+
+    function markdownFromRenderedElements(elements) {
+        return elements
+            .map(element => markdownFromRenderedBlock(element).trim())
+            .filter(Boolean)
+            .join('\n\n') + '\n';
+    }
+
+    function markdownFromRenderedBlock(element) {
+        const tagName = element.tagName?.toLowerCase();
+        if (/^h[1-6]$/.test(tagName)) {
+            const level = Number(tagName.slice(1));
+            return `${'#'.repeat(level)} ${markdownFromInlineNodes(element).replace(/^#+\s*/, '').trim()}`;
+        }
+        if (tagName === 'ul' || tagName === 'ol') {
+            return Array.from(element.children)
+                .filter(child => child.tagName?.toLowerCase() === 'li')
+                .map((child, index) => {
+                    const marker = tagName === 'ol' ? `${index + 1}.` : '-';
+                    return `${marker} ${markdownFromInlineNodes(child).trim()}`;
+                })
+                .join('\n');
+        }
+        if (tagName === 'pre') {
+            const code = element.querySelector('code')?.textContent || element.textContent || '';
+            return `\`\`\`\n${code.replace(/\n$/, '')}\n\`\`\``;
+        }
+        if (tagName === 'blockquote') {
+            return markdownFromInlineNodes(element)
+                .split('\n')
+                .map(line => `> ${line}`)
+                .join('\n');
+        }
+        return markdownFromInlineNodes(element).trim();
+    }
+
+    function markdownFromInlineNodes(parent) {
+        return Array.from(parent.childNodes).map(node => markdownFromInlineNode(node)).join('').replace(/\u00a0/g, ' ');
+    }
+
+    function markdownFromInlineNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) return node.textContent || '';
+        if (node.nodeType !== Node.ELEMENT_NODE) return '';
+        const element = node;
+        const tagName = element.tagName.toLowerCase();
+        const text = markdownFromInlineNodes(element);
+        if (tagName === 'br') return '\n';
+        if (tagName === 'code') return `\`${element.textContent || ''}\``;
+        if (tagName === 'strong' || tagName === 'b') return `**${text}**`;
+        if (tagName === 'em' || tagName === 'i') return `*${text}*`;
+        if (tagName === 'a') {
+            if (element.classList.contains('headerlink') || element.classList.contains('toc-backref')) return '';
+            const href = element.getAttribute('href');
+            return href ? `[${text}](${href})` : text;
+        }
+        if (tagName === 'span') return text;
+        return text;
     }
 
     function estimateMarkdownBlockCount(source) {
