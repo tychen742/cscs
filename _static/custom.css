@@ -151,6 +151,19 @@ nav.bd-links p.caption {
     text-decoration: none !important;
 }
 
+/* Local contents/mini-TOC boxes are navigation, not prose links. */
+.bd-content .contents a,
+.bd-content .topic.contents a,
+.bd-content nav.contents a {
+    text-decoration: none !important;
+}
+
+.bd-content .contents a:hover,
+.bd-content .topic.contents a:hover,
+.bd-content nav.contents a:hover {
+    text-decoration: none !important;
+}
+
 /* The book root lives at chapters/preface. PyData renders that nested root
    as a separate home-link above Part I; the logo already serves that purpose. */
 .bd-sidebar-primary nav.bd-links .bd-sidenav__home-link {
