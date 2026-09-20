@@ -322,14 +322,40 @@ function initializeCsharpExecution() {
                 return;
             }
 
+            if (event.key === "ArrowLeft" && shouldMoveToPreviousLineEnd(event.currentTarget)) {
+                event.preventDefault();
+                moveInlineCaretHorizontally(event.currentTarget, -1);
+                return;
+            }
+
+            if (event.key === "ArrowRight" && shouldMoveToNextLineStart(event.currentTarget)) {
+                event.preventDefault();
+                moveInlineCaretHorizontally(event.currentTarget, 1);
+                return;
+            }
+
+            if (event.key === "Backspace" && shouldMergeWithPreviousLine(event.currentTarget)) {
+                event.preventDefault();
+                mergeInlineLineWithPrevious(event.currentTarget);
+                syncEditorFromInline();
+                return;
+            }
+
+            if (event.key === "Delete" && shouldMergeWithNextLine(event.currentTarget)) {
+                event.preventDefault();
+                mergeInlineLineWithNext(event.currentTarget);
+                syncEditorFromInline();
+                return;
+            }
+
             if (event.key === "Enter") {
                 event.preventDefault();
-                insertInlineLineAfter(event.currentTarget);
+                splitInlineLineAtCaret(event.currentTarget);
                 syncEditorFromInline();
             }
         }
 
-        function insertInlineLineAfter(currentContent) {
+        function splitInlineLineAtCaret(currentContent) {
             const currentLine = currentContent.closest(".cscs-code-line");
             if (!currentLine) return;
 
@@ -346,10 +372,96 @@ function initializeCsharpExecution() {
             content.spellcheck = false;
             content.addEventListener("keydown", handleInlineLineKeydown);
 
+            const selection = window.getSelection();
+            if (selection && selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                if (currentContent.contains(range.startContainer)) {
+                    if (!range.collapsed) range.deleteContents();
+
+                    const tailRange = document.createRange();
+                    tailRange.selectNodeContents(currentContent);
+                    tailRange.setStart(range.startContainer, range.startOffset);
+                    const trailingContent = tailRange.extractContents();
+                    content.appendChild(trailingContent);
+                }
+            }
+
+            if (!currentContent.childNodes.length) currentContent.appendChild(document.createTextNode(""));
+            if (!content.childNodes.length) content.appendChild(document.createTextNode(""));
+
             nextLine.append(lineNumber, content);
             currentLine.after(nextLine);
             renumberInlineLines();
-            content.focus();
+            setCaretOffset(content, 0);
+        }
+
+        function shouldMoveToPreviousLineEnd(currentContent) {
+            const range = getCurrentLineSelectionRange(currentContent);
+            return Boolean(range?.collapsed && getCaretOffset(currentContent) === 0);
+        }
+
+        function shouldMoveToNextLineStart(currentContent) {
+            const range = getCurrentLineSelectionRange(currentContent);
+            return Boolean(range?.collapsed && getCaretOffset(currentContent) === currentContent.textContent.length);
+        }
+
+        function shouldMergeWithPreviousLine(currentContent) {
+            const range = getCurrentLineSelectionRange(currentContent);
+            return Boolean(range?.collapsed && getCaretOffset(currentContent) === 0);
+        }
+
+        function shouldMergeWithNextLine(currentContent) {
+            const range = getCurrentLineSelectionRange(currentContent);
+            return Boolean(range?.collapsed && getCaretOffset(currentContent) === currentContent.textContent.length);
+        }
+
+        function mergeInlineLineWithPrevious(currentContent) {
+            const currentLine = currentContent.closest(".cscs-code-line");
+            const previousLine = currentLine?.previousElementSibling;
+            const previousContent = previousLine?.querySelector(".cscs-code-line-content");
+            if (!currentLine || !previousContent) return;
+
+            const targetOffset = previousContent.textContent.length;
+            currentContent.childNodes.forEach((node) => previousContent.appendChild(node.cloneNode(true)));
+            currentLine.remove();
+            renumberInlineLines();
+            setCaretOffset(previousContent, targetOffset);
+        }
+
+        function mergeInlineLineWithNext(currentContent) {
+            const currentLine = currentContent.closest(".cscs-code-line");
+            const nextLine = currentLine?.nextElementSibling;
+            const nextContent = nextLine?.querySelector(".cscs-code-line-content");
+            if (!nextLine || !nextContent) return;
+
+            const targetOffset = currentContent.textContent.length;
+            nextContent.childNodes.forEach((node) => currentContent.appendChild(node.cloneNode(true)));
+            nextLine.remove();
+            renumberInlineLines();
+            setCaretOffset(currentContent, targetOffset);
+        }
+
+        function moveInlineCaretHorizontally(currentContent, direction) {
+            const currentLine = currentContent.closest(".cscs-code-line");
+            const targetLine = direction < 0
+                ? currentLine?.previousElementSibling
+                : currentLine?.nextElementSibling;
+            const targetContent = targetLine?.querySelector(".cscs-code-line-content");
+            if (!targetContent) return;
+
+            const targetOffset = direction < 0 ? targetContent.textContent.length : 0;
+            setCaretOffset(targetContent, targetOffset);
+        }
+
+        function getCurrentLineSelectionRange(currentContent) {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0) return null;
+
+            const range = selection.getRangeAt(0);
+            if (!currentContent.contains(range.startContainer) || !currentContent.contains(range.endContainer)) {
+                return null;
+            }
+            return range;
         }
 
         function renumberInlineLines() {
