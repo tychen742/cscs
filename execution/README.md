@@ -69,6 +69,8 @@ POST /v1/auth/password-reset/request   create and email a password reset link
 POST /v1/auth/password-reset/complete  set a new password from a reset token
 GET  /v1/auth/me        return the current authenticated user
 POST /v1/auth/logout    clear the session
+GET  /v1/account/profile  return the current user's account profile
+PUT  /v1/account/profile  update the current user's display name
 ```
 
 Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores
@@ -81,6 +83,14 @@ or when `CSCS_EXPOSE_PASSWORD_RESET_LINKS=true`, the request endpoint also
 returns the reset token/link so the browser modal can be tested without email.
 New accounts must verify their email address before sign-in. Verification
 tokens are also stored only as SHA-256 hashes and expire after 2 days.
+
+User management is role-gated. Users whose effective role is `Admin` or
+`Instructor` can call:
+
+```text
+GET   /v1/admin/users       list user account profiles
+PATCH /v1/admin/users/{id}  update a user's database role
+```
 
 ## Reading progress API
 

@@ -2163,6 +2163,11 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     width: min(88vw, 18rem) !important;
 }
 
+.cscs-auth-modal.cscs-auth-modal-wide {
+    max-width: 28rem !important;
+    width: min(92vw, 28rem) !important;
+}
+
 .cscs-auth-header {
     padding: 0.35rem 0.5rem !important;
 }
@@ -2191,6 +2196,11 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-auth-form input {
     padding: 0.45rem 0.55rem !important;
+}
+
+.cscs-auth-form input:disabled {
+    background: var(--pst-color-surface, #f6f8fb) !important;
+    color: #52616b !important;
 }
 
 .cscs-auth-submit {
@@ -2225,6 +2235,47 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin: 0 !important;
     min-height: 2.15rem !important;
     padding: 0.45rem 0.75rem !important;
+}
+
+.cscs-users-list {
+    display: grid !important;
+    gap: 0.45rem !important;
+}
+
+.cscs-user-row {
+    align-items: center !important;
+    border: 1px solid var(--pst-color-border, #dbe3ec) !important;
+    border-radius: 6px !important;
+    display: grid !important;
+    gap: 0.45rem !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    padding: 0.5rem !important;
+}
+
+.cscs-user-main {
+    display: grid !important;
+    gap: 0.1rem !important;
+    min-width: 0 !important;
+}
+
+.cscs-user-main strong,
+.cscs-user-main span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.cscs-user-main span {
+    color: #52616b !important;
+    font-size: 0.78rem !important;
+}
+
+.cscs-user-row select {
+    border: 1px solid #cbd5df !important;
+    border-radius: 6px !important;
+    font: inherit !important;
+    max-width: 8rem !important;
+    padding: 0.35rem !important;
 }
 
 @media (max-width: 768px) {

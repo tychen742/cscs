@@ -10,6 +10,7 @@ orphan: true
 - `1301-adt-contracts.ipynb` — ADT contracts, interfaces, and invariants
 - `1302-representations-costs.ipynb` — representations, references, and operation costs
 - `1303-generics.ipynb` — Generics
+- `1304-iterators.ipynb` — IEnumerable/IEnumerator, `yield return`, and custom foreach-able types
 
 ## Non-TOC Source Material
 
@@ -22,6 +23,7 @@ orphan: true
 - representations, references, and memory diagrams
 - operation-cost comparisons
 - generic types and reusable ADT code
+- iterators: `IEnumerable<T>`/`IEnumerator<T>`, `yield return`, custom foreach-able types
 
 ## Sources
 

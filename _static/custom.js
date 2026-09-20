@@ -351,6 +351,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button class="cscs-auth-submit" type="submit">Reset password</button>
                 <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
             </form>
+            <form class="cscs-auth-form" data-auth-form="profile" hidden>
+                <label>Display name<input name="displayName" autocomplete="name" required></label>
+                <label>Email<input name="email" type="email" disabled></label>
+                <label>Role<input name="role" disabled></label>
+                <button class="cscs-auth-submit" type="submit">Save profile</button>
+            </form>
+            <section class="cscs-auth-form cscs-users-panel" data-auth-form="users" hidden>
+                <div class="cscs-users-list" aria-live="polite"></div>
+            </section>
             <p class="cscs-auth-status" aria-live="polite"></p>
         </section>`;
     document.body.appendChild(modal);
@@ -358,27 +367,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const avatar = account.querySelector('.cscs-avatar');
     const menu = account.querySelector('.cscs-account-menu');
     const status = modal.querySelector('.cscs-auth-status');
+    let currentUser = null;
 
     async function updateAccountMenu() {
         try {
             const response = await fetch(`${apiBaseUrl}/v1/auth/me`, { credentials: 'include' });
             if (!response.ok) return;
             const user = await response.json();
+            currentUser = user;
             const initials = user.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
             avatar.querySelector('span').textContent = initials;
             avatar.classList.add('is-signed-in');
             account.querySelector('.cscs-account-menu').innerHTML = `
+                <button type="button" data-account-action="Profile">Profile</button>
                 ${user.canAuthor ? '<button type="button" data-account-action="Author">Author</button>' : ''}
                 <button type="button" data-account-action="Attempts">Attempts</button>
                 <button type="button" data-account-action="Score Report">Score Report</button>
-                <button type="button" data-account-action="Users">Users</button>
+                ${user.canManageUsers ? '<button type="button" data-account-action="Users">Users</button>' : ''}
                 <button type="button" data-account-action="Assignments">Assignments</button>
                 <button type="button" data-account-action="Log out">Log out</button>`;
             account.querySelectorAll('[data-account-action]').forEach(button => {
                 button.addEventListener('click', async () => {
                     if (button.dataset.accountAction !== 'Log out') {
+                        if (button.dataset.accountAction === 'Profile') {
+                            await showProfile();
+                            return;
+                        }
                         if (button.dataset.accountAction === 'Author') {
                             await enableAuthorMode();
+                            return;
+                        }
+                        if (button.dataset.accountAction === 'Users') {
+                            await showUsers();
                             return;
                         }
                         status.textContent = `${button.dataset.accountAction} is not available yet.`;
@@ -402,6 +422,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function setMode(mode) {
+        modal.querySelector('.cscs-auth-modal').classList.toggle('cscs-auth-modal-wide', mode === 'users');
         modal.querySelectorAll('[data-auth-tab]').forEach(tab => {
             tab.classList.toggle('is-active', tab.dataset.authTab === mode);
             tab.setAttribute('aria-selected', tab.dataset.authTab === mode ? 'true' : 'false');
@@ -410,6 +431,10 @@ document.addEventListener('DOMContentLoaded', function () {
             form.hidden = form.dataset.authForm !== mode;
         });
         status.textContent = '';
+    }
+
+    function setStatus(message) {
+        status.textContent = message || '';
     }
 
     avatar.addEventListener('click', () => {
@@ -445,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const isLogin = mode === 'login';
             let endpoint = '/v1/auth/login';
             if (isRegister) endpoint = '/v1/auth/register';
+            if (mode === 'profile') endpoint = '/v1/account/profile';
             if (mode === 'reset-request') endpoint = '/v1/auth/password-reset/request';
             if (mode === 'reset-complete') endpoint = '/v1/auth/password-reset/complete';
             if (isRegister) formData.pageUrl = window.location.href;
@@ -454,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
             status.textContent = 'Working...';
             try {
                 const response = await fetch(`${apiBaseUrl}${endpoint}`, {
-                    method: 'POST',
+                    method: mode === 'profile' ? 'PUT' : 'POST',
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -474,6 +500,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (mode === 'reset-complete') {
                     setMode('login');
                     status.textContent = result.message || 'Password reset. Sign in with your new password.';
+                    return;
+                }
+                if (mode === 'profile') {
+                    currentUser = result;
+                    avatar.querySelector('span').textContent = result.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+                    status.textContent = 'Profile saved.';
                     return;
                 }
                 if (isRegister) {
@@ -529,6 +561,89 @@ document.addEventListener('DOMContentLoaded', function () {
         window.history.replaceState({}, '', cleanUrl);
     }
     updateAccountMenu();
+
+    async function showProfile() {
+        showModal('profile');
+        setStatus('Loading profile...');
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/account/profile`, { credentials: 'include' });
+            const user = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(user.error || 'Profile could not be loaded.');
+            currentUser = user;
+            const form = modal.querySelector('[data-auth-form="profile"]');
+            form.elements.displayName.value = user.displayName || '';
+            form.elements.email.value = user.email || '';
+            form.elements.role.value = user.role || '';
+            setStatus('');
+        } catch (error) {
+            setStatus(error.message);
+        }
+    }
+
+    async function showUsers() {
+        showModal('users');
+        setStatus('Loading users...');
+        const list = modal.querySelector('.cscs-users-list');
+        list.textContent = '';
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/admin/users`, { credentials: 'include' });
+            const users = await response.json().catch(() => []);
+            if (!response.ok) throw new Error(users.error || 'Users could not be loaded.');
+            renderUsers(users);
+            setStatus('');
+        } catch (error) {
+            setStatus(error.message);
+        }
+    }
+
+    function renderUsers(users) {
+        const list = modal.querySelector('.cscs-users-list');
+        const roles = ['Student', 'TA', 'Instructor', 'Editor', 'Author', 'Admin'];
+        list.innerHTML = users.map(user => `
+            <div class="cscs-user-row" data-user-id="${user.id}">
+                <div class="cscs-user-main">
+                    <strong>${escapeHtml(user.displayName || user.email)}</strong>
+                    <span>${escapeHtml(user.email)}</span>
+                    <span>${user.isEmailVerified ? 'Verified' : 'Unverified'}</span>
+                </div>
+                <select aria-label="Role for ${escapeHtml(user.email)}">
+                    ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
+                </select>
+            </div>
+        `).join('');
+        list.querySelectorAll('.cscs-user-row select').forEach(select => {
+            select.addEventListener('change', async () => {
+                const row = select.closest('.cscs-user-row');
+                select.disabled = true;
+                setStatus('Saving role...');
+                try {
+                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
+                        method: 'PATCH',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ role: select.value })
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) throw new Error(result.error || 'Role could not be saved.');
+                    setStatus('Role saved.');
+                } catch (error) {
+                    setStatus(error.message);
+                } finally {
+                    select.disabled = false;
+                }
+            });
+        });
+    }
+
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, char => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[char]));
+    }
 
     async function enableAuthorMode() {
         const path = window.location.pathname

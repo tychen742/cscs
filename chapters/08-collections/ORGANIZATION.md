@@ -12,7 +12,7 @@ write basic `Dictionary<TKey,TValue>` code for key/value lookup.
 
 ## Sequence
 
-- Choosing data collections
+- Data collections (conceptual foundations: access patterns, generics, namespaces)
 - Lists (`List<T>`)
 - Dictionaries (`Dictionary<TKey,TValue>`)
 

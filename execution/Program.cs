@@ -297,6 +297,36 @@ app.MapPost("/v1/auth/logout", async (HttpContext httpContext) =>
     return Results.NoContent();
 });
 
+app.MapGet("/v1/account/profile", async (ClaimsPrincipal principal, CscsDbContext database) =>
+{
+    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
+    var user = await database.Users.FindAsync(id);
+    if (user is null) return Results.Unauthorized();
+
+    var role = GetEffectiveRole(user.Email, user.Role);
+    return Results.Ok(ToAccountDto(user, role));
+}).RequireAuthorization();
+
+app.MapPut("/v1/account/profile", async (ProfileUpdateRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
+{
+    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
+    var user = await database.Users.FindAsync(id);
+    if (user is null) return Results.Unauthorized();
+
+    var displayName = request.DisplayName?.Trim();
+    if (string.IsNullOrWhiteSpace(displayName) || displayName.Length > 120)
+    {
+        return Results.BadRequest(new { error = "Display name is required and must be 120 characters or fewer." });
+    }
+
+    user.DisplayName = displayName;
+    await database.SaveChangesAsync();
+    var role = GetEffectiveRole(user.Email, user.Role);
+    return Results.Ok(ToAccountDto(user, role));
+}).RequireAuthorization();
+
 app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext database) =>
 {
     var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -305,20 +335,41 @@ app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext databa
     if (user is null) return Results.Unauthorized();
 
     var role = GetEffectiveRole(user.Email, user.Role);
-    return Results.Ok(new
+    return Results.Ok(ToAccountDto(user, role));
+}).RequireAuthorization();
+
+app.MapGet("/v1/admin/users", async (ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken) =>
+{
+    if (!await CanManageUsersAsync(principal, database, cancellationToken)) return Results.Forbid();
+    var users = await database.Users
+        .OrderBy(user => user.Email)
+        .ToListAsync(cancellationToken);
+    return Results.Ok(users.Select(user => new
     {
         user.Id,
         user.Email,
         user.DisplayName,
-        Role = role.ToString(),
-        IsAdmin = role == UserRole.Admin,
-        IsAuthor = role == UserRole.Author,
-        IsEditor = role == UserRole.Editor,
-        IsInstructor = role == UserRole.Instructor,
-        IsTA = role == UserRole.TA,
-        CanAuthor = CanAuthor(role),
-        Roles = GetRoleNames(role).ToArray()
-    });
+        Role = GetEffectiveRole(user.Email, user.Role).ToString(),
+        IsEmailVerified = user.EmailVerifiedUtc != null,
+        user.CreatedUtc,
+        user.EmailVerifiedUtc
+    }));
+}).RequireAuthorization();
+
+app.MapPatch("/v1/admin/users/{id:int}", async (int id, UserRoleUpdateRequest request, ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken) =>
+{
+    if (!await CanManageUsersAsync(principal, database, cancellationToken)) return Results.Forbid();
+    var user = await database.Users.FindAsync([id], cancellationToken);
+    if (user is null) return Results.NotFound(new { error = "User not found." });
+    if (adminEmails.Contains(user.Email)) return Results.BadRequest(new { error = "Bootstrap admin role is controlled by CSCS_ADMIN_EMAILS." });
+    if (!Enum.TryParse<UserRole>(request.Role, ignoreCase: true, out var role))
+    {
+        return Results.BadRequest(new { error = "Choose a valid role." });
+    }
+
+    user.Role = role;
+    await database.SaveChangesAsync(cancellationToken);
+    return Results.Ok(ToAccountDto(user, GetEffectiveRole(user.Email, user.Role)));
 }).RequireAuthorization();
 
 app.MapGet("/v1/progress/reading", async (ClaimsPrincipal principal, CscsDbContext database) =>
@@ -437,11 +488,43 @@ async Task<bool> CanAuthorAsync(string? email, CscsDbContext database, Cancellat
     return CanAuthor(role);
 }
 
+async Task<bool> CanManageUsersAsync(ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken)
+{
+    var email = principal.FindFirstValue(ClaimTypes.Email);
+    if (email is null) return false;
+    if (adminEmails.Contains(email)) return true;
+    var role = await database.Users
+        .Where(user => user.Email == email)
+        .Select(user => user.Role)
+        .SingleOrDefaultAsync(cancellationToken);
+    return CanManageUsers(role);
+}
+
 UserRole GetEffectiveRole(string email, UserRole databaseRole) =>
     adminEmails.Contains(email) ? UserRole.Admin : databaseRole;
 
 bool CanAuthor(UserRole role) =>
     role is UserRole.Admin or UserRole.Author or UserRole.Editor or UserRole.Instructor or UserRole.TA;
+
+bool CanManageUsers(UserRole role) =>
+    role is UserRole.Admin or UserRole.Instructor;
+
+object ToAccountDto(UserAccount user, UserRole role) => new
+{
+    user.Id,
+    user.Email,
+    user.DisplayName,
+    Role = role.ToString(),
+    IsAdmin = role == UserRole.Admin,
+    IsAuthor = role == UserRole.Author,
+    IsEditor = role == UserRole.Editor,
+    IsInstructor = role == UserRole.Instructor,
+    IsTA = role == UserRole.TA,
+    IsEmailVerified = user.EmailVerifiedUtc != null,
+    CanAuthor = CanAuthor(role),
+    CanManageUsers = CanManageUsers(role),
+    Roles = GetRoleNames(role).ToArray()
+};
 
 IEnumerable<string> GetRoleNames(UserRole role)
 {

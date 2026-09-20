@@ -10,7 +10,7 @@ orphan: true
 
 ## Section Notebooks
 
-- `0801-collections.ipynb` — Choosing data collections
+- `0801-collections.ipynb` — Data collections (conceptual foundations)
 - `0802-list.ipynb` — Lists (`List<T>`)
 - `0803-dictionary.ipynb` — Dictionaries (`Dictionary<TKey,TValue>`)
 
