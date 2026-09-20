@@ -305,6 +305,14 @@ view, **Reset** restores the original sample source, and **Run** executes the
 current draft. This keeps quick reading experiments lightweight while still
 offering a larger editing surface when students need it.
 
+Future editor feature: robust multi-line mouse selection in inline mode. The
+current inline editor is deliberately span-based and lightweight, which is good
+for quick edits in short examples but not enough for full editor behavior. Keep
+multi-line mouse selection, rectangular selection, multi-cursor editing,
+automatic indentation, and syntax-aware editing as a future CodeMirror-level
+enhancement rather than expanding the current inline editor into a fragile
+custom IDE.
+
 Persistence requirements:
 
 - Anonymous reading continuity uses browser `localStorage` for the last page and

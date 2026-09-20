@@ -1,4 +1,11 @@
-"""Reset appendix chapter numbering while preserving continuous main chapters."""
+"""Reset appendix numbering and skip unnumbered part landing pages.
+
+Jupyter Book's ``parts`` entries support captions but not their own source
+files. The shared workaround is to add part landing notebooks as the first
+chapter entry in a part under ``chapters/parts/part-*.ipynb``. This extension
+keeps those pages unnumbered so regular chapter numbering still starts with
+the first real chapter in the part.
+"""
 
 from typing import Dict, List, Set, Tuple, cast
 
@@ -11,6 +18,11 @@ from sphinx.locale import __
 from sphinx.util import logging, url_re
 
 logger = logging.getLogger(__name__)
+
+
+def is_part_landing_doc(docname: str) -> bool:
+    """Return True for house-convention part landing pages."""
+    return docname.startswith("chapters/parts/part-")
 
 
 def assign_section_numbers(self, env: BuildEnvironment) -> List[str]:
@@ -61,6 +73,12 @@ def assign_section_numbers(self, env: BuildEnvironment) -> List[str]:
             return
         for title, ref in toctreenode["entries"]:
             if url_re.match(ref) or ref == "self":
+                continue
+            if is_part_landing_doc(ref):
+                assigned.add(ref)
+                env.toc_secnumbers[ref] = {}
+                if old_secnumbers.get(ref):
+                    rewrite_needed.append(ref)
                 continue
             if ref in assigned:
                 logger.warning(

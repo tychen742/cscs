@@ -39,6 +39,15 @@ the current editor contents to the execution API.
 
 Status: browser implementation in progress.
 
+Future feature: multi-line mouse selection in inline editing. The current
+inline editor is intentionally lightweight and represents each visual line as
+its own editable span so line numbers, syntax highlighting, and small edits stay
+simple. This supports typing, Tab indentation, Enter, arrow-key navigation, and
+line-boundary Backspace/Delete behavior, but not robust mouse selection across
+multiple lines. If multi-line selection becomes important, replace or augment
+inline mode with a real editor component such as CodeMirror rather than
+continuing to extend the span-based editor.
+
 ## 3. Logged-in exercise persistence
 
 A logged-in learner must be able to edit an exercise cell and return later to
