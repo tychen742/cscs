@@ -2230,6 +2230,17 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-top: -0.1rem !important;
 }
 
+.cscs-verification-panel {
+    gap: 0.8rem !important;
+}
+
+.cscs-verification-message {
+    color: var(--pst-color-text-base, #27313a) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+}
+
 .cscs-auth-status {
     border-top: 1px solid var(--pst-color-border, #dbe3ec) !important;
     margin: 0 !important;

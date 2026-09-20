@@ -616,9 +616,11 @@ This link expires in 2 hours. If you did not request a password reset, you can i
 #pragma warning disable SYSLIB0014
         using var client = new SmtpClient(smtpHost, smtpPort)
         {
+            DeliveryMethod = SmtpDeliveryMethod.Network,
             EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
                         smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
                         smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
+            UseDefaultCredentials = false,
             Credentials = new NetworkCredential(smtpUsername, smtpPassword)
         };
         await client.SendMailAsync(message);
@@ -661,9 +663,11 @@ This link expires in 2 days. If you did not create this account, you can ignore 
 #pragma warning disable SYSLIB0014
         using var client = new SmtpClient(smtpHost, smtpPort)
         {
+            DeliveryMethod = SmtpDeliveryMethod.Network,
             EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
                         smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
                         smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
+            UseDefaultCredentials = false,
             Credentials = new NetworkCredential(smtpUsername, smtpPassword)
         };
         await client.SendMailAsync(message);

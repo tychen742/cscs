@@ -352,6 +352,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button class="cscs-auth-submit" type="submit">Reset password</button>
                 <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
             </form>
+            <section class="cscs-auth-form cscs-verification-panel" data-auth-form="verification" hidden>
+                <p class="cscs-verification-message">Verifying your email...</p>
+                <button class="cscs-auth-submit" type="button" data-auth-mode="login">Sign in</button>
+            </section>
             <form class="cscs-auth-form" data-auth-form="profile" hidden>
                 <label>Display name<input name="displayName" autocomplete="name" required></label>
                 <label>Email<input name="email" type="email" disabled></label>
@@ -444,6 +448,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function setStatus(message) {
         status.textContent = message || '';
+    }
+
+    function getSearchToken(...names) {
+        const params = new URLSearchParams(window.location.search);
+        for (const name of names) {
+            const value = params.get(name);
+            if (value) return { name, value };
+        }
+        return null;
+    }
+
+    function removeSearchTokens(...names) {
+        const cleanUrl = new URL(window.location.href);
+        names.forEach(name => cleanUrl.searchParams.delete(name));
+        window.history.replaceState({}, '', cleanUrl);
+    }
+
+    async function confirmEmailVerification(token) {
+        const message = modal.querySelector('.cscs-verification-message');
+        showModal('verification');
+        message.textContent = 'Verifying your email...';
+        setStatus('');
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/auth/email-verification/confirm`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token })
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(result.error || 'Email verification failed.');
+            message.textContent = result.message || 'Email verified. You can sign in now.';
+        } catch (error) {
+            message.textContent = error.message;
+        }
     }
 
     avatar.addEventListener('click', () => {
@@ -555,36 +594,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const resetToken = new URLSearchParams(window.location.search).get('resetToken');
-    if (resetToken) {
-        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = resetToken;
+    const reset = getSearchToken('resetToken', 'passwordResetToken');
+    if (reset) {
+        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = reset.value;
         showModal('reset-complete');
         status.textContent = 'Enter a new password to finish resetting your account.';
-        const cleanUrl = new URL(window.location.href);
-        cleanUrl.searchParams.delete('resetToken');
-        window.history.replaceState({}, '', cleanUrl);
+        removeSearchTokens('resetToken', 'passwordResetToken');
     }
-    const verifyToken = new URLSearchParams(window.location.search).get('verifyToken');
-    if (verifyToken) {
-        showModal('login');
-        status.textContent = 'Verifying email...';
-        fetch(`${apiBaseUrl}/v1/auth/email-verification/confirm`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ token: verifyToken })
-        })
-            .then(async response => {
-                const result = await response.json().catch(() => ({}));
-                if (!response.ok) throw new Error(result.error || 'Email verification failed.');
-                status.textContent = result.message || 'Email verified. You can sign in now.';
-            })
-            .catch(error => {
-                status.textContent = error.message;
-            });
-        const cleanUrl = new URL(window.location.href);
-        cleanUrl.searchParams.delete('verifyToken');
-        window.history.replaceState({}, '', cleanUrl);
+    const verification = getSearchToken('verifyToken', 'verificationToken', 'emailVerificationToken');
+    if (verification) {
+        confirmEmailVerification(verification.value);
+        removeSearchTokens('verifyToken', 'verificationToken', 'emailVerificationToken');
     }
     updateAccountMenu();
 
