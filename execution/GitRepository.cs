@@ -10,7 +10,7 @@ public sealed class GitRepository(IConfiguration configuration)
         if (!Directory.Exists(Path.Combine(rootPath, ".git")))
             return GitSyncResult.Failure("The book root is not a Git checkout.");
 
-        var statusBefore = await GitAsync(["status", "--porcelain"], cancellationToken);
+        var statusBefore = await GitAsync(["status", "--porcelain"], actor, cancellationToken);
         if (!statusBefore.Succeeded) return GitSyncResult.Failure(statusBefore.Error);
 
         var committed = false;
@@ -20,32 +20,32 @@ public sealed class GitRepository(IConfiguration configuration)
 
         if (!string.IsNullOrWhiteSpace(statusBefore.Output))
         {
-            var add = await GitAsync(["add", "-A", "--", "chapters", "_static", "authoring", "execution", "_config.yml", "_toc.yml", "README.md", "AGENTS.md"], cancellationToken);
+            var add = await GitAsync(["add", "-A", "--", "chapters", "_static", "authoring", "execution", "_config.yml", "_toc.yml", "README.md", "AGENTS.md"], actor, cancellationToken);
             if (!add.Succeeded) return GitSyncResult.Failure(add.Error);
 
-            var diff = await GitAsync(["diff", "--cached", "--quiet"], cancellationToken, allowExitCodes: [0, 1]);
+            var diff = await GitAsync(["diff", "--cached", "--quiet"], actor, cancellationToken, allowExitCodes: [0, 1]);
             if (diff.ExitCode == 1)
             {
-                var commit = await GitAsync(["commit", "-m", commitMessage], cancellationToken);
+                var commit = await GitAsync(["commit", "-m", commitMessage], actor, cancellationToken);
                 if (!commit.Succeeded) return GitSyncResult.Failure(commit.Error);
                 committed = true;
             }
         }
 
-        var pull = await GitAsync(["pull", "--rebase", "origin", "main"], cancellationToken);
+        var pull = await GitAsync(["pull", "--rebase", "origin", "main"], actor, cancellationToken);
         if (!pull.Succeeded) return GitSyncResult.Failure(pull.Error);
 
-        var push = await GitAsync(["push", "origin", "main"], cancellationToken);
+        var push = await GitAsync(["push", "origin", "main"], actor, cancellationToken);
         if (!push.Succeeded) return GitSyncResult.Failure(push.Error);
 
-        var statusAfter = await GitAsync(["status", "--porcelain"], cancellationToken);
+        var statusAfter = await GitAsync(["status", "--porcelain"], actor, cancellationToken);
         if (!statusAfter.Succeeded) return GitSyncResult.Failure(statusAfter.Error);
 
-        var head = await GitAsync(["rev-parse", "--short", "HEAD"], cancellationToken);
+        var head = await GitAsync(["rev-parse", "--short", "HEAD"], actor, cancellationToken);
         return GitSyncResult.Success(committed, head.Output.Trim(), statusAfter.Output.Trim());
     }
 
-    private async Task<GitCommandResult> GitAsync(string[] arguments, CancellationToken cancellationToken, int[]? allowExitCodes = null)
+    private async Task<GitCommandResult> GitAsync(string[] arguments, string actor, CancellationToken cancellationToken, int[]? allowExitCodes = null)
     {
         allowExitCodes ??= [0];
         var startInfo = new ProcessStartInfo
@@ -62,6 +62,11 @@ public sealed class GitRepository(IConfiguration configuration)
         {
             startInfo.ArgumentList.Add(argument);
         }
+        var authorEmail = string.IsNullOrWhiteSpace(actor) ? "authoring@thinkcscs.org" : actor.Trim();
+        startInfo.Environment["GIT_AUTHOR_NAME"] = "CSCS Browser Authoring";
+        startInfo.Environment["GIT_AUTHOR_EMAIL"] = authorEmail;
+        startInfo.Environment["GIT_COMMITTER_NAME"] = "CSCS Browser Authoring";
+        startInfo.Environment["GIT_COMMITTER_EMAIL"] = authorEmail;
 
         using var process = Process.Start(startInfo);
         if (process is null) return new GitCommandResult(false, -1, string.Empty, "Git could not be started.");
