@@ -1111,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     setDraftActionsVisible(true);
                     editButton.textContent = mode === 'edit' ? 'Done' : 'Edit';
                     inlineButton.textContent = mode === 'inline' ? 'Done' : 'Inline';
-                    showRenderedElements(mode === 'inline');
+                    showRenderedElements(false);
                     editor.focus();
                 };
                 editButton.addEventListener('click', () => {
