@@ -256,8 +256,7 @@ function initializeCsharpExecution() {
                 lineNumber.contentEditable = "false";
             });
             codeElement.querySelectorAll(".cscs-code-line-content").forEach((line) => {
-                line.contentEditable = "true";
-                line.spellcheck = false;
+                prepareInlineEditableContent(line);
             });
             (codeElement.querySelector(".cscs-code-line-content") || codeElement).focus();
         }
@@ -278,17 +277,42 @@ function initializeCsharpExecution() {
 
                 const content = document.createElement("span");
                 content.className = "cscs-code-line-content";
-                content.contentEditable = "true";
-                content.spellcheck = false;
+                prepareInlineEditableContent(content);
                 nodes.forEach((node) => content.appendChild(node));
                 if (!content.childNodes.length) content.appendChild(document.createTextNode(""));
 
-                content.addEventListener("keydown", handleInlineLineKeydown);
                 line.append(lineNumber, content);
                 fragment.appendChild(line);
             });
 
             codeElement.replaceChildren(fragment);
+        }
+
+        codeElement.addEventListener("mousedown", (event) => {
+            if (editMode !== "inline") return;
+            const content = event.target.closest?.(".cscs-code-line-content")
+                || event.target.closest?.(".cscs-code-line")?.querySelector(".cscs-code-line-content");
+            if (!content) return;
+
+            requestAnimationFrame(() => {
+                if (document.activeElement !== content) {
+                    setCaretOffset(content, Math.min(getCaretOffset(content), content.textContent.length));
+                }
+            });
+        });
+
+        function prepareInlineEditableContent(content) {
+            content.contentEditable = "plaintext-only";
+            if (content.contentEditable !== "plaintext-only") {
+                content.contentEditable = "true";
+            }
+            content.spellcheck = false;
+            content.setAttribute("role", "textbox");
+            content.setAttribute("aria-multiline", "false");
+            if (!content.dataset.cscsInlineReady) {
+                content.addEventListener("keydown", handleInlineLineKeydown);
+                content.dataset.cscsInlineReady = "true";
+            }
         }
 
         function splitCodeElementLines(sourceElement) {
@@ -316,6 +340,8 @@ function initializeCsharpExecution() {
         }
 
         function handleInlineLineKeydown(event) {
+            event.stopPropagation();
+
             if (event.key === "ArrowUp" || event.key === "ArrowDown") {
                 event.preventDefault();
                 moveInlineCaretVertically(event.currentTarget, event.key === "ArrowUp" ? -1 : 1);
@@ -368,9 +394,7 @@ function initializeCsharpExecution() {
 
             const content = document.createElement("span");
             content.className = "cscs-code-line-content";
-            content.contentEditable = "true";
-            content.spellcheck = false;
-            content.addEventListener("keydown", handleInlineLineKeydown);
+            prepareInlineEditableContent(content);
 
             const selection = window.getSelection();
             if (selection && selection.rangeCount > 0) {
