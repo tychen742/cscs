@@ -127,8 +127,8 @@ function initializeCsharpExecution() {
             codeElement.closest(".highlight-csharp").hidden = opening;
 
             if (opening) {
-                const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
-                editor.style.height = `${staticCodeHeight + 32}px`;
+                const staticCodeHeight = codeElement.offsetHeight || codeElement.closest(".cell_input")?.offsetHeight || 48;
+                editor.style.height = `${Math.max(staticCodeHeight, 44)}px`;
                 setEditMode("inline");
                 editor.focus();
                 return;
@@ -210,6 +210,7 @@ function initializeCsharpExecution() {
             editButton.textContent = mode === "edit" ? "Done" : "Edit";
             inlineButton.textContent = mode === "inline" ? "Done" : "Inline";
             editor.dataset.inlineOpen = String(mode === "inline");
+            editor.classList.toggle("is-inline", mode === "inline");
         }
 
         function renderStdinFields(count) {

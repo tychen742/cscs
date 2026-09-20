@@ -799,15 +799,35 @@ div.cell.tag_thebe-interactive {
 }
 
 .cscs-code-editor {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-left: 1px solid #1b5e20;
+    border-radius: 6px 6px 6px 0;
     box-sizing: border-box;
+    color: #222;
     display: block;
     font-family: var(--pst-font-family-monospace);
     font-size: 0.8rem;
     line-height: 1.45;
     min-height: 0;
-    padding: 12px;
+    padding: 8px;
     resize: none;
     width: 100%;
+}
+
+.cscs-code-editor:focus {
+    border-color: #ccd3db;
+    border-left-color: #1b5e20;
+    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.12);
+    outline: none;
+}
+
+.cscs-code-editor.is-inline {
+    margin: 0;
+    min-height: 0;
+    overflow: auto;
+    padding: 8px 8px 8px 2.9rem;
+    resize: vertical;
 }
 
 .cscs-code-editor[hidden],
