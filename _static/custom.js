@@ -295,7 +295,10 @@ document.addEventListener('DOMContentLoaded', function () {
         window.CSCS_EXECUTION_API ||
         (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
     const sidebar = document.querySelector('.bd-sidebar-primary');
-    const sidebarContent = sidebar?.querySelector('.sidebar-primary-items__start') || sidebar;
+    const sidebarContent =
+        sidebar?.querySelector('.sidebar-primary-items__end') ||
+        sidebar?.querySelector('.sidebar-primary-items__start') ||
+        sidebar;
     if (!sidebarContent || document.querySelector('.cscs-account')) return;
 
     const account = document.createElement('div');
