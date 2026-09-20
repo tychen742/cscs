@@ -1938,7 +1938,7 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-author-cell-controls button,
 .cscs-author-insert-controls button,
-.cscs-new-cell-remove {
+.cscs-new-cell-actions button {
     background: #fff;
     border: 1px solid #b7c0c8;
     border-radius: 4px;
@@ -1951,7 +1951,7 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 
 .cscs-author-cell-controls button:hover,
 .cscs-author-insert-controls button:hover,
-.cscs-new-cell-remove:hover {
+.cscs-new-cell-actions button:hover {
     background: #f1f5f7;
     border-color: #7d8b96;
 }
@@ -1966,7 +1966,9 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-top: 0.65rem;
 }
 
-.cscs-new-cell-remove {
+.cscs-new-cell-actions {
+    display: inline-flex;
+    gap: 4px;
     margin-top: 0.4rem;
 }
 

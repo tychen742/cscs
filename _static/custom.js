@@ -1429,7 +1429,38 @@ document.addEventListener('DOMContentLoaded', function () {
         removeButton.className = 'cscs-new-cell-remove';
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => removeInsertedCell(sourceCell, panel, markdownCells));
-        panel.append(label, editor, removeButton);
+        const actions = document.createElement('div');
+        actions.className = 'cscs-new-cell-actions';
+        const doneButton = document.createElement('button');
+        doneButton.type = 'button';
+        doneButton.textContent = 'Done';
+        const previewButton = document.createElement('button');
+        previewButton.type = 'button';
+        previewButton.textContent = 'Preview';
+        const preview = document.createElement('div');
+        preview.className = 'cscs-markdown-preview';
+        preview.hidden = true;
+        doneButton.addEventListener('click', () => {
+            preview.innerHTML = renderMarkdownPreview(editor.value);
+            preview.hidden = false;
+            editor.hidden = true;
+            doneButton.hidden = true;
+            previewButton.textContent = 'Edit';
+        });
+        previewButton.addEventListener('click', () => {
+            if (editor.hidden) {
+                editor.hidden = false;
+                preview.hidden = true;
+                doneButton.hidden = false;
+                previewButton.textContent = 'Preview';
+                editor.focus();
+            } else {
+                preview.innerHTML = renderMarkdownPreview(editor.value);
+                preview.hidden = false;
+            }
+        });
+        actions.append(doneButton, previewButton, removeButton);
+        panel.append(label, editor, preview, actions);
         markdownCells.push({ elements: [], editor, preview: null, sourceCell });
         return panel;
     }
@@ -1448,9 +1479,48 @@ document.addEventListener('DOMContentLoaded', function () {
         removeButton.className = 'cscs-new-cell-remove';
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => removeInsertedCell(sourceCell, panel, notebookCodeCells));
-        panel.append(label, editor, removeButton);
+        const actions = document.createElement('div');
+        actions.className = 'cscs-new-cell-actions';
+        const runButton = document.createElement('button');
+        runButton.type = 'button';
+        runButton.textContent = 'Run';
+        const doneButton = document.createElement('button');
+        doneButton.type = 'button';
+        doneButton.textContent = 'Done';
+        const output = document.createElement('pre');
+        output.className = 'cscs-execution-output';
+        output.hidden = true;
+        runButton.addEventListener('click', async () => runInsertedCodeCell(editor, output, runButton));
+        doneButton.addEventListener('click', () => {
+            editor.hidden = !editor.hidden;
+            doneButton.textContent = editor.hidden ? 'Edit' : 'Done';
+        });
+        actions.append(runButton, doneButton, removeButton);
+        panel.append(label, editor, actions, output);
         notebookCodeCells.push({ element: null, sourceCell, editor });
         return panel;
+    }
+
+    async function runInsertedCodeCell(editor, output, runButton) {
+        runButton.disabled = true;
+        runButton.textContent = 'Running...';
+        output.hidden = false;
+        output.textContent = '';
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/tasks/browser-inserted-cell/execute`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: editor.value })
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(result.error || `Run failed (${response.status})`);
+            output.textContent = [result.output, result.error].filter(Boolean).join('\n') || '(no output)';
+        } catch (error) {
+            output.textContent = error.message || 'Run failed.';
+        } finally {
+            runButton.disabled = false;
+            runButton.textContent = 'Run';
+        }
     }
 
     function removeInsertedCell(sourceCell, panel, trackedCells) {
