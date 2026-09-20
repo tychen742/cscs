@@ -314,10 +314,17 @@ function initializeCsharpExecution() {
         }
 
         function handleInlineLineKeydown(event) {
-            if (event.key !== "Enter") return;
-            event.preventDefault();
-            insertInlineLineAfter(event.currentTarget);
-            syncEditorFromInline();
+            if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+                moveInlineCaretVertically(event.currentTarget, event.key === "ArrowUp" ? -1 : 1);
+                return;
+            }
+
+            if (event.key === "Enter") {
+                event.preventDefault();
+                insertInlineLineAfter(event.currentTarget);
+                syncEditorFromInline();
+            }
         }
 
         function insertInlineLineAfter(currentContent) {
@@ -350,6 +357,59 @@ function initializeCsharpExecution() {
                 const lineNumber = line.querySelector(".linenos");
                 if (lineNumber) lineNumber.textContent = String(index + 1).padStart(lineCountWidth, " ");
             });
+        }
+
+        function moveInlineCaretVertically(currentContent, direction) {
+            const currentLine = currentContent.closest(".cscs-code-line");
+            const targetLine = direction < 0
+                ? currentLine?.previousElementSibling
+                : currentLine?.nextElementSibling;
+            const targetContent = targetLine?.querySelector(".cscs-code-line-content");
+            if (!targetContent) return;
+
+            const column = getCaretOffset(currentContent);
+            const targetColumn = Math.min(column, targetContent.textContent.length);
+            setCaretOffset(targetContent, targetColumn);
+        }
+
+        function getCaretOffset(root) {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0) return 0;
+
+            const range = selection.getRangeAt(0);
+            const preRange = range.cloneRange();
+            preRange.selectNodeContents(root);
+            preRange.setEnd(range.endContainer, range.endOffset);
+            return preRange.toString().length;
+        }
+
+        function setCaretOffset(root, offset) {
+            root.focus();
+
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            let remaining = offset;
+            let node = walker.nextNode();
+
+            while (node) {
+                if (remaining <= node.textContent.length) {
+                    placeCaret(node, remaining);
+                    return;
+                }
+                remaining -= node.textContent.length;
+                node = walker.nextNode();
+            }
+
+            root.appendChild(document.createTextNode(""));
+            placeCaret(root.lastChild, 0);
+        }
+
+        function placeCaret(node, offset) {
+            const range = document.createRange();
+            const selection = window.getSelection();
+            range.setStart(node, offset);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
         }
 
         function renderStdinFields(count) {
