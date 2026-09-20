@@ -16,15 +16,47 @@ public sealed class NotebookRepository(IConfiguration configuration)
         var path = pathResult.Path!;
         if (!File.Exists(path)) return NotebookSaveResult.Failure("The notebook file does not exist.");
 
-        Directory.CreateDirectory(backupRoot);
-        var backupPath = Path.Combine(backupRoot, $"{DateTime.UtcNow:yyyyMMdd-HHmmssfff}-{Path.GetFileName(path)}.bak");
-        File.Copy(path, backupPath);
+        try
+        {
+            Directory.CreateDirectory(backupRoot);
+            var backupPath = Path.Combine(backupRoot, $"{DateTime.UtcNow:yyyyMMdd-HHmmssfff}-{Path.GetFileName(path)}.bak");
+            File.Copy(path, backupPath);
 
-        var temporaryPath = $"{path}.{Guid.NewGuid():N}.tmp";
-        await File.WriteAllTextAsync(temporaryPath, content, new UTF8Encoding(false), cancellationToken);
-        File.Move(temporaryPath, path, overwrite: true);
+            var temporaryPath = $"{path}.{Guid.NewGuid():N}.tmp";
+            await File.WriteAllTextAsync(temporaryPath, content, new UTF8Encoding(false), cancellationToken);
+            TrySetNotebookPermissions(temporaryPath);
+            File.Move(temporaryPath, path, overwrite: true);
+            TrySetNotebookPermissions(path);
 
-        return NotebookSaveResult.Success(relativePath, backupPath, actor, validation.CellCount);
+            return NotebookSaveResult.Success(relativePath, backupPath, actor, validation.CellCount);
+        }
+        catch (UnauthorizedAccessException exception)
+        {
+            return NotebookSaveResult.Failure($"The notebook file could not be saved: {exception.Message}");
+        }
+        catch (IOException exception)
+        {
+            return NotebookSaveResult.Failure($"The notebook file could not be saved: {exception.Message}");
+        }
+    }
+
+    private static void TrySetNotebookPermissions(string path)
+    {
+        try
+        {
+            if (OperatingSystem.IsWindows()) return;
+            File.SetUnixFileMode(
+                path,
+                UnixFileMode.UserRead |
+                UnixFileMode.UserWrite |
+                UnixFileMode.GroupRead |
+                UnixFileMode.GroupWrite |
+                UnixFileMode.OtherRead);
+        }
+        catch (Exception exception) when (exception is PlatformNotSupportedException or UnauthorizedAccessException or IOException)
+        {
+            // Permissions are best-effort; the save itself is the critical operation.
+        }
     }
 
     public async Task<NotebookReadResult> ReadAsync(string relativePath, CancellationToken cancellationToken)

@@ -151,6 +151,13 @@ copies the existing file to the backup directory, and atomically replaces it.
 The book root is mounted at `/workspace` in development; backups are stored in
 the persistent Docker volume.
 
+The mounted book root must be a Git checkout of the content repository. Browser
+authoring edits notebook files in that checkout, so online edits become normal
+Git working-tree changes that can be reviewed, committed, pushed, and rebuilt.
+Do not use a loose rsync-only mirror as the editable source of truth. Run
+`git status`, `git diff`, `git commit`, and `git push` from the host checkout
+that is bind-mounted into the container, not from inside the container.
+
 The matching source endpoint is:
 
 ```text

@@ -360,9 +360,13 @@ cells inline. The authoring controls are:
 - **Preview**: inspect the rendered page before publishing
 
 The notebook file remains the source of truth. Git remains the synchronization,
-versioning, review, and rollback system. Publishing rebuilds the Jupyter Book
-from the saved notebook files; the browser editor does not create a second
-content format or require an immediate migration to a database-backed CMS.
+versioning, review, and rollback system. The server-side book root used by the
+authoring API must be a Git checkout of the content repository, not a loose
+rsync mirror. Browser edits save into that checkout as ordinary working-tree
+changes that can be reviewed, committed, pushed, rebuilt, or rolled back.
+Publishing rebuilds the Jupyter Book from the saved notebook files; the browser
+editor does not create a second content format or require an immediate
+migration to a database-backed CMS.
 
 A database is supporting infrastructure for authentication, roles, autosave
 drafts, edit locks, audit history, and recovery of unsaved work. It is not the

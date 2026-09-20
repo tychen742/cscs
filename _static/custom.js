@@ -1177,23 +1177,39 @@ document.addEventListener('DOMContentLoaded', function () {
         save.type = 'button';
         save.textContent = 'Save notebook';
         const saveNotebook = async () => {
+            save.textContent = 'Saving...';
             const state = window.cscsAuthorState;
-            state.notebookCodeCells.forEach(({ element, sourceCell, editor }) => {
-                if (sourceCell) sourceCell.source = editor?.value ?? element.textContent;
-            });
-            state.markdownCells.forEach(({ editor, sourceCell }) => {
-                if (sourceCell) sourceCell.source = editor.value;
-            });
-            const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/save`, {
-                method: 'POST',
-                credentials: 'include',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ path: state.path, content: JSON.stringify(state.notebook, null, 1) })
-            });
-            const result = await response.json();
-            save.textContent = response.ok ? 'Saved' : (result.message || 'Save failed');
-            if (response.ok) closeInlineEditors();
-            window.setTimeout(() => { save.textContent = 'Save notebook'; }, 2500);
+            try {
+                state.notebookCodeCells.forEach(({ element, sourceCell, editor }) => {
+                    if (sourceCell) {
+                        sourceCell.source = serializeNotebookSource(editor?.value ?? element.textContent, sourceCell.source);
+                    }
+                });
+                state.markdownCells.forEach(({ editor, sourceCell }) => {
+                    if (sourceCell) sourceCell.source = serializeNotebookSource(editor.value, sourceCell.source);
+                });
+                const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/save`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: state.path, content: JSON.stringify(state.notebook, null, 1) })
+                });
+                const text = await response.text();
+                let result = {};
+                if (text) {
+                    try {
+                        result = JSON.parse(text);
+                    } catch {
+                        result = { message: text };
+                    }
+                }
+                if (!response.ok) throw new Error(result.message || result.error || `Save failed (${response.status})`);
+                save.textContent = 'Saved';
+                closeInlineEditors();
+            } catch (error) {
+                save.textContent = error.message || 'Save failed';
+            }
+            window.setTimeout(() => { save.textContent = 'Save notebook'; }, 3500);
         };
         window.cscsSaveNotebook = saveNotebook;
         save.addEventListener('click', saveNotebook);
@@ -1316,6 +1332,12 @@ document.addEventListener('DOMContentLoaded', function () {
             .split('\n')
             .filter(line => /^\s*(#{1,6}\s+|[-*]\s+|\d+\.\s+|```|\|)/.test(line)).length;
         return Math.max(1, paragraphBlocks + structuralLines);
+    }
+
+    function serializeNotebookSource(text, previousSource) {
+        if (!Array.isArray(previousSource)) return text;
+        if (!text) return [];
+        return text.match(/[^\n]*\n|[^\n]+/g) || [];
     }
 
     function normalizeCode(source) {

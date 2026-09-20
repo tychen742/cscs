@@ -63,7 +63,12 @@ authenticated user whose `UserAccount.Role` database enum is `Admin`, `Author`,
 `Editor`, `Instructor`, or `TA`. Emails in `CSCS_ADMIN_EMAILS` are treated as
 effective admins only as a bootstrap/emergency override. Browser author
 controls expose markdown and code-cell editors only to those authoring roles.
-Git publish automation remains a later integration step.
+The mounted book root for this API must be a Git checkout. Browser authoring
+saves create ordinary Git working-tree changes in that checkout, and review,
+commit, push, rebuild, and rollback all happen through Git. Git commands should
+run on the host checkout, not inside the API container, because the bind mount
+may have host ownership that container Git treats as unsafe. Git publish
+automation remains a later integration step.
 
 During the Jupyter Book build, `_ext/notebook_cell_metadata.py` annotates
 rendered code and markdown cells with their source notebook cell ID, index, and
