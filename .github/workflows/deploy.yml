@@ -50,13 +50,13 @@ jobs:
       - name: Deploy to production
         run: |
           rsync -avz --no-perms --no-owner --no-group --omit-dir-times --exclude "reports/" \
-            _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/cscs/
+            _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:${{ vars.DEPLOY_PATH || '/var/www/cscs' }}/
 
       - name: Deploy API assets when present
         if: ${{ hashFiles('_html_extra/api/**') != '' }}
         run: |
           rsync -avz --no-perms --no-owner --no-group --omit-dir-times \
-            _html_extra/api/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/cscs/api/
+            _html_extra/api/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:${{ vars.DEPLOY_PATH || '/var/www/cscs' }}/api/
 
       - name: Sync authoring checkout
         run: |
