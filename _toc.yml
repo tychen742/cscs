@@ -1,7 +1,13 @@
 format: jb-book
-root: chapters/preface
+root: chapters/home
 
 parts:
+  - caption: "Front Matter"
+    numbered: false
+    chapters:
+      - file: chapters/preface
+        title: Preface
+
   - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
