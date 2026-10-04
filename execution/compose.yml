@@ -1,4 +1,5 @@
 services:
+  # Accounts, reading progress, and browser authoring. Student code never runs here.
   execution-api:
     build:
       context: ..
@@ -11,10 +12,6 @@ services:
       CSCS_DATA_PROTECTION_PATH: "/data/keys"
       CSCS_BOOK_ROOT: "/workspace"
       CSCS_BACKUP_ROOT: "/data/notebook-backups"
-      CSCS_MAX_CONCURRENT_EXECUTIONS: "${CSCS_MAX_CONCURRENT_EXECUTIONS:-2}"
-      CSCS_GUEST_CONCURRENT_EXECUTIONS: "${CSCS_GUEST_CONCURRENT_EXECUTIONS:-1}"
-      CSCS_GUEST_RUNS_PER_MINUTE: "${CSCS_GUEST_RUNS_PER_MINUTE:-30}"
-      CSCS_SIGNED_IN_RUNS_PER_MINUTE: "${CSCS_SIGNED_IN_RUNS_PER_MINUTE:-30}"
       CSCS_ADMIN_EMAILS: "${CSCS_ADMIN_EMAILS:-}"
       CSCS_EXPOSE_PASSWORD_RESET_LINKS: "${CSCS_EXPOSE_PASSWORD_RESET_LINKS:-false}"
       CSCS_LOG_PASSWORD_RESET_LINKS: "${CSCS_LOG_PASSWORD_RESET_LINKS:-false}"
@@ -38,7 +35,7 @@ services:
     cap_drop:
       - ALL
     pids_limit: 128
-    mem_limit: 512m
+    mem_limit: 384m
     cpus: 1.0
     restart: unless-stopped
     depends_on:
@@ -63,6 +60,63 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  # The C# runner: the only place student code runs. Internal network only (no
+  # internet, database, or host access), no volumes, no secrets in its environment.
+  cs-runner:
+    build:
+      context: .
+      dockerfile: runner/Dockerfile
+    environment:
+      CSCS_ALLOWED_ORIGINS: "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000"
+      CSCS_MAX_CONCURRENT_EXECUTIONS: "${CSCS_MAX_CONCURRENT_EXECUTIONS:-2}"
+      # Every reader is a guest until Press run passes exist, so guests may use all slots.
+      CSCS_GUEST_CONCURRENT_EXECUTIONS: "${CSCS_GUEST_CONCURRENT_EXECUTIONS:-2}"
+      CSCS_GUEST_RUNS_PER_MINUTE: "${CSCS_GUEST_RUNS_PER_MINUTE:-30}"
+      CSCS_SIGNED_IN_RUNS_PER_MINUTE: "${CSCS_SIGNED_IN_RUNS_PER_MINUTE:-30}"
+    networks:
+      - runner
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,size=256m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    ulimits:
+      nofile: 1024
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    restart: unless-stopped
+
+  # Carries run requests from the host (Apache) to cs-runner. Runs no student code.
+  cs-runner-gateway:
+    image: nginxinc/nginx-unprivileged:1.27-alpine
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - default
+      - runner
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,size=16m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 32
+    mem_limit: 64m
+    restart: unless-stopped
+    depends_on:
+      - cs-runner
+
+networks:
+  runner:
+    internal: true
 
 volumes:
   cscs-data:

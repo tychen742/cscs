@@ -1,9 +1,10 @@
 # C# execution service
 
-This local service executes textbook code cells in a Docker-isolated .NET SDK
-container. It does not use Binder or .NET Interactive. Each chapter activity
-can use a separate task ID. The execution requirements are documented in
-`REQUIREMENTS.md`.
+This service executes textbook code cells in an isolated C# runner container
+(`cs-runner`) and hosts CSCS accounts, reading progress, and browser authoring
+(`execution-api`). It does not use Binder or .NET Interactive. Each chapter
+activity can use a separate task ID. See `ARCHITECTURE.md` for the container
+layout and `REQUIREMENTS.md` for the execution requirements.
 
 ## Run locally
 
@@ -13,16 +14,17 @@ From this directory:
 docker compose -f compose.yml up --build -d
 ```
 
-Check the service:
+Check the services (runner gateway on 8081, account API on 8080):
 
 ```bash
+curl http://127.0.0.1:8081/health
 curl http://127.0.0.1:8080/health
 ```
 
 Execute one cell:
 
 ```bash
-curl -s http://127.0.0.1:8080/v1/tasks/ch06-regex/execute \
+curl -s http://127.0.0.1:8081/v1/tasks/ch06-regex/execute \
   -H 'Content-Type: application/json' \
   -d '{"code":"int answer = 6 * 7; Console.WriteLine(answer);"}'
 ```
@@ -30,7 +32,7 @@ curl -s http://127.0.0.1:8080/v1/tasks/ch06-regex/execute \
 Execute stateful cells together:
 
 ```bash
-curl -s http://127.0.0.1:8080/v1/tasks/ch06-regex/execute \
+curl -s http://127.0.0.1:8081/v1/tasks/ch06-regex/execute \
   -H 'Content-Type: application/json' \
   -d '{"cells":["int answer = 6 * 7;", "Console.WriteLine(answer);"]}'
 ```
@@ -41,16 +43,11 @@ Stop the service with:
 docker compose -f compose.yml down
 ```
 
-The service is bound to localhost for development. It must not be exposed
-publicly until authentication, rate limiting, stronger per-execution isolation,
-and a production deployment design have been added.
-
-The current runner executes submitted C# inside the API service container. This
-is acceptable for the local-first development model, but it is not an adequate
-student-facing public sandbox. A production deployment should move code
-execution into separate isolated runner workers with no repository mount, no
-application secrets, no database access, strict resource limits, and a bounded
-queue or worker pool.
+Both ports are bound to localhost; on `dev`, Apache routes `/cscs-exec/v1/tasks/`
+to the runner gateway and the rest of `/cscs-exec/` to the account API. Student
+code runs only in `cs-runner`, which has no secrets, no volumes, and no network
+access beyond its gateway. Every reader is a guest (per-IP limits) until Press
+run passes exist.
 
 The Compose setup runs Postgres as a sibling `postgres` service, with data in
 the named `cscs-postgres-data` volume. Schema changes go through EF Core

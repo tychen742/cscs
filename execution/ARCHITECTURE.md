@@ -1,30 +1,44 @@
 # Architecture
 
-The browser-facing textbook will send code cells to
-`POST /v1/tasks/{taskId}/execute`. The execution API combines the cells into
-one temporary top-level C# program,
-copies a pre-restored console project into a temporary directory, and invokes
-`dotnet run --no-restore` inside the service container.
+The service is split into three containers (`compose.yml`):
 
-The service is local-first. Docker provides the process boundary, a read-only
-root filesystem, a non-root user, a no-new-privileges policy, a temporary
-filesystem, a process limit, a memory limit, and a fifteen-second execution
-limit. The service is bound to `127.0.0.1` and is not a public code runner.
+```text
+Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (127.0.0.1:8081) ─► cs-runner
+                   │                               [default + runner networks]       [runner network only]
+                   └─ /cscs-exec/* ─────────────► execution-api (127.0.0.1:8080) ─► postgres
+```
 
-Known production risk: submitted C# currently executes inside the same
-container that hosts the API process. The container limits reduce host-level
-blast radius, but malicious or runaway student code can still compete with the
-API process for CPU, memory, process slots, and temporary filesystem space. It
-can also read files mounted into the service container, including the book
-workspace used by the development authoring workflow. Before student-facing
-online execution is exposed beyond a trusted local deployment, move execution
-into a separate worker boundary. The preferred production treatment is an API
-container that queues jobs for isolated runner workers, with no repository
-mount, no application secrets, no database access, strict timeout and resource
-limits, and text-only result handoff back to the API. A bounded worker pool is
-likely a better first production step than starting a brand-new container for
-every click, because it preserves isolation while controlling latency and
-resource use.
+- `cs-runner` (`runner/`) is the only place student code runs. It accepts
+  `POST /v1/tasks/{taskId}/execute`, combines the cells into one temporary
+  top-level C# program, copies a pre-restored console project into a temporary
+  directory, and invokes `dotnet run --no-restore`. The student build starts
+  from an allow-listed environment. The container has no volumes and no secrets,
+  runs as UID 10001 (no host account), and sits on the internal `runner` network:
+  no internet, DNS, database, account service, or host access. It also has a
+  read-only root, a 256 MB `/tmp`, all capabilities dropped, `no-new-privileges`,
+  `init`, and limits of 128 processes, 512 MB, and 1 CPU.
+- `cs-runner-gateway` (`gateway/nginx.conf`) is an unprivileged nginx that
+  forwards only `/v1/tasks/` and `/health` into `cs-runner`, because a container
+  on an internal network cannot publish a port. It passes Apache's
+  `X-Forwarded-For` through unchanged and runs no student code.
+- `execution-api` keeps accounts, reading progress, and browser authoring. It
+  holds the database and SMTP credentials and mounts the book workspace and an
+  SSH directory for authoring commits; none of that is reachable from student code.
+
+Run limits: at most two runs at once (queued, with a 20-second wait for guests),
+an eight-second guest timeout, and 30 runs per minute per reader IP. Every reader
+is a guest until Press issues signed run passes (see
+`press/docs/PLATFORM_DECISIONS.md`); the runner holds no secret with which to check
+a sign-in cookie.
+
+Known limit: concurrent runs share one UID inside `cs-runner`, so a student program
+can see or disturb another run in progress or crash the server process, which
+restarts. Nothing sensitive is reachable, so the impact is disruption. Per-run users
+or per-run containers are the next isolation step.
+
+History: until 2026-10-04, student code ran inside `execution-api` and could read its
+secrets and mounts. Run was blocked at Apache (`cscs-exec-block.conf`) until this
+split was deployed.
 
 The execution layer is intentionally separate from the Jupyter Book build and
 does not depend on Binder, Jupyter, or .NET Interactive. The browser client

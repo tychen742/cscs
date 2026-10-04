@@ -1,7 +1,9 @@
 function initializeCsharpExecution() {
-    const apiBaseUrl = localStorage.getItem("CSCS_EXECUTION_API") ||
-        window.CSCS_EXECUTION_API ||
-        (location.hostname.endsWith("thinkcscs.org") ? "https://thinkcscs.org/cscs-exec" : "http://localhost:8080");
+    // The C# runner (execution/runner). On the site, Apache routes /cscs-exec/v1/tasks/
+    // to it; locally its gateway listens on port 8081.
+    const runnerBaseUrl = localStorage.getItem("CSCS_RUNNER_API") ||
+        window.CSCS_RUNNER_API ||
+        (location.hostname.endsWith("thinkcscs.org") ? "https://thinkcscs.org/cscs-exec" : "http://localhost:8081");
     const taskId = createTaskId(window.location.pathname);
 
     const cells = Array.from(document.querySelectorAll("div.cell"));
@@ -188,10 +190,8 @@ function initializeCsharpExecution() {
 
             try {
                 const currentCode = editor.value;
-                const response = await fetch(`${apiBaseUrl}/v1/tasks/${taskId}/execute`, {
+                const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
                     method: "POST",
-                    // Send the sign-in cookie so signed-in readers get the higher tier.
-                    credentials: "include",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         code: currentCode,
