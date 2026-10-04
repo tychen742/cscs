@@ -11,6 +11,7 @@ services:
       CSCS_DATA_PROTECTION_PATH: "/data/keys"
       CSCS_BOOK_ROOT: "/workspace"
       CSCS_BACKUP_ROOT: "/data/notebook-backups"
+      CSCS_MAX_CONCURRENT_EXECUTIONS: "${CSCS_MAX_CONCURRENT_EXECUTIONS:-2}"
       CSCS_ADMIN_EMAILS: "${CSCS_ADMIN_EMAILS:-}"
       CSCS_EXPOSE_PASSWORD_RESET_LINKS: "${CSCS_EXPOSE_PASSWORD_RESET_LINKS:-false}"
       CSCS_LOG_PASSWORD_RESET_LINKS: "${CSCS_LOG_PASSWORD_RESET_LINKS:-false}"
@@ -25,7 +26,7 @@ services:
     volumes:
       - cscs-data:/data
       - ..:/workspace
-      - /home/tychen/.ssh:/home/appuser/.ssh:ro
+      - ${CSCS_SSH_DIR:-/home/tychen/.ssh}:/home/appuser/.ssh:ro
     read_only: true
     tmpfs:
       - /tmp:rw,nosuid,size=256m
@@ -35,6 +36,7 @@ services:
       - ALL
     pids_limit: 128
     mem_limit: 512m
+    cpus: 1.0
     restart: unless-stopped
     depends_on:
       postgres:

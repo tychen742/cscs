@@ -3,7 +3,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <!-- Beginner-friendly output: nullable analysis is opt-in per cell with #nullable enable (Chapter 6),
+         and unused-variable warnings are hidden because examples often declare variables only to show syntax. -->
+    <Nullable>disable</Nullable>
+    <NoWarn>$(NoWarn);CS0168;CS0219;CS8632</NoWarn>
     <UseAppHost>false</UseAppHost>
   </PropertyGroup>
   <ItemGroup>

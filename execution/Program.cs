@@ -10,14 +10,32 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 
 const int maxCellCount = 20;
+const string TypesOnlyEntryPoint = """
+
+
+internal static class CscsTypesOnlyEntryPoint
+{
+    public static void Main() { }
+}
+""";
+
+const string TypesOnlyMessage =
+    "Compiled successfully. This cell only declares types, so there is no code to run." + "\n";
 const int maxCodeLength = 100_000;
 const int maxStdinLength = 10_000;
 const int executionTimeoutMilliseconds = 15_000;
+const int executionQueueTimeoutMilliseconds = 30_000;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 var databaseConnectionString = Environment.GetEnvironmentVariable("CSCS_DB_CONNECTION")
     ?? throw new InvalidOperationException("CSCS_DB_CONNECTION must be set to a Postgres connection string.");
+// Each run is a full `dotnet run` build, so cap simultaneous runs (default: one per
+// CPU core) and make extra requests wait in line instead of competing for the host.
+var maxConcurrentExecutions = int.TryParse(Environment.GetEnvironmentVariable("CSCS_MAX_CONCURRENT_EXECUTIONS"), out var configuredConcurrency) && configuredConcurrency > 0
+    ? configuredConcurrency
+    : 2;
+var executionGate = new SemaphoreSlim(maxConcurrentExecutions, maxConcurrentExecutions);
 var dataProtectionPath = Environment.GetEnvironmentVariable("CSCS_DATA_PROTECTION_PATH") ?? "/tmp/cscs-keys";
 Directory.CreateDirectory(dataProtectionPath);
 var adminEmails = (Environment.GetEnvironmentVariable("CSCS_ADMIN_EMAILS") ?? string.Empty)
@@ -547,8 +565,31 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
     }
 
     var source = BuildSource(cells.Select(NormalizeCell).ToList(), request.PrefixCellCount);
-    var result = await ExecuteAsync(source, taskId, request.Stdin, cancellationToken);
-    return Results.Ok(result);
+    if (!await executionGate.WaitAsync(executionQueueTimeoutMilliseconds, cancellationToken))
+    {
+        return Results.Json(
+            new { error = "The code runner is busy right now. Please wait a few seconds and press Run again." },
+            statusCode: StatusCodes.Status503ServiceUnavailable);
+    }
+
+    try
+    {
+        var result = await ExecuteAsync(source, taskId, request.Stdin, cancellationToken);
+        if (result.ExitCode != 0 && !result.TimedOut && (result.Output + result.Error).Contains("error CS5001"))
+        {
+            // The cell only declares types (no statements, no Main). Rebuild with an empty
+            // entry point so the declarations still compile and report what happened.
+            var retry = await ExecuteAsync(source + TypesOnlyEntryPoint, taskId, request.Stdin, cancellationToken);
+            result = retry.ExitCode == 0
+                ? retry with { Output = TypesOnlyMessage + retry.Output }
+                : retry;
+        }
+        return Results.Ok(result);
+    }
+    finally
+    {
+        executionGate.Release();
+    }
 });
 
 app.Run();
@@ -767,11 +808,13 @@ This link expires in 2 days. If you did not create this account, you can ignore 
 static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, CancellationToken cancellationToken)
 {
     var executionDirectory = Path.Combine(Path.GetTempPath(), $"cscs-{Guid.NewGuid():N}");
-    DirectoryCopy("/app/runner-template", executionDirectory);
-    await File.WriteAllTextAsync(Path.Combine(executionDirectory, "Program.cs"), source, cancellationToken);
 
     try
     {
+        // Copy inside the try so a partial copy (e.g. a full /tmp) is still cleaned up.
+        DirectoryCopy("/app/runner-template", executionDirectory);
+        await File.WriteAllTextAsync(Path.Combine(executionDirectory, "Program.cs"), source, cancellationToken);
+
         var startInfo = new ProcessStartInfo
         {
             FileName = "dotnet",
@@ -823,7 +866,10 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
     }
     finally
     {
-        Directory.Delete(executionDirectory, recursive: true);
+        if (Directory.Exists(executionDirectory))
+        {
+            Directory.Delete(executionDirectory, recursive: true);
+        }
     }
 }
 
@@ -838,7 +884,10 @@ static string BuildSource(IReadOnlyList<string> cells, int prefixCellCount)
 
     if (prefixCellCount == 0)
     {
-        return string.Join(Environment.NewLine, usingLines) + Environment.NewLine + WrapLooseMembers(current);
+        // Without using directives, add no leading line so compiler line numbers match the cell.
+        return usingLines.Count == 0
+            ? WrapLooseMembers(current)
+            : string.Join(Environment.NewLine, usingLines) + Environment.NewLine + WrapLooseMembers(current);
     }
 
     return string.Join(
@@ -860,7 +909,9 @@ static string RemoveUsingDirectives(string source, ICollection<string> usingLine
     var body = new List<string>();
     foreach (var line in source.Split('\n'))
     {
-        if (Regex.IsMatch(line, "^\\s*using\\s+.+;\\s*$"))
+        // Hoist only using directives (using X.Y; using static X; using Alias = X.Y;), never
+        // using declarations such as "using StreamReader reader = new StreamReader(path);".
+        if (Regex.IsMatch(line, "^\\s*(global\\s+)?using\\s+(static\\s+)?([A-Za-z_]\\w*\\s*=\\s*)?[A-Za-z_][\\w.<>, ]*;\\s*(//.*)?$"))
         {
             usingLines.Add(line.Trim());
         }

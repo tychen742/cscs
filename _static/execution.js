@@ -9,6 +9,8 @@ function initializeCsharpExecution() {
     cells.forEach((cell, cellIndex) => {
         const codeElement = cell.querySelector(".cell_input pre");
         if (!codeElement || cell.dataset.cscsExecutionReady === "true") return;
+        // Notebook-only cells (e.g. Polyglot .Display() charts) cannot run in the console runner.
+        if (cell.classList.contains("tag_no-run")) return;
 
         const executableCode = normalizeCode(getExecutableCodeText(codeElement));
         if (isCsharpSetupOnly(executableCode)) return;
