@@ -5,4 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>cs-runner</AssemblyName>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- Shared with execution-api: Press pass verification. -->
+    <Compile Include="../shared/*.cs" />
+  </ItemGroup>
 </Project>

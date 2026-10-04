@@ -1,78 +1,36 @@
-using System.Diagnostics;
-using System.Net;
-using System.Net.Mail;
-using System.Security.Claims;
-using System.Text.RegularExpressions;
 using System.Text.Json;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.EntityFrameworkCore;
+
+// CSCS browser-authoring API: lets Press authors load, save, and commit book notebooks
+// from the book page. Accounts live in Press; each request carries a short-lived author
+// pass signed by Press (press/docs/RUN_PASSES.md), checked here with Press's public key.
+// Student code never runs here; see runner/.
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
-var databaseConnectionString = Environment.GetEnvironmentVariable("CSCS_DB_CONNECTION")
-    ?? throw new InvalidOperationException("CSCS_DB_CONNECTION must be set to a Postgres connection string.");
-var dataProtectionPath = Environment.GetEnvironmentVariable("CSCS_DATA_PROTECTION_PATH") ?? "/tmp/cscs-keys";
-Directory.CreateDirectory(dataProtectionPath);
-var adminEmails = (Environment.GetEnvironmentVariable("CSCS_ADMIN_EMAILS") ?? string.Empty)
-    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-    .Select(email => email.ToLowerInvariant())
-    .ToHashSet(StringComparer.OrdinalIgnoreCase);
-var exposePasswordResetLinks = builder.Environment.IsDevelopment() ||
-    string.Equals(Environment.GetEnvironmentVariable("CSCS_EXPOSE_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
-var logPasswordResetLinks = exposePasswordResetLinks ||
-    string.Equals(Environment.GetEnvironmentVariable("CSCS_LOG_PASSWORD_RESET_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
-var exposeEmailVerificationLinks = builder.Environment.IsDevelopment() ||
-    string.Equals(Environment.GetEnvironmentVariable("CSCS_EXPOSE_EMAIL_VERIFICATION_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
-var logEmailVerificationLinks = exposeEmailVerificationLinks ||
-    string.Equals(Environment.GetEnvironmentVariable("CSCS_LOG_EMAIL_VERIFICATION_LINKS"), "true", StringComparison.OrdinalIgnoreCase);
-var smtpHost = Environment.GetEnvironmentVariable("SMTP_HOST");
-var smtpFrom = Environment.GetEnvironmentVariable("SMTP_FROM");
-var smtpUsername = Environment.GetEnvironmentVariable("SMTP_USERNAME");
-var smtpPassword = Environment.GetEnvironmentVariable("SMTP_PASSWORD");
-var smtpSecurity = Environment.GetEnvironmentVariable("SMTP_SECURITY") ?? "STARTTLS";
-var smtpPort = int.TryParse(Environment.GetEnvironmentVariable("SMTP_PORT"), out var configuredSmtpPort)
-    ? configuredSmtpPort
-    : 587;
 var allowedOrigins = (Environment.GetEnvironmentVariable("CSCS_ALLOWED_ORIGINS") ??
                       "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+// No credentials: authorization travels in the Authorization header, not in cookies.
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-    policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
-builder.Services.AddDbContext<CscsDbContext>(options => options.UseNpgsql(databaseConnectionString));
+    policy.WithOrigins(allowedOrigins).AllowAnyHeader().WithMethods("GET", "POST")));
 builder.Services.AddSingleton<NotebookRepository>();
 builder.Services.AddSingleton<GitRepository>();
-builder.Services.AddDataProtection()
-    .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
-    .SetApplicationName("thinkcscs");
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.Cookie.Name = "cscs_auth";
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.Lax;
-        options.LoginPath = "/v1/auth/login";
-        options.Events.OnRedirectToLogin = context =>
-        {
-            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-            return Task.CompletedTask;
-        };
-    });
-builder.Services.AddAuthorization();
+
+var authorPassVerifier = PressPassVerifier.FromConfiguration(
+    Environment.GetEnvironmentVariable("CSCS_RUN_PASS_PUBLIC_KEYS"),
+    Environment.GetEnvironmentVariable("CSCS_AUTHOR_PASS_AUDIENCE") ?? "cscs-authoring",
+    Environment.GetEnvironmentVariable("CSCS_RUN_PASS_BOOK") ?? "cscs",
+    "author");
+// Press roles allowed to author (Press issues author passes only to these, too).
+var authorRoles = new HashSet<string>(StringComparer.Ordinal) { "admin", "author", "editor", "instructor", "ta" };
+
 var app = builder.Build();
-using (var scope = app.Services.CreateScope())
-{
-    var database = scope.ServiceProvider.GetRequiredService<CscsDbContext>();
-    database.Database.Migrate();
-}
+app.Logger.LogInformation("Author passes: {KeyCount} public key(s) configured", authorPassVerifier.KeyCount);
 app.UseCors();
-app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapGet("/", () => Results.Ok(new
 {
-    service = "CSCS execution API",
+    service = "CSCS authoring API",
     status = "ok",
     health = "/health"
 }));
@@ -95,637 +53,46 @@ app.MapPost("/v1/admin/notebooks/validate", async (HttpRequest request) =>
     }
 });
 
-app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, ClaimsPrincipal principal, CscsDbContext database, NotebookRepository repository, CancellationToken cancellationToken) =>
+app.MapPost("/v1/admin/notebooks/save", async (NotebookSaveRequest request, HttpRequest http, NotebookRepository repository, CancellationToken cancellationToken) =>
 {
-    var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
+    var (author, denied) = Authorize(http);
+    if (denied is not null) return denied;
     if (string.IsNullOrWhiteSpace(request.Path) || request.Content is null)
         return Results.BadRequest(new { error = "Path and content are required." });
 
-    var result = await repository.SaveAsync(request.Path, request.Content, email!, cancellationToken);
+    var result = await repository.SaveAsync(request.Path, request.Content, author!.Email ?? author.Subject, cancellationToken);
     return result.Saved ? Results.Ok(result) : Results.BadRequest(result);
-}).RequireAuthorization();
+});
 
-app.MapGet("/v1/admin/notebooks/source", async (string path, ClaimsPrincipal principal, CscsDbContext database, NotebookRepository repository, CancellationToken cancellationToken) =>
+app.MapGet("/v1/admin/notebooks/source", async (string path, HttpRequest http, NotebookRepository repository, CancellationToken cancellationToken) =>
 {
-    var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
+    var (_, denied) = Authorize(http);
+    if (denied is not null) return denied;
     var result = await repository.ReadAsync(path, cancellationToken);
     return result.Found
         ? Results.Content(result.Content!, "application/json")
         : Results.NotFound(new { error = result.Message });
-}).RequireAuthorization();
+});
 
-app.MapPost("/v1/admin/git/sync", async (GitSyncRequest request, ClaimsPrincipal principal, CscsDbContext database, GitRepository repository, CancellationToken cancellationToken) =>
+app.MapPost("/v1/admin/git/sync", async (GitSyncRequest request, HttpRequest http, GitRepository repository, CancellationToken cancellationToken) =>
 {
-    var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (!await CanAuthorAsync(email, database, cancellationToken)) return Results.Forbid();
-    var result = await repository.SyncAsync(email!, request.Message, cancellationToken);
+    var (author, denied) = Authorize(http);
+    if (denied is not null) return denied;
+    var result = await repository.SyncAsync(author!.Email ?? string.Empty, request.Message, cancellationToken);
     return result.Synced ? Results.Ok(result) : Results.BadRequest(result);
-}).RequireAuthorization();
-
-app.MapPost("/v1/auth/register", async (RegisterRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>
-{
-    var email = request.Email?.Trim().ToLowerInvariant();
-    var displayName = request.DisplayName?.Trim();
-    if (string.IsNullOrWhiteSpace(email) || !email.Contains('@') ||
-        string.IsNullOrWhiteSpace(displayName) || displayName.Length > 120 ||
-        string.IsNullOrWhiteSpace(request.Password) || request.Password.Length < 8)
-    {
-        return Results.BadRequest(new { error = "Provide a valid email, display name, and password of at least 8 characters." });
-    }
-
-    if (await database.Users.AnyAsync(user => user.Email == email))
-    {
-        return Results.Conflict(new { error = "An account with that email already exists." });
-    }
-
-    var now = DateTime.UtcNow;
-    var institution = InferInstitution(email);
-    var semester = InferSemester(now);
-    var user = new UserAccount
-    {
-        Email = email,
-        DisplayName = displayName,
-        PasswordHash = PasswordService.Hash(request.Password),
-        Institution = institution,
-        InstitutionId = InferInstitutionId(institution),
-        AcademicYear = InferAcademicYear(now),
-        Semester = semester,
-        Role = GetEffectiveRole(email, UserRole.Student),
-        CreatedUtc = now,
-        EmailVerifiedUtc = adminEmails.Contains(email) ? now : null
-    };
-    database.Users.Add(user);
-    await database.SaveChangesAsync();
-
-    if (user.EmailVerifiedUtc is null)
-    {
-        var token = PasswordService.CreateResetToken();
-        database.EmailVerificationTokens.Add(new EmailVerificationToken
-        {
-            UserAccountId = user.Id,
-            TokenHash = PasswordService.HashResetToken(token),
-            CreatedUtc = now,
-            ExpiresUtc = now.AddDays(2)
-        });
-        await database.SaveChangesAsync();
-
-        var verificationUrl = BuildTokenUrl(request.PageUrl, httpContext.Request, "verifyToken", token);
-        var emailSent = await SendEmailVerificationEmailAsync(user, verificationUrl, logger);
-        if (!emailSent && logEmailVerificationLinks)
-        {
-            logger.LogInformation("Email verification link for {Email}: {VerificationUrl}", user.Email, verificationUrl);
-        }
-
-        return exposeEmailVerificationLinks
-            ? Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. Check your email to verify your account before signing in.", verificationUrl, verificationToken = token })
-            : Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. Check your email to verify your account before signing in." });
-    }
-
-    return Results.Created($"/v1/auth/me", new { user.Id, user.Email, user.DisplayName, message = "Account created. You may sign in now." });
 });
-
-app.MapPost("/v1/auth/login", async (LoginRequest request, CscsDbContext database, HttpContext httpContext) =>
-{
-    var email = request.Email?.Trim().ToLowerInvariant();
-    var user = email is null ? null : await database.Users.SingleOrDefaultAsync(candidate => candidate.Email == email);
-    if (user is null || string.IsNullOrWhiteSpace(request.Password) || !PasswordService.Verify(request.Password, user.PasswordHash))
-    {
-        return Results.Unauthorized();
-    }
-    if (user.EmailVerifiedUtc is null)
-    {
-        return Results.Json(new { error = "Check your email and verify your account before signing in." }, statusCode: StatusCodes.Status403Forbidden);
-    }
-
-    var claims = new[]
-    {
-        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-        new Claim(ClaimTypes.Email, user.Email),
-        new Claim(ClaimTypes.Name, user.DisplayName)
-    };
-    await httpContext.SignInAsync(
-        CookieAuthenticationDefaults.AuthenticationScheme,
-        new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)));
-    return Results.Ok(new { user.Id, user.Email, user.DisplayName });
-});
-
-app.MapPost("/v1/auth/email-verification/confirm", async (EmailVerificationCompleteRequest request, CscsDbContext database) =>
-{
-    if (string.IsNullOrWhiteSpace(request.Token))
-    {
-        return Results.BadRequest(new { error = "Provide an email verification token." });
-    }
-
-    var tokenHash = PasswordService.HashResetToken(request.Token);
-    var verificationToken = await database.EmailVerificationTokens
-        .Include(token => token.UserAccount)
-        .SingleOrDefaultAsync(token => token.TokenHash == tokenHash);
-    if (verificationToken?.UserAccount?.EmailVerifiedUtc is not null)
-    {
-        return Results.Ok(new { message = "Email already verified. You can sign in now." });
-    }
-
-    if (verificationToken is null ||
-        verificationToken.UserAccount is null ||
-        verificationToken.UsedUtc is not null ||
-        verificationToken.ExpiresUtc < DateTime.UtcNow)
-    {
-        return Results.BadRequest(new { error = "That email verification link is invalid or has expired." });
-    }
-
-    verificationToken.UserAccount.EmailVerifiedUtc ??= DateTime.UtcNow;
-    verificationToken.UsedUtc = DateTime.UtcNow;
-    await database.SaveChangesAsync();
-    return Results.Ok(new { message = "Email verified. You can sign in now." });
-});
-
-app.MapPost("/v1/auth/password-reset/request", async (PasswordResetRequest request, CscsDbContext database, HttpContext httpContext, ILogger<Program> logger) =>
-{
-    var email = request.Email?.Trim().ToLowerInvariant();
-    var message = "If an account exists for that email, a password reset link has been created.";
-    if (string.IsNullOrWhiteSpace(email) || !email.Contains('@'))
-    {
-        return Results.Ok(new { message });
-    }
-
-    var user = await database.Users.SingleOrDefaultAsync(candidate => candidate.Email == email);
-    if (user is null)
-    {
-        return Results.Ok(new { message });
-    }
-
-    var now = DateTime.UtcNow;
-    var token = PasswordService.CreateResetToken();
-    database.PasswordResetTokens.Add(new PasswordResetToken
-    {
-        UserAccountId = user.Id,
-        TokenHash = PasswordService.HashResetToken(token),
-        CreatedUtc = now,
-        ExpiresUtc = now.AddHours(2)
-    });
-    await database.SaveChangesAsync();
-
-    var resetUrl = BuildTokenUrl(request.PageUrl, httpContext.Request, "resetToken", token);
-    var emailSent = await SendPasswordResetEmailAsync(user, resetUrl, logger);
-    if (!emailSent && logPasswordResetLinks)
-    {
-        logger.LogInformation("Password reset link for {Email}: {ResetUrl}", user.Email, resetUrl);
-    }
-
-    return exposePasswordResetLinks
-        ? Results.Ok(new { message, resetUrl, resetToken = token })
-        : Results.Ok(new { message });
-});
-
-app.MapPost("/v1/auth/password-reset/complete", async (PasswordResetCompleteRequest request, CscsDbContext database) =>
-{
-    if (string.IsNullOrWhiteSpace(request.Token) ||
-        string.IsNullOrWhiteSpace(request.Password) ||
-        request.Password.Length < 8)
-    {
-        return Results.BadRequest(new { error = "Provide a reset token and a password of at least 8 characters." });
-    }
-
-    var tokenHash = PasswordService.HashResetToken(request.Token);
-    var resetToken = await database.PasswordResetTokens
-        .Include(token => token.UserAccount)
-        .SingleOrDefaultAsync(token => token.TokenHash == tokenHash);
-    if (resetToken is null ||
-        resetToken.UserAccount is null ||
-        resetToken.UsedUtc is not null ||
-        resetToken.ExpiresUtc < DateTime.UtcNow)
-    {
-        return Results.BadRequest(new { error = "That password reset link is invalid or has expired." });
-    }
-
-    resetToken.UserAccount.PasswordHash = PasswordService.Hash(request.Password);
-    resetToken.UsedUtc = DateTime.UtcNow;
-    await database.SaveChangesAsync();
-    return Results.Ok(new { message = "Password reset. Sign in with your new password." });
-});
-
-app.MapPost("/v1/auth/logout", async (HttpContext httpContext) =>
-{
-    await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-    return Results.NoContent();
-});
-
-app.MapGet("/v1/account/profile", async (ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-    var user = await database.Users.FindAsync(id);
-    if (user is null) return Results.Unauthorized();
-
-    var role = GetEffectiveRole(user.Email, user.Role);
-    return Results.Ok(ToAccountDto(user, role));
-}).RequireAuthorization();
-
-app.MapPut("/v1/account/profile", async (ProfileUpdateRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-    var user = await database.Users.FindAsync(id);
-    if (user is null) return Results.Unauthorized();
-
-    var displayName = request.DisplayName?.Trim();
-    if (string.IsNullOrWhiteSpace(displayName) || displayName.Length > 120)
-    {
-        return Results.BadRequest(new { error = "Display name is required and must be 120 characters or fewer." });
-    }
-
-    user.DisplayName = displayName;
-    await database.SaveChangesAsync();
-    var role = GetEffectiveRole(user.Email, user.Role);
-    return Results.Ok(ToAccountDto(user, role));
-}).RequireAuthorization();
-
-app.MapPut("/v1/account/password", async (PasswordChangeRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-    var user = await database.Users.FindAsync(id);
-    if (user is null) return Results.Unauthorized();
-
-    if (string.IsNullOrWhiteSpace(request.CurrentPassword) ||
-        string.IsNullOrWhiteSpace(request.NewPassword) ||
-        request.NewPassword.Length < 8)
-    {
-        return Results.BadRequest(new { error = "Provide your current password and a new password of at least 8 characters." });
-    }
-
-    if (!PasswordService.Verify(request.CurrentPassword, user.PasswordHash))
-    {
-        return Results.Json(new { error = "Current password is incorrect." }, statusCode: StatusCodes.Status403Forbidden);
-    }
-
-    user.PasswordHash = PasswordService.Hash(request.NewPassword);
-    await database.SaveChangesAsync();
-    return Results.Ok(new { message = "Password changed." });
-}).RequireAuthorization();
-
-app.MapGet("/v1/auth/me", async (ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-    var user = await database.Users.FindAsync(id);
-    if (user is null) return Results.Unauthorized();
-
-    var role = GetEffectiveRole(user.Email, user.Role);
-    return Results.Ok(ToAccountDto(user, role));
-}).RequireAuthorization();
-
-app.MapGet("/v1/admin/users", async (ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken) =>
-{
-    if (!await CanManageUsersAsync(principal, database, cancellationToken)) return Results.Forbid();
-    var users = await database.Users
-        .OrderBy(user => user.Email)
-        .ToListAsync(cancellationToken);
-    return Results.Ok(users.Select(user => new
-    {
-        user.Id,
-        user.Email,
-        user.DisplayName,
-        Institution = user.Institution.ToString(),
-        user.InstitutionId,
-        user.AcademicYear,
-        Semester = user.Semester.ToString(),
-        Role = GetEffectiveRole(user.Email, user.Role).ToString(),
-        IsEmailVerified = user.EmailVerifiedUtc != null,
-        user.CreatedUtc,
-        user.EmailVerifiedUtc
-    }));
-}).RequireAuthorization();
-
-app.MapPatch("/v1/admin/users/{id:int}", async (int id, UserRoleUpdateRequest request, ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken) =>
-{
-    if (!await CanManageUsersAsync(principal, database, cancellationToken)) return Results.Forbid();
-    var user = await database.Users.FindAsync([id], cancellationToken);
-    if (user is null) return Results.NotFound(new { error = "User not found." });
-    if (adminEmails.Contains(user.Email)) return Results.BadRequest(new { error = "Bootstrap admin role is controlled by CSCS_ADMIN_EMAILS." });
-    if (request.Role is not null && !Enum.TryParse<UserRole>(request.Role, ignoreCase: true, out _))
-    {
-        return Results.BadRequest(new { error = "Choose a valid role." });
-    }
-    if (request.Institution is not null && !Enum.TryParse<Institution>(request.Institution, ignoreCase: true, out _))
-    {
-        return Results.BadRequest(new { error = "Choose a valid institution." });
-    }
-    var institutionId = request.InstitutionId?.Trim();
-    if (institutionId?.Length > 64)
-    {
-        return Results.BadRequest(new { error = "Institution ID must be 64 characters or fewer." });
-    }
-    if (request.AcademicYear is not null && (request.AcademicYear < 2000 || request.AcademicYear > 2100))
-    {
-        return Results.BadRequest(new { error = "Academic year must be between 2000 and 2100." });
-    }
-    if (request.Semester is not null && !Enum.TryParse<Semester>(request.Semester, ignoreCase: true, out _))
-    {
-        return Results.BadRequest(new { error = "Choose a valid semester." });
-    }
-
-    if (request.Role is not null) user.Role = Enum.Parse<UserRole>(request.Role, ignoreCase: true);
-    if (request.Institution is not null)
-    {
-        user.Institution = Enum.Parse<Institution>(request.Institution, ignoreCase: true);
-        if (request.InstitutionId is null)
-        {
-            user.InstitutionId = InferInstitutionId(user.Institution);
-        }
-    }
-    if (request.InstitutionId is not null) user.InstitutionId = string.IsNullOrWhiteSpace(institutionId) ? null : institutionId;
-    if (request.AcademicYear is not null) user.AcademicYear = request.AcademicYear.Value;
-    if (request.Semester is not null) user.Semester = Enum.Parse<Semester>(request.Semester, ignoreCase: true);
-    await database.SaveChangesAsync(cancellationToken);
-    return Results.Ok(ToAccountDto(user, GetEffectiveRole(user.Email, user.Role)));
-}).RequireAuthorization();
-
-app.MapGet("/v1/progress/reading", async (ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-
-    var progress = await database.ReadingProgress
-        .Where(item => item.UserAccountId == id && item.BookId == "cscs")
-        .SingleOrDefaultAsync();
-
-    return progress is null
-        ? Results.NoContent()
-        : Results.Ok(new
-        {
-            progress.BookId,
-            progress.PageUrl,
-            progress.PageTitle,
-            progress.ScrollY,
-            progress.UpdatedUtc
-        });
-}).RequireAuthorization();
-
-app.MapPost("/v1/progress/reading", async (ReadingProgressRequest request, ClaimsPrincipal principal, CscsDbContext database) =>
-{
-    var userId = principal.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (!int.TryParse(userId, out var id)) return Results.Unauthorized();
-
-    var bookId = string.IsNullOrWhiteSpace(request.BookId) ? "cscs" : request.BookId.Trim();
-    var pageUrl = request.PageUrl?.Trim();
-    var pageTitle = request.PageTitle?.Trim();
-    if (bookId.Length > 64 ||
-        string.IsNullOrWhiteSpace(pageUrl) ||
-        pageUrl.Length > 512 ||
-        !pageUrl.StartsWith("/", StringComparison.Ordinal) ||
-        string.IsNullOrWhiteSpace(pageTitle))
-    {
-        return Results.BadRequest(new { error = "A valid book ID, page URL, and page title are required." });
-    }
-
-    var progress = await database.ReadingProgress
-        .Where(item => item.UserAccountId == id && item.BookId == bookId)
-        .SingleOrDefaultAsync();
-
-    if (progress is null)
-    {
-        progress = new ReadingProgress
-        {
-            UserAccountId = id,
-            BookId = bookId,
-            PageUrl = pageUrl,
-            PageTitle = pageTitle[..Math.Min(pageTitle.Length, 240)],
-            ScrollY = Math.Max(0, request.ScrollY),
-            UpdatedUtc = DateTime.UtcNow
-        };
-        database.ReadingProgress.Add(progress);
-    }
-    else
-    {
-        progress.PageUrl = pageUrl;
-        progress.PageTitle = pageTitle[..Math.Min(pageTitle.Length, 240)];
-        progress.ScrollY = Math.Max(0, request.ScrollY);
-        progress.UpdatedUtc = DateTime.UtcNow;
-    }
-
-    await database.SaveChangesAsync();
-    return Results.Ok(new
-    {
-        progress.BookId,
-        progress.PageUrl,
-        progress.PageTitle,
-        progress.ScrollY,
-        progress.UpdatedUtc
-    });
-}).RequireAuthorization();
 
 app.Run();
 
-async Task<bool> CanAuthorAsync(string? email, CscsDbContext database, CancellationToken cancellationToken)
+// A valid author pass with an authoring role, or the response to send instead.
+(PressPass? Author, IResult? Denied) Authorize(HttpRequest request)
 {
-    if (email is null) return false;
-    if (adminEmails.Contains(email)) return true;
-    var role = await database.Users
-        .Where(user => user.Email == email)
-        .Select(user => user.Role)
-        .SingleOrDefaultAsync(cancellationToken);
-    return CanAuthor(role);
-}
-
-async Task<bool> CanManageUsersAsync(ClaimsPrincipal principal, CscsDbContext database, CancellationToken cancellationToken)
-{
-    var email = principal.FindFirstValue(ClaimTypes.Email);
-    if (email is null) return false;
-    if (adminEmails.Contains(email)) return true;
-    var role = await database.Users
-        .Where(user => user.Email == email)
-        .Select(user => user.Role)
-        .SingleOrDefaultAsync(cancellationToken);
-    return CanManageUsers(role);
-}
-
-UserRole GetEffectiveRole(string email, UserRole databaseRole) =>
-    adminEmails.Contains(email) ? UserRole.Admin : databaseRole;
-
-bool CanAuthor(UserRole role) =>
-    role is UserRole.Admin or UserRole.Author or UserRole.Editor or UserRole.Instructor or UserRole.TA;
-
-bool CanManageUsers(UserRole role) =>
-    role is UserRole.Admin or UserRole.Instructor;
-
-Institution InferInstitution(string email)
-{
-    var normalized = email.Trim().ToLowerInvariant();
-    if (normalized.EndsWith("@mst.edu", StringComparison.Ordinal)) return Institution.MissouriST;
-    if (normalized.EndsWith("@umsystem.edu", StringComparison.Ordinal)) return Institution.UniversityOfMissouriSystem;
-    return Institution.MissouriST;
-}
-
-string? InferInstitutionId(Institution institution) => institution switch
-{
-    Institution.MissouriST => "mst",
-    Institution.UniversityOfMissouriSystem => "umsystem",
-    _ => null
-};
-
-int InferAcademicYear(DateTime now) =>
-    now.Month >= 8 ? now.Year : now.Year - 1;
-
-Semester InferSemester(DateTime now) => now.Month switch
-{
-    >= 1 and <= 5 => Semester.Spring,
-    >= 6 and <= 7 => Semester.Summer,
-    _ => Semester.Fall
-};
-
-object ToAccountDto(UserAccount user, UserRole role) => new
-{
-    user.Id,
-    user.Email,
-    user.DisplayName,
-    Institution = user.Institution.ToString(),
-    user.InstitutionId,
-    user.AcademicYear,
-    Semester = user.Semester.ToString(),
-    user.CreatedUtc,
-    user.EmailVerifiedUtc,
-    Role = role.ToString(),
-    IsAdmin = role == UserRole.Admin,
-    IsAuthor = role == UserRole.Author,
-    IsEditor = role == UserRole.Editor,
-    IsInstructor = role == UserRole.Instructor,
-    IsTA = role == UserRole.TA,
-    IsEmailVerified = user.EmailVerifiedUtc != null,
-    CanAuthor = CanAuthor(role),
-    CanManageUsers = CanManageUsers(role),
-    Roles = GetRoleNames(role).ToArray()
-};
-
-IEnumerable<string> GetRoleNames(UserRole role)
-{
-    yield return role.ToString().ToLowerInvariant();
-    if (CanAuthor(role)) yield return "authoring";
-}
-
-string BuildTokenUrl(string? pageUrl, HttpRequest request, string parameterName, string token)
-{
-    var baseUrl = GetAllowedResetPageUrl(pageUrl);
-    if (baseUrl is null)
-    {
-        var origin = allowedOrigins.FirstOrDefault(origin => origin.StartsWith("https://thinkcscs.org", StringComparison.OrdinalIgnoreCase))
-            ?? allowedOrigins.FirstOrDefault()
-            ?? $"{request.Scheme}://{request.Host}";
-        baseUrl = $"{origin.TrimEnd('/')}/";
-    }
-
-    var separator = baseUrl.Contains('?', StringComparison.Ordinal) ? "&" : "?";
-    return $"{baseUrl}{separator}{parameterName}={Uri.EscapeDataString(token)}";
-}
-
-string? GetAllowedResetPageUrl(string? pageUrl)
-{
-    if (string.IsNullOrWhiteSpace(pageUrl)) return null;
-    if (!Uri.TryCreate(pageUrl, UriKind.Absolute, out var uri)) return null;
-
-    var origin = $"{uri.Scheme}://{uri.Authority}";
-    if (!allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase)) return null;
-
-    var builder = new UriBuilder(uri)
-    {
-        Fragment = string.Empty,
-        Query = string.Empty
-    };
-    return builder.Uri.ToString();
-}
-
-async Task<bool> SendPasswordResetEmailAsync(UserAccount user, string resetUrl, ILogger logger)
-{
-    if (string.IsNullOrWhiteSpace(smtpHost) ||
-        string.IsNullOrWhiteSpace(smtpFrom) ||
-        string.IsNullOrWhiteSpace(smtpUsername) ||
-        string.IsNullOrWhiteSpace(smtpPassword))
-    {
-        return false;
-    }
-
-    try
-    {
-        using var message = new MailMessage(smtpFrom, user.Email)
-        {
-            Subject = "Think CS C# password reset",
-            Body = $"""
-Hi {user.DisplayName},
-
-Use this link to reset your Think CS C# course account password:
-
-{resetUrl}
-
-This link expires in 2 hours. If you did not request a password reset, you can ignore this email.
-"""
-        };
-
-#pragma warning disable SYSLIB0014
-        using var client = new SmtpClient(smtpHost, smtpPort)
-        {
-            DeliveryMethod = SmtpDeliveryMethod.Network,
-            EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
-                        smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
-                        smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
-            UseDefaultCredentials = false,
-            Credentials = new NetworkCredential(smtpUsername, smtpPassword)
-        };
-        await client.SendMailAsync(message);
-#pragma warning restore SYSLIB0014
-        return true;
-    }
-    catch (Exception exception)
-    {
-        logger.LogError(exception, "Unable to send password reset email for {Email}", user.Email);
-        return false;
-    }
-}
-
-async Task<bool> SendEmailVerificationEmailAsync(UserAccount user, string verificationUrl, ILogger logger)
-{
-    if (string.IsNullOrWhiteSpace(smtpHost) ||
-        string.IsNullOrWhiteSpace(smtpFrom) ||
-        string.IsNullOrWhiteSpace(smtpUsername) ||
-        string.IsNullOrWhiteSpace(smtpPassword))
-    {
-        return false;
-    }
-
-    try
-    {
-        using var message = new MailMessage(smtpFrom, user.Email)
-        {
-            Subject = "Verify your Think CS C# account",
-            Body = $"""
-Hi {user.DisplayName},
-
-Use this link to verify your Think CS C# course account:
-
-{verificationUrl}
-
-This link expires in 2 days. If you did not create this account, you can ignore this email.
-"""
-        };
-
-#pragma warning disable SYSLIB0014
-        using var client = new SmtpClient(smtpHost, smtpPort)
-        {
-            DeliveryMethod = SmtpDeliveryMethod.Network,
-            EnableSsl = smtpSecurity.Equals("STARTTLS", StringComparison.OrdinalIgnoreCase) ||
-                        smtpSecurity.Equals("SSL", StringComparison.OrdinalIgnoreCase) ||
-                        smtpSecurity.Equals("true", StringComparison.OrdinalIgnoreCase),
-            UseDefaultCredentials = false,
-            Credentials = new NetworkCredential(smtpUsername, smtpPassword)
-        };
-        await client.SendMailAsync(message);
-#pragma warning restore SYSLIB0014
-        return true;
-    }
-    catch (Exception exception)
-    {
-        logger.LogError(exception, "Unable to send email verification email for {Email}", user.Email);
-        return false;
-    }
+    var header = request.Headers.Authorization.ToString();
+    var token = header.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase) ? header["Bearer ".Length..].Trim() : null;
+    var pass = authorPassVerifier.Verify(token, DateTimeOffset.UtcNow);
+    if (pass is null)
+        return (null, Results.Json(new { error = "Sign in with an author account to edit this book." }, statusCode: StatusCodes.Status401Unauthorized));
+    if (pass.Role is null || !authorRoles.Contains(pass.Role))
+        return (null, Results.Json(new { error = "Your account cannot author this book." }, statusCode: StatusCodes.Status403Forbidden));
+    return (pass, null);
 }

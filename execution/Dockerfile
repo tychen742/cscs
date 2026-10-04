@@ -1,4 +1,4 @@
-# CSCS account, progress, and browser-authoring API. Student code does not run here;
+# CSCS browser-authoring API (accounts live in Press). Student code does not run here;
 # see runner/Dockerfile. Build context: repository root (see compose.yml).
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
@@ -11,11 +11,10 @@ COPY execution/execution.csproj execution/
 RUN dotnet restore execution/execution.csproj
 
 COPY execution/Program.cs execution/
-COPY execution/AuthData.cs execution/
 COPY execution/NotebookValidation.cs execution/
 COPY execution/NotebookRepository.cs execution/
 COPY execution/GitRepository.cs execution/
-COPY execution/Migrations execution/Migrations
+COPY execution/shared execution/shared
 RUN dotnet publish execution/execution.csproj --configuration Release --no-restore --output /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

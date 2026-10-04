@@ -14,6 +14,7 @@ COPY runner/runner.csproj runner/
 RUN dotnet restore runner/runner.csproj
 
 COPY runner/Program.cs runner/
+COPY shared shared
 COPY runner-template runner-template
 # Restore the template's packages at build time: runs use --no-restore and the
 # container has no internet access.

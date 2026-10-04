@@ -71,7 +71,15 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
     options.KnownNetworks.Clear();
     options.KnownProxies.Clear();
 });
+// Run passes signed by Press (press/docs/RUN_PASSES.md). Only public keys are configured:
+// student code in this container can read them, and they cannot sign anything.
+var runPassVerifier = PressPassVerifier.FromConfiguration(
+    Environment.GetEnvironmentVariable("CSCS_RUN_PASS_PUBLIC_KEYS"),
+    Environment.GetEnvironmentVariable("CSCS_RUN_PASS_AUDIENCE") ?? "cs-runner",
+    Environment.GetEnvironmentVariable("CSCS_RUN_PASS_BOOK") ?? "cscs",
+    "signed_in");
 var app = builder.Build();
+app.Logger.LogInformation("Run passes: {KeyCount} public key(s) configured", runPassVerifier.KeyCount);
 app.UseForwardedHeaders();
 app.UseCors();
 
@@ -101,15 +109,17 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
         return Results.BadRequest(new { error = $"Input must be at most {maxStdinLength} characters." });
     }
 
-    // Every reader is a guest until Press issues signed run passes; the runner has no
-    // secret with which to check a sign-in cookie.
-    var tier = ExecutionTier.Guest;
-    var rateLimitKey = $"guest:{httpContext.Connection.RemoteIpAddress}";
+    // A valid run pass from Press (Authorization: Bearer) gives the signed-in tier, limited
+    // per user; anything else, including Press being down, runs at guest limits per IP.
+    var subject = runPassVerifier.Verify(BearerToken(httpContext.Request), DateTimeOffset.UtcNow)?.Subject;
+    var tier = subject is null ? ExecutionTier.Guest : ExecutionTier.SignedIn;
+    var rateLimitKey = subject is null ? $"guest:{httpContext.Connection.RemoteIpAddress}" : $"user:{subject}";
     using var rateLimitLease = runRateLimiter.AttemptAcquire(rateLimitKey);
     if (!rateLimitLease.IsAcquired)
     {
+        var limit = tier == ExecutionTier.Guest ? guestRunsPerMinute : signedInRunsPerMinute;
         return Results.Json(
-            new { error = $"You have reached the limit of {guestRunsPerMinute} runs per minute. Please wait a moment and press Run again." },
+            new { error = $"You have reached the limit of {limit} runs per minute. Please wait a moment and press Run again." },
             statusCode: StatusCodes.Status429TooManyRequests);
     }
 
@@ -117,9 +127,10 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
     var queueTimeout = tier == ExecutionTier.Guest ? guestExecutionQueueTimeoutMilliseconds : executionQueueTimeoutMilliseconds;
     if (!await executionScheduler.WaitAsync(tier, TimeSpan.FromMilliseconds(queueTimeout), cancellationToken))
     {
-        return Results.Json(
-            new { error = "The code runner is busy right now. Please wait a few seconds and press Run again." },
-            statusCode: StatusCodes.Status503ServiceUnavailable);
+        var busyMessage = tier == ExecutionTier.Guest
+            ? "The code runner is busy right now. Please wait a few seconds and press Run again. Signed-in readers get priority."
+            : "The code runner is busy right now. Please wait a few seconds and press Run again.";
+        return Results.Json(new { error = busyMessage }, statusCode: StatusCodes.Status503ServiceUnavailable);
     }
 
     try
@@ -326,6 +337,12 @@ static string CleanOutput(string output)
         output.Split(Environment.NewLine)
             .Where(line => !line.StartsWith("An issue was encountered verifying workloads.", StringComparison.Ordinal) &&
                            !line.StartsWith("For more information, run \"dotnet workload update\".", StringComparison.Ordinal)));
+}
+
+static string? BearerToken(HttpRequest request)
+{
+    var header = request.Headers.Authorization.ToString();
+    return header.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase) ? header["Bearer ".Length..].Trim() : null;
 }
 
 static int PositiveIntSetting(string name, int fallback) =>

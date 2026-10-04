@@ -1,5 +1,6 @@
 services:
-  # Accounts, reading progress, and browser authoring. Student code never runs here.
+  # Browser authoring (load, save, commit notebooks) for Press authors. Accounts live in
+  # Press; requests carry Press-signed author passes. Student code never runs here.
   execution-api:
     build:
       context: ..
@@ -8,21 +9,12 @@ services:
       - "127.0.0.1:8080:8080"
     environment:
       CSCS_ALLOWED_ORIGINS: "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000"
-      CSCS_DB_CONNECTION: "Host=postgres;Port=5432;Database=cscs;Username=cscs;Password=${CSCS_DB_PASSWORD:?Set CSCS_DB_PASSWORD in execution/.env}"
-      CSCS_DATA_PROTECTION_PATH: "/data/keys"
       CSCS_BOOK_ROOT: "/workspace"
       CSCS_BACKUP_ROOT: "/data/notebook-backups"
-      CSCS_ADMIN_EMAILS: "${CSCS_ADMIN_EMAILS:-}"
-      CSCS_EXPOSE_PASSWORD_RESET_LINKS: "${CSCS_EXPOSE_PASSWORD_RESET_LINKS:-false}"
-      CSCS_LOG_PASSWORD_RESET_LINKS: "${CSCS_LOG_PASSWORD_RESET_LINKS:-false}"
-      CSCS_EXPOSE_EMAIL_VERIFICATION_LINKS: "${CSCS_EXPOSE_EMAIL_VERIFICATION_LINKS:-false}"
-      CSCS_LOG_EMAIL_VERIFICATION_LINKS: "${CSCS_LOG_EMAIL_VERIFICATION_LINKS:-false}"
-      SMTP_HOST: "${SMTP_HOST:-smtp.ionos.com}"
-      SMTP_PORT: "${SMTP_PORT:-587}"
-      SMTP_SECURITY: "${SMTP_SECURITY:-STARTTLS}"
-      SMTP_USERNAME: "${SMTP_USERNAME:-support@thinkcscs.org}"
-      SMTP_FROM: "${SMTP_FROM:-support@thinkcscs.org}"
-      SMTP_PASSWORD: "${SMTP_PASSWORD:?Set SMTP_PASSWORD in execution/.env}"
+      # Press pass public keys (not secret); the same keys the runner uses.
+      CSCS_RUN_PASS_PUBLIC_KEYS: "${CSCS_RUN_PASS_PUBLIC_KEYS:-}"
+      CSCS_AUTHOR_PASS_AUDIENCE: "cscs-authoring"
+      CSCS_RUN_PASS_BOOK: "cscs"
     volumes:
       - cscs-data:/data
       - ..:/workspace
@@ -35,31 +27,9 @@ services:
     cap_drop:
       - ALL
     pids_limit: 128
-    mem_limit: 384m
+    mem_limit: 256m
     cpus: 1.0
     restart: unless-stopped
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: "cscs"
-      POSTGRES_USER: "cscs"
-      POSTGRES_PASSWORD: "${CSCS_DB_PASSWORD:?Set CSCS_DB_PASSWORD in execution/.env}"
-    volumes:
-      - cscs-postgres-data:/var/lib/postgresql/data
-    security_opt:
-      - no-new-privileges:true
-    pids_limit: 128
-    mem_limit: 512m
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cscs -d cscs"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
 
   # The C# runner: the only place student code runs. Internal network only (no
   # internet, database, or host access), no volumes, no secrets in its environment.
@@ -70,10 +40,15 @@ services:
     environment:
       CSCS_ALLOWED_ORIGINS: "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000"
       CSCS_MAX_CONCURRENT_EXECUTIONS: "${CSCS_MAX_CONCURRENT_EXECUTIONS:-2}"
-      # Every reader is a guest until Press run passes exist, so guests may use all slots.
-      CSCS_GUEST_CONCURRENT_EXECUTIONS: "${CSCS_GUEST_CONCURRENT_EXECUTIONS:-2}"
+      # Guests may hold one of the two slots; the other stays free for signed-in readers.
+      CSCS_GUEST_CONCURRENT_EXECUTIONS: "${CSCS_GUEST_CONCURRENT_EXECUTIONS:-1}"
       CSCS_GUEST_RUNS_PER_MINUTE: "${CSCS_GUEST_RUNS_PER_MINUTE:-30}"
       CSCS_SIGNED_IN_RUNS_PER_MINUTE: "${CSCS_SIGNED_IN_RUNS_PER_MINUTE:-30}"
+      # Press run-pass public keys (comma-separated PEM bodies; not secret). Empty means
+      # every reader is a guest. See press/docs/RUN_PASSES.md.
+      CSCS_RUN_PASS_PUBLIC_KEYS: "${CSCS_RUN_PASS_PUBLIC_KEYS:-}"
+      CSCS_RUN_PASS_AUDIENCE: "cs-runner"
+      CSCS_RUN_PASS_BOOK: "cscs"
     networks:
       - runner
     init: true
@@ -120,4 +95,3 @@ networks:
 
 volumes:
   cscs-data:
-  cscs-postgres-data:

@@ -5,7 +5,7 @@ The service is split into three containers (`compose.yml`):
 ```text
 Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (127.0.0.1:8081) ─► cs-runner
                    │                               [default + runner networks]       [runner network only]
-                   └─ /cscs-exec/* ─────────────► execution-api (127.0.0.1:8080) ─► postgres
+                   └─ /cscs-exec/* ─────────────► execution-api (127.0.0.1:8080)
 ```
 
 - `cs-runner` (`runner/`) is the only place student code runs. It accepts
@@ -21,15 +21,19 @@ Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (
   forwards only `/v1/tasks/` and `/health` into `cs-runner`, because a container
   on an internal network cannot publish a port. It passes Apache's
   `X-Forwarded-For` through unchanged and runs no student code.
-- `execution-api` keeps accounts, reading progress, and browser authoring. It
-  holds the database and SMTP credentials and mounts the book workspace and an
-  SSH directory for authoring commits; none of that is reachable from student code.
+- `execution-api` is the browser-authoring API (load, save, and commit notebooks).
+  Accounts, sign-in, and reading progress live in Press; each authoring request carries
+  a Press-signed author pass, checked with Press's public key by
+  `shared/PressPassVerifier.cs` (also used by the runner). It mounts the book
+  workspace and an SSH directory for authoring commits; none of that is reachable from
+  student code. It has no database.
 
 Run limits: at most two runs at once (queued, with a 20-second wait for guests),
-an eight-second guest timeout, and 30 runs per minute per reader IP. Every reader
-is a guest until Press issues signed run passes (see
-`press/docs/PLATFORM_DECISIONS.md`); the runner holds no secret with which to check
-a sign-in cookie.
+an eight-second guest timeout, and 30 runs per minute per reader IP. A valid Press
+run pass (`Authorization: Bearer`, checked against the public keys in
+`CSCS_RUN_PASS_PUBLIC_KEYS`) gives the signed-in tier: priority, a fifteen-second
+timeout, and 30 runs per minute per user. The runner holds only public keys, so code
+inside it can verify passes but not create them. See `press/docs/RUN_PASSES.md`.
 
 Known limit: concurrent runs share one UID inside `cs-runner`, so a student program
 can see or disturb another run in progress or crash the server process, which

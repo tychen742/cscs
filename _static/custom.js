@@ -289,715 +289,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Account menu and development login UI for the database-backed API.
+// Browser authoring for Press authors. Sign-in, sign-out, and the account menu come from
+// Press's shared auth.js (loaded by thinkpress-config.js). This adds "Edit this page" to
+// that menu for authoring roles; authoring requests carry a Press-signed author pass.
 document.addEventListener('DOMContentLoaded', function () {
+    const onSite = location.hostname.endsWith('thinkcscs.org');
     const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
         window.CSCS_EXECUTION_API ||
-        (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
-    const sidebar = document.querySelector('.bd-sidebar-primary');
-    const accountHost =
-        document.querySelector('.article-header-buttons') ||
-        document.querySelector('.header-article-items__end') ||
-        sidebar?.querySelector('.sidebar-primary-items__end') ||
-        sidebar?.querySelector('.sidebar-primary-items__start') ||
-        sidebar;
-    if (!accountHost || document.querySelector('.cscs-account')) return;
+        (onSite ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
+    const runnerBaseUrl = localStorage.getItem('CSCS_RUNNER_API') ||
+        window.CSCS_RUNNER_API ||
+        (onSite ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8081');
+    // Press roles that may author; the authoring API enforces the same list.
+    const authorRoles = new Set(['admin', 'author', 'editor', 'instructor', 'ta']);
 
-    const account = document.createElement('div');
-    account.className = 'cscs-account cscs-account-topbar';
-    account.innerHTML = `
-        <button class="cscs-avatar" type="button" aria-label="Account" aria-expanded="false">
-            <span aria-hidden="true">●</span>
-        </button>
-        <div class="cscs-account-menu" hidden>
-            <button type="button" data-auth-action="login">Sign in</button>
-            <button type="button" data-auth-action="register">Sign up</button>
-        </div>`;
-    accountHost.appendChild(account);
-
-    const modal = document.createElement('div');
-    modal.className = 'cscs-auth-modal-backdrop';
-    modal.hidden = true;
-    modal.innerHTML = `
-        <section class="cscs-auth-modal" role="dialog" aria-modal="true" aria-labelledby="cscs-auth-title">
-            <header class="cscs-auth-header">
-                <h2 id="cscs-auth-title">Course account</h2>
-                <button type="button" class="cscs-auth-close" aria-label="Close">&times;</button>
-            </header>
-            <div class="cscs-auth-tabs" role="tablist">
-                <button type="button" data-auth-tab="login" role="tab">Sign in</button>
-                <button type="button" data-auth-tab="register" role="tab">Sign up</button>
-            </div>
-            <form class="cscs-auth-form" data-auth-form="login">
-                <label>University ID or email<input name="email" type="email" autocomplete="username" required></label>
-                <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
-                <button class="cscs-auth-link-button" type="button" data-auth-action="forgot-password">Forgot password?</button>
-                <button class="cscs-auth-submit" type="submit">Sign in</button>
-            </form>
-            <form class="cscs-auth-form" data-auth-form="register" hidden>
-                <label>Display name<input name="displayName" autocomplete="name" required></label>
-                <label>Email<input name="email" type="email" autocomplete="email" required></label>
-                <label>Password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
-                <label>Confirm password<input name="passwordConfirm" type="password" minlength="8" autocomplete="new-password" required></label>
-                <button class="cscs-auth-submit" type="submit">Create account</button>
-            </form>
-            <form class="cscs-auth-form" data-auth-form="reset-request" hidden>
-                <label>Email<input name="email" type="email" autocomplete="username" required></label>
-                <button class="cscs-auth-submit" type="submit">Send reset link</button>
-                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
-            </form>
-            <form class="cscs-auth-form" data-auth-form="reset-complete" hidden>
-                <input name="token" type="hidden">
-                <label>New password<input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
-                <button class="cscs-auth-submit" type="submit">Reset password</button>
-                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="login">Back to sign in</button>
-            </form>
-            <section class="cscs-auth-form cscs-verification-panel" data-auth-form="verification" hidden>
-                <p class="cscs-verification-message">Verifying your email...</p>
-                <button class="cscs-auth-submit" type="button" data-auth-mode="login">Sign in</button>
-            </section>
-            <form class="cscs-auth-form" data-auth-form="profile" hidden>
-                <label>Display name<input name="displayName" autocomplete="name" required></label>
-                <label>Email<input name="email" type="email" disabled></label>
-                <label>Institution<input name="institution" disabled></label>
-                <label>Institution ID<input name="institutionId" disabled></label>
-                <label>Academic year<input name="academicYear" disabled></label>
-                <label>Semester<input name="semester" disabled></label>
-                <label>Role<input name="role" disabled></label>
-                <button class="cscs-auth-submit" type="submit">Save profile</button>
-                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="change-password">Change password</button>
-            </form>
-            <form class="cscs-auth-form" data-auth-form="change-password" hidden>
-                <label>Current password<input name="currentPassword" type="password" autocomplete="current-password" required></label>
-                <label>New password<input name="newPassword" type="password" minlength="8" autocomplete="new-password" required></label>
-                <label>Confirm new password<input name="newPasswordConfirm" type="password" minlength="8" autocomplete="new-password" required></label>
-                <button class="cscs-auth-submit" type="submit">Change password</button>
-                <button class="cscs-auth-link-button cscs-auth-secondary" type="button" data-auth-mode="profile">Back to profile</button>
-            </form>
-            <section class="cscs-auth-form cscs-users-panel" data-auth-form="users" hidden>
-                <div class="cscs-users-list" aria-live="polite"></div>
-            </section>
-            <p class="cscs-auth-status" aria-live="polite"></p>
-        </section>`;
-    document.body.appendChild(modal);
-
-    const avatar = account.querySelector('.cscs-avatar');
-    const menu = account.querySelector('.cscs-account-menu');
-    const status = modal.querySelector('.cscs-auth-status');
-    let currentUser = null;
-
-    async function updateAccountMenu() {
-        try {
-            const response = await fetch(`${apiBaseUrl}/v1/auth/me`, { credentials: 'include' });
-            if (!response.ok) return;
-            const user = await response.json();
-            currentUser = user;
-            const initials = user.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
-            avatar.querySelector('span').textContent = initials;
-            avatar.classList.add('is-signed-in');
-            account.querySelector('.cscs-account-menu').innerHTML = `
-                <button type="button" data-account-action="Profile">Profile</button>
-                ${user.canAuthor ? '<button type="button" data-account-action="Author">Author</button>' : ''}
-                <button type="button" data-account-action="Attempts">Attempts</button>
-                <button type="button" data-account-action="Score Report">Score Report</button>
-                ${user.canManageUsers ? '<button type="button" data-account-action="Users">Users</button>' : ''}
-                <button type="button" data-account-action="Assignments">Assignments</button>
-                <button type="button" data-account-action="Log out">Log out</button>`;
-            account.querySelectorAll('[data-account-action]').forEach(button => {
-                button.addEventListener('click', async () => {
-                    if (button.dataset.accountAction !== 'Log out') {
-                        if (button.dataset.accountAction === 'Profile') {
-                            await showProfile();
-                            return;
-                        }
-                        if (button.dataset.accountAction === 'Author') {
-                            await enableAuthorMode();
-                            return;
-                        }
-                        if (button.dataset.accountAction === 'Users') {
-                            openAdminWorkspace('users');
-                            return;
-                        }
-                        status.textContent = `${button.dataset.accountAction} is not available yet.`;
-                        showModal('login');
-                        return;
-                    }
-                    await fetch(`${apiBaseUrl}/v1/auth/logout`, { method: 'POST', credentials: 'include' });
-                    window.location.reload();
-                });
-            });
-        } catch (_) {
-            // The book remains usable when the local API is offline.
-        }
-    }
-
-    function showModal(mode) {
-        modal.hidden = false;
-        menu.hidden = true;
-        avatar.setAttribute('aria-expanded', 'false');
-        setMode(mode);
-    }
-
-    function setMode(mode) {
-        modal.querySelector('.cscs-auth-modal').classList.toggle('cscs-auth-modal-wide', mode === 'users');
-        modal.querySelectorAll('[data-auth-tab]').forEach(tab => {
-            tab.classList.toggle('is-active', tab.dataset.authTab === mode);
-            tab.setAttribute('aria-selected', tab.dataset.authTab === mode ? 'true' : 'false');
-        });
-        modal.querySelectorAll('[data-auth-form]').forEach(form => {
-            form.hidden = form.dataset.authForm !== mode;
-        });
-        status.textContent = '';
-    }
-
-    function setStatus(message) {
-        status.textContent = message || '';
-    }
-
-    function openAdminWorkspace(section) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('cscsAdmin', section);
-        url.hash = '';
-        window.open(url.toString(), '_blank', 'noopener');
-        menu.hidden = true;
-        avatar.setAttribute('aria-expanded', 'false');
-    }
-
-    function getSearchToken(...names) {
-        const params = new URLSearchParams(window.location.search);
-        for (const name of names) {
-            const value = params.get(name);
-            if (value) return { name, value };
-        }
-        return null;
-    }
-
-    function removeSearchTokens(...names) {
-        const cleanUrl = new URL(window.location.href);
-        names.forEach(name => cleanUrl.searchParams.delete(name));
-        window.history.replaceState({}, '', cleanUrl);
-    }
-
-    async function confirmEmailVerification(token) {
-        const message = modal.querySelector('.cscs-verification-message');
-        showModal('verification');
-        message.textContent = 'Verifying your email...';
-        setStatus('');
-        try {
-            const response = await fetch(`${apiBaseUrl}/v1/auth/email-verification/confirm`, {
-                method: 'POST',
-                credentials: 'include',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token })
-            });
-            const result = await response.json().catch(() => ({}));
-            if (!response.ok) throw new Error(result.error || 'Email verification failed.');
-            message.textContent = result.message || 'Email verified. You can sign in now.';
-        } catch (error) {
-            message.textContent = error.message;
-        }
-    }
-
-    function closeAccountMenu() {
-        menu.hidden = true;
-        avatar.setAttribute('aria-expanded', 'false');
-    }
-
-    avatar.addEventListener('click', event => {
-        event.stopPropagation();
-        menu.hidden = !menu.hidden;
-        avatar.setAttribute('aria-expanded', String(!menu.hidden));
-    });
-    menu.addEventListener('click', event => {
-        event.stopPropagation();
-    });
-    document.addEventListener('click', event => {
-        if (!menu.hidden && !account.contains(event.target)) {
-            closeAccountMenu();
-        }
-    });
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && !menu.hidden) {
-            closeAccountMenu();
-        }
-    });
-    account.querySelectorAll('[data-auth-action]').forEach(button => {
-        button.addEventListener('click', () => {
-            const action = button.dataset.authAction;
-            showModal(action);
-        });
-    });
-    modal.querySelector('[data-auth-action="forgot-password"]').addEventListener('click', () => {
-        const loginEmail = modal.querySelector('[data-auth-form="login"] input[name="email"]').value;
-        modal.querySelector('[data-auth-form="reset-request"] input[name="email"]').value = loginEmail;
-        setMode('reset-request');
-    });
-    modal.querySelectorAll('[data-auth-mode]').forEach(button => {
-        button.addEventListener('click', () => setMode(button.dataset.authMode));
-    });
-    modal.querySelector('.cscs-auth-close').addEventListener('click', () => { modal.hidden = true; });
-    modal.addEventListener('click', event => { if (event.target === modal) modal.hidden = true; });
-    modal.querySelectorAll('[data-auth-tab]').forEach(tab => {
-        tab.addEventListener('click', () => setMode(tab.dataset.authTab));
-    });
-
-    modal.querySelectorAll('[data-auth-form]').forEach(form => {
-        form.addEventListener('submit', async event => {
+    function addAuthorMenuItem(session) {
+        if (!session?.authenticated || !authorRoles.has(session.user?.role)) return;
+        const account = document.getElementById('thinkpress-account');
+        const menu = account?.querySelector('nav');
+        if (!menu || menu.querySelector('[data-cscs-author]')) return;
+        const edit = document.createElement('a');
+        edit.href = '#';
+        edit.textContent = 'Edit this page';
+        edit.dataset.cscsAuthor = 'true';
+        edit.addEventListener('click', event => {
             event.preventDefault();
-            const formData = Object.fromEntries(new FormData(form));
-            const mode = form.dataset.authForm;
-            const isRegister = mode === 'register';
-            const isLogin = mode === 'login';
-            let endpoint = '/v1/auth/login';
-            if (isRegister) endpoint = '/v1/auth/register';
-            if (mode === 'profile') endpoint = '/v1/account/profile';
-            if (mode === 'change-password') endpoint = '/v1/account/password';
-            if (mode === 'reset-request') endpoint = '/v1/auth/password-reset/request';
-            if (mode === 'reset-complete') endpoint = '/v1/auth/password-reset/complete';
-            if (isRegister && formData.password !== formData.passwordConfirm) {
-                status.textContent = 'Passwords do not match.';
-                return;
-            }
-            if (mode === 'change-password' && formData.newPassword !== formData.newPasswordConfirm) {
-                status.textContent = 'New passwords do not match.';
-                return;
-            }
-            delete formData.passwordConfirm;
-            delete formData.newPasswordConfirm;
-            if (isRegister) formData.pageUrl = window.location.href;
-            if (mode === 'reset-request') formData.pageUrl = window.location.href;
-            const submit = form.querySelector('.cscs-auth-submit');
-            submit.disabled = true;
-            status.textContent = 'Working...';
-            try {
-                const response = await fetch(`${apiBaseUrl}${endpoint}`, {
-                    method: mode === 'profile' || mode === 'change-password' ? 'PUT' : 'POST',
-                    credentials: 'include',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                const result = await response.json().catch(() => ({}));
-                if (!response.ok) throw new Error(result.error || 'The account request failed.');
-                if (mode === 'reset-request') {
-                    if (result.resetToken) {
-                        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = result.resetToken;
-                        setMode('reset-complete');
-                        status.textContent = 'Development reset link created. Enter a new password.';
-                    } else {
-                        status.textContent = result.message || 'If an account exists for that email, a password reset link has been created.';
-                    }
-                    return;
-                }
-                if (mode === 'reset-complete') {
-                    setMode('login');
-                    status.textContent = result.message || 'Password reset. Sign in with your new password.';
-                    return;
-                }
-                if (mode === 'profile') {
-                    currentUser = result;
-                    avatar.querySelector('span').textContent = result.displayName.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
-                    status.textContent = 'Profile saved.';
-                    return;
-                }
-                if (mode === 'change-password') {
-                    form.reset();
-                    setMode('profile');
-                    status.textContent = result.message || 'Password changed.';
-                    return;
-                }
-                if (isRegister) {
-                    setMode('login');
-                    status.textContent = result.message || 'Account created. Check your email to verify your account before signing in.';
-                    return;
-                }
-                status.textContent = 'Signed in.';
-                if (isLogin) {
-                    avatar.classList.add('is-signed-in');
-                    await updateAccountMenu();
-                    window.setTimeout(() => {
-                        modal.hidden = true;
-                    }, 450);
-                }
-            } catch (error) {
-                status.textContent = error.message;
-            } finally {
-                submit.disabled = false;
-            }
+            account.open = false;
+            enableAuthorMode();
         });
-    });
-
-    const reset = getSearchToken('resetToken', 'passwordResetToken');
-    if (reset) {
-        modal.querySelector('[data-auth-form="reset-complete"] input[name="token"]').value = reset.value;
-        showModal('reset-complete');
-        status.textContent = 'Enter a new password to finish resetting your account.';
-        removeSearchTokens('resetToken', 'passwordResetToken');
+        menu.prepend(edit);
     }
-    const verification = getSearchToken('verifyToken', 'verificationToken', 'emailVerificationToken');
-    if (verification) {
-        confirmEmailVerification(verification.value);
-        removeSearchTokens('verifyToken', 'verificationToken', 'emailVerificationToken');
-    }
-    updateAccountMenu();
-    const adminSection = new URLSearchParams(window.location.search).get('cscsAdmin');
-    if (adminSection) {
-        showAdminWorkspace(adminSection);
-    }
+    if (window.thinkpressSession) addAuthorMenuItem(window.thinkpressSession);
+    document.addEventListener('thinkpress:session', event => addAuthorMenuItem(event.detail));
 
-    async function showProfile() {
-        showModal('profile');
-        setStatus('Loading profile...');
-        try {
-            const response = await fetch(`${apiBaseUrl}/v1/account/profile`, { credentials: 'include' });
-            const user = await response.json().catch(() => ({}));
-            if (!response.ok) throw new Error(user.error || 'Profile could not be loaded.');
-            currentUser = user;
-            const form = modal.querySelector('[data-auth-form="profile"]');
-            form.elements.displayName.value = user.displayName || '';
-            form.elements.email.value = user.email || '';
-            form.elements.institution.value = formatInstitution(user.institution);
-            form.elements.institutionId.value = user.institutionId || '';
-            form.elements.academicYear.value = formatAcademicYear(user.academicYear);
-            form.elements.semester.value = formatSemester(user.semester);
-            form.elements.role.value = user.role || '';
-            setStatus('');
-        } catch (error) {
-            setStatus(error.message);
-        }
-    }
-
-    async function showUsers() {
-        showModal('users');
-        setStatus('Loading users...');
-        const list = modal.querySelector('.cscs-users-list');
-        list.textContent = '';
-        try {
-            const response = await fetch(`${apiBaseUrl}/v1/admin/users`, { credentials: 'include' });
-            const users = await response.json().catch(() => []);
-            if (!response.ok) throw new Error(users.error || 'Users could not be loaded.');
-            renderUsers(users);
-            setStatus('');
-        } catch (error) {
-            setStatus(error.message);
-        }
-    }
-
-    function renderUsers(users) {
-        const list = modal.querySelector('.cscs-users-list');
-        const institutions = ['Unknown', 'MissouriST', 'UniversityOfMissouriSystem'];
-        const semesters = ['Spring', 'Summer', 'Fall'];
-        const roles = ['Student', 'TA', 'Instructor', 'Editor', 'Author', 'Admin'];
-        list.innerHTML = users.map(user => `
-            <div class="cscs-user-row" data-user-id="${user.id}">
-                <div class="cscs-user-main">
-                    <strong>${escapeHtml(user.displayName || user.email)}</strong>
-                    <span>${escapeHtml(user.email)}</span>
-                    <span>${formatInstitution(user.institution)}${user.institutionId ? ` (${escapeHtml(user.institutionId)})` : ''} · ${formatTerm(user.academicYear, user.semester)} · ${user.isEmailVerified ? 'Verified' : 'Unverified'}</span>
-                </div>
-                <div class="cscs-user-controls">
-                    <select data-user-field="institution" aria-label="Institution for ${escapeHtml(user.email)}">
-                        ${institutions.map(institution => `<option value="${institution}" ${institution === user.institution ? 'selected' : ''}>${formatInstitution(institution)}</option>`).join('')}
-                    </select>
-                    <input data-user-field="academicYear" value="${escapeHtml(user.academicYear || '')}" inputmode="numeric" maxlength="4" aria-label="Academic year for ${escapeHtml(user.email)}">
-                    <select data-user-field="semester" aria-label="Semester for ${escapeHtml(user.email)}">
-                        ${semesters.map(semester => `<option value="${semester}" ${semester === user.semester ? 'selected' : ''}>${formatSemester(semester)}</option>`).join('')}
-                    </select>
-                    <select data-user-field="role" aria-label="Role for ${escapeHtml(user.email)}">
-                        ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
-                    </select>
-                </div>
-            </div>
-        `).join('');
-        list.querySelectorAll('.cscs-user-row select').forEach(select => {
-            select.addEventListener('change', async () => {
-                const row = select.closest('.cscs-user-row');
-                const body = select.dataset.userField === 'institution'
-                    ? { institution: select.value }
-                    : select.dataset.userField === 'semester'
-                        ? { semester: select.value }
-                        : { role: select.value };
-                select.disabled = true;
-                setStatus('Saving user...');
-                try {
-                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
-                        method: 'PATCH',
-                        credentials: 'include',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(body)
-                    });
-                    const result = await response.json().catch(() => ({}));
-                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
-                    setStatus('User saved.');
-                } catch (error) {
-                    setStatus(error.message);
-                } finally {
-                    select.disabled = false;
-                }
-            });
-        });
-    }
-
-    async function showAdminWorkspace(section) {
-        let workspace = document.querySelector('.cscs-admin-workspace');
-        if (!workspace) {
-            workspace = document.createElement('div');
-            workspace.className = 'cscs-admin-workspace';
-            workspace.innerHTML = `
-                <header class="cscs-admin-header">
-                    <div>
-                        <p class="cscs-admin-kicker">Course admin</p>
-                        <h1>Users</h1>
-                    </div>
-                    <nav class="cscs-admin-nav" aria-label="Admin sections">
-                        <button type="button" data-admin-section="users">Users</button>
-                        <button type="button" disabled>Attempts</button>
-                        <button type="button" disabled>Score Report</button>
-                        <button type="button" disabled>Assignments</button>
-                    </nav>
-                    <button class="cscs-admin-close" type="button">Back to book</button>
-                </header>
-                <main class="cscs-admin-main">
-                    <section class="cscs-admin-panel">
-                        <div class="cscs-admin-toolbar">
-                            <input type="search" placeholder="Filter users" aria-label="Filter users">
-                            <span class="cscs-admin-status" aria-live="polite"></span>
-                        </div>
-                        <div class="cscs-admin-content"></div>
-                    </section>
-                </main>`;
-            document.body.appendChild(workspace);
-            workspace.querySelector('.cscs-admin-close').addEventListener('click', () => {
-                const cleanUrl = new URL(window.location.href);
-                cleanUrl.searchParams.delete('cscsAdmin');
-                window.location.href = cleanUrl.toString();
-            });
-        }
-
-        document.body.classList.add('cscs-admin-open');
-        workspace.querySelectorAll('[data-admin-section]').forEach(button => {
-            button.classList.toggle('is-active', button.dataset.adminSection === section);
-        });
-        if (section === 'users') {
-            await loadAdminUsers(workspace);
-        } else {
-            workspace.querySelector('.cscs-admin-content').innerHTML = '<p class="cscs-admin-empty">This admin section is not available yet.</p>';
-        }
-    }
-
-    async function loadAdminUsers(workspace) {
-        const status = workspace.querySelector('.cscs-admin-status');
-        const content = workspace.querySelector('.cscs-admin-content');
-        const filter = workspace.querySelector('.cscs-admin-toolbar input');
-        const institutions = ['Unknown', 'MissouriST', 'UniversityOfMissouriSystem'];
-        const semesters = ['Spring', 'Summer', 'Fall'];
-        const roles = ['Student', 'TA', 'Instructor', 'Editor', 'Author', 'Admin'];
-        status.textContent = 'Loading users...';
-        content.innerHTML = '';
-
-        try {
-            const response = await fetch(`${apiBaseUrl}/v1/admin/users`, { credentials: 'include' });
-            const users = await response.json().catch(() => []);
-            if (!response.ok) throw new Error(users.error || 'Users could not be loaded.');
-
-            const render = () => {
-                const query = filter.value.trim().toLowerCase();
-                const visibleUsers = users.filter(user => {
-                    const haystack = `${user.displayName || ''} ${user.email || ''} ${user.role || ''} ${formatInstitution(user.institution)} ${user.institutionId || ''} ${formatTerm(user.academicYear, user.semester)}`.toLowerCase();
-                    return haystack.includes(query);
-                });
-                content.innerHTML = `
-                    <div class="cscs-admin-users-table" role="table" aria-label="Course users">
-                        <div class="cscs-admin-users-head" role="row">
-                            <span role="columnheader">Name</span>
-                            <span role="columnheader">Email</span>
-                            <span role="columnheader">Institution</span>
-                            <span role="columnheader">Institution ID</span>
-                            <span role="columnheader">Academic Year</span>
-                            <span role="columnheader">Semester</span>
-                            <span role="columnheader">Role</span>
-                            <span role="columnheader">Verified</span>
-                            <span role="columnheader">Created</span>
-                        </div>
-                        ${visibleUsers.map(user => `
-                            <div class="cscs-admin-user-row" role="row" data-user-id="${user.id}">
-                                <span role="cell">${escapeHtml(user.displayName || '')}</span>
-                                <span role="cell">${escapeHtml(user.email || '')}</span>
-                                <span role="cell">
-                                    <select data-user-field="institution" aria-label="Institution for ${escapeHtml(user.email || '')}">
-                                        ${institutions.map(institution => `<option value="${institution}" ${institution === user.institution ? 'selected' : ''}>${formatInstitution(institution)}</option>`).join('')}
-                                    </select>
-                                </span>
-                                <span role="cell">
-                                    <input data-user-field="institutionId" value="${escapeHtml(user.institutionId || '')}" maxlength="64" aria-label="Institution ID for ${escapeHtml(user.email || '')}">
-                                </span>
-                                <span role="cell">
-                                    <input data-user-field="academicYear" value="${escapeHtml(user.academicYear || '')}" inputmode="numeric" maxlength="4" aria-label="Academic year for ${escapeHtml(user.email || '')}">
-                                </span>
-                                <span role="cell">
-                                    <select data-user-field="semester" aria-label="Semester for ${escapeHtml(user.email || '')}">
-                                        ${semesters.map(semester => `<option value="${semester}" ${semester === user.semester ? 'selected' : ''}>${formatSemester(semester)}</option>`).join('')}
-                                    </select>
-                                </span>
-                                <span role="cell">
-                                    <select data-user-field="role" aria-label="Role for ${escapeHtml(user.email || '')}">
-                                        ${roles.map(role => `<option value="${role}" ${role === user.role ? 'selected' : ''}>${role}</option>`).join('')}
-                                    </select>
-                                </span>
-                                <span role="cell">${formatDate(user.emailVerifiedUtc)}</span>
-                                <span role="cell">${formatDate(user.createdUtc)}</span>
-                            </div>
-                        `).join('')}
-                    </div>`;
-                if (!visibleUsers.length) {
-                    content.innerHTML = '<p class="cscs-admin-empty">No users match that filter.</p>';
-                }
-                bindAdminRoleControls(workspace, users);
-                status.textContent = `${visibleUsers.length} user${visibleUsers.length === 1 ? '' : 's'}`;
-            };
-
-            filter.oninput = render;
-            render();
-        } catch (error) {
-            status.textContent = '';
-            content.innerHTML = `<p class="cscs-admin-empty">${escapeHtml(error.message)}</p>`;
-        }
-    }
-
-    function bindAdminRoleControls(workspace, users) {
-        const status = workspace.querySelector('.cscs-admin-status');
-        workspace.querySelectorAll('.cscs-admin-user-row select').forEach(select => {
-            select.addEventListener('change', async () => {
-                const row = select.closest('.cscs-admin-user-row');
-                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
-                const field = select.dataset.userField;
-                const previousValue = field === 'institution' ? user?.institution : field === 'semester' ? user?.semester : user?.role;
-                const body = field === 'institution'
-                    ? { institution: select.value }
-                    : field === 'semester'
-                        ? { semester: select.value }
-                    : { role: select.value };
-                select.disabled = true;
-                status.textContent = 'Saving user...';
-                try {
-                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
-                        method: 'PATCH',
-                        credentials: 'include',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(body)
-                    });
-                    const result = await response.json().catch(() => ({}));
-                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
-                    if (user && field === 'institution') {
-                        user.institution = result.institution || select.value;
-                        user.institutionId = result.institutionId || '';
-                        const idInput = row.querySelector('input[data-user-field="institutionId"]');
-                        if (idInput) idInput.value = user.institutionId;
-                    }
-                    if (user && field === 'role') user.role = select.value;
-                    if (user && field === 'semester') user.semester = select.value;
-                    status.textContent = 'User saved.';
-                } catch (error) {
-                    if (previousValue) select.value = previousValue;
-                    status.textContent = error.message;
-                } finally {
-                    select.disabled = false;
-                }
-            });
-        });
-        workspace.querySelectorAll('.cscs-admin-user-row input[data-user-field="institutionId"]').forEach(input => {
-            input.addEventListener('change', async () => {
-                const row = input.closest('.cscs-admin-user-row');
-                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
-                const previousValue = user?.institutionId || '';
-                input.disabled = true;
-                status.textContent = 'Saving user...';
-                try {
-                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
-                        method: 'PATCH',
-                        credentials: 'include',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ institutionId: input.value })
-                    });
-                    const result = await response.json().catch(() => ({}));
-                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
-                    if (user) user.institutionId = input.value.trim();
-                    status.textContent = 'User saved.';
-                } catch (error) {
-                    input.value = previousValue;
-                    status.textContent = error.message;
-                } finally {
-                    input.disabled = false;
-                }
-            });
-        });
-        workspace.querySelectorAll('.cscs-admin-user-row input[data-user-field="academicYear"]').forEach(input => {
-            input.addEventListener('change', async () => {
-                const row = input.closest('.cscs-admin-user-row');
-                const user = users.find(candidate => String(candidate.id) === row.dataset.userId);
-                const previousValue = String(user?.academicYear || '');
-                input.disabled = true;
-                status.textContent = 'Saving user...';
-                try {
-                    const response = await fetch(`${apiBaseUrl}/v1/admin/users/${row.dataset.userId}`, {
-                        method: 'PATCH',
-                        credentials: 'include',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ academicYear: Number(input.value) })
-                    });
-                    const result = await response.json().catch(() => ({}));
-                    if (!response.ok) throw new Error(result.error || 'User could not be saved.');
-                    if (user) user.academicYear = Number(input.value);
-                    status.textContent = 'User saved.';
-                } catch (error) {
-                    input.value = previousValue;
-                    status.textContent = error.message;
-                } finally {
-                    input.disabled = false;
-                }
-            });
-        });
-    }
-
-    function escapeHtml(value) {
-        return String(value).replace(/[&<>"']/g, char => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#39;'
-        }[char]));
-    }
-
-    function formatInstitution(value) {
-        const labels = {
-            Unknown: 'Unknown',
-            MissouriST: 'Missouri S&T',
-            UniversityOfMissouriSystem: 'UM System'
-        };
-        return labels[value] || value || 'Unknown';
-    }
-
-    function formatDate(value) {
-        if (!value) return 'Not yet';
-        const date = new Date(value);
-        if (Number.isNaN(date.getTime())) return 'Not yet';
-        return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-    }
-
-    function formatAcademicYear(value) {
-        const year = Number(value);
-        if (!Number.isInteger(year) || year <= 0) return '';
-        return `${year}-${String(year + 1).slice(-2)}`;
-    }
-
-    function formatSemester(value) {
-        return value || 'Unknown';
-    }
-
-    function formatTerm(academicYear, semester) {
-        const year = formatAcademicYear(academicYear);
-        const label = formatSemester(semester);
-        return year ? `${label} ${year}` : label;
+    async function authorHeaders(extra = {}) {
+        const passHeader = window.cscsPress ? await window.cscsPress.authHeader('author') : {};
+        return { ...extra, ...passHeader };
     }
 
     async function enableAuthorMode() {
@@ -1006,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/\.html$/, '.ipynb');
         try {
             const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/source?path=${encodeURIComponent(path)}`, {
-                credentials: 'include'
+                headers: await authorHeaders()
             });
             if (!response.ok) throw new Error('The notebook source could not be loaded.');
             const notebook = await response.json();
@@ -1261,8 +588,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 const response = await fetch(`${apiBaseUrl}/v1/admin/notebooks/save`, {
                     method: 'POST',
-                    credentials: 'include',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: await authorHeaders({ 'Content-Type': 'application/json' }),
                     body: JSON.stringify({ path: state.path, content: JSON.stringify(state.notebook, null, 1) })
                 });
                 const text = await response.text();
@@ -1294,8 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
             try {
                 const response = await fetch(`${apiBaseUrl}/v1/admin/git/sync`, {
                     method: 'POST',
-                    credentials: 'include',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: await authorHeaders({ 'Content-Type': 'application/json' }),
                     body: JSON.stringify({ message: `Browser authoring updates from ${document.title || location.pathname}` })
                 });
                 const text = await response.text();
@@ -1535,9 +860,10 @@ document.addEventListener('DOMContentLoaded', function () {
         output.hidden = false;
         output.textContent = '';
         try {
-            const response = await fetch(`${apiBaseUrl}/v1/tasks/browser-inserted-cell/execute`, {
+            const passHeader = window.cscsPress ? await window.cscsPress.authHeader('run') : {};
+            const response = await fetch(`${runnerBaseUrl}/v1/tasks/browser-inserted-cell/execute`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', ...passHeader },
                 body: JSON.stringify({ code: editor.value })
             });
             const result = await response.json().catch(() => ({}));
@@ -1740,9 +1066,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const storageKey = 'cscs:lastReadingPage';
     const pendingScrollKey = 'cscs:pendingScroll';
     const bookId = 'cscs';
-    const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
-        window.CSCS_EXECUTION_API ||
-        (location.hostname.endsWith('thinkcscs.org') ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
+    // Signed-in readers' progress is kept in Press; everyone also keeps a local copy.
+    const pressBackend = window.cscsPress?.backend ?? '';
+    const progressUrl = `${pressBackend}/api/books/${bookId}/progress`;
+    const signedIn = () => Boolean(window.thinkpressSession?.authenticated);
     function currentPageUrl() {
         return window.location.pathname + window.location.search + window.location.hash;
     }
@@ -1819,31 +1146,47 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function syncProgress(progress) {
-        if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl)) return;
+        if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl) || !signedIn()) return;
         try {
-            const response = await fetch(`${apiBaseUrl}/v1/progress/reading`, {
+            const response = await fetch(progressUrl, {
                 method: 'POST',
                 credentials: 'include',
                 keepalive: true,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(progress)
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': window.thinkpressSession.csrf_token || '' },
+                body: JSON.stringify({
+                    page_url: progress.pageUrl,
+                    page_title: progress.pageTitle,
+                    scroll_position: Math.round(progress.scrollY || 0)
+                })
             });
             if (response.ok) {
-                const remote = await response.json();
-                writeLocalProgress(normalizeProgress(remote));
+                const remote = fromPress((await response.json()).progress);
+                if (remote) writeLocalProgress(remote);
             }
         } catch (_) {
             // Anonymous readers and offline local builds keep browser-local progress.
         }
     }
 
+    // Press stores progress as {page_url, page_title, scroll_position, updated_at}.
+    function fromPress(progress) {
+        if (!progress?.page_url) return null;
+        return normalizeProgress({
+            bookId,
+            pageUrl: progress.page_url,
+            pageTitle: progress.page_title,
+            scrollY: progress.scroll_position,
+            updatedUtc: progress.updated_at
+        });
+    }
+
     async function loadRemoteProgress() {
+        if (!signedIn()) return;
         try {
-            const response = await fetch(`${apiBaseUrl}/v1/progress/reading`, { credentials: 'include' });
-            if (response.status === 204 || response.status === 401 || response.status === 403) return;
+            const response = await fetch(progressUrl, { credentials: 'include', cache: 'no-store' });
             if (!response.ok) return;
-            const remote = normalizeProgress(await response.json());
-            if (!isTrackablePageUrl(remote.pageUrl)) return;
+            const remote = fromPress((await response.json()).progress);
+            if (!remote || !isTrackablePageUrl(remote.pageUrl)) return;
             const local = readLocalProgress();
             if (!local || Date.parse(remote.updatedUtc) > Date.parse(local.updatedUtc || 0)) {
                 writeLocalProgress(remote);
@@ -1943,7 +1286,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const progress = saveLocalProgress();
         syncProgress(progress);
     }
+    // Press's account script reports the session after the page loads; fetch the reader's
+    // saved progress then (and right away if it is already known).
     loadRemoteProgress();
+    document.addEventListener('thinkpress:session', () => loadRemoteProgress(), { once: true });
 });
 
 

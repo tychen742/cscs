@@ -1,8 +1,8 @@
 # C# execution service
 
 This service executes textbook code cells in an isolated C# runner container
-(`cs-runner`) and hosts CSCS accounts, reading progress, and browser authoring
-(`execution-api`). It does not use Binder or .NET Interactive. Each chapter
+(`cs-runner`) and hosts browser authoring (`execution-api`). Accounts and reading
+progress live in Press; see `press/docs/RUN_PASSES.md`. It does not use Binder or .NET Interactive. Each chapter
 activity can use a separate task ID. See `ARCHITECTURE.md` for the container
 layout and `REQUIREMENTS.md` for the execution requirements.
 
@@ -49,69 +49,9 @@ code runs only in `cs-runner`, which has no secrets, no volumes, and no network
 access beyond its gateway. Every reader is a guest (per-IP limits) until Press
 run passes exist.
 
-The Compose setup runs Postgres as a sibling `postgres` service, with data in
-the named `cscs-postgres-data` volume. Schema changes go through EF Core
-Migrations (`dotnet ef migrations add ...`); the API applies pending
-migrations automatically at startup via `Database.Migrate()`.
-
-## Authentication API
-
-The initial database-backed account flow is:
-
-```text
-POST /v1/auth/register  create an account
-POST /v1/auth/login     create an HTTP-only cookie session
-POST /v1/auth/email-verification/confirm  verify a new account email
-POST /v1/auth/password-reset/request   create and email a password reset link
-POST /v1/auth/password-reset/complete  set a new password from a reset token
-GET  /v1/auth/me        return the current authenticated user
-POST /v1/auth/logout    clear the session
-GET  /v1/account/profile  return the current user's account profile
-PUT  /v1/account/profile  update the current user's display name
-PUT  /v1/account/password  change the current user's password
-```
-
-Passwords are stored as PBKDF2 hashes, never plaintext. Postgres stores
-account data, and ASP.NET data-protection keys are persisted in the `cscs-data`
-volume so sessions survive API container restarts.
-
-Password reset tokens are stored only as SHA-256 hashes and expire after 2
-hours. If SMTP is configured, the API emails the reset link. In development,
-or when `CSCS_EXPOSE_PASSWORD_RESET_LINKS=true`, the request endpoint also
-returns the reset token/link so the browser modal can be tested without email.
-New accounts must verify their email address before sign-in. Verification
-tokens are also stored only as SHA-256 hashes and expire after 2 days.
-
-User management is role-gated. Users whose effective role is `Admin` or
-`Instructor` can call:
-
-```text
-GET   /v1/admin/users       list user account profiles
-PATCH /v1/admin/users/{id}  update a user's database role or institution
-```
-
-Roles are stored as the `UserRole` enum (`Student`, `TA`, `Instructor`,
-`Editor`, `Author`, `Admin`). Institutions are stored as the `Institution` enum
-(`Unknown`, `MissouriST`, `UniversityOfMissouriSystem`) plus an optional
-`InstitutionId` string for the campus/system identifier. New accounts infer an
-initial institution and institution ID from the email domain when possible.
-Course term metadata is stored as `AcademicYear` (the starting calendar year of
-the academic year, such as `2026` for 2026-2027) and the `Semester` enum
-(`Unknown`, `Spring`, `Summer`, `Fall`).
-
-## Reading progress API
-
-Anonymous reading continuity is stored in the browser with `localStorage`.
-Logged-in reading continuity is stored in Postgres and keyed to the
-authenticated user:
-
-```text
-GET  /v1/progress/reading   return the user's last reading page
-POST /v1/progress/reading   save page URL, title, scroll position, and timestamp
-```
-
-The authentication cookie identifies the user. The cookie does not store
-reading progress; it only lets the API read and update the database record.
+There is no CSCS database: accounts, sign-in, and reading progress live in Press
+(since 2026-10-04). The old `cscs-postgres-data` volume may still exist on servers
+until it is deleted by hand.
 
 ## Notebook validation
 
@@ -132,11 +72,13 @@ management, rate limits, and account recovery before public release.
 
 ## Admin notebook save
 
-Authoring access is controlled by the `UserAccount.Role` enum in the database:
-`Student`, `TA`, `Instructor`, `Editor`, `Author`, or `Admin`. Set
-`CSCS_ADMIN_EMAILS` only as a bootstrap/emergency list for trusted
-administrators before role management UI is available. After login, a user with
-the `Admin`, `Author`, `Editor`, `Instructor`, or `TA` role can call:
+Authoring requests carry `Authorization: Bearer <author pass>`, a short-lived pass
+signed by Press for accounts whose Press role is `admin`, `author`, `editor`,
+`instructor`, or `ta` (`POST /api/author-pass` on Press; see
+`press/docs/RUN_PASSES.md`). The API checks the pass with Press's public key
+(`CSCS_RUN_PASS_PUBLIC_KEYS`), answers 401 without a valid pass and 403 for other
+roles, and records the pass's email as the commit author. In the book, authors use
+"Edit this page" in the account menu. Endpoints:
 
 ```text
 POST /v1/admin/notebooks/save
@@ -177,18 +119,6 @@ HTML to `/var/www/cscs/`, and updates the server-side authoring checkout from
 browser-authored changes, the workflow stops so those changes can be synced or
 resolved explicitly.
 
-Both endpoints require an authenticated user whose database role is `Admin`,
-`Author`, `Editor`, `Instructor`, or `TA`. Emails listed in `CSCS_ADMIN_EMAILS`
-are treated as effective admins as a bootstrap/emergency override.
 The book build adds stable `data-cscs-cell-id` and `data-cscs-cell-index`
 attributes through `_ext/notebook_cell_metadata.py`, allowing the browser
 editor to map rendered code and markdown cells back to the original notebook.
-
-## SMTP configuration
-
-IONOS configuration is represented in `.env.example`. Copy it to `.env` and
-set `SMTP_PASSWORD` locally; Docker Compose reads the values from that file.
-The real `.env` file must never be committed. Use server or deployment secrets
-for the password in production. Password reset email uses these same SMTP
-settings. If SMTP is unavailable, set `CSCS_LOG_PASSWORD_RESET_LINKS=true`
-temporarily to log reset links server-side for administrator-assisted recovery.

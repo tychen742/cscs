@@ -72,6 +72,7 @@ sphinx:
       - custom.css
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
+      - thinkpress-config.js
       - custom.js
       - execution.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

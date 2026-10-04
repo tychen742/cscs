@@ -190,9 +190,12 @@ function initializeCsharpExecution() {
 
             try {
                 const currentCode = editor.value;
+                // A Press run pass gives signed-in readers priority and a longer timeout;
+                // without one (signed out, or Press unreachable) the run is a guest run.
+                const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
                 const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: { "Content-Type": "application/json", ...passHeader },
                     body: JSON.stringify({
                         code: currentCode,
                         stdin: collectStdin()
