@@ -4,9 +4,11 @@ using System.Net.Mail;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Text.Json;
+using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
 const int maxCellCount = 20;
@@ -24,7 +26,9 @@ const string TypesOnlyMessage =
 const int maxCodeLength = 100_000;
 const int maxStdinLength = 10_000;
 const int executionTimeoutMilliseconds = 15_000;
+const int guestExecutionTimeoutMilliseconds = 8_000;
 const int executionQueueTimeoutMilliseconds = 30_000;
+const int guestExecutionQueueTimeoutMilliseconds = 20_000;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
@@ -32,10 +36,21 @@ var databaseConnectionString = Environment.GetEnvironmentVariable("CSCS_DB_CONNE
     ?? throw new InvalidOperationException("CSCS_DB_CONNECTION must be set to a Postgres connection string.");
 // Each run is a full `dotnet run` build, so cap simultaneous runs (default: one per
 // CPU core) and make extra requests wait in line instead of competing for the host.
-var maxConcurrentExecutions = int.TryParse(Environment.GetEnvironmentVariable("CSCS_MAX_CONCURRENT_EXECUTIONS"), out var configuredConcurrency) && configuredConcurrency > 0
-    ? configuredConcurrency
-    : 2;
-var executionGate = new SemaphoreSlim(maxConcurrentExecutions, maxConcurrentExecutions);
+// Guests (not signed in) get a smaller share: fewer slots, lower priority, shorter
+// timeouts, and a per-IP rate limit. See press/docs/PLATFORM_DECISIONS.md.
+var maxConcurrentExecutions = PositiveIntSetting("CSCS_MAX_CONCURRENT_EXECUTIONS", 2);
+var guestConcurrentExecutions = Math.Min(PositiveIntSetting("CSCS_GUEST_CONCURRENT_EXECUTIONS", 1), maxConcurrentExecutions);
+var executionScheduler = new ExecutionScheduler(maxConcurrentExecutions, guestConcurrentExecutions);
+var guestRunsPerMinute = PositiveIntSetting("CSCS_GUEST_RUNS_PER_MINUTE", 30);
+var signedInRunsPerMinute = PositiveIntSetting("CSCS_SIGNED_IN_RUNS_PER_MINUTE", 30);
+var runRateLimiter = PartitionedRateLimiter.Create<string, string>(key =>
+    RateLimitPartition.GetSlidingWindowLimiter(key, partitionKey => new SlidingWindowRateLimiterOptions
+    {
+        PermitLimit = partitionKey.StartsWith("guest:", StringComparison.Ordinal) ? guestRunsPerMinute : signedInRunsPerMinute,
+        Window = TimeSpan.FromMinutes(1),
+        SegmentsPerWindow = 6,
+        QueueLimit = 0
+    }));
 var dataProtectionPath = Environment.GetEnvironmentVariable("CSCS_DATA_PROTECTION_PATH") ?? "/tmp/cscs-keys";
 Directory.CreateDirectory(dataProtectionPath);
 var adminEmails = (Environment.GetEnvironmentVariable("CSCS_ADMIN_EMAILS") ?? string.Empty)
@@ -83,12 +98,23 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         };
     });
 builder.Services.AddAuthorization();
+// The API port is published on 127.0.0.1 only, so every request arrives through the
+// host's Apache proxy. Trust its X-Forwarded-For so guest rate limits see the reader's
+// IP; ForwardLimit = 1 takes only the address Apache appended, not client-supplied ones.
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor;
+    options.ForwardLimit = 1;
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var database = scope.ServiceProvider.GetRequiredService<CscsDbContext>();
     database.Database.Migrate();
 }
+app.UseForwardedHeaders();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -540,7 +566,7 @@ app.MapPost("/v1/progress/reading", async (ReadingProgressRequest request, Claim
     });
 }).RequireAuthorization();
 
-app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest request, CancellationToken cancellationToken) =>
+app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest request, HttpContext httpContext, CancellationToken cancellationToken) =>
 {
     if (!Regex.IsMatch(taskId, "^[a-z0-9][a-z0-9/_-]{0,63}$"))
     {
@@ -564,22 +590,39 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
         return Results.BadRequest(new { error = $"Input must be at most {maxStdinLength} characters." });
     }
 
-    var source = BuildSource(cells.Select(NormalizeCell).ToList(), request.PrefixCellCount);
-    if (!await executionGate.WaitAsync(executionQueueTimeoutMilliseconds, cancellationToken))
+    // Until Press issues signed run passes, a CSCS sign-in cookie marks a signed-in reader.
+    var userId = httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var tier = userId is null ? ExecutionTier.Guest : ExecutionTier.SignedIn;
+    var rateLimitKey = tier == ExecutionTier.Guest
+        ? $"guest:{httpContext.Connection.RemoteIpAddress}"
+        : $"user:{userId}";
+    using var rateLimitLease = runRateLimiter.AttemptAcquire(rateLimitKey);
+    if (!rateLimitLease.IsAcquired)
     {
+        var limit = tier == ExecutionTier.Guest ? guestRunsPerMinute : signedInRunsPerMinute;
         return Results.Json(
-            new { error = "The code runner is busy right now. Please wait a few seconds and press Run again." },
-            statusCode: StatusCodes.Status503ServiceUnavailable);
+            new { error = $"You have reached the limit of {limit} runs per minute. Please wait a moment and press Run again." },
+            statusCode: StatusCodes.Status429TooManyRequests);
+    }
+
+    var source = BuildSource(cells.Select(NormalizeCell).ToList(), request.PrefixCellCount);
+    var queueTimeout = tier == ExecutionTier.Guest ? guestExecutionQueueTimeoutMilliseconds : executionQueueTimeoutMilliseconds;
+    if (!await executionScheduler.WaitAsync(tier, TimeSpan.FromMilliseconds(queueTimeout), cancellationToken))
+    {
+        var busyMessage = tier == ExecutionTier.Guest
+            ? "The code runner is busy right now. Please wait a few seconds and press Run again. Signed-in readers get priority."
+            : "The code runner is busy right now. Please wait a few seconds and press Run again.";
+        return Results.Json(new { error = busyMessage }, statusCode: StatusCodes.Status503ServiceUnavailable);
     }
 
     try
     {
-        var result = await ExecuteAsync(source, taskId, request.Stdin, cancellationToken);
+        var result = await ExecuteAsync(source, taskId, request.Stdin, tier, cancellationToken);
         if (result.ExitCode != 0 && !result.TimedOut && (result.Output + result.Error).Contains("error CS5001"))
         {
             // The cell only declares types (no statements, no Main). Rebuild with an empty
             // entry point so the declarations still compile and report what happened.
-            var retry = await ExecuteAsync(source + TypesOnlyEntryPoint, taskId, request.Stdin, cancellationToken);
+            var retry = await ExecuteAsync(source + TypesOnlyEntryPoint, taskId, request.Stdin, tier, cancellationToken);
             result = retry.ExitCode == 0
                 ? retry with { Output = TypesOnlyMessage + retry.Output }
                 : retry;
@@ -588,7 +631,7 @@ app.MapPost("/v1/tasks/{taskId}/execute", async (string taskId, ExecutionRequest
     }
     finally
     {
-        executionGate.Release();
+        executionScheduler.Release(tier);
     }
 });
 
@@ -805,8 +848,9 @@ This link expires in 2 days. If you did not create this account, you can ignore 
     }
 }
 
-static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, CancellationToken cancellationToken)
+static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, string? stdin, ExecutionTier tier, CancellationToken cancellationToken)
 {
+    var timeoutMilliseconds = tier == ExecutionTier.Guest ? guestExecutionTimeoutMilliseconds : executionTimeoutMilliseconds;
     var executionDirectory = Path.Combine(Path.GetTempPath(), $"cscs-{Guid.NewGuid():N}");
 
     try
@@ -817,7 +861,9 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
 
         var startInfo = new ProcessStartInfo
         {
-            FileName = "dotnet",
+            // Guest builds run under `nice`, so the compiler and the program it starts
+            // yield the CPU to signed-in runs when both are active.
+            FileName = tier == ExecutionTier.Guest ? "nice" : "dotnet",
             WorkingDirectory = executionDirectory,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -825,6 +871,12 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
             UseShellExecute = false,
             CreateNoWindow = true
         };
+        if (tier == ExecutionTier.Guest)
+        {
+            startInfo.ArgumentList.Add("-n");
+            startInfo.ArgumentList.Add("10");
+            startInfo.ArgumentList.Add("dotnet");
+        }
         startInfo.ArgumentList.Add("run");
         startInfo.ArgumentList.Add("--no-restore");
         startInfo.ArgumentList.Add("-p:UseAppHost=false");
@@ -842,7 +894,7 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
         process.StandardInput.Close();
 
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        timeout.CancelAfter(executionTimeoutMilliseconds);
+        timeout.CancelAfter(timeoutMilliseconds);
 
         try
         {
@@ -855,7 +907,7 @@ static async Task<ExecutionResult> ExecuteAsync(string source, string taskId, st
             return new ExecutionResult(
                 taskId,
                 await process.StandardOutput.ReadToEndAsync(),
-                "Execution timed out after 15 seconds.",
+                $"Execution timed out after {timeoutMilliseconds / 1000} seconds.",
                 -1,
                 true);
         }
@@ -970,6 +1022,9 @@ static string CleanOutput(string output)
                            !line.StartsWith("For more information, run \"dotnet workload update\".", StringComparison.Ordinal)));
 }
 
+static int PositiveIntSetting(string name, int fallback) =>
+    int.TryParse(Environment.GetEnvironmentVariable(name), out var value) && value > 0 ? value : fallback;
+
 static void DirectoryCopy(string sourceDirectory, string destinationDirectory)
 {
     Directory.CreateDirectory(destinationDirectory);
@@ -987,3 +1042,96 @@ static void DirectoryCopy(string sourceDirectory, string destinationDirectory)
 public sealed record ExecutionRequest(string? Code, List<string>? Cells, string? Stdin, int PrefixCellCount = 0);
 
 public sealed record ExecutionResult(string TaskId, string Output, string Error, int ExitCode, bool TimedOut);
+
+public enum ExecutionTier
+{
+    Guest,
+    SignedIn
+}
+
+/// <summary>
+/// Hands out a fixed number of run slots. Signed-in readers are served first, and
+/// guests may hold at most <c>guestSlots</c> at once, so some capacity is always
+/// left for signed-in readers. Waiters within a tier are served in arrival order.
+/// </summary>
+public sealed class ExecutionScheduler(int totalSlots, int guestSlots)
+{
+    private readonly object sync = new();
+    private readonly LinkedList<TaskCompletionSource<bool>> signedInQueue = new();
+    private readonly LinkedList<TaskCompletionSource<bool>> guestQueue = new();
+    private int running;
+    private int guestsRunning;
+
+    public async Task<bool> WaitAsync(ExecutionTier tier, TimeSpan timeout, CancellationToken cancellationToken)
+    {
+        LinkedListNode<TaskCompletionSource<bool>> node;
+        lock (sync)
+        {
+            if (QueueFor(tier).Count == 0 && CanStart(tier))
+            {
+                Start(tier);
+                return true;
+            }
+            node = QueueFor(tier).AddLast(new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously));
+        }
+
+        using var timeoutSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        timeoutSource.CancelAfter(timeout);
+        using var registration = timeoutSource.Token.Register(() =>
+        {
+            lock (sync)
+            {
+                // A slot was already handed to this waiter; keep it.
+                if (node.List is null) return;
+                node.List.Remove(node);
+            }
+            node.Value.TrySetResult(false);
+        });
+        return await node.Value.Task;
+    }
+
+    public void Release(ExecutionTier tier)
+    {
+        lock (sync)
+        {
+            running--;
+            if (tier == ExecutionTier.Guest) guestsRunning--;
+
+            while (running < totalSlots)
+            {
+                if (signedInQueue.First is { } signedIn)
+                {
+                    Grant(signedInQueue, signedIn, ExecutionTier.SignedIn);
+                }
+                else if (guestQueue.First is { } guest && guestsRunning < guestSlots)
+                {
+                    Grant(guestQueue, guest, ExecutionTier.Guest);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    private LinkedList<TaskCompletionSource<bool>> QueueFor(ExecutionTier tier) =>
+        tier == ExecutionTier.Guest ? guestQueue : signedInQueue;
+
+    private bool CanStart(ExecutionTier tier) =>
+        running < totalSlots &&
+        (tier == ExecutionTier.SignedIn || (guestsRunning < guestSlots && signedInQueue.Count == 0));
+
+    private void Start(ExecutionTier tier)
+    {
+        running++;
+        if (tier == ExecutionTier.Guest) guestsRunning++;
+    }
+
+    private void Grant(LinkedList<TaskCompletionSource<bool>> queue, LinkedListNode<TaskCompletionSource<bool>> node, ExecutionTier tier)
+    {
+        queue.Remove(node);
+        Start(tier);
+        node.Value.TrySetResult(true);
+    }
+}

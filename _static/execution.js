@@ -190,6 +190,8 @@ function initializeCsharpExecution() {
                 const currentCode = editor.value;
                 const response = await fetch(`${apiBaseUrl}/v1/tasks/${taskId}/execute`, {
                     method: "POST",
+                    // Send the sign-in cookie so signed-in readers get the higher tier.
+                    credentials: "include",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         code: currentCode,
