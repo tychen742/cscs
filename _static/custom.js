@@ -293,13 +293,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // Press's shared auth.js (loaded by thinkpress-config.js). This adds "Edit this page" to
 // that menu for authoring roles; authoring requests carry a Press-signed author pass.
 document.addEventListener('DOMContentLoaded', function () {
-    const onSite = location.hostname.endsWith('thinkcscs.org');
+    // On the site, the authoring API and the runner are under /cscs-exec on the same
+    // host (Apache routes them); locally they run on ports 8080 and 8081.
+    const local = ['localhost', '127.0.0.1'].includes(location.hostname);
     const apiBaseUrl = localStorage.getItem('CSCS_EXECUTION_API') ||
         window.CSCS_EXECUTION_API ||
-        (onSite ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8080');
+        (local ? 'http://localhost:8080' : `${location.origin}/cscs-exec`);
     const runnerBaseUrl = localStorage.getItem('CSCS_RUNNER_API') ||
         window.CSCS_RUNNER_API ||
-        (onSite ? 'https://thinkcscs.org/cscs-exec' : 'http://localhost:8081');
+        (local ? 'http://localhost:8081' : `${location.origin}/cscs-exec`);
     // Press roles that may author; the authoring API enforces the same list.
     const authorRoles = new Set(['admin', 'author', 'editor', 'instructor', 'ta']);
 

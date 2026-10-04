@@ -13,10 +13,10 @@
         }
     }
 
-    // thinkcscs.org proxies Press's /api/, /accounts/, and /static/thinkpress/, so the
-    // session cookie belongs to thinkcscs.org. Locally, Press runs on port 8001.
-    const onSite = location.hostname.endsWith('thinkcscs.org');
-    const backend = setting('CSCS_PRESS_API') ?? (onSite ? '' : 'http://localhost:8001');
+    // The book's site (cscs.thinkpress.org) proxies Press's /api/, /accounts/, and
+    // /static/thinkpress/, so Press is same-origin there. Locally, Press runs on port 8001.
+    const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+    const backend = setting('CSCS_PRESS_API') ?? (local ? 'http://localhost:8001' : '');
     window.THINKPRESS_BACKEND = backend;
 
     const stylesheet = document.createElement('link');

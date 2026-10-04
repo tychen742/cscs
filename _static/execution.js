@@ -1,9 +1,10 @@
 function initializeCsharpExecution() {
     // The C# runner (execution/runner). On the site, Apache routes /cscs-exec/v1/tasks/
-    // to it; locally its gateway listens on port 8081.
+    // to it on the same host; locally its gateway listens on port 8081.
+    const local = ["localhost", "127.0.0.1"].includes(location.hostname);
     const runnerBaseUrl = localStorage.getItem("CSCS_RUNNER_API") ||
         window.CSCS_RUNNER_API ||
-        (location.hostname.endsWith("thinkcscs.org") ? "https://thinkcscs.org/cscs-exec" : "http://localhost:8081");
+        (local ? "http://localhost:8081" : `${location.origin}/cscs-exec`);
     const taskId = createTaskId(window.location.pathname);
 
     const cells = Array.from(document.querySelectorAll("div.cell"));

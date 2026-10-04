@@ -8,7 +8,7 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 var allowedOrigins = (Environment.GetEnvironmentVariable("CSCS_ALLOWED_ORIGINS") ??
-                      "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
+                      "https://cscs.thinkpress.org,https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 // No credentials: authorization travels in the Authorization header, not in cookies.
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>

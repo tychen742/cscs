@@ -56,7 +56,7 @@ var runRateLimiter = PartitionedRateLimiter.Create<string, string>(key =>
         QueueLimit = 0
     }));
 var allowedOrigins = (Environment.GetEnvironmentVariable("CSCS_ALLOWED_ORIGINS") ??
-                      "https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
+                      "https://cscs.thinkpress.org,https://thinkcscs.org,https://www.thinkcscs.org,http://localhost:3000,http://localhost:8000")
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 // No credentials: the runner never reads cookies or account state.
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
