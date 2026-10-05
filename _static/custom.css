@@ -1841,7 +1841,44 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     z-index: 1030;
 }
 
-.cscs-continue-reading p {
+.cscs-continue-reading {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cscs-continue-reading.is-leaving {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+.cscs-continue-reading__head {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cscs-continue-reading__close {
+    background: transparent;
+    border: 0;
+    color: #5a6573;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin: -0.2rem -0.25rem 0 0.5rem;
+    padding: 0.1rem 0.3rem;
+}
+
+.cscs-continue-reading__close:hover,
+.cscs-continue-reading__close:focus {
+    color: #17458f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cscs-continue-reading {
+        transition: none;
+    }
+}
+
+.cscs-continue-reading__head p {
     color: #5a6573;
     font-size: 0.72rem;
     font-weight: 700;
@@ -1850,7 +1887,7 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     text-transform: uppercase;
 }
 
-.cscs-continue-reading button {
+.cscs-continue-reading__go {
     background: transparent;
     border: 0;
     color: #245fca;
@@ -1867,14 +1904,14 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     width: 100%;
 }
 
-.cscs-continue-reading button span {
+.cscs-continue-reading__go span {
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.cscs-continue-reading button svg {
+.cscs-continue-reading__go svg {
     color: #5f4de0;
     fill: currentColor;
     flex: 0 0 auto;
@@ -1882,8 +1919,8 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     width: 1.15rem;
 }
 
-.cscs-continue-reading button:hover,
-.cscs-continue-reading button:focus {
+.cscs-continue-reading__go:hover,
+.cscs-continue-reading__go:focus {
     color: #17458f;
     outline: 2px solid rgba(47, 111, 222, 0.18);
     outline-offset: 3px;

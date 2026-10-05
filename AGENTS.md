@@ -39,7 +39,8 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
 - Chapter sequence is ch01–ch25 (ch07 Society, Ethics, and the Profession added 2026-10-04; later chapters renumbered); project instructions live in `chapters/appendices/`
-- Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
+- Front matter (2026-10-04): `chapters/cover.ipynb` is the TOC root (cover art at `figures/cover-art.svg`, placeholder until supplied), then Title Page (`title-page.ipynb`), Contents (`home.ipynb`, with Chapter Topics), and Preface
+- Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs2023-alignment.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
 - Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding
 

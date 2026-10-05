@@ -1102,6 +1102,8 @@ document.addEventListener('DOMContentLoaded', function () {
             !path.endsWith('/index.html') &&
             !path.endsWith('/chapters/preface.html') &&
             !path.endsWith('/chapters/home.html') &&
+            !path.endsWith('/chapters/cover.html') &&
+            !path.endsWith('/chapters/title-page.html') &&
             !path.endsWith('/genindex.html') &&
             !path.endsWith('/search.html')
         );
@@ -1127,8 +1129,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function writeLocalProgress(progress) {
         if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl)) return;
         localStorage.setItem(storageKey, JSON.stringify(progress));
-        renderContinueReading(progress);
     }
+
+    // The Continue Reading card appears only when the reader comes back (Press docs/UI.md,
+    // "Continue Reading Card"): they arrived from outside the book, or were away 30 minutes.
+    const activityKey = 'cscs:lastActivity';
+    const visitGapMs = 30 * 60 * 1000;
+    const cardShowMs = 5000;
+    function arrivedFromOutside() {
+        try {
+            return !document.referrer || new URL(document.referrer).origin !== window.location.origin;
+        } catch (_) {
+            return true;
+        }
+    }
+    const lastActivity = Number(localStorage.getItem(activityKey) || 0);
+    const isNewVisit = arrivedFromOutside() || Date.now() - lastActivity > visitGapMs;
+    const markActivity = () => localStorage.setItem(activityKey, String(Date.now()));
+    markActivity();
+    let cardOffered = false;
 
     function makeProgress() {
         return {
@@ -1193,6 +1212,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!local || Date.parse(remote.updatedUtc) > Date.parse(local.updatedUtc || 0)) {
                 writeLocalProgress(remote);
             }
+            // A position saved on another device is newer than this browser's: offer it.
+            if (!initialLocal || Date.parse(remote.updatedUtc) > Date.parse(initialLocal.updatedUtc || 0)) {
+                offerContinueReading(remote);
+            }
         } catch (_) {
             // The API is optional for static/local reading.
         }
@@ -1208,44 +1231,59 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    function renderContinueReading(progress) {
-        if (!progress?.pageUrl) return;
-        let panel = document.querySelector('.cscs-continue-reading');
-        if (!isTrackablePageUrl(progress.pageUrl)) {
-            panel?.remove();
-            return;
-        }
-        if (progress.pageUrl === currentPageUrl()) {
-            panel?.remove();
-            return;
-        }
-        if (!panel) {
-            panel = document.createElement('div');
-            panel.className = 'cscs-continue-reading';
-            document.body.appendChild(panel);
-        }
-        const label = progress.pageTitle || 'Continue reading';
+    function offerContinueReading(progress) {
+        if (!isNewVisit || cardOffered) return;
+        if (!progress?.pageUrl || !isTrackablePageUrl(progress.pageUrl)) return;
+        if (progress.pageUrl === currentPageUrl()) return;
+        cardOffered = true;
+
+        const panel = document.createElement('div');
+        panel.className = 'cscs-continue-reading';
+        panel.setAttribute('role', 'region');
+        panel.setAttribute('aria-label', 'Continue reading');
         panel.innerHTML = `
-            <p>Continue Reading</p>
-            <button type="button">
+            <div class="cscs-continue-reading__head">
+                <p>Continue Reading</p>
+                <button type="button" class="cscs-continue-reading__close" aria-label="Dismiss">&times;</button>
+            </div>
+            <button type="button" class="cscs-continue-reading__go">
                 <span></span>
                 <svg aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M6 4.75A2.75 2.75 0 0 1 8.75 2h6.5A2.75 2.75 0 0 1 18 4.75v16.1a.75.75 0 0 1-1.17.62L12 18.22l-4.83 3.25A.75.75 0 0 1 6 20.85V4.75Z"></path>
                 </svg>
             </button>`;
-        const button = panel.querySelector('button');
-        button.querySelector('span').textContent = label;
-        button.addEventListener('click', () => {
+        const go = panel.querySelector('.cscs-continue-reading__go');
+        go.querySelector('span').textContent = progress.pageTitle || 'Continue reading';
+        go.addEventListener('click', () => {
             localStorage.setItem(pendingScrollKey, JSON.stringify({
                 pageUrl: progress.pageUrl,
                 scrollY: progress.scrollY || 0
             }));
-            if (progress.pageUrl === currentPageUrl()) {
-                restorePendingScroll();
-            } else {
-                window.location.href = progress.pageUrl;
-            }
+            window.location.href = progress.pageUrl;
         });
+        document.body.appendChild(panel);
+
+        // Hide after 5 seconds; hovering or focusing the card pauses the timer.
+        let hideTimer = null;
+        const dismiss = () => {
+            window.clearTimeout(hideTimer);
+            panel.classList.add('is-leaving');
+            window.setTimeout(() => panel.remove(), 300);
+        };
+        const scheduleHide = () => {
+            window.clearTimeout(hideTimer);
+            hideTimer = window.setTimeout(dismiss, cardShowMs);
+        };
+        panel.querySelector('.cscs-continue-reading__close').addEventListener('click', dismiss);
+        panel.addEventListener('mouseenter', () => window.clearTimeout(hideTimer));
+        panel.addEventListener('focusin', () => window.clearTimeout(hideTimer));
+        panel.addEventListener('mouseleave', () => {
+            if (!panel.contains(document.activeElement)) scheduleHide();
+        });
+        panel.addEventListener('focusout', (event) => {
+            if (!panel.contains(event.relatedTarget) && !panel.matches(':hover')) scheduleHide();
+        });
+        scheduleHide();
     }
 
     function restorePendingScroll() {
@@ -1253,7 +1291,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!pending || pending.pageUrl !== currentPageUrl()) return;
         localStorage.removeItem(pendingScrollKey);
         window.setTimeout(() => {
-            window.scrollTo({ top: Math.max(0, Number(pending.scrollY || 0)), behavior: 'smooth' });
+            window.scrollTo({ top: Math.max(0, Number(pending.scrollY || 0)), behavior: 'instant' });
         }, 100);
     }
 
@@ -1268,12 +1306,14 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    // Read the saved position before this page saves itself over it.
     const initialLocal = readLocalProgress();
-    if (initialLocal) renderContinueReading(initialLocal);
+    offerContinueReading(initialLocal);
     restorePendingScroll();
 
     const saveAndSync = throttle(() => {
         if (!shouldTrackPage()) return;
+        markActivity();
         const progress = saveLocalProgress();
         syncProgress(progress);
     }, 3000);
@@ -1281,17 +1321,21 @@ document.addEventListener('DOMContentLoaded', function () {
     if (shouldTrackPage()) {
         window.addEventListener('scroll', saveAndSync, { passive: true });
         window.addEventListener('pagehide', () => {
+            markActivity();
             const progress = saveLocalProgress();
             syncProgress(progress);
         });
-
-        const progress = saveLocalProgress();
-        syncProgress(progress);
+        saveLocalProgress();
     }
-    // Press's account script reports the session after the page loads; fetch the reader's
-    // saved progress then (and right away if it is already known).
-    loadRemoteProgress();
-    document.addEventListener('thinkpress:session', () => loadRemoteProgress(), { once: true });
+    // Press's account script reports the session after the page loads. Fetch the reader's
+    // saved position first, then record this page, so a returning reader is offered the
+    // page they left rather than the one they just opened.
+    async function loadThenSync() {
+        await loadRemoteProgress();
+        if (shouldTrackPage()) syncProgress(makeProgress());
+    }
+    loadThenSync();
+    document.addEventListener('thinkpress:session', () => loadThenSync(), { once: true });
 });
 
 

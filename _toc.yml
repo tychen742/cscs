@@ -1,10 +1,14 @@
 format: jb-book
-root: chapters/home
+root: chapters/cover
 
 parts:
   - caption: "Front Matter"
     numbered: false
     chapters:
+      - file: chapters/title-page
+        title: Title Page
+      - file: chapters/home
+        title: Contents
       - file: chapters/preface
         title: Preface
 
@@ -415,6 +419,7 @@ parts:
       - file: chapters/appendices/resources
       - file: chapters/appendices/command-line
       - file: chapters/appendices/project
+      - file: chapters/appendices/cs2023-alignment
 
   - caption: "Index"
     numbered: false
