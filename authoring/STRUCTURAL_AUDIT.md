@@ -84,8 +84,6 @@ These are already in good shape:
 6. Run a clean full-book build and record warnings before starting content prose
    QA.
 
-## Early-chapter depth review, October 5, 2026
+## October 5, 2026 follow-up
 
-Chapter 1 received a content and assignment rewrite after the Chapters 15–25 passes. Early chapters 2–14 still need the same review; structural consistency alone does not establish instructional depth. Slides will be authored as book content after the content sequence is complete. Press owns slide delivery and instructor access controls, not slide authoring.
-
-Chapter 2 follow-up: four active content notebooks retained for existing navigation and the separate input/output workflow. Repaired numeric and text semantics, removed pre-loop dependencies, and rebuilt standard assignments around a rounded office-supply invoice. Slides remain outside this pass.
+Chapter 1 and Chapter 2 depth revisions were undone at the author's request, restoring their pre-review content and assessments. The separate Git and GitHub appendix remains available for later Commons migration; the original Chapter 1 Git section is restored. Slide authoring remains book-owned work after content completion, with Press providing delivery and access controls.

@@ -14,6 +14,9 @@ function initializeCsharpExecution() {
         if (!codeElement || cell.dataset.cscsExecutionReady === "true") return;
         // Notebook-only cells (e.g. Polyglot .Display() charts) cannot run in the console runner.
         if (cell.classList.contains("tag_no-run")) return;
+        // Hidden answer cells show saved expected output and revealable source,
+        // rather than a second editable workspace for the exercise.
+        if (cell.classList.contains("tag_hide-input")) return;
 
         const executableCode = normalizeCode(getExecutableCodeText(codeElement));
         if (isCsharpSetupOnly(executableCode)) return;
