@@ -5,11 +5,11 @@ parts:
   - caption: "Front Matter"
     numbered: false
     chapters:
-      - file: chapters/title-page
+      - file: chapters/front-matter/title-page
         title: Title Page
-      - file: chapters/home
+      - file: chapters/front-matter/contents
         title: Contents
-      - file: chapters/preface
+      - file: chapters/front-matter/preface
         title: Preface
 
   - caption: "Part I. Fundamentals"

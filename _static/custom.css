@@ -164,8 +164,8 @@ nav.bd-links p.caption {
     text-decoration: none !important;
 }
 
-/* The book root lives at chapters/home. PyData renders that nested root
-   as a separate home-link above Part I; the logo already serves that purpose. */
+/* PyData can render the book root as a separate home-link above the first part;
+   the logo already links to the root (the cover), so hide the duplicate. */
 .bd-sidebar-primary nav.bd-links .bd-sidenav__home-link {
     display: none !important;
 }
