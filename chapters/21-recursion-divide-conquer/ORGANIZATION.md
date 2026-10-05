@@ -2,39 +2,20 @@
 orphan: true
 ---
 
-# Chapter Organization — Recursion
+# Chapter Organization: Recursion
 
-## Learning Objectives
+## Class Meetings
 
-Students should be able to identify base cases and recursive progress, trace a
-call stack, design a divide-and-conquer algorithm, and connect a recurrence to
-an asymptotic cost.
+1. **Recursive contracts and calls, 35 minutes.** State valid domains and base answers, trace factorial frames and returns, prove progress and inductive results, hide helper indexes, and contrast stack cost with iteration.
+2. **Divide-and-conquer design, 35 minutes.** Use half-open ranges, preserve odd splits, distinguish one-child search from two-child maximum, derive merge invariants, and inspect stable slice-based merge sort.
+3. **Complete stable sorting, 40 minutes.** Hand-trace merge fronts, inspect range/buffer implementation, verify labeled tie order and occurrence preservation, measure actual operations, and connect the invoice-report lab.
 
-## Sequence
+The 110-minute plan includes predictions, traces, discussion, and code inspection.
 
-- `2100-recursion-divide-conquer.ipynb`: chapter landing page with essential concepts, learning objectives, chapter flow, glossary, and slides placeholder
-- `2101-recursion.ipynb`: base cases, recursive cases, call-stack tracing, progress measures, recursion versus iteration, and stack-depth risks
-- `2102-divide-conquer.ipynb`: divide-and-conquer pattern, halving strategies, binary search, merge operation, merge sort, and design checklist
-- `2103-merge-sort-lab.ipynb`: guided merge-sort implementation with testing, split tracing, and growth comparison
-- `assignments/index.ipynb`: assignment TOC parent
-- `assignments/preview.ipynb`: pre-class concept quiz
-- `assignments/lab.ipynb`: required technical lab for recursive sum, factorial tracing, recursive search, merge, and merge sort
-- `assignments/homework.ipynb`: post-class true/false and coding practice
+## Assignment Roles
 
-## Coverage Boundary
+Preview checks contracts and recursive structure. Lab builds a connected invoice-report workflow: recursive sum, merge, sort, identity-preserving stable output, and contract tests. Homework transfers factorial limits, odd maximum ranges, binary-search boundaries, merge extremes, and descending stable comparison.
 
-Chapter 21 should teach recursive structure and divide-and-conquer design. It
-may use binary search and merge sort as examples, but Chapter 22 is still the
-main searching and sorting chapter. Keep recurrence notation tied to the
-concrete examples students just saw in Chapter 20.
+## Conventions and Scope
 
-## Assignment Plan
-
-- Preview: base case, progress measure, call stack, divide-and-conquer, merge.
-- Lab: write small recursive methods, trace calls, implement merge, and complete merge sort.
-- Homework: reinforce recursive counting, recursive array processing, binary search, merge helpers, and recursive depth.
-
-## Notes
-
-The recursion material in the former functional-patterns chapter is useful
-source material but should be refocused on algorithm design here.
+Wrappers validate public inputs and hide internal ranges. Sort returns a fresh shallow array copy even for zero/one items, while comparison callbacks must define a consistent ordering. Merge requires sorted inputs. Count active frames including the base frame. Distinguish peak memory from cumulative allocation/write volume, and operation counts from growth estimates. Full searching/sorting comparison belongs in Chapter 22. Slides and exercise-tag migration remain deferred.

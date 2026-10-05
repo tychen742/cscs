@@ -57,7 +57,7 @@ book unless they are listed in the TOC.
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
 | 20 | `chapters/20-algorithm-analysis` | Analysis | preview, lab, homework | In Progress | Depth pass 2026-10-05: exact counts and tight bounds, input-dependent/expected/amortized costs, precise contracts and termination variants, rounded recurrences and call/stack distinctions, connected expense-report lab, transfer homework, and verified outputs; slides pending |
-| 21 | `chapters/21-recursion-divide-conquer` | Recursion | preview, lab, homework | In Progress | First content and assignment pass added |
+| 21 | `chapters/21-recursion-divide-conquer` | Recursion | preview, lab, homework | In Progress | Depth pass 2026-10-05: guarded recursive contracts, call/return and merge traces, complete stable range-buffer sort, occurrence/copy/stability checks, actual operation counts, connected invoice lab, transfer homework, and verified outputs; slides pending |
 | 22 | `chapters/22-searching-sorting` | Search & Sort | preview, lab, homework | In Progress | First content and assignment pass added |
 | 23 | `chapters/23-greedy-graph-optimization` | Greedy Algorithms | preview, lab, homework | In Progress | First content and assignment pass added |
 | 24 | `chapters/24-dynamic-programming-backtracking` | Dynamic Programming | preview, lab, homework | In Progress | First content and assignment pass added |

@@ -2,27 +2,20 @@
 orphan: true
 ---
 
-# Chapter Materials — Recursion
+# Chapter Materials: Recursion
 
 ## Sequence
 
-- `2100-recursion-divide-conquer.ipynb`: landing page, essential concepts, learning objectives, chapter flow, glossary, slides placeholder
-- `2101-recursion.ipynb`: base cases, recursive cases, call-stack tracing, progress measures, recursion versus iteration, recursive risks
-- `2102-divide-conquer.ipynb`: divide-and-conquer pattern, recursive maximum, binary search, merge operation, merge sort, design checklist
-- `2103-merge-sort-lab.ipynb`: worked merge-sort lab with merge, recursive sort, tests, split tracing, and count comparison
-- `assignments/preview.ipynb`: glossary and concept preview
-- `assignments/lab.ipynb`: required technical lab for recursive methods and merge sort
-- `assignments/homework.ipynb`: true/false and coding practice
+- `2101-recursion.ipynb`: Input domains, base answers, inductive contracts, factorial call/return traces, hidden suffix helpers, recursion versus iteration, and stack/arithmetic limits.
+- `2102-divide-conquer.ipynb`: Half-open ranges, complete odd splits, guarded recursive maximum, any-match binary search, merge invariants, stable ties, and readable slice-based sorting.
+- `2103-merge-sort-lab.ipynb`: Merge-front trace, complete generic range/buffer sorting, labeled-record stability, order/preservation/copy checks, and actual comparison/write/call/depth counts.
+- Preview: Ten multiple-choice questions.
+- Lab: Five connected invoice-report tasks from recursive totals through merging, sorting, stability, and boundary verification.
+- Homework: Five applied true/false questions and five independent coding tasks.
+- `../../materials/21/StableSort.cs`: Complete structures, counters, and reference-model verification.
 
-## Coverage Notes
+## Verification and Scope
 
-- This chapter makes recursion concrete after Chapter 20's recurrence introduction.
-- Binary search appears here only as a halving/divide-and-conquer example. The broader search-and-sort comparison belongs in Chapter 22.
-- Merge sort is the main worked example because it clearly shows base case, divide, recursive solve, combine, and `O(n log n)` cost.
-- Keep code examples small enough to trace by hand.
+All 27 completed notebook cells passed independently; hidden answers retain verified stdout. The revised countdown guard was also recompiled and checked at both rejected boundaries. The downloadable source passed 600 stable-sort cases and 600 merge cases plus count/copy boundaries. All 12 notebook copies of the generic implementation match the verified source. The full-book build passed with five existing warnings outside this chapter. Six browser Runs passed: factorial, countdown, labeled stability, sort boundary checks, descending homework, and final lab contract checks.
 
-## Maintenance Notes
-
-- C# examples should remain standalone because students may run any cell directly in Live Code.
-- Avoid relying on deep recursion for large linear examples; use small inputs and discuss stack depth honestly.
-- If a future implementation optimizes merge sort with buffers and index ranges, keep this first version readable before optimizing.
+Searching/sorting comparisons remain in Chapter 22; recursion and divide-and-conquer design are the focus here. Slides remain deferred to Press (student HTML/PDF, instructor-only PPTX). Keep legacy exercise tags until the coordinated UI migration.
