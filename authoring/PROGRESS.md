@@ -46,7 +46,7 @@ book unless they are listed in the TOC.
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
 | 14 | `chapters/14-abstract-data-types` | ADTs | preview, lab, homework | In Progress | Landing filename normalized to `1400-abstract-data-types.ipynb` |
-| 15 | `chapters/15-arrays-linked-lists` | Linear Lists | preview, lab, homework | In Progress | First content and assignment pass added |
+| 15 | `chapters/15-arrays-linked-lists` | Linear Lists | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic sequences, traces, amortized reasoning, boundary tests, and expanded practice; follow-up connects work-order lab, strengthens homework, and retains verified solution outputs; slides pending |
 | 16 | `chapters/16-stacks-queues` | Stacks & Queues | preview, lab, homework | In Progress | First content and assignment pass added |
 | 17 | `chapters/17-trees` | Trees | preview, lab, homework | In Progress | First content and assignment pass added |
 | 18 | `chapters/18-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | First content and assignment pass added |
