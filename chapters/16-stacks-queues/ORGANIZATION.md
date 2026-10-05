@@ -2,23 +2,26 @@
 orphan: true
 ---
 
-# Chapter Organization — Stacks & Queues
+# Chapter Organization: Stacks & Queues
 
 ## Learning Objectives
 
-Students should be able to specify stack, queue, and deque operations, choose
-an implementation, and apply these structures to practical problems.
+Specify restricted-access contracts; trace stack and ring state; implement generic array stacks, bounded ring queues, and linked queues; reason from invariants; distinguish worst-case and amortized work; test boundary behavior; apply access policies to editing and service workflows.
 
-## Sequence
+## Instructional Sequence and Pacing
 
-1. Landing page: chapter purpose, core vocabulary, learning objectives, Chapter Flow, and glossary.
-2. `1601-stack.ipynb`: Stack interface, LIFO behavior, safe access, delimiter matching, and small array-backed implementation.
-3. `1602-queue-deque.ipynb`: Queue interface, FIFO behavior, worklists, ring-buffer logic, and deque operations.
-4. `1603-applications-lab.ipynb`: Application patterns for undo, service lines, urgent work, backtracking, and breadth-first processing.
-5. Assignments: Preview for vocabulary, Lab for guided stack/queue/deque practice, Homework for concept checks and coding reinforcement.
+1. Stacks (about 35 minutes): LIFO and safe access, delimiter invariant, push/pop traces, generic implementation, correctness, and amortized growth.
+2. Queues and deques (about 40 minutes): FIFO, wraparound, full versus empty, bounded-ring implementation, linked endpoints, logical-order growth, and both-end formulas.
+3. Applications (about 35 minutes): access-policy choice, worklist discovery, undo/redo snapshots, fairness, costs, and contract verification.
 
-## Implementation Notes
+The 110-minute plan includes student predictions and worked traces rather than reading every implementation line aloud. Existing exercises remain near the concepts they reinforce. Every completed cell is standalone; assignment stubs explicitly require completion.
 
-- Keep stacks and queues framed as ADTs first; C# library types are examples of the contract, not the definition.
-- Emphasize access policy: last saved, first served, both ends, or arbitrary access.
-- Use small standalone cells so browser execution does not depend on hidden state from earlier examples.
+## Assignments
+
+Preview checks vocabulary and state distinctions. Lab builds one service-desk design through completed history, bounded arrivals, wrapped service, reference-model tests, and front restoration. Homework transfers the concepts to safe peek, ring growth, delimiter rejection, branch invalidation, and fair urgent scheduling. Five coding tasks accompany five true/false questions; answer cells retain verified output.
+
+## Implementation and Verification
+
+Use count rather than element values to determine emptiness. Validate before mutation, clear unused references, update linked endpoints after singleton removal, and copy logical order when growing a wrapped ring. Qualify allocation/growth costs instead of claiming every growable operation is O(1). The local source compares both queue representations with `Queue<int>` and the array stack with `Stack<int>` over reproducible mixed operations.
+
+Lecture slide decks remain pending. Preserve the existing chapter video. The legacy `thebe-interactive` metadata remains until the shared Press UI and book-authoring tag migration is implemented.
