@@ -87,3 +87,5 @@ These are already in good shape:
 ## Early-chapter depth review, October 5, 2026
 
 Chapter 1 received a content and assignment rewrite after the Chapters 15–25 passes. Early chapters 2–14 still need the same review; structural consistency alone does not establish instructional depth. Slides will be authored as book content after the content sequence is complete. Press owns slide delivery and instructor access controls, not slide authoring.
+
+Chapter 2 follow-up: four active content notebooks retained for existing navigation and the separate input/output workflow. Repaired numeric and text semantics, removed pre-loop dependencies, and rebuilt standard assignments around a rounded office-supply invoice. Slides remain outside this pass.
