@@ -12,6 +12,7 @@
 1. [x] Review `1508-lab.ipynb` intro sentence — still says "pattern matching, record types, and nullable operators" (doesn't mention generics/async)
 2. [ ] Add sample solutions notebook for the `15-pattern-records` lab (inactive source bank)
 3. [ ] Consolidate the AI_guidelines.ipynb file in the projects (cscs, py, dsm) to have the same shared components
+   1. [ ] Write a new course AI policy and put it on one course-wide page instead of in each assignment. The 2026-10-05 lab rewrites (Ch.2, 4, 5, 8, 9, 10, 11) dropped the old "Notes on GAI" paragraph; it still appears in the Ch.4, 5, and 7 homework and the Ch.7 lab.
 4. [ ] Check all chapter sections for quality issues. For example, 
 5. [ ] Reflow all paragraphs in book content so each paragraph is a single line (for better wrapping and formatting)
 6. [ ] Teaching devices adapted from introcs.cs.luc.edu (comparison 2026-10-04; use business examples):
