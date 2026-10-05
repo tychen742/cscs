@@ -48,8 +48,8 @@ book unless they are listed in the TOC.
 | 14 | `chapters/14-abstract-data-types` | ADTs | preview, lab, homework | In Progress | Landing filename normalized to `1400-abstract-data-types.ipynb` |
 | 15 | `chapters/15-arrays-linked-lists` | Linear Lists | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic sequences, traces, amortized reasoning, boundary tests, and expanded practice; follow-up connects work-order lab, strengthens homework, and retains verified solution outputs; slides pending |
 | 16 | `chapters/16-stacks-queues` | Stacks & Queues | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic stack/ring/linked queues, invariant traces, qualified costs, undo/redo, connected lab, independent homework, and verified outputs; slides pending |
-| 17 | `chapters/17-trees` | Trees | preview, lab, homework | In Progress | First content and assignment pass added |
-| 18 | `chapters/18-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | First content and assignment pass added |
+| 17 | `chapters/17-trees` | Trees | preview, lab, homework | In Progress | Depth pass 2026-10-05: recursive/traversal traces, boundary-safe ancestor validation, complete BST removal, height-based costs, range/level-order operations, connected lab, transfer homework, and verified outputs; slides pending |
+| 18 | `chapters/18-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic heap and chained map, repair/collision/rehash traces, equality and tie policies, qualified costs, top-k and lazy cancellation, connected lab, transfer homework, and verified outputs; slides pending |
 | 19 | `chapters/19-graphs` | Graphs | preview, lab, homework | In Progress | First content and assignment pass added |
 
 ## Part V — Algorithms

@@ -2,23 +2,29 @@
 orphan: true
 ---
 
-# Chapter Organization — Trees
+# Chapter Organization: Trees
 
 ## Learning Objectives
 
-Students should be able to describe recursive tree structure, implement tree
-traversals, and implement and test core binary search tree operations.
+Students trace recursive algorithms, preserve the BST ordering invariant across complete updates, analyze costs using height, and verify ordered-set behavior against an independent model.
 
-## Sequence
+## Class Meetings
 
-1. Landing page: chapter purpose, essential terms, learning objectives, Chapter Flow, video, and glossary.
-2. `1701-tree-structure.ipynb`: Tree vocabulary, recursive structure, traversal orders, height, and leaf-count examples.
-3. `1702-binary-search-trees.ipynb`: BST invariant, validation, search, insertion, inorder traversal, shape/performance, and removal preview.
-4. `1703-tree-lab.ipynb`: Integrated BST lab for traversal output, search checks, insertion-order comparison, and postorder implementation.
-5. Assignments: Preview for vocabulary, Lab for guided tree/BST coding, Homework for concept checks and coding reinforcement.
+1. **Tree structure and traversal, 35 minutes.** Draw the catalog tree; identify depths, leaves, and edges; trace Count returns and traversal timing; predict empty, singleton, and chain results. Separate total traversal work from active call-stack space.
+2. **Binary search trees, 40 minutes.** Trace narrowing ancestor bounds, successful/failed search, and insertion returns. Explain duplicate handling and shape-dependent costs. Draw all deletion cases, including root replacement and a successor's right child.
+3. **Applied tree operations, 35 minutes.** Use the service-ticket index for lookup and reporting. Trace range pruning and level-order queue contents. Compare updates against `SortedSet<int>` and introduce mutation checking before connected lab work.
 
-## Implementation Notes
+The planned lecture total is 110 minutes, including predictions, hand traces, discussion, and code inspection. Assignments provide additional guided and independent work.
 
-- Keep general tree vocabulary separate from the BST ordering rule so students do not assume all binary trees are search trees.
-- Use inorder traversal as the main correctness test for BST insertion.
-- Treat balancing as an extension/motivation topic; do not require AVL or red-black rotations here.
+## Assignment Roles
+
+- Preview checks vocabulary, ordering, traversal, and the successor rule before class.
+- Lab builds one service-ticket index through registration, search, simple deletion, successor deletion, and lifecycle tests. Every cell contains its own setup; students carry completed methods forward explicitly.
+- Homework transfers the algorithms to budgets, boundary-safe validation, an explicit traversal stack, interval reports, and greatest-eligible-key lookup.
+
+## Scope and Conventions
+
+- Keep general-tree structure separate from BST ordering. Use unique integer IDs as the implemented set contract.
+- Keep balancing rotations outside this chapter. Explain why an unbalanced tree cannot guarantee logarithmic path costs.
+- Retain legacy `thebe-interactive` exercise metadata until the coordinated Press/UI convention migration.
+- Slides remain pending; later Press work will provide HTML/PDF to students and restrict PPTX downloads to instructors.
