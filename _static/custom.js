@@ -1412,3 +1412,40 @@ document.addEventListener('DOMContentLoaded', function () {
         openViewer(link, thumbnail);
     });
 });
+
+// Logo links (Press docs/UI.md, series identity): the "ThinkPress" half of the logo tile
+// goes to thinkpress.org; the rest of the logo still goes to the book's cover. The theme
+// renders the logo as one link, so a separate link is laid over the ThinkPress half
+// (links cannot be nested). figures/logo.svg: ThinkPress block is 114 of 210 units wide.
+document.addEventListener('DOMContentLoaded', function () {
+    const pressShare = 114 / 210;
+    document.querySelectorAll('a.navbar-brand.logo').forEach(function (brand) {
+        const holder = brand.parentElement;
+        if (!holder || holder.querySelector('.cscs-press-link')) return;
+        holder.style.position = 'relative';
+        const press = document.createElement('a');
+        press.className = 'cscs-press-link';
+        press.href = 'https://thinkpress.org/';
+        press.setAttribute('aria-label', 'ThinkPress');
+        press.title = 'ThinkPress';
+        holder.appendChild(press);
+
+        function place() {
+            const image = [...brand.querySelectorAll('img')].find(img => img.offsetWidth > 0);
+            if (!image) return;
+            const box = image.getBoundingClientRect();
+            const origin = holder.getBoundingClientRect();
+            press.style.left = `${box.left - origin.left}px`;
+            press.style.top = `${box.top - origin.top}px`;
+            press.style.width = `${box.width * pressShare}px`;
+            press.style.height = `${box.height}px`;
+        }
+        // Re-measure whenever the logo's size changes: image load, window resize, theme
+        // switch, or the phone sidebar drawer opening (it is zero-sized while closed).
+        const watcher = new ResizeObserver(place);
+        brand.querySelectorAll('img').forEach(img => watcher.observe(img));
+        watcher.observe(holder);
+        new MutationObserver(place).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        place();
+    });
+});

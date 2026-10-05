@@ -3003,3 +3003,15 @@ a.image-reference img {
         word-spacing: 0.4rem;
     }
 }
+
+/* Link over the "ThinkPress" half of the logo (custom.js); positioned by script. */
+.cscs-press-link {
+    border-radius: 6px 0 0 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.cscs-press-link:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: -4px;
+}
