@@ -3015,3 +3015,10 @@ a.image-reference img {
     outline: 3px solid #ffffff;
     outline-offset: -4px;
 }
+
+/* Previous/Next size: label and page title both 0.85rem in every book, independent of the
+   book's body font size (Press docs/UI.md, Previous/Next size). */
+.prev-next-area a p.prev-next-subtitle,
+.prev-next-area a p.prev-next-title {
+    font-size: 0.85rem;
+}
