@@ -630,7 +630,15 @@ function initializeCsharpExecution() {
             .replace(/-+/g, "-")
             .replace(/^-|-$/g, "")
             .toLowerCase();
-        return encodeURIComponent(slug || "home");
+        // The runner accepts at most 64 characters. Keep a stable suffix so
+        // pages sharing a long prefix do not collapse to the same task ID.
+        if (slug.length <= 64) return slug || "home";
+        let hash = 0xcbf29ce484222325n;
+        for (const character of pathname) {
+            hash ^= BigInt(character.codePointAt(0));
+            hash = BigInt.asUintN(64, hash * 0x100000001b3n);
+        }
+        return `${slug.slice(0, 47)}-${hash.toString(16).padStart(16, "0")}`;
     }
 
     function normalizeCode(source) {

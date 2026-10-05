@@ -4,32 +4,16 @@ orphan: true
 
 # Chapter Organization — Greedy Algorithms
 
-## Learning Objectives
+## Teaching Plan — 110 Minutes
 
-Students should be able to describe a greedy choice, identify the invariant it
-preserves, explain why a greedy strategy may or may not be correct, and apply
-graph optimization methods to weighted networks.
+1. Greedy choice and correctness (35 minutes): specify objective and feasibility, trace interval scheduling, exchange the first choice, and disprove inappropriate greedy rules with feasible alternatives.
+2. Spanning forests and shortest paths (45 minutes): distinguish global connection cost from route distance; trace union-find and the cut argument; prove settling under nonnegative weights; inspect stale queue entries and reconstruct paths safely.
+3. Optimization verification (30 minutes): compare tiny instances with independent references, check forest and path invariants, exercise empty/disconnected/zero/negative/wide-cost boundaries, and choose a model from units and constraints.
 
-## Sequence
+## Assignment Progression
 
-- `2300-greedy-graph-optimization.ipynb`: chapter landing page with essential concepts, learning objectives, chapter flow, glossary, and slides placeholder
-- `2301-greedy-choice.ipynb`: greedy rules, interval scheduling, counterexamples, invariants, exchange arguments, and design checklist
-- `2302-spanning-trees-shortest-paths.ipynb`: MST definition, Kruskal's algorithm, Dijkstra's algorithm, path reconstruction, and choosing between MST and shortest paths
-- `2303-optimization-lab.ipynb`: scheduling, low-cost network, delivery-distance, and greedy-reasoning lab
-- `assignments/index.ipynb`: assignment TOC parent
-- `assignments/preview.ipynb`: pre-class concept quiz
-- `assignments/lab.ipynb`: required technical lab for greedy selection, counterexamples, Kruskal tracing, Dijkstra distances, and algorithm choice
-- `assignments/homework.ipynb`: post-class true/false and coding practice
+Preview establishes objectives and algorithm assumptions. The five-task lab follows one facilities-planning scenario: schedule meetings, change their value objective, connect buildings, route deliveries, and add a zero-cost directed route without changing the cable network. Homework transfers these ideas to touching intervals, parallel and negative cable edges, stale priorities with zero cycles, wide distances and invalid inputs, and a triangle where minimum network cost differs from shortest route cost.
 
 ## Coverage Boundary
 
-Chapter 23 should focus on greedy algorithm design and graph optimization.
-Graph representation basics belong to Chapter 19. Priority queue mechanics
-belong to Chapter 18. Advanced graph traversal and broader path algorithms can
-be handled in Chapter 25.
-
-## Assignment Plan
-
-- Preview: greedy choice, invariants, MST, Dijkstra assumptions, and problem selection.
-- Lab: implement small greedy choices, test a counterexample, trace Kruskal, compute Dijkstra distances, and choose an algorithm from a scenario.
-- Homework: reinforce correctness limits, MST versus shortest path, edge ordering, distance relaxation, and recommendations.
+Keep representations in Chapter 19 and priority-queue mechanics in Chapter 18. This chapter explains why particular greedy choices are safe and how complete implementations honor their contracts. Weighted scheduling and noncanonical coin systems motivate Chapter 24. Chapter 25 extends traversal and algorithm limits. Slides are a deferred Press task.
