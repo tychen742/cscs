@@ -1102,7 +1102,6 @@ document.addEventListener('DOMContentLoaded', function () {
             !path.endsWith('/index.html') &&
             !path.endsWith('/chapters/preface.html') &&
             !path.endsWith('/chapters/home.html') &&
-            !path.endsWith('/chapters/cover.html') &&
             !path.endsWith('/chapters/title-page.html') &&
             !path.endsWith('/genindex.html') &&
             !path.endsWith('/search.html')
