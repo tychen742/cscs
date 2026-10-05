@@ -49,7 +49,10 @@ jobs:
 
       - name: Deploy to production
         run: |
-          rsync -avz --no-perms --no-owner --no-group --omit-dir-times --exclude "reports/" \
+          # --delete keeps the server identical to the build, so renamed or removed pages
+          # disappear. Excluded paths (reports/, and api/ from the next step) are never deleted.
+          rsync -avz --delete --no-perms --no-owner --no-group --omit-dir-times \
+            --exclude "reports/" --exclude "api/" \
             _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:${{ vars.DEPLOY_PATH || '/var/www/cscs' }}/
 
       - name: Deploy API assets when present
