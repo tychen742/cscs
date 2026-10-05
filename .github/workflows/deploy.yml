@@ -4,6 +4,26 @@ on:
   push:
     branches:
       - main
+    # Skip builds for pushes that only touch files outside the book.
+    # materials/examples/ stays watched: chapters literalinclude from it.
+    paths-ignore:
+      - '*.md'
+      - 'authoring/**'
+      - 'execution/**'
+      - 'binder/**'
+      - 'deploy/**'
+      - 'jupyter/**'
+      - '.claude/**'
+      - '.config/**'
+      - 'materials/_archived/**'
+      - 'materials/cover/**'
+      - 'materials/demos/**'
+      - 'materials/03/**'
+      - 'materials/07/**'
+      - 'Makefile'
+      - '.gitignore'
+      - 'docker-compose.yml'
+      - 'dsm_config_update.txt'
 
 jobs:
   build-and-deploy:
