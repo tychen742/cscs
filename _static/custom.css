@@ -2897,3 +2897,9 @@ body.thebe-is-active .tag_hide-input .jp-OutputArea {
 a.image-reference img {
     cursor: zoom-in;
 }
+
+/* Previous/Next links sit at the bottom of the window on short pages (Press docs/UI.md).
+   The article container is already a full-height flex column. */
+.bd-article-container > .prev-next-footer {
+    margin-top: auto;
+}
