@@ -4,24 +4,21 @@ orphan: true
 
 # Chapter Materials — Dynamic Programming
 
-## Sequence
+## Sequence and Coverage
 
-- `2400-dynamic-programming-backtracking.ipynb`: landing page, essential concepts, learning objectives, chapter flow, glossary, slides placeholder
-- `2401-memoization-tabulation.ipynb`: repeated recursive work, memoized Fibonacci, tabulated Fibonacci, minimum-coin table, memoization versus tabulation
-- `2402-backtracking.ipynb`: choose/explore/undo, subset sum, pruning, permutations, backtracking cost
-- `2403-optimization-lab.ipynb`: call-count comparison, memoization, tabulation, subset search, DP/backtracking trade-off
-- `assignments/preview.ipynb`: glossary and concept preview
-- `assignments/lab.ipynb`: required technical lab for Fibonacci, coin change, subset sum, and pruning
-- `assignments/homework.ipynb`: true/false and coding practice
+- `2400-dynamic-programming-backtracking.ipynb`: objectives, glossary, navigation, and deferred slides.
+- `2401-memoization-tabulation.ipynb`: complete states, Fibonacci call/cache counts and induction, dependency-order invariants, rolling storage, minimum-coin recurrence and optimal substructure, unreachable markers, predecessor reconstruction, and pseudo-polynomial costs.
+- `2402-backtracking.ipynb`: include/exclude completeness, undo and snapshots, signed one-use subset witnesses, safe suffix bounds, failed-state memoization, resource limits, and positional permutations with duplicate labels.
+- `2403-optimization-lab.ipynb`: purchasing quantities versus one-use invoices; independent amount-level and exhaustive-position references; validated witnesses; boundary contracts and evidence-based method selection.
+- Assignments: ten-question preview; five connected purchasing/reconciliation lab tasks; five applied true/false and five transfer coding homework tasks. Coding starters and hidden solutions are independent; solutions retain verified stdout.
+- `materials/24/PlanningChecks.cs` and README: complete implementations with independent executable reference checks.
 
-## Coverage Notes
+## Contracts and Scope
 
-- This chapter follows recursion, recurrence analysis, and greedy algorithms. It should emphasize when local greedy choices are not enough and when repeated subproblems or constraint search appear.
-- Keep DP state representations small and explicit. Fibonacci, stairs, and coin change are enough for the first pass.
-- Keep backtracking focused on subset generation, subset sum, permutations, and pruning. Larger puzzles can be extensions.
+Fibonacci accepts 0..92 and uses checked long arithmetic; naive recursion is capped at 25. Minimum coins accepts unlimited positive denominations (duplicates normalized), targets 0..1,000,000, and null count for unreachable targets. Zero uses an empty valid witness. One-use subset search preserves distinct positions, supports signed int values and long targets, and returns null only for proven infeasibility. It accepts up to 128 positions and an explicit call budget, default one million; exhausting it throws with feasibility unknown. Bounds sum suffix negatives and positives. Enumeration snapshots position arrays; materialized subsets are capped at 16 positions and permutations at eight. Empty input has one empty subset and one empty permutation.
 
-## Maintenance Notes
+The chapter follows recursion/analysis and greedy counterexamples. Amount-level exploration is used only as a small reference here; systematic BFS/DFS and broader algorithm limits belong to Chapter 25. Slides remain a deferred Press task: student HTML/PDF and instructor-only PPTX.
 
-- C# examples should remain standalone because students may run any cell directly in Live Code.
-- Use small inputs so call counts and output stay readable.
-- When adding new DP examples, state the recurrence and table meaning before writing code.
+## Verification — 2026-10-05
+
+All 26 completed notebook cells compiled and ran independently; 13 hidden answers retain verified stdout. All 30 implementation copies match the downloadable verified classes. Reference checks passed 600 coin instances, 600 signed subset instances (each compared with three search variants), all 93 supported Fibonacci values, positional enumeration cardinality/uniqueness, snapshot independence, and boundary/input/resource guards. The full-book HTML build passed with five existing warnings outside Chapter 24. Six browser Runs passed: naive/memo counts, zero and upper Fibonacci boundary, minimum-coin reconstruction/unreachable quantity, signed wide-sum search with an honest budget limit, duplicate-label positional permutations, and the final lab comparison. The last instance measured 8,191 raw calls, 3,431 with safe bounds, and 85 with memoization; these are instance-specific measurements.

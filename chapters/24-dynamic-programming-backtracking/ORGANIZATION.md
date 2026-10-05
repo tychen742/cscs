@@ -4,32 +4,16 @@ orphan: true
 
 # Chapter Organization — Dynamic Programming
 
-## Learning Objectives
+## Teaching Plan — 110 Minutes
 
-Students should be able to identify overlapping subproblems, choose between
-memoization and tabulation, model a search space, and prune backtracking
-branches using explicit constraints.
+1. Memoization and tabulation (40 minutes): define states and base cases, measure the same recursive problem, prove cache/table invariants, compare rolling storage, derive minimum coins, and reconstruct optimal plans.
+2. Backtracking and search spaces (40 minutes): prove include/exclude coverage, preserve undo/snapshot invariants, reconstruct one-use signed witnesses, justify suffix pruning and cache keys, and account for exponential/factorial output.
+3. Optimization verification (30 minutes): connect purchasing quantities to inventory constraints, validate objective values and witnesses with independent small references, exercise boundaries, and justify a method from state range and requested output.
 
-## Sequence
+## Assignment Progression
 
-- `2400-dynamic-programming-backtracking.ipynb`: chapter landing page with essential concepts, learning objectives, chapter flow, glossary, and slides placeholder
-- `2401-memoization-tabulation.ipynb`: overlapping subproblems, memoization, tabulation, coin-change tables, and choosing a DP style
-- `2402-backtracking.ipynb`: choose/explore/undo structure, subset sum, pruning, permutations, and search-space cost
-- `2403-optimization-lab.ipynb`: naive recursion, memoization, tabulation, subset-search, and trade-off lab
-- `assignments/index.ipynb`: assignment TOC parent
-- `assignments/preview.ipynb`: pre-class concept quiz
-- `assignments/lab.ipynb`: required technical lab for DP and backtracking practice
-- `assignments/homework.ipynb`: post-class true/false and coding practice
+Preview establishes state and contract vocabulary. The lab follows one planning workflow through repeated-work measurement, retained-state choices, reusable pack optimization, signed invoice reconciliation, and a measured pruned/memoized infeasibility check. Homework transfers the recurrence to stairs with different bases, tests other pack denominations and unreachable states, validates signed wide sums, distinguishes positional permutations from repeated labels, and separates unknown budget-limited results from solved instances.
 
 ## Coverage Boundary
 
-Chapter 24 should teach the shape of dynamic programming and backtracking,
-not a long catalog of optimization problems. Use Fibonacci, stairs, coin
-change, subset sum, and permutations as manageable examples. Larger dynamic
-programming problems and puzzle solvers can be extensions or later course work.
-
-## Assignment Plan
-
-- Preview: overlapping subproblems, memoization, tabulation, backtracking, and pruning.
-- Lab: count naive recursive calls, add memoization, tabulate coin change, solve subset sum, and add pruning.
-- Homework: reinforce memoized and tabulated stairs, minimum coins, subset generation, and pruned subset search.
+Keep the chapter focused on modeling and correctness rather than a catalog of DP puzzles. Reusable coin amounts and one-use invoice positions deliberately require different states. Fibonacci is a counting recurrence, not an optimization claim. Signed subset search extends the familiar nonnegative rule only after proving safe bounds. Chapter 25 develops graph traversal, string search, and computational limits. Slides remain deferred to Press.
