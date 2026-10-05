@@ -17,10 +17,10 @@ This folder is an inactive source bank in the current `_toc.yml`.
 ## Migration Targets
 
 - Nullable reference types -> Chapter 6.
-- Generics -> Chapter 13.
-- Async / await -> Chapter 12.
+- Generics -> Chapter 14.
+- Async / await -> Chapter 13.
 
 ## Notes
 
-- Nullability now lives in Chapter 6, generics in Chapter 13, and async in Chapter 12.
+- Nullability now lives in Chapter 6, generics in Chapter 14, and async in Chapter 13.
 - Keep this folder out of the active book; use it as source material until useful assignments and examples are migrated.

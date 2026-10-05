@@ -16,12 +16,12 @@ This folder is an inactive source bank in the current `_toc.yml`.
 
 ## Migration Targets
 
-- Recursion -> Chapter 20, where recursion supports divide-and-conquer.
-- Lambda expressions -> Chapter 12, where lambdas support data queries.
-- LINQ -> Chapter 12, where LINQ supports collection and database-style querying.
+- Recursion -> Chapter 21, where recursion supports divide-and-conquer.
+- Lambda expressions -> Chapter 13, where lambdas support data queries.
+- LINQ -> Chapter 13, where LINQ supports collection and database-style querying.
 
 ## Notes
 
-- Recursion belongs in Chapter 20 for the active 24-chapter layout.
-- Lambda expressions and LINQ currently appear in Chapter 12 as supporting material, though that chapter still needs real database coverage.
+- Recursion belongs in Chapter 21 for the active 25-chapter layout.
+- Lambda expressions and LINQ currently appear in Chapter 13 as supporting material, though that chapter still needs real database coverage.
 - Keep this folder out of the active book; use it as source material until those migrations are complete.

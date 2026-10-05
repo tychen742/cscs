@@ -35,6 +35,7 @@ exclude_patterns:
   - "**/.DS_Store"
   - README.md
   - cscs/
+  - .claude/**   # Claude Code worktrees are full checkouts of this repo
 
 # HTML-specific settings
 html:

@@ -49,7 +49,8 @@ parts:
           - file: chapters/03-methods/0301-intro-methods
           - file: chapters/03-methods/0302-signature_call
           - file: chapters/03-methods/0303-parameter
-          - file: chapters/03-methods/0304-summary
+          - file: chapters/03-methods/0304-strings
+          - file: chapters/03-methods/0305-summary
           - file: chapters/03-methods/assignments/index
             title: Assignments
             sections:
@@ -109,288 +110,302 @@ parts:
                 title: Lab
               - file: chapters/06-exceptions-testing/assignments/homework
                 title: Homework
+      - file: chapters/07-society-ethics/0700-society-ethics
+        sections:
+          - file: chapters/07-society-ethics/0701-computing-society
+          - file: chapters/07-society-ethics/0702-privacy-security
+          - file: chapters/07-society-ethics/0703-professional-practice
+          - file: chapters/07-society-ethics/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/07-society-ethics/assignments/preview
+                title: Preview
+              - file: chapters/07-society-ethics/assignments/lab
+                title: Lab
+              - file: chapters/07-society-ethics/assignments/homework
+                title: Homework
 
   - caption: "Part II. Data and I/O"
     numbered: true
     chapters:
-      - file: chapters/07-arrays/0700-arrays
+      - file: chapters/08-arrays/0800-arrays
         sections:
-          - file: chapters/07-arrays/0701-onedim
-          - file: chapters/07-arrays/0702-twodim
-          - file: chapters/07-arrays/assignments/index
+          - file: chapters/08-arrays/0801-onedim
+          - file: chapters/08-arrays/0802-twodim
+          - file: chapters/08-arrays/assignments/index
             title: Assignments
             sections:
-              - file: chapters/07-arrays/assignments/preview
+              - file: chapters/08-arrays/assignments/preview
                 title: Preview
-              - file: chapters/07-arrays/assignments/lab
+              - file: chapters/08-arrays/assignments/lab
                 title: Lab
-              - file: chapters/07-arrays/assignments/homework
+              - file: chapters/08-arrays/assignments/homework
                 title: Homework
 
-      - file: chapters/08-collections/0800-data-collections
+      - file: chapters/09-collections/0900-data-collections
         sections:
-          - file: chapters/08-collections/0801-collections
-          - file: chapters/08-collections/0802-list
-          - file: chapters/08-collections/0803-dictionary
-          - file: chapters/08-collections/assignments/index
+          - file: chapters/09-collections/0901-collections
+          - file: chapters/09-collections/0902-list
+          - file: chapters/09-collections/0903-dictionary
+          - file: chapters/09-collections/assignments/index
             title: Assignments
             sections:
-              - file: chapters/08-collections/assignments/preview
+              - file: chapters/09-collections/assignments/preview
                 title: Preview
-              - file: chapters/08-collections/assignments/lab
+              - file: chapters/09-collections/assignments/lab
                 title: Lab
-              - file: chapters/08-collections/assignments/homework
+              - file: chapters/09-collections/assignments/homework
                 title: Homework
 
-      - file: chapters/09-files-text/0900-files-text
+      - file: chapters/10-files-text/1000-files-text
         sections:
-          - file: chapters/09-files-text/0901-stream-file
-          - file: chapters/09-files-text/0902-file-operations
-          - file: chapters/09-files-text/0903-text-operations
-          - file: chapters/09-files-text/0906-regex
-          - file: chapters/09-files-text/assignments/index
+          - file: chapters/10-files-text/1001-stream-file
+          - file: chapters/10-files-text/1002-file-operations
+          - file: chapters/10-files-text/1003-text-operations
+          - file: chapters/10-files-text/1006-regex
+          - file: chapters/10-files-text/assignments/index
             title: Assignments
             sections:
-              - file: chapters/09-files-text/assignments/preview
+              - file: chapters/10-files-text/assignments/preview
                 title: Preview
-              - file: chapters/09-files-text/assignments/lab
+              - file: chapters/10-files-text/assignments/lab
                 title: Lab
-              - file: chapters/09-files-text/assignments/hw-gradefiles
+              - file: chapters/10-files-text/assignments/hw-gradefiles
                 title: "Homework: Grade Files"
-              - file: chapters/09-files-text/assignments/homework
+              - file: chapters/10-files-text/assignments/homework
                 title: Homework
 
   - caption: "Part III. Object-Oriented Information Systems"
     numbered: true
     chapters:
-      - file: chapters/10-classes/1000-classes
+      - file: chapters/11-classes/1100-classes
         sections:
-          - file: chapters/10-classes/1001-class-syntax
-          - file: chapters/10-classes/1002-properties
-          - file: chapters/10-classes/1003-class-instance
-          - file: chapters/10-classes/1004-operator-overloading
-          - file: chapters/10-classes/assignments/index
+          - file: chapters/11-classes/1101-class-syntax
+          - file: chapters/11-classes/1102-properties
+          - file: chapters/11-classes/1103-class-instance
+          - file: chapters/11-classes/1104-operator-overloading
+          - file: chapters/11-classes/assignments/index
             title: Assignments
             sections:
-              - file: chapters/10-classes/assignments/preview
+              - file: chapters/11-classes/assignments/preview
                 title: Preview
-              - file: chapters/10-classes/assignments/lab
+              - file: chapters/11-classes/assignments/lab
                 title: Lab
-              - file: chapters/10-classes/assignments/hw-booklist
+              - file: chapters/11-classes/assignments/hw-booklist
                 title: "Homework: Book List"
-              - file: chapters/10-classes/assignments/homework
+              - file: chapters/11-classes/assignments/homework
                 title: Homework
 
-      - file: chapters/11-oop/1100-oop-principles
+      - file: chapters/12-oop/1200-oop-principles
         sections:
-          - file: chapters/11-oop/1101-intro-oop
-          - file: chapters/11-oop/1102-encapsulation
-          - file: chapters/11-oop/1103-inheritance
-          - file: chapters/11-oop/1104-polymorphism
-          - file: chapters/11-oop/1105-abstraction
-          - file: chapters/11-oop/assignments/index
+          - file: chapters/12-oop/1201-intro-oop
+          - file: chapters/12-oop/1202-encapsulation
+          - file: chapters/12-oop/1203-inheritance
+          - file: chapters/12-oop/1204-polymorphism
+          - file: chapters/12-oop/1205-abstraction
+          - file: chapters/12-oop/assignments/index
             title: Assignments
             sections:
-              - file: chapters/11-oop/assignments/preview
+              - file: chapters/12-oop/assignments/preview
                 title: Preview
-              - file: chapters/11-oop/assignments/lab
+              - file: chapters/12-oop/assignments/lab
                 title: Lab
-              - file: chapters/11-oop/assignments/homework
+              - file: chapters/12-oop/assignments/homework
                 title: Homework
 
-      - file: chapters/12-databases/1200-databases
+      - file: chapters/13-databases/1300-databases
         sections:
-          - file: chapters/12-databases/1206-relational-model
-          - file: chapters/12-databases/1207-sql-queries
-          - file: chapters/12-databases/1208-sql-changes
-          - file: chapters/12-databases/1209-csharp-database-workflow
+          - file: chapters/13-databases/1306-relational-model
+          - file: chapters/13-databases/1307-sql-queries
+          - file: chapters/13-databases/1308-sql-changes
+          - file: chapters/13-databases/1309-csharp-database-workflow
 
   - caption: "Part IV. Data Structures"
     numbered: true
     chapters:
 
-      - file: chapters/13-abstract-data-types/1300-abstract-data-types
+      - file: chapters/14-abstract-data-types/1400-abstract-data-types
         sections:
-          - file: chapters/13-abstract-data-types/1301-adt-contracts
-          - file: chapters/13-abstract-data-types/1302-representations-costs
-          - file: chapters/13-abstract-data-types/1303-generics
-          - file: chapters/13-abstract-data-types/1304-iterators
-          - file: chapters/13-abstract-data-types/assignments/index
+          - file: chapters/14-abstract-data-types/1401-adt-contracts
+          - file: chapters/14-abstract-data-types/1402-representations-costs
+          - file: chapters/14-abstract-data-types/1403-generics
+          - file: chapters/14-abstract-data-types/1404-iterators
+          - file: chapters/14-abstract-data-types/assignments/index
             title: Assignments
             sections:
-              - file: chapters/13-abstract-data-types/assignments/preview
+              - file: chapters/14-abstract-data-types/assignments/preview
                 title: Preview
-              - file: chapters/13-abstract-data-types/assignments/lab
+              - file: chapters/14-abstract-data-types/assignments/lab
                 title: Lab
-              - file: chapters/13-abstract-data-types/assignments/homework
+              - file: chapters/14-abstract-data-types/assignments/homework
                 title: Homework
 
-      - file: chapters/14-arrays-linked-lists/1400-arrays-linked-lists
+      - file: chapters/15-arrays-linked-lists/1500-arrays-linked-lists
         sections:
-          - file: chapters/14-arrays-linked-lists/1401-dynamic-arrays
-          - file: chapters/14-arrays-linked-lists/1402-linked-nodes
-          - file: chapters/14-arrays-linked-lists/1403-comparison-lab
-          - file: chapters/14-arrays-linked-lists/assignments/index
+          - file: chapters/15-arrays-linked-lists/1501-dynamic-arrays
+          - file: chapters/15-arrays-linked-lists/1502-linked-nodes
+          - file: chapters/15-arrays-linked-lists/1503-comparison-lab
+          - file: chapters/15-arrays-linked-lists/assignments/index
             title: Assignments
             sections:
-              - file: chapters/14-arrays-linked-lists/assignments/preview
+              - file: chapters/15-arrays-linked-lists/assignments/preview
                 title: Preview
-              - file: chapters/14-arrays-linked-lists/assignments/lab
+              - file: chapters/15-arrays-linked-lists/assignments/lab
                 title: Lab
-              - file: chapters/14-arrays-linked-lists/assignments/homework
+              - file: chapters/15-arrays-linked-lists/assignments/homework
                 title: Homework
 
-      - file: chapters/15-stacks-queues/1500-stacks-queues
+      - file: chapters/16-stacks-queues/1600-stacks-queues
         sections:
-          - file: chapters/15-stacks-queues/1501-stack
-          - file: chapters/15-stacks-queues/1502-queue-deque
-          - file: chapters/15-stacks-queues/1503-applications-lab
-          - file: chapters/15-stacks-queues/assignments/index
+          - file: chapters/16-stacks-queues/1601-stack
+          - file: chapters/16-stacks-queues/1602-queue-deque
+          - file: chapters/16-stacks-queues/1603-applications-lab
+          - file: chapters/16-stacks-queues/assignments/index
             title: Assignments
             sections:
-              - file: chapters/15-stacks-queues/assignments/preview
+              - file: chapters/16-stacks-queues/assignments/preview
                 title: Preview
-              - file: chapters/15-stacks-queues/assignments/lab
+              - file: chapters/16-stacks-queues/assignments/lab
                 title: Lab
-              - file: chapters/15-stacks-queues/assignments/homework
+              - file: chapters/16-stacks-queues/assignments/homework
                 title: Homework
 
-      - file: chapters/16-trees/1600-trees-bst
+      - file: chapters/17-trees/1700-trees-bst
         sections:
-          - file: chapters/16-trees/1601-tree-structure
-          - file: chapters/16-trees/1602-binary-search-trees
-          - file: chapters/16-trees/1603-tree-lab
-          - file: chapters/16-trees/assignments/index
+          - file: chapters/17-trees/1701-tree-structure
+          - file: chapters/17-trees/1702-binary-search-trees
+          - file: chapters/17-trees/1703-tree-lab
+          - file: chapters/17-trees/assignments/index
             title: Assignments
             sections:
-              - file: chapters/16-trees/assignments/preview
+              - file: chapters/17-trees/assignments/preview
                 title: Preview
-              - file: chapters/16-trees/assignments/lab
+              - file: chapters/17-trees/assignments/lab
                 title: Lab
-              - file: chapters/16-trees/assignments/homework
+              - file: chapters/17-trees/assignments/homework
                 title: Homework
 
-      - file: chapters/17-heaps-hash-tables/1700-heaps-hash-tables
+      - file: chapters/18-heaps-hash-tables/1800-heaps-hash-tables
         sections:
-          - file: chapters/17-heaps-hash-tables/1701-priority-queues
-          - file: chapters/17-heaps-hash-tables/1702-hashing
-          - file: chapters/17-heaps-hash-tables/1703-performance-lab
-          - file: chapters/17-heaps-hash-tables/assignments/index
+          - file: chapters/18-heaps-hash-tables/1801-priority-queues
+          - file: chapters/18-heaps-hash-tables/1802-hashing
+          - file: chapters/18-heaps-hash-tables/1803-performance-lab
+          - file: chapters/18-heaps-hash-tables/assignments/index
             title: Assignments
             sections:
-              - file: chapters/17-heaps-hash-tables/assignments/preview
+              - file: chapters/18-heaps-hash-tables/assignments/preview
                 title: Preview
-              - file: chapters/17-heaps-hash-tables/assignments/lab
+              - file: chapters/18-heaps-hash-tables/assignments/lab
                 title: Lab
-              - file: chapters/17-heaps-hash-tables/assignments/homework
+              - file: chapters/18-heaps-hash-tables/assignments/homework
                 title: Homework
 
-      - file: chapters/18-graphs/1800-graphs
+      - file: chapters/19-graphs/1900-graphs
         sections:
-          - file: chapters/18-graphs/1801-graph-vocabulary
-          - file: chapters/18-graphs/1802-adjacency-representations
-          - file: chapters/18-graphs/1803-graph-structures-lab
-          - file: chapters/18-graphs/assignments/index
+          - file: chapters/19-graphs/1901-graph-vocabulary
+          - file: chapters/19-graphs/1902-adjacency-representations
+          - file: chapters/19-graphs/1903-graph-structures-lab
+          - file: chapters/19-graphs/assignments/index
             title: Assignments
             sections:
-              - file: chapters/18-graphs/assignments/preview
+              - file: chapters/19-graphs/assignments/preview
                 title: Preview
-              - file: chapters/18-graphs/assignments/lab
+              - file: chapters/19-graphs/assignments/lab
                 title: Lab
-              - file: chapters/18-graphs/assignments/homework
+              - file: chapters/19-graphs/assignments/homework
                 title: Homework
 
   - caption: "Part V. Algorithms"
     numbered: true
     chapters:
-      - file: chapters/19-algorithm-analysis/1900-algorithm-analysis
+      - file: chapters/20-algorithm-analysis/2000-algorithm-analysis
         sections:
-          - file: chapters/19-algorithm-analysis/1901-big-o
-          - file: chapters/19-algorithm-analysis/1902-correctness
-          - file: chapters/19-algorithm-analysis/1903-recurrences
-          - file: chapters/19-algorithm-analysis/assignments/index
+          - file: chapters/20-algorithm-analysis/2001-big-o
+          - file: chapters/20-algorithm-analysis/2002-correctness
+          - file: chapters/20-algorithm-analysis/2003-recurrences
+          - file: chapters/20-algorithm-analysis/assignments/index
             title: Assignments
             sections:
-              - file: chapters/19-algorithm-analysis/assignments/preview
+              - file: chapters/20-algorithm-analysis/assignments/preview
                 title: Preview
-              - file: chapters/19-algorithm-analysis/assignments/lab
+              - file: chapters/20-algorithm-analysis/assignments/lab
                 title: Lab
-              - file: chapters/19-algorithm-analysis/assignments/homework
+              - file: chapters/20-algorithm-analysis/assignments/homework
                 title: Homework
 
-      - file: chapters/20-recursion-divide-conquer/2000-recursion-divide-conquer
+      - file: chapters/21-recursion-divide-conquer/2100-recursion-divide-conquer
         sections:
-          - file: chapters/20-recursion-divide-conquer/2001-recursion
-          - file: chapters/20-recursion-divide-conquer/2002-divide-conquer
-          - file: chapters/20-recursion-divide-conquer/2003-merge-sort-lab
-          - file: chapters/20-recursion-divide-conquer/assignments/index
+          - file: chapters/21-recursion-divide-conquer/2101-recursion
+          - file: chapters/21-recursion-divide-conquer/2102-divide-conquer
+          - file: chapters/21-recursion-divide-conquer/2103-merge-sort-lab
+          - file: chapters/21-recursion-divide-conquer/assignments/index
             title: Assignments
             sections:
-              - file: chapters/20-recursion-divide-conquer/assignments/preview
+              - file: chapters/21-recursion-divide-conquer/assignments/preview
                 title: Preview
-              - file: chapters/20-recursion-divide-conquer/assignments/lab
+              - file: chapters/21-recursion-divide-conquer/assignments/lab
                 title: Lab
-              - file: chapters/20-recursion-divide-conquer/assignments/homework
+              - file: chapters/21-recursion-divide-conquer/assignments/homework
                 title: Homework
 
-      - file: chapters/21-searching-sorting/2100-searching-sorting
+      - file: chapters/22-searching-sorting/2200-searching-sorting
         sections:
-          - file: chapters/21-searching-sorting/2101-searching
-          - file: chapters/21-searching-sorting/2102-sorting
-          - file: chapters/21-searching-sorting/2103-comparison-lab
-          - file: chapters/21-searching-sorting/assignments/index
+          - file: chapters/22-searching-sorting/2201-searching
+          - file: chapters/22-searching-sorting/2202-sorting
+          - file: chapters/22-searching-sorting/2203-comparison-lab
+          - file: chapters/22-searching-sorting/assignments/index
             title: Assignments
             sections:
-              - file: chapters/21-searching-sorting/assignments/preview
+              - file: chapters/22-searching-sorting/assignments/preview
                 title: Preview
-              - file: chapters/21-searching-sorting/assignments/lab
+              - file: chapters/22-searching-sorting/assignments/lab
                 title: Lab
-              - file: chapters/21-searching-sorting/assignments/homework
+              - file: chapters/22-searching-sorting/assignments/homework
                 title: Homework
 
-      - file: chapters/22-greedy-graph-optimization/2200-greedy-graph-optimization
+      - file: chapters/23-greedy-graph-optimization/2300-greedy-graph-optimization
         sections:
-          - file: chapters/22-greedy-graph-optimization/2201-greedy-choice
-          - file: chapters/22-greedy-graph-optimization/2202-spanning-trees-shortest-paths
-          - file: chapters/22-greedy-graph-optimization/2203-optimization-lab
-          - file: chapters/22-greedy-graph-optimization/assignments/index
+          - file: chapters/23-greedy-graph-optimization/2301-greedy-choice
+          - file: chapters/23-greedy-graph-optimization/2302-spanning-trees-shortest-paths
+          - file: chapters/23-greedy-graph-optimization/2303-optimization-lab
+          - file: chapters/23-greedy-graph-optimization/assignments/index
             title: Assignments
             sections:
-              - file: chapters/22-greedy-graph-optimization/assignments/preview
+              - file: chapters/23-greedy-graph-optimization/assignments/preview
                 title: Preview
-              - file: chapters/22-greedy-graph-optimization/assignments/lab
+              - file: chapters/23-greedy-graph-optimization/assignments/lab
                 title: Lab
-              - file: chapters/22-greedy-graph-optimization/assignments/homework
+              - file: chapters/23-greedy-graph-optimization/assignments/homework
                 title: Homework
 
-      - file: chapters/23-dynamic-programming-backtracking/2300-dynamic-programming-backtracking
+      - file: chapters/24-dynamic-programming-backtracking/2400-dynamic-programming-backtracking
         sections:
-          - file: chapters/23-dynamic-programming-backtracking/2301-memoization-tabulation
-          - file: chapters/23-dynamic-programming-backtracking/2302-backtracking
-          - file: chapters/23-dynamic-programming-backtracking/2303-optimization-lab
-          - file: chapters/23-dynamic-programming-backtracking/assignments/index
+          - file: chapters/24-dynamic-programming-backtracking/2401-memoization-tabulation
+          - file: chapters/24-dynamic-programming-backtracking/2402-backtracking
+          - file: chapters/24-dynamic-programming-backtracking/2403-optimization-lab
+          - file: chapters/24-dynamic-programming-backtracking/assignments/index
             title: Assignments
             sections:
-              - file: chapters/23-dynamic-programming-backtracking/assignments/preview
+              - file: chapters/24-dynamic-programming-backtracking/assignments/preview
                 title: Preview
-              - file: chapters/23-dynamic-programming-backtracking/assignments/lab
+              - file: chapters/24-dynamic-programming-backtracking/assignments/lab
                 title: Lab
-              - file: chapters/23-dynamic-programming-backtracking/assignments/homework
+              - file: chapters/24-dynamic-programming-backtracking/assignments/homework
                 title: Homework
 
-      - file: chapters/24-advanced-graphs-strings-limits/2400-advanced-graphs-strings-limits
+      - file: chapters/25-advanced-graphs-strings-limits/2500-advanced-graphs-strings-limits
         sections:
-          - file: chapters/24-advanced-graphs-strings-limits/2401-graph-traversal
-          - file: chapters/24-advanced-graphs-strings-limits/2402-shortest-paths-strings
-          - file: chapters/24-advanced-graphs-strings-limits/2403-limits-project
-          - file: chapters/24-advanced-graphs-strings-limits/assignments/index
+          - file: chapters/25-advanced-graphs-strings-limits/2501-graph-traversal
+          - file: chapters/25-advanced-graphs-strings-limits/2502-shortest-paths-strings
+          - file: chapters/25-advanced-graphs-strings-limits/2503-limits-project
+          - file: chapters/25-advanced-graphs-strings-limits/assignments/index
             title: Assignments
             sections:
-              - file: chapters/24-advanced-graphs-strings-limits/assignments/preview
+              - file: chapters/25-advanced-graphs-strings-limits/assignments/preview
                 title: Preview
-              - file: chapters/24-advanced-graphs-strings-limits/assignments/lab
+              - file: chapters/25-advanced-graphs-strings-limits/assignments/lab
                 title: Lab
-              - file: chapters/24-advanced-graphs-strings-limits/assignments/homework
+              - file: chapters/25-advanced-graphs-strings-limits/assignments/homework
                 title: Homework
 
   - caption: "Appendices"

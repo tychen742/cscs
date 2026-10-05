@@ -21,9 +21,9 @@ chapters listed below.
 
 ## Migration Targets
 
-- Recursion material -> `chapters/20-recursion-divide-conquer/`
-- Lambda-expression material -> `chapters/12-databases/1201-lambdas.ipynb`
-- LINQ material -> `chapters/12-databases/1202-linq.ipynb`
+- Recursion material -> `chapters/21-recursion-divide-conquer/`
+- Lambda-expression material -> `chapters/13-databases/1301-lambdas.ipynb`
+- LINQ material -> `chapters/13-databases/1302-linq.ipynb`
 
 ## Assignments
 
@@ -35,6 +35,6 @@ chapters listed below.
 ## Notes
 
 - Source examples live in `materials/` at the project root.
-- `1401-recursion.ipynb` may provide source material for Chapter 20.
+- `1401-recursion.ipynb` may provide source material for Chapter 21.
 - Planned `1402-lambdas.ipynb` and `1403-linq.ipynb` do not currently exist in this folder.
 - Do not add this folder to `_toc.yml`; migrate useful content instead.

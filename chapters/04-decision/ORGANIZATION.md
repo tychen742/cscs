@@ -13,4 +13,4 @@
 ## Notes
 
 - Recursion is no longer part of the active Chapter 4 TOC. Keep Chapter 4 focused on selection syntax, Boolean reasoning, and decision examples.
-- `0409-recursion.ipynb` is retained only as source material for Chapter 20.
+- `0409-recursion.ipynb` is retained only as source material for Chapter 21.

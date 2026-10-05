@@ -16,8 +16,8 @@ Of 184 total REPL-pattern cells (92 bare-expression + 92 cross-cell-reference), 
 - `chapters/05-iteration/0503-while-statement.ipynb` cell 1 (While-Statements): pure syntax template with literal *condition* markdown-emphasis leak
 - `chapters/05-iteration/0503-while-statement.ipynb` cell 6 (While-Statements): stray markdown blockquote '>' plus trailing prose telling reader to use csharprepl/VS Code
 - `chapters/05-iteration/assignments/lab.ipynb` cell 32 (Sum To `n`): intentional '...' student fill-in stub for a method body
-- `chapters/07-arrays/0702-twodim.ipynb` cell 11 (Rectangular Arrays (Two Dimensional)): my transform incorrectly touched a multi-line array-initializer continuation; needs a hand fix
-- `chapters/08-collections/0802-list-dictionary.ipynb` cell 2 (Generics): bare 'List<T>' generic-syntax notation, not a real expression
+- `chapters/08-arrays/0802-twodim.ipynb` cell 11 (Rectangular Arrays (Two Dimensional)): my transform incorrectly touched a multi-line array-initializer continuation; needs a hand fix
+- `chapters/09-collections/0802-list-dictionary.ipynb` cell 2 (Generics): bare 'List<T>' generic-syntax notation, not a real expression
 - `chapters/06-files-text/0602-file-operations.ipynb` cell 13 (Reading to End of Stream): needs a real file to read (StreamReader on 'reader') -- can't self-contain without adding file-creation code first, needs individual review
 - `chapters/06-files-text/assignments/lab.ipynb` cell 10 (Copy to Upper Case): needs real files for both reader and writer -- can't self-contain without adding file-creation code first, needs individual review
 - `chapters/12-oop/1204-polymorphism.ipynb` cell 2 (Method Overriding: virtual/override/base): cell is missing a Cat class entirely (myCat.animalSound() called with no Cat type or instance anywhere) -- needs the same structural fix as cell 5, individual review
@@ -181,7 +181,7 @@ bool File.Exists(string filenamePath)
 
 ```
 
-### `chapters/07-arrays/0702-twodim.ipynb` cell 14 — Advanced topic: Array of Arrays
+### `chapters/08-arrays/0802-twodim.ipynb` cell 14 — Advanced topic: Array of Arrays
 ```csharp
 // declare the array of three elements
 int[][] table2 = new int[3][];
@@ -208,31 +208,31 @@ for (int i = 0; i < table2.Length; i++)
 
 ```
 
-### `chapters/07-arrays/assignments/homework.ipynb` cell 7 — Homework
+### `chapters/08-arrays/assignments/homework.ipynb` cell 7 — Homework
 ```csharp
     static void f(int num)
     //...
 
 ```
 
-### `chapters/07-arrays/assignments/homework.ipynb` cell 11 — Homework
+### `chapters/08-arrays/assignments/homework.ipynb` cell 11 — Homework
 ```csharp
     static void f(int[] nums)
     //...
 
 ```
 
-### `chapters/08-collections/0802-list-dictionary.ipynb` cell 23 — List Constructors and Methods
+### `chapters/09-collections/0802-list-dictionary.ipynb` cell 23 — List Constructors and Methods
 ```csharp
 Console.WriteLine(words)
 ```
 
-### `chapters/08-collections/0802-list.ipynb` cell 23 — List Constructors and Methods
+### `chapters/09-collections/0902-list.ipynb` cell 23 — List Constructors and Methods
 ```csharp
 Console.WriteLine(words)
 ```
 
-### `chapters/08-collections/assignments/homework.ipynb` cell 3 — Homework
+### `chapters/09-collections/assignments/homework.ipynb` cell 3 — Homework
 ```csharp
     words.Clear()
 
@@ -289,7 +289,7 @@ public BookList()
 - `chapters/04-decision/assignments/lab.ipynb` cell 7 (`if-else` Exercise)
 - `chapters/05-iteration/0503-while-statement.ipynb` cell 36 (`do-while` Example: Right Triangle)
 - `chapters/06-files-text/0602-file-operations.ipynb` cell 11 (Reading to End of Stream)
-- `chapters/08-collections/assignments/lab.ipynb` cell 9 (The FakeHelp Class)
+- `chapters/09-collections/assignments/lab.ipynb` cell 9 (The FakeHelp Class)
 
 ### References an undeclared METHOD, not a variable — needs real design work (what should it return/do), not a fake declaration (19 cells)
 
@@ -304,12 +304,12 @@ public BookList()
 - `chapters/04-decision/assignments/lab.ipynb` cell 10 (Calculate Weekly Wages)
 - `chapters/04-decision/assignments/homework.ipynb` cell 1 (Homework)
 - `chapters/06-files-text/0603-text-operations.ipynb` cell 27 (Structured Lines)
-- `chapters/07-arrays/assignments/lab.ipynb` cell 3 (Lab: Arrays)
-- `chapters/07-arrays/assignments/homework.ipynb` cell 9 (Homework)
-- `chapters/07-arrays/assignments/homework.ipynb` cell 13 (Homework)
-- `chapters/08-collections/0802-list-dictionary.ipynb` cell 37 (List Constructors and Methods)
-- `chapters/08-collections/0802-list.ipynb` cell 39 (Exercise: Generic List)
-- `chapters/08-collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
+- `chapters/08-arrays/assignments/lab.ipynb` cell 3 (Lab: Arrays)
+- `chapters/08-arrays/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/08-arrays/assignments/homework.ipynb` cell 13 (Homework)
+- `chapters/09-collections/0802-list-dictionary.ipynb` cell 37 (List Constructors and Methods)
+- `chapters/09-collections/0902-list.ipynb` cell 39 (Exercise: Generic List)
+- `chapters/09-collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
 - `chapters/09-datastructure/0901-intro-ds.ipynb` cell 34 (Destructuring)
 - `chapters/11-classes/assignments/hw-booklist.ipynb` cell 13 (BookList class)
 

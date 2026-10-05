@@ -118,7 +118,7 @@ Error codes: CS5001
 using System.Text.RegularExpressions;
 ```
 
-## `chapters/07-arrays/assignments/homework.ipynb` cell 3 — Homework
+## `chapters/08-arrays/assignments/homework.ipynb` cell 3 — Homework
 Error codes: CS0200
 
 ```csharp
@@ -129,7 +129,7 @@ Error codes: CS0200
     s[0] = 'c';
 ```
 
-## `chapters/08-collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
+## `chapters/09-collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -139,14 +139,14 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/08-collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
+## `chapters/09-collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
 words.Count;
 ```
 
-## `chapters/08-collections/0802-list.ipynb` cell 19 — List Constructors and Methods
+## `chapters/09-collections/0902-list.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -156,7 +156,7 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/08-collections/0802-list.ipynb` cell 27 — List Constructors and Methods
+## `chapters/09-collections/0902-list.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp

@@ -3,8 +3,8 @@
 ## Status
 
 This folder is an inactive source bank, not a chapter in the active `_toc.yml`.
-Nullability is active in Chapter 6, generics are active in Chapter 13, and async
-currently appears in Chapter 12.
+Nullability is active in Chapter 6, generics are active in Chapter 14, and async
+currently appears in Chapter 13.
 
 ## Landing Page
 
@@ -23,8 +23,8 @@ No active section notebooks are currently present in this folder.
 ## Migration Targets
 
 - Nullable reference type material -> `chapters/06-exceptions-testing/0604-nullable.ipynb`
-- Generic programming material -> `chapters/13-abstract-data-types/1303-generics.ipynb`
-- Async/await material -> `chapters/12-databases/1205-async.ipynb`
+- Generic programming material -> `chapters/14-abstract-data-types/1403-generics.ipynb`
+- Async/await material -> `chapters/13-databases/1305-async.ipynb`
 
 ## Assignments
 

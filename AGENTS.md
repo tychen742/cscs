@@ -38,7 +38,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Each chapter has an `assignments/` subfolder. The standard student-facing
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
-- Chapter sequence is ch01–ch24; project instructions live in `chapters/appendices/`
+- Chapter sequence is ch01–ch25 (ch07 Society, Ethics, and the Profession added 2026-10-04; later chapters renumbered); project instructions live in `chapters/appendices/`
 - Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs-index.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
 - Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding

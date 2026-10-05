@@ -9,7 +9,8 @@
 - `0301-intro-methods.ipynb` — Introduction to methods
 - `0302-signature_call.ipynb` — Method signatures and calls
 - `0303-parameter.ipynb` — Parameters and return values
-- `0304-summary.ipynb` — Methods summary and practice
+- `0304-strings.ipynb` — Strings and their methods (moved early from Chapter 10's text operations, 2026-10-04): length, indexing, cleaning, immutability, searching, `Substring`, `Replace`, chaining
+- `0305-summary.ipynb` — Methods summary and practice
 
 ## Assignments
 

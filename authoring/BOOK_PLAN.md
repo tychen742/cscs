@@ -34,11 +34,11 @@ Five parts:
 
 | Part | Topic | Chapters |
 | ---- | ----- | -------- |
-| I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing |
-| II | Data and I/O | 07 Arrays, 08 Data Collections, 09 Files & Text |
-| III | Object-Oriented Information Systems | 10 Classes, 11 OOP Principles, 12 Databases |
-| IV | Data Structures | 13 ADTs, 14 Linear Lists, 15 Stacks & Queues, 16 Trees, 17 Hashing & Heaps, 18 Graphs |
-| V | Algorithms | 19 Analysis, 20 Recursion, 21 Search & Sort, 22 Greedy Algorithms, 23 Dynamic Programming, 24 Advanced Algorithms |
+| I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing, 07 Society & Ethics |
+| II | Data and I/O | 08 Arrays, 09 Data Collections, 10 Files & Text |
+| III | Object-Oriented Information Systems | 11 Classes, 12 OOP Principles, 13 Databases |
+| IV | Data Structures | 14 ADTs, 15 Linear Lists, 16 Stacks & Queues, 17 Trees, 18 Hashing & Heaps, 19 Graphs |
+| V | Algorithms | 20 Analysis, 21 Recursion, 22 Search & Sort, 23 Greedy Algorithms, 24 Dynamic Programming, 25 Advanced Algorithms |
 
 Appendix covers resources, command line, and index.
 
@@ -51,8 +51,8 @@ See `_toc.yml` for the authoritative notebook order.
 This book now contains two semesters of material. The intended split is:
 
 - **Semester 1: Programming and Information Systems Foundations** — Chapters
-	1-12.
-- **Semester 2: Data Structures and Algorithms Foundations** — Chapters 13-24.
+	1-13.
+- **Semester 2: Data Structures and Algorithms Foundations** — Chapters 14-25.
 
 The book should remain usable as a single open text, but each semester needs a
 clear instructional arc, assessment plan, and project rhythm. Instructors may
@@ -68,11 +68,13 @@ information-system data. Its required sequence is:
 3. methods, parameters, and decomposition (Chapter 3)
 4. decisions and iteration (Chapters 4-5)
 5. exceptions, debugging, and testing (Chapter 6)
-6. arrays and collections (Chapters 7-8)
-7. files, text processing, and regular expressions (Chapter 9)
-8. classes, properties, instances, and object-oriented principles
-	 (Chapters 10-11)
-9. database concepts, SQL, and persistent information-system data (Chapter 12)
+6. society, ethics, and the profession: impact, privacy, security, and
+	 professional practice (Chapter 7)
+7. arrays and collections (Chapters 8-9)
+8. files, text processing, and regular expressions (Chapter 10)
+9. classes, properties, instances, and object-oriented principles
+	 (Chapters 11-12)
+10. database concepts, SQL, and persistent information-system data (Chapter 13)
 
 The semester should include a project that grows from single-file programs into
 a small multi-class information-system application. The final weeks should
@@ -86,23 +88,25 @@ Semester 1. It introduces abstract data types, implementation choices,
 operation costs, and algorithm design. Its required sequence is:
 
 1. abstract data types, interfaces, generics, references, and memory
-	 (Chapter 13)
+	 (Chapter 14)
 2. linear structures: arrays, dynamic arrays, linked lists, stacks, queues, and
-	 deques (Chapters 14-15)
-3. trees, heaps, hash tables, and graph representations (Chapters 16-18)
-4. algorithm analysis, recursion, searching, and sorting (Chapters 19-21)
+	 deques (Chapters 15-16)
+3. trees, heaps, hash tables, and graph representations (Chapters 17-19)
+4. algorithm analysis, recursion, searching, and sorting (Chapters 20-22)
 5. greedy algorithms, dynamic programming, backtracking, and advanced graph or
-	 string algorithms (Chapters 22-24)
+	 string algorithms (Chapters 23-25)
 
 Semester 2 should have its own project arc. It should emphasize choosing
 representations, explaining tradeoffs, implementing reusable data structures,
 testing invariants, and applying algorithms to realistic data problems.
 
-### Proposed 24-Chapter Layout
+### 25-Chapter Layout
 
-The book should use a simple one-chapter-per-week structure. The first twelve
-chapters cover the applied programming and information-systems foundation. The
-next twelve chapters cover the data structures and algorithms foundation for
+The book should use a simple one-chapter-per-week structure. The first thirteen
+chapters cover the applied programming and information-systems foundation,
+including the Society, Ethics, and the Profession chapter added on 2026-10-04
+(CS2023 SEP coverage; see `authoring/CS2023_ALIGNMENT.md`). The next twelve
+chapters cover the data structures and algorithms foundation for
 the second semester.
 
 #### Part I: Fundamentals
@@ -113,44 +117,46 @@ the second semester.
 4. Decisions and conditional logic
 5. Iteration and repetition
 6. Exceptions, debugging, and testing
+7. Society, ethics, and the profession: impact, privacy, security, and
+	professional practice
 
 #### Part II: Data and I/O
 
-7. Arrays and multidimensional data
-8. Data Collections: lists, dictionaries, and sets
-9. Files, streams, and text processing
+8. Arrays and multidimensional data
+9. Data Collections: lists, dictionaries, and sets
+10. Files, streams, and text processing
 
 #### Part III: Object-Oriented Information Systems
 
-10. Classes, fields, properties, and object construction
-11. Object-oriented principles: encapsulation, inheritance, polymorphism, and
+11. Classes, fields, properties, and object construction
+12. Object-oriented principles: encapsulation, inheritance, polymorphism, and
 	interfaces
-12. Databases, SQL, and persistent information-system data
+13. Databases, SQL, and persistent information-system data
 
-Chapters 1-12 form the complete first-semester programming and
+Chapters 1-13 form the complete first-semester programming and
 information-systems foundation. Chapter 6 appears before classes so students
 practice failure handling, debugging, and tests before larger object-oriented
 projects. Memory, references, and program state should be introduced where
-they support Chapters 7-11 rather than treated as an isolated advanced
+they support Chapters 8-12 rather than treated as an isolated advanced
 chapter.
 
 #### Part IV: Data Structures
 
-13. ADTs: abstract data types, interfaces, generics, references, and memory
-14. Linear lists: arrays, dynamic arrays, and linked lists
-15. Stacks & queues: LIFO, FIFO, deque operations, and implementations
-16. Trees: hierarchy, traversal, and binary search trees
-17. Hashing & heaps: priority queues, heaps, hash tables, sets, and dictionaries
-18. Graphs: vertices, edges, adjacency, and graph representations
+14. ADTs: abstract data types, interfaces, generics, references, and memory
+15. Linear lists: arrays, dynamic arrays, and linked lists
+16. Stacks & queues: LIFO, FIFO, deque operations, and implementations
+17. Trees: hierarchy, traversal, and binary search trees
+18. Hashing & heaps: priority queues, heaps, hash tables, sets, and dictionaries
+19. Graphs: vertices, edges, adjacency, and graph representations
 
 #### Part V: Algorithms
 
-19. Analysis: correctness, asymptotic notation, space growth, and recurrences
-20. Recursion: recursive methods, call-stack reasoning, and divide-and-conquer
-21. Search & sort: searching, sorting, preconditions, and comparison costs
-22. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
-23. Dynamic programming: memoization, tabulation, backtracking, and pruning
-24. Advanced algorithms: graph traversal, string matching, and computational limits
+20. Analysis: correctness, asymptotic notation, space growth, and recurrences
+21. Recursion: recursive methods, call-stack reasoning, and divide-and-conquer
+22. Search & sort: searching, sorting, preconditions, and comparison costs
+23. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
+24. Dynamic programming: memoization, tabulation, backtracking, and pruning
+25. Advanced algorithms: graph traversal, string matching, and computational limits
 
 The chapter number is the weekly organizing unit; it does not limit the
 number of notebooks inside a chapter. Each chapter should normally include a
@@ -159,7 +165,7 @@ Preview, Lab, and Homework work.
 
 ### Semester 2 Depth: Data Structures and Algorithms
 
-Data Structures and Algorithms form the second-semester arc. Chapters 13-24
+Data Structures and Algorithms form the second-semester arc. Chapters 14-25
 are organized as two focused six-chapter sequences: data structures first,
 then algorithms.
 

@@ -84,7 +84,7 @@ roles, and records the pass's email as the commit author. In the book, authors u
 POST /v1/admin/notebooks/save
 ```
 
-with `{ "path": "chapters/08-collections/0802-list.ipynb", "content": "..." }`.
+with `{ "path": "chapters/09-collections/0902-list.ipynb", "content": "..." }`.
 The API validates the notebook, restricts writes to `chapters/**/*.ipynb`,
 copies the existing file to the backup directory, and atomically replaces it.
 The book root is mounted at `/workspace` in development; backups are stored in
@@ -98,7 +98,7 @@ Do not use a loose rsync-only mirror as the editable source of truth.
 The matching source endpoint is:
 
 ```text
-GET /v1/admin/notebooks/source?path=chapters/08-collections/0802-list.ipynb
+GET /v1/admin/notebooks/source?path=chapters/09-collections/0902-list.ipynb
 ```
 
 Browser authoring also exposes a Git sync endpoint:
