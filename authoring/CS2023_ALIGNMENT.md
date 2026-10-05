@@ -1,4 +1,4 @@
-# CS2023 Alignment — Introduction to Computer Science in C\#
+# CS2023 Alignment — Computer Science in C\#
 
 Draft, 2026-10-04; updated the same day for the new Chapter 7 (Society, Ethics,
 and the Profession) and the renumbering of later chapters to 8–25. A condensed chapter table is published as an appendix (`chapters/appendices/cs2023-alignment.ipynb`, label `cs2023-alignment`; moved from the Preface on 2026-10-04); keep the two in sync. Maps the book's chapters to the knowledge units of

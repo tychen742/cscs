@@ -2,7 +2,7 @@
 
 ## Title and Publication
 
-- **Title**: Introduction to Computer Science in C\#
+- **Title**: Computer Science in C\# (ThinkPress). Renamed 2026-10-05 from "Think CS in C#": ThinkPress is the brand, and book titles are plain, to avoid confusion with Allen Downey's "Think" series and with introcs's exact title
 - **Format**: Jupyter Book (open access, online)
 - **Inspired by**: introcs.cs.luc.edu — aims to be a better-structured open alternative
 - **Scope note**: despite the working title, this book is not only an
