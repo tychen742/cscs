@@ -50,7 +50,7 @@ book unless they are listed in the TOC.
 | 16 | `chapters/16-stacks-queues` | Stacks & Queues | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic stack/ring/linked queues, invariant traces, qualified costs, undo/redo, connected lab, independent homework, and verified outputs; slides pending |
 | 17 | `chapters/17-trees` | Trees | preview, lab, homework | In Progress | Depth pass 2026-10-05: recursive/traversal traces, boundary-safe ancestor validation, complete BST removal, height-based costs, range/level-order operations, connected lab, transfer homework, and verified outputs; slides pending |
 | 18 | `chapters/18-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic heap and chained map, repair/collision/rehash traces, equality and tie policies, qualified costs, top-k and lazy cancellation, connected lab, transfer homework, and verified outputs; slides pending |
-| 19 | `chapters/19-graphs` | Graphs | preview, lab, homework | In Progress | First content and assignment pass added |
+| 19 | `chapters/19-graphs` | Graphs | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete weighted graph operations and invariants, explicit isolates and zero weights, protected snapshots, matrix conversion, supplied-walk checks, connected lab, transfer homework, and verified outputs; slides pending |
 
 ## Part V — Algorithms
 

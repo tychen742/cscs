@@ -2,34 +2,20 @@
 orphan: true
 ---
 
-# Chapter Organization — Graphs
+# Chapter Organization: Graphs
 
-## Learning Objectives
+## Class Meetings
 
-Students should be able to model relationships as graphs, select an adjacency
-representation, and explain how that representation supports later graph
-algorithms.
+1. **Vocabulary and contracts, 35 minutes.** Model routes and directed workflows; predict degrees; distinguish direct adjacency from connectivity and walks from paths; specify labels, loops, and weights.
+2. **Representations and updates, 40 minutes.** Compare matrices and adjacency collections, including isolates and zero weights; qualify operation costs; inspect complete graph operations and reciprocal invariants.
+3. **Representation practice, 35 minutes.** Trace updates and failures, export and compare matrices, validate a supplied walk, and connect these checks to the facilities lab.
 
-## Sequence
+The 110-minute lecture plan includes predictions, hand traces, discussion, and code inspection. Assignments add guided and independent practice.
 
-- `1900-graphs.ipynb`: chapter landing page with essential concepts, learning objectives, chapter flow, and glossary
-- `1901-graph-vocabulary.ipynb`: vertices, edges, directed/undirected models, weighted edges, neighbors, degree, paths, and simple-graph boundaries
-- `1902-adjacency-representations.ipynb`: adjacency matrices, weighted matrices, adjacency lists, sparse/dense tradeoffs, and a small graph wrapper class
-- `1903-graph-structures-lab.ipynb`: guided representation lab that builds weighted adjacency lists and compares them with matrices
-- `assignments/index.ipynb`: assignment TOC parent
-- `assignments/preview.ipynb`: pre-class concept quiz
-- `assignments/lab.ipynb`: required technical lab for graph modeling and adjacency-list operations
-- `assignments/homework.ipynb`: post-class true/false and coding practice
+## Assignment Roles
 
-## Coverage Boundary
+Preview checks vocabulary and representation contracts. The five-task lab builds explicit vertex storage, weighted edges, reciprocal edge removal, vertex removal, and matrix export. Homework transfers directed degree counts, edge normalization, supplied-walk checking, validated matrix import, and undirected invariants.
 
-This chapter is the graph data-structure chapter. It should establish vocabulary,
-storage choices, and basic representation testing. Full traversal algorithms,
-shortest paths, spanning trees, and graph optimization belong in later algorithm
-chapters.
+## Scope
 
-## Assignment Plan
-
-- Preview: core vocabulary and representation recognition.
-- Lab: build an undirected graph, compute degrees, test direct edges, and add weights.
-- Homework: reinforce directed versus undirected edges, matrix/list tradeoffs, weighted representation, and density-based representation choice.
+All runnable cells are standalone. Keep traversal, greedy route algorithms, and shortest paths in their later chapters. Slides and exercise-tag migration remain deferred to Press.

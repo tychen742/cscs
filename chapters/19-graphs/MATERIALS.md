@@ -2,26 +2,18 @@
 orphan: true
 ---
 
-# Chapter Materials — Graphs
+# Chapter Materials: Graphs
 
-## Sequence
+The three content sections develop vocabulary, adjacency representations, and complete graph updates using campus routes and business workflows. The landing page includes objectives and a glossary. Preview has ten multiple-choice questions; the connected five-task lab builds a route graph, and homework has five true/false and five coding questions. Completed coding answers retain verified stdout.
 
-- `1900-graphs.ipynb`: landing page, learning objectives, essential concepts, chapter flow, glossary, slides placeholder
-- `1901-graph-vocabulary.ipynb`: vertices, edges, directed and undirected edges, weighted edges, neighbors, degree, paths, model boundaries
-- `1902-adjacency-representations.ipynb`: adjacency matrices, weighted matrices, adjacency lists, sparse/dense tradeoffs, small graph class
-- `1903-graph-structures-lab.ipynb`: worked graph-representation lab using weighted campus-route data
-- `assignments/preview.ipynb`: glossary and concept preview
-- `assignments/lab.ipynb`: required technical lab for graph modeling and adjacency-list practice
-- `assignments/homework.ipynb`: true/false and coding practice
+## Depth Coverage
 
-## Coverage Notes
+- Directed and undirected edges, weights, degrees, isolates, walks, paths, cycles, and connectivity.
+- Boolean and nullable weighted matrices; zero weight versus absent edge; adjacency collections and workload-sensitive costs.
+- Complete RouteGraph with explicit vertices, replacement, reciprocal removal, vertex removal, edge counts, protected snapshots, and invariant checks.
+- Matrix export/import and validation, pairwise equivalence, and supplied-walk cost checks.
+- Downloadable implementation and reference-model checks in `../../materials/19/RouteGraph.cs`.
 
-- This chapter covers graph representations as data structures. It prepares students for graph traversal and optimization without teaching those algorithms in depth.
-- Later algorithm chapters cover traversal, shortest paths, spanning trees, and optimization.
-- Keep examples small enough to inspect by hand: 4-6 vertices is usually enough for representation work.
+## Verification and Deferred Work
 
-## Maintenance Notes
-
-- C# examples should remain standalone because students may run any cell directly in Live Code.
-- Prefer dictionaries and lists for introductory graph examples. Introduce classes only after students have seen the representation directly.
-- Do not add a custom graph library dependency here; students should understand the representation before using higher-level libraries.
+25 completed notebook cells compile and run independently. Reference checks cover 600 mixed graph updates and explicit boundaries; transfer checks cover 1,080 conversion pairs, supplied walks, and invalid matrix imports. Slides remain deferred to Press, with student HTML/PDF and instructor-only PPTX. Traversal and shortest-path algorithms remain in later chapters.
