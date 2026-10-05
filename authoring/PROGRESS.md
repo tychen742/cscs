@@ -17,7 +17,7 @@ book unless they are listed in the TOC.
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
-| 01 | `chapters/01-context` | Getting Started with C# | preview, lab, homework | In Progress | Tooling should eventually move to appendices |
+| 01 | `chapters/01-context` | Getting Started with C# | preview, lab, homework | In Progress | 2026-10-05 depth pass: computing models, tool workflows, program structure, and connected assignments revised; slides deferred until content completion |
 | 02 | `chapters/02-var_data` | Variables, Data Types, and Operators | preview, lab, homework | In Progress | |
 | 03 | `chapters/03-methods` | Methods | preview, lab, homework | In Progress | |
 | 04 | `chapters/04-decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |

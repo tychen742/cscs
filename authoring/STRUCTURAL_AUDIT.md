@@ -83,3 +83,7 @@ These are already in good shape:
 5. Decide what to do with legacy extra homework pages.
 6. Run a clean full-book build and record warnings before starting content prose
    QA.
+
+## Early-chapter depth review, October 5, 2026
+
+Chapter 1 received a content and assignment rewrite after the Chapters 15–25 passes. Early chapters 2–14 still need the same review; structural consistency alone does not establish instructional depth. Slides will be authored as book content after the content sequence is complete. Press owns slide delivery and instructor access controls, not slide authoring.
