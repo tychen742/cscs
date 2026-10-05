@@ -2926,9 +2926,9 @@ a.image-reference img {
     text-decoration: underline;
 }
 
-/* Title page as a library catalog card (front-matter/title-page.ipynb). The card is
+/* Title page catalog card (Press docs/UI.md, Title Page Catalog Card). The card is
    its own object, so it keeps its cream stock and dark ink in dark mode too. */
-.cscs-catalog-card {
+.tp-catalog-card {
     --card-line: 1.75rem;
     background-color: #fbf6e6;
     background-image:
@@ -2941,7 +2941,7 @@ a.image-reference img {
     color: #2b2a26;
     display: grid;
     font-family: "Courier New", Courier, "Liberation Mono", monospace;
-    font-size: 0.92rem;
+    font-size: 0.85rem; /* body text size (Press docs/UI.md) */
     gap: 0 1.25rem;
     grid-template-columns: 5.5rem 1fr;
     line-height: var(--card-line);
@@ -2951,32 +2951,32 @@ a.image-reference img {
     position: relative;
 }
 
-.cscs-catalog-card p {
+.tp-catalog-card p {
     margin: 0;
 }
 
-.cscs-catalog-card a {
+.tp-catalog-card a {
     color: #1d4f9a;
 }
 
-.cscs-catalog-card__call {
+.tp-catalog-card__call {
     line-height: var(--card-line);
     white-space: nowrap;
 }
 
-.cscs-catalog-card__author {
+.tp-catalog-card__author {
     font-weight: 700;
 }
 
-.cscs-catalog-card__indent {
+.tp-catalog-card__line {
     text-indent: 0;
 }
 
-.cscs-catalog-card__tracings {
+.tp-catalog-card__tracings {
     margin-top: var(--card-line) !important;
 }
 
-.cscs-catalog-card__hole {
+.tp-catalog-card__hole {
     background: var(--pst-color-background, #ffffff);
     border: 1px solid #d8cfb3;
     border-radius: 50%;
@@ -2990,16 +2990,16 @@ a.image-reference img {
 }
 
 @media (max-width: 560px) {
-    .cscs-catalog-card {
+    .tp-catalog-card {
         grid-template-columns: 1fr;
         padding: 2.65rem 1rem 3rem;
     }
 
-    .cscs-catalog-card__call br {
+    .tp-catalog-card__call br {
         display: none;
     }
 
-    .cscs-catalog-card__call {
+    .tp-catalog-card__call {
         white-space: normal;
         word-spacing: 0.4rem;
     }
