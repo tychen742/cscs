@@ -2854,3 +2854,46 @@ body.thebe-is-active .tag_hide-input .jp-OutputArea {
     vertical-align: middle;
     transform: translateY(-0.18rem);
 }
+
+/* Image viewer (custom.js): a figure opens over the page; see Press docs/UI.md, Images. */
+.cscs-image-viewer {
+    align-items: center;
+    background: rgba(12, 18, 28, 0.88);
+    cursor: zoom-out;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    padding: 2.5rem;
+    position: fixed;
+    z-index: 2000;
+}
+
+.cscs-image-viewer img {
+    background: #ffffff;
+    border-radius: 6px;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.cscs-image-viewer__close {
+    background: transparent;
+    border: 0;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0.25rem 0.6rem;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.cscs-image-viewer__close:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+a.image-reference img {
+    cursor: zoom-in;
+}

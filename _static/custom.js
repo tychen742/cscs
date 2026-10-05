@@ -1359,3 +1359,61 @@ document.addEventListener('DOMContentLoaded', function () {
 //     });
 //     observer.observe(document.documentElement, {childList: true, subtree: true});
 // })();
+
+// Image viewer: a figure opens enlarged over the page instead of navigating to the bare
+// image file (Press docs/UI.md, Images). Escape, a click, the close button, or the
+// browser's Back button closes it. Modified clicks (Ctrl/Cmd/Shift) still open the file.
+document.addEventListener('DOMContentLoaded', function () {
+    let viewer = null;
+    let returnFocus = null;
+
+    function closeViewer(fromHistory) {
+        if (!viewer) return;
+        viewer.remove();
+        viewer = null;
+        document.removeEventListener('keydown', onKeydown);
+        if (!fromHistory && history.state?.cscsImageViewer) history.back();
+        returnFocus?.focus({ preventScroll: true });
+    }
+
+    function onKeydown(event) {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeViewer(false);
+        }
+    }
+
+    function openViewer(link, thumbnail) {
+        returnFocus = link;
+        viewer = document.createElement('div');
+        viewer.className = 'cscs-image-viewer';
+        viewer.setAttribute('role', 'dialog');
+        viewer.setAttribute('aria-modal', 'true');
+        viewer.setAttribute('aria-label', thumbnail.alt || 'Image');
+        const image = document.createElement('img');
+        image.src = link.href;
+        image.alt = thumbnail.alt || '';
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'cscs-image-viewer__close';
+        close.setAttribute('aria-label', 'Close image');
+        close.innerHTML = '&times;';
+        viewer.append(image, close);
+        viewer.addEventListener('click', () => closeViewer(false));
+        document.body.appendChild(viewer);
+        document.addEventListener('keydown', onKeydown);
+        history.pushState({ cscsImageViewer: true }, '');
+        close.focus({ preventScroll: true });
+    }
+
+    window.addEventListener('popstate', () => closeViewer(true));
+
+    document.addEventListener('click', function (event) {
+        const link = event.target.closest('a.image-reference');
+        if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        const thumbnail = link.querySelector('img');
+        if (!thumbnail) return;
+        event.preventDefault();
+        openViewer(link, thumbnail);
+    });
+});
