@@ -2903,3 +2903,14 @@ a.image-reference img {
 .bd-article-container > .prev-next-footer {
     margin-top: auto;
 }
+
+/* Links: no underline at rest, underline on hover and keyboard focus (Press docs/UI.md).
+   #176de8 keeps 3.1:1 contrast with body text, so color plus the hover/focus cue meets WCAG. */
+.bd-container a {
+    text-decoration: none;
+}
+
+.bd-container a:hover,
+.bd-container a:focus-visible {
+    text-decoration: underline;
+}
