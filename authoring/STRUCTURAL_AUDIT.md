@@ -1,5 +1,18 @@
 # Structural Audit — 2026-09-19
 
+## Chapters 15–25 Consistency Follow-up — 2026-10-05
+
+The September audit below is historical; its chapter numbering, TOC root, and status statements describe that earlier checkout. The current book has 25 chapters and root `index`.
+
+This follow-up checked all 88 published notebooks in Chapters 15–25 against the current TOC. Notebook schemas, local Markdown destinations, Sphinx document targets, indexed content headings, final lesson footnotes, and assignment structure passed. Every chapter has five tagged lab questions and five hidden solutions, and five tagged homework coding questions and five hidden solutions. All hidden coding solutions retain verified output. Chapter handoffs consistently place graph representation in 19, analysis in 20, recursion/merge sort in 21, search/elementary sorting in 22, greedy graph optimization in 23, dynamic programming/search in 24, and traversal/string matching/limits in 25.
+
+Fixed 17 missing cell IDs in Chapter 15’s preview, lab, and homework. IDs are deterministic and existing IDs, cell order, source, tags, and outputs remain unchanged. C# verification from each completed depth pass remains applicable; this follow-up changes metadata only.
+
+Inactive source banks such as `15-pattern-records` and `16-generics-async` remain outside the published TOC and clearly describe their staging role. Their removal is not required for this pass. Slides and the legacy Interactive Exercise UI rename remain deferred to Press, as requested.
+
+The verified full-book build has five existing warnings outside this sequence: C# lexer warnings in 0202, 0604, and the Preface, and unresolved `namespace` and `hg-and-teamwork` labels in 1001 and the Project appendix. These still require a separate cleanup before a warning-free publication build. This follow-up is a consistency check, not a fresh correctness proof or exhaustive pedagogical audit of the whole book.
+
+
 Scope: book-level structure only. This pass compares the book-authoring rules,
 `AGENTS.md`, `authoring/BOOK_PLAN.md`, `authoring/PROGRESS.md`, `_toc.yml`,
 the real `chapters/` tree, assignment folders, and planning docs. It does not
