@@ -1,14 +1,15 @@
 # Architecture
 
-The service is split into three containers (`compose.yml`):
+CSCS execution is now split between Press and this repository:
 
 ```text
-Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (127.0.0.1:8081) ─► cs-runner
-                   │                               [default + runner networks]       [runner network only]
-                   └─ /cscs-exec/* ─────────────► execution-api (127.0.0.1:8080)
+Browser -> Apache
+  /cscs-exec/v1/tasks/* -> Press cs-runner-gateway (127.0.0.1:8081) -> Press cs-runner
+  /cscs-exec/*          -> CSCS execution-api (127.0.0.1:8080)
 ```
 
-- `cs-runner` (`runner/`) is the only place student code runs. It accepts
+- Press `cs-runner` (`/Users/tychen/workspace/press/runner/csharp`) is the only
+  active place student C# code runs. It accepts
   `POST /v1/tasks/{taskId}/execute`, combines the cells into one temporary
   top-level C# program, copies a pre-restored console project into a temporary
   directory, and invokes `dotnet run --no-restore`. The student build starts
@@ -17,7 +18,7 @@ Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (
   no internet, DNS, database, account service, or host access. It also has a
   read-only root, a 256 MB `/tmp`, all capabilities dropped, `no-new-privileges`,
   `init`, and limits of 128 processes, 512 MB, and 1 CPU.
-- `cs-runner-gateway` (`gateway/nginx.conf`) is an unprivileged nginx that
+- Press `cs-runner-gateway` (`runner/csharp/gateway/nginx.conf`) is an unprivileged nginx that
   forwards only `/v1/tasks/` and `/health` into `cs-runner`, because a container
   on an internal network cannot publish a port. It passes Apache's
   `X-Forwarded-For` through unchanged and runs no student code.
@@ -27,6 +28,10 @@ Browser ─► Apache ─┬─ /cscs-exec/v1/tasks/* ─► cs-runner-gateway (
   `shared/PressPassVerifier.cs` (also used by the runner). It mounts the book
   workspace and an SSH directory for authoring commits; none of that is reachable from
   student code. It has no database.
+- The local `cs-runner` and `cs-runner-gateway` services in this directory are a
+  legacy rollback path only. They are hidden behind the `legacy-runner` Compose
+  profile and must not run at the same time as the Press gateway, because both
+  gateways bind `127.0.0.1:8081`.
 
 Run limits: at most two runs at once (queued, with a 20-second wait for guests),
 an eight-second guest timeout, and 30 runs per minute per reader IP. A valid Press
@@ -50,40 +55,31 @@ provides sample execution, editable sample copies, and inline exercise editing.
 
 ## Authentication and persistence
 
-The API now includes a first database-backed account layer:
-
-- Postgres stores accounts, applied via EF Core Migrations at startup.
-- Passwords are stored as PBKDF2 hashes.
-- Cookie sessions use persisted ASP.NET data-protection keys.
-- Registration, login, current-user, and logout endpoints are available.
-- Docker stores database files, protection keys, and notebook backups in a
-	persistent named volume.
-
-The database supports identity, roles, exercise drafts, assignment state, and
-audit metadata. It does not replace Git or notebook files as the source of
-truth for published book content.
+Press owns accounts, sign-in, reading progress, run passes, and durable learner
+state. This service does not have a local learner database, local account model,
+or local role table. Any future exercise draft, assignment, grading, or analytics
+state should be added to Press instead of this directory.
 
 ## Admin authoring
 
 The intended authoring workflow is a lightweight CMS layer over the existing
 `.ipynb` files:
 
-1. An authenticated administrator enables author mode in the browser.
+1. An authenticated author enables author mode in the browser.
 2. Markdown and C# cell strings are edited inline.
-3. C# cells can be executed immediately through the Docker runner.
+3. C# cells can be executed immediately through the Press-owned C# runner.
 4. The save API validates notebook JSON and restricts writes to
 	 `chapters/**/*.ipynb`.
 5. The existing notebook is backed up before atomic replacement.
 6. Git remains responsible for synchronization, review, history, and rollback.
 
 The current save endpoint is `POST /v1/admin/notebooks/save`. It requires an
-authenticated user whose `UserAccount.Role` database enum is `Admin`, `Author`,
-`Editor`, `Instructor`, or `TA`. Emails in `CSCS_ADMIN_EMAILS` are treated as
-effective admins only as a bootstrap/emergency override. Browser author
-controls expose markdown and code-cell editors only to those authoring roles.
-The mounted book root for this API must be a Git checkout. Browser authoring
-saves create ordinary Git working-tree changes in that checkout, and review,
-commit, push, rebuild, and rollback all happen through Git.
+authenticated Press-signed author pass, verified with the configured public
+keys. Browser author controls expose markdown and code-cell editors only to
+users who can obtain that author pass from Press. The mounted book root for this
+API must be a Git checkout. Browser authoring saves create ordinary Git
+working-tree changes in that checkout, and review, commit, push, rebuild, and
+rollback all happen through Git.
 
 The optional browser `Sync` action calls `POST /v1/admin/git/sync`, which
 commits pending source changes, rebases on `origin/main`, and pushes to GitHub.
@@ -106,8 +102,10 @@ to the original `.ipynb` safely instead of relying on DOM order.
 
 ## Future production work
 
-Before public deployment, add automated Postgres backups (`pg_dump` or WAL
-archiving) and a tested rollback path, implement email verification and
-password recovery through IONOS SMTP, add rate limits and stronger execution
-isolation through separate runner workers, and define a controlled Git
-commit/publish workflow.
+Production hardening now belongs in two places:
+
+- Press: automated Postgres backups, account recovery, assignment records,
+  grading records, analytics, and runner orchestration.
+- CSCS `execution-api`: a controlled authoring commit/publish workflow, clear
+  rollback tooling, and continued validation that notebook writes stay inside
+  the book checkout.

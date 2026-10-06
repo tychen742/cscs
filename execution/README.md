@@ -1,40 +1,36 @@
-# C# execution service
+# CSCS browser authoring service
 
-This service executes textbook code cells in an isolated C# runner container
-(`cs-runner`) and hosts browser authoring (`execution-api`). Accounts and reading
-progress live in Press; see `press/docs/RUN_PASSES.md`. It does not use Binder or .NET Interactive. Each chapter
-activity can use a separate task ID. See `ARCHITECTURE.md` for the container
-layout and `REQUIREMENTS.md` for the execution requirements.
+This directory now hosts the temporary CSCS browser-authoring API
+(`execution-api`). The active C# code runner moved to Press:
+
+```text
+/Users/tychen/workspace/press/runner/csharp
+```
+
+Press owns the runner services, run passes, accounts, and reading progress; see
+`press/docs/RUN_PASSES.md` and `press/docs/PLATFORM_DECISIONS.md`. The legacy
+CSCS runner files are retained here only as a rollback path.
 
 ## Run locally
 
 From this directory:
 
 ```bash
-docker compose -f compose.yml up --build -d
+docker compose -f compose.yml up --build -d execution-api
 ```
 
-Check the services (runner gateway on 8081, account API on 8080):
+Check the authoring API:
 
 ```bash
-curl http://127.0.0.1:8081/health
 curl http://127.0.0.1:8080/health
 ```
 
-Execute one cell:
+Run C# cells through the Press-owned runner gateway on port 8081:
 
 ```bash
 curl -s http://127.0.0.1:8081/v1/tasks/ch06-regex/execute \
   -H 'Content-Type: application/json' \
   -d '{"code":"int answer = 6 * 7; Console.WriteLine(answer);"}'
-```
-
-Execute stateful cells together:
-
-```bash
-curl -s http://127.0.0.1:8081/v1/tasks/ch06-regex/execute \
-  -H 'Content-Type: application/json' \
-  -d '{"cells":["int answer = 6 * 7;", "Console.WriteLine(answer);"]}'
 ```
 
 Stop the service with:
@@ -43,11 +39,18 @@ Stop the service with:
 docker compose -f compose.yml down
 ```
 
-Both ports are bound to localhost; on `dev`, Apache routes `/cscs-exec/v1/tasks/`
-to the runner gateway and the rest of `/cscs-exec/` to the account API. Student
-code runs only in `cs-runner`, which has no secrets, no volumes, and no network
-access beyond its gateway. Every reader is a guest (per-IP limits) until Press
-run passes exist.
+On `dev`, Apache routes `/cscs-exec/v1/tasks/` to the Press-owned runner gateway
+and the rest of `/cscs-exec/` to this authoring API. Student code does not run
+inside `execution-api`.
+
+If you need the old runner for rollback testing, start it explicitly:
+
+```bash
+docker compose -f compose.yml --profile legacy-runner up --build -d cs-runner-gateway
+```
+
+Do not run the legacy gateway at the same time as the Press gateway; both bind
+`127.0.0.1:8081`.
 
 There is no CSCS database: accounts, sign-in, and reading progress live in Press
 (since 2026-10-04). The old `cscs-postgres-data` volume may still exist on servers
@@ -65,10 +68,8 @@ Send the notebook JSON as the request body. It checks JSON syntax, notebook
 format fields, the cells array, cell types, and source values. File writes and
 Git backup/rollback will be added only after this validation boundary.
 
-The next database phase is to add exercise drafts and assignment records keyed
-to authenticated users. The eventual production deployment should migrate the
-application data to a server database and add migrations, backups, role
-management, rate limits, and account recovery before public release.
+Durable learner, course, assignment, and grading state belongs in Press, not in
+this service.
 
 ## Admin notebook save
 

@@ -31,9 +31,11 @@ services:
     cpus: 1.0
     restart: unless-stopped
 
-  # The C# runner: the only place student code runs. Internal network only (no
-  # internet, database, or host access), no volumes, no secrets in its environment.
+  # Legacy C# runner retained only as a rollback path. The active C# runner is
+  # Press-owned in /Users/tychen/workspace/press/runner/csharp. Start this
+  # service only with: docker compose --profile legacy-runner up cs-runner-gateway
   cs-runner:
+    profiles: ["legacy-runner"]
     build:
       context: .
       dockerfile: runner/Dockerfile
@@ -66,8 +68,10 @@ services:
     cpus: 1.0
     restart: unless-stopped
 
-  # Carries run requests from the host (Apache) to cs-runner. Runs no student code.
+  # Legacy gateway for the old local runner. It binds 127.0.0.1:8081, the same
+  # port now used by Press's cs-runner-gateway.
   cs-runner-gateway:
+    profiles: ["legacy-runner"]
     image: nginxinc/nginx-unprivileged:1.27-alpine
     ports:
       - "127.0.0.1:8081:8080"
