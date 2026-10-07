@@ -97,3 +97,13 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 ## Curriculum Appendix Update (2026-10-07)
 
 Added a separate IS2020 mapping to the existing curriculum-alignment appendix. The ten required areas distinguish direct introductory contributions, partial coverage, supporting project activities, and material outside scope. Object-oriented elective support and Chapter 13 assessment limitations are explicit. The CS2023 chapter mapping remains in place; the Contents label includes both frameworks.
+
+## Part IV Foundations Move (2026-10-07)
+
+Moved basic recursive calls and sequence search/library sorting from Part V into Chapters 17 and 15, respectively; introduced Big-O foundations in Chapter 14; moved graph traversal into Chapter 19. Existing Chapter 21/22/25 URLs introduce the optional extensions and link to the new prerequisite locations. Part V is optional for the College of Business pathway. Planning and curriculum mapping reflect this distinction. Slides remain pending.
+
+Verification: 21 completed cells in the receiving sections compiled and ran with isolated setup under .NET 10. Answer output is retained. Full HTML build passed with five pre-existing warnings outside the changed chapters; notebook JSON and diffs were checked.
+
+## Preface Organization Update (2026-10-07)
+
+The Preface now explains the five parts, the first-course foundation and second-course prerequisites, and the College of Business pathway with optional Part V. Its curriculum-appendix reference names both IS2020 and CS2023; detailed mappings remain in the appendix.

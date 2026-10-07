@@ -28,3 +28,15 @@ The planned lecture total is 110 minutes, including predictions, hand traces, di
 - Keep balancing rotations outside this chapter. Explain why an unbalanced tree cannot guarantee logarithmic path costs.
 - Retain legacy `thebe-interactive` exercise metadata until the coordinated Press/UI convention migration.
 - Slides remain pending; later Press work will provide HTML/PDF to students and restrict PPTX downloads to instructors.
+
+## Foundation Placement (2026-10-07)
+
+Moved base/recursive cases and call-stack traces from Chapter 21 into `1701-tree-structure.ipynb`, before recursive tree operations. Helper contracts and divide-and-conquer remain in Chapter 21.
+
+### Revised Pacing
+
+1. **Tree structure, recursive calls, and traversal, 40 minutes.** Introduce base cases and call/return traces before tree recursion.
+2. **Binary search trees, 40 minutes.**
+3. **Applied operations, 30 minutes.**
+
+Total: 110 minutes. Preparation and assignments supply additional practice.

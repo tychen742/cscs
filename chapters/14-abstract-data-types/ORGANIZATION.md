@@ -45,3 +45,7 @@ generic implementation. The preview, lab, and homework assignments now align
 with this flow. Remaining work: add more worked examples, tune assignment
 metadata for any grader integration, and keep the ADT chapter focused on
 contracts, representations, operation costs, and generic implementations.
+
+## Foundation Placement (2026-10-07)
+
+Chapter 14 now teaches input size, Big-O growth, tight-bound vocabulary, amortized costs, and auxiliary space before collection-cost notation. Formal inequalities and recurrences remain in Chapter 20.

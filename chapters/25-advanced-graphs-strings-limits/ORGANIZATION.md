@@ -17,3 +17,9 @@ Preview introduces discovery, frames, matching policies, borders, and quality gu
 ## Coverage Boundary
 
 This final chapter synthesizes earlier graph representations, queues/stacks, analysis, greedy correctness, and state-based search. Keep weighted shortest-path implementation in Chapter 23; use a concrete objective counterexample here. KMP supplies a complete algorithm rather than a catalog of text methods. Limits distinguish model estimates from benchmarks and implementation costs from problem lower bounds. Durable final project submissions remain in the established appendix/project track; slides remain a deferred Press task.
+
+## Foundation Placement (2026-10-07)
+
+Basic graph traversal now belongs to Chapter 19. `2501-graph-traversal.ipynb` retains its published URL and develops verification contracts; string algorithms, limits, and the network integration lab remain here.
+
+The earlier lecture allocation is superseded where it repeats relocated introductory topics. Use that time for contract counterexamples, verification traces, and the chapter’s optional advanced applications. Students complete Chapters 15, 17, and 19 foundations first as relevant.

@@ -19,3 +19,7 @@ Preview checks distinctions students will use in class. The connected expense-re
 ## Boundaries
 
 Teach analysis tools rather than full algorithm implementations. Keep recurrence assumptions explicit and distinguish a counter program's runtime from the work it models. Defer slides and tag migration to Press.
+
+## Foundation Placement (2026-10-07)
+
+Chapter 14 supplies basic notation and counts. This optional chapter develops formal bounds, exact counts, richer case models, correctness, and recurrences.

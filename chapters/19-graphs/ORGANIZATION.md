@@ -18,4 +18,16 @@ Preview checks vocabulary and representation contracts. The five-task lab builds
 
 ## Scope
 
-All runnable cells are standalone. Keep traversal, greedy route algorithms, and shortest paths in their later chapters. Slides and exercise-tag migration remain deferred to Press.
+All runnable cells are standalone. Teach traversal here; keep greedy route optimization and weighted shortest paths in Part V. Slides and exercise-tag migration remain deferred to Press.
+
+## Foundation Placement (2026-10-07)
+
+Moved BFS, predecessor paths, frame DFS, and undirected components into `1904_graph_traversal.ipynb`. The original Chapter 25 URL now provides advanced verification and direction contracts.
+
+### Revised Pacing
+
+1. **Vocabulary and contracts, 25 minutes.**
+2. **Representations and updates, 35 minutes.**
+3. **Representation practice and traversal, 50 minutes.** Use matrix/walk checks as preparation, then trace BFS layers, DFS, and components. Advanced verification remains optional.
+
+Total: 110 minutes. Preparation and assignments supply additional practice.

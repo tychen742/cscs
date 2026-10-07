@@ -32,3 +32,11 @@ orphan: true
 - Transfer verification passes 600 range/floor cases and 30 iterative traversals against sorted-key reference results. The lab sequence detects a deliberately omitted root assignment.
 - Full Jupyter Book build succeeds with five pre-existing warnings outside Chapter 17. Browser Run checks include boundary validation, complete removal, range pruning, model verification, lab lifecycle checks, and floor lookup.
 - Lecture slide creation and HTML/PDF delivery with instructor-only PPTX access remain deferred to Press work.
+
+## Foundation Placement (2026-10-07)
+
+Moved base/recursive cases and call-stack traces from Chapter 21 into `1701-tree-structure.ipynb`, before recursive tree operations. Helper contracts and divide-and-conquer remain in Chapter 21.
+
+## Move Verification (2026-10-07)
+
+The four receiving sections contain 21 completed cells. Each compiled and ran in an isolated namespace with its own setup under .NET 10; completed exercise answers retain captured stdout. Intentional student starters were excluded. The full Jupyter Book build passed with the five previously recorded warnings outside these chapters. New content pages and prerequisite links are included in the TOC and rendered output. Slides remain pending.

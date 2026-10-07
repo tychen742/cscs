@@ -35,3 +35,11 @@ course.
 The active notebooks and assignment set now provide first-pass ADT framing.
 Later passes should add more worked examples and improve any browser grading
 metadata.
+
+## Foundation Placement (2026-10-07)
+
+Chapter 14 now teaches input size, Big-O growth, tight-bound vocabulary, amortized costs, and auxiliary space before collection-cost notation. Formal inequalities and recurrences remain in Chapter 20.
+
+## Move Verification (2026-10-07)
+
+The four receiving sections contain 21 completed cells. Each compiled and ran in an isolated namespace with its own setup under .NET 10; completed exercise answers retain captured stdout. Intentional student starters were excluded. The full Jupyter Book build passed with the five previously recorded warnings outside these chapters. New content pages and prerequisite links are included in the TOC and rendered output. Slides remain pending.

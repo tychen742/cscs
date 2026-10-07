@@ -85,7 +85,7 @@ database workflow.
 
 Semester 2 assumes the programming and information-systems foundation from
 Semester 1. It introduces abstract data types, implementation choices,
-operation costs, and algorithm design. Its required sequence is:
+operation costs, and algorithm design. For the full CS pathway, its sequence is:
 
 1. abstract data types, interfaces, generics, references, and memory
 	 (Chapter 14)
@@ -142,21 +142,21 @@ chapter.
 
 #### Part IV: Data Structures
 
-14. ADTs: abstract data types, interfaces, generics, references, and memory
-15. Linear lists: arrays, dynamic arrays, and linked lists
+14. ADTs: abstract data types, interfaces, generics, references, memory, and basic cost analysis
+15. Linear lists: arrays, dynamic arrays, linked lists, sequence search, and library sorting
 16. Stacks & queues: LIFO, FIFO, deque operations, and implementations
-17. Trees: hierarchy, traversal, and binary search trees
+17. Trees: recursive calls, hierarchy, traversal, and binary search trees
 18. Hashing & heaps: priority queues, heaps, hash tables, sets, and dictionaries
-19. Graphs: vertices, edges, adjacency, and graph representations
+19. Graphs: vertices, edges, adjacency representations, BFS, DFS, and components
 
 #### Part V: Algorithms
 
 20. Analysis: correctness, asymptotic notation, space growth, and recurrences
-21. Recursion: recursive methods, call-stack reasoning, and divide-and-conquer
-22. Search & sort: searching, sorting, preconditions, and comparison costs
+21. Recursion: helper contracts, resource limits, and divide-and-conquer
+22. Search & sort: duplicate boundaries, custom sorting, invariants, and comparison costs
 23. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
 24. Dynamic programming: memoization, tabulation, backtracking, and pruning
-25. Advanced algorithms: graph traversal, string matching, and computational limits
+25. Advanced algorithms: traversal verification, string matching, and computational limits
 
 The chapter number is the weekly organizing unit; it does not limit the
 number of notebooks inside a chapter. Each chapter should normally include a
@@ -441,3 +441,9 @@ relevant labs or project assignment pages link to only the deliverable needed
 at that point. This keeps the book complete for instruction while giving
 students a manageable next step and giving VS Code projects a clear purpose
 throughout the semester.
+
+## College of Business Pathway (2026-10-07)
+
+Chapters 1-13 supply the applied programming and information-systems foundation. Instructors select Part IV depth for their courses. Part IV introduces basic Big-O and operation costs in Chapter 14, linear/binary search and library sorting in Chapter 15, recursive calls before tree operations in Chapter 17, and BFS/DFS in Chapter 19. These foundations do not require Part V.
+
+Part V is optional for this pathway. It extends the foundations with formal bounds and recurrences, recursive contracts and divide and conquer, detailed sorting analysis, greedy algorithms, dynamic programming, backtracking, advanced graph/string work, and computational limits. It remains available for the full CS pathway.

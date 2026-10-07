@@ -19,3 +19,9 @@ The lab progresses from first-arrival scans through selection counts, stable inv
 ## Conventions and Scope
 
 Count comparer calls once, excluding loop-bound checks. Separate swaps from shifts. All elementary sorts mutate arrays and use constant auxiliary state. Clone starting arrays for fair comparisons. Stable algorithms compare only the business key and preserve identity within ties. Searching requires matching order policies and retains IDs rather than confusing sorted positions with arrival indexes. Use workload evidence, not universal size cutoffs. Merge sort remains in Chapter 21; advanced sorting/timing and slides remain deferred.
+
+## Foundation Placement (2026-10-07)
+
+First-match linear search, iterative binary search, missing-target traces, and library sorting/searching now belong to Chapter 15. This optional chapter retains equality policies, duplicate bounds, detailed elementary sorts, and workload analysis.
+
+The earlier lecture allocation is superseded where it repeats relocated introductory topics. Use that time for contract counterexamples, verification traces, and the chapter’s optional advanced applications. Students complete Chapters 15, 17, and 19 foundations first as relevant.
