@@ -107,3 +107,7 @@ Verification: 21 completed cells in the receiving sections compiled and ran with
 ## Preface Organization Update (2026-10-07)
 
 The Preface now explains the five parts, the first-course foundation and second-course prerequisites, and the College of Business pathway with optional Part V. Its curriculum-appendix reference names both IS2020 and CS2023; detailed mappings remain in the appendix.
+
+## Curriculum Mapping Priority (2026-10-07)
+
+IS2020 mapping and course-use evidence now precede the CS2023 mapping, reflecting the primary College of Business audience. Appendix title and Contents label use IS2020 first. Existing appendix path and cross-reference anchors are preserved.
