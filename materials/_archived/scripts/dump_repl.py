@@ -17,7 +17,7 @@ files_to_check = [
     ('chapters/08-arrays/0802-twodim.ipynb', [0]),
     ('chapters/09-collections/0904-lab-collections.ipynb', [1]),
     ('chapters/10-datastructure/1002-collection-examples.ipynb', [17, 19, 21, 29, 30]),
-    ('chapters/12-oop/1206-review-oop.ipynb', [0]),
+    ('chapters/13_oop/1206-review-oop.ipynb', [0]),
 ]
 
 for fname, cells in files_to_check:

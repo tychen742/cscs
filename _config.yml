@@ -59,6 +59,7 @@ sphinx:
     lexer_alias: _ext
     notebook_cell_metadata: _ext
     appendix_numbering: _ext
+    chapter_redirects: _ext
   extra_extensions:
     - sphinx.ext.todo
     - sphinx.ext.mathjax

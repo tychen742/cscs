@@ -3,7 +3,7 @@
 ## Status
 
 This folder is an inactive source bank, not a chapter in the active `_toc.yml`.
-Pattern matching and records currently appear in Chapter 13 as supporting
+Pattern matching and records currently appear in Chapter 11 as supporting
 domain-data material.
 
 ## Landing Page
@@ -21,8 +21,8 @@ No active section notebooks are currently present in this folder.
 
 ## Migration Targets
 
-- Pattern matching content -> `chapters/13-databases/1303-pattern-matching.ipynb`
-- Records content -> `chapters/13-databases/1304-records.ipynb`
+- Pattern matching content -> `chapters/11_databases/1103_pattern_matching.ipynb`
+- Records content -> `chapters/11_databases/1104_records.ipynb`
 - ADT-style pattern/record examples, if any, -> `chapters/14-abstract-data-types/`
 
 ## Assignments

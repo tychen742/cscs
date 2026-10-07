@@ -36,7 +36,7 @@ multiple element types without sacrificing compile-time type checking.
 The older `1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` notebooks
 were removed on 2026-10-04: their collection overview and `List<T>` basics are in
 Chapter 9, stacks and queues in Chapter 16, and tuples in
-`11-classes/1101-class-syntax.ipynb`.
+`12_classes/1201_class_syntax.ipynb`.
 
 ## Coverage Gaps
 

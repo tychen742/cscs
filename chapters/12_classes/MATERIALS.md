@@ -2,18 +2,18 @@
 
 ## Landing Page
 
-- `1100-classes.ipynb` — Chapter landing page
+- `1200_classes.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `1101-class-syntax.ipynb` — Class syntax, plus tuples as the lightweight alternative to a class (added 2026-10-04 from the former Chapter 9 source notebook `1101-intro-ds`)
-- `1102-properties.ipynb` — Properties and fields
-- `1103-class-instance.ipynb` — Creating and using instances
-- `1104-operator-overloading.ipynb` — Operator overloading
+- `1201_class_syntax.ipynb` — Class syntax, plus tuples as the lightweight alternative to a class (added 2026-10-04 from the former Chapter 9 source notebook `1101-intro-ds`)
+- `1202_properties.ipynb` — Properties and fields
+- `1203_class_instance.ipynb` — Creating and using instances
+- `1204_operator_overloading.ipynb` — Operator overloading
 
 ## Assignments
 
-- `assignments/hw-booklist.ipynb` — Hw Booklist
+- `assignments/hw_booklist.ipynb` — Hw Booklist
 - `assignments/index.ipynb` — Index
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview

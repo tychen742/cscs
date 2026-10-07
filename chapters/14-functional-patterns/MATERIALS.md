@@ -22,8 +22,8 @@ chapters listed below.
 ## Migration Targets
 
 - Recursion material -> `chapters/21-recursion-divide-conquer/`
-- Lambda-expression material -> `chapters/13-databases/1301-lambdas.ipynb`
-- LINQ material -> `chapters/13-databases/1302-linq.ipynb`
+- Lambda-expression material -> `chapters/11_databases/1101_lambdas.ipynb`
+- LINQ material -> `chapters/11_databases/1102_linq.ipynb`
 
 ## Assignments
 

@@ -15,11 +15,11 @@ This folder is an inactive source bank in the current `_toc.yml`.
 
 ## Migration Targets
 
-- Pattern matching -> Chapter 13.
-- Records -> Chapter 13.
+- Pattern matching -> Chapter 11.
+- Records -> Chapter 11.
 - ADT-framed examples using records or closed sets of cases -> Chapter 14, if they clarify abstract data types.
 
 ## Notes
 
-- Pattern matching and records currently appear in Chapter 13.
+- Pattern matching and records currently appear in Chapter 11.
 - Keep this folder out of the active book; use it as source material until useful assignments and examples are migrated.

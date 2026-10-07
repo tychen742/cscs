@@ -35,8 +35,8 @@ Five parts:
 | Part | Topic | Chapters |
 | ---- | ----- | -------- |
 | I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing, 07 Society & Ethics |
-| II | Data and I/O | 08 Arrays, 09 Data Collections, 10 Files & Text |
-| III | Object-Oriented Information Systems | 11 Classes, 12 OOP Principles, 13 Databases |
+| II | Data and I/O | 08 Arrays, 09 Data Collections, 10 Files & Text, 11 Databases |
+| III | Object-Oriented Programming | 12 Classes, 13 OOP Principles |
 | IV | Data Structures | 14 ADTs, 15 Linear Lists, 16 Stacks & Queues, 17 Trees, 18 Hashing & Heaps, 19 Graphs |
 | V | Algorithms | 20 Analysis, 21 Recursion, 22 Search & Sort, 23 Greedy Algorithms, 24 Dynamic Programming, 25 Advanced Algorithms |
 
@@ -60,8 +60,8 @@ assign only the relevant semester in a given course.
 
 ### Semester 1: Programming and Information Systems Foundations
 
-Semester 1 introduces programming in C# and ends with persistent
-information-system data. Its required sequence is:
+Semester 1 introduces programming in C# and progresses from data persistence to
+object-oriented information-system design. Its required sequence is:
 
 1. computing context, development tools, and program structure (Chapter 1)
 2. variables, types, expressions, and console input/output (Chapter 2)
@@ -72,9 +72,9 @@ information-system data. Its required sequence is:
 	 professional practice (Chapter 7)
 7. arrays and collections (Chapters 8-9)
 8. files, text processing, and regular expressions (Chapter 10)
-9. classes, properties, instances, and object-oriented principles
-	 (Chapters 11-12)
-10. database concepts, SQL, and persistent information-system data (Chapter 13)
+9. database concepts, SQL, and persistent information-system data (Chapter 11)
+10. classes, properties, instances, and object-oriented principles
+	 (Chapters 12-13)
 
 The semester should include a project that grows from single-file programs into
 a small multi-class information-system application. The final weeks should
@@ -125,13 +125,13 @@ the second semester.
 8. Arrays and multidimensional data
 9. Data Collections: lists, dictionaries, and sets
 10. Files, streams, and text processing
+11. Databases, SQL, and persistent information-system data
 
-#### Part III: Object-Oriented Information Systems
+#### Part III: Object-Oriented Programming
 
-11. Classes, fields, properties, and object construction
-12. Object-oriented principles: encapsulation, inheritance, polymorphism, and
+12. Classes, fields, properties, and object construction
+13. Object-oriented principles: encapsulation, inheritance, polymorphism, and
 	interfaces
-13. Databases, SQL, and persistent information-system data
 
 Chapters 1-13 form the complete first-semester programming and
 information-systems foundation. Chapter 6 appears before classes so students

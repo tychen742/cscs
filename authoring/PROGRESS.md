@@ -32,14 +32,14 @@ book unless they are listed in the TOC.
 | 08 | `chapters/08-arrays` | Arrays | preview, lab, homework | In Progress | Renumbered from old Ch06 path |
 | 09 | `chapters/09-collections` | Data Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
 | 10 | `chapters/10-files-text` | Files and Text | preview, lab, homework plus legacy grade-files page | In Progress | Legacy `hw-gradefiles.ipynb` remains in TOC |
+| 11 | `chapters/11_databases` | Databases | none in TOC | Needs Review | Core database sections exist; assignments remain pending |
 
-## Part III — Object-Oriented Information Systems
+## Part III — Object-Oriented Programming
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --------- | ------ | ----- | ----------- | ------ | ----- |
-| 11 | `chapters/11-classes` | Classes | preview, lab, homework plus legacy book-list page | In Progress | Operator overloading is still in main TOC; may become extension material |
-| 12 | `chapters/12-oop` | Object-Oriented Programming | preview, lab, homework | In Progress | Renumbered from old Ch10 path |
-| 13 | `chapters/13-databases` | Databases | none in TOC | Needs Review | Core database sections exist; assignments remain pending |
+| 12 | `chapters/12_classes` | Classes | preview, lab, homework plus legacy book-list page | In Progress | Operator overloading is still in main TOC; may become extension material |
+| 13 | `chapters/13_oop` | Object-Oriented Programming | preview, lab, homework | In Progress | Renumbered from old Ch10 path |
 
 ## Part IV — Data Structures
 
@@ -73,12 +73,12 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 | `chapters/14-functional-patterns` | Staging track for lambdas/LINQ/recursion-related material | Keep out of TOC or relabel as extension material |
 | `chapters/15-pattern-records` | Staging track for pattern matching and records | Keep out of TOC or relabel as extension material |
 | `chapters/16-generics-async` | Staging track for generics/nullability/async | Keep out of TOC or relabel as extension material |
-| `chapters/13-databases/1201`–`1205` | Former modern-C# material inside the databases folder | Move, archive, or relabel before final Ch12 cleanup |
+| `chapters/11_databases/1201`–`1205` | Former modern-C# material inside the databases folder | Move, archive, or relabel before final Ch12 cleanup |
 | `chapters/appendices/appendix-intro.ipynb` | Appendix landing draft | Add to TOC or remove if unused |
 
 ## Consistency Notes
 
-- Chapter 13 has database content now, but no assignment section in the active TOC.
+- Chapter 11 has database content now, but no assignment section in the active TOC.
 - Active chapter folders now run Ch01-Ch24 without the former duplicate Ch06 or missing Ch11.
 - Older planning docs in Chapters 01–11 and the non-TOC staging tracks still need
   `orphan: true` front matter.
@@ -88,7 +88,7 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 
 ## Pending Actions
 
-1. Finish Chapter 13 assignments after the database chapter pass.
+1. Finish Chapter 11 assignments after the database chapter pass.
 2. Add `orphan: true` front matter to older `MATERIALS.md` and `ORGANIZATION.md` files.
 3. Remove, archive, or clearly label non-TOC staging tracks.
 4. Revisit legacy extra homework pages in Chapters 05, 10, and 11.
@@ -96,7 +96,7 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 
 ## Curriculum Appendix Update (2026-10-07)
 
-Added a separate IS2020 mapping to the existing curriculum-alignment appendix. The ten required areas distinguish direct introductory contributions, partial coverage, supporting project activities, and material outside scope. Object-oriented elective support and Chapter 13 assessment limitations are explicit. The CS2023 chapter mapping remains in place; the Contents label includes both frameworks.
+Added a separate IS2020 mapping to the existing curriculum-alignment appendix. The ten required areas distinguish direct introductory contributions, partial coverage, supporting project activities, and material outside scope. Object-oriented elective support and Chapter 11 assessment limitations are explicit. The CS2023 chapter mapping remains in place; the Contents label includes both frameworks.
 
 ## Part IV Foundations Move (2026-10-07)
 
@@ -111,3 +111,7 @@ The Preface now explains the five parts, the first-course foundation and second-
 ## Curriculum Mapping Priority (2026-10-07)
 
 IS2020 mapping and course-use evidence now precede the CS2023 mapping, reflecting the primary College of Business audience. Appendix title and Contents label use IS2020 first. Existing appendix path and cross-reference anchors are preserved.
+
+## Database Chapter Move (2026-10-07)
+
+Databases now closes Part II as Chapter 11. Classes and OOP Principles are Chapters 12 and 13 in Part III, Object-Oriented Programming. The database workflow reads results into ordinary variables before custom classes are introduced. Existing assignment IDs are preserved; old chapter URLs redirect to the new paths. Database assignments remain pending.

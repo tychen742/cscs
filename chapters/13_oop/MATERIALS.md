@@ -2,15 +2,15 @@
 
 ## Landing Page
 
-- `1200-oop-principles.ipynb` — Chapter landing page
+- `1300_oop_principles.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `1201-intro-oop.ipynb` — Introduction to OOP
-- `1202-encapsulation.ipynb` — Encapsulation
-- `1203-inheritance.ipynb` — Inheritance
-- `1204-polymorphism.ipynb` — Polymorphism
-- `1205-abstraction.ipynb` — Abstraction and interfaces
+- `1301_intro_oop.ipynb` — Introduction to OOP
+- `1302_encapsulation.ipynb` — Encapsulation
+- `1303_inheritance.ipynb` — Inheritance
+- `1304_polymorphism.ipynb` — Polymorphism
+- `1305_abstraction.ipynb` — Abstraction and interfaces
 
 ## Assignments
 

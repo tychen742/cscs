@@ -19,13 +19,13 @@ Runnable cells checked: 765. Failing: 188.
 |---|---|---|---|
 | [03-methods/0303-parameter.ipynb](chapters/03-methods/0303-parameter.ipynb) | 9 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public static void inchesToCentimeters(double i)    // parameter with type` |
 | [06-exceptions-testing/0603-testing.ipynb](chapters/06-exceptions-testing/0603-testing.ipynb) | 7 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public class BasicMaths` |
-| [11-classes/1104-operator-overloading.ipynb](chapters/11-classes/1104-operator-overloading.ipynb) | 6 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public struct SomeMath` |
-| [11-classes/assignments/homework.ipynb](chapters/11-classes/assignments/homework.ipynb) | 1 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `class DoMath` |
-| [11-classes/assignments/homework.ipynb](chapters/11-classes/assignments/homework.ipynb) | 3 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `static class SomeMath` |
-| [11-classes/assignments/homework.ipynb](chapters/11-classes/assignments/homework.ipynb) | 5 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `class Customer` |
-| [12-oop/1205-abstraction.ipynb](chapters/12-oop/1205-abstraction.ipynb) | 4 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `abstract class Shape` |
-| [12-oop/1205-abstraction.ipynb](chapters/12-oop/1205-abstraction.ipynb) | 16 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `abstract class Shape` |
-| [12-oop/1205-abstraction.ipynb](chapters/12-oop/1205-abstraction.ipynb) | 18 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `interface Animal` |
+| [12_classes/1204_operator_overloading.ipynb](chapters/12_classes/1204_operator_overloading.ipynb) | 6 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public struct SomeMath` |
+| [12_classes/assignments/homework.ipynb](chapters/12_classes/assignments/homework.ipynb) | 1 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `class DoMath` |
+| [12_classes/assignments/homework.ipynb](chapters/12_classes/assignments/homework.ipynb) | 3 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `static class SomeMath` |
+| [12_classes/assignments/homework.ipynb](chapters/12_classes/assignments/homework.ipynb) | 5 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `class Customer` |
+| [13_oop/1305_abstraction.ipynb](chapters/13_oop/1305_abstraction.ipynb) | 4 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `abstract class Shape` |
+| [13_oop/1305_abstraction.ipynb](chapters/13_oop/1305_abstraction.ipynb) | 16 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `abstract class Shape` |
+| [13_oop/1305_abstraction.ipynb](chapters/13_oop/1305_abstraction.ipynb) | 18 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `interface Animal` |
 | [14-abstract-data-types/assignments/homework.ipynb](chapters/14-abstract-data-types/assignments/homework.ipynb) | 4 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `// 1. Write a generic IQueue<T> interface with Count, Enqueue, Dequeue, and Peek.` |
 | [14-abstract-data-types/assignments/homework.ipynb](chapters/14-abstract-data-types/assignments/homework.ipynb) | 5 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `interface IQueue<T>` |
 | [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 2 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `// Define IStack<T> here.` |
@@ -87,13 +87,13 @@ Runnable cells checked: 765. Failing: 188.
 
 | File | Cell | First error | First line |
 |---|---|---|---|
-| [02-var_data/0202-data_types.ipynb](chapters/02-var_data/0202-data_types.ipynb) | 7 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `// Preview of 'class' syntax (full treatment in Chapter 11) — used here` |
+| [02-var_data/0202-data_types.ipynb](chapters/02-var_data/0202-data_types.ipynb) | 7 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `// Preview of 'class' syntax (full treatment in Chapter 12) — used here` |
 | [05-iteration/0501-iteration.ipynb](chapters/05-iteration/0501-iteration.ipynb) | 3 | CS8803 (line 26): Top-level statements must precede namespace and type declarations. | `using System;` |
 | [06-exceptions-testing/0604-nullable.ipynb](chapters/06-exceptions-testing/0604-nullable.ipynb) | 10 | CS8803 (line 5): Top-level statements must precede namespace and type declarations. | `record Order(string? CustomerName, Address? ShippingAddress);` |
-| [13-databases/1304-records.ipynb](chapters/13-databases/1304-records.ipynb) | 5 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
-| [13-databases/1304-records.ipynb](chapters/13-databases/1304-records.ipynb) | 7 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Person(string Name, int Age);` |
-| [13-databases/1304-records.ipynb](chapters/13-databases/1304-records.ipynb) | 9 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
-| [13-databases/1304-records.ipynb](chapters/13-databases/1304-records.ipynb) | 12 | CS8803 (line 8): Top-level statements must precede namespace and type declarations. | `record Person` |
+| [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 5 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
+| [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 7 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Person(string Name, int Age);` |
+| [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 9 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
+| [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 13 | CS8803 (line 8): Top-level statements must precede namespace and type declarations. | `record Person` |
 | [14-abstract-data-types/1401-adt-contracts.ipynb](chapters/14-abstract-data-types/1401-adt-contracts.ipynb) | 5 | CS8803 (line 33): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
 | [14-abstract-data-types/1402-representations-costs.ipynb](chapters/14-abstract-data-types/1402-representations-costs.ipynb) | 5 | CS8803 (line 24): Top-level statements must precede namespace and type declarations. | `class ArrayStack<T>` |
 | [14-abstract-data-types/1402-representations-costs.ipynb](chapters/14-abstract-data-types/1402-representations-costs.ipynb) | 8 | CS8803 (line 14): Top-level statements must precede namespace and type declarations. | `class Node<T>` |
@@ -106,11 +106,11 @@ Runnable cells checked: 765. Failing: 188.
 | [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 6 | CS8803 (line 20): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
 | [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 8 | CS8803 (line 31): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
 | [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 9 | CS8803 (line 32): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
-| [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 12 | CS8803 (line 32): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
+| [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 13 | CS8803 (line 32): Top-level statements must precede namespace and type declarations. | `interface IStack<T>` |
 | [15-arrays-linked-lists/1502-linked-nodes.ipynb](chapters/15-arrays-linked-lists/1502-linked-nodes.ipynb) | 3 | CS8803 (line 13): Top-level statements must precede namespace and type declarations. | `public sealed class IntroNode<T>` |
 | [15-arrays-linked-lists/1502-linked-nodes.ipynb](chapters/15-arrays-linked-lists/1502-linked-nodes.ipynb) | 6 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `public sealed class TraversalNode<T>` |
 | [15-arrays-linked-lists/1502-linked-nodes.ipynb](chapters/15-arrays-linked-lists/1502-linked-nodes.ipynb) | 9 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `public sealed class InsertNode<T>` |
-| [15-arrays-linked-lists/1502-linked-nodes.ipynb](chapters/15-arrays-linked-lists/1502-linked-nodes.ipynb) | 12 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `public sealed class DeleteNode<T>` |
+| [15-arrays-linked-lists/1502-linked-nodes.ipynb](chapters/15-arrays-linked-lists/1502-linked-nodes.ipynb) | 13 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `public sealed class DeleteNode<T>` |
 | [15-arrays-linked-lists/1503-comparison-lab.ipynb](chapters/15-arrays-linked-lists/1503-comparison-lab.ipynb) | 6 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `public sealed class Node<T>` |
 | [15-arrays-linked-lists/assignments/homework.ipynb](chapters/15-arrays-linked-lists/assignments/homework.ipynb) | 6 | CS8803 (line 11): Top-level statements must precede namespace and type declarations. | `// 2. Write CountNodes for a linked chain.` |
 | [15-arrays-linked-lists/assignments/homework.ipynb](chapters/15-arrays-linked-lists/assignments/homework.ipynb) | 7 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `class CountNode<T>` |
@@ -119,8 +119,8 @@ Runnable cells checked: 765. Failing: 188.
 | [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 5 | CS8803 (line 23): Top-level statements must precede namespace and type declarations. | `class DynamicArray` |
 | [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 6 | CS8803 (line 23): Top-level statements must precede namespace and type declarations. | `class DynamicArray` |
 | [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 9 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `class Node<T>` |
-| [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 11 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `class LinkNode<T>` |
 | [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 12 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `class LinkNode<T>` |
+| [15-arrays-linked-lists/assignments/lab.ipynb](chapters/15-arrays-linked-lists/assignments/lab.ipynb) | 13 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `class LinkNode<T>` |
 | [14-functional-patterns/assignments/lab.ipynb](chapters/14-functional-patterns/assignments/lab.ipynb) | 4 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Product(string Name, string Category, double Price);` |
 | [15-pattern-records/assignments/lab-solutions.ipynb](chapters/15-pattern-records/assignments/lab-solutions.ipynb) | 4 | CS8803 (line 7): Top-level statements must precede namespace and type declarations. | `record Temperature(double Celsius)` |
 | [15-pattern-records/assignments/lab-solutions.ipynb](chapters/15-pattern-records/assignments/lab-solutions.ipynb) | 6 | CS8803 (line 7): Top-level statements must precede namespace and type declarations. | `abstract record Shape;` |
@@ -136,12 +136,12 @@ Runnable cells checked: 765. Failing: 188.
 |---|---|---|---|
 | [02-var_data/0201-variables.ipynb](chapters/02-var_data/0201-variables.ipynb) | 6 | CS0246 (line 2): The type or namespace name 'type' could not be found (are you missing a u | `type variableName = value;` |
 | [02-var_data/0202-data_types.ipynb](chapters/02-var_data/0202-data_types.ipynb) | 35 | CS0165 (line 16): Use of unassigned local variable 'message1' | `#pragma warning disable CS8632` |
-| [02-var_data/0206-input_output.ipynb](chapters/02-var_data/0206-input_output.ipynb) | 11 | CS0103 (line 2): The name 'a' does not exist in the current context | `a = UI.PromptInt("Enter integer leg: ");` |
+| [02-var_data/0206-input_output.ipynb](chapters/02-var_data/0206-input_output.ipynb) | 12 | CS0103 (line 2): The name 'a' does not exist in the current context | `a = UI.PromptInt("Enter integer leg: ");` |
 | [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 1 | CS0103 (line 2): The name 'Q1' does not exist in the current context | `double d = Q1(2, 5);` |
 | [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 3 | CS0103 (line 2): The name 'Q4' does not exist in the current context | `Q4("hi");` |
 | [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 7 | CS0103 (line 4): The name 'Q' does not exist in the current context | `static void Main()` |
 | [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 9 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()` |
-| [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 11 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()                   // 7` |
+| [03-methods/assignments/homework.ipynb](chapters/03-methods/assignments/homework.ipynb) | 12 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()                   // 7` |
 | [03-methods/assignments/lab.ipynb](chapters/03-methods/assignments/lab.ipynb) | 4 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3));` |
 | [03-methods/assignments/lab.ipynb](chapters/03-methods/assignments/lab.ipynb) | 8 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3) + F(4));` |
 | [03-methods/assignments/lab.ipynb](chapters/03-methods/assignments/lab.ipynb) | 10 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(9 + F(4));` |
@@ -153,7 +153,7 @@ Runnable cells checked: 765. Failing: 188.
 | [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 5 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x < 0)` |
 | [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 7 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 7) {    //a` |
 | [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 9 | CS0103 (line 2): The name 'y' does not exist in the current context | `y = 1;         //a` |
-| [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 11 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 5)        //a` |
+| [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 12 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 5)        //a` |
 | [04-decision/assignments/lab.ipynb](chapters/04-decision/assignments/lab.ipynb) | 5 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `string v = UIF.PromptLine("Enter a word: ");` |
 | [04-decision/assignments/lab.ipynb](chapters/04-decision/assignments/lab.ipynb) | 7 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `int x = UIF.PromptInt("Enter a integer: ");` |
 | [04-decision/assignments/lab.ipynb](chapters/04-decision/assignments/lab.ipynb) | 10 | CS0103 (line 7): The name 'CalcWeeklyWages' does not exist in the current context | `// Calculate Wages` |
@@ -166,16 +166,16 @@ Runnable cells checked: 765. Failing: 188.
 | [08-arrays/assignments/lab.ipynb](chapters/08-arrays/assignments/lab.ipynb) | 3 | CS0103 (line 5): The name 'VectorDotProduct' does not exist in the current context | `double[] a = new double[] { 1.5, 2.0, 3.0 };` |
 | [09-collections/0802-list-dictionary.ipynb](chapters/09-collections/0802-list-dictionary.ipynb) | 39 | CS0103 (line 3): The name 'MakeInt' does not exist in the current context | `List<int> digits = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };` |
 | [09-collections/assignments/lab.ipynb](chapters/09-collections/assignments/lab.ipynb) | 6 | CS0103 (line 6): The name 'GetParagraphs' does not exist in the current context | `public static void Main(string[] args)` |
-| [10-files-text/1002-file-operations.ipynb](chapters/10-files-text/1002-file-operations.ipynb) | 13 | CS0103 (line 10): The name 'UI' does not exist in the current context | `using System;` |
+| [10-files-text/1002-file-operations.ipynb](chapters/10-files-text/1002-file-operations.ipynb) | 11 | CS0103 (line 10): The name 'UI' does not exist in the current context | `using System;` |
 | [10-files-text/1002-file-operations.ipynb](chapters/10-files-text/1002-file-operations.ipynb) | 15 | CS0103 (line 2): The name 'reader' does not exist in the current context | `string wholeFile = reader.ReadToEnd();` |
 | [10-files-text/1003-text-operations.ipynb](chapters/10-files-text/1003-text-operations.ipynb) | 29 | CS0103 (line 6): The name 'TryParseStudent' does not exist in the current context | `string[] records = { "Alice,98,CS", "Bob,abc,Math", "Carol,87,Physics", "" };` |
 | [10-files-text/assignments/lab.ipynb](chapters/10-files-text/assignments/lab.ipynb) | 10 | CS0103 (line 2): The name 'reader' does not exist in the current context | `string contents = reader.ReadToEnd();` |
-| [12-oop/1204-polymorphism.ipynb](chapters/12-oop/1204-polymorphism.ipynb) | 4 | CS0103 (line 34): The name 'm | `class Animal // Base class (parent)` |
-| [12-oop/1204-polymorphism.ipynb](chapters/12-oop/1204-polymorphism.ipynb) | 15 | CS0246 (line 31): The type or namespace name 'MethodOverloading' could not be found (are y | `namespace IntroCSCS` |
-| [12-oop/1205-abstraction.ipynb](chapters/12-oop/1205-abstraction.ipynb) | 6 | CS0246 (line 2): The type or namespace name 'Shape' could not be found (are you missing a  | `Shape shape = new Shape();` |
-| [12-oop/1205-abstraction.ipynb](chapters/12-oop/1205-abstraction.ipynb) | 12 | CS0246 (line 2): The type or namespace name 'Shape' could not be found (are you missing a  | `class Circle : Shape` |
+| [13_oop/1304_polymorphism.ipynb](chapters/13_oop/1304_polymorphism.ipynb) | 4 | CS0103 (line 34): The name 'm | `class Animal // Base class (parent)` |
+| [13_oop/1304_polymorphism.ipynb](chapters/13_oop/1304_polymorphism.ipynb) | 15 | CS0246 (line 31): The type or namespace name 'MethodOverloading' could not be found (are y | `namespace IntroCSCS` |
+| [13_oop/1305_abstraction.ipynb](chapters/13_oop/1305_abstraction.ipynb) | 6 | CS0246 (line 2): The type or namespace name 'Shape' could not be found (are you missing a  | `Shape shape = new Shape();` |
+| [13_oop/1305_abstraction.ipynb](chapters/13_oop/1305_abstraction.ipynb) | 13 | CS0246 (line 2): The type or namespace name 'Shape' could not be found (are you missing a  | `class Circle : Shape` |
 | [14-abstract-data-types/assignments/homework.ipynb](chapters/14-abstract-data-types/assignments/homework.ipynb) | 10 | CS0103 (line 9): The name 'First' does not exist in the current context | `// 4. Write a generic First<T> method for List<T>.` |
-| [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 11 | CS0246 (line 8): The type or namespace name 'ListStack<>' could not be found (are you miss | `// Reuse your IStack<T> and ListStack<T> from Question 3.` |
+| [14-abstract-data-types/assignments/lab.ipynb](chapters/14-abstract-data-types/assignments/lab.ipynb) | 12 | CS0246 (line 8): The type or namespace name 'ListStack<>' could not be found (are you miss | `// Reuse your IStack<T> and ListStack<T> from Question 3.` |
 
 ## D. Syntax errors and fragments
 
@@ -185,7 +185,7 @@ Runnable cells checked: 765. Failing: 188.
 | [02-var_data/0202-data_types.ipynb](chapters/02-var_data/0202-data_types.ipynb) | 54 | CS0266 (line 3): Cannot implicitly convert type 'double' to 'int'. An explicit conversion  | `double d = 2.0;` |
 | [02-var_data/assignments/homework.ipynb](chapters/02-var_data/assignments/homework.ipynb) | 5 | CS1003 (line 4): Syntax error, ',' expected | `int x= (int)5.8;` |
 | [02-var_data/assignments/lab.ipynb](chapters/02-var_data/assignments/lab.ipynb) | 6 | CS8635 (line 4): Unexpected character sequence '...' | `double numeratorDouble = numerator; // implicit cast` |
-| [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 13 | CS1026 (line 7): ) expected | `public class Test1` |
+| [04-decision/assignments/homework.ipynb](chapters/04-decision/assignments/homework.ipynb) | 11 | CS1026 (line 7): ) expected | `public class Test1` |
 | [05-iteration/0502-for-statements.ipynb](chapters/05-iteration/0502-for-statements.ipynb) | 15 | CS1002 (line 2): ; expected | `outer-Loop` |
 | [05-iteration/0502-for-statements.ipynb](chapters/05-iteration/0502-for-statements.ipynb) | 17 | CS8635 (line 2): Unexpected character sequence '...' | `for (....) {` |
 | [05-iteration/0503-while-statement.ipynb](chapters/05-iteration/0503-while-statement.ipynb) | 14 | CS1513 (line 2): } expected | `while (i < s.Length) {` |
@@ -202,13 +202,13 @@ Runnable cells checked: 765. Failing: 188.
 | [09-collections/assignments/homework.ipynb](chapters/09-collections/assignments/homework.ipynb) | 3 | CS1002 (line 2): ; expected | `words.Clear()` |
 | [09-collections/assignments/lab.ipynb](chapters/09-collections/assignments/lab.ipynb) | 9 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public static void main()` |
 | [10-files-text/assignments/homework.ipynb](chapters/10-files-text/assignments/homework.ipynb) | 1 | CS1002 (line 3): ; expected | `if (inFile.ReadLine().Contains("!")) {` |
-| [11-classes/1102-properties.ipynb](chapters/11-classes/1102-properties.ipynb) | 8 | CS1022 (line 22): Type or namespace definition, or end-of-file expected | `namespace IntroCSCS` |
-| [11-classes/assignments/hw-booklist.ipynb](chapters/11-classes/assignments/hw-booklist.ipynb) | 19 | CS0026 (line 2): Keyword 'this' is not valid in a static property, static method, or stati | `Console.Write(this);` |
-| [12-oop/1204-polymorphism.ipynb](chapters/12-oop/1204-polymorphism.ipynb) | 10 | CS0239 (line 38): 'Square.Draw()': cannot override inherited member 'Rectangle.Draw()' bec | `public class Shape` |
-| [13-databases/1305-async.ipynb](chapters/13-databases/1305-async.ipynb) | 6 | CS8421 (line 9): A static local function cannot contain a reference to 'client'. | `using System.Net.Http;` |
+| [12_classes/1202_properties.ipynb](chapters/12_classes/1202_properties.ipynb) | 8 | CS1022 (line 22): Type or namespace definition, or end-of-file expected | `namespace IntroCSCS` |
+| [12_classes/assignments/hw_booklist.ipynb](chapters/12_classes/assignments/hw_booklist.ipynb) | 19 | CS0026 (line 2): Keyword 'this' is not valid in a static property, static method, or stati | `Console.Write(this);` |
+| [13_oop/1304_polymorphism.ipynb](chapters/13_oop/1304_polymorphism.ipynb) | 10 | CS0239 (line 38): 'Square.Draw()': cannot override inherited member 'Rectangle.Draw()' bec | `public class Shape` |
+| [11_databases/1105_async.ipynb](chapters/11_databases/1105_async.ipynb) | 6 | CS8421 (line 9): A static local function cannot contain a reference to 'client'. | `using System.Net.Http;` |
 | [15-arrays-linked-lists/1501-dynamic-arrays.ipynb](chapters/15-arrays-linked-lists/1501-dynamic-arrays.ipynb) | 9 | CS1519 (line 35): Invalid token 'for' in class, record, struct, or interface member declar | `public sealed class DynamicIntArray` |
 | [17-trees/1701-tree-structure.ipynb](chapters/17-trees/1701-tree-structure.ipynb) | 18 | CS0161 (line 14): 'CountLeaves(TreeNode?)': not all code paths return a value | `// Exercise: Count leaves` |
-| [17-trees/assignments/homework.ipynb](chapters/17-trees/assignments/homework.ipynb) | 12 | CS0161 (line 14): 'Count(TreeNode?)': not all code paths return a value | `// 6. Count all nodes` |
+| [17-trees/assignments/homework.ipynb](chapters/17-trees/assignments/homework.ipynb) | 13 | CS0161 (line 14): 'Count(TreeNode?)': not all code paths return a value | `// 6. Count all nodes` |
 | [17-trees/assignments/homework.ipynb](chapters/17-trees/assignments/homework.ipynb) | 16 | CS0161 (line 13): 'Minimum(TreeNode)': not all code paths return a value | `// 8. Find the minimum` |
 | [17-trees/assignments/homework.ipynb](chapters/17-trees/assignments/homework.ipynb) | 18 | CS0161 (line 12): 'Height(TreeNode?)': not all code paths return a value | `// 9. Compute height` |
 | [17-trees/assignments/lab.ipynb](chapters/17-trees/assignments/lab.ipynb) | 5 | CS0161 (line 10): 'Count(TreeNode?)': not all code paths return a value | `using System;` |
@@ -218,7 +218,7 @@ Runnable cells checked: 765. Failing: 188.
 | File | Cell | First error | First line |
 |---|---|---|---|
 | [05-iteration/assignments/lab.ipynb](chapters/05-iteration/assignments/lab.ipynb) | 10 | System.IndexOutOfRangeException: Index was outside the bounds of the array. | `string s = "drab";` |
-| [06-exceptions-testing/0601-error-handling.ipynb](chapters/06-exceptions-testing/0601-error-handling.ipynb) | 12 | System.ArgumentException: Denominator cannot be zero. (Parameter 'denominator') | `static double Divide(double numerator, double denominator)` |
+| [06-exceptions-testing/0601-error-handling.ipynb](chapters/06-exceptions-testing/0601-error-handling.ipynb) | 13 | System.ArgumentException: Denominator cannot be zero. (Parameter 'denominator') | `static double Divide(double numerator, double denominator)` |
 | [08-arrays/assignments/homework.ipynb](chapters/08-arrays/assignments/homework.ipynb) | 17 | System.NullReferenceException: Object reference not set to an instance of an object. | `string[] a = new string[5];` |
 | [10-files-text/1002-file-operations.ipynb](chapters/10-files-text/1002-file-operations.ipynb) | 10 | System.IO.FileNotFoundException: Could not find file '/tmp/cscs-9cf1893ca4f24a7486707dfb22 | `using System;` |
 | [10-files-text/assignments/lab.ipynb](chapters/10-files-text/assignments/lab.ipynb) | 7 | System.IO.FileNotFoundException: Could not find file '/tmp/cscs-7f6dbc4bd2254e3d9c241ff11d | `using System.IO;` |
@@ -229,4 +229,4 @@ Runnable cells checked: 765. Failing: 188.
 | File | Cell | First error | First line |
 |---|---|---|---|
 | [17-trees/1702-binary-search-trees.ipynb](chapters/17-trees/1702-binary-search-trees.ipynb) | 22 | timed out | `// Exercise: Complete search` |
-| [17-trees/assignments/lab.ipynb](chapters/17-trees/assignments/lab.ipynb) | 11 | timed out | `using System;` |
+| [17-trees/assignments/lab.ipynb](chapters/17-trees/assignments/lab.ipynb) | 12 | timed out | `using System;` |

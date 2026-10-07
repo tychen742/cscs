@@ -45,12 +45,12 @@ the chapter is next audited. Status values:
 | SDF | SDF-Algorithms — Algorithms | 3 + 3 (AL) | Ch. 5, 8, 20–22 | Covered |
 | SDF | SDF-Practices — Software Development Practices | 5 | Ch. 1, 6; semester project | Covered |
 | SDF | SDF-SEP — Society, Ethics, and the Profession | in SEP | Ch. 7 | Covered (first draft) |
-| AL | AL-Foundational — Foundational Data Structures and Algorithms | 11 | Ch. 14–19, 22 | Covered |
+| AL | AL-Foundational — Foundational Data Structures and Algorithms | 12 | Ch. 14–19, 22 | Covered |
 | AL | AL-Strategies — Algorithmic Strategies | 6 | Ch. 21, 23, 24 | Covered |
 | AL | AL-Complexity — Complexity | 6 | Ch. 18 lab, 20, 22 | Covered |
 | AL | AL-Models — Computational Models and Formal Languages | 9 | Ch. 10 regular expressions (practical only); Ch. 25 limits | Partial; mostly out of scope |
 | AL | AL-SEP | in SEP | Ch. 7 (sustainability, briefly) | Partial |
-| FPL | FPL-OOP — Object-Oriented Programming | 4 + 1 (SDF) | Ch. 11–12, 14 | Covered |
+| FPL | FPL-OOP — Object-Oriented Programming | 4 + 1 (SDF) | Ch. 12-13, 14 | Covered |
 | FPL | FPL-Types — Type Systems | 3 | Ch. 2, 6 (nullable), 14 (generics) | Covered |
 | FPL | FPL-Functional — Functional Programming | 4 | lambdas and LINQ appear in passing (Ch. 6, 8, 9, 14); the dedicated notebooks are off the TOC | Gap |
 | FPL | FPL-Event-Driven — Event-Driven and Reactive Programming | 2 | none (console programs only) | Gap |
@@ -59,18 +59,18 @@ the chapter is next audited. Status values:
 | FPL | FPL-Translation — Language Translation and Execution | 2 | Ch. 1 (compile, build, run) | Partial |
 | FPL | FPL-Systems — Systems Execution and Memory Model | 2 + 1 (AR, OS) | Ch. 9 (reference vs. value types), Ch. 15 (linked nodes) | Partial |
 | SE | SE-Tools — Tools and Environments | 1 | Ch. 1 (VS Code, `dotnet`, Git), Command Line appendix | Covered |
-| SE | SE-Construction — Software Construction | 1 + 3 (SDF) | Ch. 3, 6, 11–12 | Covered |
+| SE | SE-Construction — Software Construction | 1 + 3 (SDF) | Ch. 3, 6, 12-13 | Covered |
 | SE | SE-Validation — Software Verification and Validation | 1 | Ch. 6 (unit testing, debugging), Ch. 7 (boundary tests) | Covered |
-| SE | SE-Design — Software Design | 1 | Ch. 12 (encapsulation, abstraction), Ch. 14 (ADT contracts) | Covered |
+| SE | SE-Design — Software Design | 1 | Ch. 13 (encapsulation, abstraction), Ch. 14 (ADT contracts) | Covered |
 | SE | SE-Teamwork — Teamwork | 2 + 3 (SEP) | Project appendix (if run as a group project) | Partial |
 | SE | SE-Requirements — Product Requirements | 0 + 3 (SEP) | Ch. 7 (stakeholders) | Partial |
-| DM | DM-Data — The Role of Data and the Data Life Cycle | 2 | Ch. 7 (data minimization, retention), 10, 13 | Covered |
-| DM | DM-Core — Core Database System Concepts | 2 | Ch. 13 | Covered |
-| DM | DM-Modeling — Data Modeling | 2 | Ch. 13 (relational model) | Covered |
-| DM | DM-Relational — Relational Databases | 1 | Ch. 13 | Covered |
-| DM | DM-Querying — Query Construction | 2 | Ch. 13 (SQL queries and changes) | Covered |
-| DM | DM-Security — Data Security and Privacy | 1 | Ch. 7 (privacy, masking), Ch. 13 (parameterized commands) | Covered |
-| SEC | SEC-Coding — Secure Coding | 2 + 6 (FPL, SDF, SE) | Ch. 6 and 7 (input validation, injection), Ch. 13 (parameterized commands) | Covered |
+| DM | DM-Data — The Role of Data and the Data Life Cycle | 2 | Ch. 7 (data minimization, retention), 10, 11 | Covered |
+| DM | DM-Core — Core Database System Concepts | 2 | Ch. 11 | Covered |
+| DM | DM-Modeling — Data Modeling | 2 | Ch. 11 (relational model) | Covered |
+| DM | DM-Relational — Relational Databases | 1 | Ch. 11 | Covered |
+| DM | DM-Querying — Query Construction | 2 | Ch. 11 (SQL queries and changes) | Covered |
+| DM | DM-Security — Data Security and Privacy | 1 | Ch. 7 (privacy, masking), Ch. 11 (parameterized commands) | Covered |
+| SEC | SEC-Coding — Secure Coding | 2 + 6 (FPL, SDF, SE) | Ch. 6 and 7 (input validation, injection), Ch. 11 (parameterized commands) | Covered |
 | SEC | SEC-Foundations — Foundational Security | 1 + 7 | Ch. 7 (confidentiality, integrity, availability; least privilege) | Partial |
 | SEP | SEP-Context — Social Context | 3 | Ch. 7.1 | Covered (first draft) |
 | SEP | SEP-Ethical-Analysis — Methods for Ethical Analysis | 2 | Ch. 7.1 (four-question checklist) | Covered (first draft) |
@@ -101,9 +101,9 @@ the chapter is next audited. Status values:
 | 8 | Arrays | SDF-Data-Structures | SDF-Algorithms (linear search) |
 | 9 | Data Collections | SDF-Data-Structures | AL-Foundational (maps), FPL-Systems (references) |
 | 10 | Files and Text | SDF-Fundamentals (I/O), SDF-Data-Structures (strings) | AL-Models (regular expressions), DM-Data |
-| 11 | Classes | FPL-OOP, SDF-Fundamentals | SE-Design |
-| 12 | OOP Principles | FPL-OOP, SE-Design | SE-Construction |
-| 13 | Databases | DM-Core, DM-Modeling, DM-Relational, DM-Querying | DM-Security, SEC-Coding (SQL injection) |
+| 11 | Databases | DM-Core, DM-Modeling, DM-Relational, DM-Querying | DM-Security, SEC-Coding (SQL injection) |
+| 12 | Classes | FPL-OOP, SDF-Fundamentals | SE-Design |
+| 13 | OOP Principles | FPL-OOP, SE-Design | SE-Construction |
 | 14 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | FPL-Types (generics), FPL-OOP (iterators) |
 | 15 | Arrays and Linked Lists | AL-Foundational | AL-Complexity, FPL-Systems |
 | 16 | Stacks and Queues | AL-Foundational | |
@@ -127,22 +127,22 @@ Ordered by how much CS Core time they carry and how naturally they fit.
    first draft; short callbacks in later chapters would carry the thread:
    - Ch. 10: personal data in files, retention, and deletion (SEP-Privacy,
      DM-Data).
-   - Ch. 13: customer-data privacy and least-privilege database access
+   - Ch. 11: customer-data privacy and least-privilege database access
      (SEP-Privacy, DM-Security); parameterized commands as the fix for the
      injection shown in Ch. 7 (SEP-Security, SEC-Coding).
    - Ch. 20 or 25: computational cost and energy use (SEP-Sustainability).
    - Semester 2 project: teamwork and communication (SE-Teamwork,
      SEP-Communication).
 2. **Functional programming (FPL-Functional, 4 CS Core hours).** Lambdas and
-   LINQ already appear in passing. `chapters/13-databases/1301-lambdas.ipynb`
-   and `1302-linq.ipynb` are complete but off the TOC since Chapter 13 became
+   LINQ already appear in passing. `chapters/11_databases/1101_lambdas.ipynb`
+   and `1102_linq.ipynb` are complete but off the TOC since Chapter 11 became
    Databases. Candidate homes: a section in Ch. 9 (querying collections) or
    Ch. 14.
 3. **Parallel and asynchronous programs (FPL-Parallel, PDC-Programs, about
-   4 CS Core hours together).** `1305-async.ipynb` is off the TOC. A short
+   4 CS Core hours together).** `1105_async.ipynb` is off the TOC. A short
    async section fits Ch. 10 (asynchronous file I/O) or a semester-2 chapter.
 4. **Event-driven programming (FPL-Event-Driven, 2 CS Core hours).** Not
-   covered; C# events and delegates could follow Ch. 12.
+   covered; C# events and delegates could follow Ch. 13.
 5. **Security foundations (SEC-Foundations).** Ch. 7 introduces
    confidentiality, integrity, availability, and least privilege; threat
    modeling (what can go wrong, and who might try) is not yet covered.

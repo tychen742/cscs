@@ -20,7 +20,7 @@ Of 184 total REPL-pattern cells (92 bare-expression + 92 cross-cell-reference), 
 - `chapters/09-collections/0802-list-dictionary.ipynb` cell 2 (Generics): bare 'List<T>' generic-syntax notation, not a real expression
 - `chapters/06-files-text/0602-file-operations.ipynb` cell 13 (Reading to End of Stream): needs a real file to read (StreamReader on 'reader') -- can't self-contain without adding file-creation code first, needs individual review
 - `chapters/06-files-text/assignments/lab.ipynb` cell 10 (Copy to Upper Case): needs real files for both reader and writer -- can't self-contain without adding file-creation code first, needs individual review
-- `chapters/12-oop/1204-polymorphism.ipynb` cell 2 (Method Overriding: virtual/override/base): cell is missing a Cat class entirely (myCat.animalSound() called with no Cat type or instance anywhere) -- needs the same structural fix as cell 5, individual review
+- `chapters/13_oop/1304_polymorphism.ipynb` cell 2 (Method Overriding: virtual/override/base): cell is missing a Cat class entirely (myCat.animalSound() called with no Cat type or instance anywhere) -- needs the same structural fix as cell 5, individual review
 
 ## Never real REPL bare-expression cells (Category A false positives) — 27 cells
 
@@ -240,13 +240,13 @@ Console.WriteLine(words)
 
 ```
 
-### `chapters/11-classes/assignments/hw-booklist.ipynb` cell 2 — Book class
+### `chapters/12_classes/assignments/hw_booklist.ipynb` cell 2 — Book class
 ```csharp
 public Book(string title, string author, int year)
 
 ```
 
-### `chapters/11-classes/assignments/hw-booklist.ipynb` cell 4 — Book class
+### `chapters/12_classes/assignments/hw_booklist.ipynb` cell 4 — Book class
 ```csharp
 public string GetTitle()
 
@@ -256,13 +256,13 @@ public int GetYear()
 
 ```
 
-### `chapters/11-classes/assignments/hw-booklist.ipynb` cell 6 — Book class
+### `chapters/12_classes/assignments/hw_booklist.ipynb` cell 6 — Book class
 ```csharp
 public override string ToString()
 
 ```
 
-### `chapters/11-classes/assignments/hw-booklist.ipynb` cell 11 — BookList class
+### `chapters/12_classes/assignments/hw_booklist.ipynb` cell 11 — BookList class
 ```csharp
 public BookList()
 
@@ -311,20 +311,20 @@ public BookList()
 - `chapters/09-collections/0902-list.ipynb` cell 39 (Exercise: Generic List)
 - `chapters/09-collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
 - `chapters/09-datastructure/0901-intro-ds.ipynb` cell 34 (Destructuring)
-- `chapters/11-classes/assignments/hw-booklist.ipynb` cell 13 (BookList class)
+- `chapters/12_classes/assignments/hw_booklist.ipynb` cell 13 (BookList class)
 
 ### "Predict the output across scenarios //a/b/c/d" reasoning exercise — likely never meant to run as one program; consider markdown instead (4 cells)
 
 - `chapters/04-decision/assignments/homework.ipynb` cell 7 (Homework)
 - `chapters/04-decision/assignments/homework.ipynb` cell 9 (Homework)
 - `chapters/04-decision/assignments/homework.ipynb` cell 11 (Homework)
-- `chapters/12-oop/1205-abstraction.ipynb` cell 10 (!powershell)
+- `chapters/13_oop/1305_abstraction.ipynb` cell 10 (!powershell)
 
 ### all_names_locally_redeclared_already (4 cells)
 
-- `chapters/11-classes/assignments/hw-booklist.ipynb` cell 9 (BookList class)
-- `chapters/12-oop/1204-polymorphism.ipynb` cell 13 (Method Overloading)
-- `chapters/12-oop/1205-abstraction.ipynb` cell 4 (Abstract Classes)
+- `chapters/12_classes/assignments/hw_booklist.ipynb` cell 9 (BookList class)
+- `chapters/13_oop/1304_polymorphism.ipynb` cell 13 (Method Overloading)
+- `chapters/13_oop/1305_abstraction.ipynb` cell 4 (Abstract Classes)
 - `chapters/06-exceptions-testing/0603-testing.ipynb` cell 3 (Simple Testing)
 
 ## Original Category C (mixed/other, from the first scan pass) — 38 cells

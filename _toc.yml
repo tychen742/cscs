@@ -181,50 +181,50 @@ parts:
               - file: chapters/10-files-text/assignments/homework
                 title: Homework
 
-  - caption: "Part III. Object-Oriented Information Systems"
+      - file: chapters/11_databases/1100_databases
+        sections:
+          - file: chapters/11_databases/1106_relational_model
+          - file: chapters/11_databases/1107_sql_queries
+          - file: chapters/11_databases/1108_sql_changes
+          - file: chapters/11_databases/1109_csharp_database_workflow
+
+  - caption: "Part III. Object-Oriented Programming"
     numbered: true
     chapters:
-      - file: chapters/11-classes/1100-classes
+      - file: chapters/12_classes/1200_classes
         sections:
-          - file: chapters/11-classes/1101-class-syntax
-          - file: chapters/11-classes/1102-properties
-          - file: chapters/11-classes/1103-class-instance
-          - file: chapters/11-classes/1104-operator-overloading
-          - file: chapters/11-classes/assignments/index
+          - file: chapters/12_classes/1201_class_syntax
+          - file: chapters/12_classes/1202_properties
+          - file: chapters/12_classes/1203_class_instance
+          - file: chapters/12_classes/1204_operator_overloading
+          - file: chapters/12_classes/assignments/index
             title: Assignments
             sections:
-              - file: chapters/11-classes/assignments/preview
+              - file: chapters/12_classes/assignments/preview
                 title: Preview
-              - file: chapters/11-classes/assignments/lab
+              - file: chapters/12_classes/assignments/lab
                 title: Lab
-              - file: chapters/11-classes/assignments/hw-booklist
+              - file: chapters/12_classes/assignments/hw_booklist
                 title: "Homework: Book List"
-              - file: chapters/11-classes/assignments/homework
+              - file: chapters/12_classes/assignments/homework
                 title: Homework
 
-      - file: chapters/12-oop/1200-oop-principles
+      - file: chapters/13_oop/1300_oop_principles
         sections:
-          - file: chapters/12-oop/1201-intro-oop
-          - file: chapters/12-oop/1202-encapsulation
-          - file: chapters/12-oop/1203-inheritance
-          - file: chapters/12-oop/1204-polymorphism
-          - file: chapters/12-oop/1205-abstraction
-          - file: chapters/12-oop/assignments/index
+          - file: chapters/13_oop/1301_intro_oop
+          - file: chapters/13_oop/1302_encapsulation
+          - file: chapters/13_oop/1303_inheritance
+          - file: chapters/13_oop/1304_polymorphism
+          - file: chapters/13_oop/1305_abstraction
+          - file: chapters/13_oop/assignments/index
             title: Assignments
             sections:
-              - file: chapters/12-oop/assignments/preview
+              - file: chapters/13_oop/assignments/preview
                 title: Preview
-              - file: chapters/12-oop/assignments/lab
+              - file: chapters/13_oop/assignments/lab
                 title: Lab
-              - file: chapters/12-oop/assignments/homework
+              - file: chapters/13_oop/assignments/homework
                 title: Homework
-
-      - file: chapters/13-databases/1300-databases
-        sections:
-          - file: chapters/13-databases/1306-relational-model
-          - file: chapters/13-databases/1307-sql-queries
-          - file: chapters/13-databases/1308-sql-changes
-          - file: chapters/13-databases/1309-csharp-database-workflow
 
   - caption: "Part IV. Data Structures"
     numbered: true

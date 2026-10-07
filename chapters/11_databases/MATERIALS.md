@@ -6,8 +6,8 @@ orphan: true
 
 ## Purpose
 
-Chapter 13 completes the introductory information-systems sequence by
-connecting C# objects and collections to persistent relational data.
+Chapter 11 completes Part II by
+connecting C# values and collections to persistent relational data.
 
 ## Planned Examples
 
@@ -15,7 +15,7 @@ connecting C# objects and collections to persistent relational data.
 - Relational tables, keys, and relationships
 - SQL queries for filtering, sorting, grouping, and joining
 - Parameterized commands from a C# application
-- A small repository-style program that reads and writes database records
+- A small procedural program that reads and writes database rows
 
 ## Technical Direction
 
@@ -33,19 +33,19 @@ model directly.
 
 ## Current Active Notebooks
 
-- `1300-databases.ipynb` — Chapter landing page
-- `1306-relational-model.ipynb` — relational model, tables, keys, and relationships
-- `1307-sql-queries.ipynb` — `SELECT`, filtering, sorting, aggregation, and joins
-- `1308-sql-changes.ipynb` — `INSERT`, `UPDATE`, `DELETE`, and parameterized commands
-- `1309-csharp-database-workflow.ipynb` — a small C# database workflow
+- `1100_databases.ipynb` — Chapter landing page
+- `1106_relational_model.ipynb` — relational model, tables, keys, and relationships
+- `1107_sql_queries.ipynb` — `SELECT`, filtering, sorting, aggregation, and joins
+- `1108_sql_changes.ipynb` — `INSERT`, `UPDATE`, `DELETE`, and parameterized commands
+- `1109_csharp_database_workflow.ipynb` — a small C# database workflow
 
 ## Non-TOC Source Material
 
-- `1301-lambdas.ipynb` — Lambda expressions
-- `1302-linq.ipynb` — LINQ
-- `1303-pattern-matching.ipynb` — Pattern matching
-- `1304-records.ipynb` — Record types
-- `1305-async.ipynb` — Async and await
+- `1101_lambdas.ipynb` — Lambda expressions
+- `1102_linq.ipynb` — LINQ
+- `1103_pattern_matching.ipynb` — Pattern matching
+- `1104_records.ipynb` — Record types
+- `1105_async.ipynb` — Async and await
 
 ## Coverage Gaps
 
@@ -55,7 +55,7 @@ passes should deepen the worked examples and add assignments for:
 - a full setup-and-run SQLite project
 - a semester-project persistence milestone
 - more join and aggregation practice
-- testable repository-style methods
+- testable database methods, with repository-style design revisited after classes
 
 ## Planned Assignments
 
@@ -63,3 +63,7 @@ passes should deepen the worked examples and add assignments for:
 - Lab: design and query a small business database
 - Homework: write and explain SQL queries and data-model decisions
 - Project milestone: persist one feature from the semester application
+
+## Verification (2026-10-07)
+
+The C# workflow now uses ordinary variables before Chapter 12 classes. Provider examples still require compile/run verification with Microsoft.Data.Sqlite; the package is unavailable locally, so the edited examples are marked UNVERIFIED.

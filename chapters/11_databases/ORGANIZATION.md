@@ -19,16 +19,16 @@ By the end of this chapter, students should be able to:
 - relational model: tables, rows, columns, primary keys, foreign keys, and relationships
 - SQL queries: `SELECT`, `WHERE`, `ORDER BY`, grouping, aggregation, and joins
 - SQL change commands: `INSERT`, `UPDATE`, `DELETE`, and parameters
-- C# database workflow: connection, command, parameters, execution, and result mapping
+- C# database workflow: connection, command, parameters, execution, and reading column values
 
 ## Notes
 
-This chapter is the twelfth introductory chapter and the bridge from
-object-oriented information-system design to later database and analytics
-courses. It should teach the concepts and a small working workflow, not attempt
+This chapter closes Part II after files and text, introducing persistent
+structured data before custom classes and object-oriented design. Read query
+results into ordinary variables; revisit object mapping in the later project. It should teach the concepts and a small working workflow, not attempt
 to become a full database-administration course. The former lambda, LINQ,
 record, pattern-matching, and async notebooks remain source material, but the
-active Chapter 13 sequence now teaches databases and SQL directly.
+active Chapter 11 sequence now teaches databases and SQL directly.
 
 ## Coverage Gaps
 
