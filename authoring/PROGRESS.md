@@ -93,3 +93,7 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 3. Remove, archive, or clearly label non-TOC staging tracks.
 4. Revisit legacy extra homework pages in Chapters 05, 10, and 11.
 5. Run a clean full-book build after structural renames are complete.
+
+## Curriculum Appendix Update (2026-10-07)
+
+Added a separate IS2020 mapping to the existing curriculum-alignment appendix. The ten required areas distinguish direct introductory contributions, partial coverage, supporting project activities, and material outside scope. Object-oriented elective support and Chapter 13 assessment limitations are explicit. The CS2023 chapter mapping remains in place; the Contents label includes both frameworks.

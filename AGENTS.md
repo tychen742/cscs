@@ -32,7 +32,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 
 ## Structure Decisions (as of 2026-06-06)
 
-- Notebooks use the `csharp` kernel; named `XXYY-slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
+- Notebooks use the `csharp` kernel; named `XXYY_slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
 - Preferred 3 content section notebooks per chapter (one per class meeting)
 - Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
 - Each chapter has an `assignments/` subfolder. The standard student-facing
@@ -115,3 +115,7 @@ the user explicitly asks for a fix pass.
 ## Semester Constraints
 
 <!-- Update each semester: list what is and is not in scope for modification -->
+
+## Universal Press Naming
+
+Follow the shared `book-authoring` skill for all book-owned file and folder names: lowercase `snake_case`, chapter folders `NN_chapter_name`, notebooks `NNSS_section_name.ipynb`, `front_matter`, and descriptive appendix paths without letter prefixes (letters are assigned for display from TOC order). Existing paths require coordinated migration with TOC/link updates and published-URL redirects; retain semester constraints.
