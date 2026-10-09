@@ -179,7 +179,7 @@ function initializeCsharpExecution() {
 
         function requestStdin() {
             stdinRequested = true;
-            renderStdinFields(countConsoleInputs(editor.value));
+            renderStdinFields(consoleInputPrompts(editor.value));
             stdinPanel.hidden = false;
             stdinFields.querySelector("input")?.focus();
         }
@@ -579,14 +579,16 @@ function initializeCsharpExecution() {
             selection.addRange(range);
         }
 
-        function renderStdinFields(count) {
+        // prompts: one entry per ReadLine, the text the program prints before it (or null).
+        function renderStdinFields(prompts) {
+            const count = prompts.length;
             const previousValues = Array.from(stdinFields.querySelectorAll("input")).map((input) => input.value);
             stdinFields.replaceChildren();
 
             for (let index = 0; index < count; index += 1) {
                 const label = document.createElement("label");
                 label.className = "cscs-stdin-label";
-                label.textContent = count === 1 ? "Line 1" : `Line ${index + 1}`;
+                label.textContent = prompts[index] || `Line ${index + 1}`;
 
                 const input = document.createElement("input");
                 input.type = "text";
@@ -660,6 +662,26 @@ function initializeCsharpExecution() {
 
     function countConsoleInputs(source) {
         return stripCsharpComments(source).match(/\bConsole\s*\.\s*ReadLine\s*\(/g)?.length || 0;
+    }
+
+    // Input is collected before the program runs, so label each input with the prompt the
+    // program prints just before that ReadLine: the last Console.Write/WriteLine string
+    // literal since the previous ReadLine. Null when there is none (e.g. a computed prompt).
+    function consoleInputPrompts(source) {
+        const code = stripCsharpComments(source);
+        const readLine = /\bConsole\s*\.\s*ReadLine\s*\(/g;
+        const write = /\bConsole\s*\.\s*Write(?:Line)?\s*\(\s*\$?@?"((?:[^"\\\n]|\\.)*)"/g;
+        const prompts = [];
+        let previousEnd = 0;
+        for (const match of code.matchAll(readLine)) {
+            const writes = Array.from(code.slice(previousEnd, match.index).matchAll(write));
+            const text = writes.length
+                ? writes[writes.length - 1][1].replace(/\\(["\\])/g, "$1").replace(/\\[nrt]/g, " ").trim()
+                : "";
+            prompts.push(text || null);
+            previousEnd = match.index + match[0].length;
+        }
+        return prompts;
     }
 
     function stripCsharpComments(source) {
