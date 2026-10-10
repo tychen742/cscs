@@ -37,10 +37,9 @@ parts:
 
       - file: chapters/02_var_data/0200_variables_types
         sections:
-          - file: chapters/02_var_data/0201_variables
-          - file: chapters/02_var_data/0202_data_types
-          - file: chapters/02_var_data/0203_operators
-          - file: chapters/02_var_data/0206_input_output
+          - file: chapters/02_var_data/0201_variables_types
+          - file: chapters/02_var_data/0202_operators_built_in_methods
+          - file: chapters/02_var_data/0203_input_output
           - file: chapters/02_var_data/assignments/index
             title: Assignments
             sections:

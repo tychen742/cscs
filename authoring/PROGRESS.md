@@ -199,3 +199,15 @@ and cover generation utilities to `scripts/`. Updated active notebook links,
 instructor mappings, run commands, project instructions, and deployment path
 filters. Historical utilities remain in the archive. Student notebook URLs
 are unchanged.
+
+## Chapter 2 Restructured Around Built-In Methods (2026-10-10)
+
+Chapter 2 now has three sections: `0201_variables_types` (merged from the
+former variables and types sections), `0202_operators_built_in_methods`
+(operators plus a new Built-In Methods section: method calls, `Math`, `Parse`,
+a brief string methods intro, reading signatures, one practice exercise), and
+`0203_input_output` (renamed from `0206`). The full string methods section
+stays in chapter 3 (3.4). Updated the TOC, landing page, Chapter Topics,
+planning docs, instructor mappings, and redirects (old section URLs redirect
+to the merged pages). Ch 2 preview, lab, and homework not yet revised for the
+new section.

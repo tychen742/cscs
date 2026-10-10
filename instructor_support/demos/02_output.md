@@ -2,7 +2,7 @@
 
 **Role:** Concept companion.
 
-**Supports:** [0206_input_output](../../chapters/02_var_data/0206_input_output.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [0203_input_output](../../chapters/02_var_data/0203_input_output.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/02/output/README.md); [project file](../../demos/02/output/output.csproj).
 
