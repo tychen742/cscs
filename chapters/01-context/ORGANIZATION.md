@@ -32,5 +32,7 @@
   only a reference from Section 1.2.
 
 Section 1.2 is a guided .NET 10/C# setup using Commons references for command-line,
-editing, and REPL fundamentals. Language installation and verification remain in
-the chapter; the first saved console application remains in Section 1.3.
+editing, and REPL fundamentals. It directs students to install and verify the
+.NET 10 SDK, then install VS Code and C# Dev Kit, and verify and manually install
+any missing C# Dev Kit extension dependencies. The first saved console application
+remains in Section 1.3.

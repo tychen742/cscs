@@ -294,6 +294,16 @@ Assignments should support two coordinated workflows:
 	 and submit the project through GitHub or the course LMS. This is the durable
 	 workflow for multi-file assignments and project-based learning.
 
+The semester project should give students a path to build a desktop application.
+Windows and macOS are acceptable target operating systems for that app, even
+though students may use Linux for other course work. Before project work begins,
+identify the supported operating systems and required build tools. In
+particular, .NET MAUI supports Windows and macOS desktop targets but does not
+officially support Linux desktop apps. If MAUI is selected, the student-facing
+project instructions must state this clearly and provide Linux students an
+instructor-approved alternative or access to a supported environment; do not
+leave them to discover the limitation after choosing a project.
+
 The browser draft and VS Code project should not be treated as one live shared
 filesystem. Instead, they share the same assignment ID, starter version,
 learning objectives, and tests. The book should provide an explicit handoff:
