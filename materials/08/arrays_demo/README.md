@@ -1,5 +1,7 @@
 # Command-line arrays, rectangular arrays, and jagged arrays
 
+**Teaching role:** Concept companion with jagged-array extension. See the [instructor walkthrough](../../../assignments/instructor_support/demos/08_arrays_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

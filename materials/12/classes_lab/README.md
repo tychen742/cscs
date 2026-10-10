@@ -1,5 +1,7 @@
 # Animal/employee objects and instance versus static guessing games
 
+**Teaching role:** Completed legacy exercise; not a current lab solution. See the [instructor walkthrough](../../../assignments/instructor_support/demos/12_classes_lab.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

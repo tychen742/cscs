@@ -1,5 +1,7 @@
 # Linear/binary search and sort timing extensions
 
+**Teaching role:** Concept companion with timing extensions. See the [instructor walkthrough](../../../assignments/instructor_support/demos/22_search_sort_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

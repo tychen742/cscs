@@ -158,3 +158,14 @@ Project (midterm, solo) and a Group Project (final, team of 3-4), per the Press
 rule that every book has one of each. The former single Group Project page moved
 to `chapters/appendices/project/group_project.ipynb`; the individual guidelines
 are new drafts. Milestone pages are not yet written. Contents was updated.
+
+## Instructor Resource Correspondence (2026-10-10)
+
+Added `assignments/instructor_support/` with 27 role-labeled project walkthroughs,
+verified console output captures, and an inventory of 88 assignment notebooks.
+Current assignment guides cover the Chapter 3 Product Code Report task, Chapter 7
+Privacy Pass tasks/reflections, and all five Chapter 8 sales-lab answers.
+Standalone Chapter 3/7 references now have explicit .NET 10 project files.
+Legacy array/classes/math/OOP projects are marked supplementary rather than
+claimed as current lab solutions. Remaining assignment explanations and source-bank
+walkthroughs are identified as gaps; a complete instructor manual is not claimed.

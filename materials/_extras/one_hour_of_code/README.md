@@ -1,5 +1,7 @@
 # Introductory C# walkthrough
 
+**Teaching role:** Optional multi-chapter overview. See the [instructor walkthrough](../../../assignments/instructor_support/demos/_extras_one_hour_of_code.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

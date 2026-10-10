@@ -1,5 +1,7 @@
 # Dictionary-based help response simulation
 
+**Teaching role:** Supplementary integrated example. See the [instructor walkthrough](../../../assignments/instructor_support/demos/09_help_responses.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

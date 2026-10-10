@@ -1,5 +1,7 @@
 # Class instances and methods
 
+**Teaching role:** Concept companion. See the [instructor walkthrough](../../../assignments/instructor_support/demos/12_classes_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

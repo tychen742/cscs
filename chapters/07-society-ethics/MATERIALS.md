@@ -31,3 +31,5 @@ orphan: true
 - Code uses only Chapters 1–6 material (strings, methods, decisions, loops, `TryParse`), because arrays and classes come later.
 - Factual claims (case studies, laws, ACM Code, WCAG, OWASP) were checked against primary sources on 2026-10-04. The OWASP citation uses the 2025 Top 10.
 - Still needed: a chapter video.
+
+Instructor support: [current lab walkthrough](../../assignments/instructor_support/labs/07_lab_solution.md). See its scope before treating a demo as an assignment answer.

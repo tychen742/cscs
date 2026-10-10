@@ -1,5 +1,7 @@
 # Unit tests for the arithmetic lab
 
+**Teaching role:** Supplementary test suite; not a current lab solution. See the [instructor walkthrough](../../../../assignments/instructor_support/demos/06_math_lab_math_app_test.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the four MSTest tests (first run restores packages from NuGet):

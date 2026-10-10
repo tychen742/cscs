@@ -1,5 +1,7 @@
 # Encapsulation, inheritance, overloading, shapes, and interfaces
 
+**Teaching role:** Concept companion across the OOP sections. See the [instructor walkthrough](../../../assignments/instructor_support/demos/13_oop_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

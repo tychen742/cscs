@@ -1,5 +1,7 @@
 # While loops and a number guessing game
 
+**Teaching role:** Concept companion. See the [instructor walkthrough](../../../assignments/instructor_support/demos/05_while_loop_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

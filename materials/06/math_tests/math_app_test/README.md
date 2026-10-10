@@ -1,5 +1,7 @@
 # Unit tests for the arithmetic library
 
+**Teaching role:** Concept companion test suite. See the [instructor walkthrough](../../../../assignments/instructor_support/demos/06_math_tests_math_app_test.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the four MSTest tests (first run restores packages from NuGet):

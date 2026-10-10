@@ -1,5 +1,7 @@
 # Conditional statements
 
+**Teaching role:** Concept companion. See the [instructor walkthrough](../../../assignments/instructor_support/demos/04_conditional_demo.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

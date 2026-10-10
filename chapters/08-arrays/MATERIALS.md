@@ -28,3 +28,5 @@
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `materials/README.md` and each project README.
+
+Instructor support: [current lab walkthrough](../../assignments/instructor_support/labs/08_sales_lab.md). See its scope before treating a demo as an assignment answer.

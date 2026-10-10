@@ -1,5 +1,7 @@
 # Console input, parsing, and range validation
 
+**Teaching role:** Concept companion. See the [instructor walkthrough](../../../assignments/instructor_support/demos/02_input.md).
+
 Requires the .NET 10 SDK. Open this folder in VS Code.
 
 Run the console application:

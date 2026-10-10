@@ -113,3 +113,10 @@ and testing projects were separated. Empty wrappers, the unused empty
 `array1.cs`, and the obsolete array-project backup were removed. The two math
 variants are retained: one demonstrates a library with tests, and the other
 adds a console application with tests.
+
+## Instructor Support
+
+See [Instructor Support](../assignments/instructor_support/README.md) for
+lesson mappings, walkthroughs, expected outputs, exact assignment solutions,
+and identified gaps. A demo project is not automatically an assignment answer;
+older projects named `lab` are explicitly labeled where no current match exists.
