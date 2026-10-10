@@ -35,7 +35,9 @@ in `materials/README.md` and each project README.
 - Git workflow instruction lives in Appendix C; Section 1.2 links to it.
 
 Section 1.2 is a guided .NET 10/C# setup using Commons references for command-line,
-editing, and REPL fundamentals. It directs students to install and verify the
+editing, and REPL fundamentals. It opens with an orientation to the Microsoft
+language and .NET ecosystem (C#, F#, Visual Basic, C++/CLI; console, web, MAUI,
+and Windows desktop stacks). It directs students to install and verify the
 .NET 10 SDK, then install VS Code and C# Dev Kit, and verify and manually install
 any missing C# Dev Kit extension dependencies. The first saved console application
 remains in Section 1.3.

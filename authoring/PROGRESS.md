@@ -142,3 +142,11 @@ retaining the existing appendix URL and Git's Appendix C position. Section 1.2
 now guides .NET 10 SDK verification, workspace preparation, C# Dev Kit setup,
 and CSharpRepl installation/experiments. The first console app stays in 1.3.
 Canonical shared sources live in thinkpress-commons; sync via commons.yml.
+
+## Setup Guidance and Ecosystem Overview (2026-10-10)
+
+Section 1.2 now opens with the Microsoft language and .NET ecosystem (languages,
+app stacks, editors) and orders setup as .NET 10 SDK, VS Code, then C# Dev Kit
+with verification of the C# and .NET Install Tool extensions. Chapter 1 learning
+objectives, glossary, and Chapter Topics were updated. The Group Project appendix
+gained a platform-compatibility note: .NET MAUI has no official Linux support.
