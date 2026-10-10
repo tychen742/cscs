@@ -68,7 +68,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardedHeaders = ForwardedHeaders.XForwardedFor;
     options.ForwardLimit = 1;
-    options.KnownNetworks.Clear();
+    options.KnownIPNetworks.Clear();
     options.KnownProxies.Clear();
 });
 // Run passes signed by Press (press/docs/RUN_PASSES.md). Only public keys are configured:

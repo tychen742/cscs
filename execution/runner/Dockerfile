@@ -1,5 +1,5 @@
 # CSCS C# runner. Build context: execution/ (see compose.yml).
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:10.0
 
 ENV DOTNET_CLI_HOME=/tmp/dotnet \
     NUGET_PACKAGES=/app/.nuget/packages \
