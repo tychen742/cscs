@@ -2,7 +2,7 @@
 
 Jupyter Book's ``parts`` entries support captions but not their own source
 files. The shared workaround is to add part landing notebooks as the first
-chapter entry in a part under ``chapters/parts/part-*.ipynb``. This extension
+chapter entry in a part under ``chapters/parts/part_*.ipynb``. This extension
 keeps those pages unnumbered so regular chapter numbering still starts with
 the first real chapter in the part.
 """
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 def is_part_landing_doc(docname: str) -> bool:
     """Return True for house-convention part landing pages."""
-    return docname.startswith("chapters/parts/part-")
+    return docname.startswith("chapters/parts/part_")
 
 
 def assign_section_numbers(self, env: BuildEnvironment) -> List[str]:

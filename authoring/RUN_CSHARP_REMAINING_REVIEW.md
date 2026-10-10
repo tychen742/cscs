@@ -6,18 +6,18 @@ Of 184 total REPL-pattern cells (92 bare-expression + 92 cross-cell-reference), 
 
 ## Reverted after a fix attempt (real issues found, not mechanically fixable) — 15 cells
 
-- `chapters/02-var_data/0202-data_types.ipynb` cell 45 (Type Conversion): definite-assignment teaching claim is inaccurate for C# locals; needs content judgment
-- `chapters/02-var_data/0206-input_output.ipynb` cell 31 (Composite formatting): prose text was inside the code cell, not a real expression
-- `chapters/02-var_data/assignments/lab.ipynb` cell 6 (User Input): intentional '...' student fill-in stub
-- `chapters/02-var_data/assignments/homework.ipynb` cell 1 (Homework): likely an intentional operator-precedence/type-error prediction exercise
-- `chapters/04-decision/0401-intro-decision.ipynb` cell 5 (Boolean Expressions): trailing prose text was inside the code cell
-- `chapters/05-iteration/0502-for-statements.ipynb` cell 13 (Nested `for` Loop): pure pseudocode outline (outer-Loop/inner-Loop aren't valid identifiers), not real code
-- `chapters/05-iteration/0502-for-statements.ipynb` cell 15 (Nested `for` Loop): pure pseudocode outline with literal '....' placeholders
-- `chapters/05-iteration/0503-while-statement.ipynb` cell 1 (While-Statements): pure syntax template with literal *condition* markdown-emphasis leak
-- `chapters/05-iteration/0503-while-statement.ipynb` cell 6 (While-Statements): stray markdown blockquote '>' plus trailing prose telling reader to use csharprepl/VS Code
-- `chapters/05-iteration/assignments/lab.ipynb` cell 32 (Sum To `n`): intentional '...' student fill-in stub for a method body
-- `chapters/08-arrays/0802-twodim.ipynb` cell 11 (Rectangular Arrays (Two Dimensional)): my transform incorrectly touched a multi-line array-initializer continuation; needs a hand fix
-- `chapters/09-collections/0802-list-dictionary.ipynb` cell 2 (Generics): bare 'List<T>' generic-syntax notation, not a real expression
+- `chapters/02_var_data/0202_data_types.ipynb` cell 45 (Type Conversion): definite-assignment teaching claim is inaccurate for C# locals; needs content judgment
+- `chapters/02_var_data/0206_input_output.ipynb` cell 31 (Composite formatting): prose text was inside the code cell, not a real expression
+- `chapters/02_var_data/assignments/lab.ipynb` cell 6 (User Input): intentional '...' student fill-in stub
+- `chapters/02_var_data/assignments/homework.ipynb` cell 1 (Homework): likely an intentional operator-precedence/type-error prediction exercise
+- `chapters/04_decision/0401_intro_decision.ipynb` cell 5 (Boolean Expressions): trailing prose text was inside the code cell
+- `chapters/05_iteration/0502_for_statements.ipynb` cell 13 (Nested `for` Loop): pure pseudocode outline (outer-Loop/inner-Loop aren't valid identifiers), not real code
+- `chapters/05_iteration/0502_for_statements.ipynb` cell 15 (Nested `for` Loop): pure pseudocode outline with literal '....' placeholders
+- `chapters/05_iteration/0503_while_statement.ipynb` cell 1 (While-Statements): pure syntax template with literal *condition* markdown-emphasis leak
+- `chapters/05_iteration/0503_while_statement.ipynb` cell 6 (While-Statements): stray markdown blockquote '>' plus trailing prose telling reader to use csharprepl/VS Code
+- `chapters/05_iteration/assignments/lab.ipynb` cell 32 (Sum To `n`): intentional '...' student fill-in stub for a method body
+- `chapters/08_arrays/0802_twodim.ipynb` cell 11 (Rectangular Arrays (Two Dimensional)): my transform incorrectly touched a multi-line array-initializer continuation; needs a hand fix
+- `chapters/09_collections/0802-list-dictionary.ipynb` cell 2 (Generics): bare 'List<T>' generic-syntax notation, not a real expression
 - `chapters/06-files-text/0602-file-operations.ipynb` cell 13 (Reading to End of Stream): needs a real file to read (StreamReader on 'reader') -- can't self-contain without adding file-creation code first, needs individual review
 - `chapters/06-files-text/assignments/lab.ipynb` cell 10 (Copy to Upper Case): needs real files for both reader and writer -- can't self-contain without adding file-creation code first, needs individual review
 - `chapters/13_oop/1304_polymorphism.ipynb` cell 2 (Method Overriding: virtual/override/base): cell is missing a Cat class entirely (myCat.animalSound() called with no Cat type or instance anywhere) -- needs the same structural fix as cell 5, individual review
@@ -26,12 +26,12 @@ Of 184 total REPL-pattern cells (92 bare-expression + 92 cross-cell-reference), 
 
 These had a compile error code that looked REPL-shaped but the actual cell is something else: real typos, an intentional debugging exercise, prose accidentally left inside a code cell, or a deliberately-incomplete guided-construction fragment.
 
-### `chapters/02-var_data/0202-data_types.ipynb` cell 31 — Escape Special Characters
+### `chapters/02_var_data/0202_data_types.ipynb` cell 31 — Escape Special Characters
 ```csharp
 string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
 ```
 
-### `chapters/02-var_data/assignments/homework.ipynb` cell 5 — Homework
+### `chapters/02_var_data/assignments/homework.ipynb` cell 5 — Homework
 ```csharp
    int x= (int)5.8;
    double y = (double)6;
@@ -40,7 +40,7 @@ string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
 
 ```
 
-### `chapters/04-decision/assignments/homework.ipynb` cell 13 — Homework
+### `chapters/04_decision/assignments/homework.ipynb` cell 13 — Homework
 ```csharp
     public class Test1
     {
@@ -56,7 +56,7 @@ string toBe1 = ""To be, or not to be" is a speech given by Prince Hamlet.";
 
 ```
 
-### `chapters/05-iteration/0503-while-statement.ipynb` cell 4 — While-Statements
+### `chapters/05_iteration/0503_while_statement.ipynb` cell 4 — While-Statements
 ```csharp
     int i = 4;
     while (i < 9)
@@ -69,7 +69,7 @@ Compare the preceding code to the code loop below:
 
 ```
 
-### `chapters/05-iteration/0503-while-statement.ipynb` cell 5 — While-Statements
+### `chapters/05_iteration/0503_while_statement.ipynb` cell 5 — While-Statements
 ```csharp
 int i = 4; while (i < 9)
 {
@@ -82,13 +82,13 @@ Console.WriteLine(i);
 
 ```
 
-### `chapters/05-iteration/0503-while-statement.ipynb` cell 12 — String Operations
+### `chapters/05_iteration/0503_while_statement.ipynb` cell 12 — String Operations
 ```csharp
 while (i < s.Length) {
 
 ```
 
-### `chapters/05-iteration/0503-while-statement.ipynb` cell 21 — Strange Sequence Exercise
+### `chapters/05_iteration/0503_while_statement.ipynb` cell 21 — Strange Sequence Exercise
 ```csharp
 Jump(3) = 3*3+1 = 10; Jump(10) = 10/2 = 5;
 Jump(5) = 3*5+1 = 16; Jump(16) = 16/2 = 8;
@@ -97,7 +97,7 @@ Jump(2) = 2/2  =   1
 
 ```
 
-### `chapters/05-iteration/0503-while-statement.ipynb` cell 24 — Roundoff Exercise II
+### `chapters/05_iteration/0503_while_statement.ipynb` cell 24 — Roundoff Exercise II
 ```csharp
 /// Return the largest possible number y, so in C#: x+y = x
 /// If x is Infinity return Infinity.
@@ -107,7 +107,7 @@ static double Epsilon(double x)
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 13 — Reversed String Return
+### `chapters/05_iteration/assignments/lab.ipynb` cell 13 — Reversed String Return
 ```csharp
 // this is a method return a string `s` in reverse order.
 // say, if s is "drab", return "bard".
@@ -116,25 +116,25 @@ static string Reverse (string s)
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 15 — Reversed String Return
+### `chapters/05_iteration/assignments/lab.ipynb` cell 15 — Reversed String Return
 ```csharp
 for (int i = s.Length - 1; i >= 0; i--) {
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 27 — Number Guessing Game
+### `chapters/05_iteration/assignments/lab.ipynb` cell 27 — Number Guessing Game
 ```csharp
     static void Game()
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 40 — Sum To `n`
+### `chapters/05_iteration/assignments/lab.ipynb` cell 40 — Sum To `n`
 ```csharp
 while (i <= n) {
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 44 — Sum To `n`
+### `chapters/05_iteration/assignments/lab.ipynb` cell 44 — Sum To `n`
 ```csharp
 int sum = 1, i = 2;
 while (i <= n) {
@@ -145,7 +145,7 @@ while (i <= n) {
 
 ```
 
-### `chapters/05-iteration/assignments/lab.ipynb` cell 51 — Loan Table
+### `chapters/05_iteration/assignments/lab.ipynb` cell 51 — Loan Table
 ```csharp
 /// Print a loan table, showing payment number, principal at the
 /// beginning of the payment period, interest over the period, and
@@ -181,7 +181,7 @@ bool File.Exists(string filenamePath)
 
 ```
 
-### `chapters/08-arrays/0802-twodim.ipynb` cell 14 — Advanced topic: Array of Arrays
+### `chapters/08_arrays/0802_twodim.ipynb` cell 14 — Advanced topic: Array of Arrays
 ```csharp
 // declare the array of three elements
 int[][] table2 = new int[3][];
@@ -208,31 +208,31 @@ for (int i = 0; i < table2.Length; i++)
 
 ```
 
-### `chapters/08-arrays/assignments/homework.ipynb` cell 7 — Homework
+### `chapters/08_arrays/assignments/homework.ipynb` cell 7 — Homework
 ```csharp
     static void f(int num)
     //...
 
 ```
 
-### `chapters/08-arrays/assignments/homework.ipynb` cell 11 — Homework
+### `chapters/08_arrays/assignments/homework.ipynb` cell 11 — Homework
 ```csharp
     static void f(int[] nums)
     //...
 
 ```
 
-### `chapters/09-collections/0802-list-dictionary.ipynb` cell 23 — List Constructors and Methods
+### `chapters/09_collections/0802-list-dictionary.ipynb` cell 23 — List Constructors and Methods
 ```csharp
 Console.WriteLine(words)
 ```
 
-### `chapters/09-collections/0902-list.ipynb` cell 23 — List Constructors and Methods
+### `chapters/09_collections/0902_list.ipynb` cell 23 — List Constructors and Methods
 ```csharp
 Console.WriteLine(words)
 ```
 
-### `chapters/09-collections/assignments/homework.ipynb` cell 3 — Homework
+### `chapters/09_collections/assignments/homework.ipynb` cell 3 — Homework
 ```csharp
     words.Clear()
 
@@ -272,52 +272,52 @@ public BookList()
 
 ### Pure syntax-template pseudocode (e.g. `type variableName = value;`, `if (condition) {...}`) — should become a plain markdown code block, not a runnable cell (9 cells)
 
-- `chapters/02-var_data/0201-variables.ipynb` cell 4 (Declaring Local Variables)
-- `chapters/04-decision/0401-intro-decision.ipynb` cell 6 (Boolean Expressions)
-- `chapters/04-decision/0402-ifstatement.ipynb` cell 7 (else-if Statements)
-- `chapters/04-decision/0406-switch.ipynb` cell 2 (Switch Statement)
-- `chapters/04-decision/assignments/homework.ipynb` cell 3 (Homework)
-- `chapters/04-decision/assignments/homework.ipynb` cell 5 (Homework)
-- `chapters/05-iteration/0502-for-statements.ipynb` cell 27 (Step in loop header)
-- `chapters/05-iteration/0502-for-statements.ipynb` cell 29 (Step in loop header)
-- `chapters/05-iteration/assignments/lab.ipynb` cell 46 (Sum To `n`)
+- `chapters/02_var_data/0201_variables.ipynb` cell 4 (Declaring Local Variables)
+- `chapters/04_decision/0401_intro_decision.ipynb` cell 6 (Boolean Expressions)
+- `chapters/04_decision/0402_ifstatement.ipynb` cell 7 (else-if Statements)
+- `chapters/04_decision/0406_switch.ipynb` cell 2 (Switch Statement)
+- `chapters/04_decision/assignments/homework.ipynb` cell 3 (Homework)
+- `chapters/04_decision/assignments/homework.ipynb` cell 5 (Homework)
+- `chapters/05_iteration/0502_for_statements.ipynb` cell 27 (Step in loop header)
+- `chapters/05_iteration/0502_for_statements.ipynb` cell 29 (Step in loop header)
+- `chapters/05_iteration/assignments/lab.ipynb` cell 46 (Sum To `n`)
 
-### Depends on the book's custom UI/UIF input-helper class (materials/examples/ui/) — needs either inlining that class or rewriting with plain Console.ReadLine() (6 cells)
+### Depends on the book's custom UI/UIF input-helper class (demos/examples/ui/) — needs either inlining that class or rewriting with plain Console.ReadLine() (6 cells)
 
-- `chapters/02-var_data/0206-input_output.ipynb` cell 9 (User Input: The UI class)
-- `chapters/04-decision/assignments/lab.ipynb` cell 5 (`if-else` Exercise)
-- `chapters/04-decision/assignments/lab.ipynb` cell 7 (`if-else` Exercise)
-- `chapters/05-iteration/0503-while-statement.ipynb` cell 36 (`do-while` Example: Right Triangle)
+- `chapters/02_var_data/0206_input_output.ipynb` cell 9 (User Input: The UI class)
+- `chapters/04_decision/assignments/lab.ipynb` cell 5 (`if-else` Exercise)
+- `chapters/04_decision/assignments/lab.ipynb` cell 7 (`if-else` Exercise)
+- `chapters/05_iteration/0503_while_statement.ipynb` cell 36 (`do-while` Example: Right Triangle)
 - `chapters/06-files-text/0602-file-operations.ipynb` cell 11 (Reading to End of Stream)
-- `chapters/09-collections/assignments/lab.ipynb` cell 9 (The FakeHelp Class)
+- `chapters/09_collections/assignments/lab.ipynb` cell 9 (The FakeHelp Class)
 
 ### References an undeclared METHOD, not a variable — needs real design work (what should it return/do), not a fake declaration (19 cells)
 
-- `chapters/03-methods/assignments/lab.ipynb` cell 4 (Return Statement)
-- `chapters/03-methods/assignments/lab.ipynb` cell 8 (Return Statement)
-- `chapters/03-methods/assignments/lab.ipynb` cell 10 (Return Statement)
-- `chapters/03-methods/assignments/homework.ipynb` cell 1 (Homework)
-- `chapters/03-methods/assignments/homework.ipynb` cell 3 (Homework)
-- `chapters/03-methods/assignments/homework.ipynb` cell 7 (Homework)
-- `chapters/03-methods/assignments/homework.ipynb` cell 9 (Homework)
-- `chapters/03-methods/assignments/homework.ipynb` cell 11 (Homework)
-- `chapters/04-decision/assignments/lab.ipynb` cell 10 (Calculate Weekly Wages)
-- `chapters/04-decision/assignments/homework.ipynb` cell 1 (Homework)
+- `chapters/03_methods/assignments/lab.ipynb` cell 4 (Return Statement)
+- `chapters/03_methods/assignments/lab.ipynb` cell 8 (Return Statement)
+- `chapters/03_methods/assignments/lab.ipynb` cell 10 (Return Statement)
+- `chapters/03_methods/assignments/homework.ipynb` cell 1 (Homework)
+- `chapters/03_methods/assignments/homework.ipynb` cell 3 (Homework)
+- `chapters/03_methods/assignments/homework.ipynb` cell 7 (Homework)
+- `chapters/03_methods/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/03_methods/assignments/homework.ipynb` cell 11 (Homework)
+- `chapters/04_decision/assignments/lab.ipynb` cell 10 (Calculate Weekly Wages)
+- `chapters/04_decision/assignments/homework.ipynb` cell 1 (Homework)
 - `chapters/06-files-text/0603-text-operations.ipynb` cell 27 (Structured Lines)
-- `chapters/08-arrays/assignments/lab.ipynb` cell 3 (Lab: Arrays)
-- `chapters/08-arrays/assignments/homework.ipynb` cell 9 (Homework)
-- `chapters/08-arrays/assignments/homework.ipynb` cell 13 (Homework)
-- `chapters/09-collections/0802-list-dictionary.ipynb` cell 37 (List Constructors and Methods)
-- `chapters/09-collections/0902-list.ipynb` cell 39 (Exercise: Generic List)
-- `chapters/09-collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
+- `chapters/08_arrays/assignments/lab.ipynb` cell 3 (Lab: Arrays)
+- `chapters/08_arrays/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/08_arrays/assignments/homework.ipynb` cell 13 (Homework)
+- `chapters/09_collections/0802-list-dictionary.ipynb` cell 37 (List Constructors and Methods)
+- `chapters/09_collections/0902_list.ipynb` cell 39 (Exercise: Generic List)
+- `chapters/09_collections/assignments/lab.ipynb` cell 6 (The FakeHelpVerbose Class)
 - `chapters/09-datastructure/0901-intro-ds.ipynb` cell 34 (Destructuring)
 - `chapters/12_classes/assignments/hw_booklist.ipynb` cell 13 (BookList class)
 
 ### "Predict the output across scenarios //a/b/c/d" reasoning exercise — likely never meant to run as one program; consider markdown instead (4 cells)
 
-- `chapters/04-decision/assignments/homework.ipynb` cell 7 (Homework)
-- `chapters/04-decision/assignments/homework.ipynb` cell 9 (Homework)
-- `chapters/04-decision/assignments/homework.ipynb` cell 11 (Homework)
+- `chapters/04_decision/assignments/homework.ipynb` cell 7 (Homework)
+- `chapters/04_decision/assignments/homework.ipynb` cell 9 (Homework)
+- `chapters/04_decision/assignments/homework.ipynb` cell 11 (Homework)
 - `chapters/13_oop/1305_abstraction.ipynb` cell 10 (!powershell)
 
 ### all_names_locally_redeclared_already (4 cells)
@@ -325,7 +325,7 @@ public BookList()
 - `chapters/12_classes/assignments/hw_booklist.ipynb` cell 9 (BookList class)
 - `chapters/13_oop/1304_polymorphism.ipynb` cell 13 (Method Overloading)
 - `chapters/13_oop/1305_abstraction.ipynb` cell 4 (Abstract Classes)
-- `chapters/06-exceptions-testing/0603-testing.ipynb` cell 3 (Simple Testing)
+- `chapters/06_exceptions_testing/0603_testing.ipynb` cell 3 (Simple Testing)
 
 ## Original Category C (mixed/other, from the first scan pass) — 38 cells
 

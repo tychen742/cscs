@@ -4,7 +4,7 @@ Follow-up from the book-wide compile scan (see thinkcscs.md project memory for f
 Category A (92 cells, REPL-style bare expressions) and Category B (92 cells, cross-cell variable references) are being fixed as content edits — see [[thinkcscs]].
 This file tracks Category C: the 38 cells that did not fit either pattern cleanly. Needs individual review — mix of pure syntax-template pseudocode, likely-intentional teaching errors, method-only fragments with no entry point, and at least one confirmed typo.
 
-## `chapters/02-var_data/0202-data_types.ipynb` cell 24 — Creating a String
+## `chapters/02_var_data/0202_data_types.ipynb` cell 24 — Creating a String
 Error codes: CS0165
 
 ```csharp
@@ -37,7 +37,7 @@ Console.WriteLine("10. " + alphabet);
 #pragma warning restore CS8632
 ```
 
-## `chapters/02-var_data/0202-data_types.ipynb` cell 43 — Type Conversion
+## `chapters/02_var_data/0202_data_types.ipynb` cell 43 — Type Conversion
 Error codes: CS0266
 
 ```csharp
@@ -45,7 +45,7 @@ double d = 2.0;
 int i = d;
 ```
 
-## `chapters/03-methods/0303-parameter.ipynb` cell 7 — Method Tracing
+## `chapters/03_methods/0303_parameter.ipynb` cell 7 — Method Tracing
 Error codes: CS5001
 
 ```csharp
@@ -66,7 +66,7 @@ public static void main(String[] args)
 }
 ```
 
-## `chapters/05-iteration/0501-iteration.ipynb` cell 1 — Iteration
+## `chapters/05_iteration/0501_iteration.ipynb` cell 1 — Iteration
 Error codes: CS8803
 
 ```csharp
@@ -98,7 +98,7 @@ internal class Chapter05
 Chapter05.Main(null);
 ```
 
-## `chapters/05-iteration/assignments/lab.ipynb` cell 24 — Number in Range [1…100]
+## `chapters/05_iteration/assignments/lab.ipynb` cell 24 — Number in Range [1…100]
 Error codes: CS0117, CS1503
 
 ```csharp
@@ -118,7 +118,7 @@ Error codes: CS5001
 using System.Text.RegularExpressions;
 ```
 
-## `chapters/08-arrays/assignments/homework.ipynb` cell 3 — Homework
+## `chapters/08_arrays/assignments/homework.ipynb` cell 3 — Homework
 Error codes: CS0200
 
 ```csharp
@@ -129,7 +129,7 @@ Error codes: CS0200
     s[0] = 'c';
 ```
 
-## `chapters/09-collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
+## `chapters/09_collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -139,14 +139,14 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/09-collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
+## `chapters/09_collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
 words.Count;
 ```
 
-## `chapters/09-collections/0902-list.ipynb` cell 19 — List Constructors and Methods
+## `chapters/09_collections/0902_list.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -156,7 +156,7 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/09-collections/0902-list.ipynb` cell 27 — List Constructors and Methods
+## `chapters/09_collections/0902_list.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -345,7 +345,7 @@ interface Animal
 }
 ```
 
-## `chapters/06-exceptions-testing/0601-error-handling.ipynb` cell 8 — File I/O with Safe Handling
+## `chapters/06_exceptions_testing/0601_error_handling.ipynb` cell 8 — File I/O with Safe Handling
 Error codes: CS0841
 
 ```csharp
@@ -372,7 +372,7 @@ catch (IOException ex)
 }
 ```
 
-## `chapters/06-exceptions-testing/0603-testing.ipynb` cell 6 — The Unit Testing Process
+## `chapters/06_exceptions_testing/0603_testing.ipynb` cell 6 — The Unit Testing Process
 Error codes: CS5001
 
 ```csharp

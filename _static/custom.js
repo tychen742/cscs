@@ -992,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function () {
             (path.endsWith('.html') || path === '') &&
             path !== '' &&
             path !== '/' &&
-            !path.startsWith('/chapters/front-matter/') &&
+            !path.startsWith('/chapters/front_matter/') &&
             !path.endsWith('/index.html') &&
             !path.endsWith('/genindex.html') &&
             !path.endsWith('/search.html')

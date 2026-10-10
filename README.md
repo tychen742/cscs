@@ -1,10 +1,9 @@
 Introduction to CSCS in C\#
-===========================================
+===========================
 
 1. venv
 2. pip install "jupyter-book<2"
 3. pip install sphinxcontrib.youtube
-
 
 <!-- Build Status
 ------------- -->
@@ -14,11 +13,11 @@ Introduction to CSCS in C\#
 <!-- Viewing and Downloading
 --------------------------- -->
 
-
 <!-- Building the Book
 --------------------
 
 More details to follow... -->
+
 
 ```
 $ pip install -r requirements.txt
@@ -29,19 +28,19 @@ $ make html         ### this will create the html files to be loaded to the http
 
 Notes
 -----
+
 - Sphinx 5.3.0 + python3.10 work ==> on production Sphinx is 8.02
 - After installing sphinx_rtd_theme, Sphinx 8.02 is uninstalled and 7.4.7 is installed and:
-"Successfully installed 
-    alabaster-0.7.16 
-    docutils-0.20.1 
-    sphinx-7.4.7 
-    sphinx-rtd-theme-2.0.0 
-    sphinxcontrib-jquery-4.1
-    
+  "Successfully installed
+  alabaster-0.7.16
+  docutils-0.20.1
+  sphinx-7.4.7
+  sphinx-rtd-theme-2.0.0
+  sphinxcontrib-jquery-4.1
 - pip install sphinx_rtd_theme
 - pip install sphinx_tabs
 - pip install sphinxcontrib-youtube
-- ??? pip install docutils==0.16 ==> 
+- ??? pip install docutils==0.16 ==>
 - ??? conf.py: extensions = ['sphinx_tabs.tabs']
 - Esbonio v0.11.0 by Swyddfa for live preview in vscode (included in reStructuredText v190.4.1 by LeXtudio)
 - `_ext/lexer_alias.py`: Sphinx extension that registers `polyglot-notebook` as a Pygments alias for C#. Polyglot Notebooks (VS Code) sets `language_info.name` to `polyglot-notebook`, which Pygments does not recognise. This extension silences the resulting build warning without suppressing all lexer warnings. Loaded via `sphinx.local_extensions` in `_config.yml`.

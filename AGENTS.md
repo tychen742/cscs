@@ -34,14 +34,14 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 
 - Notebooks use the `csharp` kernel; named `XXYY_slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
 - Preferred 3 content section notebooks per chapter (one per class meeting)
-- Source `.cs` files and projects live in `materials/NN/` at project root — not in `chapters/`
+- Source `.cs` files and projects live in `demos/NN/` at project root — not in `chapters/`
 - Each chapter has an `assignments/` subfolder. The standard student-facing
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
 - Chapter sequence is ch01–ch25 (ch07 Society, Ethics, and the Profession added 2026-10-04; later chapters renumbered); project instructions live in `chapters/appendices/`
-- Front matter (2026-10-04): `index.ipynb` at the project root is the cover and TOC root (served at `/`; moved from `chapters/cover.ipynb` 2026-10-05) (cover art at `figures/cover-art.svg`, placeholder until supplied), then the front matter in `chapters/front-matter/` (2026-10-05): Title Page (`title-page.ipynb`), Contents (`contents.ipynb`, formerly `chapters/home.ipynb`), Chapter Topics (`chapter-topics.ipynb`, its own page since 2026-10-05), and Preface (`preface.ipynb`)
-- Appendices: `resources.ipynb`, `command-line.ipynb`, `project.ipynb`, `cs2023-alignment.ipynb`
-- Root `figures/` for images (never `images/`); root `assignments/` for instructor-facing materials
+- Front matter (2026-10-04): `index.ipynb` at the project root is the cover and TOC root (served at `/`; moved from `chapters/cover.ipynb` 2026-10-05) (cover art at `figures/cover-art.svg`, placeholder until supplied), then the front matter in `chapters/front_matter/` (2026-10-05): Title Page (`title_page.ipynb`), Contents (`contents.ipynb`, formerly `chapters/home.ipynb`), Chapter Topics (`chapter_topics.ipynb`, its own page since 2026-10-05), and Preface (`preface.ipynb`)
+- Appendices: `resources.ipynb`, `command_line.ipynb`, `project.ipynb`, `cs2023_alignment.ipynb`
+- Root `figures/` for images (never `images/`); root `assignments/` for assessment materials; root `instructor_support/` for instructor walkthroughs, solution guidance, resource mappings, and future teaching support
 - Use `scripts/scaffold-book.py` in `ai_shared` to generate chapter scaffolding
 
 ## Chapter Organization
@@ -119,3 +119,16 @@ the user explicitly asks for a fix pass.
 ## Universal Press Naming
 
 Follow the shared `book-authoring` skill for all book-owned file and folder names: lowercase `snake_case`, chapter folders `NN_chapter_name`, notebooks `NNSS_section_name.ipynb`, `front_matter`, and descriptive appendix paths without letter prefixes (letters are assigned for display from TOC order). Existing paths require coordinated migration with TOC/link updates and published-URL redirects; retain semester constraints.
+
+## Part Overview Pages (2026-10-10)
+
+Each part in `_toc.yml` begins with an unnumbered overview page in `chapters/parts/part_NN_slug.ipynb`. The `appendix_numbering` extension skips these so chapter numbers do not shift. Update them when a part's chapters change.
+
+## Resource Directory Override (2026-10-10)
+
+At the user's request, CSCS uses root `demos/NN/` for C# examples and supporting
+source, root `instructor_support/` for teaching guides and solution guidance,
+and root `scripts/` for active Python utilities. This overrides the shared
+book-authoring `materials/NN/` directory name for this book. Root `materials/` holds
+retired or unpublished chapter drafts (`materials/stale_chapters/`), not runnable examples. Keep exercise
+projects labeled by their mapped role; a demo is not automatically a lab key.

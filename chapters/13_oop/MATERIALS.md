@@ -21,13 +21,13 @@
 
 ## Notes
 
-- Source examples live in `materials/` at the project root.
+- Source examples live in `demos/` at the project root.
 - The four pillar topics are present, but the active section structure may be reorganized later to reduce fragmentation while preserving explicit coverage of encapsulation, inheritance, polymorphism, and abstraction/interfaces.
 
 ## Runnable Demo Projects
 
-- [`materials/13/oop_demo/`](../../materials/13/oop_demo/README.md): Encapsulation, inheritance, overloading, shapes, and interfaces.
-- [`materials/13/oop_lab/`](../../materials/13/oop_lab/README.md): Bank-account encapsulation demonstration.
+- [`demos/13/oop_demo/`](../../demos/13/oop_demo/README.md): Encapsulation, inheritance, overloading, shapes, and interfaces.
+- [`demos/13/oop_lab/`](../../demos/13/oop_lab/README.md): Bank-account encapsulation demonstration.
 
 All demo projects target .NET 10. Run commands and verification are documented
-in `materials/README.md` and each project README.
+in `demos/README.md` and each project README.

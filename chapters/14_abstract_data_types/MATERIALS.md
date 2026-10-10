@@ -1,0 +1,45 @@
+---
+orphan: true
+---
+
+# Chapter Materials — ADTs
+
+## Active Notebooks
+
+- `1400_abstract_data_types.ipynb` — Chapter landing page
+- `1401_adt_contracts.ipynb` — ADT contracts, interfaces, and invariants
+- `1402_representations_costs.ipynb` — representations, references, and operation costs
+- `1403_generics.ipynb` — Generics
+- `1404_iterators.ipynb` — IEnumerable/IEnumerator, `yield return`, and custom foreach-able types
+
+## Non-TOC Source Material
+
+- The older `1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` source notebooks were removed on 2026-10-04 after their material was placed in Chapters 9, 11, and 16.
+
+## Sequence
+
+- abstract data types as behavior contracts
+- interfaces, invariants, and client-code boundaries
+- representations, references, and memory diagrams
+- operation-cost comparisons
+- generic types and reusable ADT code
+- iterators: `IEnumerable<T>`/`IEnumerator<T>`, `yield return`, custom foreach-able types
+
+## Sources
+
+Expand this chapter into a true ADT and implementation foundation for the DSA
+course.
+
+## Coverage Gaps
+
+The active notebooks and assignment set now provide first-pass ADT framing.
+Later passes should add more worked examples and improve any browser grading
+metadata.
+
+## Foundation Placement (2026-10-07)
+
+Chapter 14 now teaches input size, Big-O growth, tight-bound vocabulary, amortized costs, and auxiliary space before collection-cost notation. Formal inequalities and recurrences remain in Chapter 20.
+
+## Move Verification (2026-10-07)
+
+The four receiving sections contain 21 completed cells. Each compiled and ran in an isolated namespace with its own setup under .NET 10; completed exercise answers retain captured stdout. Intentional student starters were excluded. The full Jupyter Book build passed with the five previously recorded warnings outside these chapters. New content pages and prerequisite links are included in the TOC and rendered output. Slides remain pending.

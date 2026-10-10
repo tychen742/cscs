@@ -46,17 +46,17 @@ judge prose quality or runnable C# examples yet.
 | ---- | ------- | -------- | ------------------ |
 | Non-TOC chapter tracks | `chapters/13-exceptions-testing`, `chapters/14-functional-patterns`, `chapters/15-pattern-records`, and `chapters/16-generics-async` remain in `chapters/` but are not active in `_toc.yml`. | Chapter directory scan. | Move to an archive/staging location, or add clear local docs explaining their status. |
 | Ch12 source leftovers | `chapters/11_databases/1201`-`1205` are former modern-C# topics and are not active in `_toc.yml`. | File scan and `_toc.yml`. | Move/archive/relabel after the Ch12 database assignment pass. |
-| Old collection source notebooks | `chapters/09-collections/1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` remain outside `_toc.yml` as source material for later reuse. | File scan and Ch08/Ch13 planning docs. | Keep out of the active TOC; mine remaining stack, queue, or tuple material only when it supports later chapters. |
-| Ch08 stale merge source | `chapters/09-collections/0802-list-dictionary.ipynb` is not active in `_toc.yml`. | File scan and Ch08 `MATERIALS.md`. | Merge any useful material into `0902-list.ipynb` and `0903-dictionary.ipynb`, then archive or remove. |
+| Old collection source notebooks | `chapters/09_collections/1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` remain outside `_toc.yml` as source material for later reuse. | File scan and Ch08/Ch13 planning docs. | Keep out of the active TOC; mine remaining stack, queue, or tuple material only when it supports later chapters. |
+| Ch08 stale merge source | `chapters/09_collections/0802-list-dictionary.ipynb` is not active in `_toc.yml`. | File scan and Ch08 `MATERIALS.md`. | Merge any useful material into `0902_list.ipynb` and `0903_dictionary.ipynb`, then archive or remove. |
 | Legacy extra homework pages | Ch05, Ch09, and Ch10 list extra homework pages in `_toc.yml` in addition to standard Homework. | `_toc.yml`. | Decide whether these remain as extra homework, move under instructor-facing `assignments/`, or become extension pages. |
 | Planning front matter | Older `MATERIALS.md` and `ORGANIZATION.md` files in Ch01-Ch10 and non-TOC staging tracks lack `orphan: true` front matter. | Planning-doc scan. | Add MyST front matter so excluded planning docs do not become warning sources. |
-| Materials layout | Shared rule says runnable source should live in numbered `materials/NN/` folders. This project still mainly uses `materials/demos/` and `materials/examples/`. | `materials/` scan. | Decide whether to migrate to numbered folders or document CSCS as a legacy exception. |
+| Materials layout | Shared rule says runnable source should live in numbered `demos/NN/` folders. This project still mainly uses `demos/demos/` and `demos/examples/`. | `demos/` scan. | Decide whether to migrate to numbered folders or document CSCS as a legacy exception. |
 
 ## Deferrable Polish
 
 | Area | Finding | Recommended action |
 | ---- | ------- | ------------------ |
-| Appendix landing draft | `chapters/appendices/appendix-intro.ipynb` exists but is not active in `_toc.yml`. | Add it to TOC only if appendices need a landing page; otherwise archive/remove. |
+| Appendix landing draft | `chapters/appendices/appendix_overview.ipynb` exists but is not active in `_toc.yml`. | Add it to TOC only if appendices need a landing page; otherwise archive/remove. |
 | Project assignment convention | `BOOK_PLAN.md` supports project assignments, but active chapter TOCs currently standardize only Preview/Lab/Homework. | Revisit after course project arc is finalized. |
 
 ## Clean Structural Baseline

@@ -6,6 +6,15 @@ This file tracks the active book sequence in `_toc.yml`. Retired or staging
 folders may still exist in `chapters/`, but they are not part of the student
 book unless they are listed in the TOC.
 
+## Press snake_case migration (2026-10-11)
+
+Renamed 124 chapter, front-matter, appendix, and `_html_extra` folders and
+notebooks to Press `snake_case` (for example `01-context/0100-getting-started`
+is now `01_context/0100_getting_started`; `front-matter` is now `front_matter`).
+Updated `_toc.yml`, links, and tooling paths, and added redirects for every old
+URL in `_ext/chapter_redirects.json`. Reading-progress data stored by old page
+path (browser `localStorage` or server records) is not migrated.
+
 ## Active TOC Snapshot
 
 - Root: `chapters/preface.ipynb`
@@ -74,7 +83,7 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 | `chapters/15-pattern-records` | Staging track for pattern matching and records | Keep out of TOC or relabel as extension material |
 | `chapters/16-generics-async` | Staging track for generics/nullability/async | Keep out of TOC or relabel as extension material |
 | `chapters/11_databases/1201`–`1205` | Former modern-C# material inside the databases folder | Move, archive, or relabel before final Ch12 cleanup |
-| `chapters/appendices/appendix-intro.ipynb` | Appendix landing draft | Add to TOC or remove if unused |
+| `chapters/appendices/appendix_overview.ipynb` | Appendix landing draft | Add to TOC or remove if unused |
 
 ## Consistency Notes
 
@@ -118,13 +127,13 @@ Databases now closes Part II as Chapter 11. Classes and OOP Principles are Chapt
 
 ## Demo Materials Cleanup (2026-10-09)
 
-Migrated the former `materials/demos/` collection to current numbered chapter
+Migrated the former `demos/demos/` collection to current numbered chapter
 folders and `_extras/`. All 27 migrated projects target .NET 10. Removed empty
 container/wrapper files, completed broken array/loop examples, corrected
 arithmetic and shape results, fixed entry-point and input/EOF issues, and made
-bundled data independent of the working directory. `materials/verify_demos.py`
+bundled data independent of the working directory. `scripts/verify_demos.py`
 builds the projects, runs console scenarios, executes both MSTest suites, and
-runs independent algorithm/input/file behavior checks. See `materials/README.md`
+runs independent algorithm/input/file behavior checks. See `demos/README.md`
 for the full project and migration index.
 
 ## Git Appendix Placement (2026-10-09)
@@ -161,7 +170,7 @@ are new drafts. Milestone pages are not yet written. Contents was updated.
 
 ## Instructor Resource Correspondence (2026-10-10)
 
-Added `assignments/instructor_support/` with 27 role-labeled project walkthroughs,
+Added `instructor_support/` with 27 role-labeled project walkthroughs,
 verified console output captures, and an inventory of 88 assignment notebooks.
 Current assignment guides cover the Chapter 3 Product Code Report task, Chapter 7
 Privacy Pass tasks/reflections, and all five Chapter 8 sales-lab answers.
@@ -173,6 +182,20 @@ walkthroughs are identified as gaps; a complete instructor manual is not claimed
 ## Version Control Lab Merged into Git Appendix (2026-10-10)
 
 The legacy Mercurial/Bitbucket `lab-versioncontrol` notebook was archived to
-`materials/_archived/01/`. Its motivation (why version control, local versus
+`demos/_archived/01/`. Its motivation (why version control, local versus
 remote, the track/commit/push/ignore/pull steps) and the lab-and-home workflow
 were rewritten for Git and GitHub in the Git and GitHub appendix.
+
+## Instructor Support Location (2026-10-10)
+
+Instructor support now lives at the repository root, `instructor_support/`,
+for future teaching resources beyond assignment answers. Guide links, resource
+mappings, and verification root discovery were updated together.
+
+## Demo and Script Locations (2026-10-10)
+
+Renamed root `materials/` to `demos/` and moved active demo/lab verification
+and cover generation utilities to `scripts/`. Updated active notebook links,
+instructor mappings, run commands, project instructions, and deployment path
+filters. Historical utilities remain in the archive. Student notebook URLs
+are unchanged.
