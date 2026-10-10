@@ -8,7 +8,7 @@
 
 - `0101-cs_ideas.ipynb` — CS ideas and problem solving
 - `0102-dev_tools.ipynb` — Development tools and environment
-- `0103-program_structure.ipynb` — Program structure in C#
+- `0103-program_structure.ipynb` — First console application and program structure in C#
 
 ## Assignments
 
@@ -21,3 +21,6 @@
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+
+- Section 1.3 uses an explicit `Main` console project and terminal `dotnet run`; namespaces are explained before Chapter 3.
+- Project explanations connect VS Code Explorer, `.csproj` settings, compilation, and code organization; solution setup remains deferred.
