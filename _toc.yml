@@ -422,6 +422,10 @@ parts:
     chapters:
       - file: chapters/appendices/resources
       - file: chapters/appendices/command-line
+        sections:
+          - file: chapters/appendices/development_tools/command_line_basics
+          - file: chapters/appendices/development_tools/editing_tools
+          - file: chapters/appendices/development_tools/interactive_language_environments
       - file: chapters/appendices/github
       - file: chapters/appendices/project
       - file: chapters/appendices/cs2023-alignment

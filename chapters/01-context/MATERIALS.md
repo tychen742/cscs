@@ -33,3 +33,7 @@ All demo projects target .NET 10. Run commands and verification are documented
 in `materials/README.md` and each project README.
 
 - Git workflow instruction lives in Appendix C; Section 1.2 links to it.
+
+Section 1.2 is a guided .NET 10/C# setup using Commons references for command-line,
+editing, and REPL fundamentals. Language installation and verification remain in
+the chapter; the first saved console application remains in Section 1.3.

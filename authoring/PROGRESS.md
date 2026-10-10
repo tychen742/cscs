@@ -134,3 +134,11 @@ appendix, Git and GitHub (Appendix C). Integrated recurring commit habits and
 conflict resolution with its existing branch/pull-request instructions. Updated
 the Chapter Topics summary and Chapter 1 planning notes. Appendix order and
 published notebook paths are unchanged.
+
+## Commons Development Fundamentals (2026-10-10)
+
+Added Commons command-line, editing, and REPL references under Appendix B,
+retaining the existing appendix URL and Git's Appendix C position. Section 1.2
+now guides .NET 10 SDK verification, workspace preparation, C# Dev Kit setup,
+and CSharpRepl installation/experiments. The first console app stays in 1.3.
+Canonical shared sources live in thinkpress-commons; sync via commons.yml.
