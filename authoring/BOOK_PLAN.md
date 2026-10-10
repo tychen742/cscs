@@ -294,7 +294,7 @@ Assignments should support two coordinated workflows:
 	 and submit the project through GitHub or the course LMS. This is the durable
 	 workflow for multi-file assignments and project-based learning.
 
-The semester project should give students a path to build a desktop application.
+The semester projects (an individual midterm project and a group final project) should give students a path to build a desktop application.
 Windows and macOS are acceptable target operating systems for that app, even
 though students may use Linux for other course work. Before project work begins,
 identify the supported operating systems and required build tools. In

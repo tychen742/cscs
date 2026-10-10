@@ -428,6 +428,11 @@ parts:
           - file: chapters/appendices/development_tools/interactive_language_environments
       - file: chapters/appendices/github
       - file: chapters/appendices/project
+        sections:
+          - file: chapters/appendices/project/individual_project
+            title: Individual Project
+          - file: chapters/appendices/project/group_project
+            title: Group Project
       - file: chapters/appendices/cs2023-alignment
 
   - caption: "Index"

@@ -150,3 +150,11 @@ app stacks, editors) and orders setup as .NET 10 SDK, VS Code, then C# Dev Kit
 with verification of the C# and .NET Install Tool extensions. Chapter 1 learning
 objectives, glossary, and Chapter Topics were updated. The Group Project appendix
 gained a platform-compatibility note: .NET MAUI has no official Linux support.
+
+## Project Appendix Restructure (2026-10-10)
+
+The Project appendix is now a landing page with two sections: an Individual
+Project (midterm, solo) and a Group Project (final, team of 3-4), per the Press
+rule that every book has one of each. The former single Group Project page moved
+to `chapters/appendices/project/group_project.ipynb`; the individual guidelines
+are new drafts. Milestone pages are not yet written. Contents was updated.
