@@ -23,3 +23,12 @@
 
 - Source examples live in `materials/` at the project root.
 - Operator overloading should be treated as applied extension material. Core class coverage should emphasize object identity, references, constructors, fields/properties, encapsulation, and class design.
+
+## Runnable Demo Projects
+
+- [`materials/12/classes_demo/`](../../materials/12/classes_demo/README.md): Class instances and methods.
+- [`materials/12/classes_lab/`](../../materials/12/classes_lab/README.md): Animal/employee objects and instance versus static guessing games.
+- [`materials/12/enum_demo/`](../../materials/12/enum_demo/README.md): Enum values and their integer representation.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

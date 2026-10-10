@@ -28,3 +28,5 @@
 - File-based apps and solution setup are outside this first-application lesson;
   briefly define a solution so students can recognize VS Code terminology.
 - Namespace naming is introduced before Chapter 3 uses `MethodDemo`.
+- Git workflows are taught in Appendix C (`appendices/github.ipynb`), with
+  only a reference from Section 1.2.

@@ -115,3 +115,22 @@ IS2020 mapping and course-use evidence now precede the CS2023 mapping, reflectin
 ## Database Chapter Move (2026-10-07)
 
 Databases now closes Part II as Chapter 11. Classes and OOP Principles are Chapters 12 and 13 in Part III, Object-Oriented Programming. The database workflow reads results into ordinary variables before custom classes are introduced. Existing assignment IDs are preserved; old chapter URLs redirect to the new paths. Database assignments remain pending.
+
+## Demo Materials Cleanup (2026-10-09)
+
+Migrated the former `materials/demos/` collection to current numbered chapter
+folders and `_extras/`. All 27 migrated projects target .NET 10. Removed empty
+container/wrapper files, completed broken array/loop examples, corrected
+arithmetic and shape results, fixed entry-point and input/EOF issues, and made
+bundled data independent of the working directory. `materials/verify_demos.py`
+builds the projects, runs console scenarios, executes both MSTest suites, and
+runs independent algorithm/input/file behavior checks. See `materials/README.md`
+for the full project and migration index.
+
+## Git Appendix Placement (2026-10-09)
+
+Moved Git workflow instruction out of Section 1.2 into the existing third
+appendix, Git and GitHub (Appendix C). Integrated recurring commit habits and
+conflict resolution with its existing branch/pull-request instructions. Updated
+the Chapter Topics summary and Chapter 1 planning notes. Appendix order and
+published notebook paths are unchanged.

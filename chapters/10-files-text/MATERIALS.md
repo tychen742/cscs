@@ -23,3 +23,10 @@
 
 - Source examples live in `materials/` at the project root.
 - Clean up section headings in `1002-file-operations.ipynb` so StreamWriter, StreamReader, paths, and directories appear as coherent subsections rather than competing notebook-level titles.
+
+## Runnable Demo Projects
+
+- [`materials/10/file_demo/`](../../materials/10/file_demo/README.md): Read a bundled file of integers.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

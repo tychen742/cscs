@@ -21,3 +21,11 @@
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+
+## Runnable Demo Projects
+
+- [`materials/02/input/`](../../materials/02/input/README.md): Console input, parsing, and range validation.
+- [`materials/02/output/`](../../materials/02/output/README.md): Interview appointment output.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

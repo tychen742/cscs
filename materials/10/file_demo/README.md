@@ -1,0 +1,14 @@
+# Read a bundled file of integers
+
+Requires the .NET 10 SDK. Open this folder in VS Code.
+
+Run the console application:
+
+```bash
+dotnet run --project file_demo.csproj
+```
+
+The verification run checks for these results:
+
+- `1`, `2`, `3`.
+- `5`.

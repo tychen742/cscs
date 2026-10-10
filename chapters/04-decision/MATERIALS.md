@@ -25,3 +25,10 @@
 
 - Source examples live in `materials/` at the project root.
 - Chapter 4 should focus on Boolean expressions, `if` / `else if` / `else`, nested conditionals, and `switch`. Recursion should be taught fully in Chapter 21.
+
+## Runnable Demo Projects
+
+- [`materials/04/conditional_demo/`](../../materials/04/conditional_demo/README.md): Conditional statements.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

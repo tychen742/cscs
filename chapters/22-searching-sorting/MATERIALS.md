@@ -23,3 +23,10 @@ Chapter 21 owns merge-sort implementation. Shell sort, quicksort, and production
 ## Foundation Placement (2026-10-07)
 
 First-match linear search, iterative binary search, missing-target traces, and library sorting/searching now belong to Chapter 15. This optional chapter retains equality policies, duplicate bounds, detailed elementary sorts, and workload analysis.
+
+## Runnable Demo Projects
+
+- [`materials/22/search_sort_demo/`](../../materials/22/search_sort_demo/README.md): Linear/binary search and sort timing extensions.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

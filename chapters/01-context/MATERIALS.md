@@ -24,3 +24,12 @@
 
 - Section 1.3 uses an explicit `Main` console project and terminal `dotnet run`; namespaces are explained before Chapter 3.
 - Project explanations connect VS Code Explorer, `.csproj` settings, compilation, and code organization; solution setup remains deferred.
+
+## Runnable Demo Projects
+
+- [`materials/01/hello_world/`](../../materials/01/hello_world/README.md): First console application.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.
+
+- Git workflow instruction lives in Appendix C; Section 1.2 links to it.

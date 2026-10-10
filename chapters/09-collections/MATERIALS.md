@@ -29,3 +29,11 @@ orphan: true
 
 - Source examples live in `materials/` at the project root.
 - `HashSet<T>` is intentionally out of scope here — it is taught in Chapter 18 (Heaps and Hash Tables), paired with the hash-table explanation that motivates it. `0901-collections.ipynb`'s comparison table points there.
+
+## Runnable Demo Projects
+
+- [`materials/09/collections_demo/`](../../materials/09/collections_demo/README.md): List construction and sorting.
+- [`materials/09/help_responses/`](../../materials/09/help_responses/README.md): Dictionary-based help response simulation.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.

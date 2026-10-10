@@ -22,3 +22,10 @@
 ## Notes
 
 - Source examples live in `materials/` at the project root.
+
+## Runnable Demo Projects
+
+- [`materials/03/methods_demo/`](../../materials/03/methods_demo/README.md): Method calls, parameters, and return values.
+
+All demo projects target .NET 10. Run commands and verification are documented
+in `materials/README.md` and each project README.
