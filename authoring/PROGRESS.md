@@ -169,3 +169,10 @@ Standalone Chapter 3/7 references now have explicit .NET 10 project files.
 Legacy array/classes/math/OOP projects are marked supplementary rather than
 claimed as current lab solutions. Remaining assignment explanations and source-bank
 walkthroughs are identified as gaps; a complete instructor manual is not claimed.
+
+## Version Control Lab Merged into Git Appendix (2026-10-10)
+
+The legacy Mercurial/Bitbucket `lab-versioncontrol` notebook was archived to
+`materials/_archived/01/`. Its motivation (why version control, local versus
+remote, the track/commit/push/ignore/pull steps) and the lab-and-home workflow
+were rewritten for Git and GitHub in the Git and GitHub appendix.

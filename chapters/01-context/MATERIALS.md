@@ -13,7 +13,6 @@
 ## Assignments
 
 - `assignments/index.ipynb` — Index
-- `assignments/lab-versioncontrol.ipynb` — Lab Versioncontrol
 - `assignments/lab.ipynb` — Lab
 - `assignments/preview.ipynb` — Preview
 - `assignments/homework.ipynb` — Homework
@@ -41,3 +40,7 @@ and Windows desktop stacks). It directs students to install and verify the
 .NET 10 SDK, then install VS Code and C# Dev Kit, and verify and manually install
 any missing C# Dev Kit extension dependencies. The first saved console application
 remains in Section 1.3.
+
+The legacy Mercurial/Bitbucket version-control lab is archived at
+`materials/_archived/01/lab-versioncontrol.ipynb`. Its motivation and two-computer
+workflow now live in the Git and GitHub appendix, in Git terms.

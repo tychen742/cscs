@@ -86,7 +86,6 @@ Do not describe the book as having a complete instructor solution manual yet.
 | Assignment notebook | Coding-question cells | Hidden answer cells |
 | --- | --- | --- |
 | [chapters/01-context/assignments/homework.ipynb](../../chapters/01-context/assignments/homework.ipynb) | 0 | 0 |
-| [chapters/01-context/assignments/lab-versioncontrol.ipynb](../../chapters/01-context/assignments/lab-versioncontrol.ipynb) | 0 | 0 |
 | [chapters/01-context/assignments/lab.ipynb](../../chapters/01-context/assignments/lab.ipynb) | 0 | 0 |
 | [chapters/01-context/assignments/preview.ipynb](../../chapters/01-context/assignments/preview.ipynb) | 0 | 0 |
 | [chapters/02-var_data/assignments/homework.ipynb](../../chapters/02-var_data/assignments/homework.ipynb) | 0 | 0 |

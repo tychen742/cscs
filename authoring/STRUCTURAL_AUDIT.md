@@ -57,7 +57,6 @@ judge prose quality or runnable C# examples yet.
 | Area | Finding | Recommended action |
 | ---- | ------- | ------------------ |
 | Appendix landing draft | `chapters/appendices/appendix-intro.ipynb` exists but is not active in `_toc.yml`. | Add it to TOC only if appendices need a landing page; otherwise archive/remove. |
-| Commented TOC entry | Ch01 has a commented `lab-versioncontrol` TOC entry and the file exists. | Keep commented if intentionally parked; otherwise archive or add as an explicit extension. |
 | Project assignment convention | `BOOK_PLAN.md` supports project assignments, but active chapter TOCs currently standardize only Preview/Lab/Homework. | Revisit after course project arc is finalized. |
 
 ## Clean Structural Baseline
