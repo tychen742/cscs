@@ -1,20 +1,8 @@
-// Provide fallback globals expected by sphinx-togglebutton and sphinx-thebe.
-// These are set once here to avoid duplicate inline declarations in <head>.
+// Provide the fallback global expected by sphinx-togglebutton.
+// Set once here to avoid a duplicate inline declaration in <head>.
 (function setSphinxInteractiveGlobals() {
     if (typeof window.togglebuttonSelector === 'undefined') {
         window.togglebuttonSelector = '.toggle, .admonition.dropdown';
-    }
-    if (typeof window.THEBE_JS_URL === 'undefined') {
-        window.THEBE_JS_URL = 'https://unpkg.com/thebe@0.8.2/lib/index.js';
-    }
-    if (typeof window.thebe_selector === 'undefined') {
-        window.thebe_selector = 'div.cell';
-    }
-    if (typeof window.thebe_selector_input === 'undefined') {
-        window.thebe_selector_input = 'div.cell_input';
-    }
-    if (typeof window.thebe_selector_output === 'undefined') {
-        window.thebe_selector_output = 'div.cell_output';
     }
 })();
 
@@ -172,99 +160,6 @@ document.addEventListener('click', function (e) {
 // ---- SINGLE DOMContentLoaded handler ----
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
-
-    // -----------------------------------------------------------
-    // FIX A: tag_hide-input (exercise answer) cells
-    //
-    // Thebe wraps the entire .thebelab-cell inside <details>, hiding
-    // everything. We watch each cell and move the jp-OutputArea wrapper
-    // outside <details> the instant Thebe creates it.
-    // -----------------------------------------------------------
-    // // Thebe activation detection: watch for .thebelab-cell to be created inside <details>, then move output.
-    function moveOutputOutsideDetails(cell) {
-        var details = cell.querySelector('details');
-        if (!details) return;
-        var thebelabCell = details.querySelector('.thebelab-cell');
-        if (!thebelabCell) return;
-
-        var outputWrapper = null;
-        thebelabCell.querySelectorAll(':scope > div').forEach(function (div) {
-            if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
-        });
-
-        if (outputWrapper && !outputWrapper.dataset.movedOut) {
-            outputWrapper.dataset.movedOut = '1';
-            details.after(outputWrapper);
-            console.log("[fix A] Moved output outside <details> for", cell.id);
-        }
-    }
-
-    function watchExerciseCell(cell) {
-        var details = cell.querySelector('details');
-        if (!details) return;
-
-        var observer = new MutationObserver(function () {
-            var thebelabCell = details.querySelector('.thebelab-cell');
-            if (!thebelabCell) return;
-
-            var outputObserver = new MutationObserver(function () {
-                var outputWrapper = null;
-                thebelabCell.querySelectorAll(':scope > div').forEach(function (div) {
-                    if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
-                });
-                if (outputWrapper && !outputWrapper.dataset.movedOut) {
-                    outputWrapper.dataset.movedOut = '1';
-                    details.after(outputWrapper);
-                    console.log("[fix A] (delayed) Moved output outside <details> for", cell.id);
-                    outputObserver.disconnect();
-                }
-            });
-            outputObserver.observe(thebelabCell, { childList: true, subtree: true });
-            moveOutputOutsideDetails(cell);
-            observer.disconnect();
-        });
-
-        observer.observe(details, { childList: true, subtree: true });
-    }
-
-    document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
-
-    // -----------------------------------------------------------
-    // FIX B: Demo cells — hide jp-OutputArea when Thebe activates.
-    //
-    // Since body.thebelab-active is never set by Thebe 0.8.2,
-    // we detect activation by watching for the first
-    // .thebelab-run-button to appear in the DOM, then add our own
-    // class 'thebe-is-active' to body so CSS can target it.
-    //
-    // NOTE: thinkpy uses predefinedOutput: true (default), so
-    // static outputs are visible. No Fix A needed — exercise cell
-    // outputs are not hidden by Thebe in this config.
-    // -----------------------------------------------------------
-
-    var thebeActivated = false;
-
-    var activationObserver = new MutationObserver(function () {
-        if (thebeActivated) return;
-        if (document.querySelector('.thebelab-run-button')) {
-            thebeActivated = true;
-            activationObserver.disconnect();
-            document.body.classList.add('thebe-is-active');
-            console.log("[fix B] Thebe detected — added thebe-is-active to body");
-
-            // Bind directly to every run button now that they exist
-            document.querySelectorAll('.thebelab-run-button').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    var cell = btn.closest('.cell');
-                    if (cell && !cell.classList.contains('tag_hide-input')) {
-                        cell.classList.add('cell-has-run');
-                        console.log("[fix B] Marked cell-has-run for", cell.id);
-                    }
-                });
-            });
-        }
-    });
-    activationObserver.observe(document.body, { childList: true, subtree: true });
 
     // Exercise counter labels
     const exercises = document.querySelectorAll('div.cell.tag_thebe-interactive');
@@ -1333,27 +1228,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('thinkpress:session', () => loadThenSync(), { once: true });
 });
 
-
-// Override Thebe config to use JupyterHub instead of Binder
-// Override Thebe config BEFORE it loads
-// (function() {
-//     const observer = new MutationObserver(function() {
-//         const thebeConfig = document.querySelector('script[type="text/x-thebe-config"]');
-//         if (thebeConfig) {
-//             thebeConfig.textContent = JSON.stringify({
-//                 requestKernel: true,
-//                 jupyterhubUrl: "https://thinkcscs.org",
-//                 token: "11b92943ad141088b548a87952ea88ea7567c66406934fdc4032947b6fdeb80c",
-//                 kernelOptions: {
-//                     name: ".net-csharp"
-//                 },
-//                 predefinedOutput: true
-//             });
-//             observer.disconnect();
-//         }
-//     });
-//     observer.observe(document.documentElement, {childList: true, subtree: true});
-// })();
 
 // Image viewer: a figure opens enlarged over the page instead of navigating to the bare
 // image file (Press docs/UI.md, Images). Escape, a click, the close button, or the
