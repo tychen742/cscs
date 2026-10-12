@@ -187,7 +187,7 @@ nav.bd-links li>a {
 /* =============================================================
    STATIC PAGE: code cell input/output styling
    
-   - Cell input: green left border, light background
+   - Cell input: inset from prose, light background without a left border
    - Cell output: no left border, separated from input by top border
    - pre inside output: no green left border (that's only for input)
    ============================================================= */
@@ -203,11 +203,24 @@ pre {
     border-left: 1px solid #ddd;
 }
 
-/* Green left border ONLY on input code blocks */
+/* A shared inset keeps the input and its controls on the same left edge. */
+div.cell {
+    --cscs-code-inset: 1rem;
+    --cscs-code-text-offset: 8px;
+}
+
+div.cell:has(.cell_input .linenos) {
+    --cscs-code-text-offset: 2.8rem;
+}
+
+div.cell > .cell_input,
+div.cell > details > .cell_input {
+    margin-left: var(--cscs-code-inset) !important;
+}
+
 div.cell_input pre,
 div.cell_input .highlight pre {
-    border-left: 1px solid #1b5e20 !important;
-    border-bottom-left-radius: 0 !important;
+    border-left: none !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
@@ -319,6 +332,18 @@ div.cell_output {
     border-left: none !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
+}
+
+/* Output text starts beneath the source text, past any line-number gutter. */
+div.cell > div.cell_output,
+div.cell > div.cell_output.docutils.container {
+    margin-left: var(--cscs-code-inset) !important;
+}
+
+div.cell_output pre,
+pre.cscs-execution-output {
+    border-left: none !important;
+    padding-left: var(--cscs-code-text-offset, 8px) !important;
 }
 
 table.dataframe,
@@ -630,16 +655,16 @@ div.cell.tag_thebe-interactive {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 1px;
+    margin: 4px 0 0 var(--cscs-code-inset, 1rem);
 }
 
 .cscs-execution-controls button {
     appearance: none;
-    background: #ffffff;
-    border: 1px solid #b7c0c8;
-    border-radius: 4px;
-    color: #27313a;
+    background: var(--pst-color-surface, #f7f7f7);
+    border: 0;
+    border-radius: 2px;
+    color: var(--pst-color-text-muted, #666666);
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 400;
@@ -654,12 +679,16 @@ div.cell.tag_thebe-interactive {
 }
 
 .cscs-execution-controls button:hover:not(:disabled) {
-    background: #f1f5f7;
-    border-color: #7d8b96;
+    background: var(--pst-color-border, #e4e7eb);
+    color: var(--pst-color-text-base, #27313a);
+}
+
+.cscs-execution-controls button:disabled {
+    cursor: wait;
+    opacity: 0.55;
 }
 
 .cscs-execution-controls button:focus-visible {
-    border-color: #277da1;
     box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.2);
     outline: none;
 }
@@ -708,18 +737,19 @@ div.cell.tag_thebe-interactive {
 
 .cscs-execution-output {
     display: block;
-    margin: 4px 0 0;
-    max-width: 100%;
+    box-sizing: border-box;
+    margin: 4px 0 0 var(--cscs-code-inset, 1rem);
+    max-width: calc(100% - var(--cscs-code-inset, 1rem));
     overflow: auto;
     white-space: pre-wrap;
-    width: 100%;
+    width: calc(100% - var(--cscs-code-inset, 1rem));
 }
 
 .cscs-code-editor {
     background: #f7f7f7;
     border: 1px solid #ddd;
-    border-left: 1px solid #1b5e20;
-    border-radius: 6px 6px 6px 0;
+    border-left: none;
+    border-radius: 6px;
     box-sizing: border-box;
     color: #222;
     display: block;
@@ -761,9 +791,20 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 }
 
 .cscs-student-copy {
+    --cscs-code-text-offset: 8px;
     border-left: 2px solid #7d8b96;
     margin: 10px 0 16px 12px;
     padding-left: 10px;
+}
+
+.cscs-student-copy .cscs-execution-controls {
+    margin-left: 0;
+}
+
+.cscs-student-copy .cscs-execution-output {
+    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
 }
 
 .cscs-student-copy-label {
