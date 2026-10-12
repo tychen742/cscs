@@ -227,10 +227,27 @@ div.cell_input .highlight pre {
 /* Jupyter Book renders source line numbers as spans inside the same <pre>.
    Treat them as a quiet gutter so they guide reading without becoming code. */
 div.cell_input .highlight pre:has(span.linenos) {
+    border: none !important;
+    background-color: transparent !important;
+    background-image: linear-gradient(to right, transparent 2.1rem, #f7f7f7 2.1rem);
     padding-left: 0.35rem !important;
 }
 
+div.cell_input .highlight:has(span.linenos) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+div.cell_input:has(span.linenos) {
+    background: transparent !important;
+}
+
 div.cell_input .highlight span.linenos {
+    background: transparent !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
     box-sizing: border-box;
     color: #6b7280 !important;
     display: inline-block;
