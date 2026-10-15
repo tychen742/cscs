@@ -1,17 +1,19 @@
-# Chapter 18: Hashing and Heaps
+# Chapter 18: Trees
 
-`HeapHashStructures.cs` contains a complete generic binary min-heap, an integer-key chained ticket-owner map, and a verification program. The heap has enqueue, peek, dequeue, safe dequeue, and invariant checking. The map has replacement, lookup, removal, and bucket rehashing under geometric growth.
+`TicketTree.cs` contains the chapter's unique integer-key BST and a verification program. It includes search, insertion, all removal cases, Count, height, minimum lookup, inorder traversal, and ancestor-bound validation.
+
+Create a console project, replace its `Program.cs` with this file, and run it:
 
 ```sh
-dotnet new console -n HeapHashCheck
-cp HeapHashStructures.cs HeapHashCheck/Program.cs
-dotnet run --project HeapHashCheck
+dotnet new console -n TreeCheck
+cp TicketTree.cs TreeCheck/Program.cs
+dotnet run --project TreeCheck
 ```
 
 Expected output:
 
 ```text
-600 heap operations and 600 map operations plus boundary checks passed.
+600 mixed operations and explicit tree boundary checks passed.
 ```
 
-Heap checks compare the full multiset, minimum, Count, and parent-child invariant against a list model. Map checks compare results, Count, and known-key values against Dictionary<int, string>. Explicit cases cover empty/singleton reuse, duplicates, negative and extreme integers, custom ordering, stable tuple priorities, collision removal, replacement without growth, rehashing, and draining. These are teaching representations; the map is not the internal implementation of .NET Dictionary.
+The checks compare with `SortedSet<int>` after each seeded operation and cover empty/singleton reuse, duplicate and missing updates, root replacement, a successor with a right child, both integer extremes, draining, and chain height. The tree is intentionally unbalanced. Recursive updates can exhaust the call stack on sufficiently long chains.

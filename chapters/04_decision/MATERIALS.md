@@ -12,7 +12,7 @@
 
 ## Non-TOC Source Material
 
-- `0409-recursion.ipynb` — Recursion preview retained as source material for Chapter 21; not part of the active Chapter 4 TOC.
+- `0409-recursion.ipynb` — Recursion preview retained as source material for Chapter 23; not part of the active Chapter 4 TOC.
 
 ## Assignments
 
@@ -24,7 +24,7 @@
 ## Notes
 
 - Source examples live in `demos/` at the project root.
-- Chapter 4 should focus on Boolean expressions, `if` / `else if` / `else`, nested conditionals, and `switch`. Recursion should be taught fully in Chapter 21.
+- Chapter 4 should focus on Boolean expressions, `if` / `else if` / `else`, nested conditionals, and `switch`. Recursion should be taught fully in Chapter 23.
 
 ## Runnable Demo Projects
 

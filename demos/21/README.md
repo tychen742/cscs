@@ -1,17 +1,25 @@
-# Chapter 21: Stable merge sort
+# Chapter 21: Graph representations
 
-`StableSort.cs` contains generic stable merge and range/buffer merge sort, operation counters, and independent reference checks. Sort returns a fresh array, preserves input order, resets counters per call, and retains arrival order for equal keys. Array copies are shallow: referenced objects are not cloned.
+`RouteGraph.cs` contains the complete weighted undirected graph and reference-model checks. Vertices are explicit, labels are case-sensitive, zero weights are valid, and loops and negative weights are rejected. Neighbor and vertex snapshots protect internal state.
 
 ```sh
-dotnet new console -n StableSortCheck
-cp StableSort.cs StableSortCheck/Program.cs
-dotnet run --project StableSortCheck
+dotnet new console -n GraphCheck
+cp RouteGraph.cs GraphCheck/Program.cs
+dotnet run --project GraphCheck
 ```
 
 Expected output:
 
 ```text
-600 stable sort cases, 600 merge cases, and count/copy boundaries passed.
+600 graph updates and explicit boundary/snapshot checks passed.
 ```
 
-Merge requires both inputs to be sorted under the same consistent comparison. Sort uses a copied result and one shared buffer, taking linear auxiliary space and logarithmic active stack depth. Counted writes exclude the initial clone and buffer allocation.
+## Traversal Foundations
+
+`graph_traversal/` contains the core plain-class implementation and its checks:
+
+```sh
+dotnet run --project demos/21/graph_traversal/GraphChecks.csproj
+```
+
+The former callback/record implementation is retained as optional material in `demos/_extras/advanced_graph_walk/`. `RouteGraph.cs` remains the representation-check program.

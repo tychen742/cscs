@@ -24,7 +24,7 @@ Preview checks terms. Lab uses five connected work-order tasks with independentl
 
 ## Foundation Placement (2026-10-07)
 
-Added `1504_searching_sorting.ipynb`: first-match linear search, iterative binary search, missing-target traces, library search results, stable reports, and a standalone report exercise. Detailed custom sorting, duplicate bounds, and workload analysis remain in Chapter 22.
+Added `1701_searching.ipynb`: first-match linear search, iterative binary search, missing-target traces, library search results, stable reports, and a standalone report exercise. Detailed custom sorting, duplicate bounds, and workload analysis remain in Chapter 24.
 
 ### Revised Pacing
 
@@ -33,3 +33,8 @@ Added `1504_searching_sorting.ipynb`: first-match linear search, iterative binar
 3. **Representation comparison, search, and library sorting, 50 minutes.** Use the new search/sort notebook for the final portion; detailed custom sorting stays optional.
 
 Total: 110 minutes. Preparation and assignments supply additional practice.
+
+
+## 2026-10-15 Scope
+
+Searching and sorting now form Chapter 17, following stacks and queues. This chapter focuses on linear storage and its contracts.

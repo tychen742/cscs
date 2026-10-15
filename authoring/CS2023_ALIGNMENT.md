@@ -1,7 +1,7 @@
 # CS2023 Alignment — Computer Science in C\#
 
 Draft, 2026-10-04; updated the same day for the new Chapter 7 (Society, Ethics,
-and the Profession) and the renumbering of later chapters to 8–25. A condensed chapter table is published as an appendix (`chapters/appendices/cs2023_alignment.ipynb`, label `cs2023_alignment`; moved from the Preface on 2026-10-04); keep the two in sync. Maps the book's chapters to the knowledge units of
+and the Profession) and the expanded sequence through Chapter 27. A condensed chapter table is published as an appendix (`chapters/appendices/cs2023_alignment.ipynb`, label `cs2023_alignment`; moved from the Preface on 2026-10-04); keep the two in sync. Maps the book's chapters to the knowledge units of
 *Computer Science Curricula 2023* (CS2023). The audience is instructors and
 departments that need to show how a course built on this book meets the
 curriculum. A later version may become an instructor-facing appendix.
@@ -33,7 +33,7 @@ the chapter is next audited. Status values:
 - **Introductory sequence:** CS2023 says the SDF and AL core topics "typically
   constitute the introductory course sequence," and its course-packaging
   examples begin with *CS I* and *CS II*. Semester 1 of this book (Chapters
-  1–13) corresponds to CS I and Semester 2 (Chapters 14–25) to CS II, plus part
+  1–13) corresponds to CS I and Semester 2 (Chapters 14–27) to CS II, plus part
   of the separate Algorithms course.
 
 ## Summary by Knowledge Area
@@ -45,10 +45,10 @@ the chapter is next audited. Status values:
 | SDF | SDF-Algorithms — Algorithms | 3 + 3 (AL) | Ch. 5, 8, 20–22 | Covered |
 | SDF | SDF-Practices — Software Development Practices | 5 | Ch. 1, 6; semester project | Covered |
 | SDF | SDF-SEP — Society, Ethics, and the Profession | in SEP | Ch. 7 | Covered (first draft) |
-| AL | AL-Foundational — Foundational Data Structures and Algorithms | 12 | Ch. 14–19, 22 | Covered |
+| AL | AL-Foundational — Foundational Data Structures and Algorithms | 12 | Ch. 14–21, 24 | Covered |
 | AL | AL-Strategies — Algorithmic Strategies | 6 | Ch. 21, 23, 24 | Covered |
 | AL | AL-Complexity — Complexity | 6 | Ch. 18 lab, 20, 22 | Covered |
-| AL | AL-Models — Computational Models and Formal Languages | 9 | Ch. 10 regular expressions (practical only); Ch. 25 limits | Partial; mostly out of scope |
+| AL | AL-Models — Computational Models and Formal Languages | 9 | Ch. 10 regular expressions (practical only); Ch. 27 limits | Partial; mostly out of scope |
 | AL | AL-SEP | in SEP | Ch. 7 (sustainability, briefly) | Partial |
 | FPL | FPL-OOP — Object-Oriented Programming | 4 + 1 (SDF) | Ch. 12-13, 14 | Covered |
 | FPL | FPL-Types — Type Systems | 3 | Ch. 2, 6 (nullable), 14 (generics) | Covered |
@@ -101,21 +101,24 @@ the chapter is next audited. Status values:
 | 8 | Arrays | SDF-Data-Structures | SDF-Algorithms (linear search) |
 | 9 | Data Collections | SDF-Data-Structures | AL-Foundational (maps), FPL-Systems (references) |
 | 10 | Files and Text | SDF-Fundamentals (I/O), SDF-Data-Structures (strings) | AL-Models (regular expressions), DM-Data |
-| 11 | Databases | DM-Core, DM-Modeling, DM-Relational, DM-Querying | DM-Security, SEC-Coding (SQL injection) |
-| 12 | Classes | FPL-OOP, SDF-Fundamentals | SE-Design |
-| 13 | OOP Principles | FPL-OOP, SE-Design | SE-Construction |
-| 14 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | FPL-Types (generics), FPL-OOP (iterators) |
+| 11 | Classes and Objects | FPL-OOP, SDF-Fundamentals | SE-Design |
+| 12 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants) |
+| 13 | Inheritance, Interfaces, and Polymorphism | FPL-OOP, SE-Design | SE-Construction |
+| 14 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | AL-Complexity, FPL-Types |
 | 15 | Arrays and Linked Lists | AL-Foundational | AL-Complexity, FPL-Systems |
-| 16 | Stacks and Queues | AL-Foundational | |
-| 17 | Trees | AL-Foundational | |
-| 18 | Heaps and Hash Tables | AL-Foundational | AL-Complexity (performance lab) |
-| 19 | Graphs | AL-Foundational | MSF-Discrete |
-| 20 | Algorithm Analysis | AL-Complexity | SDF-Algorithms (correctness), MSF-Discrete (recurrences) |
-| 21 | Recursion and Divide and Conquer | AL-Strategies, SDF-Algorithms | |
-| 22 | Searching and Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
-| 23 | Greedy Algorithms | AL-Strategies, AL-Foundational | |
-| 24 | Dynamic Programming and Backtracking | AL-Strategies | |
-| 25 | Advanced Graphs, Strings, and Limits | AL-Foundational, AL-Complexity | AL-Models (limits of computation) |
+| 16 | Stacks and Queues | AL-Foundational | SDF-Algorithms |
+| 17 | Searching and Basic Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
+| 18 | Trees and Binary Search Trees | AL-Foundational | AL-Complexity |
+| 19 | Priority Queues and Heaps | AL-Foundational | AL-Complexity |
+| 20 | Hash Collections and Sets | AL-Foundational | AL-Complexity, MSF-Discrete |
+| 21 | Graphs and Traversal | AL-Foundational | MSF-Discrete |
+| 22 | Algorithm Analysis | AL-Complexity | SDF-Algorithms, MSF-Discrete |
+| 23 | Recursion and Divide and Conquer | AL-Strategies, SDF-Algorithms | |
+| 24 | Advanced Searching and Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
+| 25 | Greedy Algorithms | AL-Strategies, AL-Foundational | |
+| 26 | Dynamic Programming and Backtracking | AL-Strategies | |
+| 27 | Advanced Graphs, Strings, and Limits | AL-Foundational, AL-Complexity | AL-Models |
+| Appendix | Databases and Bookstore Inventory | DM-Core, DM-Modeling, DM-Relational, DM-Querying | DM-Security, SEC-Coding |
 
 ## Gaps to Close
 
@@ -130,11 +133,11 @@ Ordered by how much CS Core time they carry and how naturally they fit.
    - Ch. 11: customer-data privacy and least-privilege database access
      (SEP-Privacy, DM-Security); parameterized commands as the fix for the
      injection shown in Ch. 7 (SEP-Security, SEC-Coding).
-   - Ch. 20 or 25: computational cost and energy use (SEP-Sustainability).
+   - Ch. 22 or 27: computational cost and energy use (SEP-Sustainability).
    - Semester 2 project: teamwork and communication (SE-Teamwork,
      SEP-Communication).
 2. **Functional programming (FPL-Functional, 4 CS Core hours).** Lambdas and
-   LINQ already appear in passing. `chapters/11_databases/1101_lambdas.ipynb`
+   LINQ already appear in passing. `materials/stale_chapters/11_databases/1101_lambdas.ipynb`
    and `1102_linq.ipynb` are complete but off the TOC since Chapter 11 became
    Databases. Candidate homes: a section in Ch. 9 (querying collections) or
    Ch. 14.

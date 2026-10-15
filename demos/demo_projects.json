@@ -60,12 +60,12 @@
     "kind": "console"
   },
   {
-    "project": "12/classes_demo/classes_demo.csproj",
+    "project": "11/classes_demo/classes_demo.csproj",
     "legacy_folder": "demos/Ch10Classes",
     "kind": "console"
   },
   {
-    "project": "12/classes_lab/classes_lab.csproj",
+    "project": "11/classes_lab/classes_lab.csproj",
     "legacy_folder": "demos/Ch10ClassesLab",
     "kind": "console"
   },
@@ -80,12 +80,12 @@
     "kind": "console"
   },
   {
-    "project": "22/search_sort_demo/search_sort_demo.csproj",
+    "project": "24/search_sort_demo/search_sort_demo.csproj",
     "legacy_folder": "demos/Ch12DataStructure",
     "kind": "console"
   },
   {
-    "project": "12/enum_demo/enum_demo.csproj",
+    "project": "11/enum_demo/enum_demo.csproj",
     "legacy_folder": "demos/Ch13Enum",
     "kind": "console"
   },
@@ -133,5 +133,41 @@
     "project": "_extras/console_input_intro_cscs/console_input_intro_cscs.csproj",
     "legacy_folder": "demos/ui.cs",
     "kind": "library"
+  },
+  {
+    "project": "12/object_design/ObjectDesign.csproj",
+    "kind": "console"
+  },
+  {
+    "project": "13/policy_design/PolicyDesign.csproj",
+    "kind": "console"
+  },
+  {
+    "project": "17/search_sort/BasicSearchSort.csproj",
+    "kind": "console",
+    "lesson": "chapters/17_searching_sorting/1702_basic_sorting.ipynb",
+    "role": "Searching and insertion-sort reference checks",
+    "instructor_guide": "instructor_support/adoption_routes.md"
+  },
+  {
+    "project": "19/priority_queue/HeapChecks.csproj",
+    "kind": "console",
+    "lesson": "chapters/19_priority_queues/1902_heap_implementation.ipynb",
+    "role": "Generic heap reference checks",
+    "instructor_guide": "instructor_support/adoption_routes.md"
+  },
+  {
+    "project": "20/hash_collections/HashChecks.csproj",
+    "kind": "console",
+    "lesson": "chapters/20_hash_collections/2001_hashing.ipynb",
+    "role": "Chained map and set reference checks",
+    "instructor_guide": "instructor_support/adoption_routes.md"
+  },
+  {
+    "project": "21/graph_traversal/GraphChecks.csproj",
+    "kind": "console",
+    "lesson": "chapters/21_graphs/2103_graph_traversal.ipynb",
+    "role": "Core BFS DFS path and component checks",
+    "instructor_guide": "instructor_support/adoption_routes.md"
   }
 ]

@@ -1,19 +1,17 @@
-# Chapter 24: Planning checks
+# Chapter 24: Search and sort checks
 
-`PlanningChecks.cs` includes guarded Fibonacci methods, minimum reusable-coin plans with reconstruction, signed one-use subset search with safe bounds and failed-state memoization, and positional subset/permutation enumeration.
+`SearchSortChecks.cs` contains first-match linear search, any-match iterative binary search, lower/upper bounds, and generic selection/insertion/optimized bubble sorts. Searches count probes; sorts count comparer calls, swaps, and insertion shifts. Sorts mutate their input arrays.
 
 ```sh
-dotnet new console -n PlanningCheck
-cp PlanningChecks.cs PlanningCheck/Program.cs
-dotnet run --project PlanningCheck
+dotnet new console -n SearchSortCheck
+cp SearchSortChecks.cs SearchSortCheck/Program.cs
+dotnet run --project SearchSortCheck
 ```
 
 Expected output:
 
 ```text
-600 coin references, 600 signed subset references, 93 Fibonacci states, enumeration checks, and boundaries passed.
+1800 elementary sorts, 3000 search targets, and stable/count boundaries passed.
 ```
 
-Coin checks use independent breadth-first amount exploration and validate all table entries and witnesses. Subset checks enumerate bit masks independently and compare unpruned, bound-pruned, and memoized variants, validating returned positions and long sums. Fibonacci methods are checked against arbitrary-precision reference values with exact call/cache counts. Enumeration checks validate cardinality, unique positions, independent snapshots, and empty inputs.
-
-Fibonacci accepts 0..92 (naive capped at 25). Minimum coins requires positive denominations and targets 0..1,000,000. Subset search accepts up to 128 signed positions; its default million-call limit throws with feasibility unknown if exhausted. Materialized subsets/permutations are limited to 16/eight positions. These are explicit teaching resource policies; complexity discussions still account for state ranges, recursion, and output volume.
+Checks compare sorted permutations and bounds against independent references, verify exact selection counts and inversion-based moves, and verify stable insertion/bubble order on labeled records. Explicit cases include empty/singleton, sorted adaptive behavior, extreme integers, and string equality policies. Binary search and bounds require an array sorted under the same consistent comparer; they do not scan to validate this precondition.

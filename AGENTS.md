@@ -38,7 +38,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Each chapter has an `assignments/` subfolder. The standard student-facing
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
-- Chapter sequence is ch01–ch25 (ch07 Society, Ethics, and the Profession added 2026-10-04; later chapters renumbered); project instructions live in `chapters/appendices/`
+- Chapter sequence is ch01–ch27 (ch07 Society, Ethics, and the Profession added 2026-10-04; later chapters renumbered); project instructions live in `chapters/appendices/`
 - Front matter (2026-10-04): `index.ipynb` at the project root is the cover and TOC root (served at `/`; moved from `chapters/cover.ipynb` 2026-10-05) (cover art at `figures/cover-art.svg`, placeholder until supplied), then the front matter in `chapters/front_matter/` (2026-10-05): Title Page (`title_page.ipynb`), Contents (`contents.ipynb`, formerly `chapters/home.ipynb`), Chapter Topics (`chapter_topics.ipynb`, its own page since 2026-10-05), and Preface (`preface.ipynb`)
 - Appendices: `resources.ipynb`, `command_line.ipynb`, `project.ipynb`, `cs2023_alignment.ipynb`
 - Root `figures/` for images (never `images/`); root `assignments/` for assessment materials; root `instructor_support/` for instructor walkthroughs, solution guidance, resource mappings, and future teaching support
@@ -132,3 +132,15 @@ and root `scripts/` for active Python utilities. This overrides the shared
 book-authoring `materials/NN/` directory name for this book. Root `materials/` holds
 retired or unpublished chapter drafts (`materials/stale_chapters/`), not runnable examples. Keep exercise
 projects labeled by their mapped role; a demo is not automatically a lab key.
+
+## Database Appendix and Renumbering (2026-10-15)
+
+Databases is optional appendix material after classes/OOP: relational data and SQL, C# and SQLite, and a connected bookstore inventory lab. Semester 1 covers Chapters 1-13; Semester 2 core covers Part IV (Chapters 14-21); Part V (Chapters 22-27) is optional depth. The database chapter moved to an appendix; Part III subsequently gained Object Design and Composition. Preserve stable assignment/exercise IDs independently of chapter numbers.
+
+## Part III (2026-10-15)
+
+Chapter 11 is Classes and Objects; Chapter 12 is Object Design and Composition; Chapter 13 is Inheritance, Interfaces, and Polymorphism. Each has three core content sections. Operator overloading is an optional appendix. Databases remains optional after OOP. Semester 1 covers Chapters 1-13 and Semester 2 core covers Part IV (Chapters 14-21); Part V (Chapters 22-27) is optional depth. Preserve existing assessment IDs across renumbering; new questions use semantic IDs.
+
+## Taught Scope (2026-10-15)
+
+Parts I–III (Chapters 1–13) form a complete CS1 route. Part IV (Chapters 14–21) supplies the CS2 data-structures foundation. Instructors can select Part V (Chapters 22–27) for additional algorithmic depth according to course goals and available time. The book supports COB, IST, IT, IS, and LIS programs as well as other programming-foundations courses; a standalone CS1 course needs no commitment to a second semester. Do not present all 27 chapters as required teaching weeks. Keep the foundational analysis, recursion, searching/sorting, and graph traversal in Part IV so it stands on its own.

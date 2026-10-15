@@ -2,7 +2,7 @@
 
 **Role:** Concept companion across the OOP sections.
 
-**Supports:** [1304_polymorphism](../../chapters/13_oop/1304_polymorphism.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [1304_polymorphism](../../chapters/13_oop/1302_polymorphism.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/13/oop_demo/README.md); [project file](../../demos/13/oop_demo/oop_demo.csproj).
 

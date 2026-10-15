@@ -30,17 +30,19 @@
 
 ## Scope
 
-Five parts:
+Five parts support flexible one- and two-course adoption:
+
+Parts I–III (Chapters 1–13) form a complete CS1 route. Part IV (Chapters 14–21) supplies the CS2 data-structures foundation. Instructors can select Part V (Chapters 22–27) for additional algorithmic depth according to course goals and available time. The book supports COB, IST, IT, IS, and LIS programs as well as other programming-foundations courses; a standalone CS1 course needs no commitment to a second semester.
 
 | Part | Topic | Chapters |
 | ---- | ----- | -------- |
-| I | Fundamentals | 01 Context, 02 Variables & Types, 03 Methods, 04 Decision, 05 Iteration, 06 Exceptions & Testing, 07 Society & Ethics |
-| II | Data and I/O | 08 Arrays, 09 Data Collections, 10 Files & Text, 11 Databases |
-| III | Object-Oriented Programming | 12 Classes, 13 OOP Principles |
-| IV | Data Structures | 14 ADTs, 15 Linear Lists, 16 Stacks & Queues, 17 Trees, 18 Hashing & Heaps, 19 Graphs |
-| V | Algorithms | 20 Analysis, 21 Recursion, 22 Search & Sort, 23 Greedy Algorithms, 24 Dynamic Programming, 25 Advanced Algorithms |
+| I | Fundamentals | 01 Context through 07 Society & Ethics |
+| II | Data and I/O | 08 Arrays, 09 Data Collections, 10 Files & Text |
+| III | Object-Oriented Programming | 11 Classes and Objects, 12 Object Design and Composition, 13 Inheritance/Interfaces/Polymorphism |
+| IV | Data Structures | 14 ADTs through 21 Graphs and Traversal |
+| V | Algorithms | 22 Analysis through 27 Advanced Algorithms |
 
-Appendix covers resources, command line, and index.
+Appendices cover resources, development tools, Git, projects, optional database persistence and operator overloading, and curriculum alignment.
 
 ## Chapter Sequence
 
@@ -52,7 +54,7 @@ This book now contains two semesters of material. The intended split is:
 
 - **Semester 1: Programming and Information Systems Foundations** — Chapters
 	1-13.
-- **Semester 2: Data Structures and Algorithms Foundations** — Chapters 14-25.
+- **Semester 2: Data Structures and Algorithms Foundations** — Part IV, Chapters 14-21. Part V, Chapters 22-27, provides optional depth.
 
 The book should remain usable as a single open text, but each semester needs a
 clear instructional arc, assessment plan, and project rhythm. Instructors may
@@ -60,7 +62,7 @@ assign only the relevant semester in a given course.
 
 ### Semester 1: Programming and Information Systems Foundations
 
-Semester 1 introduces programming in C# and progresses from data persistence to
+Semester 1 introduces programming in C# and progresses from console and file processing to
 object-oriented information-system design. Its required sequence is:
 
 1. computing context, development tools, and program structure (Chapter 1)
@@ -72,42 +74,38 @@ object-oriented information-system design. Its required sequence is:
 	 professional practice (Chapter 7)
 7. arrays and collections (Chapters 8-9)
 8. files, text processing, and regular expressions (Chapter 10)
-9. database concepts, SQL, and persistent information-system data (Chapter 11)
-10. classes, properties, instances, and object-oriented principles
-	 (Chapters 12-13)
+9. classes, properties, object collaboration, inheritance, interfaces, and polymorphism
+	 (Chapters 11-13)
 
 The semester should include a project that grows from single-file programs into
 a small multi-class information-system application. The final weeks should
-include integration, testing, documentation, demonstration, and a small C#
-database workflow.
+include integration, testing, documentation, demonstration, and optional persistence through the database appendix.
 
 ### Semester 2: Data Structures and Algorithms Foundations
 
 Semester 2 assumes the programming and information-systems foundation from
 Semester 1. It introduces abstract data types, implementation choices,
-operation costs, and algorithm design. For the full CS pathway, its sequence is:
+operation costs, and algorithm design. Part IV forms the CS2 foundation; instructors select Part V for additional depth. The full reading sequence is:
 
 1. abstract data types, interfaces, generics, references, and memory
 	 (Chapter 14)
 2. linear structures: arrays, dynamic arrays, linked lists, stacks, queues, and
 	 deques (Chapters 15-16)
-3. trees, heaps, hash tables, and graph representations (Chapters 17-19)
-4. algorithm analysis, recursion, searching, and sorting (Chapters 20-22)
+3. basic searching and sorting (Chapter 17), then trees, heaps, hash tables, and graph representations (Chapters 18-21)
+4. algorithm analysis, recursion, searching, and sorting (Chapters 22-24)
 5. greedy algorithms, dynamic programming, backtracking, and advanced graph or
-	 string algorithms (Chapters 23-25)
+	 string algorithms (Chapters 25-27)
 
 Semester 2 should have its own project arc. It should emphasize choosing
 representations, explaining tradeoffs, implementing reusable data structures,
 testing invariants, and applying algorithms to realistic data problems.
 
-### 25-Chapter Layout
+### 27-Chapter Layout
 
 The book should use a simple one-chapter-per-week structure. The first thirteen
 chapters cover the applied programming and information-systems foundation,
 including the Society, Ethics, and the Profession chapter added on 2026-10-04
-(CS2023 SEP coverage; see `authoring/CS2023_ALIGNMENT.md`). The next twelve
-chapters cover the data structures and algorithms foundation for
-the second semester.
+(CS2023 SEP coverage; see `authoring/CS2023_ALIGNMENT.md`). The next eight chapters form the Part IV data-structures foundation. The final six chapters form optional Part V depth; they are not six additional required teaching weeks.
 
 #### Part I: Fundamentals
 
@@ -125,38 +123,39 @@ the second semester.
 8. Arrays and multidimensional data
 9. Data Collections: lists, dictionaries, and sets
 10. Files, streams, and text processing
-11. Databases, SQL, and persistent information-system data
 
 #### Part III: Object-Oriented Programming
 
-12. Classes, fields, properties, and object construction
-13. Object-oriented principles: encapsulation, inheritance, polymorphism, and
-	interfaces
+11. Classes, fields, properties, and object construction
+12. Object design: references, composition, class responsibilities, and collaboration tests
+13. Inheritance, interfaces, and polymorphism: substitution, virtual dispatch, abstract classes, and interchangeable components
 
 Chapters 1-13 form the complete first-semester programming and
 information-systems foundation. Chapter 6 appears before classes so students
 practice failure handling, debugging, and tests before larger object-oriented
 projects. Memory, references, and program state should be introduced where
-they support Chapters 8-12 rather than treated as an isolated advanced
+they support Chapters 8-13 rather than treated as an isolated advanced
 chapter.
 
 #### Part IV: Data Structures
 
 14. ADTs: abstract data types, interfaces, generics, references, memory, and basic cost analysis
-15. Linear lists: arrays, dynamic arrays, linked lists, sequence search, and library sorting
+15. Linear lists: arrays, dynamic arrays, linked lists, and storage contracts
 16. Stacks & queues: LIFO, FIFO, deque operations, and implementations
-17. Trees: recursive calls, hierarchy, traversal, and binary search trees
-18. Hashing & heaps: priority queues, heaps, hash tables, sets, and dictionaries
-19. Graphs: vertices, edges, adjacency representations, BFS, DFS, and components
+17. Searching and basic sorting: linear and binary search, insertion sort, stable ordering, and workloads
+18. Trees: recursive calls, hierarchy, traversal, binary search trees, and balancing tradeoffs
+19. Priority queues and heaps: ordering contracts, heap repair, stable ties, and top-k applications
+20. Hash collections and sets: equality, collisions, dictionaries, set algebra, and workload selection
+21. Graphs: vertices, edges, representations, BFS, DFS, paths, and components
 
 #### Part V: Algorithms
 
-20. Analysis: correctness, asymptotic notation, space growth, and recurrences
-21. Recursion: helper contracts, resource limits, and divide-and-conquer
-22. Search & sort: duplicate boundaries, custom sorting, invariants, and comparison costs
-23. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
-24. Dynamic programming: memoization, tabulation, backtracking, and pruning
-25. Advanced algorithms: traversal verification, string matching, and computational limits
+22. Analysis: correctness, asymptotic notation, space growth, and recurrences
+23. Recursion: helper contracts, resource limits, and divide-and-conquer
+24. Advanced searching and sorting: duplicate boundaries, custom sorting, invariants, and costs
+25. Greedy algorithms: greedy choice, correctness, MSTs, and shortest paths
+26. Dynamic programming: memoization, tabulation, backtracking, and pruning
+27. Advanced algorithms: traversal verification, string matching, and computational limits
 
 The chapter number is the weekly organizing unit; it does not limit the
 number of notebooks inside a chapter. Each chapter should normally include a
@@ -165,9 +164,8 @@ Preview, Lab, and Homework work.
 
 ### Semester 2 Depth: Data Structures and Algorithms
 
-Data Structures and Algorithms form the second-semester arc. Chapters 14-25
-are organized as two focused six-chapter sequences: data structures first,
-then algorithms.
+Data Structures and Algorithms form the second-semester arc. Chapters 14-27
+are organized as eight foundation units followed by six selectable algorithm units.
 
 The detailed chapter organization is listed in Parts IV and V above. Existing
 chapter filenames and stable assignment IDs should be preserved during the
@@ -454,6 +452,18 @@ throughout the semester.
 
 ## College of Business Pathway (2026-10-07)
 
-Chapters 1-13 supply the applied programming and information-systems foundation. Instructors select Part IV depth for their courses. Part IV introduces basic Big-O and operation costs in Chapter 14, linear/binary search and library sorting in Chapter 15, recursive calls before tree operations in Chapter 17, and BFS/DFS in Chapter 19. These foundations do not require Part V.
+Chapters 1-13 supply the applied programming and information-systems foundation. Instructors select Part IV depth for their courses. Part IV introduces basic Big-O and operation costs in Chapter 14, linear/binary search and basic sorting in Chapter 17, recursive calls before tree operations in Chapter 18, and BFS/DFS in Chapter 21. These foundations do not require Part V.
 
-Part V is optional for this pathway. It extends the foundations with formal bounds and recurrences, recursive contracts and divide and conquer, detailed sorting analysis, greedy algorithms, dynamic programming, backtracking, advanced graph/string work, and computational limits. It remains available for the full CS pathway.
+Part V is optional depth beyond the taught Parts I-IV. It extends the foundations with formal bounds and recurrences, recursive contracts and divide and conquer, detailed sorting analysis, greedy algorithms, dynamic programming, backtracking, advanced graph/string work, and computational limits. It remains available for the full CS pathway.
+
+
+## Optional Database Appendix (2026-10-15)
+
+Databases is no longer a required weekly chapter. The book has 27 numbered chapters: Semester 1 is Chapters 1-13 and Semester 2 core is Part IV (Chapters 14-21), with Part V (Chapters 22-27) retained as optional depth. The appendix follows classes/OOP and contains (1) Relational Data and SQL, (2) C# and SQLite, and (3) Bookstore Inventory Lab. The connected lab supplies an optional project persistence milestone; sales transactions are an extension. Source and starter projects live in `demos/_extras/`. Published chapter URLs redirect to their new locations. Stable assignment and exercise IDs remain unchanged during renumbering.
+
+
+## Three-Chapter OOP Progression (2026-10-15)
+
+Part III now contains three 110-minute weekly units. Chapter 11 establishes ordinary class construction and protected state. Chapter 12 develops references, identity, mutability, composition, collection ownership, responsibilities, and collaboration tests. Chapter 13 develops inheritance, runtime dispatch, abstract classes, interfaces, and constructor-supplied collaborators. Its three content sections replace the former five fragmented notebooks. Operator overloading is retained as an optional appendix. The database appendix remains optional after all three chapters.
+
+The first semester is Chapters 1-13; the second-course core is Part IV (Chapters 14-21). Part V (Chapters 22-27) is optional depth. Existing assessment IDs remain independent of displayed chapter numbers. New chapter assignments use semantic IDs (`cscs-object-design-*` and `cscs-policy-*`). Source examples and model checks are in `demos/12/object_design/` and `demos/13/policy_design/`. Former OOP lesson sources are archived, and their URLs redirect to corresponding coverage.

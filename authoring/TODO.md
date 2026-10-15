@@ -19,7 +19,7 @@
    1. [ ] Ch.1: a "Learning to Solve Problems" study-skills page (don't memorize everything, keep a running summary, try first and then check), updated for when and how to use AI assistants.
    2. [ ] Ch.2: teach reading syntax templates as an explicit skill early; today it appears only in `0302_signature_call`.
    3. [ ] Ch.3: make the writer and consumer roles of a method explicit in `0301_intro_methods` (a caller needs the name, parameters, and return value; the writer decides how).
-   4. [ ] Ch.8: a light performance lab timing linear vs. binary search with `Stopwatch`, to motivate Big-O in Semester 1 (today only `1803_performance_lab` in Semester 2).
+   4. [ ] Ch.8: a light performance lab timing linear vs. binary search with `Stopwatch`, to motivate Big-O in Semester 1 (today only `2003_collection_selection` in Semester 2).
    5. [ ] Ch.12/12: plan classes from a console transcript (nouns become classes, verbs become methods), using an order-entry session (Customer, Order, Product).
 7. [x] Teach string operations earlier than Ch.10: new `03_methods/0304_strings.ipynb` (2026-10-04); Ch.10 `1003_text_operations` keeps splitting, validation, and structured records.
    1. [x] Add string-method questions to the Ch.3 preview, lab, and homework (2026-10-04; lab solution in `demos/03/`).
@@ -28,7 +28,7 @@
 ## 3. Build
 
 1. [ ] Verify `jbb` succeeds cleanly after all TOC changes
-2. [ ] Check cross-references between the Ch.12 tuples section (`1201_class_syntax`, label `tuples`) and the records material in the `15-pattern-records` source bank
+2. [ ] Check cross-references between the Ch.12 tuples section (`1101_class_syntax`, label `tuples`) and the records material in the `15-pattern-records` source bank
 3. [ ] Verify `jbb` builds cleanly after all TOC restructuring changes
 
 ## 4. Done

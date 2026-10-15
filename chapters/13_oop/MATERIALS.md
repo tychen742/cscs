@@ -1,33 +1,7 @@
-# Chapter Materials — OOP Principles
+# Materials: Inheritance, Interfaces, and Polymorphism
 
-## Landing Page
+Active sections: `1301_inheritance`, `1302_polymorphism`, and `1303_interfaces`. Examples use discount policies, checkout components, employees, and payments. Each runnable cell is complete.
 
-- `1300_oop_principles.ipynb` — Chapter landing page
+Preview, Lab, and Homework accompany the three sections. Runnable source and checks: `demos/13/policy_design/`. Older companion examples remain in `demos/13/oop_demo/` and `oop_lab/`.
 
-## Section Notebooks
-
-- `1301_intro_oop.ipynb` — Introduction to OOP
-- `1302_encapsulation.ipynb` — Encapsulation
-- `1303_inheritance.ipynb` — Inheritance
-- `1304_polymorphism.ipynb` — Polymorphism
-- `1305_abstraction.ipynb` — Abstraction and interfaces
-
-## Assignments
-
-- `assignments/index.ipynb` — Index
-- `assignments/lab.ipynb` — Lab
-- `assignments/preview.ipynb` — Preview
-- `assignments/homework.ipynb` — Homework
-
-## Notes
-
-- Source examples live in `demos/` at the project root.
-- The four pillar topics are present, but the active section structure may be reorganized later to reduce fragmentation while preserving explicit coverage of encapsulation, inheritance, polymorphism, and abstraction/interfaces.
-
-## Runnable Demo Projects
-
-- [`demos/13/oop_demo/`](../../demos/13/oop_demo/README.md): Encapsulation, inheritance, overloading, shapes, and interfaces.
-- [`demos/13/oop_lab/`](../../demos/13/oop_lab/README.md): Bank-account encapsulation demonstration.
-
-All demo projects target .NET 10. Run commands and verification are documented
-in `demos/README.md` and each project README.
+The five former OOP notebooks are retained in `materials/stale_chapters/oop_before_design_split/`; their published URLs redirect to the revised coverage. Encapsulation and ordinary collaboration are developed in Chapters 11-12. The original chapter video is preserved. Slides remain pending.

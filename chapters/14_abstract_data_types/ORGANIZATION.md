@@ -36,7 +36,7 @@ multiple element types without sacrificing compile-time type checking.
 The older `1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` notebooks
 were removed on 2026-10-04: their collection overview and `List<T>` basics are in
 Chapter 9, stacks and queues in Chapter 16, and tuples in
-`12_classes/1201_class_syntax.ipynb`.
+`11_classes/1101_class_syntax.ipynb`.
 
 ## Coverage Gaps
 
@@ -48,4 +48,14 @@ contracts, representations, operation costs, and generic implementations.
 
 ## Foundation Placement (2026-10-07)
 
-Chapter 14 now teaches input size, Big-O growth, tight-bound vocabulary, amortized costs, and auxiliary space before collection-cost notation. Formal inequalities and recurrences remain in Chapter 20.
+Chapter 14 now teaches input size, Big-O growth, tight-bound vocabulary, amortized costs, and auxiliary space before collection-cost notation. Formal inequalities and recurrences remain in Chapter 22.
+
+
+## Prerequisite Bridge
+
+The generics lesson distinguishes IComparer<T> ordering from IEqualityComparer<T> identity, explains consistent hashing, and introduces the small lambda/LINQ forms read later. Group this bridge with the iterator lesson within the existing 110-minute plan.
+
+
+## Assignment Refresh
+
+The lab implements one generic undo-history contract. Each coding task supplies all setup and types. Homework transfers empty, value-type, snapshot, and success-signal contracts; hidden solutions retain verified outputs.

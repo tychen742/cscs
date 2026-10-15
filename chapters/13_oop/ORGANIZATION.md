@@ -1,18 +1,21 @@
-# Chapter Organization — OOP Principles
+# Organization: Inheritance, Interfaces, and Polymorphism
 
-## Learning Objectives
+## Objectives and Prerequisites
 
-<!-- List 3–5 measurable student outcomes -->
+Build on Chapters 11-12: class construction, validated state, references, composition, and model tests. Explain inheritance and substitution, virtual dispatch, abstract classes, interfaces, and constructor-supplied collaborators.
 
-## Sequence
+## Class Meetings
 
-- Introduction to OOP
-- Encapsulation
-- Inheritance
-- Polymorphism
-- Abstraction and interfaces
+1. Inheritance and substitution (35 minutes): is-a versus has-a, access, constructor chaining, base validation, and result contracts.
+2. Runtime polymorphism (35 minutes): base references, virtual/override, overloading distinction, abstract members, and shared checks.
+3. Interfaces and interchangeable components (40 minutes): small capability contracts, constructor injection, test doubles, and design selection.
 
-## Notes
+Total: 110 minutes, including traces, predictions, design discussion, and examples.
 
-- The current active TOC uses one section per OOP pillar plus an introduction. A later content pass may combine related sections to reduce fragmentation while still making the four pillars visible.
-- Emphasize interfaces and composition over deep inheritance when explaining modern C# design.
+## Assessment
+
+Ten vocabulary MC preview questions; five connected discount/checkout lab tasks; five workplace true/false cases and five independent coding transfers for homework. Solutions retain executed outputs. Existing assignment notebook metadata and cell IDs are preserved where possible; new question IDs are semantic and stable.
+
+## Boundaries
+
+Keep interfaces as small capabilities, avoid deep hierarchies, and distinguish compile-time overload selection from runtime override dispatch. Generic ADTs follow in Chapter 14. Modern interface extensions and equality/operator overloading are optional. Retain the existing video; slides remain pending.

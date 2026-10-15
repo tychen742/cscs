@@ -1,17 +1,17 @@
-# Chapter 20: Analysis checks
+# Chapter 19: Hashing and Heaps
 
-`AnalysisChecks.cs` checks loop counts, maximum and first-match contracts, halving call counts, and balanced recurrence work/depth against independent formulas or library references.
+`HeapHashStructures.cs` contains a complete generic binary min-heap, an integer-key chained ticket-owner map, and a verification program. The heap has enqueue, peek, dequeue, safe dequeue, and invariant checking. The map has replacement, lookup, removal, and bucket rehashing under geometric growth.
 
 ```sh
-dotnet new console -n AnalysisCheck
-cp AnalysisChecks.cs AnalysisCheck/Program.cs
-dotnet run --project AnalysisCheck
+dotnet new console -n HeapHashCheck
+cp HeapHashStructures.cs HeapHashCheck/Program.cs
+dotnet run --project HeapHashCheck
 ```
 
 Expected output:
 
 ```text
-600 count/contract cases and 128 recurrence cases plus boundaries passed.
+600 heap operations and 600 map operations plus boundary checks passed.
 ```
 
-The program calculates modeled work; it does not perform that many combine operations. It counts active frames including the base call. Its small inputs keep recursive checks practical.
+Heap checks compare the full multiset, minimum, Count, and parent-child invariant against a list model. Map checks compare results, Count, and known-key values against Dictionary<int, string>. Explicit cases cover empty/singleton reuse, duplicates, negative and extreme integers, custom ordering, stable tuple priorities, collision removal, replacement without growth, rehashing, and draining. These are teaching representations; the map is not the internal implementation of .NET Dictionary.

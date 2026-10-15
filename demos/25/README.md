@@ -1,19 +1,19 @@
-# Chapter 25: Advanced algorithm checks
+# Chapter 25: Greedy optimization checks
 
-`AdvancedChecks.cs` contains owned graph traversal with guarded BFS paths, frame-based DFS, symmetry-checked components, ordinal overlapping direct/KMP matchers with comparison counts, and exact/greedy team coverage.
+`GreedyChecks.cs` contains interval scheduling, Kruskal minimum spanning forests with union by size and path halving, and Dijkstra shortest paths with stale-priority rejection and guarded path reconstruction.
 
 ```sh
-dotnet new console -n AdvancedCheck
-cp AdvancedChecks.cs AdvancedCheck/Program.cs
-dotnet run --project AdvancedCheck
+dotnet new console -n GreedyCheck
+cp GreedyChecks.cs GreedyCheck/Program.cs
+dotnet run --project GreedyCheck
 ```
 
 Expected output:
 
 ```text
-500 directed traversals, 500 component graphs, 2000 ordinal matches, 500 cover optima, and boundaries passed.
+300 exhaustive schedules, 300 exhaustive forests, 300 distance/path references, and boundaries passed.
 ```
 
-Directed traversal checks compare BFS distances with an all-pairs relaxation reference, validate paths and discovery counts, and compare DFS frame entry/exit with a recursive reference. Component checks compare membership with independently merged labels. Matching checks use ordinal library occurrences and brute-force border lengths, including empty patterns, overlap, embedded nulls, and surrogate code units; they verify linear comparison bounds and owned prefix snapshots. Coverage checks compare exact enumeration with independent coverage-state DP, verify witnesses, and establish the greedy three-versus-two counterexample.
+Scheduling maximizes count for positive-duration half-open intervals with unique IDs. Kruskal accepts signed edge costs and reports disconnected components. Dijkstra requires nonnegative directed arcs, uses nullable checked `long` distances, and returns an empty path for unreachable vertices. Graph inputs declare every vertex, permit parallel edges, and reject loops. Distance and predecessor maps are read-only.
 
-Graphs declare all endpoints, preserve neighbor order, normalize duplicates, and accept loops/cycles. Components require symmetric adjacency. Matching offsets are UTF-16 code units, with no case folding, culture rules, or normalization. Empty patterns match every boundary. Team masks allow up to 20 requirements and exact enumeration up to 20 teams; exceeding a teaching limit does not establish infeasibility.
+The checks enumerate feasible meeting subsets and acyclic forest subsets, then compare route distances with repeated edge relaxation and validate reconstructed path costs. They also cover empty inputs, isolated vertices, ties, negative cable costs, zero-cost arcs, wide distances, invalid graph inputs, and read-only results.

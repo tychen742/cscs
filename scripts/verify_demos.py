@@ -27,12 +27,18 @@ CASES = {
     '09/collections_demo': ('', [], ['apple\nbanana\ncherry']),
     '09/help_responses': ('crash\nbye\n', [], ['Well, it never crashes on our system.']),
     '10/file_demo': ('', [], ['1\n2\n3', '5']),
-    '12/classes_demo': ('', [], ['has an existing ID!']),
-    '12/classes_lab': ('', [], ['Employee: John 100000']),
-    '12/enum_demo': ('', [], ['Medium\n3']),
+    '11/classes_demo': ('', [], ['has an existing ID!']),
+    '11/classes_lab': ('', [], ['Employee: John 100000']),
+    '11/enum_demo': ('', [], ['Medium\n3']),
+    '12/object_design': ('', ['--check'], ['21 object-design checks passed.']),
+    '13/policy_design': ('', ['--check'], ['13 policy checks passed.']),
     '13/oop_demo': ('', [], ['Balance: 1300', 'Area: 12.00', 'Area: 6.00', 'IA.M']),
     '13/oop_lab': ('', [], ['Final balance: 125']),
-    '22/search_sort_demo': ('1, 2, 3\n2\n0\n\n', [], ['Item 2 found at position 1']),
+    '17/search_sort': ('', [], ['1051 search/sort checks passed.']),
+    '19/priority_queue': ('', [], ['1036 heap checks passed.']),
+    '20/hash_collections': ('', [], ['23292 hash/set checks passed.']),
+    '21/graph_traversal': ('', [], ['12 graph checks passed.']),
+    '24/search_sort_demo': ('1, 2, 3\n2\n0\n\n', [], ['Item 2 found at position 1']),
     '_extras/contact_demo': ('', [], ['Name is TY', 'Phone is 333']),
     '_extras/one_hour_of_code': ('Alex Chen\n7\n2\n60\n', [], ['Order total: 120.00. Eligible for free shipping.']),
 }
@@ -101,9 +107,9 @@ def main():
         # Additional run modes and decision branches.
         extras = [
             ('04/conditional_demo/conditional_demo.csproj', ('60\n', [], ['Wear long pants.'])),
-            ('12/classes_lab/classes_lab.csproj', ('1\n0\n', ['guess'], ['You won on guess 1!'])),
-            ('12/classes_lab/classes_lab.csproj', ('1\n0\n', ['static-guess'], ['You won on guess 1!'])),
-            ('22/search_sort_demo/search_sort_demo.csproj', ('', ['sort', '20', '42'], ['Bubble Sort:', 'Quick Sort:'])),
+            ('11/classes_lab/classes_lab.csproj', ('1\n0\n', ['guess'], ['You won on guess 1!'])),
+            ('11/classes_lab/classes_lab.csproj', ('1\n0\n', ['static-guess'], ['You won on guess 1!'])),
+            ('24/search_sort_demo/search_sort_demo.csproj', ('', ['sort', '20', '42'], ['Bubble Sort:', 'Quick Sort:'])),
         ]
         for project, case in extras:
             check_run(ROOT / project, case, cwd)

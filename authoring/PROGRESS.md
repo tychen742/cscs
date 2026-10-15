@@ -15,62 +15,43 @@ Updated `_toc.yml`, links, and tooling paths, and added redirects for every old
 URL in `_ext/chapter_redirects.json`. Reading-progress data stored by old page
 path (browser `localStorage` or server records) is not migrated.
 
-## Active TOC Snapshot
+## Active TOC Snapshot (2026-10-15)
 
-- Root: `chapters/preface.ipynb`
-- Regular technical-chapter assignments: `preview.ipynb`, `lab.ipynb`, and
-  `homework.ipynb`
-- Appendices: Resources, Command Line, Project, and CS Index
-
-## Part I — Fundamentals
-
-| TOC order | Folder | Title | Assignments | Status | Notes |
-| --------- | ------ | ----- | ----------- | ------ | ----- |
-| 01 | `chapters/01-context` | Getting Started with C# | preview, lab, homework | In Progress | 1.2 teaches tools; 1.3 introduces the first console app, terminal `dotnet run`, namespaces, and explicit `Main` |
-| 02 | `chapters/02-var_data` | Variables, Data Types, and Operators | preview, lab, homework | In Progress | |
-| 03 | `chapters/03-methods` | Methods | preview, lab, homework | In Progress | |
-| 04 | `chapters/04-decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |
-| 05 | `chapters/05-iteration` | Iteration | preview, lab, homework plus legacy grade-calculation pages | In Progress | Legacy homework pages are still listed in TOC |
-| 06 | `chapters/06-exceptions-testing` | Exceptions, Debugging, Testing, and Nullability | preview, lab, homework | In Progress | Filenames normalized to `06xx` |
-| 07 | `chapters/07-society-ethics` | Society, Ethics, and the Profession | preview, lab, homework | Draft | Added 2026-10-04 for CS2023 SEP coverage; chapters after it renumbered 08–25; needs a chapter video |
-
-## Part II — Data and I/O
+- Root: `index.ipynb`.
+- Adoption routes: CS1 uses Parts I-III (1-13); CS2 uses Part IV (14-21) with selected Part V depth (22-27).
+- Required weekly assignments: Preview, Lab, and Homework.
+- Databases is an optional appendix with relational SQL, a C# SQLite workflow, and a connected bookstore inventory lab; sales transactions are an extension.
+- Part III has three chapters; later chapters and demo directories follow the 27-chapter sequence. Existing assessment IDs are retained, and moved published URLs redirect to current pages.
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
-| --------- | ------ | ----- | ----------- | ------ | ----- |
-| 08 | `chapters/08-arrays` | Arrays | preview, lab, homework | In Progress | Renumbered from old Ch06 path |
-| 09 | `chapters/09-collections` | Data Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
-| 10 | `chapters/10-files-text` | Files and Text | preview, lab, homework plus legacy grade-files page | In Progress | Legacy `hw-gradefiles.ipynb` remains in TOC |
-| 11 | `chapters/11_databases` | Databases | none in TOC | Needs Review | Core database sections exist; assignments remain pending |
-
-## Part III — Object-Oriented Programming
-
-| TOC order | Folder | Title | Assignments | Status | Notes |
-| --------- | ------ | ----- | ----------- | ------ | ----- |
-| 12 | `chapters/12_classes` | Classes | preview, lab, homework plus legacy book-list page | In Progress | Operator overloading is still in main TOC; may become extension material |
-| 13 | `chapters/13_oop` | Object-Oriented Programming | preview, lab, homework | In Progress | Renumbered from old Ch10 path |
-
-## Part IV — Data Structures
-
-| TOC order | Folder | Title | Assignments | Status | Notes |
-| --------- | ------ | ----- | ----------- | ------ | ----- |
-| 14 | `chapters/14-abstract-data-types` | ADTs | preview, lab, homework | In Progress | Landing filename normalized to `1400-abstract-data-types.ipynb` |
-| 15 | `chapters/15-arrays-linked-lists` | Linear Lists | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic sequences, traces, amortized reasoning, boundary tests, and expanded practice; follow-up connects work-order lab, strengthens homework, and retains verified solution outputs; slides pending |
-| 16 | `chapters/16-stacks-queues` | Stacks & Queues | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic stack/ring/linked queues, invariant traces, qualified costs, undo/redo, connected lab, independent homework, and verified outputs; slides pending |
-| 17 | `chapters/17-trees` | Trees | preview, lab, homework | In Progress | Depth pass 2026-10-05: recursive/traversal traces, boundary-safe ancestor validation, complete BST removal, height-based costs, range/level-order operations, connected lab, transfer homework, and verified outputs; slides pending |
-| 18 | `chapters/18-heaps-hash-tables` | Hashing & Heaps | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic heap and chained map, repair/collision/rehash traces, equality and tie policies, qualified costs, top-k and lazy cancellation, connected lab, transfer homework, and verified outputs; slides pending |
-| 19 | `chapters/19-graphs` | Graphs | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete weighted graph operations and invariants, explicit isolates and zero weights, protected snapshots, matrix conversion, supplied-walk checks, connected lab, transfer homework, and verified outputs; slides pending |
-
-## Part V — Algorithms
-
-| TOC order | Folder | Title | Assignments | Status | Notes |
-| --------- | ------ | ----- | ----------- | ------ | ----- |
-| 20 | `chapters/20-algorithm-analysis` | Analysis | preview, lab, homework | In Progress | Depth pass 2026-10-05: exact counts and tight bounds, input-dependent/expected/amortized costs, precise contracts and termination variants, rounded recurrences and call/stack distinctions, connected expense-report lab, transfer homework, and verified outputs; slides pending |
-| 21 | `chapters/21-recursion-divide-conquer` | Recursion | preview, lab, homework | In Progress | Depth pass 2026-10-05: guarded recursive contracts, call/return and merge traces, complete stable range-buffer sort, occurrence/copy/stability checks, actual operation counts, connected invoice lab, transfer homework, and verified outputs; slides pending |
-| 22 | `chapters/22-searching-sorting` | Search & Sort | preview, lab, homework | In Progress | Depth pass 2026-10-05: first/any/all-match contracts and bounds, equality/order policies, complete generic elementary sorts and invariants, inversions/stability/permutation checks, workload preparation costs, connected report lab, transfer homework, and verified outputs; slides pending |
-| 23 | `chapters/23-greedy-graph-optimization` | Greedy Algorithms | preview, lab, homework | In Progress | Depth pass 2026-10-05: verified greedy counterexamples and exchange proofs, complete Kruskal forests with balanced union-find, guarded Dijkstra and path reconstruction, independent optimization checks, connected facilities lab, transfer homework, and verified outputs; slides pending |
-| 24 | `chapters/24-dynamic-programming-backtracking` | Dynamic Programming | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete states and recurrences, measured memoization/tabulation/rolling costs, minimum-coin witnesses and unreachable states, signed one-use search with safe bounds and failed-state caching, undo/snapshot invariants, independent references, connected purchasing lab, transfer homework, and verified outputs; slides pending |
-| 25 | `chapters/25-advanced-graphs-strings-limits` | Advanced Algorithms | preview, lab, homework | In Progress | Depth pass 2026-10-05: guarded BFS layers/paths, recursive-order frame DFS, symmetric components, complete ordinal overlapping KMP with empty-pattern policy and comparison counts, exact growth/coverage checks, heuristic-quality distinctions, connected service-network lab, transfer homework, and verified outputs; slides pending |
+| --- | --- | --- | --- | --- | --- |
+| 01 | `chapters/01_context` | Getting Started with C# | preview, lab, homework | In Progress | 1.2 teaches tools; 1.3 introduces the first console app, terminal `dotnet run`, namespaces, and explicit `Main` |
+| 02 | `chapters/02_var_data` | Variables, Data Types, and Operators | preview, lab, homework | In Progress | |
+| 03 | `chapters/03_methods` | Methods | preview, lab, homework | In Progress | |
+| 04 | `chapters/04_decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |
+| 05 | `chapters/05_iteration` | Iteration | preview, lab, homework plus legacy grade-calculation pages | In Progress | Legacy homework pages are still listed in TOC |
+| 06 | `chapters/06_exceptions_testing` | Exceptions, Debugging, Testing, and Nullability | preview, lab, homework | In Progress | Filenames normalized to `06xx` |
+| 07 | `chapters/07_society_ethics` | Society, Ethics, and the Profession | preview, lab, homework | Draft | Added 2026-10-04 for CS2023 SEP coverage; chapters after it renumbered 08–25; needs a chapter video |
+| 08 | `chapters/08_arrays` | Arrays | preview, lab, homework | In Progress | Renumbered from old Ch06 path |
+| 09 | `chapters/09_collections` | Data Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
+| 10 | `chapters/10_files_text` | Files and Text | preview, lab, homework plus legacy grade-files page | In Progress | Legacy `hw-gradefiles.ipynb` remains in TOC |
+| 11 | `chapters/11_classes` | Classes and Objects | preview, lab, homework plus legacy book-list page | In Progress | Operator overloading moved to optional appendix |
+| 12 | `chapters/12_object_design` | Object Design and Composition | preview, lab, homework | Needs Review | Three lessons, connected order lab, transfer homework, and standalone reference checks; video/slides pending |
+| 13 | `chapters/13_oop` | Inheritance, Interfaces, and Polymorphism | preview, lab, homework | Needs Review | Three revised sections, connected policy lab, transfer homework, and reference checks; original video retained; slides pending |
+| 14 | `chapters/14_abstract_data_types` | ADTs | preview, lab, homework | In Progress | Landing filename normalized to `1400-abstract-data-types.ipynb` |
+| 15 | `chapters/15_arrays_linked_lists` | Linear Lists | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic sequences, traces, amortized reasoning, boundary tests, and expanded practice; follow-up connects work-order lab, strengthens homework, and retains verified solution outputs; slides pending |
+| 16 | `chapters/16_stacks_queues` | Stacks & Queues | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete generic stack/ring/linked queues, invariant traces, qualified costs, undo/redo, connected lab, independent homework, and verified outputs; slides pending |
+| 17 | `chapters/17_searching_sorting` | Searching and Basic Sorting | preview, lab, homework | Needs Review | Three lessons: linear/binary search, stable insertion sort, and report workloads; reference checks; slides/video pending |
+| 18 | `chapters/18_trees` | Trees | preview, lab, homework | In Progress | Depth pass 2026-10-05: recursive/traversal traces, boundary-safe ancestor validation, complete BST removal, height-based costs, range/level-order operations, connected lab, transfer homework, and verified outputs; slides pending |
+| 19 | `chapters/19_priority_queues` | Priority Queues and Heaps | preview, lab, homework | Needs Review | Three lessons; heap repair, stable ties, top-k; executed examples and solutions; slides pending |
+| 20 | `chapters/20_hash_collections` | Hash Collections and Sets | preview, lab, homework | Needs Review | Three lessons: collisions, dictionaries/set algebra, collection selection; executed solutions; slides/video pending |
+| 21 | `chapters/21_graphs` | Graphs and Traversal | preview, lab, homework | Needs Review | Three meetings; representation workshop moved to appendix; BFS, DFS, paths, components directly assessed; slides pending |
+| 22 | `chapters/22_algorithm_analysis` | Analysis | preview, lab, homework | In Progress | Depth pass 2026-10-05: exact counts and tight bounds, input-dependent/expected/amortized costs, precise contracts and termination variants, rounded recurrences and call/stack distinctions, connected expense-report lab, transfer homework, and verified outputs; slides pending |
+| 23 | `chapters/23_recursion_divide_conquer` | Recursion | preview, lab, homework | In Progress | Depth pass 2026-10-05: guarded recursive contracts, call/return and merge traces, complete stable range-buffer sort, occurrence/copy/stability checks, actual operation counts, connected invoice lab, transfer homework, and verified outputs; slides pending |
+| 24 | `chapters/24_searching_sorting` | Search & Sort | preview, lab, homework | In Progress | Depth pass 2026-10-05: first/any/all-match contracts and bounds, equality/order policies, complete generic elementary sorts and invariants, inversions/stability/permutation checks, workload preparation costs, connected report lab, transfer homework, and verified outputs; slides pending |
+| 25 | `chapters/25_greedy_graph_optimization` | Greedy Algorithms | preview, lab, homework | In Progress | Depth pass 2026-10-05: verified greedy counterexamples and exchange proofs, complete Kruskal forests with balanced union-find, guarded Dijkstra and path reconstruction, independent optimization checks, connected facilities lab, transfer homework, and verified outputs; slides pending |
+| 26 | `chapters/26_dynamic_programming_backtracking` | Dynamic Programming | preview, lab, homework | In Progress | Depth pass 2026-10-05: complete states and recurrences, measured memoization/tabulation/rolling costs, minimum-coin witnesses and unreachable states, signed one-use search with safe bounds and failed-state caching, undo/snapshot invariants, independent references, connected purchasing lab, transfer homework, and verified outputs; slides pending |
+| 27 | `chapters/27_advanced_graphs_strings_limits` | Advanced Algorithms | preview, lab, homework | In Progress | Depth pass 2026-10-05: guarded BFS layers/paths, recursive-order frame DFS, symmetric components, complete ordinal overlapping KMP with empty-pattern policy and comparison counts, exact growth/coverage checks, heuristic-quality distinctions, connected service-network lab, transfer homework, and verified outputs; slides pending |
 
 ## Non-TOC and Staging Tracks
 
@@ -82,16 +63,16 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 | `chapters/14-functional-patterns` | Staging track for lambdas/LINQ/recursion-related material | Keep out of TOC or relabel as extension material |
 | `chapters/15-pattern-records` | Staging track for pattern matching and records | Keep out of TOC or relabel as extension material |
 | `chapters/16-generics-async` | Staging track for generics/nullability/async | Keep out of TOC or relabel as extension material |
-| `chapters/11_databases/1201`–`1205` | Former modern-C# material inside the databases folder | Move, archive, or relabel before final Ch12 cleanup |
+| `chapters/11_classes`–`1205` | Former modern-C# material inside the databases folder | Move, archive, or relabel before final Ch12 cleanup |
 | `chapters/appendices/appendix_overview.ipynb` | Appendix landing draft | Add to TOC or remove if unused |
 
 ## Consistency Notes
 
-- Chapter 11 has database content now, but no assignment section in the active TOC.
+- Databases now lives in the optional appendix with a connected inventory lab.
 - Active chapter folders now run Ch01-Ch24 without the former duplicate Ch06 or missing Ch11.
-- Older planning docs in Chapters 01–11 and the non-TOC staging tracks still need
+- Older planning docs in Chapters 1–11 and the non-TOC staging tracks still need
   `orphan: true` front matter.
-- Legacy assignment pages remain in the TOC for Chapters 05, 10, and 11. Decide
+- Legacy assignment pages remain in the TOC for Chapters 5, 10, and 11. Decide
   whether these should stay as extra homework, move under instructor materials, or
   be retired.
 
@@ -100,7 +81,7 @@ These folders/files are present in the repository but not active in `_toc.yml`.
 1. Finish Chapter 11 assignments after the database chapter pass.
 2. Add `orphan: true` front matter to older `MATERIALS.md` and `ORGANIZATION.md` files.
 3. Remove, archive, or clearly label non-TOC staging tracks.
-4. Revisit legacy extra homework pages in Chapters 05, 10, and 11.
+4. Revisit legacy extra homework pages in Chapters 5, 10, and 11.
 5. Run a clean full-book build after structural renames are complete.
 
 ## Curriculum Appendix Update (2026-10-07)
@@ -109,7 +90,7 @@ Added a separate IS2020 mapping to the existing curriculum-alignment appendix. T
 
 ## Part IV Foundations Move (2026-10-07)
 
-Moved basic recursive calls and sequence search/library sorting from Part V into Chapters 17 and 15, respectively; introduced Big-O foundations in Chapter 14; moved graph traversal into Chapter 19. Existing Chapter 21/22/25 URLs introduce the optional extensions and link to the new prerequisite locations. Part V is optional for the College of Business pathway. Planning and curriculum mapping reflect this distinction. Slides remain pending.
+Moved basic recursive calls and sequence search/library sorting from Part V into Chapters 18 and 15, respectively; introduced Big-O foundations in Chapter 14; moved graph traversal into Chapter 21. Existing Chapter 23/22/25 URLs introduce the optional extensions and link to the new prerequisite locations. Part V is optional for the College of Business pathway. Planning and curriculum mapping reflect this distinction. Slides remain pending.
 
 Verification: 21 completed cells in the receiving sections compiled and ran with isolated setup under .NET 10. Answer output is retained. Full HTML build passed with five pre-existing warnings outside the changed chapters; notebook JSON and diffs were checked.
 
@@ -123,7 +104,7 @@ IS2020 mapping and course-use evidence now precede the CS2023 mapping, reflectin
 
 ## Database Chapter Move (2026-10-07)
 
-Databases now closes Part II as Chapter 11. Classes and OOP Principles are Chapters 12 and 13 in Part III, Object-Oriented Programming. The database workflow reads results into ordinary variables before custom classes are introduced. Existing assignment IDs are preserved; old chapter URLs redirect to the new paths. Database assignments remain pending.
+Databases now closes Part II as Chapter 11. Classes and OOP Principles are Chapters 11 and 13 in Part III, Object-Oriented Programming. The database workflow reads results into ordinary variables before custom classes are introduced. Existing assignment IDs are preserved; old chapter URLs redirect to the new paths. Database assignments remain pending.
 
 ## Demo Materials Cleanup (2026-10-09)
 
@@ -211,3 +192,30 @@ stays in chapter 3 (3.4). Updated the TOC, landing page, Chapter Topics,
 planning docs, instructor mappings, and redirects (old section URLs redirect
 to the merged pages). Ch 2 preview, lab, and homework not yet revised for the
 new section.
+
+## Database Appendix Verification (2026-10-15)
+
+The inventory reference passes 19 full checks and 11 core checks, including isolated state, input boundaries, and transaction rollback. The student starter compiles; ten SQL examples and the standalone connection walkthrough execute successfully. File persistence and repeat-run seeding were checked. A full book build succeeds with two existing C# syntax-highlighting warnings in Chapters 2 and 6. Chapter/assignment URL redirects and the 24-chapter sequence were validated.
+
+## Part III Expanded (2026-10-15)
+
+Added Object Design and Composition between Classes and Objects and the revised Inheritance, Interfaces, and Polymorphism chapter. There are now 25 weekly chapters; Semester 1 covers 1-13 and Semester 2 covers 14-25. Operator overloading is an optional appendix. Databases remains an optional three-section appendix. The new chapter and revised OOP chapter include Preview, Lab, and Homework; their three teaching meetings total 110 minutes each. Lecture slides remain pending, and the new composition chapter also needs a video. The former OOP lessons and assignment sources are archived under `materials/stale_chapters/oop_before_design_split/`.
+
+## Part III Verification (2026-10-15)
+
+All 67 new/revised Chapter 12-13 code cells compile independently. Demonstrations and hidden solution cells were executed and their outputs retained. Reference checks pass: 21 for object design and 13 for policy design. The active TOC has 25 sequential numbered chapters, with three core content sections in each Part III chapter. Local document links and demo manifests resolve. Existing cell IDs/metadata were retained in 48 other migrated assessment notebooks. The full build has only the two existing C# highlighting warnings in Chapters 2 and 6; the removed instance-methods anchor is preserved in the composition lesson.
+
+## Teaching Scope Clarification (2026-10-15)
+
+Parts I–III (Chapters 1–13) form a complete CS1 route. Part IV (Chapters 14–21) supplies the CS2 data-structures foundation. Instructors can select Part V (Chapters 22–27) for additional algorithmic depth according to course goals and available time. The book supports COB, IST, IT, IS, and LIS programs as well as other programming-foundations courses; a standalone CS1 course needs no commitment to a second semester. The 27-chapter book structure is broader than required teaching coverage. Prior references to Chapters 14-27 as a second-semester sequence describe available book material, not a requirement to teach Part V.
+
+
+## 2026-10-15: Flexible Adoption and Expanded Part IV
+
+Part IV now has eight units (14–21), with separate basic searching/sorting, priority queue/heap, and hash/set chapters. Graph traversal has a full meeting and direct assignments. Part V is renumbered 22–27 and remains selectable depth; substantive strengthening is deferred. Instructor routes are recorded in `instructor_support/adoption_routes.md`. Slides and recordings for new/revised units remain pending.
+
+### Verification of the Expanded Foundation
+
+Compiled 175 standalone cells in Chapters 14, 17, 19, 20, and 21; executed demonstrations and hidden solutions with outputs retained. Additional verification covered 103 cells in Classes, Object Design, and Trees; seven unchanged tree exercise starters remain intentionally incomplete. The active TOC lists 27 sequential chapters. Current notebook doc/download links resolve. Full book build passes with the two pre-existing C# lexer warnings in Chapters 2 and 6. Protected runtime/UI work remains untouched. Earlier 25-chapter snapshots above describe the preceding structure and are superseded.
+
+Demo regression also passes: all 33 mapped projects build with warnings treated as errors; 32 console run cases, both four-test MSTest suites, and 3,073 independent demo behavior checks pass. Corrected the linked-source behavior checker from the former `22/search_sort_demo` directory to `24/search_sort_demo`. New search/sort reference checks also verify equal-key stability and a consistent descending comparer.
