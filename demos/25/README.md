@@ -1,19 +1,19 @@
-# Chapter 25: Greedy optimization checks
+# Chapter 25: Planning checks
 
-`GreedyChecks.cs` contains interval scheduling, Kruskal minimum spanning forests with union by size and path halving, and Dijkstra shortest paths with stale-priority rejection and guarded path reconstruction.
+`PlanningChecks.cs` includes guarded Fibonacci methods, minimum reusable-coin plans with reconstruction, signed one-use subset search with safe bounds and failed-state memoization, and positional subset/permutation enumeration.
 
 ```sh
-dotnet new console -n GreedyCheck
-cp GreedyChecks.cs GreedyCheck/Program.cs
-dotnet run --project GreedyCheck
+dotnet new console -n PlanningCheck
+cp PlanningChecks.cs PlanningCheck/Program.cs
+dotnet run --project PlanningCheck
 ```
 
 Expected output:
 
 ```text
-300 exhaustive schedules, 300 exhaustive forests, 300 distance/path references, and boundaries passed.
+600 coin references, 600 signed subset references, 93 Fibonacci states, enumeration checks, and boundaries passed.
 ```
 
-Scheduling maximizes count for positive-duration half-open intervals with unique IDs. Kruskal accepts signed edge costs and reports disconnected components. Dijkstra requires nonnegative directed arcs, uses nullable checked `long` distances, and returns an empty path for unreachable vertices. Graph inputs declare every vertex, permit parallel edges, and reject loops. Distance and predecessor maps are read-only.
+Coin checks use independent breadth-first amount exploration and validate all table entries and witnesses. Subset checks enumerate bit masks independently and compare unpruned, bound-pruned, and memoized variants, validating returned positions and long sums. Fibonacci methods are checked against arbitrary-precision reference values with exact call/cache counts. Enumeration checks validate cardinality, unique positions, independent snapshots, and empty inputs.
 
-The checks enumerate feasible meeting subsets and acyclic forest subsets, then compare route distances with repeated edge relaxation and validate reconstructed path costs. They also cover empty inputs, isolated vertices, ties, negative cable costs, zero-cost arcs, wide distances, invalid graph inputs, and read-only results.
+Fibonacci accepts 0..92 (naive capped at 25). Minimum coins requires positive denominations and targets 0..1,000,000. Subset search accepts up to 128 signed positions; its default million-call limit throws with feasibility unknown if exhausted. Materialized subsets/permutations are limited to 16/eight positions. These are explicit teaching resource policies; complexity discussions still account for state ranges, recursion, and output volume.

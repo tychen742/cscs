@@ -4,7 +4,7 @@ orphan: true
 
 # Course Adoption Routes
 
-Parts I–III (Chapters 1–13) form a complete CS1 route. Part IV (Chapters 14–21) supplies the CS2 data-structures foundation. Instructors can select Part V (Chapters 22–27) for additional algorithmic depth according to course goals and available time. The book supports COB, IST, IT, IS, and LIS programs as well as other programming-foundations courses; a standalone CS1 course needs no commitment to a second semester.
+Parts I–III (Chapters 1–12) form a complete CS1 route. Part IV (Chapters 13–20) supplies the CS2 data-structures foundation. Instructors can select Part V (Chapters 21–26) for additional algorithmic depth according to course goals and available time. The book supports COB, IST, IT, IS, and LIS programs as well as other programming-foundations courses; a standalone CS1 course needs no commitment to a second semester.
 
 ## Standalone CS1
 
@@ -21,3 +21,15 @@ Select from Part V for analysis, recursive design, advanced sorting, greedy opti
 ## Editorial Direction
 
 The aim is a dependable open foundation text across COB, IST, IT, IS, and LIS. Strengthening Part V against dedicated DS/algorithms books is a later editorial pass. The present change expands and assesses the common Part IV foundation, without making Part V mandatory.
+
+## Opening Chapter and Setup
+
+Chapter 1 integrates computing concepts, responsibility, and the first saved program. Complete Appendix B setup before the local project meeting. Ethics is reinforced through optional software-failure cases in Chapter 6, privacy/security practice in Chapter 9, and professional collaboration in Appendix C. The first chapter does not require advanced privacy coding or SQL. A complete CS1 route still ends with OOP in Chapter 12.
+
+## Optional Application Capstones and AI Literacy
+
+Use the database appendix after OOP as an optional one-to-two-week business application capstone or persistence milestone. It is not needed for the CS1 or CS2 core route. The bookstore workflow covers relational data, parameters, constraints, persistence, and an optional transaction extension.
+
+AI literacy appears in Chapter 1. Prepared review activities in Chapters 3, 6, and 9 teach contract reading, counterexample selection, test independence, schema specification, and prompt privacy. Use them within existing practice time. Students may use the prepared examples without a live service; permitted live assistance is an additional source of proposals. Continue assessing independent tracing, explanation, code modification, and tests.
+
+AI-powered applications are an optional post-OOP project extension. Require a recorded-response demo mode and a working non-AI core, so provider availability, cost, or account access cannot prevent assessment. Do not require model training or a broad machine-learning survey in this book.

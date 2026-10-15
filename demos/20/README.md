@@ -1,17 +1,25 @@
-# Chapter 19: Hashing and Heaps
+# Chapter 20: Graph representations
 
-`HeapHashStructures.cs` contains a complete generic binary min-heap, an integer-key chained ticket-owner map, and a verification program. The heap has enqueue, peek, dequeue, safe dequeue, and invariant checking. The map has replacement, lookup, removal, and bucket rehashing under geometric growth.
+`RouteGraph.cs` contains the complete weighted undirected graph and reference-model checks. Vertices are explicit, labels are case-sensitive, zero weights are valid, and loops and negative weights are rejected. Neighbor and vertex snapshots protect internal state.
 
 ```sh
-dotnet new console -n HeapHashCheck
-cp HeapHashStructures.cs HeapHashCheck/Program.cs
-dotnet run --project HeapHashCheck
+dotnet new console -n GraphCheck
+cp RouteGraph.cs GraphCheck/Program.cs
+dotnet run --project GraphCheck
 ```
 
 Expected output:
 
 ```text
-600 heap operations and 600 map operations plus boundary checks passed.
+600 graph updates and explicit boundary/snapshot checks passed.
 ```
 
-Heap checks compare the full multiset, minimum, Count, and parent-child invariant against a list model. Map checks compare results, Count, and known-key values against Dictionary<int, string>. Explicit cases cover empty/singleton reuse, duplicates, negative and extreme integers, custom ordering, stable tuple priorities, collision removal, replacement without growth, rehashing, and draining. These are teaching representations; the map is not the internal implementation of .NET Dictionary.
+## Traversal Foundations
+
+`graph_traversal/` contains the core plain-class implementation and its checks:
+
+```sh
+dotnet run --project demos/20/graph_traversal/GraphChecks.csproj
+```
+
+The former callback/record implementation is retained as optional material in `demos/_extras/advanced_graph_walk/`. `RouteGraph.cs` remains the representation-check program.

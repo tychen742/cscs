@@ -3,7 +3,7 @@
 import json, re, glob
 
 files_to_check = [
-    ('chapters/01_context/0102_dev_tools.ipynb', [1]),
+    ('chapters/appendices/development_tools/csharp_setup.ipynb', [1]),
     ('chapters/02_var_data/0203_operators.ipynb', [1]),
     ('chapters/02_var_data/0204-arithmetic.ipynb', [1]),
     ('chapters/02_var_data/0206_input_output.ipynb', [12]),
@@ -13,11 +13,11 @@ files_to_check = [
     ('chapters/05-for/0503-for-examples.ipynb', [1, 5, 15, 20]),
     ('chapters/07-files/0703-file-read.ipynb', [7]),
     ('chapters/07-files/0705-lab-file.ipynb', [3]),
-    ('chapters/08_arrays/0801_onedim.ipynb', [1]),
-    ('chapters/08_arrays/0802_twodim.ipynb', [0]),
-    ('chapters/09_collections/0904-lab-collections.ipynb', [1]),
+    ('chapters/07_arrays/0701_onedim.ipynb', [1]),
+    ('chapters/07_arrays/0702_twodim.ipynb', [0]),
+    ('chapters/08_collections/0904-lab-collections.ipynb', [1]),
     ('chapters/10-datastructure/1002-collection-examples.ipynb', [17, 19, 21, 29, 30]),
-    ('chapters/13_oop/1206-review-oop.ipynb', [0]),
+    ('chapters/12_oop/1206-review-oop.ipynb', [0]),
 ]
 
 for fname, cells in files_to_check:

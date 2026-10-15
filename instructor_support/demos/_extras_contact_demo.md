@@ -2,7 +2,7 @@
 
 **Role:** Supplementary instance-method example.
 
-**Supports:** [1103_class_instance](../../chapters/11_classes/1103_class_instance.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [1003_class_instance](../../chapters/10_classes/1003_class_instance.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/_extras/contact_demo/README.md); [project file](../../demos/_extras/contact_demo/contact_demo.csproj).
 

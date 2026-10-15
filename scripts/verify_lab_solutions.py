@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify standalone lab references and current Chapter 8 notebook answers."""
+"""Verify standalone lab references and current Chapter 7 notebook answers."""
 from pathlib import Path
 import json
 import subprocess
@@ -24,14 +24,14 @@ def compare(actual, expected_file):
 
 
 def main():
-    for number, stem in [('03', 'sku_report_lab_solution'), ('07', 'privacy_pass_lab_solution')]:
+    for number, stem in [('03', 'sku_report_lab_solution'), ('09', 'privacy_pass_lab_solution')]:
         compare(run(ROOT / 'demos' / number / (stem + '.csproj')),
-                OUTPUTS / (number + '_reference_output.txt'))
+                OUTPUTS / (('09_privacy' if number == '09' else number) + '_reference_output.txt'))
         print(f'Chapter {number} reference passed.', flush=True)
-    notebook = json.loads((ROOT / 'chapters/08_arrays/assignments/lab.ipynb').read_text())
+    notebook = json.loads((ROOT / 'chapters/07_arrays/assignments/lab.ipynb').read_text())
     answers = [c for c in notebook['cells'] if 'hide-input' in c.get('metadata', {}).get('tags', [])]
     if len(answers) != 5:
-        raise AssertionError('Chapter 8 answer count changed; review the instructor mapping.')
+        raise AssertionError('Chapter 7 answer count changed; review the instructor mapping.')
     with tempfile.TemporaryDirectory(prefix='cscs-instructor-sales-') as directory:
         folder = Path(directory)
         project = folder / 'sales.csproj'
@@ -41,8 +41,8 @@ def main():
                            '</PropertyGroup></Project>')
         for task, cell in enumerate(answers, 1):
             (folder / 'Program.cs').write_text(''.join(cell['source']))
-            compare(run(project), OUTPUTS / f'08_task_{task}_output.txt')
-            print(f'Chapter 8 Task {task} answer passed independently.', flush=True)
+            compare(run(project), OUTPUTS / f'07_task_{task}_output.txt')
+            print(f'Chapter 7 Task {task} answer passed independently.', flush=True)
 
 
 if __name__ == '__main__':

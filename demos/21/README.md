@@ -1,25 +1,17 @@
-# Chapter 21: Graph representations
+# Chapter 21: Analysis checks
 
-`RouteGraph.cs` contains the complete weighted undirected graph and reference-model checks. Vertices are explicit, labels are case-sensitive, zero weights are valid, and loops and negative weights are rejected. Neighbor and vertex snapshots protect internal state.
+`AnalysisChecks.cs` checks loop counts, maximum and first-match contracts, halving call counts, and balanced recurrence work/depth against independent formulas or library references.
 
 ```sh
-dotnet new console -n GraphCheck
-cp RouteGraph.cs GraphCheck/Program.cs
-dotnet run --project GraphCheck
+dotnet new console -n AnalysisCheck
+cp AnalysisChecks.cs AnalysisCheck/Program.cs
+dotnet run --project AnalysisCheck
 ```
 
 Expected output:
 
 ```text
-600 graph updates and explicit boundary/snapshot checks passed.
+600 count/contract cases and 128 recurrence cases plus boundaries passed.
 ```
 
-## Traversal Foundations
-
-`graph_traversal/` contains the core plain-class implementation and its checks:
-
-```sh
-dotnet run --project demos/21/graph_traversal/GraphChecks.csproj
-```
-
-The former callback/record implementation is retained as optional material in `demos/_extras/advanced_graph_walk/`. `RouteGraph.cs` remains the representation-check program.
+The program calculates modeled work; it does not perform that many combine operations. It counts active frames including the base call. Its small inputs keep recursive checks practical.

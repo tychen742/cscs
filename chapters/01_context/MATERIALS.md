@@ -1,46 +1,25 @@
-# Chapter Materials — Context and CS Ideas
+---
+orphan: true
+---
 
-## Landing Page
+# Chapter Materials: Computing, Programs, and Responsibility
 
-- `0100_getting_started.ipynb` — Chapter landing page
+## Core Sections
 
-## Section Notebooks
-
-- `0101_cs_ideas.ipynb` — CS ideas and problem solving
-- `0102_dev_tools.ipynb` — Development tools and environment
-- `0103_program_structure.ipynb` — First console application and program structure in C#
+- `0101_cs_ideas.ipynb`: computing, hardware/software/data, IPO, algorithms/workflow, compilation, sequential execution, and correctness.
+- `0102_computing_responsibility.ipynb`: stakeholders and harm, necessary data, accessible output, attribution, responsible AI assistance, and a fictional reminder exercise.
+- `0103_program_structure.ipynb`: first saved console project, explicit Main, source/project files, edit/save/run, and recognition of top-level statements.
 
 ## Assignments
 
-- `assignments/index.ipynb` — Index
-- `assignments/lab.ipynb` — Lab
-- `assignments/preview.ipynb` — Preview
-- `assignments/homework.ipynb` — Homework
+Preview has ten vocabulary MCQs. Lab builds a fictional reminder in five standalone stages, then applies the existing saved-project workflow. Homework has five applied true/false cases and five simple output programs. The coding tasks need no variables, decisions, loops, or user-defined methods.
 
-## Notes
+## Resources and Boundaries
 
-- Source examples live in `demos/` at the project root.
+Source demonstration: `demos/01/hello_world/`. Setup lives in `chapters/appendices/development_tools/csharp_setup.ipynb`, under Appendix B. The existing setup video moves there unchanged. Git and detailed professional practice are in Appendix C. Optional software-failure cases are in Chapter 6; optional privacy/security practice and the former ethics assessments are in Chapter 9. Their original identifiers remain unchanged.
 
-- Section 1.3 uses an explicit `Main` console project and terminal `dotnet run`; namespaces are explained before Chapter 3.
-- Project explanations connect VS Code Explorer, `.csproj` settings, compilation, and code organization; solution setup remains deferred.
+A recording and slide deck for the revised Chapter 1 remain pending. The prior overview deck remains at its published URL for compatibility but is not presented as the revised chapter deck.
 
-## Runnable Demo Projects
+## AI Literacy Integration (2026-10-15)
 
-- [`demos/01/hello_world/`](../../demos/01/hello_world/README.md): First console application.
-
-All demo projects target .NET 10. Run commands and verification are documented
-in `demos/README.md` and each project README.
-
-- Git workflow instruction lives in Appendix C; Section 1.2 links to it.
-
-Section 1.2 is a guided .NET 10/C# setup using Commons references for command-line,
-editing, and REPL fundamentals. It opens with an orientation to the Microsoft
-language and .NET ecosystem (C#, F#, Visual Basic, C++/CLI; console, web, MAUI,
-and Windows desktop stacks). It directs students to install and verify the
-.NET 10 SDK, then install VS Code and C# Dev Kit, and verify and manually install
-any missing C# Dev Kit extension dependencies. The first saved console application
-remains in Section 1.3.
-
-The legacy Mercurial/Bitbucket version-control lab is archived at
-`demos/_archived/01/lab-versioncontrol.ipynb`. Its motivation and two-computer
-workflow now live in the Git and GitHub appendix, in Git terms.
+Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assistance, and verified behavior. Students predict, ask focused questions when permitted, check suggestions, use synthetic data, and record assistance. It does not require live AI access.

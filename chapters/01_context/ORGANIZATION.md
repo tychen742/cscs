@@ -1,40 +1,23 @@
-# Chapter Organization: Context and CS Ideas
+---
+orphan: true
+---
 
-## Learning Objectives
+# Organization: Computing, Programs, and Responsibility
 
-- Explain how computing concepts guide problem solving.
-- Use the terminal, .NET SDK, VS Code, and C# REPL for introductory work.
-- Create, edit, and run a console application with `dotnet run`.
-- Identify the namespace, class, entry point, statements, and blocks in `Program.cs`.
+## Class Meetings
 
-## Sequence
+1. Computing and Problem Solving, 30 minutes: hardware/software/data, IPO, precise procedures, workflow, compilation/runtime, and simple sequential output.
+2. Computing and Professional Responsibility, 35 minutes: apply four questions to an appointment reminder, minimize personal data, communicate accessibly, and attribute/check assistance.
+3. Your First C# Program, 45 minutes: create an explicit-Main console project, edit and save source, run it, and explain statements, comments, blocks, namespaces, and project settings.
 
-- CS ideas and problem solving.
-- Development tools and environment, including the terminal and C# REPL.
-- Program structure in C# through the first console application.
-  - Create `HelloWorld` with an explicit `Main`, then run it in the terminal.
-  - Identify the project folder, `.csproj`, and `Program.cs` in VS Code Explorer.
-  - Connect file organization to the namespace, class, `Main`, and statements.
-  - Edit, save, run, and predict the output of sequential statements.
-  - Explain comments, braces, semicolons, source files, and the project file.
-  - Recognize top-level statements as an alternative console-program form.
+Total: 110 minutes including examples and practice. Appendix B setup is preparation before the saved-project meeting, not a separate content section. Browser examples can support the initial encounter while a local environment is prepared. The first program and edit/build/run workflow remain in the chapter.
 
-## Notes
+## Assessment and Scope
 
-- Section 1.2 teaches tools; Section 1.3 applies them to one saved console project.
-- Terminal commands and C# source code must be clearly distinguished.
-- Keep REPL instruction in Section 1.2. Do not present REPL, file-based apps,
-  program syntax, and project/solution containers as five distinct structures.
-- File-based apps and solution setup are outside this first-application lesson;
-  briefly define a solution so students can recognize VS Code terminology.
-- Namespace naming is introduced before Chapter 3 uses `MethodDemo`.
-- Git workflows are taught in Appendix C (`appendices/github.ipynb`), with
-  only a reference from Section 1.2.
+Preview checks vocabulary from all three sections. The connected Lab produces a fictional reminder with clear, restrained output and a local project handoff. Homework applies the ideas to new business messages. Core code uses only Console.WriteLine and comments; variables/input follow in Chapter 2. Existing Chapter 1 cell IDs are retained where content is replaced, and new coding questions receive semantic exercise IDs.
 
-Section 1.2 is a guided .NET 10/C# setup using Commons references for command-line,
-editing, and REPL fundamentals. It opens with an orientation to the Microsoft
-language and .NET ecosystem (C#, F#, Visual Basic, C++/CLI; console, web, MAUI,
-and Windows desktop stacks). It directs students to install and verify the
-.NET 10 SDK, then install VS Code and C# Dev Kit, and verify and manually install
-any missing C# Dev Kit extension dependencies. The first saved console application
-remains in Section 1.3.
+Ethical analysis is introduced here and revisited with testing (Chapter 6), privacy/text processing (Chapter 9), professional collaboration (Appendix C), and database parameters (database appendix). Original ethics assessment identifiers remain stable in optional privacy practice. A full ethics course's coverage/contact hours are not claimed.
+
+## AI Literacy Integration (2026-10-15)
+
+Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assistance, and verified behavior. Students predict, ask focused questions when permitted, check suggestions, use synthetic data, and record assistance. It does not require live AI access.

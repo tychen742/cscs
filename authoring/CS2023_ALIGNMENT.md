@@ -1,164 +1,117 @@
-# CS2023 Alignment — Computer Science in C\#
+---
+orphan: true
+---
 
-Draft, 2026-10-04; updated the same day for the new Chapter 7 (Society, Ethics,
-and the Profession) and the expanded sequence through Chapter 27. A condensed chapter table is published as an appendix (`chapters/appendices/cs2023_alignment.ipynb`, label `cs2023_alignment`; moved from the Preface on 2026-10-04); keep the two in sync. Maps the book's chapters to the knowledge units of
-*Computer Science Curricula 2023* (CS2023). The audience is instructors and
-departments that need to show how a course built on this book meets the
-curriculum. A later version may become an instructor-facing appendix.
+# Curriculum Alignment Authoring Record
 
-**Source.** Amruth N. Kumar, Rajendra K. Raj, et al. 2023. *Computer Science
-Curricula 2023*. ACM Press, IEEE Computer Society Press, and AAAI Press. The
-Joint Task Force on Computer Science Curricula (ACM, IEEE-CS, AAAI). DOI
-[10.1145/3664191](https://doi.org/10.1145/3664191). Final Report, January 2024,
-version 2024-04-28, <https://csed.acm.org/final-report/>. Unit codes and hours
-below were checked against that report on 2026-10-04.
+Current evidence mirrors the published curriculum appendix. Introductory AI literacy is integrated with programming practice; DB and AI application capstones remain optional. Neither establishes full degree-level coverage of its area.
 
-**How to read this draft.** The mapping was made from the section titles, the
-chapter planning files, and spot checks of the notebooks. Confirm each row when
-the chapter is next audited. Status values:
+```{index} curriculum alignment; CS2023
+```
 
-- **Covered** — the book teaches the unit's core topics.
-- **Partial** — some core topics are taught; the gaps are named.
-- **Gap** — CS Core topics the book does not teach yet.
-- **Out of scope** — belongs to another course in a typical program (for
-  example discrete mathematics or theory of computation).
+(cs2023_alignment)=
 
-## CS2023 Terms Used Here
+# Curriculum Alignment (IS2020 and CS2023)
 
-- **Knowledge area (KA)** and **knowledge unit (KU):** CS2023 has 17 knowledge
-  areas, each divided into units written as `KA-Unit`, for example
-  `SDF-Fundamentals`.
-- **CS Core:** topics every computer science graduate should know. **KA Core:**
-  topics a program that covers the area in depth should include.
-- **Introductory sequence:** CS2023 says the SDF and AL core topics "typically
-  constitute the introductory course sequence," and its course-packaging
-  examples begin with *CS I* and *CS II*. Semester 1 of this book (Chapters
-  1–13) corresponds to CS I and Semester 2 (Chapters 14–27) to CS II, plus part
-  of the separate Algorithms course.
+The primary audience is students in College of Business information systems programs. The IS2020 mapping therefore comes first and explains the book’s contribution to that pathway. The CS2023 mapping follows as a reference for its broader computer science foundation and optional technical depth. Neither mapping establishes complete degree-program coverage.
 
-## Summary by Knowledge Area
 
-| KA | Unit | CS Core hrs | Book coverage | Status |
-|---|---|---|---|---|
-| SDF | SDF-Fundamentals — Fundamental Programming Concepts and Practices | 20 | Ch. 1–6, 10 | Covered |
-| SDF | SDF-Data-Structures — Fundamental Data Structures | 6 + 6 (AL) | Ch. 3 (strings), 8–10, 14–16 | Covered |
-| SDF | SDF-Algorithms — Algorithms | 3 + 3 (AL) | Ch. 5, 8, 20–22 | Covered |
-| SDF | SDF-Practices — Software Development Practices | 5 | Ch. 1, 6; semester project | Covered |
-| SDF | SDF-SEP — Society, Ethics, and the Profession | in SEP | Ch. 7 | Covered (first draft) |
-| AL | AL-Foundational — Foundational Data Structures and Algorithms | 12 | Ch. 14–21, 24 | Covered |
-| AL | AL-Strategies — Algorithmic Strategies | 6 | Ch. 21, 23, 24 | Covered |
-| AL | AL-Complexity — Complexity | 6 | Ch. 18 lab, 20, 22 | Covered |
-| AL | AL-Models — Computational Models and Formal Languages | 9 | Ch. 10 regular expressions (practical only); Ch. 27 limits | Partial; mostly out of scope |
-| AL | AL-SEP | in SEP | Ch. 7 (sustainability, briefly) | Partial |
-| FPL | FPL-OOP — Object-Oriented Programming | 4 + 1 (SDF) | Ch. 12-13, 14 | Covered |
-| FPL | FPL-Types — Type Systems | 3 | Ch. 2, 6 (nullable), 14 (generics) | Covered |
-| FPL | FPL-Functional — Functional Programming | 4 | lambdas and LINQ appear in passing (Ch. 6, 8, 9, 14); the dedicated notebooks are off the TOC | Gap |
-| FPL | FPL-Event-Driven — Event-Driven and Reactive Programming | 2 | none (console programs only) | Gap |
-| FPL | FPL-Parallel — Parallel and Distributed Computing | 2 + 1 (PDC) | async notebook is off the TOC | Gap |
-| FPL | FPL-Scripting — Shell Scripting | 2 | Command Line appendix (commands, not scripts) | Partial |
-| FPL | FPL-Translation — Language Translation and Execution | 2 | Ch. 1 (compile, build, run) | Partial |
-| FPL | FPL-Systems — Systems Execution and Memory Model | 2 + 1 (AR, OS) | Ch. 9 (reference vs. value types), Ch. 15 (linked nodes) | Partial |
-| SE | SE-Tools — Tools and Environments | 1 | Ch. 1 (VS Code, `dotnet`, Git), Command Line appendix | Covered |
-| SE | SE-Construction — Software Construction | 1 + 3 (SDF) | Ch. 3, 6, 12-13 | Covered |
-| SE | SE-Validation — Software Verification and Validation | 1 | Ch. 6 (unit testing, debugging), Ch. 7 (boundary tests) | Covered |
-| SE | SE-Design — Software Design | 1 | Ch. 13 (encapsulation, abstraction), Ch. 14 (ADT contracts) | Covered |
-| SE | SE-Teamwork — Teamwork | 2 + 3 (SEP) | Project appendix (if run as a group project) | Partial |
-| SE | SE-Requirements — Product Requirements | 0 + 3 (SEP) | Ch. 7 (stakeholders) | Partial |
-| DM | DM-Data — The Role of Data and the Data Life Cycle | 2 | Ch. 7 (data minimization, retention), 10, 11 | Covered |
-| DM | DM-Core — Core Database System Concepts | 2 | Ch. 11 | Covered |
-| DM | DM-Modeling — Data Modeling | 2 | Ch. 11 (relational model) | Covered |
-| DM | DM-Relational — Relational Databases | 1 | Ch. 11 | Covered |
-| DM | DM-Querying — Query Construction | 2 | Ch. 11 (SQL queries and changes) | Covered |
-| DM | DM-Security — Data Security and Privacy | 1 | Ch. 7 (privacy, masking), Ch. 11 (parameterized commands) | Covered |
-| SEC | SEC-Coding — Secure Coding | 2 + 6 (FPL, SDF, SE) | Ch. 6 and 7 (input validation, injection), Ch. 11 (parameterized commands) | Covered |
-| SEC | SEC-Foundations — Foundational Security | 1 + 7 | Ch. 7 (confidentiality, integrity, availability; least privilege) | Partial |
-| SEP | SEP-Context — Social Context | 3 | Ch. 7.1 | Covered (first draft) |
-| SEP | SEP-Ethical-Analysis — Methods for Ethical Analysis | 2 | Ch. 7.1 (four-question checklist) | Covered (first draft) |
-| SEP | SEP-Professional-Ethics — Professional Ethics | 2 | Ch. 7.1 (ACM Code), 7.3 (AI assistants) | Covered (first draft) |
-| SEP | SEP-IP — Intellectual Property | 1 | Ch. 7.3 (copyright, licenses) | Covered (first draft) |
-| SEP | SEP-Privacy — Privacy and Civil Liberties | 2 | Ch. 7.2 (GDPR, CCPA, FERPA; masking) | Covered (first draft) |
-| SEP | SEP-Communication — Communication | 2 | Ch. 7.3 (error messages, honest status) | Partial |
-| SEP | SEP-Sustainability — Sustainability | 1 | Ch. 7.3 (brief) | Partial |
-| SEP | SEP-History — History | 1 | Ch. 7.1 (case studies only) | Partial |
-| SEP | SEP-Economies — Economies of Computing | 0 | none | Not core |
-| SEP | SEP-Security — Security Policies, Laws, and Computer Crimes | 2 | Ch. 7.2 (privacy laws, injection) | Partial |
-| SEP | SEP-DEIA — Diversity, Equity, Inclusion and Accessibility | 2 | Ch. 7.3 (accessibility, internationalization) | Partial |
-| PDC | PDC-Programs — Programs | 2 | async notebook is off the TOC | Gap |
-| MSF | MSF-Discrete and others | 55 total | Ch. 19 (graph terms), Ch. 20 (recurrences) | Out of scope (math courses) |
-| AR, OS, NC, SF, HCI, GIT, AI, SPD | | | | Out of scope for this sequence |
+(is2020-alignment)=
 
-## Chapter Map
+```{index} curriculum alignment; IS2020
+```
 
-| Ch. | Title | Primary units | Also touches |
+## IS2020 Mapping
+
+
+
+*IS2020: A Competency Model for Undergraduate Programs in Information Systems* provides curriculum guidance from the Association for Computing Machinery (ACM) and the Association for Information Systems (AIS), including for IS/MIS programs in colleges of business.[^is2020] Its competency areas describe degree-level expectations. The following mapping is the author's interpretation of this book's contribution, not a claim of complete program coverage or graduate competency attainment.
+
+**Direct** means the book explicitly teaches relevant introductory knowledge and skills. **Partial** means it introduces selected topics. **Supporting** means activities can contribute when instructors assess them in context. **Outside scope** means another course must supply the area. These descriptions are local mapping labels, not IS2020 proficiency levels.
+
+| IS2020 required competency area | Book evidence | Contribution and boundary |
+|---|---|---|
+| Foundations of Information Systems | Chapter 1: computing concepts, input-process-output, and development workflow; the database appendix: persistent data. | **Partial.** Introduces computing and information processing; organizational IS roles and enterprise processes need a broader IS foundations course. |
+| Data / Information Management | Chapters 7-9: arrays, collections, files, and text; Database appendix: relational models, keys, SQL queries and changes, and a C# database workflow. | **Direct introductory contribution.** Supports representing and persisting application data; database administration and organization-wide data governance require further study. |
+| IT Infrastructure | Chapter 1: compiler/runtime roles and edit/build/run; Appendix B: SDK, editor, terminal, and REPL setup. | **Partial.** Provides a development environment foundation; networking, cloud infrastructure, and production operations are outside this sequence. |
+| Secure Computing | Chapter 6: validation and error handling; Chapter 1: introductory privacy; Chapter 9: masking, validation, and safe logging; the database appendix: parameterized SQL. | **Partial.** Teaches selected secure coding practices; infrastructure defense and organizational security management require other courses. |
+| Systems Analysis & Design | Chapter 1: development workflow; Chapters 10-12: classes, encapsulation, interfaces, and object-oriented design; Group Project appendix: feature planning and refinement. | **Partial.** Supports small application design; stakeholder elicitation and formal analysis/modeling methods need dedicated instruction. |
+| Application Development / Programming | Chapters 1-12: C# fundamentals, testing, collections, object-oriented programs, with optional database access in the appendix; Chapters 13-20: data structures and their algorithmic foundations; optional Chapters 21-26: deeper analysis and algorithm design. | **Direct introductory contribution.** This is the book's main role in an IS program. Web/mobile development and production deployment remain outside scope. |
+| Ethics, Use & Implications for Society | Chapter 1.2: social impact, ethical analysis, introductory privacy, accessibility, attribution, and responsible AI use; Chapter 6: failure cases; Chapter 9: privacy practice; Appendix C: professional practice. | **Direct introductory contribution.** Cases support ethical reasoning; instructors should also assess it in project and organizational decisions. |
+| IS Management & Strategy | Business examples supply application context throughout the book. | **Outside scope.** Business examples alone do not teach IS strategy, governance, sourcing, or investment decisions. |
+| IS Project Management | Group Project appendix: roles, periodic reports, staged implementations, team coordination, and presentations. | **Supporting.** Provides practice opportunities; formal scope, schedule, budget, and risk management require additional instruction and assessment. |
+| IS Practicum | Group Project appendix: integrated implementation, testing, documentation, demonstration, and individual reflection. | **Supporting.** Can contribute to a practicum when the instructor specifies organizational requirements and assesses integration. A programming project alone does not establish full practicum coverage. |
+
+
+
+```{index} IS2020; object-oriented paradigm
+```
+
+## IS2020 Course Use and Evidence
+
+
+
+Chapters 1-12 provide the programming and information-systems foundation for the College of Business pathway. Instructors select Part IV depth for their courses. Chapters 13-20 include basic Big-O, search and library sorting, recursive calls, and graph traversal, so these foundations do not depend on Part V. Part V (Chapters 21-26) is optional technical depth for this pathway and remains available for the full CS pathway.
+
+The IS2020 elective area **Object-Oriented Paradigm** has relevant support in Chapters 10-12 and the interfaces and generics of Chapter 13. Other specializations, such as web programming, mobile programming, and user interface design, need additional material.
+
+An instructor can use completed programs and tests for programming evidence, SQL and schema exercises for data-management evidence, Chapter 1.2 case analyses for ethics evidence, and project reports and demonstrations for integration evidence. The optional database appendix includes a connected inventory lab; assess its SQL and schema work separately when it is assigned.
+
+This mapping records learning opportunities in the published sequence. A program-level review must separately establish the required knowledge, skill levels, dispositions, and assessment evidence across its courses.
+
+
+
+```{index} curriculum alignment; CS2023
+```
+
+## CS2023 Mapping
+
+
+
+The book is mapped to *Computer Science Curricula 2023* (CS2023), the joint curriculum guidelines of ACM, IEEE Computer Society, and AAAI.[^cs2023] CS2023 organizes computer science into knowledge areas, each divided into knowledge units such as `SDF-Fundamentals`. Its introductory sequence is built mainly from Software Development Fundamentals (SDF) and Algorithmic Foundations (AL). Semester 1 of this book corresponds to the CS2023 *CS I* course and Semester 2 to *CS II*, plus part of a separate algorithms course.
+
+| Ch. | Topic | Primary CS2023 units | Also touches |
 |---|---|---|---|
-| 1 | Context | SDF-Fundamentals, SE-Tools | FPL-Translation, SDF-Practices |
-| 2 | Variables and Types | SDF-Fundamentals, FPL-Types | SEC-Coding (input handling) |
-| 3 | Methods and Strings | SDF-Fundamentals | SE-Construction, SDF-Data-Structures (strings) |
+| 1 | Computing, Programs, and Responsibility | SDF-Fundamentals, SEP-Context, SEP-Ethical-Analysis | FPL-Translation, SDF-Practices, SEP-Professional-Ethics, SEP-Privacy, SEP-DEIA |
+| 2 | Variables and Types | SDF-Fundamentals, FPL-Types | SEC-Coding |
+| 3 | Methods and Strings | SDF-Fundamentals | SE-Construction, SDF-Data-Structures |
 | 4 | Decisions | SDF-Fundamentals | |
 | 5 | Iteration | SDF-Fundamentals, SDF-Algorithms | |
-| 6 | Exceptions and Testing | SDF-Practices, SE-Validation | FPL-Types (nullable), SEC-Coding (validation) |
-| 7 | Society, Ethics, and the Profession | SEP-Context, SEP-Ethical-Analysis, SEP-Professional-Ethics, SEP-Privacy | SEP-Security, SEP-IP, SEP-DEIA, SEC-Coding, DM-Security |
-| 8 | Arrays | SDF-Data-Structures | SDF-Algorithms (linear search) |
-| 9 | Data Collections | SDF-Data-Structures | AL-Foundational (maps), FPL-Systems (references) |
-| 10 | Files and Text | SDF-Fundamentals (I/O), SDF-Data-Structures (strings) | AL-Models (regular expressions), DM-Data |
-| 11 | Classes and Objects | FPL-OOP, SDF-Fundamentals | SE-Design |
-| 12 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants) |
-| 13 | Inheritance, Interfaces, and Polymorphism | FPL-OOP, SE-Design | SE-Construction |
-| 14 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | AL-Complexity, FPL-Types |
-| 15 | Arrays and Linked Lists | AL-Foundational | AL-Complexity, FPL-Systems |
-| 16 | Stacks and Queues | AL-Foundational | SDF-Algorithms |
-| 17 | Searching and Basic Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
-| 18 | Trees and Binary Search Trees | AL-Foundational | AL-Complexity |
-| 19 | Priority Queues and Heaps | AL-Foundational | AL-Complexity |
-| 20 | Hash Collections and Sets | AL-Foundational | AL-Complexity, MSF-Discrete |
-| 21 | Graphs and Traversal | AL-Foundational | MSF-Discrete |
-| 22 | Algorithm Analysis | AL-Complexity | SDF-Algorithms, MSF-Discrete |
-| 23 | Recursion and Divide and Conquer | AL-Strategies, SDF-Algorithms | |
-| 24 | Advanced Searching and Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
-| 25 | Greedy Algorithms | AL-Strategies, AL-Foundational | |
-| 26 | Dynamic Programming and Backtracking | AL-Strategies | |
-| 27 | Advanced Graphs, Strings, and Limits | AL-Foundational, AL-Complexity | AL-Models |
+| 6 | Exceptions and Testing | SDF-Practices, SE-Validation | FPL-Types, SEC-Coding, SEP-Professional-Ethics |
+| 7 | Arrays | SDF-Data-Structures | SDF-Algorithms |
+| 8 | Data Collections | SDF-Data-Structures | AL-Foundational, FPL-Systems |
+| 9 | Files and Text | SDF-Fundamentals, SDF-Data-Structures | AL-Models, DM-Data, SEC-Coding, DM-Security, SEP-Privacy |
+| 10 | Classes and Objects | FPL-OOP, SDF-Fundamentals | SE-Design |
+| 11 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants) |
+| 12 | Inheritance, Interfaces, and Polymorphism | FPL-OOP, SE-Design | SE-Construction |
+| 13 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | AL-Complexity, FPL-Types |
+| 14 | Arrays and Linked Lists | AL-Foundational | AL-Complexity, FPL-Systems |
+| 15 | Stacks and Queues | AL-Foundational | SDF-Algorithms |
+| 16 | Searching and Basic Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
+| 17 | Trees and Binary Search Trees | AL-Foundational | AL-Complexity |
+| 18 | Priority Queues and Heaps | AL-Foundational | AL-Complexity |
+| 19 | Hash Collections and Sets | AL-Foundational | AL-Complexity, MSF-Discrete |
+| 20 | Graphs and Traversal | AL-Foundational | MSF-Discrete |
+| 21 | Algorithm Analysis | AL-Complexity | SDF-Algorithms, MSF-Discrete |
+| 22 | Recursion and Divide and Conquer | AL-Strategies, SDF-Algorithms | |
+| 23 | Advanced Searching and Sorting | AL-Foundational, SDF-Algorithms | AL-Complexity |
+| 24 | Greedy Algorithms | AL-Strategies, AL-Foundational | |
+| 25 | Dynamic Programming and Backtracking | AL-Strategies | |
+| 26 | Advanced Graphs, Strings, and Limits | AL-Foundational, AL-Complexity | AL-Models |
+| Appendix B | C# setup and development tools | SE-Tools | SDF-Practices |
+| Appendix C | Git and professional practice | SE-Tools, SEP-IP | SEP-Communication, SEP-DEIA |
 | Appendix | Databases and Bookstore Inventory | DM-Core, DM-Modeling, DM-Relational, DM-Querying | DM-Security, SEC-Coding |
 
-## Gaps to Close
+Knowledge-area abbreviations: SDF (Software Development Fundamentals), AL (Algorithmic Foundations), FPL (Foundations of Programming Languages), SE (Software Engineering), DM (Data Management), SEC (Security), SEP (Society, Ethics, and the Profession), MSF (Mathematical and Statistical Foundations).
 
-Ordered by how much CS Core time they carry and how naturally they fit.
+The mapping is a working draft. Chapter 1 introduces Society, Ethics, and the Profession (SEP), with further cases in Chapters 6 and 9 and Appendix C; coverage of functional and asynchronous programming is still being added. Formal languages and the mathematics units are left to theory and mathematics courses.
 
-1. **SEP beyond Chapter 7.** CS2023 puts an SEP unit inside most other
-   knowledge areas and says ethics topics "should arise in the context of
-   other computing courses, not just siloed in an 'SEP course.'" Chapter 7 is a
-   first draft; short callbacks in later chapters would carry the thread:
-   - Ch. 10: personal data in files, retention, and deletion (SEP-Privacy,
-     DM-Data).
-   - Ch. 11: customer-data privacy and least-privilege database access
-     (SEP-Privacy, DM-Security); parameterized commands as the fix for the
-     injection shown in Ch. 7 (SEP-Security, SEC-Coding).
-   - Ch. 22 or 27: computational cost and energy use (SEP-Sustainability).
-   - Semester 2 project: teamwork and communication (SE-Teamwork,
-     SEP-Communication).
-2. **Functional programming (FPL-Functional, 4 CS Core hours).** Lambdas and
-   LINQ already appear in passing. `materials/stale_chapters/11_databases/1101_lambdas.ipynb`
-   and `1102_linq.ipynb` are complete but off the TOC since Chapter 11 became
-   Databases. Candidate homes: a section in Ch. 9 (querying collections) or
-   Ch. 14.
-3. **Parallel and asynchronous programs (FPL-Parallel, PDC-Programs, about
-   4 CS Core hours together).** `1105_async.ipynb` is off the TOC. A short
-   async section fits Ch. 10 (asynchronous file I/O) or a semester-2 chapter.
-4. **Event-driven programming (FPL-Event-Driven, 2 CS Core hours).** Not
-   covered; C# events and delegates could follow Ch. 13.
-5. **Security foundations (SEC-Foundations).** Ch. 7 introduces
-   confidentiality, integrity, availability, and least privilege; threat
-   modeling (what can go wrong, and who might try) is not yet covered.
-6. **Shell scripting (FPL-Scripting, 2 CS Core hours).** The Command Line
-   appendix teaches commands; a short script example would complete it.
+The integrated AI activities provide introductory AI literacy and programming-review evidence in Chapters 1, 3, 6, and 9. They do not constitute coverage of the full CS2023 Artificial Intelligence knowledge area or a machine-learning course. Database coverage depends on selecting the optional post-OOP capstone; it is not evidence that every CS1 adopter teaches SQL. The optional AI project extension is additional application practice, not a required outcome for the core route.
 
-Formal languages and automata (AL-Models) and the mathematics units (MSF) are
-usually taught in theory and mathematics courses. Note them as out of scope
-rather than adding them.
 
-## Open Questions
+```{rubric} Footnotes
+```
 
-- Should the published map also appear on the ThinkPress catalog page for the
-  book?
-- Should hours per chapter be estimated, so departments can compare against the
-  CS2023 CS Core totals?
+[^is2020]: The Joint ACM/AIS IS2020 Task Force (2021). *IS2020: A Competency Model for Undergraduate Programs in Information Systems*. ACM and AIS. <https://doi.org/10.1145/3460863>. See Chapter 4, Figure 4-2 for required and elective areas, and Section 4.3.2 for the business-school context.
+
+[^cs2023]: Amruth N. Kumar, Rajendra K. Raj, et al. (2023). *Computer Science Curricula 2023*. ACM Press, IEEE Computer Society Press, and AAAI Press. <https://doi.org/10.1145/3664191>

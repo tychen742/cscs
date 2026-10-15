@@ -1,17 +1,17 @@
-# Chapter 23: Stable merge sort
+# Chapter 23: Search and sort checks
 
-`StableSort.cs` contains generic stable merge and range/buffer merge sort, operation counters, and independent reference checks. Sort returns a fresh array, preserves input order, resets counters per call, and retains arrival order for equal keys. Array copies are shallow: referenced objects are not cloned.
+`SearchSortChecks.cs` contains first-match linear search, any-match iterative binary search, lower/upper bounds, and generic selection/insertion/optimized bubble sorts. Searches count probes; sorts count comparer calls, swaps, and insertion shifts. Sorts mutate their input arrays.
 
 ```sh
-dotnet new console -n StableSortCheck
-cp StableSort.cs StableSortCheck/Program.cs
-dotnet run --project StableSortCheck
+dotnet new console -n SearchSortCheck
+cp SearchSortChecks.cs SearchSortCheck/Program.cs
+dotnet run --project SearchSortCheck
 ```
 
 Expected output:
 
 ```text
-600 stable sort cases, 600 merge cases, and count/copy boundaries passed.
+1800 elementary sorts, 3000 search targets, and stable/count boundaries passed.
 ```
 
-Merge requires both inputs to be sorted under the same consistent comparison. Sort uses a copied result and one shared buffer, taking linear auxiliary space and logarithmic active stack depth. Counted writes exclude the initial clone and buffer allocation.
+Checks compare sorted permutations and bounds against independent references, verify exact selection counts and inversion-based moves, and verify stable insertion/bubble order on labeled records. Explicit cases include empty/singleton, sorted adaptive behavior, extreme integers, and string equality policies. Binary search and bounds require an array sorted under the same consistent comparer; they do not scan to validate this precondition.

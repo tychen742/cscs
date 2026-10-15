@@ -1,12 +1,12 @@
 # Structural Audit — 2026-09-19
 
-## Chapters 15–25 Consistency Follow-up — 2026-10-05
+## Chapters 14–24 Consistency Follow-up — 2026-10-05
 
 The September audit below is historical; its chapter numbering, TOC root, and status statements describe that earlier checkout. The current book has 25 chapters and root `index`.
 
-This follow-up checked all 88 published notebooks in Chapters 15–25 against the current TOC. Notebook schemas, local Markdown destinations, Sphinx document targets, indexed content headings, final lesson footnotes, and assignment structure passed. Every chapter has five tagged lab questions and five hidden solutions, and five tagged homework coding questions and five hidden solutions. All hidden coding solutions retain verified output. Chapter handoffs consistently place graph representation in 19, analysis in 20, recursion/merge sort in 21, search/elementary sorting in 22, greedy graph optimization in 23, dynamic programming/search in 24, and traversal/string matching/limits in 25.
+This follow-up checked all 88 published notebooks in Chapters 14–24 against the current TOC. Notebook schemas, local Markdown destinations, Sphinx document targets, indexed content headings, final lesson footnotes, and assignment structure passed. Every chapter has five tagged lab questions and five hidden solutions, and five tagged homework coding questions and five hidden solutions. All hidden coding solutions retain verified output. Chapter handoffs consistently place graph representation in 19, analysis in 20, recursion/merge sort in 21, search/elementary sorting in 22, greedy graph optimization in 23, dynamic programming/search in 24, and traversal/string matching/limits in 25.
 
-Fixed 17 missing cell IDs in Chapter 15’s preview, lab, and homework. IDs are deterministic and existing IDs, cell order, source, tags, and outputs remain unchanged. C# verification from each completed depth pass remains applicable; this follow-up changes metadata only.
+Fixed 17 missing cell IDs in Chapter 14’s preview, lab, and homework. IDs are deterministic and existing IDs, cell order, source, tags, and outputs remain unchanged. C# verification from each completed depth pass remains applicable; this follow-up changes metadata only.
 
 Inactive source banks such as `15-pattern-records` and `16-generics-async` remain outside the published TOC and clearly describe their staging role. Their removal is not required for this pass. Slides and the legacy Interactive Exercise UI rename remain deferred to Press, as requested.
 
@@ -46,8 +46,8 @@ judge prose quality or runnable C# examples yet.
 | ---- | ------- | -------- | ------------------ |
 | Non-TOC chapter tracks | `chapters/13-exceptions-testing`, `chapters/14-functional-patterns`, `chapters/15-pattern-records`, and `chapters/16-generics-async` remain in `chapters/` but are not active in `_toc.yml`. | Chapter directory scan. | Move to an archive/staging location, or add clear local docs explaining their status. |
 | Ch12 source leftovers | `chapters/11_databases/1201`-`1205` are former modern-C# topics and are not active in `_toc.yml`. | File scan and `_toc.yml`. | Move/archive/relabel after the Ch12 database assignment pass. |
-| Old collection source notebooks | `chapters/09_collections/1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` remain outside `_toc.yml` as source material for later reuse. | File scan and Ch08/Ch13 planning docs. | Keep out of the active TOC; mine remaining stack, queue, or tuple material only when it supports later chapters. |
-| Ch08 stale merge source | `chapters/09_collections/0802-list-dictionary.ipynb` is not active in `_toc.yml`. | File scan and Ch08 `MATERIALS.md`. | Merge any useful material into `0902_list.ipynb` and `0903_dictionary.ipynb`, then archive or remove. |
+| Old collection source notebooks | `chapters/08_collections/1101-intro-ds.ipynb` and `1102-collection-examples.ipynb` remain outside `_toc.yml` as source material for later reuse. | File scan and Ch08/Ch13 planning docs. | Keep out of the active TOC; mine remaining stack, queue, or tuple material only when it supports later chapters. |
+| Ch08 stale merge source | `chapters/08_collections/0802-list-dictionary.ipynb` is not active in `_toc.yml`. | File scan and Ch08 `MATERIALS.md`. | Merge any useful material into `0802_list.ipynb` and `0803_dictionary.ipynb`, then archive or remove. |
 | Legacy extra homework pages | Ch05, Ch09, and Ch10 list extra homework pages in `_toc.yml` in addition to standard Homework. | `_toc.yml`. | Decide whether these remain as extra homework, move under instructor-facing `assignments/`, or become extension pages. |
 | Planning front matter | Older `MATERIALS.md` and `ORGANIZATION.md` files in Ch01-Ch10 and non-TOC staging tracks lack `orphan: true` front matter. | Planning-doc scan. | Add MyST front matter so excluded planning docs do not become warning sources. |
 | Materials layout | Shared rule says runnable source should live in numbered `demos/NN/` folders. This project still mainly uses `demos/demos/` and `demos/examples/`. | `demos/` scan. | Decide whether to migrate to numbered folders or document CSCS as a legacy exception. |

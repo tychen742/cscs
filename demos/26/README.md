@@ -1,19 +1,19 @@
-# Chapter 26: Planning checks
+# Chapter 26: Advanced algorithm checks
 
-`PlanningChecks.cs` includes guarded Fibonacci methods, minimum reusable-coin plans with reconstruction, signed one-use subset search with safe bounds and failed-state memoization, and positional subset/permutation enumeration.
+`AdvancedChecks.cs` contains owned graph traversal with guarded BFS paths, frame-based DFS, symmetry-checked components, ordinal overlapping direct/KMP matchers with comparison counts, and exact/greedy team coverage.
 
 ```sh
-dotnet new console -n PlanningCheck
-cp PlanningChecks.cs PlanningCheck/Program.cs
-dotnet run --project PlanningCheck
+dotnet new console -n AdvancedCheck
+cp AdvancedChecks.cs AdvancedCheck/Program.cs
+dotnet run --project AdvancedCheck
 ```
 
 Expected output:
 
 ```text
-600 coin references, 600 signed subset references, 93 Fibonacci states, enumeration checks, and boundaries passed.
+500 directed traversals, 500 component graphs, 2000 ordinal matches, 500 cover optima, and boundaries passed.
 ```
 
-Coin checks use independent breadth-first amount exploration and validate all table entries and witnesses. Subset checks enumerate bit masks independently and compare unpruned, bound-pruned, and memoized variants, validating returned positions and long sums. Fibonacci methods are checked against arbitrary-precision reference values with exact call/cache counts. Enumeration checks validate cardinality, unique positions, independent snapshots, and empty inputs.
+Directed traversal checks compare BFS distances with an all-pairs relaxation reference, validate paths and discovery counts, and compare DFS frame entry/exit with a recursive reference. Component checks compare membership with independently merged labels. Matching checks use ordinal library occurrences and brute-force border lengths, including empty patterns, overlap, embedded nulls, and surrogate code units; they verify linear comparison bounds and owned prefix snapshots. Coverage checks compare exact enumeration with independent coverage-state DP, verify witnesses, and establish the greedy three-versus-two counterexample.
 
-Fibonacci accepts 0..92 (naive capped at 25). Minimum coins requires positive denominations and targets 0..1,000,000. Subset search accepts up to 128 signed positions; its default million-call limit throws with feasibility unknown if exhausted. Materialized subsets/permutations are limited to 16/eight positions. These are explicit teaching resource policies; complexity discussions still account for state ranges, recursion, and output volume.
+Graphs declare all endpoints, preserve neighbor order, normalize duplicates, and accept loops/cycles. Components require symmetric adjacency. Matching offsets are UTF-16 code units, with no case folding, culture rules, or normalization. Empty patterns match every boundary. Team masks allow up to 20 requirements and exact enumeration up to 20 teams; exceeding a teaching limit does not establish infeasibility.

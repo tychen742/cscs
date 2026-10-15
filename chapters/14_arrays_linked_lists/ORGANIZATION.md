@@ -1,0 +1,40 @@
+---
+orphan: true
+---
+
+# Chapter Organization: Linear Lists
+
+## Learning Objectives
+
+Implement the same sequence contract with array-backed and singly linked representations; trace changing storage/references; preserve representation invariants; derive amortized append cost; test boundary behavior; justify a representation using a workload and API assumptions.
+
+## Instructional Sequence
+
+1. Dynamic arrays: service-desk motivation, count/capacity, growth, shift traces, generic implementation, and aggregate copy analysis.
+2. Linked nodes: cursor versus head, correct insertion ordering, lost links and cycles, head/tail cases, generic wrapper, and doubly linked contrast.
+3. Comparison: separate locating from updating; compare identical operations; count concrete workloads; test the shared contract; qualify decisions with locality and memory.
+
+## Pedagogical Pattern
+
+Each added major subsection includes concrete explanation or trace and a basic, applied, or challenge prompt. Complete examples are standalone; assignment starters intentionally require student completion. Students predict results before execution, then test and justify them. No recursion is required. Cost notation is explained through counts before the formal analysis chapter.
+
+## Assignments and Verification
+
+Preview checks terms. Lab uses five connected work-order tasks with independently runnable starters, removal and endpoint traces, shared contract tests, and workload counts. Homework contains five coding tasks and a design challenge; students implement growth accounting and remove a chain through singleton and empty cases. The local material checks both implementations against the same contract and a standard List reference model; invalid operations must preserve state. Planning, landing glossary/objectives, and Chapter Topics are synchronized. Lecture-slide synchronization remains pending; no new slide deck is claimed by this pass.
+
+## Foundation Placement (2026-10-07)
+
+Added `1601_searching.ipynb`: first-match linear search, iterative binary search, missing-target traces, library search results, stable reports, and a standalone report exercise. Detailed custom sorting, duplicate bounds, and workload analysis remain in Chapter 23.
+
+### Revised Pacing
+
+1. **Dynamic arrays, 30 minutes.**
+2. **Linked nodes, 30 minutes.**
+3. **Representation comparison, search, and library sorting, 50 minutes.** Use the new search/sort notebook for the final portion; detailed custom sorting stays optional.
+
+Total: 110 minutes. Preparation and assignments supply additional practice.
+
+
+## 2026-10-15 Scope
+
+Searching and sorting now form Chapter 16, following stacks and queues. This chapter focuses on linear storage and its contracts.

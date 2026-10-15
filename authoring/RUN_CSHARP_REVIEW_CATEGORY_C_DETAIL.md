@@ -118,7 +118,7 @@ Error codes: CS5001
 using System.Text.RegularExpressions;
 ```
 
-## `chapters/08_arrays/assignments/homework.ipynb` cell 3 — Homework
+## `chapters/07_arrays/assignments/homework.ipynb` cell 3 — Homework
 Error codes: CS0200
 
 ```csharp
@@ -129,7 +129,7 @@ Error codes: CS0200
     s[0] = 'c';
 ```
 
-## `chapters/09_collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
+## `chapters/08_collections/0802-list-dictionary.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -139,14 +139,14 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/09_collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
+## `chapters/08_collections/0802-list-dictionary.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
 words.Count;
 ```
 
-## `chapters/09_collections/0902_list.ipynb` cell 19 — List Constructors and Methods
+## `chapters/08_collections/0802_list.ipynb` cell 19 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -156,7 +156,7 @@ words[2] = "Coconut";
 words;
 ```
 
-## `chapters/09_collections/0902_list.ipynb` cell 27 — List Constructors and Methods
+## `chapters/08_collections/0802_list.ipynb` cell 27 — List Constructors and Methods
 Error codes: CS0103, CS0201
 
 ```csharp
@@ -244,7 +244,7 @@ Error codes: CS5001
     }
 ```
 
-## `chapters/13_oop/1304_polymorphism.ipynb` cell 8 — Method Overriding: virtual/override/base
+## `chapters/12_oop/1304_polymorphism.ipynb` cell 8 — Method Overriding: virtual/override/base
 Error codes: CS0239
 
 ```csharp
@@ -291,7 +291,7 @@ Console.WriteLine("Drawing a square");
 }
 ```
 
-## `chapters/13_oop/1305_abstraction.ipynb` cell 2 — Abstract Classes
+## `chapters/12_oop/1305_abstraction.ipynb` cell 2 — Abstract Classes
 Error codes: CS5001
 
 ```csharp
@@ -301,7 +301,7 @@ abstract class Shape
 }
 ```
 
-## `chapters/13_oop/1305_abstraction.ipynb` cell 14 — !powershell
+## `chapters/12_oop/1305_abstraction.ipynb` cell 14 — !powershell
 Error codes: CS5001
 
 ```csharp
@@ -334,7 +334,7 @@ class Rectangle : Shape
 }
 ```
 
-## `chapters/13_oop/1305_abstraction.ipynb` cell 16 — Interfaces
+## `chapters/12_oop/1305_abstraction.ipynb` cell 16 — Interfaces
 Error codes: CS5001
 
 ```csharp

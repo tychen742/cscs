@@ -21,8 +21,9 @@ logger = logging.getLogger(__name__)
 
 
 def is_part_landing_doc(docname: str) -> bool:
-    """Return True for house-convention part landing pages."""
-    return docname.startswith("chapters/parts/part_")
+    """Return True for unnumbered part and appendix overview pages."""
+    return (docname.startswith("chapters/parts/part_")
+            or docname == "chapters/appendices/appendix_overview")
 
 
 def assign_section_numbers(self, env: BuildEnvironment) -> List[str]:

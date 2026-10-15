@@ -33,3 +33,11 @@
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
+
+## Integrated Responsibility Practice (2026-10-15)
+
+Optional `0605_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations from the former ethics chapter. It extends core testing without adding a required meeting.
+
+## AI Literacy Integration (2026-10-15)
+
+The testing lesson adds a prepared AI-review activity in which ordinary tests pass while the boundary and invalid cases expose defects. Students derive expected outcomes independently, repair the implementation, and retain the same checks. Use it within the existing practice time.
