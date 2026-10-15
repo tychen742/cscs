@@ -38,3 +38,7 @@ in `demos/README.md` and each project README.
 - Instructor guidance: `instructor_support/labs/02_assessment_alignment.md`.
 
 These assessments require only sequential code and library calls. User-defined methods, classes, loops, and exception handling are not required. Existing published paths and Lab cell IDs remain unchanged. New Homework exercise IDs use the semantic `cscs-variables-types-homework-coding-*` prefix; existing notebook metadata is retained.
+
+## Keyword Placement (2026-10-15)
+
+The basic reserved-keyword explanation and collapsed list live in Section 1.3. Section 2.1 retains a linked optional note on escaped identifiers and contextual keywords, with a standalone shipment example using meaningful `itemCount` instead of `var var`. The existing `keywords-section` anchor remains in 2.1.

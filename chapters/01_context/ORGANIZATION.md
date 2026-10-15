@@ -21,3 +21,7 @@ Ethical analysis is introduced here and revisited with testing (Chapter 6), priv
 ## AI Literacy Integration (2026-10-15)
 
 Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assistance, and verified behavior. Students predict, ask focused questions when permitted, check suggestions, use synthetic data, and record assistance. It does not require live AI access.
+
+## Keyword Progression (2026-10-15)
+
+Section 1.3 introduces reserved keywords and provides the collapsed list. Section 2.1 links back and treats escaped identifiers and contextual keywords as optional reading after variables and type inference.

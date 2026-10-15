@@ -24,3 +24,7 @@
 Preview introduces vocabulary from all three sections without code prediction. Lab retains the office-supply theme: declare an order, calculate rounded amounts, parse a quantity, plan boxes with quotient/remainder and Ceiling, and produce a normalized input-driven invoice. Homework transfers the same concepts to sales targets, workload averages, staff badges, expense summaries, and budget differences.
 
 The five true/false cases have two true and three false answers. They address value assignment, method return values, parsed input, cast placement, and logical conjunction. Homework code is independent of the lab and uses no later control-flow or object-design skills. Valid-input and numeric-culture assumptions are explicit. The chapter's three section notebooks remain unchanged by this assessment pass.
+
+## Keyword Progression (2026-10-15)
+
+Section 1.3 introduces reserved keywords and provides the collapsed list. Section 2.1 links back and treats escaped identifiers and contextual keywords as optional reading after variables and type inference.

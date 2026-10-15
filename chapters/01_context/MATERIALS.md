@@ -27,3 +27,7 @@ Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assis
 ## Basic Syntax Revision (2026-10-15)
 
 Section 1.3 uses a connected Northwind order-desk message with predict/run, modify, and repair exercises. Eleven standalone code cells compile and produce verified output; the intentionally broken repair starter reproduces CS1002, then CS0103 after the semicolon is fixed. Demonstrations and hidden solutions retain executed output. Assessment IDs and the section URL remain unchanged.
+
+## Keyword Placement (2026-10-15)
+
+The basic reserved-keyword explanation and collapsed list live in Section 1.3. Section 2.1 retains a linked optional note on escaped identifiers and contextual keywords, with a standalone shipment example using meaningful `itemCount` instead of `var var`. The existing `keywords-section` anchor remains in 2.1.
