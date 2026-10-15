@@ -197,11 +197,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const runnerBaseUrl = localStorage.getItem('CSCS_RUNNER_API') ||
         window.CSCS_RUNNER_API ||
         (local ? 'http://localhost:8081' : `${location.origin}/cscs-exec`);
-    // Press roles that may author; the authoring API enforces the same list.
-    const authorRoles = new Set(['admin', 'author', 'editor', 'instructor', 'ta']);
+    // These controls mirror Press book grants; the API independently enforces them.
 
     function addAuthorMenuItem(session) {
-        if (!session?.authenticated || !authorRoles.has(session.user?.role)) return;
+        if (!session?.authenticated || !session.user?.author_books?.includes('cscs')) {
+            document.querySelector('[data-cscs-author]')?.remove();
+            return;
+        }
         const account = document.getElementById('thinkpress-account');
         const menu = account?.querySelector('nav');
         if (!menu || menu.querySelector('[data-cscs-author]')) return;
@@ -536,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             window.setTimeout(() => { sync.textContent = 'Sync'; }, 4500);
         });
-        document.body.appendChild(sync);
+        if (window.thinkpressSession?.user?.publish_books?.includes('cscs')) document.body.appendChild(sync);
         document.querySelectorAll('.cscs-student-copy').forEach(copy => {
             if (copy.querySelector('.cscs-author-copy-save')) return;
             const copySave = document.createElement('button');

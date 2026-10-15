@@ -4,7 +4,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 /// <summary>A verified Press pass: the Press user ID, plus role and email on author passes.</summary>
-public sealed record PressPass(string Subject, string? Role, string? Email);
+public sealed record PressPass(string Subject, string? Role, string? Email, bool CanEdit, bool CanPublish);
 
 /// <summary>
 /// Checks passes signed by Press: compact JWS, ES256, 64-byte r || s signature.
@@ -87,13 +87,17 @@ public sealed class PressPassVerifier
             if (claims.GetProperty("iat").GetInt64() - ClockSkewSeconds > current) return null;
             var subject = claims.GetProperty("sub").GetString();
             if (string.IsNullOrEmpty(subject)) return null;
-            return new PressPass(subject, OptionalString(claims, "role"), OptionalString(claims, "email"));
+            return new PressPass(subject, OptionalString(claims, "role"), OptionalString(claims, "email"),
+                IsTrue(claims, "can_edit"), IsTrue(claims, "can_publish"));
         }
         catch (Exception exception) when (exception is FormatException or JsonException or KeyNotFoundException or InvalidOperationException or CryptographicException)
         {
             return null;
         }
     }
+
+    private static bool IsTrue(JsonElement claims, string name) =>
+        claims.TryGetProperty(name, out var value) && value.ValueKind == JsonValueKind.True;
 
     private static string? OptionalString(JsonElement claims, string name) =>
         claims.TryGetProperty(name, out var value) && value.ValueKind == JsonValueKind.String ? value.GetString() : null;
