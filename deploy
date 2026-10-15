@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# Backup only: normally publish by pushing main and checking GitHub Actions.
+# Use direct upload only if that deployment fails or is unavailable; see AGENTS.md.
 exec "$HOME/.ty/scripts/deploy.sh" "$@"

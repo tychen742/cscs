@@ -5,6 +5,13 @@ Introduction to CSCS in C\#
 2. pip install "jupyter-book<2"
 3. pip install sphinxcontrib.youtube
 
+Deployment
+----------
+
+Commit and push to `main` to publish through the [Build and Deploy workflow](https://github.com/tychen742/cscs/actions/workflows/deploy.yml). Check its result before considering a fallback; queued or running jobs are still in progress.
+
+The `./deploy` wrapper is retained only as a backup when the GitHub Actions deployment fails or is unavailable. Investigate the workflow problem before using direct upload. Do not use direct upload for routine deployment or alongside a working workflow.
+
 <!-- Build Status
 ------------- -->
 

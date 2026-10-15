@@ -103,6 +103,12 @@ Post-class reinforcement uses `homework.ipynb`.
 - Always show diffs when proposing changes to existing content
 - When evaluating a chapter: are essential topics covered? Are sections organized soundly?
 
+## Deployment
+
+- Deploy by committing changes and pushing to `main`; `.github/workflows/deploy.yml` builds and publishes through GitHub Actions.
+- Check the workflow result before considering a fallback. A queued or running workflow is not a failure.
+- Keep `./deploy` as a backup route only. Use direct upload only when the GitHub Actions deployment fails or is unavailable, after investigating the problem. Do not use it for routine deployment or alongside a working workflow.
+
 ## Audit Workflow
 
 When auditing the book or a chapter, follow the `book-authoring` skill's
