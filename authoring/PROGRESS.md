@@ -25,7 +25,7 @@ path (browser `localStorage` or server records) is not migrated.
 
 | TOC order | Folder | Title | Assignments | Status | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 01 | `chapters/01_context` | Computing, Programs, and Responsibility | preview, lab, homework | Needs Review | Revised three-section progression; assignments aligned; video/slides pending. |
+| 01 | `chapters/01_context` | Computing, Programs, and Responsibility | preview, lab, homework | Needs Review | Revised three-section progression; 1.3 adds basic syntax and connected order-desk exercises; assignments aligned; video/slides pending. |
 | 02 | `chapters/02_var_data` | Variables, Data Types, and Operators | preview, lab, homework | In Progress | Assessments aligned with the three sections and built-in methods; lessons retain their existing review status |
 | 03 | `chapters/03_methods` | Methods | preview, lab, homework | In Progress |  |
 | 04 | `chapters/04_decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |

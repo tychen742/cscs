@@ -8,7 +8,7 @@ orphan: true
 
 - `0101_cs_ideas.ipynb`: computing, hardware/software/data, IPO, algorithms/workflow, compilation, sequential execution, and correctness.
 - `0102_computing_responsibility.ipynb`: stakeholders and harm, necessary data, accessible output, attribution, responsible AI assistance, and a fictional reminder exercise.
-- `0103_program_structure.ipynb`: first saved console project, explicit Main, source/project files, edit/save/run, and recognition of top-level statements.
+- `0103_program_structure.ipynb`: first saved console project and basic syntax: statements/expressions, literals/interpolation, identifiers/keywords/case, method calls/arguments/return values, blocks/formatting/comments, compiler diagnostics, and recognition of top-level statements. Connected order-desk predict/run/modify/repair exercises use no variables or input.
 
 ## Assignments
 
@@ -23,3 +23,7 @@ A recording and slide deck for the revised Chapter 1 remain pending. The prior o
 ## AI Literacy Integration (2026-10-15)
 
 Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assistance, and verified behavior. Students predict, ask focused questions when permitted, check suggestions, use synthetic data, and record assistance. It does not require live AI access.
+
+## Basic Syntax Revision (2026-10-15)
+
+Section 1.3 uses a connected Northwind order-desk message with predict/run, modify, and repair exercises. Eleven standalone code cells compile and produce verified output; the intentionally broken repair starter reproduces CS1002, then CS0103 after the semicolon is fixed. Demonstrations and hidden solutions retain executed output. Assessment IDs and the section URL remain unchanged.

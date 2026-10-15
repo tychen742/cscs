@@ -51,7 +51,7 @@ Parts I-III (Chapters 1-12) form the complete CS1 route. Part IV (Chapters 13-20
 
 ## Chapter 1 and Development Tools
 
-Chapter 1 is Computing, Programs, and Responsibility: 1.1 Computing and Problem Solving (30 minutes), 1.2 Computing and Professional Responsibility (35 minutes), and 1.3 Your First C# Program (45 minutes). Its 110-minute progression uses an appointment-reminder example. Keep editor/compiler/runtime roles and the first edit/build/run workflow in the chapter.
+Chapter 1 is Computing, Programs, and Responsibility: 1.1 Computing and Problem Solving (30 minutes), 1.2 Computing and Professional Responsibility (35 minutes), and 1.3 Your First C# Program and Basic Syntax (45 minutes). Its 110-minute progression uses an appointment-reminder example for responsibility and an order-desk message for syntax. Keep editor/compiler/runtime roles and the first edit/build/run workflow in the chapter.
 
 Appendix B provides .NET SDK installation, VS Code/C# extensions, terminal/workspace preparation, CSharpRepl, ecosystem reference, and setup troubleshooting. Its existing Commons reference pages remain synced sources. Appendix C retains Git and adds the detailed professional-practice reference. The previous setup video moves with setup; a revised chapter video and slides are pending.
 
