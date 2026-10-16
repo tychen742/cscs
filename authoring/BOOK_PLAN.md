@@ -4,7 +4,7 @@
 
 Computer Science in C# is an open Jupyter Book for students beginning programming, with management and business examples and a wider CS/IT foundation. No programming experience is assumed. COB, IST, IT, IS, and LIS programs can adopt CS1 alone or a CS1/CS2 sequence.
 
-Parts I-III (Chapters 1-12) form the complete CS1 route. Part IV (Chapters 13-20) supplies eight CS2 foundation units. Part V (Chapters 21-26) supplies six selectable units of algorithmic depth. The 26-chapter volume is not a requirement to teach 26 weeks. Instructors reserve time for review, exams, and projects.
+Parts I-III (Chapters 1-12) form the complete CS1 route. Parts IV-V (Chapters 13-20) supply eight CS2 foundation units. Parts VI-VII (Chapters 21-26) supply six selectable units of algorithmic depth. The 26-chapter volume is not a requirement to teach 26 weeks. Instructors reserve time for review, exams, and projects.
 
 ## Current Sequence
 
@@ -12,10 +12,10 @@ Parts I-III (Chapters 1-12) form the complete CS1 route. Part IV (Chapters 13-20
 
 1. Computing, Programs, and Responsibility.
 2. Variables, Data Types, and Operators.
-3. Methods.
-4. Decisions.
-5. Iteration.
-6. Exceptions, Debugging, Testing, and Nullability.
+3. Decisions.
+4. Iteration.
+5. Methods.
+6. Testing, Debugging, and Error Handling.
 
 ### Part II. Data and I/O (Chapters 7-9)
 
@@ -29,25 +29,50 @@ Parts I-III (Chapters 1-12) form the complete CS1 route. Part IV (Chapters 13-20
 11. Object Design and Composition.
 12. Inheritance, Interfaces, and Polymorphism.
 
-### Part IV. Data Structures (Chapters 13-20)
+### Part IV. Data Abstraction and Linear Structures (Chapters 13-16)
 
 13. Abstract Data Types.
 14. Arrays and Linked Lists.
 15. Stacks and Queues.
 16. Searching and Basic Sorting.
+
+### Part V. Trees, Hashing, and Graphs (Chapters 17-20)
+
 17. Trees and Binary Search Trees.
 18. Priority Queues and Heaps.
 19. Hash Collections and Sets.
 20. Graphs and Traversal.
 
-### Part V. Algorithms (Chapters 21-26)
+### Part VI. Algorithm Analysis and Design (Chapters 21-23)
 
 21. Algorithm Analysis.
 22. Recursion and Divide and Conquer.
 23. Advanced Searching and Sorting.
+
+### Part VII. Optimization and Computational Limits (Chapters 24-26)
+
 24. Greedy Algorithms and Graph Optimization.
 25. Dynamic Programming and Backtracking.
 26. Advanced Graphs, Strings, and Computational Limits.
+
+## Testing, Debugging, and Error-Handling Progression
+
+Testing is a development habit from the first program, not a topic that begins in Chapter 6. Keep three roles distinct: testing checks behavior against expectations, debugging investigates discrepancies, and exception handling defines failure responses.
+
+| Location | Teaching role |
+| --- | --- |
+| Chapters 1-2 | Read compiler/runtime diagnostics, predict output, and compare actual results with expected results. Use valid-input assumptions explicitly; do not require exception syntax. |
+| Chapters 3-4 | Check decision boundaries, invalid values, and zero/one/many iterations. Use decisions and TryParse for routine validation when appropriate. |
+| Chapter 5 | Define methods around familiar decisions and loops, then test return values with independent expected results and ordinary and boundary cases. |
+| Chapter 6 | Consolidate systematic test design, debugger use, regression checks, and basic try/catch/throw. Retain basic null checks for missing input; do not require the full nullable operator/reference-type system. |
+| Chapter 9 | Revisit exceptions with missing files, malformed records, and deterministic resource cleanup. |
+| Chapters 10-12 | Extend tests to object state and collaboration. Chapter 11 owns deeper nullability: nullable value versus reference types, compiler flow warnings, required versus optional relationships, constructor contracts, safe navigation, and missing-data tests. Revisit failure contracts through interfaces in Chapter 12. |
+
+The relocated nullability notebook is supporting reading within Chapter 11's three meetings, not an additional week. Basic null checks remain available earlier wherever needed. Nullable annotations describe a compile-time contract; runtime validation still enforces required values. Do not teach the null-forgiving operator as a repair for an invalid contract.
+
+## Part Boundaries and Prerequisites
+
+Keep all 26 chapters in their existing order. Parts IV and V divide the CS2 foundation into linear structures and trees/hashing/graphs. Parts VI and VII divide selectable depth into analysis/design and optimization/limits. Chapter 13 still introduces practical cost analysis before operation comparisons; Chapter 17 still introduces recursive cases and call-stack traces before tree algorithms. Neither foundation requires the later algorithms parts.
 
 ## Chapter 1 and Development Tools
 
@@ -63,7 +88,7 @@ The former Chapters 8-27 become Chapters 7-26. Numbered demo folders follow the 
 
 ## Course Design
 
-CS1 progresses from problem solving and responsibility through sequential programs, variables, methods, decisions, iteration, testing, arrays, collections, files, and object-oriented design. Its project grows from a small console program to a tested application. Database persistence is optional after OOP.
+CS1 progresses from problem solving and responsibility through sequential programs, variables, decisions, iteration, methods, testing, arrays, collections, files, and object-oriented design. Its project grows from a small console program to a tested application. Database persistence is optional after OOP.
 
 CS2 assumes methods, collections, classes, and interfaces. Its foundation studies contracts/costs, linear structures, searching/sorting, recursive trees, heaps, hashing, and graph traversal. Projects emphasize choosing representations, testing invariants, and explaining tradeoffs. Instructors select optional algorithms according to course goals.
 
@@ -349,6 +374,14 @@ throughout the semester.
 
 The database appendix is an optional business application capstone after OOP (Chapters 10-12), suitable for about one to two selected weeks or a project persistence milestone. It covers relational tables/keys, basic queries and joins, parameterized changes, constraints, and persistent SQLite state; the sales transaction remains a connected extension. Administration, ORM frameworks, migrations, and advanced SQL tuning are outside scope. Core business exercises can use synthetic data, collections, and files without databases.
 
-AI literacy is part of the existing chapters, not a separate numbered chapter. Chapter 1 introduces generative AI, LLMs, prompts, limitations, privacy, attribution, and verification. Selected activities in Chapters 3, 6, and 9 ask students to review a prepared candidate, derive counterexamples, and verify a revision. Live assistants are optional and governed by course policy. Core tasks must remain usable without a paid AI account. Instructors retain independent tracing, explanation, modification, and testing as learning evidence.
+AI literacy is part of the existing chapters, not a separate numbered chapter. Chapter 1 introduces generative AI, LLMs, prompts, limitations, privacy, attribution, and verification. Selected activities in Chapters 5, 6, and 9 ask students to review a prepared candidate, derive counterexamples, and verify a revision. Live assistants are optional and governed by course policy. Core tasks must remain usable without a paid AI account. Instructors retain independent tracing, explanation, modification, and testing as learning evidence.
 
 Building an AI-powered application is a separate optional post-OOP project extension at `chapters/appendices/project/ai_extension.ipynb`, ID `cscs-ai-project-extension`. One narrow feature uses an isolated response-producing component, recorded synthetic responses, response validation, tests, and human review. The core application and grading demonstration remain runnable offline. A live provider is optional; this book pass adds no API client, credentials, model training, fine-tuning, or agent framework.
+
+## Control Flow Before Method Definitions (2026-10-16)
+
+Part I now runs Computing (1), Variables/Data/Operators (2), Decisions (3), Iteration (4), Methods (5), and Testing/Debugging/Error Handling (6). Chapter 2 still teaches calling built-in methods and reading their return values. Chapters 3-4 use top-level statements; they do not require students to define methods, classes, parameters, or return statements. Chapter 5 uses familiar decisions and loops to motivate decomposition and repeatable method tests.
+
+Minimal string prerequisites are taught where needed: Chapter 2 introduces strings and library calls; Chapter 3 explains case-sensitive string equality; Chapter 4 introduces Length, zero-based character indexing, and foreach over a string. General cleaning, searching, extraction, immutability, and chaining remain in Section 5.4. Validation-loop labs use exact lowercase y/n responses and explain TryParse/out locally. No early required task depends on later string-processing tools.
+
+The optional function-based Grade Calculation 2 assignment now belongs to Chapter 5. The first Grade Calculation stays with Iteration and explicitly permits top-level code. Existing assessment/cell IDs are independent of displayed numbering. Published old chapter/assignment URLs redirect directly to their new locations.

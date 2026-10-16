@@ -24,7 +24,7 @@ def compare(actual, expected_file):
 
 
 def main():
-    for number, stem in [('03', 'sku_report_lab_solution'), ('09', 'privacy_pass_lab_solution')]:
+    for number, stem in [('05', 'sku_report_lab_solution'), ('09', 'privacy_pass_lab_solution')]:
         compare(run(ROOT / 'demos' / number / (stem + '.csproj')),
                 OUTPUTS / (('09_privacy' if number == '09' else number) + '_reference_output.txt'))
         print(f'Chapter {number} reference passed.', flush=True)

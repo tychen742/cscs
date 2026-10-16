@@ -1,28 +1,27 @@
-# Chapter Organization — Exceptions and Testing
+# Chapter Organization: Testing, Debugging, and Error Handling
 
 ## Learning Objectives
 
-<!-- List 3–5 measurable student outcomes -->
+1. Design ordinary, boundary, and invalid-input tests with independently derived expected results.
+2. Reproduce a failure and inspect execution using breakpoints, stepping, and watches.
+3. Distinguish routine validation, exceptions, and logic defects; handle a specific recoverable failure.
+4. Preserve a regression check after repairing a defect.
+5. Check for missing input before using it.
 
-## Sequence
+## Three Class Meetings
 
-- Exception handling
-- Debugging workflow
-- Unit testing and testable failure cases
-- Nullable value and reference types
+1. Error Handling and Validation (35 minutes): expected versus actual behavior, routine validation, TryParse, basic null checks, reading exception messages, and basic try/catch/throw. Keep the existing section path and order.
+2. Debugging Workflow (35 minutes): reproduce, minimize, hypothesize, inspect state, repair, and retain a regression test. Use methods, decisions, and loops already taught.
+3. Unit Testing (40 minutes): independent expected results, arrange/act/assert, boundary tables, repeatable method checks, and a small C# unit-test project. Distinguish manual checks, automated tests, and debugging. Include the prepared AI-review boundary exercise within practice time.
 
-## Notes
+Total: 110 minutes. Testing is introduced in Chapters 1-5; this chapter consolidates it rather than introducing verification for the first time.
 
-Nullability is integrated here because it makes invalid and missing data
-explicit at the same boundary where students learn exceptions and tests. The
-former standalone Nullable notebook is now a supporting section, not a
-separate advanced-topic chapter.
-- Testing coverage should be cleaned up around a small, repeatable C# unit-testing workflow, with clear boundaries between simple manual checks, automated unit tests, and debugging.
+## Scope and Later Reinforcement
 
-## Integrated Responsibility Practice (2026-10-15)
+Keep basic missing-input checks here. Deeper nullable value/reference types, compiler flow warnings, null operators, optional relationships, and constructor contracts now belong to Chapter 11's supporting reading, `1104_nullability.ipynb`. Do not require records, LINQ, or advanced property patterns in Chapter 6. Files and resource cleanup return in Chapter 9; object-state, collaboration, and failure-contract tests return in Chapters 10-12.
 
-Optional `0605_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations from the former ethics chapter. It extends core testing without adding a required meeting.
+Optional `0605_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations without adding a required meeting. The prepared AI-review activity needs no paid AI access.
 
-## AI Literacy Integration (2026-10-15)
+## Alignment Work Remaining
 
-The testing lesson adds a prepared AI-review activity in which ordinary tests pass while the boundary and invalid cases expose defects. Students derive expected outcomes independently, repair the implementation, and retain the same checks. Use it within the existing practice time.
+The title, TOC, orientation, and nullable lesson location are updated. Align the existing Preview, Lab, and Homework with the reduced scope in a later assessment pass: basic null checks may remain, but deeper nullable operator/type questions should move to OOP with their identifiers preserved. Strengthen the repeatable test-project workflow and early-chapter practice before claiming the full progression is implemented. Retain the existing chapter URL, video, and assessment IDs.

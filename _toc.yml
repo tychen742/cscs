@@ -45,60 +45,59 @@ parts:
         title: Lab
       - file: chapters/02_var_data/assignments/homework
         title: Homework
-  - file: chapters/03_methods/0300_methods
+  - file: chapters/03_decision/0300_conditionals
     sections:
-    - file: chapters/03_methods/0301_intro_methods
-    - file: chapters/03_methods/0302_signature_call
-    - file: chapters/03_methods/0303_parameter
-    - file: chapters/03_methods/0304_strings
-    - file: chapters/03_methods/0305_summary
-    - file: chapters/03_methods/assignments/index
+    - file: chapters/03_decision/0301_intro_decision
+    - file: chapters/03_decision/0302_ifstatement
+    - file: chapters/03_decision/0306_switch
+    - file: chapters/03_decision/assignments/index
       title: Assignments
       sections:
-      - file: chapters/03_methods/assignments/preview
+      - file: chapters/03_decision/assignments/preview
         title: Preview
-      - file: chapters/03_methods/assignments/lab
+      - file: chapters/03_decision/assignments/lab
         title: Lab
-      - file: chapters/03_methods/assignments/homework
+      - file: chapters/03_decision/assignments/homework
         title: Homework
-  - file: chapters/04_decision/0400_conditionals
+  - file: chapters/04_iteration/0400_iteration
     sections:
-    - file: chapters/04_decision/0401_intro_decision
-    - file: chapters/04_decision/0402_ifstatement
-    - file: chapters/04_decision/0406_switch
-    - file: chapters/04_decision/assignments/index
+    - file: chapters/04_iteration/0401_iteration
+    - file: chapters/04_iteration/0402_for_statements
+    - file: chapters/04_iteration/0403_while_statement
+    - file: chapters/04_iteration/assignments/index
       title: Assignments
       sections:
-      - file: chapters/04_decision/assignments/preview
+      - file: chapters/04_iteration/assignments/preview
         title: Preview
-      - file: chapters/04_decision/assignments/lab
+      - file: chapters/04_iteration/assignments/lab
         title: Lab
-      - file: chapters/04_decision/assignments/homework
-        title: Homework
-  - file: chapters/05_iteration/0500_iteration
-    sections:
-    - file: chapters/05_iteration/0501_iteration
-    - file: chapters/05_iteration/0502_for_statements
-    - file: chapters/05_iteration/0503_while_statement
-    - file: chapters/05_iteration/assignments/index
-      title: Assignments
-      sections:
-      - file: chapters/05_iteration/assignments/preview
-        title: Preview
-      - file: chapters/05_iteration/assignments/lab
-        title: Lab
-      - file: chapters/05_iteration/assignments/homework_gradecalculation
+      - file: chapters/04_iteration/assignments/homework_gradecalculation
         title: 'Homework: Grade Calculation'
-      - file: chapters/05_iteration/assignments/homework_gradecalculation2
-        title: 'Homework: Grade Calculation 2'
-      - file: chapters/05_iteration/assignments/homework
+      - file: chapters/04_iteration/assignments/homework
         title: Homework
+  - file: chapters/05_methods/0500_methods
+    sections:
+    - file: chapters/05_methods/0501_intro_methods
+    - file: chapters/05_methods/0502_signature_call
+    - file: chapters/05_methods/0503_parameter
+    - file: chapters/05_methods/0504_strings
+    - file: chapters/05_methods/0505_summary
+    - file: chapters/05_methods/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/05_methods/assignments/preview
+        title: Preview
+      - file: chapters/05_methods/assignments/lab
+        title: Lab
+      - file: chapters/05_methods/assignments/homework
+        title: Homework
+      - file: chapters/05_methods/assignments/homework_gradecalculation2
+        title: 'Homework: Grade Calculation 2'
   - file: chapters/06_exceptions_testing/0600_exceptions_testing
     sections:
     - file: chapters/06_exceptions_testing/0601_error_handling
     - file: chapters/06_exceptions_testing/0602_debugging_workflow
     - file: chapters/06_exceptions_testing/0603_testing
-    - file: chapters/06_exceptions_testing/0604_nullable
     - file: chapters/06_exceptions_testing/0605_software_responsibility
       title: Software Failures and Responsibility (Optional Cases)
     - file: chapters/06_exceptions_testing/assignments/index
@@ -196,6 +195,8 @@ parts:
     - file: chapters/11_object_design/1101_objects_references
     - file: chapters/11_object_design/1102_composition
     - file: chapters/11_object_design/1103_testing_collaboration
+    - file: chapters/11_object_design/1104_nullability
+      title: Nullability and Missing Data (Supporting Reading)
     - file: chapters/11_object_design/assignments/index
       title: Assignments
       sections:
@@ -219,7 +220,7 @@ parts:
         title: Lab
       - file: chapters/12_oop/assignments/homework
         title: Homework
-- caption: Part IV. Data Structures
+- caption: Part IV. Data Abstraction and Linear Structures
   numbered: true
   chapters:
   - file: chapters/parts/part_04_data_structures
@@ -281,6 +282,11 @@ parts:
         title: Lab
       - file: chapters/16_searching_sorting/assignments/homework
         title: Homework
+- caption: Part V. Trees, Hashing, and Graphs
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_05_trees_hashing_graphs
+    title: Part V Overview
   - file: chapters/17_trees/1700_trees_bst
     sections:
     - file: chapters/17_trees/1701_tree_structure
@@ -337,11 +343,11 @@ parts:
         title: Lab
       - file: chapters/20_graphs/assignments/homework
         title: Homework
-- caption: Part V. Algorithms
+- caption: Part VI. Algorithm Analysis and Design
   numbered: true
   chapters:
-  - file: chapters/parts/part_05_algorithms
-    title: Part V Overview
+  - file: chapters/parts/part_06_algorithm_analysis_design
+    title: Part VI Overview
   - file: chapters/21_algorithm_analysis/2100_algorithm_analysis
     sections:
     - file: chapters/21_algorithm_analysis/2101_big_o
@@ -384,6 +390,11 @@ parts:
         title: Lab
       - file: chapters/23_searching_sorting/assignments/homework
         title: Homework
+- caption: Part VII. Optimization and Computational Limits
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_07_optimization_limits
+    title: Part VII Overview
   - file: chapters/24_greedy_graph_optimization/2400_greedy_graph_optimization
     sections:
     - file: chapters/24_greedy_graph_optimization/2401_greedy_choice

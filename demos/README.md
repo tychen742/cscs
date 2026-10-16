@@ -24,10 +24,10 @@ executable, so they also work when run from the repository root.
 | [01/hello_world](01/hello_world/HelloWorld.csproj) | Supporting project | console |
 | [02/input](02/input/input.csproj) | Supporting project | console |
 | [02/output](02/output/output.csproj) | Supporting project | console |
-| [03/methods_demo](03/methods_demo/methods_demo.csproj) | Supporting project | console |
-| [04/conditional_demo](04/conditional_demo/conditional_demo.csproj) | Supporting project | console |
-| [05/for_loop_demo](05/for_loop_demo/for_loop_demo.csproj) | Supporting project | console |
-| [05/while_loop_demo](05/while_loop_demo/while_loop_demo.csproj) | Supporting project | console |
+| [03/methods_demo](05/methods_demo/methods_demo.csproj) | Supporting project | console |
+| [04/conditional_demo](03/conditional_demo/conditional_demo.csproj) | Supporting project | console |
+| [05/for_loop_demo](04/for_loop_demo/for_loop_demo.csproj) | Supporting project | console |
+| [05/while_loop_demo](04/while_loop_demo/while_loop_demo.csproj) | Supporting project | console |
 | [10/file_demo](09/file_demo/file_demo.csproj) | Supporting project | console |
 | [08/arrays_demo](07/arrays_demo/arrays_demo.csproj) | Supporting project | console |
 | [08/array_lab](07/array_lab/array_lab.csproj) | Supporting project | console |

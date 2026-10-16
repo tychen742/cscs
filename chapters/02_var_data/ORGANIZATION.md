@@ -16,7 +16,7 @@
 
 ## Notes
 
-- 2026-10-10: five sections merged into three (one per class meeting). Built-in methods are taught here, before chapters 3 to 5, so students know what a method call, argument, and return value are before they write methods. Chapter 3 defines methods and keeps the full string methods section (3.4).
+- 2026-10-10: five sections merged into three (one per class meeting). Built-in methods are taught here, before Chapters 3-5, so students know what a method call, argument, and return value are before they write methods. Chapter 5 defines methods and keeps the full string methods section (5.4).
 - `using`/namespaces are covered in 1.4 (implicit usings); this chapter only reminds students that `Math` and `string` live in `System`.
 
 ## Assessment Sequence (2026-10-15)
@@ -28,3 +28,7 @@ The five true/false cases have two true and three false answers. They address va
 ## Keyword Progression (2026-10-15)
 
 Section 1.3 introduces reserved keywords and provides the collapsed list. Section 2.1 links back and treats escaped identifiers and contextual keywords as optional reading after variables and type inference.
+
+## Reliability Progression (2026-10-16)
+
+Predict expression/output results and check conversions and formatting against explicit expected values. Keep valid-input assumptions visible; do not require exception handling. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.

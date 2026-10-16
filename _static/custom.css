@@ -2871,3 +2871,14 @@ a.image-reference img {
 .prev-next-area a p.prev-next-title {
     font-size: 0.85rem;
 }
+
+/* Part titles are the overview links, retaining the sidebar heading's typography. */
+nav.bd-links .caption-text a.part-overview-link {
+    color: var(--pst-color-link, #176de8);
+    font: inherit;
+    text-decoration: none;
+}
+nav.bd-links .caption-text a.part-overview-link:hover,
+nav.bd-links .caption-text a.part-overview-link:focus-visible {
+    text-decoration: underline;
+}

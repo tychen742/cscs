@@ -29,3 +29,7 @@ The third lesson now uses a single runnable CashRegister model: independent stat
 - Book List is optional after Chapter 11 because its collection-owning class crosses this chapter's collaboration boundary. Its existing URL and TOC placement are retained.
 
 The three core lessons and 110-minute teaching plan are unchanged. This pass completes the standard Chapter 10 assignment revision; slides remain pending.
+
+## Reliability Progression (2026-10-16)
+
+Connect constructors and methods to observable state and repeatable tests. Check required inputs; Chapter 11 develops deeper nullable contracts and optional references. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.

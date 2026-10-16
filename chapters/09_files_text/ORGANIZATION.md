@@ -23,3 +23,7 @@ Optional `0905_privacy_security.ipynb` extends personal-data masking, validation
 ## AI Literacy Integration (2026-10-15)
 
 The text-processing lesson adds a prepared AI-review activity for a synthetic stock import: specify the schema, reject malformed/out-of-range records, and preserve original input. Prompt privacy and response validation accompany the code. Live assistant use is optional and subject to course policy.
+
+## Reliability Progression (2026-10-16)
+
+Revisit Chapter 6 with missing files, malformed records, specific recoverable exceptions, and deterministic cleanup with using. Distinguish invalid records from unavailable resources. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.

@@ -16,10 +16,11 @@ CASES = {
     '01/hello_world': ('', [], ['Hello, World!']),
     '02/input': ('20\nAlex\nAlex\n101\n90\n-11\n5\n', [], ['Your score is 90.', 'Your number is 5.']),
     '02/output': ('Alex\n9:00\n', [], ['Alex has an interview at 9:00.']),
-    '03/methods_demo': ('2\n3\n', [], ['2 + 3 = 5', 'Old MacDonald had a farm']),
-    '04/conditional_demo': ('75\n', [], ['Wear shorts.']),
-    '05/for_loop_demo': ('', [], ['edcba', 'OrderReady', '5! = 120']),
-    '05/while_loop_demo': ('\n'.join(str(i) for i in range(1, 101)) + '\n', [], ['Correct!']),
+    '05/loop_methods_demo': ('', [], ['edcba', 'OrderReady', '5! = 120']),
+    '05/methods_demo': ('2\n3\n', [], ['2 + 3 = 5', 'Old MacDonald had a farm']),
+    '03/conditional_demo': ('75\n', [], ['Wear shorts.']),
+    '04/for_loop_demo': ('', [], ['edcba', 'OrderReady', '5! = 120']),
+    '04/while_loop_demo': ('\n'.join(str(i) for i in range(1, 101)) + '\n', [], ['Correct!']),
     '06/exceptions_demo': ('', [], ['Access denied']),
     '06/math_lab/math_app': ('', [], ['10 * 10 = 100']),
     '07/arrays_demo': ('', ['1', '2', '3'], ['There are 3 command line parameters.', 'ints.Length: 12']),
@@ -106,7 +107,7 @@ def main():
                 print(output.strip(), flush=True)
         # Additional run modes and decision branches.
         extras = [
-            ('04/conditional_demo/conditional_demo.csproj', ('60\n', [], ['Wear long pants.'])),
+            ('03/conditional_demo/conditional_demo.csproj', ('60\n', [], ['Wear long pants.'])),
             ('10/classes_lab/classes_lab.csproj', ('1\n0\n', ['guess'], ['You won on guess 1!'])),
             ('10/classes_lab/classes_lab.csproj', ('1\n0\n', ['static-guess'], ['You won on guess 1!'])),
             ('23/search_sort_demo/search_sort_demo.csproj', ('', ['sort', '20', '42'], ['Bubble Sort:', 'Quick Sort:'])),

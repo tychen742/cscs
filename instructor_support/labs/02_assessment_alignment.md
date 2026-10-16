@@ -1,6 +1,6 @@
 # Chapter 2 Assessment Alignment
 
-The three sections introduce variables/types, operators/library methods, and input/output. Assess sequential code and method calls here; defining methods belongs to Chapter 3. The assessment revision leaves the content notebooks unchanged.
+The three sections introduce variables/types, operators/library methods, and input/output. Assess sequential code and method calls here; defining methods belongs to Chapter 5. The assessment revision leaves the content notebooks unchanged.
 
 | Section | Lab evidence | Homework evidence |
 | --- | --- | --- |

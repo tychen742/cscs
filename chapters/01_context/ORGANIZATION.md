@@ -42,3 +42,7 @@ The five short conceptual prompts in Sections 1.1 and 1.2 use the label “Check
 - AI literacy, six minutes: define the tools, explain a requirement mismatch, and connect permitted assistance to independent understanding.
 
 Total: 35 minutes, with the two conceptual checks included in discussion. The reading develops explanations that can be prepared before class. Removed the reminder coding practice and dependent AI prompt activity rather than moving them elsewhere. Section 1.2 has no coding requirement; syntax and coding practice begin in Section 1.3. Later chapters revisit responsibility with records, methods, tests, and text processing.
+
+## Reliability Progression (2026-10-16)
+
+Read diagnostics and compare expected and actual output in the first-program workflow; do not require test frameworks or exception syntax. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.

@@ -19,3 +19,7 @@ Ten vocabulary MC preview questions; five connected discount/checkout lab tasks;
 ## Boundaries
 
 Keep interfaces as small capabilities, avoid deep hierarchies, and distinguish compile-time overload selection from runtime override dispatch. Generic ADTs follow in Chapter 13. Modern interface extensions and equality/operator overloading are optional. Retain the existing video; slides remain pending.
+
+## Reliability Progression (2026-10-16)
+
+Revisit failure and nullability contracts through interfaces and polymorphic callers; preserve promised behavior for every implementation. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.

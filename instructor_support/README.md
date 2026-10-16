@@ -33,10 +33,10 @@ do not by themselves imply a relationship to a current lab.
 | [`01/hello_world/HelloWorld.csproj`](../demos/01/hello_world/HelloWorld.csproj) | Supporting project | See the project source |
 | [`02/input/input.csproj`](../demos/02/input/input.csproj) | Supporting project | See the project source |
 | [`02/output/output.csproj`](../demos/02/output/output.csproj) | Supporting project | See the project source |
-| [`03/methods_demo/methods_demo.csproj`](../demos/03/methods_demo/methods_demo.csproj) | Supporting project | See the project source |
-| [`04/conditional_demo/conditional_demo.csproj`](../demos/04/conditional_demo/conditional_demo.csproj) | Supporting project | See the project source |
-| [`05/for_loop_demo/for_loop_demo.csproj`](../demos/05/for_loop_demo/for_loop_demo.csproj) | Supporting project | See the project source |
-| [`05/while_loop_demo/while_loop_demo.csproj`](../demos/05/while_loop_demo/while_loop_demo.csproj) | Supporting project | See the project source |
+| [`05/methods_demo/methods_demo.csproj`](../demos/05/methods_demo/methods_demo.csproj) | Supporting project | See the project source |
+| [`03/conditional_demo/conditional_demo.csproj`](../demos/03/conditional_demo/conditional_demo.csproj) | Supporting project | See the project source |
+| [`04/for_loop_demo/for_loop_demo.csproj`](../demos/04/for_loop_demo/for_loop_demo.csproj) | Supporting project | See the project source |
+| [`04/while_loop_demo/while_loop_demo.csproj`](../demos/04/while_loop_demo/while_loop_demo.csproj) | Supporting project | See the project source |
 | [`09/file_demo/file_demo.csproj`](../demos/09/file_demo/file_demo.csproj) | Supporting project | See the project source |
 | [`07/arrays_demo/arrays_demo.csproj`](../demos/07/arrays_demo/arrays_demo.csproj) | Supporting project | See the project source |
 | [`07/array_lab/array_lab.csproj`](../demos/07/array_lab/array_lab.csproj) | Supporting project | See the project source |
@@ -68,11 +68,11 @@ do not by themselves imply a relationship to a current lab.
 
 | Assignment | Canonical code | Instructor guide |
 | --- | --- | --- |
-| Chapter 3: Product Code Report task | `demos/03/sku_report_lab_solution.cs` | [Method reasoning, expected output, and assessment checkpoints](labs/03_lab_solution.md) |
+| Chapter 5: Product Code Report task | `demos/05/sku_report_lab_solution.cs` | [Method reasoning, expected output, and assessment checkpoints](labs/05_lab_solution.md) |
 | Chapter 1: Privacy Pass, Tasks 1-5 | `demos/09/privacy_pass_lab_solution.cs` | [Task walkthroughs and reflection guidance](labs/09_privacy_lab_solution.md) |
 | Chapter 7: Sales lab, Tasks 1-5 | Five hidden answer cells in the current lab notebook | [Verified outputs and grading guidance](labs/07_sales_lab.md) |
 
-The Chapter 3 reference does not cover all of Lab 03. Students must also add
+The Chapter 5 reference does not cover all of Lab 03. Students must also add
 their own example, explanation, and the requested submission evidence.
 The completed `demos/07/array_lab/` helpers are **not** the sales-lab key.
 
@@ -97,17 +97,17 @@ Do not describe the book as having a complete instructor solution manual yet.
 | [chapters/02_var_data/assignments/homework.ipynb](../chapters/02_var_data/assignments/homework.ipynb) | 5 | 10 |
 | [chapters/02_var_data/assignments/lab.ipynb](../chapters/02_var_data/assignments/lab.ipynb) | 5 | 5 |
 | [chapters/02_var_data/assignments/preview.ipynb](../chapters/02_var_data/assignments/preview.ipynb) | 0 | 10 |
-| [chapters/03_methods/assignments/homework.ipynb](../chapters/03_methods/assignments/homework.ipynb) | 0 | 0 |
-| [chapters/03_methods/assignments/lab.ipynb](../chapters/03_methods/assignments/lab.ipynb) | 0 | 0 |
-| [chapters/03_methods/assignments/preview.ipynb](../chapters/03_methods/assignments/preview.ipynb) | 0 | 0 |
-| [chapters/04_decision/assignments/homework.ipynb](../chapters/04_decision/assignments/homework.ipynb) | 0 | 0 |
-| [chapters/04_decision/assignments/lab.ipynb](../chapters/04_decision/assignments/lab.ipynb) | 5 | 5 |
-| [chapters/04_decision/assignments/preview.ipynb](../chapters/04_decision/assignments/preview.ipynb) | 0 | 0 |
-| [chapters/05_iteration/assignments/homework_gradecalculation.ipynb](../chapters/05_iteration/assignments/homework_gradecalculation.ipynb) | 0 | 0 |
-| [chapters/05_iteration/assignments/homework_gradecalculation2.ipynb](../chapters/05_iteration/assignments/homework_gradecalculation2.ipynb) | 0 | 0 |
-| [chapters/05_iteration/assignments/homework.ipynb](../chapters/05_iteration/assignments/homework.ipynb) | 0 | 0 |
-| [chapters/05_iteration/assignments/lab.ipynb](../chapters/05_iteration/assignments/lab.ipynb) | 5 | 5 |
-| [chapters/05_iteration/assignments/preview.ipynb](../chapters/05_iteration/assignments/preview.ipynb) | 0 | 0 |
+| [chapters/05_methods/assignments/homework.ipynb](../chapters/05_methods/assignments/homework.ipynb) | 0 | 0 |
+| [chapters/05_methods/assignments/lab.ipynb](../chapters/05_methods/assignments/lab.ipynb) | 0 | 0 |
+| [chapters/05_methods/assignments/preview.ipynb](../chapters/05_methods/assignments/preview.ipynb) | 0 | 0 |
+| [chapters/03_decision/assignments/homework.ipynb](../chapters/03_decision/assignments/homework.ipynb) | 0 | 0 |
+| [chapters/03_decision/assignments/lab.ipynb](../chapters/03_decision/assignments/lab.ipynb) | 5 | 5 |
+| [chapters/03_decision/assignments/preview.ipynb](../chapters/03_decision/assignments/preview.ipynb) | 0 | 0 |
+| [chapters/04_iteration/assignments/homework_gradecalculation.ipynb](../chapters/04_iteration/assignments/homework_gradecalculation.ipynb) | 0 | 0 |
+| [chapters/05_methods/assignments/homework_gradecalculation2.ipynb](../chapters/05_methods/assignments/homework_gradecalculation2.ipynb) | 0 | 0 |
+| [chapters/04_iteration/assignments/homework.ipynb](../chapters/04_iteration/assignments/homework.ipynb) | 0 | 0 |
+| [chapters/04_iteration/assignments/lab.ipynb](../chapters/04_iteration/assignments/lab.ipynb) | 5 | 5 |
+| [chapters/04_iteration/assignments/preview.ipynb](../chapters/04_iteration/assignments/preview.ipynb) | 0 | 0 |
 | [chapters/06_exceptions_testing/assignments/homework.ipynb](../chapters/06_exceptions_testing/assignments/homework.ipynb) | 0 | 0 |
 | [chapters/06_exceptions_testing/assignments/lab.ipynb](../chapters/06_exceptions_testing/assignments/lab.ipynb) | 0 | 0 |
 | [chapters/06_exceptions_testing/assignments/preview.ipynb](../chapters/06_exceptions_testing/assignments/preview.ipynb) | 0 | 0 |

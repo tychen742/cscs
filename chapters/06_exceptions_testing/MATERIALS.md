@@ -1,4 +1,4 @@
-# Chapter Materials — Exceptions and Testing
+# Chapter Materials — Testing, Debugging, and Error Handling
 
 ## Landing Page
 
@@ -9,7 +9,7 @@
 - `0601_error_handling.ipynb` — Exception handling
 - `0602_debugging_workflow.ipynb` — Debugging workflow
 - `0603_testing.ipynb` — Unit testing
-- `0604_nullable.ipynb` — Nullable types and null operators
+- Deeper nullability supporting reading moved to `../11_object_design/1104_nullability.ipynb`; historical URLs redirect there.
 
 ## Assignments
 
@@ -21,7 +21,8 @@
 ## Notes
 
 - Source examples live in `demos/` at the project root.
-- Nullable value and reference types are integrated here because missing data and invalid state connect naturally to validation, exceptions, debugging, and testing.
+- Retain basic missing-input/null checks here. Deeper nullable value/reference types, compiler warnings, and object contracts belong to Chapter 11.
+- Align Chapter 6 assessments with this reduced scope in the next assessment pass; preserve existing IDs. Early diagnostic/test practice is specified in the book plan, not claimed as newly authored here.
 
 ## Runnable Demo Projects
 

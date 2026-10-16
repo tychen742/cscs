@@ -14,4 +14,4 @@ Total: 110 minutes. Lab and homework add guided and independent practice.
 
 ## Assignment Roles
 
-Preview checks vocabulary and contracts. Lab contains five connected coding tasks. Homework contains five workplace true/false questions and five standalone coding tasks. Graph traversal is assessed directly; weighted route optimization remains in Part V.
+Preview checks vocabulary and contracts. Lab contains five connected coding tasks. Homework contains five workplace true/false questions and five standalone coding tasks. Graph traversal is assessed directly; weighted route optimization remains in Part VII.

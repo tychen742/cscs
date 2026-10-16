@@ -27,7 +27,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 1. `~/workspace/ai_shared/memory/MEMORY.md` for prior decisions and context
 2. `authoring/BOOK_PLAN.md` for audience, scope, and chapter sequence
 3. `authoring/PROGRESS.md` for chapter status before touching any chapter
-4. `_toc.yml` for the current notebook order
+3. `_toc.yml` for the current notebook order
 5. The target chapter's `MATERIALS.md` and `ORGANIZATION.md` before editing that chapter
 
 ## Structure Decisions (as of 2026-06-06)
@@ -149,10 +149,24 @@ The standalone ethics chapter is removed. Former Chapters 8-27 are Chapters 7-26
 
 Part III contains Chapter 10 Classes and Objects, Chapter 11 Object Design and Composition, and Chapter 12 Inheritance, Interfaces, and Polymorphism. Databases and operator overloading remain optional appendices after OOP.
 
-Parts I-III (Chapters 1-12) form a complete CS1 route. Part IV (Chapters 13-20) supplies the CS2 foundation. Part V (Chapters 21-26) supplies selectable algorithmic depth. The text supports COB, IST, IT, IS, and LIS programs and other programming-foundations courses. Do not present all 26 chapters as required teaching weeks. Preserve existing assignment/exercise IDs and published URL redirects through all path migrations.
+Parts I-III (Chapters 1-12) form a complete CS1 route. Parts IV-V (Chapters 13-20) supply the CS2 foundation. Parts VI-VII (Chapters 21-26) supply selectable algorithmic depth. The text supports COB, IST, IT, IS, and LIS programs and other programming-foundations courses. Do not present all 26 chapters as required teaching weeks. Preserve existing assignment/exercise IDs and published URL redirects through all path migrations.
 
 ## Database and AI Teaching Scope (2026-10-15)
 
 Keep the database appendix as an optional post-OOP business application capstone, not a required numbered chapter. The existing bookstore core and transaction extension remain available. Do not make every business example database-backed.
 
 Teach AI literacy within Chapter 1 and selected AI-review activities in methods, testing, and text processing. Prepared candidates allow all students to participate without paid AI access; live use follows course policy. Require independent understanding and verification evidence. AI-powered applications belong to a separate optional project extension after OOP, with recorded synthetic responses for reproducible offline demonstrations. Core exercises and projects must not require a live AI service.
+
+## Seven-Part Organization and Reliability Progression (2026-10-16)
+
+Keep the existing 26-chapter order. Part IV is Data Abstraction and Linear Structures (13-16); Part V is Trees, Hashing, and Graphs (17-20); Part VI is Algorithm Analysis and Design (21-23); Part VII is Optimization and Computational Limits (24-26). Introductory analysis stays in Chapter 13 and introductory recursion in Chapter 17.
+
+Chapter 6 is Testing, Debugging, and Error Handling. Introduce expected-result checks and diagnostics in Chapters 1-2, repeatable method tests in Chapter 5, and boundary/iteration checks in Chapters 3-4. Chapter 6 consolidates these habits and basic exception handling. Revisit file failures and cleanup in Chapter 9. Keep basic null checks early, but teach deeper nullable types, flow warnings, object contracts, and null operators with Chapter 11's object references/composition. The relocated nullability page is supporting reading within three meetings. Preserve Chapter 6's landing URL and all assessment IDs.
+
+## Part Overview Navigation (2026-10-16)
+
+The Part title itself links to its overview in the sidebar and Contents page. Do not display a separate Part Overview row or Part overview link beside that title. Keep overview pages in `_toc.yml` for reading order and numbering; `_static/part_overview_links.js` moves each sidebar overview link into its caption.
+
+## Part I Order (2026-10-16)
+
+Chapters 3-5 are Decisions, Iteration, then Methods. Keep built-in calls in Chapter 2. Use top-level statements in Decisions/Iteration and their required assignments; do not require user-defined methods before Chapter 5. Teach minimal string equality/length/indexing locally, with full string methods in 5.4. The optional function-based Grade Calculation 2 assignment belongs in Chapter 5. Preserve assessment IDs and old-URL redirects.

@@ -8,7 +8,7 @@
 
 - `0901_stream_file.ipynb` — Streams and file basics
 - `0902_file_operations.ipynb` — File read / write operations
-- `0903_text_operations.ipynb` — Text processing: splitting, token validation, safe replacement, structured records. Basic string methods (cleaning, immutability, searching, `Substring`, `Replace`) moved to `03_methods/0304_strings.ipynb` on 2026-10-04.
+- `0903_text_operations.ipynb` — Text processing: splitting, token validation, safe replacement, structured records. Basic string methods (cleaning, immutability, searching, `Substring`, `Replace`) moved to `05_methods/0504_strings.ipynb` on 2026-10-04.
 - `0906_regex.ipynb` — Regular expressions
 
 ## Assignments

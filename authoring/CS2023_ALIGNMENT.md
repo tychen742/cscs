@@ -51,7 +51,7 @@ The primary audience is students in College of Business information systems prog
 
 
 
-Chapters 1-12 provide the programming and information-systems foundation for the College of Business pathway. Instructors select Part IV depth for their courses. Chapters 13-20 include basic Big-O, search and library sorting, recursive calls, and graph traversal, so these foundations do not depend on Part V. Part V (Chapters 21-26) is optional technical depth for this pathway and remains available for the full CS pathway.
+Chapters 1-12 provide the programming and information-systems foundation for the College of Business pathway. Instructors select Parts IV-V (Chapters 13-20) for the CS2 foundation. Basic Big-O, searching and library sorting, recursive calls, and graph traversal appear there without requiring Parts VI-VII (Chapters 21-26), which provide optional algorithmic depth.
 
 The IS2020 elective area **Object-Oriented Paradigm** has relevant support in Chapters 10-12 and the interfaces and generics of Chapter 13. Other specializations, such as web programming, mobile programming, and user interface design, need additional material.
 
@@ -74,15 +74,15 @@ The book is mapped to *Computer Science Curricula 2023* (CS2023), the joint curr
 |---|---|---|---|
 | 1 | Computing, Programs, and Responsibility | SDF-Fundamentals, SEP-Context, SEP-Ethical-Analysis | FPL-Translation, SDF-Practices, SEP-Professional-Ethics, SEP-Privacy, SEP-DEIA |
 | 2 | Variables and Types | SDF-Fundamentals, FPL-Types | SEC-Coding |
-| 3 | Methods and Strings | SDF-Fundamentals | SE-Construction, SDF-Data-Structures |
-| 4 | Decisions | SDF-Fundamentals | |
-| 5 | Iteration | SDF-Fundamentals, SDF-Algorithms | |
-| 6 | Exceptions and Testing | SDF-Practices, SE-Validation | FPL-Types, SEC-Coding, SEP-Professional-Ethics |
+| 3 | Decisions | SDF-Fundamentals | |
+| 4 | Iteration | SDF-Fundamentals, SDF-Algorithms | |
+| 5 | Methods and Strings | SDF-Fundamentals | SE-Construction, SDF-Data-Structures |
+| 6 | Testing, Debugging, and Error Handling | SDF-Practices, SE-Validation | SEC-Coding, SEP-Professional-Ethics |
 | 7 | Arrays | SDF-Data-Structures | SDF-Algorithms |
 | 8 | Data Collections | SDF-Data-Structures | AL-Foundational, FPL-Systems |
 | 9 | Files and Text | SDF-Fundamentals, SDF-Data-Structures | AL-Models, DM-Data, SEC-Coding, DM-Security, SEP-Privacy |
 | 10 | Classes and Objects | FPL-OOP, SDF-Fundamentals | SE-Design |
-| 11 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants) |
+| 11 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants), FPL-Types (nullability) |
 | 12 | Inheritance, Interfaces, and Polymorphism | FPL-OOP, SE-Design | SE-Construction |
 | 13 | Abstract Data Types | SDF-Data-Structures, AL-Foundational | AL-Complexity, FPL-Types |
 | 14 | Arrays and Linked Lists | AL-Foundational | AL-Complexity, FPL-Systems |

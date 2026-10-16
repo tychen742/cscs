@@ -17,7 +17,7 @@ Runnable cells checked: 765. Failing: 188.
 
 | File | Cell | First error | First line |
 |---|---|---|---|
-| [03_methods/0303_parameter.ipynb](chapters/03_methods/0303_parameter.ipynb) | 9 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public static void inchesToCentimeters(double i)    // parameter with type` |
+| [05_methods/0503_parameter.ipynb](chapters/05_methods/0503_parameter.ipynb) | 9 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public static void inchesToCentimeters(double i)    // parameter with type` |
 | [06_exceptions_testing/0603_testing.ipynb](chapters/06_exceptions_testing/0603_testing.ipynb) | 7 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public class BasicMaths` |
 | [12_classes/1204_operator_overloading.ipynb](chapters/12_classes/1204_operator_overloading.ipynb) | 6 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `public struct SomeMath` |
 | [12_classes/assignments/homework.ipynb](chapters/12_classes/assignments/homework.ipynb) | 1 | CS5001 (line -): Program does not contain a static 'Main' method suitable for an entry poi | `class DoMath` |
@@ -88,8 +88,8 @@ Runnable cells checked: 765. Failing: 188.
 | File | Cell | First error | First line |
 |---|---|---|---|
 | [02_var_data/0202_data_types.ipynb](chapters/02_var_data/0202_data_types.ipynb) | 7 | CS8803 (line 9): Top-level statements must precede namespace and type declarations. | `// Preview of 'class' syntax (full treatment in Chapter 11) — used here` |
-| [05_iteration/0501_iteration.ipynb](chapters/05_iteration/0501_iteration.ipynb) | 3 | CS8803 (line 26): Top-level statements must precede namespace and type declarations. | `using System;` |
-| [06_exceptions_testing/0604_nullable.ipynb](chapters/06_exceptions_testing/0604_nullable.ipynb) | 10 | CS8803 (line 5): Top-level statements must precede namespace and type declarations. | `record Order(string? CustomerName, Address? ShippingAddress);` |
+| [04_iteration/0401_iteration.ipynb](chapters/04_iteration/0401_iteration.ipynb) | 3 | CS8803 (line 26): Top-level statements must precede namespace and type declarations. | `using System;` |
+| [06_exceptions_testing/0604_nullable.ipynb](chapters/11_object_design/1104_nullability.ipynb) | 10 | CS8803 (line 5): Top-level statements must precede namespace and type declarations. | `record Order(string? CustomerName, Address? ShippingAddress);` |
 | [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 5 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
 | [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 7 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Person(string Name, int Age);` |
 | [11_databases/1104_records.ipynb](chapters/11_databases/1104_records.ipynb) | 9 | CS8803 (line 4): Top-level statements must precede namespace and type declarations. | `record Point(int X, int Y);` |
@@ -137,30 +137,30 @@ Runnable cells checked: 765. Failing: 188.
 | [02_var_data/0201_variables.ipynb](chapters/02_var_data/0201_variables.ipynb) | 6 | CS0246 (line 2): The type or namespace name 'type' could not be found (are you missing a u | `type variableName = value;` |
 | [02_var_data/0202_data_types.ipynb](chapters/02_var_data/0202_data_types.ipynb) | 35 | CS0165 (line 16): Use of unassigned local variable 'message1' | `#pragma warning disable CS8632` |
 | [02_var_data/0206_input_output.ipynb](chapters/02_var_data/0206_input_output.ipynb) | 12 | CS0103 (line 2): The name 'a' does not exist in the current context | `a = UI.PromptInt("Enter integer leg: ");` |
-| [03_methods/assignments/homework.ipynb](chapters/03_methods/assignments/homework.ipynb) | 1 | CS0103 (line 2): The name 'Q1' does not exist in the current context | `double d = Q1(2, 5);` |
-| [03_methods/assignments/homework.ipynb](chapters/03_methods/assignments/homework.ipynb) | 3 | CS0103 (line 2): The name 'Q4' does not exist in the current context | `Q4("hi");` |
-| [03_methods/assignments/homework.ipynb](chapters/03_methods/assignments/homework.ipynb) | 7 | CS0103 (line 4): The name 'Q' does not exist in the current context | `static void Main()` |
-| [03_methods/assignments/homework.ipynb](chapters/03_methods/assignments/homework.ipynb) | 9 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()` |
-| [03_methods/assignments/homework.ipynb](chapters/03_methods/assignments/homework.ipynb) | 12 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()                   // 7` |
-| [03_methods/assignments/lab.ipynb](chapters/03_methods/assignments/lab.ipynb) | 4 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3));` |
-| [03_methods/assignments/lab.ipynb](chapters/03_methods/assignments/lab.ipynb) | 8 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3) + F(4));` |
-| [03_methods/assignments/lab.ipynb](chapters/03_methods/assignments/lab.ipynb) | 10 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(9 + F(4));` |
-| [04_decision/0401_intro_decision.ipynb](chapters/04_decision/0401_intro_decision.ipynb) | 8 | CS0103 (line 2): The name 'condition' does not exist in the current context | `if (condition)` |
-| [04_decision/0402_ifstatement.ipynb](chapters/04_decision/0402_ifstatement.ipynb) | 8 | CS0103 (line 2): The name 'condition1' does not exist in the current context | `if (condition1)` |
-| [04_decision/0406_switch.ipynb](chapters/04_decision/0406_switch.ipynb) | 3 | CS0103 (line 2): The name 'expression' does not exist in the current context | `switch(expression)` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 1 | CS0103 (line 2): The name 'IsBig' does not exist in the current context | `if (IsBig(x) == true)` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 3 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 0 && (y / x) == 3)` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 5 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x < 0)` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 7 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 7) {    //a` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 9 | CS0103 (line 2): The name 'y' does not exist in the current context | `y = 1;         //a` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 12 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 5)        //a` |
-| [04_decision/assignments/lab.ipynb](chapters/04_decision/assignments/lab.ipynb) | 5 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `string v = UIF.PromptLine("Enter a word: ");` |
-| [04_decision/assignments/lab.ipynb](chapters/04_decision/assignments/lab.ipynb) | 7 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `int x = UIF.PromptInt("Enter a integer: ");` |
-| [04_decision/assignments/lab.ipynb](chapters/04_decision/assignments/lab.ipynb) | 10 | CS0103 (line 7): The name 'CalcWeeklyWages' does not exist in the current context | `// Calculate Wages` |
-| [05_iteration/0502_for_statements.ipynb](chapters/05_iteration/0502_for_statements.ipynb) | 29 | CS0103 (line 2): The name 'x' does not exist in the current context | `x *= 5;` |
-| [05_iteration/0502_for_statements.ipynb](chapters/05_iteration/0502_for_statements.ipynb) | 31 | CS0103 (line 2): The name 'x' does not exist in the current context | `x = x * 5;` |
-| [05_iteration/0503_while_statement.ipynb](chapters/05_iteration/0503_while_statement.ipynb) | 38 | CS0103 (line 5): The name 'UI' does not exist in the current context | `int a, b, c;` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 46 | CS0103 (line 3): The name 'n' does not exist in the current context | `int sum = 1, i = 2;` |
+| [05_methods/assignments/homework.ipynb](chapters/05_methods/assignments/homework.ipynb) | 1 | CS0103 (line 2): The name 'Q1' does not exist in the current context | `double d = Q1(2, 5);` |
+| [05_methods/assignments/homework.ipynb](chapters/05_methods/assignments/homework.ipynb) | 3 | CS0103 (line 2): The name 'Q4' does not exist in the current context | `Q4("hi");` |
+| [05_methods/assignments/homework.ipynb](chapters/05_methods/assignments/homework.ipynb) | 7 | CS0103 (line 4): The name 'Q' does not exist in the current context | `static void Main()` |
+| [05_methods/assignments/homework.ipynb](chapters/05_methods/assignments/homework.ipynb) | 9 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()` |
+| [05_methods/assignments/homework.ipynb](chapters/05_methods/assignments/homework.ipynb) | 12 | CS0103 (line 5): The name 'Q' does not exist in the current context | `static void Main()                   // 7` |
+| [05_methods/assignments/lab.ipynb](chapters/05_methods/assignments/lab.ipynb) | 4 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3));` |
+| [05_methods/assignments/lab.ipynb](chapters/05_methods/assignments/lab.ipynb) | 8 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(F(3) + F(4));` |
+| [05_methods/assignments/lab.ipynb](chapters/05_methods/assignments/lab.ipynb) | 10 | CS0103 (line 2): The name 'F' does not exist in the current context | `Console.WriteLine(9 + F(4));` |
+| [03_decision/0301_intro_decision.ipynb](chapters/03_decision/0301_intro_decision.ipynb) | 8 | CS0103 (line 2): The name 'condition' does not exist in the current context | `if (condition)` |
+| [03_decision/0302_ifstatement.ipynb](chapters/03_decision/0302_ifstatement.ipynb) | 8 | CS0103 (line 2): The name 'condition1' does not exist in the current context | `if (condition1)` |
+| [03_decision/0306_switch.ipynb](chapters/03_decision/0306_switch.ipynb) | 3 | CS0103 (line 2): The name 'expression' does not exist in the current context | `switch(expression)` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 1 | CS0103 (line 2): The name 'IsBig' does not exist in the current context | `if (IsBig(x) == true)` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 3 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 0 && (y / x) == 3)` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 5 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x < 0)` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 7 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 7) {    //a` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 9 | CS0103 (line 2): The name 'y' does not exist in the current context | `y = 1;         //a` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 12 | CS0103 (line 2): The name 'x' does not exist in the current context | `if (x > 5)        //a` |
+| [03_decision/assignments/lab.ipynb](chapters/03_decision/assignments/lab.ipynb) | 5 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `string v = UIF.PromptLine("Enter a word: ");` |
+| [03_decision/assignments/lab.ipynb](chapters/03_decision/assignments/lab.ipynb) | 7 | CS0103 (line 2): The name 'UIF' does not exist in the current context | `int x = UIF.PromptInt("Enter a integer: ");` |
+| [03_decision/assignments/lab.ipynb](chapters/03_decision/assignments/lab.ipynb) | 10 | CS0103 (line 7): The name 'CalcWeeklyWages' does not exist in the current context | `// Calculate Wages` |
+| [04_iteration/0402_for_statements.ipynb](chapters/04_iteration/0402_for_statements.ipynb) | 29 | CS0103 (line 2): The name 'x' does not exist in the current context | `x *= 5;` |
+| [04_iteration/0402_for_statements.ipynb](chapters/04_iteration/0402_for_statements.ipynb) | 31 | CS0103 (line 2): The name 'x' does not exist in the current context | `x = x * 5;` |
+| [04_iteration/0403_while_statement.ipynb](chapters/04_iteration/0403_while_statement.ipynb) | 38 | CS0103 (line 5): The name 'UI' does not exist in the current context | `int a, b, c;` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 46 | CS0103 (line 3): The name 'n' does not exist in the current context | `int sum = 1, i = 2;` |
 | [06_exceptions_testing/0601_error_handling.ipynb](chapters/06_exceptions_testing/0601_error_handling.ipynb) | 10 | CS0841 (line 1): Cannot use local variable 'path' before it is declared | `string path = "scores.txt";` |
 | [06_exceptions_testing/0603_testing.ipynb](chapters/06_exceptions_testing/0603_testing.ipynb) | 4 | CS0246 (line 8): The type or namespace name 'Calculator' could not be found (are you missi | `namespace IntroCSCS` |
 | [07_arrays/assignments/lab.ipynb](chapters/07_arrays/assignments/lab.ipynb) | 3 | CS0103 (line 5): The name 'VectorDotProduct' does not exist in the current context | `double[] a = new double[] { 1.5, 2.0, 3.0 };` |
@@ -185,15 +185,15 @@ Runnable cells checked: 765. Failing: 188.
 | [02_var_data/0202_data_types.ipynb](chapters/02_var_data/0202_data_types.ipynb) | 54 | CS0266 (line 3): Cannot implicitly convert type 'double' to 'int'. An explicit conversion  | `double d = 2.0;` |
 | [02_var_data/assignments/homework.ipynb](chapters/02_var_data/assignments/homework.ipynb) | 5 | CS1003 (line 4): Syntax error, ',' expected | `int x= (int)5.8;` |
 | [02_var_data/assignments/lab.ipynb](chapters/02_var_data/assignments/lab.ipynb) | 6 | CS8635 (line 4): Unexpected character sequence '...' | `double numeratorDouble = numerator; // implicit cast` |
-| [04_decision/assignments/homework.ipynb](chapters/04_decision/assignments/homework.ipynb) | 11 | CS1026 (line 7): ) expected | `public class Test1` |
-| [05_iteration/0502_for_statements.ipynb](chapters/05_iteration/0502_for_statements.ipynb) | 15 | CS1002 (line 2): ; expected | `outer-Loop` |
-| [05_iteration/0502_for_statements.ipynb](chapters/05_iteration/0502_for_statements.ipynb) | 17 | CS8635 (line 2): Unexpected character sequence '...' | `for (....) {` |
-| [05_iteration/0503_while_statement.ipynb](chapters/05_iteration/0503_while_statement.ipynb) | 14 | CS1513 (line 2): } expected | `while (i < s.Length) {` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 15 | CS1513 (line 2): } expected | `for (int i = s.Length - 1; i >= 0; i--) {` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 24 | CS0117 (line 2): 'Console' does not contain a definition for 'WiteLine' | `var num = int.Parse(Console.WiteLine());` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 32 | CS8635 (line 5): Unexpected character sequence '...' | `/// Return the sum of the numbers from 1 through n.` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 40 | CS1513 (line 2): } expected | `while (i <= n) {` |
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 44 | CS1002 (line 5): ; expected | `int sum = 1, i = 2;` |
+| [03_decision/assignments/homework.ipynb](chapters/03_decision/assignments/homework.ipynb) | 11 | CS1026 (line 7): ) expected | `public class Test1` |
+| [04_iteration/0402_for_statements.ipynb](chapters/04_iteration/0402_for_statements.ipynb) | 15 | CS1002 (line 2): ; expected | `outer-Loop` |
+| [04_iteration/0402_for_statements.ipynb](chapters/04_iteration/0402_for_statements.ipynb) | 17 | CS8635 (line 2): Unexpected character sequence '...' | `for (....) {` |
+| [04_iteration/0403_while_statement.ipynb](chapters/04_iteration/0403_while_statement.ipynb) | 14 | CS1513 (line 2): } expected | `while (i < s.Length) {` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 15 | CS1513 (line 2): } expected | `for (int i = s.Length - 1; i >= 0; i--) {` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 24 | CS0117 (line 2): 'Console' does not contain a definition for 'WiteLine' | `var num = int.Parse(Console.WiteLine());` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 32 | CS8635 (line 5): Unexpected character sequence '...' | `/// Return the sum of the numbers from 1 through n.` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 40 | CS1513 (line 2): } expected | `while (i <= n) {` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 44 | CS1002 (line 5): ; expected | `int sum = 1, i = 2;` |
 | [07_arrays/0702_twodim.ipynb](chapters/07_arrays/0702_twodim.ipynb) | 16 | CS1002 (line 6): ; expected | `// declare the array of three elements` |
 | [07_arrays/assignments/homework.ipynb](chapters/07_arrays/assignments/homework.ipynb) | 3 | CS0200 (line 6): Property or indexer 'string.this | `char[] a = {'n', 'o', 'w'};` |
 | [08_collections/0802-list-dictionary.ipynb](chapters/08_collections/0802-list-dictionary.ipynb) | 21 | CS0103 (line 2): The name 'words' does not exist in the current context | `words[0];` |
@@ -217,7 +217,7 @@ Runnable cells checked: 765. Failing: 188.
 
 | File | Cell | First error | First line |
 |---|---|---|---|
-| [05_iteration/assignments/lab.ipynb](chapters/05_iteration/assignments/lab.ipynb) | 10 | System.IndexOutOfRangeException: Index was outside the bounds of the array. | `string s = "drab";` |
+| [04_iteration/assignments/lab.ipynb](chapters/04_iteration/assignments/lab.ipynb) | 10 | System.IndexOutOfRangeException: Index was outside the bounds of the array. | `string s = "drab";` |
 | [06_exceptions_testing/0601_error_handling.ipynb](chapters/06_exceptions_testing/0601_error_handling.ipynb) | 13 | System.ArgumentException: Denominator cannot be zero. (Parameter 'denominator') | `static double Divide(double numerator, double denominator)` |
 | [07_arrays/assignments/homework.ipynb](chapters/07_arrays/assignments/homework.ipynb) | 17 | System.NullReferenceException: Object reference not set to an instance of an object. | `string[] a = new string[5];` |
 | [09_files_text/0902_file_operations.ipynb](chapters/09_files_text/0902_file_operations.ipynb) | 10 | System.IO.FileNotFoundException: Could not find file '/tmp/cscs-9cf1893ca4f24a7486707dfb22 | `using System;` |

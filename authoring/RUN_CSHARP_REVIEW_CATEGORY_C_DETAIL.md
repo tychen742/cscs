@@ -45,7 +45,7 @@ double d = 2.0;
 int i = d;
 ```
 
-## `chapters/03_methods/0303_parameter.ipynb` cell 7 — Method Tracing
+## `chapters/05_methods/0503_parameter.ipynb` cell 7 — Method Tracing
 Error codes: CS5001
 
 ```csharp
@@ -66,7 +66,7 @@ public static void main(String[] args)
 }
 ```
 
-## `chapters/05_iteration/0501_iteration.ipynb` cell 1 — Iteration
+## `chapters/04_iteration/0401_iteration.ipynb` cell 1 — Iteration
 Error codes: CS8803
 
 ```csharp
@@ -98,7 +98,7 @@ internal class Chapter05
 Chapter05.Main(null);
 ```
 
-## `chapters/05_iteration/assignments/lab.ipynb` cell 24 — Number in Range [1…100]
+## `chapters/04_iteration/assignments/lab.ipynb` cell 24 — Number in Range [1…100]
 Error codes: CS0117, CS1503
 
 ```csharp

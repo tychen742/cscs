@@ -7,7 +7,7 @@
 ## Section Notebooks
 
 - `0201_variables_types.ipynb` — Variables, assignment, identifiers, and primitive data types (merged from the former 0201 and 0202, 2026-10-10)
-- `0202_operators_built_in_methods.ipynb` — Operators and expressions, then built-in methods: method calls, `Math`, `Parse`, a first look at string methods (full treatment in 3.4)
+- `0202_operators_built_in_methods.ipynb` — Operators and expressions, then built-in methods: method calls, `Math`, `Parse`, a first look at string methods (full treatment in 5.4)
 - `0203_input_output.ipynb` — Console input and output (renamed from 0206)
 
 ## Assignments

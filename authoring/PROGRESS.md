@@ -15,10 +15,10 @@ Updated `_toc.yml`, links, and tooling paths, and added redirects for every old
 URL in `_ext/chapter_redirects.json`. Reading-progress data stored by old page
 path (browser `localStorage` or server records) is not migrated.
 
-## Active TOC Snapshot (2026-10-15, ethics integrated)
+## Active TOC Snapshot (2026-10-16, seven parts)
 
 - Root: `index.ipynb`.
-- CS1: Parts I-III, Chapters 1-12. CS2 foundation: Part IV, Chapters 13-20. Selectable algorithms: Part V, Chapters 21-26.
+- CS1: Parts I-III, Chapters 1-12. CS2 foundation: Parts IV-V, Chapters 13-20. Selectable algorithms: Parts VI-VII, Chapters 21-26.
 - Chapter 1 teaches computing, responsibility, and a first program. Setup is in Appendix B; Git/professional reference stays in Appendix C.
 - Former ethics content recurs as optional cases in Chapter 6 and privacy practice in Chapter 9. Legacy assessments remain available with their original identifiers.
 - Databases and operator overloading remain optional appendices.
@@ -27,10 +27,10 @@ path (browser `localStorage` or server records) is not migrated.
 | --- | --- | --- | --- | --- | --- |
 | 01 | `chapters/01_context` | Computing, Programs, and Responsibility | preview, lab, homework | Needs Review | Revised three-section progression; 1.3 adds basic syntax and connected order-desk exercises; assignments aligned; video/slides pending. |
 | 02 | `chapters/02_var_data` | Variables, Data Types, and Operators | preview, lab, homework | In Progress | Assessments aligned with the three sections and built-in methods; lessons retain their existing review status |
-| 03 | `chapters/03_methods` | Methods | preview, lab, homework | In Progress |  |
-| 04 | `chapters/04_decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |
-| 05 | `chapters/05_iteration` | Iteration | preview, lab, homework | In Progress | Legacy homework pages are still listed in TOC |
-| 06 | `chapters/06_exceptions_testing` | Exceptions, Debugging, Testing, and Nullability | preview, lab, homework | In Progress | Filenames normalized to `06xx` Optional software-failure cases retained. |
+| 03 | `chapters/03_decision` | Decisions | preview, lab, homework | In Progress | `0409-recursion.ipynb` is retained source material, not in TOC |
+| 04 | `chapters/04_iteration` | Iteration | preview, lab, homework | In Progress | Legacy homework pages are still listed in TOC |
+| 05 | `chapters/05_methods` | Methods | preview, lab, homework | In Progress |  |
+| 06 | `chapters/06_exceptions_testing` | Testing, Debugging, and Error Handling | preview, lab, homework | In Progress | Renamed; three core lessons retained. Deeper nullability relocated to Chapter 11; teaching/assessment alignment remains pending. Optional software-failure cases retained. |
 | 07 | `chapters/07_arrays` | Arrays | preview, lab, homework | In Progress | Renumbered from old Ch06 path |
 | 08 | `chapters/08_collections` | Data Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
 | 09 | `chapters/09_files_text` | Files and Text | preview, lab, homework | In Progress | Legacy `hw-gradefiles.ipynb` remains in TOC Optional privacy/security section and retained privacy assessments. |
@@ -69,7 +69,8 @@ Retired or unpublished tracks live under `materials/stale_chapters/`, including 
 1. Review the revised Chapter 1, Chapter 2, and Classes assessments; modernize the optional Book List separately if needed.
 2. Finish videos and slides for revised/new units, including Chapter 1.
 3. Revisit optional legacy extra homework in Chapters 5, 9, and 10.
-4. Strengthen optional Part V in a later dedicated pass.
+4. Strengthen optional Parts VI-VII in a later dedicated pass.
+5. Align early testing practice and Chapter 6 assessments with the staged reliability progression; integrate Chapter 11 nullability examples and missing-data tests within its three meetings.
 
 ## Curriculum Appendix Update (2026-10-07)
 
@@ -244,3 +245,25 @@ Verification: all seven new AI-review code cells compile independently under .NE
 ## 2026-10-15: Develop the Responsibility Lesson
 
 Expanded 0102 into six explained conceptual topics, approximately 2,900 words including notes and tables, within the existing 35-minute teaching plan. Removed the premature reminder coding task, associated code demonstration, and dependent AI prompt exercise. Added distinctions among implementation correctness, data quality, requirements, fairness, privacy/security, and professional accountability. Retained two conceptual understanding checks with collapsed suggested answers; source notes are referenced inline. No C# examples or submitted tasks are introduced before Section 1.3.
+
+## Seven-Part Organization and Reliability Scope (2026-10-16)
+
+Kept all 26 chapters and their order. Split the former Part IV into Part IV, Data Abstraction and Linear Structures (13-16), and Part V, Trees, Hashing, and Graphs (17-20). Split the former Part V into Part VI, Algorithm Analysis and Design (21-23), and Part VII, Optimization and Computational Limits (24-26). Updated TOC, overviews, front matter, curriculum mappings, adoption routes, and book planning. Earlier dated entries retain historical part names.
+
+Renamed Chapter 6 to Testing, Debugging, and Error Handling while retaining its landing path. Moved the deeper nullability notebook to Chapter 11 as supporting reading, preserving code/cell metadata and redirecting historical URLs. Basic missing-input checks stay early. The plans now sequence diagnostic/output checks (1-2), method tests (3), boundaries/loops (4-5), systematic testing/debugging/error handling (6), file failures/cleanup (9), and object-state/nullability contracts (10-12).
+
+This pass changes structure, orientation, and teaching plans. It does not claim that the planned early practice, Chapter 6 assessment cleanup, or fuller Chapter 11 missing-data exercises have been authored. Existing nullability-specific Chapter 6 assessment items require alignment before the reduced chapter scope is used for teaching. Videos/slides remain pending where previously recorded.
+
+Verification: notebook JSON, seven part sizes, unchanged 1-26 chapter order, TOC targets, redirect destinations/HTML, rendered chapter numbering, and `git diff --check` pass. `.venv/bin/jupyter-book build .` succeeds; the final incremental build retains one C# syntax-highlighting warning for the unchanged `#nullable enable` example. Executable cells in the relocated lesson are byte-for-byte equivalent as JSON objects to their prior versions.
+
+All four relocated nullability code cells also compile and run independently with `dotnet run --project <temporary net10.0 project> -p:NuGetAudit=false`.
+
+## Decisions and Iteration Before Methods (2026-10-16)
+
+Part I now orders Decisions (3), Iteration (4), and Methods (5), with all later chapters unchanged. Chapter folders, notebook prefixes, demo roots, instructor mappings, active references, part/front-matter lists, and TOC order move together. Historical URLs redirect directly to new pages and assessment/cell identifiers remain stable.
+
+The prerequisite audit found helper methods in Decisions lessons/payroll lab, a UI-class Iteration lab, return-based homework, and a function-based grade extension. Revised required lessons/labs/homework to top-level statements, introduced minimal string equality/length/indexing before use, and moved Grade Calculation 2 to Methods. Deeper string operations remain in 5.4. The Iteration lab explains TryParse/out locally and handles input exhaustion without helper methods or string normalization. Corrected the preview loop-variable scope question. Existing legacy assessment formats are retained; full assessment modernization remains separate.
+
+Verification of the control-flow reorder: 53 active Decisions/Iteration code cells compile independently, with completed examples/solutions run and verified outputs retained. The syntax-repair homework starter remains intentionally invalid and labeled. Another 24 runs cover demos, malformed input, EOF, quantity limits, partial-order cancellation, and payroll boundaries; the retained demo behavior harness passes 3,073 checks. Migration checks confirm unchanged notebook/cell metadata and IDs, 26 sequential chapters in seven parts, valid TOC/document targets, and flattened redirects. Chapter 2's void preview now explains a built-in call rather than defining a helper. Existing brief string-member examples in Chapter 2 remain explicit local instruction, so its assignments do not depend on 5.4.
+
+The full HTML build passes after the reorder. Rendered chapter numbers and all migrated redirect pages were checked; the only reported diagnostics are existing C# syntax-highlighting warnings. No deployment or commit was performed.
