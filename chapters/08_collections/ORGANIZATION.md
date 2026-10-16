@@ -14,7 +14,7 @@ distinguish sharing a collection reference from copying its elements.
 
 ## Sequence
 
-- Data collections (40 minutes): operations and contracts; eight collection families; access patterns; generic types and namespaces; traversal and shared references; worked bookstore choices.
+- Data collections (40 minutes): operations and contracts; a cited eight-family table; access patterns; generic types and namespaces; worked bookstore choices; family demonstrations; traversal and shared references.
   Small, standalone demonstrations introduce behavior before the detailed APIs.
   Sets, linked lists, stacks, queues, and priority queues are recognition-level
   orientation here, not new implementation or required advanced API exercises.
@@ -32,3 +32,5 @@ The three meetings total 110 minutes. Section 8.1 ends with a standalone list/di
 ## Source History
 
 The September 2026 history includes broader `1101-intro-ds` and `1102-collection-examples` notebooks. Their removal during consolidation left 0801 at roughly 740 Markdown words. The 2026-10-16 expansion restores the conceptual introduction with original business examples; it does not restore outdated APIs, tuple material, or implementation lessons. Existing section paths, assessment identifiers, and the three-section chapter sequence are preserved.
+
+The opening develops the whole collection idea before the family examples: shared operations and contracts, the source-cited family map, generic types and library organization, and representation choices. Individual families then illustrate that framework. The table is explicitly adapted from Microsoft Learn, with the source references in the independent Footnotes block.

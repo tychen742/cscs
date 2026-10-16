@@ -46,3 +46,9 @@ in `demos/README.md` and each project README.
 - Eleven standalone code cells include nine demonstrations and a question/solution pair. Advanced collection examples provide orientation; existing required assignment identifiers and scope are unchanged.
 - The existing namespace diagram is retained as a selection of three namespaces, with text explaining that it is not exhaustive.
 - Chapter video is retained. No aligned Chapter 8 lecture deck was found in `_html_extra`; slides remain a teaching-support gap.
+
+### Verification
+
+Compiled each of the eleven code cells independently with `dotnet run --project <temporary net10.0 project> -p:NuGetAudit=false -p:UseSharedCompilation=false`, with warnings treated as errors. All ten completed cells have verified stdout retained. Checked empty, single, and repeated-quantity variants of the summary solution, plus the expected CS0029 compile failure for the commented type mismatch. `jupyter-book build .` succeeds; notebook JSON, source heading/index structure, and rendered content were checked.
+
+The collection-family table has an explicit adaptation note and inline footnote citations. Its footnote gives Microsoft Learn references, access date, and the distinction between Microsoft's guidance and the author's eight-family teaching map. The conceptual framework now precedes the individual-family demonstrations. All code cells and saved outputs are unchanged by this reordering.

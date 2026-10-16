@@ -279,3 +279,10 @@ Part overview titles retain normal heading colors in the sidebar and Contents. S
 Simplified sidebar presentation: hide the Front Matter caption, Title Page, and Chapter Topics; preserve existing Contents, Preface, and other introductory links. All source TOCs and front matter content remain unchanged, including Previous/Next reading order and cover/Contents links. Shared assets support underscore and hyphen paths. Part caption links also have a source-TOC fallback for sidebar renderings that omit overview rows.
 
 Verification: browser checks pass across all nine books; all nine navigation HTML builds pass with notebook execution disabled. Front matter destinations and Previous/Next links resolve. No commit or deployment was performed.
+
+
+## Expanded Collection Foundations (2026-10-16)
+
+Expanded Chapter 8's 0801 from roughly 740 to 4,200 Markdown words, retaining the big-ideas-first sequence before the detailed Lists and Dictionaries sections. It now explains collection operations and contracts, eight introductory families, access patterns, generics and namespaces, traversal, reference sharing, and worked bookstore choices. Added three conceptual checks and a standalone order-summary exercise. Later implementation lessons remain in Chapters 14, 15, 18, and 19. Updated the landing objectives, glossary, Chapter Flow numbering, and chapter planning; the chapter remains three meetings totaling 110 planned minutes.
+
+Verification: all eleven code cells compile independently as .NET 10 console programs with warnings treated as errors. Nine demonstrations and the completed solution match independently specified stdout and retain outputs. Empty, single-item, and repeated-quantity summary cases pass; enabling the commented generic mismatch produces the expected CS0029 diagnostic. Notebook JSON, heading cells/index entries, and footnotes were checked. Rendered layout and exercise reveal were reviewed. The book build passes without warnings for this change. Existing assessment identifiers and the chapter video are unchanged; no aligned Chapter 8 slide deck was found.
