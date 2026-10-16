@@ -10,13 +10,13 @@ orphan: true
 
 ## Section Notebooks
 
-- `0801_collections.ipynb` — Data collections (conceptual foundations)
+- `0801_collections.ipynb` — Collection contracts, access patterns, eight families, generic types, traversal, references, and collection selection; independently runnable demonstrations and a list/dictionary summary exercise.
 - `0802_list.ipynb` — Lists (`List<T>`)
 - `0803_dictionary.ipynb` — Dictionaries (`Dictionary<TKey,TValue>`)
 
 ## Non-TOC Source Material
 
-- None. The former source notebooks (`0802-list-dictionary`, `1101-intro-ds`, `1102-collection-examples`) were removed 2026-10-04 after review: their list, dictionary, and collection-overview material was already in `0801`–`0803`, stacks and queues live in Chapter 15, `HashSet<T>` in Chapter 18, and the tuples material moved to `10_classes/1001_class_syntax.ipynb`.
+- None. The former source notebooks (`0802-list-dictionary`, `1101-intro-ds`, `1102-collection-examples`) were removed 2026-10-04 after review: their list, dictionary, and collection-overview material was already in `0801`–`0803`, stacks and queues live in Chapter 15, `HashSet<T>` in Chapter 19, and the tuples material moved to `10_classes/1001_class_syntax.ipynb`.
 
 ## Assignments
 
@@ -28,7 +28,7 @@ orphan: true
 ## Notes
 
 - Source examples live in `demos/` at the project root.
-- `HashSet<T>` is intentionally out of scope here — it is taught in Chapter 18 (Heaps and Hash Tables), paired with the hash-table explanation that motivates it. `0801_collections.ipynb`'s comparison table points there.
+- `HashSet<T>` is introduced behaviorally in 0801; detailed set operations, hashing, and equality remain in Chapter 19. Linked lists, stacks/queues, and priority queues receive analogous recognition-level introductions, with detailed lessons retained in Chapters 14, 15, and 18.
 
 ## Runnable Demo Projects
 
@@ -37,3 +37,12 @@ orphan: true
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
+
+## Expanded 0801 Sources and Scope (2026-10-16)
+
+- Microsoft: [Collections and Data Structures](https://learn.microsoft.com/en-us/dotnet/standard/collections/), [Selecting a Collection Class](https://learn.microsoft.com/en-us/dotnet/standard/collections/selecting-a-collection-class), and .NET 10 reference pages for `LinkedList<T>` and `PriorityQueue<TElement,TPriority>` (linked in notebook footnotes).
+- Original bookstore examples distinguish positions, keys, uniqueness, and processing order; the eight-family table is an introductory map, not an exhaustive library inventory.
+- Priority examples use unique values and explain that lower numbers are removed first and equal priorities have no FIFO guarantee. List aliases are contrasted with explicit element copies.
+- Eleven standalone code cells include nine demonstrations and a question/solution pair. Advanced collection examples provide orientation; existing required assignment identifiers and scope are unchanged.
+- The existing namespace diagram is retained as a selection of three namespaces, with text explaining that it is not exhaustive.
+- Chapter video is retained. No aligned Chapter 8 lecture deck was found in `_html_extra`; slides remain a teaching-support gap.
