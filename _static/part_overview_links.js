@@ -10,20 +10,39 @@
     "Part VI. Algorithm Analysis and Design": "chapters/parts/part_06_algorithm_analysis_design.html",
     "Part VII. Optimization and Computational Limits": "chapters/parts/part_07_optimization_limits.html"
 };
+    // Prefer readable, complete sidebar labels before falling back to ellipsis.
+    const overviewLabels = {
+        "Part III. Object-Oriented Programming": "Part III. Objects",
+        "Part IV. Data Abstraction and Linear Structures": "Part IV. Linear Structures",
+        "Part V. Trees, Hashing, and Graphs": "Part V. Trees and Graphs",
+        "Part VI. Algorithm Analysis and Design": "Part VI. Analysis and Design",
+        "Part VII. Optimization and Computational Limits": "Part VII. Optimization & Limits"
+    };
     const bookRoot = new URL('../', document.currentScript.src);
     function linkPartOverviews() {
         document.querySelectorAll('nav.bd-links .caption-text').forEach(function (caption) {
-            if (!/^Part\s+[IVXLCDM]+[.:]/.test(caption.textContent.trim())) return;
+            const title = caption.dataset.fullTitle || caption.textContent.trim();
+            caption.dataset.fullTitle = title;
+            caption.title = title;
+            const existingLink = caption.querySelector('a');
+            if (existingLink) {
+                existingLink.textContent = overviewLabels[title] || title;
+                existingLink.title = title;
+                existingLink.setAttribute('aria-label', title);
+            }
+            if (!/^Part\s+[IVXLCDM]+[.:]/.test(title)) return;
             if (caption.querySelector('a')) return;
             const list = caption.closest('p.caption')?.nextElementSibling;
             const item = list?.firstElementChild;
             const overview = item?.querySelector(':scope > a.reference.internal');
             const isOverview = overview && /\/parts\/part_[^/]+\.html$/.test(new URL(overview.href).pathname);
-            const destination = isOverview ? overview.href : overviewPages[caption.textContent.trim()];
+            const destination = isOverview ? overview.href : overviewPages[title];
             if (!destination) return;
             const link = document.createElement('a');
             link.href = isOverview ? overview.getAttribute('href') : new URL(destination, bookRoot).href;
-            link.textContent = caption.textContent;
+            link.textContent = overviewLabels[title] || title;
+            link.title = title;
+            link.setAttribute('aria-label', title);
             link.className = 'part-overview-link';
             if ((isOverview && (overview.getAttribute('aria-current') === 'page' || item.classList.contains('current'))) || new URL(link.href).pathname === window.location.pathname) {
                 link.setAttribute('aria-current', 'page');

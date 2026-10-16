@@ -1,3 +1,13 @@
+/* Sidebar group headings stay on one line without changing the reading column. */
+nav.bd-links .caption-text,
+nav.bd-links .caption-text a.part-overview-link {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* Part titles retain heading color while linking to their overview. */
 nav.bd-links .caption-text a.part-overview-link,
 .bd-content a.part-overview-link {
@@ -5,9 +15,16 @@ nav.bd-links .caption-text a.part-overview-link,
     font: inherit;
     text-decoration: none;
 }
-nav.bd-links .caption-text a.part-overview-link:hover,
-nav.bd-links .caption-text a.part-overview-link:focus-visible,
 .bd-content a.part-overview-link:hover,
 .bd-content a.part-overview-link:focus-visible {
     text-decoration: underline;
+}
+
+nav.bd-links .caption-text a:hover,
+nav.bd-links .caption-text a:focus-visible {
+    text-decoration: none;
+}
+nav.bd-links .caption-text a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
 }
