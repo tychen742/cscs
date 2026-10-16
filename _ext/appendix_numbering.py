@@ -127,6 +127,7 @@ def patch_numbering(app):
 
 
 def setup(app):
+    app.add_css_file("part_overview_links.css")
     app.connect("builder-inited", patch_numbering, priority=1000)
 
     return {

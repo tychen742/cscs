@@ -267,3 +267,15 @@ The prerequisite audit found helper methods in Decisions lessons/payroll lab, a 
 Verification of the control-flow reorder: 53 active Decisions/Iteration code cells compile independently, with completed examples/solutions run and verified outputs retained. The syntax-repair homework starter remains intentionally invalid and labeled. Another 24 runs cover demos, malformed input, EOF, quantity limits, partial-order cancellation, and payroll boundaries; the retained demo behavior harness passes 3,073 checks. Migration checks confirm unchanged notebook/cell metadata and IDs, 26 sequential chapters in seven parts, valid TOC/document targets, and flattened redirects. Chapter 2's void preview now explains a built-in call rather than defining a helper. Existing brief string-member examples in Chapter 2 remain explicit local instruction, so its assignments do not depend on 5.4.
 
 The full HTML build passes after the reorder. Rendered chapter numbers and all migrated redirect pages were checked; the only reported diagnostics are existing C# syntax-highlighting warnings. No deployment or commit was performed.
+
+
+## Part Heading Color Consistency (2026-10-16)
+
+Part overview titles retain normal heading colors in the sidebar and Contents. Shared navigation supports colon and period caption formats. All seven overviews and 26 chapter numbers pass the navigation HTML build and link checks. This cross-book pass added 28 overviews to the other seven books with named parts; DBS has no named part divisions. No commit or deployment was performed.
+
+
+## Front Matter Sidebar (2026-10-16)
+
+Simplified sidebar presentation: hide the Front Matter caption, Title Page, and Chapter Topics; preserve existing Contents, Preface, and other introductory links. All source TOCs and front matter content remain unchanged, including Previous/Next reading order and cover/Contents links. Shared assets support underscore and hyphen paths. Part caption links also have a source-TOC fallback for sidebar renderings that omit overview rows.
+
+Verification: browser checks pass across all nine books; all nine navigation HTML builds pass with notebook execution disabled. Front matter destinations and Previous/Next links resolve. No commit or deployment was performed.

@@ -1,0 +1,13 @@
+/* Part titles retain heading color while linking to their overview. */
+nav.bd-links .caption-text a.part-overview-link,
+.bd-content a.part-overview-link {
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+}
+nav.bd-links .caption-text a.part-overview-link:hover,
+nav.bd-links .caption-text a.part-overview-link:focus-visible,
+.bd-content a.part-overview-link:hover,
+.bd-content a.part-overview-link:focus-visible {
+    text-decoration: underline;
+}

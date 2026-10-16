@@ -2874,7 +2874,7 @@ a.image-reference img {
 
 /* Part titles are the overview links, retaining the sidebar heading's typography. */
 nav.bd-links .caption-text a.part-overview-link {
-    color: var(--pst-color-link, #176de8);
+    color: inherit;
     font: inherit;
     text-decoration: none;
 }
