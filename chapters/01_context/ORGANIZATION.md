@@ -7,7 +7,7 @@ orphan: true
 ## Class Meetings
 
 1. Computing and Problem Solving, 30 minutes: hardware/software/data, IPO, precise procedures, workflow, compilation/runtime, and simple sequential output.
-2. Computing and Professional Responsibility, 35 minutes: apply four questions to an appointment reminder, minimize personal data, communicate accessibly, and attribute/check assistance.
+2. Computing and Professional Responsibility, 35 minutes: explain how software affects stakeholders; distinguish execution, data quality, business rules, and fairness; introduce privacy/security, accessibility, attribution/accountability, and AI literacy with worked business examples.
 3. Your First C# Program and Basic Syntax, 45 minutes: create and edit a console project (10 minutes), read statements, expressions, names, and method calls (15 minutes), and predict/run/modify/repair an order-desk message (20 minutes). Recognize Main and project files without requiring full understanding of their declarations.
 
 Total: 110 minutes including examples and practice. Appendix B setup is preparation before the saved-project meeting, not a separate content section. Browser examples can support the initial encounter while a local environment is prepared. The first program and edit/build/run workflow remain in the chapter.
@@ -25,3 +25,20 @@ Core AI literacy in 1.2 distinguishes generative AI, LLMs, prompts, coding assis
 ## Keyword Progression (2026-10-15)
 
 Section 1.3 introduces reserved keywords and provides the collapsed list. Section 2.1 links back and treats escaped identifiers and contextual keywords as optional reading after variables and type inference.
+
+
+## Understanding Checks (2026-10-15)
+
+The five short conceptual prompts in Sections 1.1 and 1.2 use the label “Check Your Understanding.” Each has a separate, initially collapsed Suggested Answer with a possible response and its reasoning. These are ungraded self-checks, distinct from coding exercises and submitted assignments. Section 1.1 references its existing workflow footnote in the development-process discussion.
+
+
+## Section 1.2 Teaching Sequence (2026-10-15)
+
+- Stakeholders and consequences, five minutes: follow a bookstore report through to a decision affecting a customer.
+- Correctness, data quality, and fairness, seven minutes: contrast a discount boundary, missing payroll data, and a smartphone-only correction route.
+- Privacy and security, six minutes: explain the information needs of reports, exports, and diagnostic records.
+- Accessibility and communication, six minutes: examine color-only stock status and truthful order messages.
+- Attribution and accountability, five minutes: distinguish credit, reuse permission, and evidence supporting a claim.
+- AI literacy, six minutes: define the tools, explain a requirement mismatch, and connect permitted assistance to independent understanding.
+
+Total: 35 minutes, with the two conceptual checks included in discussion. The reading develops explanations that can be prepared before class. Removed the reminder coding practice and dependent AI prompt activity rather than moving them elsewhere. Section 1.2 has no coding requirement; syntax and coding practice begin in Section 1.3. Later chapters revisit responsibility with records, methods, tests, and text processing.
