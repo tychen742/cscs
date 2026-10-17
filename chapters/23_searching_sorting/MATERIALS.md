@@ -30,3 +30,10 @@ First-match linear search, iterative binary search, missing-target traces, and l
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
+
+## Restored CS1 Material (2026-10-17)
+
+- `2304_advanced_sorts.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+- `assignments/search_performance.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+Advanced sorting and empirical timing are restored supporting extensions, not an added required meeting. They supplement operation counts and workload analysis.

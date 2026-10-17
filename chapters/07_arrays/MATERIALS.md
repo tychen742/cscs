@@ -30,3 +30,7 @@ All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
 
 Instructor support: [current lab walkthrough](../../instructor_support/labs/07_sales_lab.md). See its scope before treating a demo as an assignment answer.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

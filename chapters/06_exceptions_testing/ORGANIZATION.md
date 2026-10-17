@@ -25,3 +25,7 @@ Optional `0605_software_responsibility.ipynb` retains software-failure cases and
 ## Alignment Work Remaining
 
 The title, TOC, orientation, and nullable lesson location are updated. Align the existing Preview, Lab, and Homework with the reduced scope in a later assessment pass: basic null checks may remain, but deeper nullable operator/type questions should move to OOP with their identifiers preserved. Strengthen the repeatable test-project workflow and early-chapter practice before claiming the full progression is implemented. Retain the existing chapter URL, video, and assessment IDs.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/unit_testing_walkthrough.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

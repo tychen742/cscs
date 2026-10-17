@@ -18,10 +18,17 @@ The lab progresses from first-arrival scans through selection counts, stable inv
 
 ## Conventions and Scope
 
-Count comparer calls once, excluding loop-bound checks. Separate swaps from shifts. All elementary sorts mutate arrays and use constant auxiliary state. Clone starting arrays for fair comparisons. Stable algorithms compare only the business key and preserve identity within ties. Searching requires matching order policies and retains IDs rather than confusing sorted positions with arrival indexes. Use workload evidence, not universal size cutoffs. Merge sort remains in Chapter 22; advanced sorting/timing and slides remain deferred.
+Count comparer calls once, excluding loop-bound checks. Separate swaps from shifts. All elementary sorts mutate arrays and use constant auxiliary state. Clone starting arrays for fair comparisons. Stable algorithms compare only the business key and preserve identity within ties. Searching requires matching order policies and retains IDs rather than confusing sorted positions with arrival indexes. Use workload evidence, not universal size cutoffs. Merge sort remains in Chapter 22; slides remain deferred; advanced sorting/timing are restored as supporting extensions.
 
 ## Foundation Placement (2026-10-07)
 
 First-match linear search, iterative binary search, missing-target traces, and library sorting/searching now belong to Chapter 14. This optional chapter retains equality policies, duplicate bounds, detailed elementary sorts, and workload analysis.
 
 The earlier lecture allocation is superseded where it repeats relocated introductory topics. Use that time for contract counterexamples, verification traces, and the chapter’s optional advanced applications. Students complete Chapters 14, 16, and 19 foundations first as relevant.
+
+## Restored CS1 Material (2026-10-17)
+
+- `2304_advanced_sorts.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+- `assignments/search_performance.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+Advanced sorting and empirical timing are restored supporting extensions, not an added required meeting. They supplement operation counts and workload analysis.

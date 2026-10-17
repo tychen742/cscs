@@ -42,3 +42,7 @@ Optional `0605_software_responsibility.ipynb` retains software-failure cases and
 ## AI Literacy Integration (2026-10-15)
 
 The testing lesson adds a prepared AI-review activity in which ordinary tests pass while the boundary and invalid cases expose defects. Students derive expected outcomes independently, repair the implementation, and retain the same checks. Use it within the existing practice time.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/unit_testing_walkthrough.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

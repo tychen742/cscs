@@ -45,3 +45,7 @@ Preview now has ten vocabulary multiple-choice questions with radio controls and
 Homework has five workplace true/false cases (three true, two false) and five standalone coding tasks: supplier construction, stock withdrawal guards, calculated invoices, shared ticket numbering, and independent purchase-order reports. Existing Homework exercise IDs and assignment ID are preserved. Hidden coding answers retain verified output.
 
 The stage-five VS Code starter lives in `demos/10/coffee_register_starter/`. Canonical lab and homework solutions remain in the notebook answer cells. See `instructor_support/labs/10_classes_assignments.md` for checks and teaching guidance. The legacy Book List page remains optional practice after Chapter 11; its full solution is outside this revision.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

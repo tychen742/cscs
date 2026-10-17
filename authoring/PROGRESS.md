@@ -291,3 +291,7 @@ Verification: all eleven code cells compile independently as .NET 10 console pro
 ## 2026-10-17: Restore Chapter 1–2 explanations and practice
 
 Additively merge the author’s restored CS1 material into the current Press book. Chapter 1 restores conceptual diagrams, number representation, compilation/runtime depth, and program organization; setup and Git remain in the appendices. Chapter 2 restores variable tracing and a linked original-practice page covering division/mixed fractions, format reading, Mad Lib, and Unix timestamps. Keep all newer lessons and current standard assignments. Verification and build results are recorded in chapter MATERIALS.md.
+
+## CS1 Content Restoration (2026-10-17)
+
+Restored the audited missing Decisions/Iteration/Methods/Arrays/Files/Classes exercises, full GCD development, file-driven response lab with downloadable starter, full unit-testing walkthrough, and Shell-sort/Quicksort/search-timing extensions. Current lessons, labs, additions, chapter sequence, assessment IDs, and appendix setup/Git placement are retained. Method/string extensions follow Methods; collections/file integration follows Files; advanced algorithms follow their current prerequisites. The independent thinkcscs.org While Loop Review recovery is maintained in its own repository. Verification details are recorded in `authoring/RESTORATION_2026_10_17.md`.

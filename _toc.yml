@@ -61,11 +61,15 @@ parts:
         title: Lab
       - file: chapters/03_decision/assignments/homework
         title: Homework
+      - file: chapters/03_decision/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/04_iteration/0400_iteration
     sections:
     - file: chapters/04_iteration/0401_iteration
     - file: chapters/04_iteration/0402_for_statements
     - file: chapters/04_iteration/0403_while_statement
+    - file: chapters/04_iteration/0404_gcd
+      title: GCD (Supporting Reading)
     - file: chapters/04_iteration/assignments/index
       title: Assignments
       sections:
@@ -77,6 +81,8 @@ parts:
         title: 'Homework: Grade Calculation'
       - file: chapters/04_iteration/assignments/homework
         title: Homework
+      - file: chapters/04_iteration/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/05_methods/0500_methods
     sections:
     - file: chapters/05_methods/0501_intro_methods
@@ -95,6 +101,8 @@ parts:
         title: Homework
       - file: chapters/05_methods/assignments/homework_gradecalculation2
         title: 'Homework: Grade Calculation 2'
+      - file: chapters/05_methods/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/06_exceptions_testing/0600_exceptions_testing
     sections:
     - file: chapters/06_exceptions_testing/0601_error_handling
@@ -111,6 +119,8 @@ parts:
         title: Lab
       - file: chapters/06_exceptions_testing/assignments/homework
         title: Homework
+      - file: chapters/06_exceptions_testing/assignments/unit_testing_walkthrough
+        title: Testing Walkthrough
 - caption: Part II. Data and I/O
   numbered: true
   chapters:
@@ -129,6 +139,8 @@ parts:
         title: Lab
       - file: chapters/07_arrays/assignments/homework
         title: Homework
+      - file: chapters/07_arrays/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/08_collections/0800_data_collections
     sections:
     - file: chapters/08_collections/0801_collections
@@ -171,6 +183,10 @@ parts:
           title: Privacy Lab
         - file: chapters/09_files_text/assignments/privacy_homework
           title: Privacy Homework
+      - file: chapters/09_files_text/assignments/additional_practice
+        title: Extra Practice
+      - file: chapters/09_files_text/assignments/help_responses
+        title: File-Driven Responses
 - caption: Part III. Object-Oriented Programming
   numbered: true
   chapters:
@@ -192,6 +208,8 @@ parts:
         title: 'Homework: Book List'
       - file: chapters/10_classes/assignments/homework
         title: Homework
+      - file: chapters/10_classes/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/11_object_design/1100_object_design
     sections:
     - file: chapters/11_object_design/1101_objects_references
@@ -383,6 +401,8 @@ parts:
     - file: chapters/23_searching_sorting/2301_searching
     - file: chapters/23_searching_sorting/2302_sorting
     - file: chapters/23_searching_sorting/2303_comparison_lab
+    - file: chapters/23_searching_sorting/2304_advanced_sorts
+      title: Shell Sort and Quicksort
     - file: chapters/23_searching_sorting/assignments/index
       title: Assignments
       sections:
@@ -392,6 +412,8 @@ parts:
         title: Lab
       - file: chapters/23_searching_sorting/assignments/homework
         title: Homework
+      - file: chapters/23_searching_sorting/assignments/search_performance
+        title: Search Performance
 - caption: Part VII. Optimization and Computational Limits
   numbered: true
   chapters:

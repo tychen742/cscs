@@ -23,3 +23,10 @@ Test zero, one, and many iterations, termination, and off-by-one boundaries. Car
 Now Chapter 4, after Decisions and before Methods. Active examples use top-level loops; return-based exercises now use loop variables and printed results. Introduce string Length, zero-based indexing, empty-string bounds, and foreach locally in 4.2 before 4.3 uses them. No arrays or later string methods are required for those examples.
 
 The order-entry lab keeps five connected tasks but uses inline validation loops instead of a UI class. Explain TryParse/out as a built-in call, handle exhausted input, and accept exact lowercase y/n without Trim/ToLower. Required homework uses top-level programs and break/continue rather than method returns. The first Grade Calculation stays here; the function-based second assignment moves to Chapter 5. Library calls remain allowed; defining methods and classes is deferred. Existing assessment/cell IDs are preserved.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+- `0404_gcd.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+GCD remains supporting reading; required loop programs use top-level statements. Returning/string-cleaning and multi-method extensions are in Methods practice.

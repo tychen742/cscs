@@ -33,3 +33,7 @@ The three core lessons and 110-minute teaching plan are unchanged. This pass com
 ## Reliability Progression (2026-10-16)
 
 Connect constructors and methods to observable state and repeatable tests. Check required inputs; Chapter 11 develops deeper nullable contracts and optional references. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

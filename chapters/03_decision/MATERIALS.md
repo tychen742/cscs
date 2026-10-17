@@ -36,3 +36,7 @@ in `demos/README.md` and each project README.
 ## Prerequisite Alignment (2026-10-16)
 
 Now Chapter 3, before Iteration and Methods. Active lessons and the connected payroll lab use top-level statements and directly assigned results. Removed custom method/class wrappers, return-based homework, and the custom-object equality preview. String equality is introduced here as case-sensitive content comparison. Chapter 2's variables, operators, built-in calls, numeric parsing, and output are sufficient. No loops or later string-cleaning/search tools are required. Retained source-only recursion is not a prerequisite or active lesson. Assessment and cell IDs are unchanged.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

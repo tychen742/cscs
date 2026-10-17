@@ -34,3 +34,7 @@ The three meetings total 110 minutes. Section 8.1 ends with a standalone list/di
 The September 2026 history includes broader `1101-intro-ds` and `1102-collection-examples` notebooks. Their removal during consolidation left 0801 at roughly 740 Markdown words. The 2026-10-16 expansion restores the conceptual introduction with original business examples; it does not restore outdated APIs, tuple material, or implementation lessons. Existing section paths, assessment identifiers, and the three-section chapter sequence are preserved.
 
 The opening develops the whole collection idea before the family examples: shared operations and contracts, the source-cited family map, generic types and library organization, and representation choices. Individual families then illustrate that framework. The table is explicitly adapted from Microsoft Learn, with the source references in the independent Footnotes block.
+
+## Restored Collections Integration (2026-10-17)
+
+The current lab links to `../09_files_text/assignments/help_responses.ipynb` for the full file-driven response lab after Files. List/dictionary loading, random fallback, and separation of data from logic are restored without moving Files earlier.

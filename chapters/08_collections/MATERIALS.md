@@ -52,3 +52,7 @@ in `demos/README.md` and each project README.
 Compiled each of the eleven code cells independently with `dotnet run --project <temporary net10.0 project> -p:NuGetAudit=false -p:UseSharedCompilation=false`, with warnings treated as errors. All ten completed cells have verified stdout retained. Checked empty, single, and repeated-quantity variants of the summary solution, plus the expected CS0029 compile failure for the commented type mismatch. `jupyter-book build .` succeeds; notebook JSON, source heading/index structure, and rendered content were checked.
 
 The collection-family table has an explicit adaptation note and inline footnote citations. Its footnote gives Microsoft Learn references, access date, and the distinction between Microsoft's guidance and the author's eight-family teaching map. The conceptual framework now precedes the individual-family demonstrations. All code cells and saved outputs are unchanged by this reordering.
+
+## Restored Collections Integration (2026-10-17)
+
+The current lab links to `../09_files_text/assignments/help_responses.ipynb` for the full file-driven response lab after Files. List/dictionary loading, random fallback, and separation of data from logic are restored without moving Files earlier.

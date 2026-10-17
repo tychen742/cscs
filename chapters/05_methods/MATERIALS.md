@@ -43,3 +43,7 @@ The method-signature lesson adds a prepared AI-review activity about a packing-c
 Now Chapter 5, after Decisions and Iteration. Students already call built-in methods (Chapter 2), choose branches (3), and repeat work (4). Use that experience to motivate naming tasks, parameters, return values, decomposition, and repeatable tests before Chapter 6. Full string cleaning/search/extraction/chaining remains in 5.4; minimal equality/length/indexing is already introduced where needed earlier.
 
 The optional Grade Calculation 2 assignment now lives here because its FindAverage and reusable category-input requirements need method definitions. Its identifiers and published old URL are retained through migration/redirects. The method-based loop demo is supplementary practice after this chapter; it is not an Iteration prerequisite.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.

@@ -27,3 +27,10 @@ The text-processing lesson adds a prepared AI-review activity for a synthetic st
 ## Reliability Progression (2026-10-16)
 
 Revisit Chapter 6 with missing files, malformed records, specific recoverable exceptions, and deterministic cleanup with using. Distinguish invalid records from unavailable resources. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.
+
+## Restored CS1 Material (2026-10-17)
+
+- `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+- `assignments/help_responses.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09/help_responses_lab.zip`.
