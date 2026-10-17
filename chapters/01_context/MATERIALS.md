@@ -41,3 +41,14 @@ The five short conceptual prompts in Sections 1.1 and 1.2 use the label “Check
 ## Responsibility Section Expansion (2026-10-15)
 
 Section 1.2 is approximately 2,900 words including tables and source notes. Removed the responsible-reminder coding exercise, its starter/solution/output, the earlier code demonstration, and the dependent AI prompt practice. Six substantive topics use bookstore reports, payroll, discounts, order status, and source-use examples. Two short conceptual understanding checks retain collapsed suggested answers. No live AI use, C# syntax, or legal analysis is required. Source notes link ACM ethics, W3C accessibility guidance, and CS2023 AI education.
+
+
+## Restored CS1 Teaching Content (2026-10-17)
+
+Author-requested additive merge from the standalone restored CS1 reference. Existing lessons, responsibility/AI material, assignments, and assessment IDs remain. Setup and Git stay in Appendices B and C. Restored concepts are reading and practice within the current three-section sequence, not extra required meetings.
+
+Section 1.1 regains IPO/storage/feedback diagrams, the explicit seven development activities, binary/ASCII place-value work, byte capacity and qualified address-width explanation, compiler/interpreter figures, and IL/JIT/CLR/BCL explanation. Historical blanket language classifications and memory-limit claims are corrected. Section 1.3 adds template/project/solution organization; Appendix B holds the multi-project command reference. Suggested answers accompany the new conceptual checks. Existing first-program and responsibility activities are retained.
+
+Use the restored diagrams/place-value walkthrough within meeting one (35 minutes), responsibility as planned (35), and first-program work in meeting three (40); additional platform/project detail is reference reading. Total guided time remains 110 minutes. The archived diagrams retain their source attribution.
+
+Verification: all 13 restored code cells compiled independently as .NET 10 console programs with nullable checks and warnings treated as errors; completed cells retain executed output. Checked alternative trace inputs, zero/exact/proper-fraction division cases, and timestamp second/parity boundaries against independent arithmetic/date calculations. The eight template/solution/project commands were verified in a temporary workspace. Full Jupyter Book build passes with existing lexer warnings in the unchanged character/nullability examples. All original Chapter 1–2 cells, code, outputs, and standard-assignment IDs remain.

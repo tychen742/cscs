@@ -32,3 +32,10 @@ Section 1.3 introduces reserved keywords and provides the collapsed list. Sectio
 ## Reliability Progression (2026-10-16)
 
 Predict expression/output results and check conversions and formatting against explicit expected values. Keep valid-input assumptions visible; do not require exception handling. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.
+
+
+## Restored CS1 Teaching Content (2026-10-17)
+
+Author-requested additive merge from the standalone restored CS1 reference. Existing lessons, responsibility/AI material, assignments, and assessment IDs remain. Setup and Git stay in Appendices B and C. Restored concepts are reading and practice within the current three-section sequence, not extra required meetings.
+
+Section 2.1 adds the original step-by-step variable state table and independently runnable trace. assignments/additional_practice.ipynb restores UpdateVars/MathFun prediction and state tracing, MathDivision mixed-fraction output, the composite-formatting follow-up, format-reading puzzles, Mad Lib, and live/fixed Unix-time operator practice. This page is linked from the current Lab; it supplements the five-stage office-supply lab rather than replacing its submission requirements. Valid-input assumptions are explicit. The live-clock demonstration is distinguished from reproducible fixed-timestamp predictions. Existing lab/preview/homework questions and identifiers are preserved.

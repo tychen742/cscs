@@ -46,3 +46,12 @@ Total: 35 minutes, with the two conceptual checks included in discussion. The re
 ## Reliability Progression (2026-10-16)
 
 Read diagnostics and compare expected and actual output in the first-program workflow; do not require test frameworks or exception syntax. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.
+
+
+## Restored CS1 Teaching Content (2026-10-17)
+
+Author-requested additive merge from the standalone restored CS1 reference. Existing lessons, responsibility/AI material, assignments, and assessment IDs remain. Setup and Git stay in Appendices B and C. Restored concepts are reading and practice within the current three-section sequence, not extra required meetings.
+
+Section 1.1 regains IPO/storage/feedback diagrams, the explicit seven development activities, binary/ASCII place-value work, byte capacity and qualified address-width explanation, compiler/interpreter figures, and IL/JIT/CLR/BCL explanation. Historical blanket language classifications and memory-limit claims are corrected. Section 1.3 adds template/project/solution organization; Appendix B holds the multi-project command reference. Suggested answers accompany the new conceptual checks. Existing first-program and responsibility activities are retained.
+
+Use the restored diagrams/place-value walkthrough within meeting one (35 minutes), responsibility as planned (35), and first-program work in meeting three (40); additional platform/project detail is reference reading. Total guided time remains 110 minutes. The archived diagrams retain their source attribution.
