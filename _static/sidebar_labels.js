@@ -1,0 +1,97 @@
+// Concise primary-navigation labels; full page headings remain unchanged.
+(function () {
+    const labels = {
+    "chapters/18_priority_queues/1800_priority_queues.html": "Priority Queues",
+    "chapters/19_hash_collections/1900_hash_collections.html": "Hash Collections",
+    "chapters/20_graphs/2000_graphs.html": "Graphs",
+    "chapters/09_files_text/assignments/hw_gradefiles.html": "Grade Files",
+    "chapters/09_files_text/assignments/privacy_homework.html": "Homework",
+    "chapters/09_files_text/assignments/help_responses.html": "Response Files",
+    "chapters/01_context/0100_getting_started.html": "Computing",
+    "chapters/01_context/0101_cs_ideas.html": "Problem Solving",
+    "chapters/01_context/0102_computing_responsibility.html": "Responsibility",
+    "chapters/01_context/0103_program_structure.html": "First C# Program",
+    "chapters/02_var_data/0202_operators_built_in_methods.html": "Operators & Calls",
+    "chapters/03_decision/0301_intro_decision.html": "Boolean Logic",
+    "chapters/03_decision/0302_ifstatement.html": "If Statements",
+    "chapters/04_iteration/0404_gcd.html": "GCD (Reading)",
+    "chapters/04_iteration/assignments/homework_gradecalculation.html": "Grade Calculation",
+    "chapters/05_methods/0504_strings.html": "String Methods",
+    "chapters/05_methods/assignments/homework_gradecalculation2.html": "Grade Functions",
+    "chapters/06_exceptions_testing/0600_exceptions_testing.html": "Program Reliability",
+    "chapters/06_exceptions_testing/0601_error_handling.html": "Error Handling",
+    "chapters/06_exceptions_testing/0605_software_responsibility.html": "Failure Cases (Optional)",
+    "chapters/09_files_text/0905_privacy_security.html": "Privacy (Optional)",
+    "chapters/09_files_text/assignments/privacy_index.html": "Privacy Practice",
+    "chapters/10_classes/1003_class_instance.html": "Instance Behavior",
+    "chapters/10_classes/1004_averager.html": "Averager (Reading)",
+    "chapters/11_object_design/1100_object_design.html": "Object Design",
+    "chapters/11_object_design/1101_objects_references.html": "Object References",
+    "chapters/11_object_design/1102_composition.html": "Composition",
+    "chapters/11_object_design/1103_testing_collaboration.html": "Collaboration Tests",
+    "chapters/11_object_design/1104_nullability.html": "Nullability (Reading)",
+    "chapters/12_oop/1200_oop_principles.html": "OOP Principles",
+    "chapters/12_oop/1201_inheritance.html": "Inheritance",
+    "chapters/12_oop/1202_polymorphism.html": "Polymorphism",
+    "chapters/12_oop/1203_interfaces.html": "Interfaces",
+    "chapters/12_oop/1204_oop_examples.html": "OOP Examples (Reading)",
+    "chapters/13_abstract_data_types/1302_representations_costs.html": "Representations",
+    "chapters/13_abstract_data_types/1303_generics.html": "Generics",
+    "chapters/14_arrays_linked_lists/1403_comparison_lab.html": "Comparing Lists",
+    "chapters/16_searching_sorting/1600_searching_sorting.html": "Search & Sort",
+    "chapters/16_searching_sorting/1601_searching.html": "Searching",
+    "chapters/16_searching_sorting/1602_basic_sorting.html": "Insertion Sort",
+    "chapters/16_searching_sorting/1603_workloads.html": "Workloads",
+    "chapters/17_trees/1701_tree_structure.html": "Tree Structure",
+    "chapters/18_priority_queues/1801_priority_queues.html": "Priority Queues",
+    "chapters/18_priority_queues/1802_heap_implementation.html": "Binary Heaps",
+    "chapters/18_priority_queues/1803_priority_applications.html": "Top-K Selection",
+    "chapters/19_hash_collections/1901_hashing.html": "Hash Tables",
+    "chapters/19_hash_collections/1902_dictionaries_sets.html": "Dictionaries & Sets",
+    "chapters/19_hash_collections/1903_collection_selection.html": "Choosing Collections",
+    "chapters/20_graphs/2001_graph_vocabulary.html": "Graph Models",
+    "chapters/20_graphs/2002_adjacency_representations.html": "Adjacency",
+    "chapters/20_graphs/2003_graph_traversal.html": "Graph Traversal",
+    "chapters/21_algorithm_analysis/2102_correctness.html": "Correctness",
+    "chapters/21_algorithm_analysis/2103_recurrences.html": "Recurrences",
+    "chapters/22_recursion_divide_conquer/2201_recursion.html": "Recursion",
+    "chapters/22_recursion_divide_conquer/2202_divide_conquer.html": "Divide & Conquer",
+    "chapters/23_searching_sorting/2300_searching_sorting.html": "Advanced Search & Sort",
+    "chapters/23_searching_sorting/2303_comparison_lab.html": "Algorithm Comparison",
+    "chapters/23_searching_sorting/2304_advanced_sorts.html": "Shell & Quicksort",
+    "chapters/24_greedy_graph_optimization/2401_greedy_choice.html": "Greedy Choice",
+    "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.html": "Trees & Paths",
+    "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.html": "Memoization",
+    "chapters/25_dynamic_programming_backtracking/2502_backtracking.html": "Backtracking",
+    "chapters/25_dynamic_programming_backtracking/2503_optimization_lab.html": "Optimization Lab",
+    "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.html": "Paths & Strings",
+    "chapters/26_advanced_graphs_strings_limits/2603_limits_project.html": "Computational Limits",
+    "chapters/appendices/command_line.html": "Development Tools",
+    "chapters/appendices/development_tools/csharp_setup.html": "C# Setup",
+    "chapters/appendices/development_tools/interactive_language_environments.html": "REPLs",
+    "chapters/appendices/github/professional_practice.html": "Professional Practice",
+    "chapters/appendices/project/ai_extension.html": "AI Extension (Optional)",
+    "chapters/appendices/databases/index.html": "Databases",
+    "chapters/appendices/graph_representation_workshop.html": "Graph Workshop",
+    "chapters/appendices/operator_overloading.html": "Operator Overloading",
+    "chapters/appendices/cs2023_alignment.html": "Curriculum Alignment"
+};
+    function shortenNavigation() {
+        document.querySelectorAll('nav.bd-links li > a.reference.internal').forEach(function (link) {
+            const path = new URL(link.href).pathname.replace(/^\//, '');
+            const fullTitle = link.textContent.trim();
+            link.title = fullTitle;
+            link.setAttribute('aria-label', fullTitle);
+            const label = labels[path];
+            if (!label) return;
+            const number = link.querySelector('.section-number');
+            if (number) link.replaceChildren(number, document.createTextNode(label));
+            else {
+                const prefix = fullTitle.match(/^(?:[A-Z]|\d+)(?:\.\d+)*\.\s*/)?.[0] || '';
+                link.textContent = prefix + label;
+            }
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', shortenNavigation);
+    else shortenNavigation();
+})();

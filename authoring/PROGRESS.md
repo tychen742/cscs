@@ -303,3 +303,7 @@ Closed all 15 items from the second audit, including small variants. Added origi
 ### 2026-10-17: Chapter 11 struct and record introduction
 
 Added value-copying and record-equality instruction within 1101 before the supporting nullability record example. Covers default structs, readonly, positional properties/init, with, record structs, shallow sharing cautions, and type selection. Preserves the current chapter organization and existing examples.
+
+### 2026-10-17: One-line primary navigation
+
+Added navigation-only short labels for long chapter, section, assignment, and appendix entries. Full page titles remain unchanged; full navigation titles are retained in tooltips and accessible names. Primary links use a one-line ellipsis fallback and no hover underline. Verified desktop and 390px mobile drawer rendering. Shared book-authoring rule now explicitly covers all nested navigation entries.

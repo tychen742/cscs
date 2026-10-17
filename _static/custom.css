@@ -2882,3 +2882,20 @@ nav.bd-links .caption-text a.part-overview-link:hover,
 nav.bd-links .caption-text a.part-overview-link:focus-visible {
     text-decoration: none;
 }
+
+/* Short primary-navigation labels stay on one line at every nesting level. */
+.bd-sidebar-primary nav.bd-links li > a.reference.internal {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    text-decoration: none;
+}
+.bd-sidebar-primary nav.bd-links li > a.reference.internal:hover,
+.bd-sidebar-primary nav.bd-links li > a.reference.internal:focus-visible {
+    text-decoration: none;
+}
+.bd-sidebar-primary nav.bd-links li > a.reference.internal:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+}
