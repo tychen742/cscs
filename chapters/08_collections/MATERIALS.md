@@ -60,3 +60,7 @@ The current lab links to `../09_files_text/assignments/help_responses.ipynb` for
 ## Original Lookup Review (2026-10-17)
 
 The original list-search versus dictionary-key lookup review question is explicit in Homework, with expected/worst-case and setup-cost assumptions. Current list/dictionary exercises and file integration remain.
+
+## Arrays and Collection Families (2026-10-17)
+
+Landing pages and opening explanations explicitly classify arrays as collections and connect fixed-length indexed storage to lists, dictionaries, sets, and processing-order families. Chapter 7 develops array operations; Chapter 8 compares the broader families. Existing section order, examples, and assessments are unchanged.

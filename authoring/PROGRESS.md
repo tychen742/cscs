@@ -311,3 +311,7 @@ Added navigation-only short labels for long chapter, section, assignment, and ap
 ### 2026-10-17: Appendix C Git quick reference
 
 Redrew the supplied @PythonPr Git reference as figures/git_cheat_sheet.svg, with all eight command groups, corrected restore/unstage and pull descriptions, history-rewrite and destructive-command markers, and an accessible searchable text version in Appendix C. Official Git documentation is cited in the footnote. Checked artwork rendering and verified restore/unstage, commit -am, and clean preview behavior in an isolated temporary repository. Existing appendix content is retained.
+
+### 2026-10-17: Arrays belong to the collection families
+
+Made the array/collection relationship explicit in Chapters 7 and 8 landing pages and opening lessons, with reciprocal links. Preserved chapter organization and all code/assignments. Corrected the Chapter 7 flow labels from 8.1/8.2 to 7.1/7.2.
