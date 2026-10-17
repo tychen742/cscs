@@ -37,3 +37,7 @@ in `demos/README.md` and each project README.
 - `assignments/search_performance.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 
 Advanced sorting and empirical timing are restored supporting extensions, not an added required meeting. They supplement operation counts and workload analysis.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+The original additional 2h+1 Shell gap family is restored alongside powers-of-two and 3h+1, with a standalone three-family comparison. Existing advanced sorts, timing and workload analysis remain.

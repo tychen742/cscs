@@ -38,3 +38,7 @@ The opening develops the whole collection idea before the family examples: share
 ## Restored Collections Integration (2026-10-17)
 
 The current lab links to `../09_files_text/assignments/help_responses.ipynb` for the full file-driven response lab after Files. List/dictionary loading, random fallback, and separation of data from logic are restored without moving Files earlier.
+
+## Original Lookup Review (2026-10-17)
+
+The original list-search versus dictionary-key lookup review question is explicit in Homework, with expected/worst-case and setup-cost assumptions. Current list/dictionary exercises and file integration remain.

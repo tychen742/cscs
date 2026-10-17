@@ -295,3 +295,7 @@ Additively merge the author’s restored CS1 material into the current Press boo
 ## CS1 Content Restoration (2026-10-17)
 
 Restored the audited missing Decisions/Iteration/Methods/Arrays/Files/Classes exercises, full GCD development, file-driven response lab with downloadable starter, full unit-testing walkthrough, and Shell-sort/Quicksort/search-timing extensions. Current lessons, labs, additions, chapter sequence, assessment IDs, and appendix setup/Git placement are retained. Method/string extensions follow Methods; collections/file integration follows Files; advanced algorithms follow their current prerequisites. The independent thinkcscs.org While Loop Review recovery is maintained in its own repository. Verification details are recorded in `authoring/RESTORATION_2026_10_17.md`.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Closed all 15 items from the second audit, including small variants. Added original conceptual reviews, expression/cast drills, full return-fragment sets, the three-function Strange Sequence decomposition, complete Example/Averager development, old Classes/OOP review tasks, params, sealed override and original OOP variations, Congress classification, Unicode traversal, alternate Shell gaps and the UI helper import workflow. Repaired the incomplete Press while-review prompt. Current notebook cells, assignment IDs, additions and chapter order are retained. Supporting reading adds no required meetings. See `authoring/CS1_PRESERVATION_MATRIX.json` and `authoring/CS1_PRESERVATION_CHECK.md` for source mappings and verification.

@@ -52,3 +52,7 @@ Section 1.1 regains IPO/storage/feedback diagrams, the explicit seven developmen
 Use the restored diagrams/place-value walkthrough within meeting one (35 minutes), responsibility as planned (35), and first-program work in meeting three (40); additional platform/project detail is reference reading. Total guided time remains 110 minutes. The archived diagrams retain their source attribution.
 
 Verification: all 13 restored code cells compiled independently as .NET 10 console programs with nullable checks and warnings treated as errors; completed cells retain executed output. Checked alternative trace inputs, zero/exact/proper-fraction division cases, and timestamp second/parity boundaries against independent arithmetic/date calculations. The eight template/solution/project commands were verified in a temporary workspace. Full Jupyter Book build passes with existing lexer warnings in the unchanged character/nullability examples. All original Chapter 1–2 cells, code, outputs, and standard-assignment IDs remain.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Original seven-question conceptual review and mathematics/engineering/empirical CS-thinking discussion restored. Existing responsibility/output assignments remain; Extra Practice adds the original open-ended questions with corrected implementation/address-space premises.

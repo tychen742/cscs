@@ -39,3 +39,7 @@ Predict expression/output results and check conversions and formatting against e
 Author-requested additive merge from the standalone restored CS1 reference. Existing lessons, responsibility/AI material, assignments, and assessment IDs remain. Setup and Git stay in Appendices B and C. Restored concepts are reading and practice within the current three-section sequence, not extra required meetings.
 
 Section 2.1 adds the original step-by-step variable state table and independently runnable trace. assignments/additional_practice.ipynb restores UpdateVars/MathFun prediction and state tracing, MathDivision mixed-fraction output, the composite-formatting follow-up, format-reading puzzles, Mad Lib, and live/fixed Unix-time operator practice. This page is linked from the current Lab; it supplements the five-stage office-supply lab rather than replacing its submission requirements. Valid-input assumptions are explicit. The live-clock demonstration is distinguished from reproducible fixed-timestamp predictions. Existing lab/preview/homework questions and identifiers are preserved.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02/ui_helper.zip`). Setup and Git remain in appendices.

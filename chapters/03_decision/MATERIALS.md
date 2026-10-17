@@ -40,3 +40,7 @@ Now Chapter 3, before Iteration and Methods. Active lessons and the connected pa
 ## Restored CS1 Material (2026-10-17)
 
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Original Congress three-way conclusion added alongside the independent eligibility booleans. The original return-fragment variants are fully retained in Methods Extra Practice because user-defined methods follow this chapter.

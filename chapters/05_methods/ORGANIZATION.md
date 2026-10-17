@@ -32,3 +32,9 @@ The optional Grade Calculation 2 assignment now lives here because its FindAvera
 ## Restored CS1 Material (2026-10-17)
 
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Complete original returning-method equivalence/side-effect/unreachable/semicolon/nested-else fragments restored after method prerequisites. Strange Sequence now also has the original separate Jump, PrintStrangeSequence and CountStrangeSequence contracts, alongside the earlier combined variant. Term versus transition counting is explicit.
+
+The final source-list check also retains the original named array, reversal, and small abstract/interface variations in the corresponding supporting practice; see the preservation matrix for exact locations.

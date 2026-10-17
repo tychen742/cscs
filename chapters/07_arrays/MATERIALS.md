@@ -34,3 +34,5 @@ Instructor support: [current lab walkthrough](../../instructor_support/labs/07_s
 ## Restored CS1 Material (2026-10-17)
 
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+The final source-list check also retains the original named array, reversal, and small abstract/interface variations in the corresponding supporting practice; see the preservation matrix for exact locations.

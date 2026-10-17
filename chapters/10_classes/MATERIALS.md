@@ -49,3 +49,7 @@ The stage-five VS Code starter lives in `demos/10/coffee_register_starter/`. Can
 ## Restored CS1 Material (2026-10-17)
 
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Supporting `1004_averager.ipynb` retains the complete original Example getter/setter/alias client and contract-first Averager explanation, algebra, client output, and implementation. Current CashRegister/Statistics remain. Extra Practice retains all ten original Classes review prompts and complete overloaded Sum/SumManyArgs/params tasks. This is supporting reading, not an added required meeting.

@@ -30,3 +30,7 @@ The order-entry lab keeps five connected tasks but uses inline validation loops 
 - `0404_gcd.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 
 GCD remains supporting reading; required loop programs use top-level statements. Returning/string-cleaning and multi-method extensions are in Methods practice.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Original ABCabc character-code indexed/foreach illustration restored. The incomplete final Additional Iteration Homework question now includes the standalone review’s decrementing-loop program and zero-start follow-up.

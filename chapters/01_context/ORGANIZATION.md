@@ -55,3 +55,7 @@ Author-requested additive merge from the standalone restored CS1 reference. Exis
 Section 1.1 regains IPO/storage/feedback diagrams, the explicit seven development activities, binary/ASCII place-value work, byte capacity and qualified address-width explanation, compiler/interpreter figures, and IL/JIT/CLR/BCL explanation. Historical blanket language classifications and memory-limit claims are corrected. Section 1.3 adds template/project/solution organization; Appendix B holds the multi-project command reference. Suggested answers accompany the new conceptual checks. Existing first-program and responsibility activities are retained.
 
 Use the restored diagrams/place-value walkthrough within meeting one (35 minutes), responsibility as planned (35), and first-program work in meeting three (40); additional platform/project detail is reference reading. Total guided time remains 110 minutes. The archived diagrams retain their source attribution.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Original seven-question conceptual review and mathematics/engineering/empirical CS-thinking discussion restored. Existing responsibility/output assignments remain; Extra Practice adds the original open-ended questions with corrected implementation/address-space premises.

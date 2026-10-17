@@ -31,6 +31,8 @@ parts:
         title: Lab
       - file: chapters/01_context/assignments/homework
         title: Homework
+      - file: chapters/01_context/assignments/additional_practice
+        title: Extra Practice
   - file: chapters/02_var_data/0200_variables_types
     sections:
     - file: chapters/02_var_data/0201_variables_types
@@ -197,6 +199,8 @@ parts:
     - file: chapters/10_classes/1001_class_syntax
     - file: chapters/10_classes/1002_properties
     - file: chapters/10_classes/1003_class_instance
+    - file: chapters/10_classes/1004_averager
+      title: Averager (Supporting Reading)
     - file: chapters/10_classes/assignments/index
       title: Assignments
       sections:
@@ -231,6 +235,8 @@ parts:
     - file: chapters/12_oop/1201_inheritance
     - file: chapters/12_oop/1202_polymorphism
     - file: chapters/12_oop/1203_interfaces
+    - file: chapters/12_oop/1204_oop_examples
+      title: OOP Examples (Supporting Reading)
     - file: chapters/12_oop/assignments/index
       title: Assignments
       sections:
@@ -240,6 +246,8 @@ parts:
         title: Lab
       - file: chapters/12_oop/assignments/homework
         title: Homework
+      - file: chapters/12_oop/assignments/additional_practice
+        title: Extra Practice
 - caption: Part IV. Data Abstraction and Linear Structures
   numbered: true
   chapters:

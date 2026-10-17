@@ -23,3 +23,9 @@ Keep interfaces as small capabilities, avoid deep hierarchies, and distinguish c
 ## Reliability Progression (2026-10-16)
 
 Revisit failure and nullability contracts through interfaces and polymorphic callers; preserve promised behavior for every implementation. This is the current teaching plan; this structural pass does not claim a new practice or assessment implementation.
+
+## CS1 Preservation Follow-up (2026-10-17)
+
+Supporting `1204_oop_examples.ipynb` retains original paradigm/pillar/separation-of-concerns context and Vehicle/Car, hiding/override, numeric/string/arity overloads, base/sealed and abstract-animal variations, plus a corrected abstract-class/interface table. Extra Practice retains all original Student/property and Shape/GetArea review tasks. Current policy/payment/checkout examples, assessments and three meetings remain.
+
+The final source-list check also retains the original named array, reversal, and small abstract/interface variations in the corresponding supporting practice; see the preservation matrix for exact locations.
