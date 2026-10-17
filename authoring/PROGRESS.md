@@ -299,3 +299,7 @@ Restored the audited missing Decisions/Iteration/Methods/Arrays/Files/Classes ex
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Closed all 15 items from the second audit, including small variants. Added original conceptual reviews, expression/cast drills, full return-fragment sets, the three-function Strange Sequence decomposition, complete Example/Averager development, old Classes/OOP review tasks, params, sealed override and original OOP variations, Congress classification, Unicode traversal, alternate Shell gaps and the UI helper import workflow. Repaired the incomplete Press while-review prompt. Current notebook cells, assignment IDs, additions and chapter order are retained. Supporting reading adds no required meetings. See `authoring/CS1_PRESERVATION_MATRIX.json` and `authoring/CS1_PRESERVATION_CHECK.md` for source mappings and verification.
+
+### 2026-10-17: Chapter 11 struct and record introduction
+
+Added value-copying and record-equality instruction within 1101 before the supporting nullability record example. Covers default structs, readonly, positional properties/init, with, record structs, shallow sharing cautions, and type selection. Preserves the current chapter organization and existing examples.
