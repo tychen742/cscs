@@ -315,3 +315,7 @@ Redrew the supplied @PythonPr Git reference as figures/git_cheat_sheet.svg, with
 ### 2026-10-17: Arrays belong to the collection families
 
 Made the array/collection relationship explicit in Chapters 7 and 8 landing pages and opening lessons, with reciprocal links. Preserved chapter organization and all code/assignments. Corrected the Chapter 7 flow labels from 8.1/8.2 to 7.1/7.2.
+
+### 2026-10-17: Collection operation connections and general syntax
+
+Added an operations comparison in 0801 before selection/examples, with general syntax and explicit semantic differences. Preserved existing runnable examples and assignments. Shared authoring guidance now calls for syntax scaffolds and cross-concept connections.

@@ -46,3 +46,7 @@ The original list-search versus dictionary-key lookup review question is explici
 ## Arrays and Collection Families (2026-10-17)
 
 Landing pages and opening explanations explicitly classify arrays as collections and connect fixed-length indexed storage to lists, dictionaries, sets, and processing-order families. Chapter 7 develops array operations; Chapter 8 compares the broader families. Existing section order, examples, and assessments are unchanged.
+
+## Connecting Collection Operations (2026-10-17)
+
+0801 now introduces general method-call, property, indexer, and checked-lookup syntax alongside two comparison tables covering the eight families. Contrasts Add/Push/Enqueue, removal by value/index/processing order, inspection versus mutation, size, membership, duplicate policies, and empty cases. Existing examples and chapter sequence remain; the comparison is an orientation aid, not an extra required API unit.
