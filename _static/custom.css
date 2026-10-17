@@ -2299,7 +2299,7 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
 .cscs-auth-link-button:hover,
 .cscs-auth-link-button:focus {
     color: var(--pst-color-link-hover, #0b57d0) !important;
-    text-decoration: underline !important;
+    text-decoration: none !important;
 }
 
 .cscs-auth-secondary {
@@ -2753,15 +2753,14 @@ a.image-reference img {
     margin-top: auto;
 }
 
-/* Links: no underline at rest, underline on hover and keyboard focus (Press docs/UI.md).
-   #176de8 keeps 3.1:1 contrast with body text, so color plus the hover/focus cue meets WCAG. */
+/* Press links remain un-underlined; keyboard focus uses an outline. */
 .bd-container a {
     text-decoration: none;
 }
 
 .bd-container a:hover,
 .bd-container a:focus-visible {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* The theme underlines the page title inside the Previous/Next links; follow the same rule. */
@@ -2771,7 +2770,7 @@ a.image-reference img {
 
 .prev-next-area a:hover p.prev-next-title,
 .prev-next-area a:focus-visible p.prev-next-title {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Title page catalog card (Press docs/UI.md, Title Page Catalog Card). The card is
@@ -2898,4 +2897,22 @@ nav.bd-links .caption-text a.part-overview-link:focus-visible {
 .bd-sidebar-primary nav.bd-links li > a.reference.internal:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: -2px;
+}
+
+/* Apply the Press link rule to all link content, including theme-generated titles. */
+.bd-container a,
+.bd-container a:hover,
+.bd-container a:focus-visible,
+.bd-container a:hover *,
+.bd-container a:focus-visible * {
+    text-decoration: none !important;
+}
+.bd-container a:focus-visible,
+.cscs-auth-link-button:focus-visible {
+    outline: 2px solid currentColor !important;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+.bd-content a.reference:not(.image-reference):hover {
+    background-color: color-mix(in srgb, var(--pst-color-link, #176de8) 12%, transparent);
 }

@@ -319,3 +319,7 @@ Made the array/collection relationship explicit in Chapters 7 and 8 landing page
 ### 2026-10-17: Collection operation connections and general syntax
 
 Added an operations comparison in 0801 before selection/examples, with general syntax and explicit semantic differences. Preserved existing runnable examples and assignments. Shared authoring guidance now calls for syntax scaffolds and cross-concept connections.
+
+### 2026-10-17: Book-wide link decoration
+
+Removed remaining hover/focus underlines from body links, Previous/Next title elements, part links, and account text controls. Preserved keyboard focus with outlines and added subtle text-link hover backgrounds. Browser verification on the Arrays page found no underlined links or Previous/Next titles; hover rules explicitly suppress underline. Shared B-A and Press UI specification updated for all books; this local CSCS styling has not yet been deployed.
