@@ -323,3 +323,7 @@ Added an operations comparison in 0801 before selection/examples, with general s
 ### 2026-10-17: Book-wide link decoration
 
 Removed remaining hover/focus underlines from body links, Previous/Next title elements, part links, and account text controls. Preserved keyboard focus with outlines and added subtle text-link hover backgrounds. Browser verification on the Arrays page found no underlined links or Previous/Next titles; hover rules explicitly suppress underline. Shared B-A and Press UI specification updated for all books; this local CSCS styling has not yet been deployed.
+
+### 2026-10-17: Chapter 8 framework improvement
+
+Improved conceptual framing, syntax scaffolds, worked output/interpretation, variations, guided practice, and independent transfer while retaining the section order and original material. Added three purposeful SVG diagrams, list/dictionary traces, repaired preview/homework defects, and retained five connected lab tasks with boundary checks. Added executable word-counter source/downloads. Full verification and preservation details are recorded in the chapter's authoring review.

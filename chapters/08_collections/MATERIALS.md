@@ -68,3 +68,9 @@ Landing pages and opening explanations explicitly classify arrays as collections
 ## Connecting Collection Operations (2026-10-17)
 
 0801 now introduces general method-call, property, indexer, and checked-lookup syntax alongside two comparison tables covering the eight families. Contrasts Add/Push/Enqueue, removal by value/index/processing order, inspection versus mutation, size, membership, duplicate policies, and empty cases. Existing examples and chapter sequence remain; the comparison is an orientation aid, not an extra required API unit.
+
+## B-A Framework Improvement (2026-10-17)
+
+Preserved the three-section order, prior explanations, original exercise purposes, and existing lab assessment IDs. 0801 now has an explicit reading path, access-pattern visual, and guided selection reasoning. 0802 introduces the basket problem, construction/operation syntax, list-position visual and trace, integer removal variation, actual content displays, guided score filtering, and a called null-safe ReadLines example. 0803 adds key/value mapping, local syntax and update traces, guided safe lookup/update, and a runnable traced word counter alongside the original functions. Sources live in demos/08/word_count/ and are downloadable.
+
+All completed lesson code cells have required imports and independently verified saved output. Existing type-name printing pitfalls remain explicitly illustrated. Homework retains the original review and adds five concept checks and five transfer coding tasks; the malformed Clear/reassignment prompt is repaired as two separate reading alternatives. Preview's append question is disambiguated; the lab's five connected tasks are retained with boundary checks and collection-choice reflection. The three new SVG diagrams have alt text and prose interpretation; tables supply traces and comparison. No lecture deck was added; aligned slides remain pending. The recognition-level family scope and current organization are unchanged.
