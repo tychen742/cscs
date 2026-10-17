@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1970" viewBox="0 0 1800 1970" role="img" aria-labelledby="title desc">
+<title id="title">Git Cheat Sheet for Beginners</title>
+<desc id="desc">Eight command groups with corrected staging, copying, integration, and undo descriptions. Exclamation marks flag commands that can discard files; asterisks flag history rewriting.</desc>
+<rect width="1800" height="1970" fill="#f5f7fb"/>
+<text x="60" y="80" font-family="sans-serif" font-size="52" font-weight="700" fill="#202946">Git Cheat Sheet for Beginners</text>
+<text x="60" y="123" font-family="sans-serif" font-size="24" fill="#465166">Edit → inspect → stage → commit → push. Git records locally; GitHub hosts shared repositories.</text>
+<rect x="50" y="155" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="50" y="155" width="9" height="385" rx="4" fill="#6541a5"/>
+<text x="78" y="200" font-family="sans-serif" font-size="28" font-weight="700" fill="#6541a5">01  REPOSITORY</text>
+<line x1="78" y1="217" x2="856" y2="217" stroke="#d8dee9"/>
+<text x="78" y="247" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git init</text>
+<text x="475" y="247" font-family="sans-serif" font-size="18" fill="#394458">Create a repository here.</text>
+<text x="78" y="288" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git clone &lt;url&gt;</text>
+<text x="475" y="288" font-family="sans-serif" font-size="18" fill="#394458">Copy a repository into a new folder.</text>
+<text x="78" y="329" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git status</text>
+<text x="475" y="329" font-family="sans-serif" font-size="18" fill="#394458">Show working-tree and staging</text>
+<text x="475" y="348" font-family="sans-serif" font-size="18" fill="#394458">status.</text>
+<text x="78" y="370" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git log</text>
+<text x="475" y="370" font-family="sans-serif" font-size="18" fill="#394458">Show commit history.</text>
+<text x="78" y="411" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git log --oneline</text>
+<text x="475" y="411" font-family="sans-serif" font-size="18" fill="#394458">Show a compact commit history.</text>
+<rect x="905" y="155" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="905" y="155" width="9" height="385" rx="4" fill="#1765a8"/>
+<text x="933" y="200" font-family="sans-serif" font-size="28" font-weight="700" fill="#1765a8">02  BRANCHING</text>
+<line x1="933" y1="217" x2="1711" y2="217" stroke="#d8dee9"/>
+<text x="933" y="247" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git branch</text>
+<text x="1330" y="247" font-family="sans-serif" font-size="18" fill="#394458">List local branches.</text>
+<text x="933" y="288" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git branch &lt;name&gt;</text>
+<text x="1330" y="288" font-family="sans-serif" font-size="18" fill="#394458">Create a branch; stay on this</text>
+<text x="1330" y="307" font-family="sans-serif" font-size="18" fill="#394458">branch.</text>
+<text x="933" y="329" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git switch &lt;name&gt;</text>
+<text x="1330" y="329" font-family="sans-serif" font-size="18" fill="#394458">Switch to an existing branch.</text>
+<text x="933" y="370" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git checkout &lt;name&gt;</text>
+<text x="1330" y="370" font-family="sans-serif" font-size="18" fill="#394458">Older syntax to switch branches.</text>
+<text x="933" y="411" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git merge &lt;name&gt;</text>
+<text x="1330" y="411" font-family="sans-serif" font-size="18" fill="#394458">Merge into the current branch.</text>
+<text x="933" y="452" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git rebase &lt;name&gt; *</text>
+<text x="1330" y="452" font-family="sans-serif" font-size="18" fill="#394458">Replay current commits on a new</text>
+<text x="1330" y="471" font-family="sans-serif" font-size="18" fill="#394458">base.</text>
+<text x="933" y="493" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git branch -d &lt;name&gt;</text>
+<text x="1330" y="493" font-family="sans-serif" font-size="18" fill="#394458">Delete a branch if merged as</text>
+<text x="1330" y="512" font-family="sans-serif" font-size="18" fill="#394458">required.</text>
+<rect x="50" y="560" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="50" y="560" width="9" height="385" rx="4" fill="#287747"/>
+<text x="78" y="605" font-family="sans-serif" font-size="28" font-weight="700" fill="#287747">03  STAGING AREA</text>
+<line x1="78" y1="622" x2="856" y2="622" stroke="#d8dee9"/>
+<text x="78" y="652" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git add .</text>
+<text x="475" y="652" font-family="sans-serif" font-size="18" fill="#394458">Stage changes under this folder.</text>
+<text x="78" y="693" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git add &lt;file&gt;</text>
+<text x="475" y="693" font-family="sans-serif" font-size="18" fill="#394458">Stage this file&#x27;s current changes.</text>
+<text x="78" y="734" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git add -A</text>
+<text x="475" y="734" font-family="sans-serif" font-size="18" fill="#394458">Stage changes across the repository.</text>
+<text x="78" y="775" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git restore --staged &lt;file&gt;</text>
+<text x="475" y="775" font-family="sans-serif" font-size="18" fill="#394458">Unstage; keep the working file.</text>
+<text x="78" y="816" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git restore &lt;file&gt; !</text>
+<text x="475" y="816" font-family="sans-serif" font-size="18" fill="#394458">Discard unstaged edits to this file.</text>
+<text x="78" y="857" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git rm &lt;file&gt;</text>
+<text x="475" y="857" font-family="sans-serif" font-size="18" fill="#394458">Remove tracked file and stage</text>
+<text x="475" y="876" font-family="sans-serif" font-size="18" fill="#394458">deletion.</text>
+<text x="78" y="898" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git rm -r &lt;folder&gt;</text>
+<text x="475" y="898" font-family="sans-serif" font-size="18" fill="#394458">Remove tracked folder files</text>
+<text x="475" y="917" font-family="sans-serif" font-size="18" fill="#394458">recursively.</text>
+<rect x="905" y="560" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="905" y="560" width="9" height="385" rx="4" fill="#b83263"/>
+<text x="933" y="605" font-family="sans-serif" font-size="28" font-weight="700" fill="#b83263">04  COMMITS</text>
+<line x1="933" y1="622" x2="1711" y2="622" stroke="#d8dee9"/>
+<text x="933" y="652" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git commit -m &quot;msg&quot;</text>
+<text x="1330" y="652" font-family="sans-serif" font-size="18" fill="#394458">Commit staged changes with a</text>
+<text x="1330" y="671" font-family="sans-serif" font-size="18" fill="#394458">message.</text>
+<text x="933" y="693" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git commit -am &quot;msg&quot;</text>
+<text x="1330" y="693" font-family="sans-serif" font-size="18" fill="#394458">Stage tracked edits/deletions;</text>
+<text x="1330" y="712" font-family="sans-serif" font-size="18" fill="#394458">commit.</text>
+<text x="933" y="734" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git commit --amend *</text>
+<text x="1330" y="734" font-family="sans-serif" font-size="18" fill="#394458">Replace the latest commit.</text>
+<text x="933" y="775" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git reset --soft HEAD~1 *</text>
+<text x="1330" y="775" font-family="sans-serif" font-size="18" fill="#394458">Move back one commit; keep index.</text>
+<text x="933" y="816" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git reset --hard HEAD~1 !</text>
+<text x="1330" y="816" font-family="sans-serif" font-size="18" fill="#394458">Move back; discard tracked changes.</text>
+<text x="933" y="857" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git revert &lt;commit&gt;</text>
+<text x="1330" y="857" font-family="sans-serif" font-size="18" fill="#394458">Record a new commit undoing a</text>
+<text x="1330" y="876" font-family="sans-serif" font-size="18" fill="#394458">change.</text>
+<rect x="50" y="965" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="50" y="965" width="9" height="385" rx="4" fill="#a65b13"/>
+<text x="78" y="1010" font-family="sans-serif" font-size="28" font-weight="700" fill="#a65b13">05  REMOTES</text>
+<line x1="78" y1="1027" x2="856" y2="1027" stroke="#d8dee9"/>
+<text x="78" y="1057" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git remote -v</text>
+<text x="475" y="1057" font-family="sans-serif" font-size="18" fill="#394458">List remote names and URLs.</text>
+<text x="78" y="1098" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git remote add origin &lt;url&gt;</text>
+<text x="475" y="1098" font-family="sans-serif" font-size="18" fill="#394458">Add a remote called origin.</text>
+<text x="78" y="1139" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git fetch</text>
+<text x="475" y="1139" font-family="sans-serif" font-size="18" fill="#394458">Download remote history; no</text>
+<text x="475" y="1158" font-family="sans-serif" font-size="18" fill="#394458">integration.</text>
+<text x="78" y="1180" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git pull</text>
+<text x="475" y="1180" font-family="sans-serif" font-size="18" fill="#394458">Fetch, then integrate by chosen</text>
+<text x="475" y="1199" font-family="sans-serif" font-size="18" fill="#394458">policy.</text>
+<text x="78" y="1221" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git push</text>
+<text x="475" y="1221" font-family="sans-serif" font-size="18" fill="#394458">Upload commits to the remote.</text>
+<text x="78" y="1262" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git push -u origin &lt;branch&gt;</text>
+<text x="475" y="1262" font-family="sans-serif" font-size="18" fill="#394458">Push and set the upstream branch.</text>
+<text x="78" y="1303" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git push --tags</text>
+<text x="475" y="1303" font-family="sans-serif" font-size="18" fill="#394458">Push all local tags.</text>
+<rect x="905" y="965" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="905" y="965" width="9" height="385" rx="4" fill="#6541a5"/>
+<text x="933" y="1010" font-family="sans-serif" font-size="28" font-weight="700" fill="#6541a5">06  HISTORY AND SAVED WORK</text>
+<line x1="933" y1="1027" x2="1711" y2="1027" stroke="#d8dee9"/>
+<text x="933" y="1057" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git diff</text>
+<text x="1330" y="1057" font-family="sans-serif" font-size="18" fill="#394458">Compare working files with the</text>
+<text x="1330" y="1076" font-family="sans-serif" font-size="18" fill="#394458">index.</text>
+<text x="933" y="1098" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git diff --staged</text>
+<text x="1330" y="1098" font-family="sans-serif" font-size="18" fill="#394458">Compare staged changes with HEAD.</text>
+<text x="933" y="1139" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git show &lt;commit&gt;</text>
+<text x="1330" y="1139" font-family="sans-serif" font-size="18" fill="#394458">Inspect a commit and its changes.</text>
+<text x="933" y="1180" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git reflog</text>
+<text x="1330" y="1180" font-family="sans-serif" font-size="18" fill="#394458">Show local reference movements.</text>
+<text x="933" y="1221" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git stash</text>
+<text x="1330" y="1221" font-family="sans-serif" font-size="18" fill="#394458">Save tracked edits; clean working</text>
+<text x="1330" y="1240" font-family="sans-serif" font-size="18" fill="#394458">tree.</text>
+<text x="933" y="1262" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git stash pop</text>
+<text x="1330" y="1262" font-family="sans-serif" font-size="18" fill="#394458">Apply latest stash; drop if</text>
+<text x="1330" y="1281" font-family="sans-serif" font-size="18" fill="#394458">successful.</text>
+<text x="933" y="1303" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git stash list</text>
+<text x="1330" y="1303" font-family="sans-serif" font-size="18" fill="#394458">List saved stashes.</text>
+<rect x="50" y="1370" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="50" y="1370" width="9" height="385" rx="4" fill="#167b82"/>
+<text x="78" y="1415" font-family="sans-serif" font-size="28" font-weight="700" fill="#167b82">07  TAGS</text>
+<line x1="78" y1="1432" x2="856" y2="1432" stroke="#d8dee9"/>
+<text x="78" y="1462" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git tag</text>
+<text x="475" y="1462" font-family="sans-serif" font-size="18" fill="#394458">List local tags.</text>
+<text x="78" y="1503" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git tag &lt;name&gt;</text>
+<text x="475" y="1503" font-family="sans-serif" font-size="18" fill="#394458">Create a lightweight tag at HEAD.</text>
+<text x="78" y="1544" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git tag -a &lt;name&gt; -m &quot;msg&quot;</text>
+<text x="475" y="1544" font-family="sans-serif" font-size="18" fill="#394458">Create an annotated tag at HEAD.</text>
+<text x="78" y="1585" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git show &lt;tag&gt;</text>
+<text x="475" y="1585" font-family="sans-serif" font-size="18" fill="#394458">Inspect a tag and the tagged object.</text>
+<text x="78" y="1626" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git push origin &lt;tag&gt;</text>
+<text x="475" y="1626" font-family="sans-serif" font-size="18" fill="#394458">Push one named tag.</text>
+<text x="78" y="1667" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git push --tags</text>
+<text x="475" y="1667" font-family="sans-serif" font-size="18" fill="#394458">Push all local tags.</text>
+<rect x="905" y="1370" width="835" height="385" rx="18" fill="white" stroke="#d8dee9" stroke-width="2"/>
+<rect x="905" y="1370" width="9" height="385" rx="4" fill="#5c626b"/>
+<text x="933" y="1415" font-family="sans-serif" font-size="28" font-weight="700" fill="#5c626b">08  CONFIGURATION AND CLEANUP</text>
+<line x1="933" y1="1432" x2="1711" y2="1432" stroke="#d8dee9"/>
+<text x="933" y="1462" font-family="monospace" font-size="17" font-weight="600" fill="#202946">.gitignore</text>
+<text x="1330" y="1462" font-family="sans-serif" font-size="18" fill="#394458">File of patterns for untracked</text>
+<text x="1330" y="1481" font-family="sans-serif" font-size="18" fill="#394458">paths.</text>
+<text x="933" y="1503" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git config --global user.name</text>
+<text x="933" y="1521" font-family="monospace" font-size="17" font-weight="600" fill="#202946">&quot;Name&quot;</text>
+<text x="1330" y="1503" font-family="sans-serif" font-size="18" fill="#394458">Set your default commit author name.</text>
+<text x="933" y="1544" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git config --global user.email</text>
+<text x="933" y="1562" font-family="monospace" font-size="17" font-weight="600" fill="#202946">&quot;email&quot;</text>
+<text x="1330" y="1544" font-family="sans-serif" font-size="18" fill="#394458">Set your default commit author</text>
+<text x="1330" y="1563" font-family="sans-serif" font-size="18" fill="#394458">email.</text>
+<text x="933" y="1585" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git config --list</text>
+<text x="1330" y="1585" font-family="sans-serif" font-size="18" fill="#394458">List effective configuration values.</text>
+<text x="933" y="1626" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git clean -nd</text>
+<text x="1330" y="1626" font-family="sans-serif" font-size="18" fill="#394458">Preview untracked files/folders to</text>
+<text x="1330" y="1645" font-family="sans-serif" font-size="18" fill="#394458">remove.</text>
+<text x="933" y="1667" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git clean -fd !</text>
+<text x="1330" y="1667" font-family="sans-serif" font-size="18" fill="#394458">Delete untracked files and folders.</text>
+<text x="933" y="1708" font-family="monospace" font-size="17" font-weight="600" fill="#202946">git gc</text>
+<text x="1330" y="1708" font-family="sans-serif" font-size="18" fill="#394458">Perform repository housekeeping.</text>
+<text x="60" y="1816" font-family="sans-serif" font-size="22" font-weight="700" fill="#a23431">! Can discard work: inspect the diff or cleanup preview first.</text>
+<text x="60" y="1855" font-family="sans-serif" font-size="21" fill="#394458">* Changes commit history: coordinate before rewriting commits others may use. HEAD~1 needs a parent commit.</text>
+<text x="60" y="1893" font-family="sans-serif" font-size="21" fill="#394458">Replace &lt;placeholders&gt;; omit the angle brackets. commit -am skips new files; stash needs -u for untracked files.</text>
+<text x="60" y="1931" font-family="sans-serif" font-size="19" fill="#59657a">Redrawn from the supplied @PythonPr reference; descriptions checked against git-scm.com/docs. CSCS · Appendix C</text>
+</svg>

@@ -307,3 +307,7 @@ Added value-copying and record-equality instruction within 1101 before the suppo
 ### 2026-10-17: One-line primary navigation
 
 Added navigation-only short labels for long chapter, section, assignment, and appendix entries. Full page titles remain unchanged; full navigation titles are retained in tooltips and accessible names. Primary links use a one-line ellipsis fallback and no hover underline. Verified desktop and 390px mobile drawer rendering. Shared book-authoring rule now explicitly covers all nested navigation entries.
+
+### 2026-10-17: Appendix C Git quick reference
+
+Redrew the supplied @PythonPr Git reference as figures/git_cheat_sheet.svg, with all eight command groups, corrected restore/unstage and pull descriptions, history-rewrite and destructive-command markers, and an accessible searchable text version in Appendix C. Official Git documentation is cited in the footnote. Checked artwork rendering and verified restore/unstage, commit -am, and clean preview behavior in an isolated temporary repository. Existing appendix content is retained.
