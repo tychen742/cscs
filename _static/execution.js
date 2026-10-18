@@ -84,6 +84,13 @@ function initializeCsharpExecution() {
         let stdinRequested = false;
         let editMode = "view";
 
+        // The notebook's saved output stays visible until a run in place replaces it;
+        // a student copy keeps its own live output, so the original cell's saved output stays.
+        const storedOutput = cell.querySelector(":scope > .cell_output");
+        const syncStoredOutput = () => {
+            if (storedOutput) storedOutput.hidden = !output.hidden && !isStudentCopy;
+        };
+
         const updateStdinVisibility = () => {
             if (!usesConsoleInput(editor.value)) {
                 stdinRequested = false;
@@ -100,6 +107,7 @@ function initializeCsharpExecution() {
                 cell.append(controls, output);
                 copy?.remove();
                 isStudentCopy = false;
+                syncStoredOutput();
                 setEditMode("view");
                 return;
             }
@@ -114,6 +122,7 @@ function initializeCsharpExecution() {
                 cell.after(copy);
                 editor.hidden = false;
                 isStudentCopy = true;
+                syncStoredOutput();
                 codeElement.closest(".highlight-csharp").hidden = false;
                 setEditMode("edit");
                 const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
@@ -152,6 +161,9 @@ function initializeCsharpExecution() {
                 activateInlineCodeEditor();
             }
             editor.value = executableCode;
+            output.hidden = true;
+            output.textContent = "";
+            syncStoredOutput();
             stdinRequested = false;
             updateStdinVisibility();
         });
@@ -191,6 +203,7 @@ function initializeCsharpExecution() {
             output.hidden = false;
             output.className = "cscs-execution-output is-running";
             output.textContent = "";
+            syncStoredOutput();
 
             try {
                 const currentCode = editor.value;
