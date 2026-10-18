@@ -93,3 +93,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2004_depth_first_components.ipynb`: Depth-First Search and Components.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Landing Page Alignment (2026-10-17)
+
+The landing page `2000_graphs.ipynb` now orients students to the four sections (vocabulary and models; adjacency representations; breadth-first search and paths; depth-first search and components) with a grounded introduction, seven measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
