@@ -1,5 +1,15 @@
 # Chapter Materials: Classes and Objects
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `1002_properties.ipynb` | B04 | Current accessor forms, value/backing field, validated Phone and guided Email repair already address the audit gap. Verify all seven current examples; expose question/answer through normal exercise metadata without duplicating lessons. |
+| `1001_class_syntax.ipynb` | B13 | Retain and verify current Product construction exercise; add tuple deconstruction practice and feedback about position, meaning and units. Existing params and constructor material retained. |
+
+Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

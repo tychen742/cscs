@@ -1,5 +1,14 @@
 # Chapter Materials — Iteration
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `0401_iteration.ipynb` | B03, B12 | Separate postfix expression value from updated storage and for-update location; verified prefix/postfix trace; apply planning rubric to a closing countdown and guided boundary repair. Retain countdown-by-twos and later detailed loop syntax. |
+
+Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

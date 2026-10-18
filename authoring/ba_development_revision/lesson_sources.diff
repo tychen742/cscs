@@ -1,0 +1,1416 @@
+--- Before/chapters/02_var_data/0201_variables_types.ipynb
+
++++ After/chapters/02_var_data/0201_variables_types.ipynb
+
+@@ -274,6 +274,49 @@
+
+ x = y - x;
+ Console.WriteLine(x + " " + y);
+ 
++[markdown · ba18_82c96a2f46f6]
++```{index} assignment; state tracing
++```
++
++### Complete a State Trace
++
++
++[markdown · ba18_54c3813194b5]
++Use the worked trace above, then trace this stock adjustment yourself. Fill the question marks **before** running; each row records the state after the statement.
++
++| Statement | `stock` | `reserved` |
++| --- | ---: | ---: |
++| `int stock = 12;` | 12 | not declared |
++| `int reserved = stock - 8;` | ? | ? |
++| `stock = stock - reserved;` | ? | ? |
++| `reserved = reserved + 1;` | ? | ? |
++
++Which statement changes only `reserved`? Does changing it automatically recompute `stock`? An assignment evaluates its right side once using the values available at that moment.
++
++
++[code · ba18_f2f6006d2bfa]
++using System;
++int stock = 12;
++int reserved = stock - 8;
++stock = stock - reserved;
++reserved = reserved + 1;
++// TODO: print stock and reserved. Compare with your completed table.
++
++
++[code · ba18_dc18b82a19a5]
++using System;
++// Solution: the successive states are (12,4), (8,4), (8,5).
++int stock = 12;
++int reserved = stock - 8;
++stock = stock - reserved;
++reserved = reserved + 1;
++Console.WriteLine($"stock={stock}, reserved={reserved}");
++
++
++[markdown · ba18_08a15bf072ba]
++The final output is `stock=8, reserved=5`. The last assignment changes only `reserved`; `stock` keeps 8. If you instead write `reserved = stock + 1` on the last line, its value becomes 9 because the current `stock` is 8. This is different from a spreadsheet relationship that recalculates dependents automatically.
++
++
+ [markdown · p4_c09fd58049]
+ ```{index} Guided Practice: Swap Two Prices
+ ```
+--- Before/chapters/02_var_data/0202_operators_built_in_methods.ipynb
+
++++ After/chapters/02_var_data/0202_operators_built_in_methods.ipynb
+
+@@ -379,7 +379,8 @@
+
+ Console.WriteLine(14.0/4.0);
+ 
+ [markdown · a4d79135]
+-But C# will implicitly turn the following expression to an `int` type:
++Both operands in the following expression are integers, so C# selects integer division. It produces an `int` quotient with the fractional part discarded toward zero; there is no implicit conversion of a floating-point quotient:
++
+ 
+ [code · 8f8bd436]
+ Console.WriteLine(14/4);
+@@ -390,7 +391,8 @@
+
+ [code · ebb5ee3f]
+ Console.WriteLine(14.0/4.0);
+ Console.WriteLine(14.0 / 4);  // one of the operands is double type
+-Console.WriteLine(6.0/3.0);  // when the remainder is 0, the quotient is an int.
++Console.WriteLine(6.0/3.0);  // prints 2; the result is still double because the operands are double.
++
+ 
+ [markdown · 93584448]
+ Note that C# stores values with only a limited precision, so the results of
+@@ -598,6 +600,49 @@
+
+ All symbols are listed at the beginning of the index.
+ 
+ Parentheses for grouping are encouraged with less common combinations, even if not strictly necessary.
++
++
++[markdown · ba18_323dcf5f0891]
++```{index} operator precedence; integer division; guided trace
++```
++
++### Guided Practice: Trace Evaluation Before Display
++
++
++[markdown · ba18_e4c1be97b9b8]
++A delivery team splits ten hours among three people. Work out each expression before choosing its display format. Multiplication and division bind before addition; parentheses can change grouping. The receiving variable does not change how an earlier subexpression was evaluated.
++
++| Expression | First operation | Value before display | Type |
++| --- | --- | --- | --- |
++| `2 + 10 / 3` | `10 / 3` | 5 | `int` |
++| `(2 + 10) / 3` | `2 + 10` | 4 | `int` |
++| `2 + 10.0 / 3` | `10.0 / 3` | approximately 5.3333 | `double` |
++
++Complete the marked line so three people receive fractional hours. Predict the four outputs before running: `5`, `4`, `5.33`, `3.33`. This is valid-input arithmetic; no user-defined method is needed.
++
++
++[code · ba18_9799bb2ba9d0]
++using System;
++Console.WriteLine(2 + 10 / 3);
++Console.WriteLine((2 + 10) / 3);
++Console.WriteLine((2 + 10.0 / 3).ToString("F2", System.Globalization.CultureInfo.InvariantCulture));
++// TODO: change the expression so fractional division happens before assignment.
++double hoursPerPerson = 10 / 3;
++Console.WriteLine(hoursPerPerson.ToString("F2", System.Globalization.CultureInfo.InvariantCulture));
++
++
++[code · ba18_522d9fe685bb]
++using System;
++Console.WriteLine(2 + 10 / 3);
++Console.WriteLine((2 + 10) / 3);
++Console.WriteLine((2 + 10.0 / 3).ToString("F2", System.Globalization.CultureInfo.InvariantCulture));
++// Solution: make an operand floating-point before division.
++double hoursPerPerson = 10.0 / 3;
++Console.WriteLine(hoursPerPerson.ToString("F2", System.Globalization.CultureInfo.InvariantCulture));
++
++
++[markdown · ba18_57defb871027]
++The starter ends with `3.00`: assigning the integer quotient to a `double` cannot recover a discarded fraction. The solution ends with `3.33`. Formatting to two places controls the *text*, not the arithmetic or stored type. Change the inputs to 12 and 3: a whole-valued floating-point quotient is still a `double`.
+ 
+ 
+ [markdown · e842b09e]
+@@ -861,7 +906,7 @@
+
+ 
+ 
+ [markdown · 2c15cc60]
+-The official documentation describes every method by its **signature**: its name, the types of its parameters, and the type it returns. For example, one overload of `Math.Round` is documented as:
++The official documentation shows a method declaration: its name, parameter types, return type, and modifiers. The **signature** used to distinguish overloads includes the name and parameter information, not the return type. For example, one overload of `Math.Round` is documented as:
+ 
+ ```text
+ public static double Round(double value, int digits)
+--- Before/chapters/02_var_data/0203_input_output.ipynb
+
++++ After/chapters/02_var_data/0203_input_output.ipynb
+
+@@ -550,6 +550,78 @@
+
+ For aligned tables generated by loops, continue to {doc}`The for Statement <../04_iteration/0402_for_statements>`. The single-value output and formatting examples here do not require iteration.
+ 
+ 
++[markdown · ba18_e0fda9b294de]
++```{index} console input; formatted output; guided invoice
++```
++
++## Guided Practice: Read and Report an Invoice Line
++
++
++[markdown · ba18_942aaad8cb06]
++An invoice line combines three separate jobs: prompt for text, interpret the numeric input, and format the calculated result. Keep those jobs visible so an output error does not get mistaken for an arithmetic error.
++
++General forms (schematic):
++
++```text
++Console.Write(promptText);               // leave the cursor on this line
++string text = Console.ReadLine()!;        // this exercise assumes a line is supplied
++int quantity = int.Parse(text);          // this exercise assumes valid integer text
++Console.WriteLine($"{label,-width} {amount,alignment:F2}");
++```
++
++`!` here states the exercise's supplied-input assumption; it is not a runtime check. Real missing input needs handling, developed later. A negative alignment left-aligns text, a positive alignment right-aligns it, and `F2` formats a number with two decimal places. Literal widths such as `-12` replace the schematic names. Formatting changes display, not the value used in a calculation.
++
++For the worked line, use `Pens` at 2.50 per unit and type `4`. The quantity prompt stays beside the entered text. The unit-price times quantity calculation gives 10.00; the label takes a minimum of 12 columns and the amount eight. All examples here assume valid, nonnegative quantities and use an invariant culture so the decimal point is reproducible.
++
++
++[code · ba18_d5784bb86975]
++using System;
++using System.Globalization;
++CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
++Console.Write("Quantity: ");
++string input = Console.ReadLine()!;
++int quantity = int.Parse(input);
++decimal total = 2.50m * quantity;
++Console.WriteLine($"{"Pens",-12}{total,8:F2}");
++
++
++[markdown · ba18_62dff9718a18]
++In a terminal, the interaction is:
++
++```text
++Quantity: 4
++Pens           10.00
++```
++
++The terminal echoes the typed `4`; it is not a second program print. A noninteractive runner may show only the prompt and report in captured stdout. There are eleven spaces between `Pens` and `10.00`: the two fields have combined width 20. With quantity zero, the amount is `0.00`; display alignment remains the same.
++
++Now report `Folders` at 3.25 per unit. Complete the read, parse and output lines so input `2` yields an amount of `6.50`, using the same field widths. Do not replace the input with a hard-coded quantity.
++
++
++[code · ba18_e0c455ba28ed]
++using System;
++using System.Globalization;
++CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
++Console.Write("Quantity: ");
++string input = Console.ReadLine()!;
++// TODO: parse input, multiply by 3.25m, and print Folders in a 12-column label plus an 8-column F2 amount.
++
++
++[code · ba18_c3183179dd1d]
++using System;
++using System.Globalization;
++CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
++Console.Write("Quantity: ");
++string input = Console.ReadLine()!;
++int quantity = int.Parse(input);
++decimal total = 3.25m * quantity;
++Console.WriteLine($"{"Folders",-12}{total,8:F2}");
++
++
++[markdown · ba18_bdd16880d530]
++The completed report has `Folders` followed by nine spaces and `6.50`. Printing `input` instead of parsing and multiplying would show the characters `2`, not the cost. Using `WriteLine` for the prompt would move the user's entry to another line. Finally, `F2` rounds the displayed text; it does not enforce a rule that every stored monetary value has two decimal places. Apply the same distinctions in the existing independent I/O exercises.
++
++
+ [markdown · f969133e]
+ ```{rubric} Footnotes
+ ```
+--- Before/chapters/02_var_data/0204_types_conversion.ipynb
+
++++ After/chapters/02_var_data/0204_types_conversion.ipynb
+
+@@ -651,20 +651,16 @@
+
+ 
+ 
+ [markdown · edeea9ad]
+-
+ C# variables have specific types, but values sometimes need to move between
+-types. Type conversions are either **implicit** (automatic) or **explicit**
+-(manual cast required).
+-
+-**Implicit casting** happens automatically when converting a smaller type to a
+-larger one — no data is lost:
++types. Some numeric conversions are **implicit** (no cast is written); others require an **explicit cast**. Parsing text is a separate operation, explained below.
++
++**Implicit numeric conversion** lets the compiler convert between certain numeric types without a written cast. The following is a chain of permitted conversions, not a guarantee that each step preserves every digit:
+ 
+ ```text
+ char → int → long → float → double
+ ```
+ 
+-**Explicit casting** is required when converting a larger type to a smaller one,
+-because precision or range may be lost:
++**Explicit casting** requests a conversion the compiler will not insert automatically. This reverse chain illustrates conversions that require casts; it is not a complete table of conversions:
+ 
+ ```text
+ double → float → long → int → char
+@@ -678,9 +674,51 @@
+
+ int c = (int) b;   // explicit: long → int, cast required
+ ```
+ 
+-Use `GetType()` to inspect a variable's type at runtime. When types are *not*
+-cast properly, C# raises a compile-time error. For example, assigning a `double`
++Use `GetType()` to inspect a variable's type at runtime. An unsupported assignment without a required cast is a compile-time error. A permitted conversion can still lose precision, and some explicit conversions can fail at runtime. For example, assigning a `double`
+ directly to an `int` fails:
++
++
++[markdown · ba18_18fe6ebeb08e]
++```{index} numeric conversion; precision loss
++```
++
++### Range Is Not the Same as Precision
++
++
++[markdown · ba18_d84b93d8c73d]
++An integer type represents whole numbers in a fixed range. A floating-point type can cover a much larger range but has only a limited number of significant binary digits. Thus a value can fit the *range* of `float` without its exact integer value being representable. The compiler permits the conversion; that permission does not promise exactness.
++
++General patterns (schematic):
++
++```text
++DestinationType converted = source;       // only if an implicit conversion exists
++DestinationType converted = (DestinationType)source;
++int parsed = int.Parse(text);              // interpret text, rather than cast it
++```
++
++The type name in parentheses requests a conversion of the expression that follows it. `Parse` instead calls a library method and returns a new value. Neither operation validates the business meaning of that value.[^conversion-precision]
++
++
++[code · ba18_215ab326e744]
++using System;
++int exact = 16777217;
++float rounded = exact;
++Console.WriteLine($"integer={exact}");
++Console.WriteLine($"float={rounded:R}");
++Console.WriteLine($"same value={(double)exact == (double)rounded}");
++
++
++[markdown · ba18_817b28b86a77]
++The output is `integer=16777217`, `float=16777216`, and `same value=False`. Both values are well inside the floating-point range, but this `float` cannot distinguish neighboring integers at that magnitude. The `R` format displays a round-trippable representation. Converting both sides to `double` for comparison makes the lost unit visible instead of converting the integer to the same rounded `float` again.
++
++| Operation | Question to ask |
++| --- | --- |
++| Implicit numeric conversion | Is this permitted, and is the original value exactly representable? |
++| Explicit numeric cast | What rounding/truncation and range rules apply? |
++| Parsing text | Does the text obey the numeric format? |
++| Domain validation | Is the resulting number allowed for this task? |
++
++Predict the result with `exact = 123`: that integer is exactly representable in `float`, so the comparison becomes `True`. A successful small example does not prove every conversion of that type is exact.
+ 
+ 
+ [code · f7191c06]
+@@ -745,17 +783,13 @@
+
+ 
+ 
+ [markdown · 0692ab55]
+-
+-The default value from `Console.ReadLine()` is of string type and
++A line returned by `Console.ReadLine()` is text, and
+ when we want the user to supply numbers, we need to explicitly convert the
+-strings to the proper kind of number. We cannot convert the string type to
+-int implicitly because strings are immutable in C#. Instead, you need to parse
+-the string and assign to the intended data type.
++strings to the proper kind of number. There is no implicit string-to-int conversion. Text such as "123" represents characters; parsing interprets those characters as a number under a format rule. String immutability means the original string is not modified; it is not the reason parsing is needed. Assign the parsed result to the intended numeric variable.
+ 
+ There are C# built-in methods to do that. `int.Parse` takes a string parameter
+ that should be the characters in an `int`, like "123" or "-25", and
+ produces the corresponding `int` value, like 123 or -25:
+-
+ 
+ 
+ [code · 2239a9b4]
+@@ -879,3 +913,7 @@
+
+ 
+ [markdown · 6db80a4b]
+ [^development-reading]: Further reading: [Nakov and colleagues, Primitive Types and Variables](https://introprogramming.info/english-intro-csharp-book/read-online/chapter-2-primitive-types-and-variables/). The worked business scenarios and guided reasoning here are original teaching examples.
++
++
++[markdown · ba18_95d7bbbe955f]
++[^conversion-precision]: Microsoft, [Implicit numeric conversions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions), documents the permitted conversions and the precision-loss cases.
+--- Before/chapters/03_decision/0301_intro_decision.ipynb
+
++++ After/chapters/03_decision/0301_intro_decision.ipynb
+
+@@ -250,6 +250,18 @@
+
+ A Boolean expression is a value you can store, print, or test later; it does not need an `if` around it. Change the total to 49.99 and predict both lines before running again.
+ 
+ 
++[markdown · ba18_16a5b603e278]
++Check the shipping condition against boundaries before moving on:
++
++| Total | International? | `total >= 50m && !international` |
++| --- | --- | --- |
++| 49.99 | false | false: below the threshold |
++| 50.00 | false | true: the boundary is included |
++| 50.00 | true | false: the location rule fails |
++
++If you replace `&&` with `||`, the 49.99 domestic order incorrectly qualifies because `!international` is already true. If you replace `>=` with `>`, the exact 50.00 order incorrectly fails. These counterexamples distinguish a logic mistake from a boundary mistake. Recalculate the condition when an input changes: the earlier stored Boolean value does not update itself.
++
++
+ [markdown · 96ef9d16]
+ ```{index} boolean operator; &&
+ ```
+--- Before/chapters/04_iteration/0401_iteration.ipynb
+
++++ After/chapters/04_iteration/0401_iteration.ipynb
+
+@@ -116,7 +116,6 @@
+
+ 
+ 
+ [markdown · aaed10f8]
+-
+ The iterator, also known as **step**, section can contain zero or more expressions, separated by commas.
+ Commonly used iterators include:
+ 
+@@ -124,14 +123,31 @@
+
+ - prefix or postfix decrement expression, such as --i or i--
+ - assignment
+ 
+-The arithmetic unary operators (decrement operator `--` and
+-increment operator `++`) are probably the most common ones used in for and while loops, especially
+-the postfix increment operator. The result of a postfix increment operation is that it
+-increments the value of the local loop variable (`i`) and still evaluates to the original value
+-as before the operation and will update the value in next iteration. Namely, `i++` will retain
+-the old value in the body of the for statement until next next iteration.
++The increment operator `++` adds one and `--` subtracts one. In `i++`, the expression produces the old value of `i`, but the stored variable is updated during that expression's evaluation. In `++i`, the expression produces the updated value. Neither form delays the variable's update until another iteration.
++
++In a `for` loop, the update part is executed *after* the body. That location explains why the next body execution sees the new counter; it is separate from whether increment uses prefix or postfix syntax.
+ 
+ For example, test this with `csharprepl`, `Run C#`, or a small VS Code project:
++
++
++[markdown · ba18_8a2c16d0011d]
++```{index} increment; postfix evaluation
++```
++
++### Separate the Expression Result from Stored State
++
++
++[code · ba18_312a9a0dcdc0]
++using System;
++int counter = 2;
++int old = counter++;
++Console.WriteLine($"postfix result={old}, counter={counter}");
++int updated = ++counter;
++Console.WriteLine($"prefix result={updated}, counter={counter}");
++
++
++[markdown · ba18_1e0c1883d72a]
++The output is `postfix result=2, counter=3`, then `prefix result=4, counter=4`. After the first assignment, two different values exist: `old` receives the expression result 2, while `counter` already holds 3. A common mistake is to conclude that both variables still hold 2 until the next loop iteration. There is no loop in this example, and the update is already observable.
+ 
+ 
+ [code · 6adb9026]
+@@ -341,6 +357,47 @@
+
+ 
+ 
+ 
++[markdown · ba18_22a4d3995fc6]
++```{index} loop design; initialization; termination
++```
++
++### Apply the Loop Plan to a Closing-Time Countdown
++
++
++[markdown · ba18_149add20a0ed]
++A service desk sends reminders when 6, 4, and 2 minutes remain before closing. First plan the behavior without choosing C# punctuation:
++
++| Planning question | Decision and reason |
++| --- | --- |
++| What changes? | `minutes`, the time remaining. |
++| Initial state? | 6, the first reminder time. |
++| Continue when? | `minutes >= 2`; zero must not produce a reminder. |
++| Repeated action? | Print the current time remaining. |
++| Update? | Subtract 2 after the reminder. |
++| Why stop? | 6 → 4 → 2 → 0, and 0 fails the condition. |
++
++The loop is count-controlled because the schedule is known. In `for (initialization; condition; update)`, the initialization runs once, the condition is checked before every body execution, and the update runs after each completed body. Section 4.2 develops this syntax in detail.
++
++Guided repair: the starter prints 6, 4, **and no 2**. Change one comparison to implement the plan. Then predict the output if the initial value is 1.
++
++
++[code · ba18_d5cbb17eb653]
++using System;
++for (int minutes = 6; minutes > 2; minutes -= 2) // TODO: include the two-minute reminder.
++    Console.WriteLine($"Closing in {minutes} minutes");
++
++
++[code · ba18_e6cf5885f9a8]
++using System;
++// Solution: include the boundary, but do not include zero.
++for (int minutes = 6; minutes >= 2; minutes -= 2)
++    Console.WriteLine($"Closing in {minutes} minutes");
++
++
++[markdown · ba18_262eedf97036]
++The solution prints `Closing in 6 minutes`, `Closing in 4 minutes`, and `Closing in 2 minutes`. Starting at 1 prints nothing because the condition fails before the body. The error was the continuation boundary, not the update. For a variation using `continue`, ensure it does not skip the only update in a `while` body; in a `for` loop the update part still runs after `continue`. Use the planning table to identify which state must change before testing again.
++
++
+ [markdown · 569b893a]
+ ```{rubric} Footnotes
+ ```
+--- Before/chapters/09_files_text/0901_stream_file.ipynb
+
++++ After/chapters/09_files_text/0901_stream_file.ipynb
+
+@@ -187,7 +187,6 @@
+
+ 
+ 
+ [markdown · 7c0bb79e]
+-
+ Among the file handling methods is the convenience class `File`, which provides `static methods` for the creation,
+ copying, deletion, moving, and opening of a single file, and aids in the creation of `FileStream` objects. For example,
+ the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations
+@@ -208,7 +207,7 @@
+
+ 
+ Sine class `File` provides `static methods`, we can `call` the methods directly by using the `dot notation`
+ without having to create a new instance of the class. For example, with `File` class, when you want to write
+-some content to a file, you can simply say `File.ReadAllText(string path, string content)` to write the
++some content to a file, you can simply say `File.WriteAllText(path, content)` to write the
+ string content to the path file.
+ 
+ You can perform tests such as the following in a small VS Code project to get familiar with the methods:
+@@ -248,6 +247,17 @@
+
+ 
+ To better organize the tests above, use VS Code and a small console project. You should
+ also use a variable for the filename:
++
++
++[markdown · ba18_6d609f952740]
++Read and write have different directions and result contracts:
++
++```text
++File.WriteAllText(path, content);   // writes text; creates or replaces the file
++string content = File.ReadAllText(path); // reads and returns all text
++```
++
++`path` identifies the file; `content` is the text being stored or returned. `ReadAllText` does not take the replacement text as an argument. `WriteAllText` does not append; if the file exists its old contents are replaced. Predict the final text after writing `first`, writing `second`, and reading once: the result is `second`. Use the append operations below when preserving earlier lines is the intended contract.
+ 
+ 
+ [code · d3440b72]
+--- Before/chapters/09_files_text/0903_text_operations.ipynb
+
++++ After/chapters/09_files_text/0903_text_operations.ipynb
+
+@@ -272,6 +272,10 @@
+
+ 
+     return int.TryParse(parts[1].Trim(), out score);
+ }
++
++
++[markdown · ba18_244b7af1f4d6]
++The standalone demonstration repeats its helper deliberately. It prints Alice and Carol as accepted records and reports Bob and the blank line as malformed. Bob fails integer parsing; the blank line has no record. This helper checks field count and score syntax, not every possible business rule: for example, it does not reject an empty name or a score outside a course's permitted range. The prepared stock-import review below adds explicit domain rules; a successful parse alone does not prove the record is valid for every application.
+ 
+ 
+ [markdown · p3_9a5503835f]
+--- Before/chapters/09_files_text/0905_privacy_security.ipynb
+
++++ After/chapters/09_files_text/0905_privacy_security.ipynb
+
+@@ -151,7 +151,7 @@
+
+ 
+ 
+ [markdown · p4_86c774d61b]
+-The mask never stores or prints the hidden digits, so a log line built from `MaskCard` cannot leak them. Compare with `MaskEmail` above: both keep just enough to recognize the record and nothing that identifies the account.
++The masked display omits the leading digits, but the input variable still contains the original card number. Masking does not erase stored data or make a record anonymous; even a last-four suffix or email domain may help identify someone when combined with other data. Only print or retain the fields the task actually needs.
+ 
+ 
+ [markdown · f1341a1a]
+@@ -259,6 +259,48 @@
+
+ [markdown · d30a4823]
+ Personal data deserves care in every line of code that touches it. Collect, show, and keep only what a task needs; mask values for display; check every input for type and business rules; never build commands from input text; and keep secrets out of logs. These habits match the principles that privacy laws such as GDPR, CCPA, and FERPA share.
+ 
++[markdown · ba18_034701a15f7f]
++```{index} privacy; log minimization; masking limits
++```
++
++### Guided Review: Keep Operational Evidence Without Secrets
++
++
++[markdown · ba18_fc6be0e8e7a9]
++An operations log needs to establish which synthetic order failed validation. The proposed line includes an order ID, a status, and a full invented email address. The first two facts identify the transaction and failure; the email is unnecessary for this diagnostic question.
++
++| Proposed field | Needed for this log's purpose? | Decision |
++| --- | --- | --- |
++| Order ID | yes: find the failed transaction | keep under access/retention policy |
++| Status code | yes: explain what failed | keep |
++| Full email | no: already linked through the order | omit |
++
++Complete the log expression so the output is exactly `order=ORD-42 status=INVALID_QUANTITY`. Do not print an email merely because a masking helper is available. Then explain whether editing this line deletes the email from a source file or database.
++
++
++[code · ba18_f842ca458a4d]
++using System;
++string orderId = "ORD-42";
++string email = "synthetic.customer@example.test";
++string status = "INVALID_QUANTITY";
++// TODO: keep only the fields needed for the stated diagnostic purpose.
++Console.WriteLine($"order={orderId} email={email} status={status}");
++
++
++[code · ba18_e9b149a16702]
++using System;
++// Solution
++string orderId = "ORD-42";
++string email = "synthetic.customer@example.test";
++string status = "INVALID_QUANTITY";
++Console.WriteLine($"order={orderId} status={status}");
++// email remains in this variable; no source record was erased.
++
++
++[markdown · ba18_d5677d8bca2f]
++The solution removes the email from this particular output. It does not delete the variable or any source record. The order ID can itself link to personal data, so this remains an access-controlled operational log, not anonymous public data. The mistake to avoid is treating a display transformation as a collection, storage, or retention policy. Apply the same purpose test to future log fields rather than automatically masking and keeping everything.
++
++
+ [markdown · bc48af76]
+ ```{rubric} Footnotes
+ ```
+--- Before/chapters/09_files_text/0906_regex.ipynb
+
++++ After/chapters/09_files_text/0906_regex.ipynb
+
+@@ -140,6 +140,20 @@
+
+ 
+ `Regex.Match` returns the first match object:
+ 
++[markdown · ba18_612b117e31f5]
++General extraction forms (patterns):
++
++```csharp
++Match result = Regex.Match(input, pattern);
++if (result.Success)
++    Console.WriteLine(result.Value);
++MatchCollection results = Regex.Matches(input, pattern);
++string revised = Regex.Replace(input, pattern, replacement);
++```
++
++`Match` is an object describing one match, not the matched text itself. `Success` tells whether a match exists; `Value` is its text, `Index` is its zero-based starting position, and `Length` is the number of characters matched. `Matches` returns a collection, which can be empty. `Replace` returns a new string; it does not edit the original. These are the same call/property/collection distinctions used with strings and other collection families.
++
++
+ [code · 38c4e0cd]
+ using System.Text.RegularExpressions;
+ 
+@@ -300,6 +314,72 @@
+
+ 
+ Regex adds power but also complexity — prefer `Split`, `Trim`, and `Contains` when the pattern is simple and fixed.
+ 
++[markdown · ba18_926d36e6c7df]
++```{index} regular expressions; named groups; failed match
++```
++
++### Trace Named Fields and a Failed Match
++
++
++[markdown · ba18_17afcff84941]
++A delivery record has exactly `SKU=`, two ASCII letters, a hyphen, and four digits. Capturing a named field lets later code use the field's meaning instead of its position in a substring. The syntax `(?<name>pattern)` labels a capture; `result.Groups["name"].Value` reads its text **after a successful match**. The anchors `\A` and `\z` require the entire input to obey the contract.
++
++| Input | Match? | Captured `sku` | Reason |
++| --- | --- | --- | --- |
++| `SKU=AB-0042` | yes | `AB-0042` | exact shape |
++| `SKU=AB-42` | no | do not use | only two digits |
++| `note SKU=AB-0042` | no | do not use | extra prefix |
++
++A capture is still a string, even when it contains digits. Valid shape also does not establish that the SKU exists in an inventory.
++
++
++[code · ba18_85607d2eba8c]
++using System;
++using System.Text.RegularExpressions;
++string pattern = @"\ASKU=(?<sku>[A-Z]{2}-[0-9]{4})\z";
++foreach (string input in new[] { "SKU=AB-0042", "SKU=AB-42", "note SKU=AB-0042" })
++{
++    Match result = Regex.Match(input, pattern);
++    Console.WriteLine(result.Success ? $"sku={result.Groups["sku"].Value}" : "rejected");
++}
++string original = "dock    A";
++string normalized = Regex.Replace(original, @" +", " ");
++Console.WriteLine($"original=[{original}], revised=[{normalized}]");
++
++
++[markdown · ba18_e803ea2fc006]
++The first line reports `sku=AB-0042`; the next two report `rejected`. Reading `Groups` without checking `Success` can silently yield empty text rather than a meaningful field. The last line preserves the original four spaces and shows one space in the revised value. Here the replacement pattern uses a literal space plus `+`, so it changes runs of ordinary spaces; `\s+` would additionally match other whitespace, such as tabs and line breaks. Choose the narrower contract when those characters must remain distinct.
++
++Guided variation: accept `Ticket=4821` as a whole record and extract only the digits into a group called `id`. Reject `Ticket=48x1` and `prefix Ticket=4821`. The starter's unanchored match currently accepts the prefixed case; repair both the pattern and the group lookup.
++
++
++[code · ba18_4c01c952cc5a]
++using System;
++using System.Text.RegularExpressions;
++string pattern = @"Ticket=(?<wrong>[0-9]{4})"; // TODO: whole input, group named id.
++foreach (string input in new[] { "Ticket=4821", "Ticket=48x1", "prefix Ticket=4821" })
++{
++    Match m = Regex.Match(input, pattern);
++    Console.WriteLine(m.Success ? m.Groups["wrong"].Value : "rejected");
++}
++
++
++[code · ba18_398c3d2f6ce8]
++using System;
++using System.Text.RegularExpressions;
++// Solution
++string pattern = @"\ATicket=(?<id>[0-9]{4})\z";
++foreach (string input in new[] { "Ticket=4821", "Ticket=48x1", "prefix Ticket=4821" })
++{
++    Match m = Regex.Match(input, pattern);
++    Console.WriteLine(m.Success ? m.Groups["id"].Value : "rejected");
++}
++
++
++[markdown · ba18_b2f087170fab]
++The solution prints `4821`, `rejected`, `rejected`. An unanchored expression asks whether a matching substring exists; adding whole-input anchors changes the question to record validation. For another variation, collect all ticket numbers in a message with `Matches` instead; in that task, rejecting surrounding prose would be the wrong contract. Use these contrasts before the independent patterns below.
++
++
+ [markdown · c2ceba6e]
+ ```{index} Practice
+ ```
+--- Before/chapters/10_classes/1001_class_syntax.ipynb
+
++++ After/chapters/10_classes/1001_class_syntax.ipynb
+
+@@ -762,6 +762,42 @@
+
+ 
+ If you find yourself passing the same tuple shape through many methods, that is a sign it should become a class. Chapter 20 uses tuples for graph edges, where a pair of locations is all an edge needs.
+ 
++[markdown · ba18_ad551fe0a4f6]
++```{index} tuples; deconstruction; guided practice
++```
++
++### Guided Variation: Deconstruct a Shipment Summary
++
++
++[markdown · ba18_0a8006e8d65a]
++A temporary summary needs only the number of parcels and their total mass. A tuple is enough when it is used briefly and has no behavior or validation to enforce. The pattern `(type name, type name) = tupleExpression;` declares local variables from the fields of one tuple value. Field names describe meaning; deconstruction still follows position.
++
++Complete the two variable uses so the report prints `3 parcels, 7.5 kg`. Then swap the *names on the right-hand member accesses* in your explanation: why would using the count as the mass be a meaning error even when a numeric conversion compiles?
++
++
++[code · ba18_89de923dcac4]
++using System;
++using System.Globalization;
++CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
++(int Parcels, decimal Kilograms) shipment = (3, 7.5m);
++(int count, decimal mass) = shipment;
++// TODO: print the deconstructed count and mass with their correct units.
++
++
++[code · ba18_68c0187512dc]
++using System;
++using System.Globalization;
++CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
++// Solution
++(int Parcels, decimal Kilograms) shipment = (3, 7.5m);
++(int count, decimal mass) = shipment;
++Console.WriteLine($"{count} parcels, {mass} kg");
++
++
++[markdown · ba18_c35e16d5cca8]
++`count` gets the first element, 3; `mass` gets the second, 7.5. The original tuple remains available. A tuple's types help prevent some mistakes, but the type `decimal` alone does not express a unit such as kilograms or dollars. If the summary acquires rules or a lasting responsibility, use the class approach and constructor practice already developed earlier in this section.
++
++
+ [markdown · 6696de37]
+ ```{rubric} Footnotes
+ ```
+--- Before/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb
+
++++ After/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb
+
+@@ -274,6 +274,10 @@
+
+ [markdown · 54362327]
+ Choose the maximum-count compatible schedule, including a negative start time and a back-to-back boundary. Explain the exchange argument and reject a zero-duration interval.
+ 
++[markdown · ba18_634642b861ca]
++This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.
++
++
+ [code · e8496a78]
+ using System;
+ using System.Linq;
+@@ -283,6 +287,25 @@
+
+ // Your code starts here.
+ /* TODO: complete the task. */
+ // Your code ends here.
++// Cell-local support: inspect the operations, then write the client checks above.
++public static class MeetingSchedule
++{
++    public record Meeting(string Id,int Start,int End,int Value=1);
++    // Half-open, positive-duration intervals. Objective: maximum count.
++    public static Meeting[] Select(Meeting[] meetings)
++    {
++        ArgumentNullException.ThrowIfNull(meetings);
++        var ids=new HashSet<string>(StringComparer.Ordinal);
++        foreach(var meeting in meetings)
++            if(meeting is null||meeting.Id is null||!ids.Add(meeting.Id)||meeting.Start>=meeting.End)
++                throw new ArgumentException("Unique IDs and Start < End required.");
++        var chosen=new List<Meeting>();int lastEnd=int.MinValue;
++        foreach(var meeting in meetings.OrderBy(m=>m.End).ThenBy(m=>m.Start).ThenBy(m=>m.Id,StringComparer.Ordinal))
++            if(meeting.Start>=lastEnd){chosen.Add(meeting);lastEnd=meeting.End;}
++        return chosen.ToArray();
++    }
++}
++
+ 
+ [code · 110acd64]
+ using System;
+--- Before/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
+
++++ After/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
+
+@@ -736,6 +736,10 @@
+
+ [markdown · 7f93eb17]
+ Verify a distance larger than int.MaxValue, a zero edge, and an unreachable vertex. Print route and distance; reject a negative arc even in a disconnected component.
+ 
++[markdown · ba18_634642b861ca]
++This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.
++
++
+ [code · 6447ba28]
+ using System;
+ using System.Linq;
+@@ -746,6 +750,102 @@
+
+ // Your code starts here.
+ /* TODO: complete the task. */
+ // Your code ends here.
++// Cell-local support: inspect the operations, then write the client checks above.
++public static class GreedyGraph
++{
++    public record Edge(string From,string To,int Weight);
++    public record Forest(Edge[] Edges,long Cost,int Components);
++    public sealed class Routes
++    {
++        public string Source { get; }
++        public IReadOnlyDictionary<string,long?> Distance { get; }
++        public IReadOnlyDictionary<string,string?> Previous { get; }
++        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)
++        {
++            Source=source;
++            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);
++            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);
++        }
++        public string[] PathTo(string target)
++        {
++            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);
++            if(Distance[target] is null)return Array.Empty<string>();
++            var path=new Stack<string>();string? at=target;
++            for(int steps=0;at is not null;steps++)
++            {
++                if(steps>=Distance.Count)throw new InvalidOperationException("Invalid predecessor chain.");
++                path.Push(at);at=Previous[at];
++            }
++            if(path.Peek()!=Source)throw new InvalidOperationException("Path does not reach source.");
++            return path.ToArray();
++        }
++    }
++    // Undirected edges; parallel edges allowed. Negative MST weights are valid.
++    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)
++    {
++        Validate(vertices,edges,false);
++        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);
++        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);
++        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();
++        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))
++        {
++            string a=Find(edge.From),b=Find(edge.To);
++            if(a==b){trace?.Invoke($"reject {edge.From}-{edge.To} ({edge.Weight}): cycle");continue;}
++            if(size[a]<size[b])(a,b)=(b,a);
++            parent[b]=a;size[a]+=size[b];components--;
++            chosen.Add(edge);cost=checked(cost+edge.Weight);
++            trace?.Invoke($"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}");
++        }
++        return new Forest(chosen.ToArray(),cost,components);
++        string Find(string vertex)
++        {
++            while(parent[vertex]!=vertex)
++            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}
++            return vertex;
++        }
++    }
++    // Directed arcs; nonnegative weights required, including unreachable arcs.
++    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)
++    {
++        Validate(vertices,arcs,true);
++        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);
++        if(!graph.ContainsKey(source))throw new KeyNotFoundException("Unknown source.");
++        foreach(var edge in arcs)graph[edge.From].Add(edge);
++        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);
++        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);
++        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);
++        while(queue.TryDequeue(out string? current,out long queued))
++        {
++            if(distance[current]!=queued){trace?.Invoke($"skip stale {current} ({queued})");continue;}
++            trace?.Invoke($"settle {current} ({queued})");
++            foreach(var edge in graph[current])
++            {
++                long candidate=checked(queued+edge.Weight);
++                if(distance[edge.To] is null || candidate<distance[edge.To])
++                {
++                    distance[edge.To]=candidate;previous[edge.To]=current;
++                    queue.Enqueue(edge.To,candidate);
++                    trace?.Invoke($"relax {current}->{edge.To}: {candidate}");
++                }
++            }
++        }
++        return new Routes(source,distance,previous);
++    }
++    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)
++    {
++        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);
++        var known=new HashSet<string>(StringComparer.Ordinal);
++        foreach(string vertex in vertices)
++            if(vertex is null||!known.Add(vertex))throw new ArgumentException("Vertices must be distinct non-null labels.");
++        foreach(var edge in edges)
++        {
++            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException("Unknown endpoint.");
++            if(edge.From==edge.To)throw new ArgumentException("This graph contract excludes self-loops.");
++            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),"Dijkstra requires nonnegative weights.");
++        }
++    }
++}
++
+ 
+ [code · 083993b6]
+ using System;
+@@ -1160,6 +1260,10 @@
+
+ [markdown · 52920949]
+ Add a direct HQ-to-Depot travel arc of cost one and compare routing with the unchanged cable forest. Explain why a route improvement need not alter the separate cable-input optimum.
+ 
++[markdown · ba18_634642b861ca_2]
++This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.
++
++
+ [code · daca0787]
+ using System;
+ using System.Linq;
+@@ -1171,6 +1275,102 @@
+
+ // Your code starts here.
+ /* TODO: complete the task. */
+ // Your code ends here.
++// Cell-local support: inspect the operations, then write the client checks above.
++public static class GreedyGraph
++{
++    public record Edge(string From,string To,int Weight);
++    public record Forest(Edge[] Edges,long Cost,int Components);
++    public sealed class Routes
++    {
++        public string Source { get; }
++        public IReadOnlyDictionary<string,long?> Distance { get; }
++        public IReadOnlyDictionary<string,string?> Previous { get; }
++        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)
++        {
++            Source=source;
++            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);
++            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);
++        }
++        public string[] PathTo(string target)
++        {
++            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);
++            if(Distance[target] is null)return Array.Empty<string>();
++            var path=new Stack<string>();string? at=target;
++            for(int steps=0;at is not null;steps++)
++            {
++                if(steps>=Distance.Count)throw new InvalidOperationException("Invalid predecessor chain.");
++                path.Push(at);at=Previous[at];
++            }
++            if(path.Peek()!=Source)throw new InvalidOperationException("Path does not reach source.");
++            return path.ToArray();
++        }
++    }
++    // Undirected edges; parallel edges allowed. Negative MST weights are valid.
++    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)
++    {
++        Validate(vertices,edges,false);
++        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);
++        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);
++        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();
++        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))
++        {
++            string a=Find(edge.From),b=Find(edge.To);
++            if(a==b){trace?.Invoke($"reject {edge.From}-{edge.To} ({edge.Weight}): cycle");continue;}
++            if(size[a]<size[b])(a,b)=(b,a);
++            parent[b]=a;size[a]+=size[b];components--;
++            chosen.Add(edge);cost=checked(cost+edge.Weight);
++            trace?.Invoke($"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}");
++        }
++        return new Forest(chosen.ToArray(),cost,components);
++        string Find(string vertex)
++        {
++            while(parent[vertex]!=vertex)
++            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}
++            return vertex;
++        }
++    }
++    // Directed arcs; nonnegative weights required, including unreachable arcs.
++    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)
++    {
++        Validate(vertices,arcs,true);
++        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);
++        if(!graph.ContainsKey(source))throw new KeyNotFoundException("Unknown source.");
++        foreach(var edge in arcs)graph[edge.From].Add(edge);
++        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);
++        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);
++        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);
++        while(queue.TryDequeue(out string? current,out long queued))
++        {
++            if(distance[current]!=queued){trace?.Invoke($"skip stale {current} ({queued})");continue;}
++            trace?.Invoke($"settle {current} ({queued})");
++            foreach(var edge in graph[current])
++            {
++                long candidate=checked(queued+edge.Weight);
++                if(distance[edge.To] is null || candidate<distance[edge.To])
++                {
++                    distance[edge.To]=candidate;previous[edge.To]=current;
++                    queue.Enqueue(edge.To,candidate);
++                    trace?.Invoke($"relax {current}->{edge.To}: {candidate}");
++                }
++            }
++        }
++        return new Routes(source,distance,previous);
++    }
++    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)
++    {
++        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);
++        var known=new HashSet<string>(StringComparer.Ordinal);
++        foreach(string vertex in vertices)
++            if(vertex is null||!known.Add(vertex))throw new ArgumentException("Vertices must be distinct non-null labels.");
++        foreach(var edge in edges)
++        {
++            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException("Unknown endpoint.");
++            if(edge.From==edge.To)throw new ArgumentException("This graph contract excludes self-loops.");
++            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),"Dijkstra requires nonnegative weights.");
++        }
++    }
++}
++
+ 
+ [code · 6087cc3e]
+ using System;
+--- Before/chapters/appendices/databases/csharp_sqlite.ipynb
+
++++ After/chapters/appendices/databases/csharp_sqlite.ipynb
+
+@@ -86,6 +86,69 @@
+
+ Read `ReadBook` and match every reader position to its selected column. Predict what could go wrong if a query changed column order without updating the mapper. Keep each command's result shape explicit.
+ 
+ 
++[markdown · ba18_a62f34a88367]
++```{index} SQLite; row mapping; affected rows
++```
++
++### Follow a Row from SQL to Local Values
++
++
++[markdown · ba18_c1b1d4152d4a]
++The column positions in a reader follow the `SELECT` list, not the order you happen to think of the object's fields. This miniature example deliberately uses only ID, title and stock. Run the complete listing as `Program.cs` in a separate project with the same SQLite package; its in-memory database starts fresh. It does not replace the full inventory model.
++
++General mapping pattern (schematic):
++
++```csharp
++using var reader = command.ExecuteReader();
++if (reader.Read())
++{
++    var first = reader.GetInt64(0);    // match the selected column and its type
++    var second = reader.GetString(1);
++    // construct the object from these values
++}
++```
++
++`Read()` advances to a row and reports whether one exists. Do not read fields before that succeeds. The zero-based positions identify columns in that row. The appropriate getter interprets the stored value as the expected .NET type; it does not repair a mismatched column list.
++
++
++[markdown · ba18_a576e7c7ce06]
++```csharp
++using System;
++using Microsoft.Data.Sqlite;
++using var connection = new SqliteConnection("Data Source=:memory:");
++connection.Open();
++using (var setup = connection.CreateCommand())
++{
++    setup.CommandText = "CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT, Stock INTEGER); INSERT INTO Books VALUES (1, 'C# Operations', 6);";
++    setup.ExecuteNonQuery();
++}
++using (var query = connection.CreateCommand())
++{
++    query.CommandText = "SELECT BookId, Title, Stock FROM Books WHERE BookId = @id;";
++    query.Parameters.AddWithValue("@id", 1);
++    using var reader = query.ExecuteReader();
++    if (reader.Read())
++    {
++        long id = reader.GetInt64(0);
++        string title = reader.GetString(1);
++        int stock = reader.GetInt32(2);
++        Console.WriteLine($"{id}: {title}, stock={stock}");
++    }
++}
++using var update = connection.CreateCommand();
++update.CommandText = "UPDATE Books SET Stock = @stock WHERE BookId = @id;";
++update.Parameters.AddWithValue("@stock", 4);
++update.Parameters.AddWithValue("@id", 999);
++Console.WriteLine($"unknown ID affected rows={update.ExecuteNonQuery()}");
++```
++
++
++[markdown · ba18_9256acb7f9fe]
++The output is `1: C# Operations, stock=6`, then `unknown ID affected rows=0`. Position 0 maps to `BookId`, position 1 to `Title`, and position 2 to `Stock`. In the full project, `ReadBook` adds `PriceCents` and constructs an object from four columns using the same rule. Reordering the query to `Title, BookId, Stock` without changing these getters makes the mapper wrong; adding more casts does not fix the contract.
++
++An update's affected-row count is a different result from a selected record. Here ID 999 is absent, so the command changes zero rows. In this simple schema, updating an existing primary key changes one matching row; the supplied `SetStock` converts that count into a success Boolean.
++
++
+ [markdown · 75c0ca10]
+ ```{index} injection; SQL injection
+ ```
+@@ -135,6 +198,89 @@
+
+ The optional `Sell` operation begins a transaction, reduces stock only if enough remains, inserts a sale, and commits. If the book is missing or stock is insufficient, it rolls back and returns `false`. If an unexpected error occurs before commit, disposal rolls back the uncommitted transaction.
+ 
+ Every command participating in the transaction sets its `Transaction` property. Updating stock and inserting the sale independently could leave only one change saved after a failure. Atomicity means these changes are committed together.
++
++
++[markdown · ba18_bddfff51862e]
++```{index} transactions; rollback; atomicity
++```
++
++### Trace a Sale That Fails After the Stock Update
++
++
++[markdown · ba18_e1db705b9959]
++The transaction's purpose is to treat related persistent changes as one unit. The schematic pattern is:
++
++```csharp
++using var transaction = connection.BeginTransaction();
++// Every participating command sets command.Transaction = transaction.
++// Execute and check the related changes.
++transaction.Commit();
++```
++
++Commit makes the unit permanent. An explicit rollback, or disposal without a successful commit, abandons its changes. Do not catch a database failure and report a successful sale. A valid row-level constraint is useful, but it cannot by itself coordinate two separate commands.
++
++| Step | Stock visible inside transaction | Sale rows | Meaning |
++| --- | ---: | ---: | --- |
++| Before sale | 6 | 0 | starting state |
++| Decrement by two | 4 | 0 | pending, not yet committed |
++| Sale insert fails | 4 | 0 | incomplete unit |
++| Rollback completes | 6 | 0 | original state restored |
++
++Run this complete listing in a separate SQLite console project. The invalid zero quantity is intentional: it forces the second command to fail after the stock change. The normal inventory `Sell` validates quantity before starting; this miniature failure simulation is not its production input policy.
++
++
++[markdown · ba18_0327c1191086]
++```csharp
++using System;
++using Microsoft.Data.Sqlite;
++using var connection = new SqliteConnection("Data Source=:memory:");
++connection.Open();
++using (var setup = connection.CreateCommand())
++{
++    setup.CommandText = "CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Stock INTEGER CHECK(Stock >= 0)); CREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER, Quantity INTEGER CHECK(Quantity > 0)); INSERT INTO Books VALUES (1, 6);";
++    setup.ExecuteNonQuery();
++}
++using (var transaction = connection.BeginTransaction())
++{
++    try
++    {
++        using var update = connection.CreateCommand();
++        update.Transaction = transaction;
++        update.CommandText = "UPDATE Books SET Stock = Stock - 2 WHERE BookId = 1 AND Stock >= 2;";
++        if (update.ExecuteNonQuery() != 1) throw new InvalidOperationException("Insufficient stock.");
++        using var sale = connection.CreateCommand();
++        sale.Transaction = transaction;
++        // Deliberate invalid quantity simulates failure of the second change.
++        sale.CommandText = "INSERT INTO Sales VALUES (1, 1, 0);";
++        sale.ExecuteNonQuery();
++        transaction.Commit();
++    }
++    catch (SqliteException)
++    {
++        transaction.Rollback();
++        Console.WriteLine("sale rejected; rolled back");
++    }
++}
++using var check = connection.CreateCommand();
++check.CommandText = "SELECT Stock FROM Books WHERE BookId = 1;";
++Console.WriteLine($"stock={check.ExecuteScalar()}");
++check.CommandText = "SELECT COUNT(*) FROM Sales;";
++Console.WriteLine($"sales={check.ExecuteScalar()}");
++```
++
++
++[markdown · ba18_0fb5acc6cb00]
++The output is `sale rejected; rolled back`, `stock=6`, and `sales=0`. Seeing stock 4 would expose a partial change that the transaction is intended to prevent. In the full project, the forced trigger failure in check mode tests the same obligation without passing an invalid sale quantity.
++
++**Guided prediction:** change the inserted quantity to 2 and keep `Commit`. Predict both final counts before running. Next, keep the valid insert but omit `Commit`. Explain why successful commands are not enough to establish a durable sale.
++
++
++[markdown · ba18_a2f0e31ee223]
++```{dropdown} Feedback and transfer
++With quantity 2 and a successful commit, stock is 4 and there is one sale row; the exception message does not print. Without the commit, disposal rolls the transaction back, so stock returns to 6 and sale count to zero. Run the check *after* leaving the transaction scope, as above.
++
++For a mapper variation, change the query ID from 1 to 999: `Read()` returns false, so there are no field reads and no book output. An empty result is not a default book with ID zero. For the update variation, change its ID to 1: its affected-row count becomes one. Use these predictions to interpret the full project's checks before extending the lab.
++```
+ 
+ 
+ [markdown · ddd1a73604c3]
+--- Before/chapters/appendices/databases/relational_data_sql.ipynb
+
++++ After/chapters/appendices/databases/relational_data_sql.ipynb
+
+@@ -149,6 +149,37 @@
+
+ 3. Identify one foreign key relationship between two tables.
+ 
+ 
++[markdown · ba18_c8bb342732b1]
++```{index} SQL; seed data; query results
++```
++
++### A Known Dataset for Query Tracing
++
++
++[markdown · ba18_28cbcc54aadd]
++Use the earlier relationship-and-date schema for the query examples. These are **two steps in a fresh disposable SQLite database**: first run the `CREATE TABLE` statements above, then enable foreign keys and insert the following rows. If the tables already contain your practice data, use a new database rather than mixing datasets. These `Price` examples explain querying; the later inventory lab uses integer `PriceCents` and a different schema explicitly.
++
++```sql
++PRAGMA foreign_keys = ON;
++INSERT INTO Books (BookId, Title, Author, Price) VALUES
++    (1, 'C# Operations', 'Ana', 20.00),
++    (2, 'Systems', 'Bo', 30.00),
++    (3, 'Data', 'Ana', 15.00);
++INSERT INTO Sales (SaleId, BookId, Quantity, SoldOn) VALUES
++    (101, 1, 2, '2026-10-01'),
++    (102, 1, 1, '2026-10-02'),
++    (103, 2, 1, '2026-10-03');
++```
++
++| BookId | Title | Author | Price |
++| ---: | --- | --- | ---: |
++| 1 | C# Operations | Ana | 20.00 |
++| 2 | Systems | Bo | 30.00 |
++| 3 | Data | Ana | 15.00 |
++
++There are three book rows and three sale rows, but those are different kinds of records. Two sales refer to book 1, one refers to book 2, and no sale refers to book 3. Keep this distinction while predicting joins and counts. SQL tools may display `20.0` rather than `20.00`; the query result value is the same.
++
++
+ [markdown · 3f496b7d49f4]
+ ## Queries
+ 
+@@ -169,6 +200,19 @@
+
+ 
+ ```{index} Selecting Columns
+ ```
++
++
++[markdown · ba18_0d310647e280]
++Read the general query pattern before substituting the example names:
++
++```sql
++SELECT column_list
++FROM table_name
++WHERE row_condition
++ORDER BY sort_column DESC;
++```
++
++This is a pattern, not a statement to run unchanged. `SELECT` specifies the output columns, `FROM` supplies candidate rows, `WHERE` filters rows, and `ORDER BY` controls their order. `DESC` means descending. A semicolon ends the statement; omit optional clauses when they are unnecessary. Without `ORDER BY`, do not depend on a particular returned row order.
+ 
+ 
+ [markdown · a2deaaa7bf91]
+@@ -264,6 +308,82 @@
+
+ ```
+ 
+ This query reads sale rows and attaches the book title for each sale. Without the join, the sale row would only have a `BookId`.
++
++
++[markdown · ba18_f295659f0d48]
++```{index} SQL; filtering; grouping; join multiplicity
++```
++
++### Read the Filter, Group, and Join Results
++
++
++[markdown · ba18_069d856763b9]
++For the dataset above, the `Price < 25.00` query returns:
++
++| Title | Price |
++| --- | ---: |
++| C# Operations | 20.00 |
++| Data | 15.00 |
++
++`Systems` fails the condition and is removed before sorting. Descending price puts 20.00 before 15.00. The query does not change either stored price.
++
++The `COUNT(*)`/`AVG(Price)` query returns one aggregate row: `BookCount = 3`, `AveragePrice = 21.666…`. The author grouping returns `Ana, 2` and `Bo, 1`. It counts **book rows**, not copies sold. `GROUP BY` combines rows with the same author for the aggregate; it is not an ordinary alphabetical sort.
++
++The join on `Sales.BookId = Books.BookId`, ordered by `SoldOn`, returns:
++
++| Title | Quantity | SoldOn |
++| --- | ---: | --- |
++| C# Operations | 2 | 2026-10-01 |
++| C# Operations | 1 | 2026-10-02 |
++| Systems | 1 | 2026-10-03 |
++
++The title repeats because there are two separate sale events for that book. `Data` is absent because this inner join requires a matching sale. Repeated titles are not automatically duplicate errors, and counting sale rows is different from summing `Quantity`.
++
++A common mistake is omitting the `ON` relationship. Pairing every sale with every book would produce nine combinations here, including false associations. Another is assuming that every book must appear in this result: finding books with no sales requires a different query, such as a left join.
++
++
++[markdown · ba18_fd3f8891f165]
++```{index} SQL; guided query
++```
++
++### Guided Query: Select Qualifying Prices
++
++
++[markdown · ba18_211580db95cf]
++List titles and prices costing **at least 20.00**, highest first. Fill the two conditions without changing the output columns:
++
++```sql
++SELECT Title, Price
++FROM Books
++WHERE /* complete the comparison */
++ORDER BY Price /* choose ASC or DESC */;
++```
++
++Predict the rows and their order before running. Keep the 20.00 boundary; do not treat “at least” as strictly greater than.
++
++
++[markdown · ba18_8daf7e8a6eb4]
++````{dropdown} Query and explanation
++```sql
++SELECT Title, Price
++FROM Books
++WHERE Price >= 20.00
++ORDER BY Price DESC;
++```
++
++The result is `Systems, 30.00`, then `C# Operations, 20.00`. Using `>` would wrongly omit the second row. Using `ASC` would keep both rows but reverse the requested order. Change the threshold to 31.00: zero result rows is a valid answer, not a failure of `SELECT`.
++
++For a grouping variation, count sale events by book:
++
++```sql
++SELECT BookId, COUNT(*) AS SaleEvents, SUM(Quantity) AS Copies
++FROM Sales
++GROUP BY BookId
++ORDER BY BookId;
++```
++
++Book 1 has two events and three copies; book 2 has one event and one copy. A book with no sales is not represented by a zero row automatically in this query. Explain that absence before moving to the independent queries.
++````
+ 
+ 
+ [markdown · f15c2077ce3b]
+--- Before/chapters/appendices/operator_overloading.ipynb
+
++++ After/chapters/appendices/operator_overloading.ipynb
+
+@@ -755,6 +755,81 @@
+
+ }
+ 
+ 
++[markdown · ba18_8458de7b78ab]
++```{index} operator overloading; value contracts; guided addition
++```
++
++### Define the Contract Before Completing an Operator
++
++
++[markdown · ba18_a89f1c7d9462]
++The addition example connects a familiar symbol to a user-defined type. Its general declaration is a pattern:
++
++```csharp
++public static ResultType operator +(LeftType left, RightType right)
++{
++    // return the result promised by this type's contract
++}
++```
++
++`operator` announces an operator declaration; `+` selects the symbol. `public static` makes this a type operation with two explicit operands, rather than an instance method with an implicit `this`. For these ordinary binary overloads at least one operand must have the containing type. The return type and parameter names describe the result and operands. You cannot create a new symbol or change addition's precedence by overloading it.
++
++For the earlier `Money` type, both operands denote nonnegative amounts in the same assumed currency. The result is a new value containing their sum. The operator does not print, alter either operand, or apply an unstated fee. Keeping that contract explicit makes the symbol predictable.
++
++Complete `+` below. With inputs 12.50 and 7.50, expect 20.00, and verify that the operands remain 12.50 and 7.50. Include zero plus 7.50 as a boundary case. The starter intentionally returns only the left operand; it compiles but violates the sum contract.
++
++
++[code · ba18_2e09e1ac6f5e]
++using System;
++using System.Globalization;
++var left = new Amount(12.50m);
++var right = new Amount(7.50m);
++Console.WriteLine((left + right).Value.ToString("F2", CultureInfo.InvariantCulture));
++Console.WriteLine($"left={left.Value.ToString("F2", CultureInfo.InvariantCulture)}, right={right.Value.ToString("F2", CultureInfo.InvariantCulture)}");
++Console.WriteLine((new Amount(0m) + right).Value.ToString("F2", CultureInfo.InvariantCulture));
++public readonly struct Amount
++{
++    public decimal Value { get; }
++    public Amount(decimal value)
++    {
++        if (value < 0m) throw new ArgumentOutOfRangeException(nameof(value));
++        Value = value;
++    }
++    public static Amount operator +(Amount left, Amount right)
++    {
++        return left; // TODO: return a new amount with the sum.
++    }
++}
++
++
++[code · ba18_645b0a509026]
++using System;
++using System.Globalization;
++var left = new Amount(12.50m);
++var right = new Amount(7.50m);
++Console.WriteLine((left + right).Value.ToString("F2", CultureInfo.InvariantCulture));
++Console.WriteLine($"left={left.Value.ToString("F2", CultureInfo.InvariantCulture)}, right={right.Value.ToString("F2", CultureInfo.InvariantCulture)}");
++Console.WriteLine((new Amount(0m) + right).Value.ToString("F2", CultureInfo.InvariantCulture));
++public readonly struct Amount
++{
++    public decimal Value { get; }
++    public Amount(decimal value)
++    {
++        if (value < 0m) throw new ArgumentOutOfRangeException(nameof(value));
++        Value = value;
++    }
++    public static Amount operator +(Amount left, Amount right)
++    {
++        // Solution
++        return new Amount(left.Value + right.Value);
++    }
++}
++
++
++[markdown · ba18_e81c17444e5e]
++The solution prints `20.00`, `left=12.50, right=7.50`, and `7.50`. Returning `left` passes no sum test except a zero right operand, so a single convenient test could conceal the defect. Constructing a new value keeps the inputs unchanged and reuses the constructor's nonnegative-value contract. Arithmetic overflow is still possible for sufficiently large decimal values; this example does not claim unlimited range. A real multi-currency type would need to check currency compatibility before adding.
++
++
+ [markdown · 7248e473-6fc1-491e-a327-5cf0eb96654d]
+ ```{rubric} Footnotes
+ ```

@@ -1,5 +1,15 @@
 # Organization: Classes and Objects
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `1002_properties.ipynb` | B04 | Current accessor forms, value/backing field, validated Phone and guided Email repair already address the audit gap. Verify all seven current examples; expose question/answer through normal exercise metadata without duplicating lessons. |
+| `1001_class_syntax.ipynb` | B13 | Retain and verify current Product construction exercise; add tuple deconstruction practice and feedback about position, meaning and units. Existing params and constructor material retained. |
+
+Keep the current reading order and chapter boundaries. Develop explanation and relevant general syntax before the worked application; interpret output/state and a meaningful variation, then provide a local learner attempt with feedback. Existing labs and homework remain the independent transfer stage; do not move new prerequisite explanations into labs. Optional readings remain optional. The report in `authoring/ba_development_revision/` maps all 18 findings to current evidence and verification.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

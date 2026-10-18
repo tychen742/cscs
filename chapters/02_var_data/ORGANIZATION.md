@@ -1,5 +1,17 @@
 # Chapter Organization — Variables and Data Types
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `0201_variables_types.ipynb` | B08 | Worked assignment trace → incomplete stock/reservation table → standalone learner print and explained state feedback; retained price-swap exercise remains. |
+| `0204_types_conversion.ipynb` | B01 | Range versus precision; cast/parse/domain distinctions; verified 16,777,217 counterexample and exact-small-value variation. Existing conversion examples and directional maps retained with corrected qualifications. |
+| `0202_operators_built_in_methods.ipynb` | B02, B09 | Operand/result types and division; precedence table with intermediate types; guided fractional-hours repair and explained output. Existing bill splitting and Math/pricing tasks retained. |
+| `0203_input_output.ipynb` | B10 | Prompt/read/parse/report pattern; invoice transcript and field-width interpretation; guided Folders report with zero-input variation. Existing UI helper and formatting catalogue retained. |
+
+Keep the current reading order and chapter boundaries. Develop explanation and relevant general syntax before the worked application; interpret output/state and a meaningful variation, then provide a local learner attempt with feedback. Existing labs and homework remain the independent transfer stage; do not move new prerequisite explanations into labs. Optional readings remain optional. The report in `authoring/ba_development_revision/` maps all 18 findings to current evidence and verification.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

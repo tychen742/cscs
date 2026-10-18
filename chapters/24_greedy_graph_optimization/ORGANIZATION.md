@@ -4,6 +4,16 @@ orphan: true
 
 # Chapter Organization — Greedy Algorithms
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `2401_greedy_choice.ipynb` | B06 | Embed MeetingSchedule support in its visible client-check starter; preserve the intended boundary/exchange task and existing answer. |
+| `2404_shortest_paths.ipynb` | B06 | Embed GreedyGraph support in both visible starters; distinguish client checks from reimplementing algorithms; preserve wide-distance, invalid-arc and separate facilities-model tasks. |
+
+Keep the current reading order and chapter boundaries. Develop explanation and relevant general syntax before the worked application; interpret output/state and a meaningful variation, then provide a local learner attempt with feedback. Existing labs and homework remain the independent transfer stage; do not move new prerequisite explanations into labs. Optional readings remain optional. The report in `authoring/ba_development_revision/` maps all 18 findings to current evidence and verification.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

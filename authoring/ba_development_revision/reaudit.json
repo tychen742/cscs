@@ -1,0 +1,887 @@
+[
+  {
+    "id": "B01",
+    "title": "Conversion explanations contradict the correct worked treatment",
+    "status": "Addressed and rechecked",
+    "resolution": "Qualified the retained conversion chain; separated range, precision, casting, parsing and domain validation; added a verified loss-of-one-unit example and comparison table.",
+    "files": [
+      "chapters/02_var_data/0204_types_conversion.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "edeea9ad"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "ba18_18fe6ebeb08e"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "ba18_d84b93d8c73d"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "ba18_215ab326e744"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "ba18_817b28b86a77"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "0692ab55"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell_id": "ba18_95d7bbbe955f"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_215ab326e744",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B02",
+    "title": "Division comments teach a result type that the expression does not have",
+    "status": "Addressed and rechecked",
+    "resolution": "Corrected the integer-division prose and floating-point comment. The new guided evaluation trace distinguishes operand types, intermediate values and display formatting.",
+    "files": [
+      "chapters/02_var_data/0202_operators_built_in_methods.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "a4d79135"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ebb5ee3f"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_323dcf5f0891"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_e4c1be97b9b8"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_9799bb2ba9d0"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_522d9fe685bb"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_57defb871027"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "2c15cc60"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_9799bb2ba9d0",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_522d9fe685bb",
+        "passed": true
+      },
+      {
+        "cell_id": "ebb5ee3f",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B03",
+    "title": "Postfix explanation confuses expression value with the updated variable",
+    "status": "Addressed and rechecked",
+    "resolution": "Corrected the postfix causal explanation. A verified result/state demonstration distinguishes old expression value, updated storage and the location of a for-loop update.",
+    "files": [
+      "chapters/04_iteration/0401_iteration.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "aaed10f8"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_8a2c16d0011d"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_312a9a0dcdc0"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_1e0c1883d72a"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_22a4d3995fc6"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_149add20a0ed"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_d5cbb17eb653"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_e6cf5885f9a8"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_262eedf97036"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_312a9a0dcdc0",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_d5cbb17eb653",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_e6cf5885f9a8",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B04",
+    "title": "Properties are used before a proper property-accessor lesson",
+    "status": "Addressed and rechecked",
+    "resolution": "The current source already contained a proper accessor lesson, validated backing-field example and Email exercise. Retained all of them, independently verified all seven examples, and repaired the question/answer tags.",
+    "files": [
+      "chapters/10_classes/1002_properties.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell_id": "0ad059f5"
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell_id": "p2_559bae69e5"
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell_id": "p2_381f87b120"
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell_id": "p2_b226fc3150"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "p2_f1a744b60f",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_bfc55b2cea",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_f4eb88fa20",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_5f0af294e7",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_1f315c294e",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_381f87b120",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_b226fc3150",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B05",
+    "title": "File API explanation names a read method as a write operation",
+    "status": "Addressed and rechecked",
+    "resolution": "Corrected the read/write API call; added separate call/result patterns and an overwrite prediction without replacing the existing walkthrough.",
+    "files": [
+      "chapters/09_files_text/0901_stream_file.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0901_stream_file.ipynb",
+        "cell_id": "7c0bb79e"
+      },
+      {
+        "file": "chapters/09_files_text/0901_stream_file.ipynb",
+        "cell_id": "ba18_6d609f952740"
+      }
+    ],
+    "independent_code_checks": []
+  },
+  {
+    "id": "B06",
+    "title": "Guided starters require undeclared types",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained each client-check task and embedded its complete supporting types. All three visible starters and all three complete answers compile independently.",
+    "files": [
+      "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+      "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+        "cell_id": "ba18_634642b861ca"
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+        "cell_id": "e8496a78"
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell_id": "ba18_634642b861ca"
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell_id": "6447ba28"
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell_id": "ba18_634642b861ca_2"
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell_id": "daca0787"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "e8496a78",
+        "passed": true
+      },
+      {
+        "cell_id": "6447ba28",
+        "passed": true
+      },
+      {
+        "cell_id": "daca0787",
+        "passed": true
+      },
+      {
+        "cell_id": "110acd64",
+        "passed": true
+      },
+      {
+        "cell_id": "083993b6",
+        "passed": true
+      },
+      {
+        "cell_id": "6087cc3e",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B07",
+    "title": "A structured-record example silently depends on a previous cell",
+    "status": "Addressed and rechecked",
+    "resolution": "The current caller already included its helper. Preserved that source exactly, verified it in a fresh project, and added accepted/rejected-record and domain-contract interpretation.",
+    "files": [
+      "chapters/09_files_text/0903_text_operations.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cell_id": "ba18_244b7af1f4d6"
+      },
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cell_id": "7f7f6d6b"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "7f7f6d6b",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B08",
+    "title": "Variable-state practice is mostly supplied rather than attempted locally",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained the newer Swap Two Prices activity and added a learner-completed stock/reservation table, standalone task, solution and feedback about assignment timing.",
+    "files": [
+      "chapters/02_var_data/0201_variables_types.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell_id": "ba18_82c96a2f46f6"
+      },
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell_id": "ba18_54c3813194b5"
+      },
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell_id": "ba18_f2f6006d2bfa"
+      },
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell_id": "ba18_dc18b82a19a5"
+      },
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell_id": "ba18_08a15bf072ba"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_f2f6006d2bfa",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_dc18b82a19a5",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B09",
+    "title": "Operator practice does not cover the breadth of the operator lesson",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained bill-splitting and Math/pricing tasks. Added a precedence/value/type table and a fractional-hours repair with explained incorrect and correct outputs.",
+    "files": [
+      "chapters/02_var_data/0202_operators_built_in_methods.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "a4d79135"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ebb5ee3f"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_323dcf5f0891"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_e4c1be97b9b8"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_9799bb2ba9d0"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_522d9fe685bb"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "ba18_57defb871027"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell_id": "2c15cc60"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_9799bb2ba9d0",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_522d9fe685bb",
+        "passed": true
+      },
+      {
+        "cell_id": "ebb5ee3f",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B10",
+    "title": "Console I/O has many demonstrations but no developed guided checkpoint",
+    "status": "Addressed and rechecked",
+    "resolution": "Added prompt/read/parse/format patterns, an invoice transcript, field-width explanation, guided Folders report and boundary/mistake feedback. Supplied-input assumptions are explicit.",
+    "files": [
+      "chapters/02_var_data/0203_input_output.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_e0fda9b294de"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_942aaad8cb06"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_d5784bb86975"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_62dff9718a18"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_e0c455ba28ed"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_c3183179dd1d"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell_id": "ba18_bdd16880d530"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_d5784bb86975",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_e0c455ba28ed",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_c3183179dd1d",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B11",
+    "title": "Boolean-condition translation needs a learner-owned checkpoint",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained and verified the newer shipping-condition exercise; added threshold cases and counterexamples for || versus && and > versus >=, including stored-Boolean timing.",
+    "files": [
+      "chapters/03_decision/0301_intro_decision.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/03_decision/0301_intro_decision.ipynb",
+        "cell_id": "ba18_16a5b603e278"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "p4_c40102fa98",
+        "passed": true
+      },
+      {
+        "cell_id": "p4_4a0e0868af",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B12",
+    "title": "The loop-planning rubric is not demonstrated as a planning process",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained the countdown-by-twos activity; applied the planning rubric to a concrete reminder task and added a condition-boundary repair with zero-iteration feedback.",
+    "files": [
+      "chapters/04_iteration/0401_iteration.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "aaed10f8"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_8a2c16d0011d"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_312a9a0dcdc0"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_1e0c1883d72a"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_22a4d3995fc6"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_149add20a0ed"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_d5cbb17eb653"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_e6cf5885f9a8"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell_id": "ba18_262eedf97036"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_312a9a0dcdc0",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_d5cbb17eb653",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_e6cf5885f9a8",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B13",
+    "title": "First class construction needs guided application of its core model",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained and verified current Product construction practice and repaired its exercise tags. Added tuple-deconstruction transfer with units/position feedback; kept params and all prior tuple examples.",
+    "files": [
+      "chapters/10_classes/1001_class_syntax.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell_id": "ba18_ad551fe0a4f6"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell_id": "ba18_0a8006e8d65a"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell_id": "ba18_89de923dcac4"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell_id": "ba18_68c0187512dc"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell_id": "ba18_c35e16d5cca8"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_89de923dcac4",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_68c0187512dc",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_081fb0c712",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_6d684f6ad9",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_7c5252758e",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_48af6b5454",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_148ee99cbc",
+        "passed": true
+      },
+      {
+        "cell_id": "p2_3411407b56",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B14",
+    "title": "Regex extraction develops less fully than the validation opening",
+    "status": "Addressed and rechecked",
+    "resolution": "Added extraction API/result patterns, named-group and no-match explanation, matched/unmatched trace, immutable replacement demonstration and a guided whole-record repair before the retained independent practice.",
+    "files": [
+      "chapters/09_files_text/0906_regex.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_612b117e31f5"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_926d36e6c7df"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_17afcff84941"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_85607d2eba8c"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_e803ea2fc006"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_4c01c952cc5a"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_398c3d2f6ce8"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell_id": "ba18_b2f087170fab"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_85607d2eba8c",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_4c01c952cc5a",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_398c3d2f6ce8",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B15",
+    "title": "Optional privacy reading ends with summary rather than guided application",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained card masking, corrected its overclaim about identification, and added purpose-based synthetic log review with feedback distinguishing display minimization from storage deletion.",
+    "files": [
+      "chapters/09_files_text/0905_privacy_security.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "p4_86c774d61b"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "ba18_034701a15f7f"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "ba18_fc6be0e8e7a9"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "ba18_f842ca458a4d"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "ba18_e9b149a16702"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell_id": "ba18_d5677d8bca2f"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_f842ca458a4d",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_e9b149a16702",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B16",
+    "title": "SQL queries need concrete results and guided feedback",
+    "status": "Addressed and rechecked",
+    "resolution": "Added a reproducible three-book/three-sale dataset, general query pattern, actual filter/group/join results and guided threshold/grouping feedback. Six query results and an empty boundary were checked with SQLite.",
+    "files": [
+      "chapters/appendices/databases/relational_data_sql.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_c8bb342732b1"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_28cbcc54aadd"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_0d310647e280"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_f295659f0d48"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_069d856763b9"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_fd3f8891f165"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_211580db95cf"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell_id": "ba18_8daf7e8a6eb4"
+      }
+    ],
+    "independent_code_checks": []
+  },
+  {
+    "id": "B17",
+    "title": "SQLite mapping and transactions rely heavily on inspecting the full project",
+    "status": "Addressed and rechecked",
+    "resolution": "Added complete project-only row-mapping/affected-row and rollback examples, state tables and explained guided variations. Verified forced failure, valid commit, omitted commit and missing/existing IDs.",
+    "files": [
+      "chapters/appendices/databases/csharp_sqlite.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_a62f34a88367"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_c1b1d4152d4a"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_a576e7c7ce06"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_9256acb7f9fe"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_bddfff51862e"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_e1db705b9959"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_0327c1191086"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_0fb5acc6cb00"
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell_id": "ba18_a2f0e31ee223"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_a576e7c7ce06",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_0327c1191086",
+        "passed": true
+      },
+      {
+        "cell_id": "sqlite_valid_commit",
+        "passed": true
+      },
+      {
+        "cell_id": "sqlite_valid_without_commit",
+        "passed": true
+      },
+      {
+        "cell_id": "sqlite_missing_lookup_existing_update",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "id": "B18",
+    "title": "Operator-overloading extension needs a guided operator contract task",
+    "status": "Addressed and rechecked",
+    "resolution": "Retained Rational and Money. Added general operator syntax, a value/nonmutation contract and a standalone guided Amount addition exercise with zero-boundary and unchanged-operand evidence.",
+    "files": [
+      "chapters/appendices/operator_overloading.ipynb"
+    ],
+    "evidence": [
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell_id": "ba18_8458de7b78ab"
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell_id": "ba18_a89f1c7d9462"
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell_id": "ba18_2e09e1ac6f5e"
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell_id": "ba18_645b0a509026"
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell_id": "ba18_e81c17444e5e"
+      }
+    ],
+    "independent_code_checks": [
+      {
+        "cell_id": "ba18_2e09e1ac6f5e",
+        "passed": true
+      },
+      {
+        "cell_id": "ba18_645b0a509026",
+        "passed": true
+      }
+    ]
+  }
+]

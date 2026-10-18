@@ -1,0 +1,641 @@
+[
+  {
+    "id": "B01",
+    "priority": "High",
+    "title": "Conversion explanations contradict the correct worked treatment",
+    "dimensions": [
+      "explanation"
+    ],
+    "existing": "The later evaluation/type table correctly separates casting, parsing, and domain validation.",
+    "gap": "The earlier text says implicit widening never loses data and attributes the lack of string-to-int conversion to string immutability. These are incorrect causal rules, not missing topics.",
+    "recommendation": "Reconcile the retained passages. Explain representable range versus precision; use a small precision-loss counterexample and distinguish textual parsing from numeric conversion.",
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell": 61,
+        "id": "edeea9ad",
+        "excerpt": "\nC# variables have specific types, but values sometimes need to move between\ntypes. Type conversions are either **implicit** (automatic) or **explicit**\n(manual cast required).\n\n**Implicit casting** happens automatically when converting a smaller type to a\nlarger one \u2014 no data is lost:\n\n```text\nchar \u2192 int \u2192 long \u2192 float \u2192 double\n```\n\n**Explicit casting** is required when converting a larger type to a smaller one,\nbecause precision or range may be lost:\n\n```text\ndouble \u2192 float \u2192 long \u2192 int \u2192 char\n```\n\nFor example:\n\n```csharp\nint a = 123;\nlong b = a;        // implicit: int fits in long, no cast needed\nint c = (int) b;   // explicit: long \u2192 int, cast required\n```\n\nUse `GetType()` to inspect a variable's type at runtime. When types are *not*\ncast properly, C# raises a compile-time error. For example, assigning a `double`\ndirectly to an `int` fails:"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell": 70,
+        "id": "0692ab55",
+        "excerpt": "\nThe default value from `Console.ReadLine()` is of string type and\nwhen we want the user to supply numbers, we need to explicitly convert the\nstrings to the proper kind of number. We cannot convert the string type to\nint implicitly because strings are immutable in C#. Instead, you need to parse\nthe string and assign to the intended data type.\n\nThere are C# built-in methods to do that. `int.Parse` takes a string parameter\nthat should be the characters in an `int`, like \"123\" or \"-25\", and\nproduces the corresponding `int` value, like 123 or -25:\n"
+      },
+      {
+        "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+        "cell": 78,
+        "id": "cbafcaaa",
+        "excerpt": "Suppose three employees share ten work hours. The expression `10 / 3` has two integer operands, so it produces the integer 3. Assigning that result to a double afterward produces 3.0; the missing fractional part cannot be recovered. Converting an operand before division changes which arithmetic operation is performed. This is the same evaluation-order reasoning used for ordinary expressions: work out each intermediate value and its type before considering the destination variable.\n\n| Step | Value | Type | Interpretation |\n| --- | --- | --- | --- |\n| Read the literal 10 | 10 | int | Ten whole hours in this example |\n| Evaluate 10 / 3 | 3 | int | Integer quotient |\n| Convert that quotient | 3.0 | double | Conversion preserves the already truncated result |\n| Evaluate 10.0 / 3 | approximately 3.3333 | double | Fractional division happened before assignment |\n\nA cast is written `(DestinationType)expression`. The parentheses identify a requested conversion; they do not mean that conversion is lossless. Converting a floating-point value to an integer discards its fractional part within the supported range. Parsing is different: `int.Parse(text)` interprets a textual representation under a format contract. Neither a cast nor a parse proves the resulting business value is allowed. A successfully parsed negative package count may still violate the application rule.\n\n"
+      }
+    ]
+  },
+  {
+    "id": "B02",
+    "priority": "High",
+    "title": "Division comments teach a result type that the expression does not have",
+    "dimensions": [
+      "explanation",
+      "worked"
+    ],
+    "existing": "The chapter already has useful division and formatting examples, and Types and Conversion gives a correct intermediate-value table.",
+    "gap": "The comment on 6.0 / 3.0 says a zero remainder makes the quotient an int. The surrounding integer-division explanation also describes implicit conversion rather than operand-dependent arithmetic.",
+    "recommendation": "Align comments and prose with operand types; show value and result type together, then ask students to predict a mixed/integer/floating variation.",
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell": 38,
+        "id": "a4d79135",
+        "excerpt": "But C# will implicitly turn the following expression to an `int` type:"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell": 41,
+        "id": "ebb5ee3f",
+        "excerpt": "Console.WriteLine(14.0/4.0);\nConsole.WriteLine(14.0 / 4);  // one of the operands is double type\nConsole.WriteLine(6.0/3.0);  // when the remainder is 0, the quotient is an int."
+      }
+    ]
+  },
+  {
+    "id": "B03",
+    "priority": "High",
+    "title": "Postfix explanation confuses expression value with the updated variable",
+    "dimensions": [
+      "explanation"
+    ],
+    "existing": "Prefix/postfix examples are already present.",
+    "gap": "The text says i++ retains the old value in the body until the next iteration. Postfix returns the previous value as the expression result but updates the variable during evaluation.",
+    "recommendation": "Explain old expression value versus new stored value with a two-column trace; distinguish a for-loop update location from postfix semantics.",
+    "evidence": [
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell": 12,
+        "id": "aaed10f8",
+        "excerpt": "\nThe iterator, also known as **step**, section can contain zero or more expressions, separated by commas.\nCommonly used iterators include:\n\n- prefix or postfix increment expression, such as ++i or i++\n- prefix or postfix decrement expression, such as --i or i--\n- assignment\n\nThe arithmetic unary operators (decrement operator `--` and\nincrement operator `++`) are probably the most common ones used in for and while loops, especially\nthe postfix increment operator. The result of a postfix increment operation is that it\nincrements the value of the local loop variable (`i`) and still evaluates to the original value\nas before the operation and will update the value in next iteration. Namely, `i++` will retain\nthe old value in the body of the for statement until next next iteration.\n\nFor example, test this with `csharprepl`, `Run C#`, or a small VS Code project:"
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell": 14,
+        "id": "3298c732",
+        "excerpt": "Observe the code below to compare the behavior of postfix and prefix operations and you will see\nthe difference between the postfix expression and prefix expression:"
+      }
+    ]
+  },
+  {
+    "id": "B04",
+    "priority": "High",
+    "title": "Properties are used before a proper property-accessor lesson",
+    "dimensions": [
+      "explanation",
+      "syntax",
+      "worked",
+      "practice"
+    ],
+    "existing": "Getter/setter methods, Contact, this, and ToString explanations are substantial and should remain. An Employee example already contains auto-properties.",
+    "gap": "The main lesson still promises a future update and teaches GetName/SetEmail methods. The later { get; set; } syntax appears without a developed accessor explanation or a guided property task.",
+    "recommendation": "Teach field versus property versus method, general accessor and auto-property forms, implicit value, validation/backing state, and a worked caller trace. Convert one Contact member with guided checks; retain the method approach for comparison.",
+    "evidence": [
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell": 5,
+        "id": "0ad059f5",
+        "excerpt": "\nAlthough the content are still valid, this section will be updated later to reflect\nthe more current syntax and discussion of properties such as in [Using Properties](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties#the-get-accessor).\n\nA property is a member that provides a flexible mechanism to read, write, or compute\nthe value of a data field. Properties appear as public data members, but they\u2019re\nimplemented as special methods called accessors."
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell": 8,
+        "id": "541fe992",
+        "excerpt": "\nIn instance methods you have an extra way of getting data in and out of the method:\nReading or setting instance variables (fields). The simplest methods do nothing but reading\nor setting instance variables. We start with those:\n\nThe `private` in front\nof the field declarations was important to keep code outside the\nclass from messing with the values. On the other hand we do want\nothers to be able to *inspect* the name, phone and email,\nso how do we do that? Use **public methods**.\n\nSince the fields are accessible anywhere *inside* the class\u2019s instance methods,\nand public methods can be used from *outside* the class, we can simply code\n\n```csharp\n      public string GetName()\n      {\n         return name;\n      }\n\n      public string GetPhone()\n      {\n         return phone;\n      }\n\n      public string GetEmail()\n      {\n         return email;\n      }\n```\n\nThese methods allow one-way communication of the name, phone and email\nvalues out from the object.\nThese are examples\nof a simple category of methods: A *getter* simply returns the value of a part\nof the object\u2019s state, without changing the object at all.\n\nNote again that there is no `static` in the method heading.\nThe field value for the *current* Contact is returned.\n\nA standard convention that we are following:\nHave getter methods names start with \u201cGet\u201d,\nfollowed by the name of the data to be returned.\n\nIn this first simple version of Contact we add one further method, to\nprint all the contact information with labels.\n\n```csharp\n      public void Print()\n      {\n         Console.WriteLine (@\"Name:  {0}\nPhone: {1}\nEmail: {2}\", name, phone, email);\n      }\n```\n\nAgain, we use the instance variable names, plugging them into a format string.\nRemember the `@` syntax\nfor multiline strings gives us verbatim string literals that are interpreted literally\nwithout escape sequences.\n\nYou can see the entire Contact class, and a program that tests it, here:\n\n````{dropdown} Complete code: Contact (version 1)\n{file}`contact1.cs`:\n\n\n```csharp\nusing System;\nnamespace IntroCS\n{\n/// A simple class / object example:\n   class Contact // nothing in here is marked static\n   {\n      private string name, phone, email;\n\n      // a constructor - no return type\n      public Contact(string fullName, string phoneNumber, string emailAddress)\n      {\n         name = fullName;\n         phone = phoneNumber;\n         email = emailAddress;\n      }\n\n      // getter methods\n      public string GetName()\n      {\n         return name;\n      }\n\n      public string GetPhone()\n      {\n         return phone;\n      }\n\n      public string GetEmail()\n      {\n         return email;\n      }\n\n      ///print with labels\n      public void Print()\n      {\n         Console.WriteLine (@\"Name:  {0}\nPhone: {1}\nEmail: {2}\", name, phone, email);\n      }\n   }               // end Print chunk\n}\n```\n\n{file}`test_contact1.cs`:\n\n\n```csharp\nusing System;\n\nnamespace IntroCS\n{\n   public class TestContact\n   {\n      public static void Main()\n      {\n         Contact c1 = new Contact(\"Marie Ortiz\", \"773-508-7890\",\n                                  \"mortiz2@luc.edu\");\n         Contact c2 = new Contact(\"Otto Heinz\", \"773-508-9999\",\n                                  \"oheinz@luc.edu\");\n         Console.WriteLine(\"Marie's full name: \" + c1.GetName());\n         Console.WriteLine(\"Her phone number: \" + c1.GetPhone());\n         Console.WriteLine(\"Her email: \" + c1.GetEmail());\n         Console.WriteLine(\"\\nFull contact info for Otto:\");\n         c2.Print();\n      }\n   }\n}\n```\n````\n\nThis is your first complete class defining a new type of object.\nLook carefully to get used to the features introduced, before we add\nmore ideas:\n\n```{index} class; Contact version 2\n```"
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell": 14,
+        "id": "dd3d45cd",
+        "excerpt": "\nThe original version of Contact makes a Contact object be\n*immutable*: Once it is created with the constructor, there is no way\nto change its internal state. The only assignments to the private\ninstance variables are the ones in the constructor. In real life\npeople can change their email address. We might like to allow that\nwith our Contact objects. Users can read the data in a Contact with the\n*getter* methods. Now we need *setter* methods. The naming conventions\nare similar: start with \u201cSet\u201d. In this case we must supply the new data,\nso setter methods need a parameter:\n\n```csharp\n      public void SetPhone(string newPhone)\n      {\n         phone = newPhone;\n      }\n```\n\nIn `SetPhone`, like in our original constructor, we illustrate using a\n*new* name for the parameter that sets the instance variable. For\ncomparison we use the alternate identifier matching approach in the\nother setter:\n\n```csharp\n      public void SetEmail(string email)\n      {\n         this.email = email;\n      }\n```\n\nNow we can alter the contents of a Contact:\n\n    Contact c1 = new Contact(\"Marie Ortiz\", \"773-508-7890\", \"mortiz2@luc.edu\");\n    c1.SetEmail (\"maria.ortiz@gmail.com\");\n    c1.SetPhone(\"555-555-5555\");\n    c1.Print();\n\nwould print\n\n``` none\nName:  Marie Ortiz\nPhone: 555-555-5555\nEmail: maria.ortiz@gmail.com\n```"
+      },
+      {
+        "file": "chapters/10_classes/1002_properties.ipynb",
+        "cell": 25,
+        "id": "cf8e32d6",
+        "excerpt": "using System;\n    class Employee\n    {\n       public string Name { get; set; }\n       public int Salary { get; set; }\n\n       public override string ToString()\n       {\n          return \"Employee: \" + Name + \" \" + Salary;      ///// returns object data\n       }\n    }\n\n    class Test\n    {\n       public static void Main()\n       {\n          Employee employee = new Employee { Name = \"John\", Salary = 100000 };\n          Console.WriteLine(employee.ToString());   ///// print: Employee: John 100000\n          Console.WriteLine(employee);              ///// print: Employee: John 100000\n                                                    /////        as ToString is the default output\n\n       }\n    }\n"
+      }
+    ]
+  },
+  {
+    "id": "B05",
+    "priority": "High",
+    "title": "File API explanation names a read method as a write operation",
+    "dimensions": [
+      "explanation",
+      "syntax"
+    ],
+    "existing": "The API table and later read/write walkthrough contain the correct WriteAllText and ReadAllText calls.",
+    "gap": "The introductory prose tells students to use File.ReadAllText(string path, string content) to write. This conflicts with the correct examples and presents a nonexistent write signature.",
+    "recommendation": "Correct the explanatory call; separate general read and write patterns, argument meanings, returned text, and overwrite behavior. Reuse the existing examples.",
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0901_stream_file.ipynb",
+        "cell": 20,
+        "id": "7c0bb79e",
+        "excerpt": "\nAmong the file handling methods is the convenience class `File`, which provides `static methods` for the creation,\ncopying, deletion, moving, and opening of a single file, and aids in the creation of `FileStream` objects. For example,\nthe Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations\namong other methods:\n\n**Methods in File Class**\n\n| Method | Description |\n|--------|-------------|\n| `AppendText()` | Appends text at the end of an existing file |\n| `Copy()` | Copies a file |\n| `Create()` | Creates or overwrites a file |\n| `Delete()` | Deletes a file |\n| `Exists()` | Tests whether the file exists |\n| `ReadAllText()` | Reads the contents of a file |\n| `Replace()` | Replaces the contents of a file with the contents of another file |\n| `WriteAllText()` | Creates a new file and writes the contents to it. If the file already exists, it will be overwritten. |\n\nSine class `File` provides `static methods`, we can `call` the methods directly by using the `dot notation`\nwithout having to create a new instance of the class. For example, with `File` class, when you want to write\nsome content to a file, you can simply say `File.ReadAllText(string path, string content)` to write the\nstring content to the path file.\n\nYou can perform tests such as the following in a small VS Code project to get familiar with the methods:\n\n1.  Create a file using `File.Create (path)`: // path means filename + the file's directory path\n\n        > File.Create(\"MyTest.txt\");\n\n2.  Check if a file exists using `File.Exists (path)`:\n\n        > if (File.Exists(\"MyTest.txt\"))\n          {\n             Console.WriteLine(\"MyTest.txt exists\");\n          }\n        MyTest.txt exists\n\n3.  Write to a file using `File.WriteAllText (path, content)`:\n\n        > File.WriteAllText(\"MyTest.txt\", \"Hello, this is a test.\");\n\n4.  Read from a file using `File.ReadAllText(path)`:\n\n        > File.ReadAllText(\"MyTest.txt\");\n\n        > Console.WriteLine(File.ReadAllText(\"MyTest.txt\"));\n        Hello, this is a test.\n\n        >\n\nTo better organize the tests above, use VS Code and a small console project. You should\nalso use a variable for the filename:"
+      }
+    ]
+  },
+  {
+    "id": "B06",
+    "priority": "High",
+    "title": "Guided starters require undeclared types",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "The questions state meaningful boundary cases and the hidden solutions supply complete implementations.",
+    "gap": "Three visible starter cells instantiate MeetingSchedule.Meeting or GreedyGraph.Edge without defining those types. Fresh-cell builds fail with CS0246 before students can work on the intended algorithm.",
+    "recommendation": "Supply the required types and scaffolding inside each starter, with a bounded missing operation and expected checks. Alternatively mark a deliberate sequence and provide the required standalone reset/setup cell; do not make the hidden answer the setup.",
+    "evidence": [
+      {
+        "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+        "cell": 34,
+        "id": "54362327",
+        "excerpt": "Choose the maximum-count compatible schedule, including a negative start time and a back-to-back boundary. Explain the exchange argument and reject a zero-duration interval."
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+        "cell": 35,
+        "id": "e8496a78",
+        "excerpt": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nvar meetings=new[]{new MeetingSchedule.Meeting(\"A\",-3,0),new MeetingSchedule.Meeting(\"B\",0,2),new MeetingSchedule.Meeting(\"C\",-2,3)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here."
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell": 38,
+        "id": "7f93eb17",
+        "excerpt": "Verify a distance larger than int.MaxValue, a zero edge, and an unreachable vertex. Print route and distance; reject a negative arc even in a disconnected component."
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell": 39,
+        "id": "6447ba28",
+        "excerpt": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nstring[] vertices={\"A\",\"B\",\"C\",\"Remote\"};\nvar arcs=new[]{new GreedyGraph.Edge(\"A\",\"B\",int.MaxValue),new GreedyGraph.Edge(\"B\",\"C\",1)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here."
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell": 56,
+        "id": "52920949",
+        "excerpt": "Add a direct HQ-to-Depot travel arc of cost one and compare routing with the unchanged cable forest. Explain why a route improvement need not alter the separate cable-input optimum."
+      },
+      {
+        "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+        "cell": 57,
+        "id": "daca0787",
+        "excerpt": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nstring[] vertices={\"HQ\",\"Lab\",\"Shop\",\"Depot\",\"Remote\"};\nvar edges=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\nvar arcs=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here."
+      }
+    ]
+  },
+  {
+    "id": "B07",
+    "priority": "Medium",
+    "title": "A structured-record example silently depends on a previous cell",
+    "dimensions": [
+      "worked"
+    ],
+    "existing": "The parsing helper and the caller are both present, alongside a stronger later prepared import-review activity.",
+    "gap": "The caller cell uses TryParseStudent defined only in the previous cell; a fresh compile fails with CS0103. The pair is not labeled as an intentional stateful sequence with reset/setup.",
+    "recommendation": "Make the demonstration standalone or explicitly label and provide the sequence setup. Show accepted and rejected records with a brief reason for each result.",
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cell": 28,
+        "id": "3fbf7a9f",
+        "excerpt": "\nStructured lines are text records with predictable field order.\n\nExample record: `Alice,98,CS`\n\nField model:\n1. name (`string`)\n2. score (`int`)\n3. major (`string`)"
+      },
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cell": 29,
+        "id": "53856479",
+        "excerpt": "static bool TryParseStudent(string line, out string name, out int score, out string major)\n{\n    name  = \"\";\n    major = \"\";\n    score = 0;\n\n    if (string.IsNullOrWhiteSpace(line)) return false;\n\n    string[] parts = line.Split(',');\n    if (parts.Length != 3) return false;\n\n    name  = parts[0].Trim();\n    major = parts[2].Trim();\n\n    return int.TryParse(parts[1].Trim(), out score);\n}"
+      },
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cell": 30,
+        "id": "7f7f6d6b",
+        "excerpt": "string[] records = { \"Alice,98,CS\", \"Bob,abc,Math\", \"Carol,87,Physics\", \"\" };\n\nforeach (string line in records)\n{\n    if (TryParseStudent(line, out string name, out int score, out string major))\n        Console.WriteLine($\"{name} ({major}) scored {score}\");\n    else\n        Console.WriteLine($\"Skipped malformed line: '{line}'\");\n}"
+      }
+    ]
+  },
+  {
+    "id": "B08",
+    "priority": "Medium",
+    "title": "Variable-state practice is mostly supplied rather than attempted locally",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "The worked assignment/state trace and declaration examples establish the concepts.",
+    "gap": "The learner has limited local completion-and-feedback practice for following successive assignments; further practice is primarily reached through the assignments link.",
+    "recommendation": "After the worked trace, give a short unfinished state table and a revealable explanation. Include reassignment and an expression using the previous value.",
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell": 31,
+        "id": "2efea84b",
+        "excerpt": "To understand assignment, follow each statement using the most recently stored values. This is sometimes called **playing computer**. Predict the output of this small program before running it:\n\n```csharp\nint x = 3;\nint y = x + 2;\ny = 2 * y;\nx = y - x;\nConsole.WriteLine(x + \" \" + y);\n```\n\nA state table records the values **after** each statement. A dash means that a local variable has not yet been declared; it is not a default zero.\n\n| Statement | `x` afterward | `y` afterward | Reason |\n| --- | ---: | ---: | --- |\n| `int x = 3;` | 3 | \u2014 | Initialize `x`. |\n| `int y = x + 2;` | 3 | 5 | Use the current `x`: `3 + 2`. |\n| `y = 2 * y;` | 3 | 10 | Read the old `y`, calculate 10, then replace `y`. |\n| `x = y - x;` | 7 | 10 | Read the current values: `10 - 3`. |\n| `Console.WriteLine(x + \" \" + y);` | 7 | 10 | Print `7 10`; output does not change the variables. |\n\nUnlike an equation asserting a permanent relationship, an assignment changes one stored value at that moment. Assigning `y = x + 2` does not make `y` automatically change whenever `x` changes. In this sequential program, the trace follows source order; later decisions and loops will make the order itself part of the reasoning.\n\nUse the restored {doc}`Tracing and Expression Practice <assignments/additional_practice>` for a prediction task and a table to complete yourself."
+      },
+      {
+        "file": "chapters/02_var_data/0201_variables_types.ipynb",
+        "cell": 32,
+        "id": "restored-variable-trace",
+        "excerpt": "using System;\nint x = 3;\nint y = x + 2;\ny = 2 * y;\nx = y - x;\nConsole.WriteLine(x + \" \" + y);"
+      }
+    ]
+  },
+  {
+    "id": "B09",
+    "priority": "Medium",
+    "title": "Operator practice does not cover the breadth of the operator lesson",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "There is a guided pricing/Math task; operator and built-in method examples are not absent.",
+    "gap": "That checkpoint does not sufficiently scaffold the earlier precedence and numeric-evaluation distinctions. A complete pricing solution is a different skill from tracing intermediate values and types.",
+    "recommendation": "Add a small predict/explain/repair task on precedence and division with answer reasoning, then transfer to the existing pricing task. Do not require every reference-table operator to receive its own exercise.",
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell": 94,
+        "id": "0613a03d",
+        "excerpt": "**Practice** *(basic)*: A customer buys 3 items at 24.99 with a 15% discount. Compute the discounted total, round it to two decimal places, and print the larger of that total and a 50.00 minimum charge."
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell": 95,
+        "id": "e5a06fe7",
+        "excerpt": "using System;\n\ndouble unitPrice = 24.99;\nint quantity = 3;\ndouble discountRate = 0.15;\n// Your code starts here.\n\n// Your code ends here.\n"
+      },
+      {
+        "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+        "cell": 96,
+        "id": "6cd02ace",
+        "excerpt": "// Solution\nusing System;\n\ndouble unitPrice = 24.99;\nint quantity = 3;\ndouble discountRate = 0.15;\n\ndouble discounted = unitPrice * quantity * (1 - discountRate);\ndouble rounded = Math.Round(discounted, 2);\nConsole.WriteLine(rounded);\nConsole.WriteLine(Math.Max(rounded, 50.0));\n"
+      }
+    ]
+  },
+  {
+    "id": "B10",
+    "priority": "Medium",
+    "title": "Console I/O has many demonstrations but no developed guided checkpoint",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "Prompt/read, output, composite formatting, alignment, and interpolation are explained with concrete examples and several expected transcripts.",
+    "gap": "The section largely asks readers to run supplied demonstrations. It lacks a bounded learner attempt combining input, a calculated value, and an exact output contract, with feedback.",
+    "recommendation": "Guide an invoice-line prompt and aligned result. Give sample input and required output, a partial program, and an explained solution; keep the larger independent work in assignments.",
+    "evidence": [
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell": 32,
+        "id": "31f8f0e7",
+        "excerpt": "\nInstead of using the `+` operator, **composite format** (the\n\"fill-in-the-braces\") gives us better control over output using `Console.WriteLine`\nby using positional **string format index** to separate the string and the data variables.\n\nIn composite formatting, you use two arguments: 1) a composite format **string** with\n**parameter specifier** (`format item` index) and 2) an **object list**. When printing,\nthe objects (variables or literal values) substitute the parameter specifiers one by one.\n\nObserve the last two statements:\n"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell": 38,
+        "id": "9173557a",
+        "excerpt": "\nIt would print:\n\n```\nPeter Piper, Peter Piper, pick.\n```\n\nwhere parameter 0 is `first` (value `\"Peter\"`),\nparameter 1 is `last` ( value `\"Piper\"`), and\nparameter 2 is `what` (value `\"pick\"`).\n\nAs an example, try the following with `csharprepl`, `Run C#`, or a small VS Code project:\n"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell": 49,
+        "id": "b0aa66ae",
+        "excerpt": "\nYou may format two strings together. In the example below, the `{1,6:D}`\nformat item takes the second item, format it also as a decimal and the\nstring length will be 6 characters (right-aligned and padded with empty strings;\nthe 6 here is the `alignment component`):\n"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell": 53,
+        "id": "c156f599",
+        "excerpt": "```{index} format specifiers; standard numeric\n```\n\nThe most commonly used standard numeric format specifiers are listed below. The\nnumber after the letter is the **precision specifier**: for most specifiers it sets the\nnumber of decimal places, and for `D` and `X` it sets the minimum number of digits. The\nresults shown are for the en-US culture.\n\n| Specifier | Name | Use with | Format item | Value | Result |\n| --------- | ---- | -------- | ----------- | ----- | ------ |\n| `C` | Currency | any number | `{0:C}` | `1234.5m` | `$1,234.50` |\n| `C0` | Currency, no decimals | any number | `{0:C0}` | `1234.5m` | `$1,235` |\n| `D` | Decimal digits | integers only | `{0:D6}` | `42` | `000042` |\n| `F` | Fixed-point | any number | `{0:F2}` | `3.14159` | `3.14` |\n| `N` | Number with thousands separators | any number | `{0:N0}` | `1234567` | `1,234,567` |\n| `P` | Percent (multiplies by 100) | any number | `{0:P1}` | `0.125` | `12.5%` |\n| `E` | Scientific (exponential) | any number | `{0:E2}` | `1234.5` | `1.23E+003` |\n| `X` | Hexadecimal | integers only | `{0:X4}` | `255` | `00FF` |\n\nSpecifiers that set decimal places round the value; they do not change the variable\nitself. A business report typically uses `C` for money, `N0` for counts, and `P` for\nrates:"
+      },
+      {
+        "file": "chapters/02_var_data/0203_input_output.ipynb",
+        "cell": 57,
+        "id": "561234ac",
+        "excerpt": "\nThe `$` character identifies a string literal as an **interpolated string**. An interpolated\nstring is a string literal that might contain interpolation expressions. When an\ninterpolated string is resolved to a result string, the compiler replaces items with\ninterpolation expressions by the string representations of the expression results.\nString interpolation provides a more readable, convenient syntax to format strings.\nTo identify a string literal as an interpolated string, prepend it with the `$` symbol.\n\nCompare **composite formatting** and **string interpolation**:\n"
+      }
+    ]
+  },
+  {
+    "id": "B11",
+    "priority": "Medium",
+    "title": "Boolean-condition translation needs a learner-owned checkpoint",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "General Boolean syntax, graduation eligibility, interval conditions, and urgent/important alternatives are developed.",
+    "gap": "The main reasoning is demonstrated for the reader. The final clarity question does not check whether a student can translate a requirement or handle inclusive boundaries.",
+    "recommendation": "Have students complete one condition from a business rule, predict boundary truth values, and diagnose an &&/|| mistake before revealing the explanation.",
+    "evidence": [
+      {
+        "file": "chapters/03_decision/0301_intro_decision.ipynb",
+        "cell": 21,
+        "id": "12069b3f",
+        "excerpt": "\nTo be eligible to graduate from M S&T, you must\nhave 120 credits *and* a GPA of at least 2.0. C# does not use the\nword *and*. Instead it uses `&&` (inherited from the C language).\nThen, the requirement translates directly into C# as a *compound condition*\nusing the logical operator `&&`:\n\n```\ncredits >= 120 && GPA >=2.0\n```\n\nThis is true if both `credits >= 120` is true and `GPA >= 2.0`\nis true. A short example function using this would be:\n"
+      },
+      {
+        "file": "chapters/03_decision/0301_intro_decision.ipynb",
+        "cell": 23,
+        "id": "bb82befb",
+        "excerpt": "\nThe C# syntax for the logical operator `&&` is:\n\n> *condition1* `&&` *condition2*\n\nThe compound condition is `true` if `both` of the component conditions\nare true. It is `false` if `at least one` of the conditions is false.\n\nSuppose we want a C# condition that is true in the same situations\nas the mathematical expression: low < val < high. Unfortunately the\nmath is not a C# expression. The C# operator `<` is binary.\nIn C#, the statement above is equivalent to\n\n> (low < val) < high\n\ncomparing a Boolean result to high, and causing a compiler error.\nThere is a C# version. Be sure to use this pattern:\n\n```\nlow < val && val < high\n```\n\n```{index} boolean operator; ||\n```\n\nNow suppose we want the opposite condition: that val is *not*\nstrictly between low and high.\nThere are several approaches.\nOne is that `val` would be less than or equal to low\n*or* greater than or equal to `high`. C# translate *or* into `||`,\nso a C# expression would be:\n\n> val \\<= low || val >= high\n\nThe C# syntax for the logical operator `||` is:\n\n> *condition1* `||` *condition2*\n\nThe compound condition is true if at least one of the component conditions\nare true. It is false if both conditions are false.\n\n```{index} boolean operator; !\n```\n\nAnother logical way to express the opposite of the condition low < val < high\nis that it is *not* the case\nthat low < val && val \\<< high. C# translates *not* as `!`. Another way\nto state the condition would be\n\n```\n!(low < val && val < high)\n```\n\nThe parentheses are needed because the `!`\noperator has higher precedence than\n`<`.\n\nA way to remember this strange *not* operator is to think of the use of `!`\nin the not-equal operator: `!=`\n\nThe C# syntax for the operator `!`:\n\n> `!` *condition*\n\nThis whole expression is true when *condition* is false,\nand false when *condition* is true.\n\nBecause of the precedence of `!`, you are often going to write:\n\n> `!(` *condition* `)`\n\nRemember when such a condition is used in an `if` statement, *outer*\nparentheses are also needed:\n\n> `if (!(` *condition* `)) {`\n\nNote that `!` has the high precedence of unary arithmetic operators.\nThe operators `&&` and `||` are almost at the bottom of the operators\nconsidered in this book, just above the assignment operators, and below the\nrelational operators, with `&&` above `||`. You are encourages to use\nparentheses to make sure.\n\n**Compound Overkill**: Look back to the code converting a score to a letter\ngrade in the grade-selection example ({ref}`else-if-cases`), the condition before assigning the B\ngrade could have been:\n\n```\n(score >= 80 && score < 90)\n```\n\nThat would have totally nailed the condition, but it is overly verbose in the\n`if` .. `else if` ... code where it appeared. Since you only get\nto consider a B as a grade if the grade was *not* already\nset to A, the second part of the compound condition above is redundant.\n"
+      },
+      {
+        "file": "chapters/03_decision/0301_intro_decision.ipynb",
+        "cell": 26,
+        "id": "1267f303",
+        "excerpt": "\nConsider a different situation: Steven Covey suggested that people classify\npossible actions on two axes: urgent vs. not urgent and important vs. not\nimportant, leading to four possible combinations.\nWe could ask a person to classify an activity this way, and them give a\nprocess comment, something like from Covey's book:\n\n- Important and urgent: Be sure to schedule this promptly!\n- Important and not urgent: Make sure that this is included regularly in your\n  plans! Do not let urgent but unimportant things interfere!\n- Not important and urgent: Can you skip this, or is it really worth\n  letting this displace important things you need to do?\n- Not important and not urgent: Is there anything more worthwhile\n  for you to do now?\n\nAssume we have Boolean variables `important` and `urgent`.\nThere are four separate combinations, and we could handle this with a\nchain of compound conditions checking for one at a time:\n"
+      },
+      {
+        "file": "chapters/03_decision/0301_intro_decision.ipynb",
+        "cell": 30,
+        "id": "c5cb07e6",
+        "excerpt": "\nThe outer {{ if_else }} determines whether the action is important, so the inner\nconditions only need to deal with urgency. Also note that in executing\nthis version there are never more than two short conditions evaluated.\nIn the first version, you may have to go through all three conditions.\nBoth approaches work. Which is clearer to you?"
+      }
+    ]
+  },
+  {
+    "id": "B12",
+    "priority": "Medium",
+    "title": "The loop-planning rubric is not demonstrated as a planning process",
+    "dimensions": [
+      "worked",
+      "practice"
+    ],
+    "existing": "Repetition examples, step expressions, and a useful planning-question list are present; later for/while readings provide detailed syntax.",
+    "gap": "The planning rubric is a list rather than a worked plan followed by a learner attempt. break/continue also receive little local application in this overview.",
+    "recommendation": "Walk through initialization, continuation, update, and exit for one small task; ask students to repair a related plan with feedback. Keep detailed loop syntax in its current sections.",
+    "evidence": [
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell": 20,
+        "id": "cc7b18f7",
+        "excerpt": "\n`break` exits the nearest loop or switch. `continue` skips the rest of the current loop body. In a `for` loop, the update runs before the next condition check; in a `while` loop, the next condition is checked directly. Ensure an update is not skipped accidentally.\n\n`return` exits a method and is taught with user-defined methods in Chapter 5. It is not needed for this chapter's programs."
+      },
+      {
+        "file": "chapters/04_iteration/0401_iteration.ipynb",
+        "cell": 23,
+        "id": "21c6f82b",
+        "excerpt": "\nLooking ahead to more complicated and interesting problems,\nhere is a list of questions to ask yourself when\ndesigning a program with a loop:\n\n1. Data & loop variables: What data is involved? Make sure you give good variable names.\n2. Initialization: What needs to be initialized and how? This certainly includes any\n   variable tested in the condition.\n3. Condition: What is the condition that will allow the loop to *continue*? It\n   may be easier to think of the condition that will *stop* the loop.\n   That is fine - but remember to *negate* it (with `!`) to turn it\n   into a proper *continuation* condition.\n4. Distinguish: What is the code that should only be executed once?\n   What action do I want to repeat?\n5. Repetition: How do I write the repeating action so I can modify it for the next time\n   through the loop to work with new data?\n6. Update: What code is needed to do modifications to make the same action code work\n   the next time through the loop?\n7. Locale variables: Have I thought of variables needed in the middle and declared them;\n   do other things need initialization?\n8. Condition again: Will the continuation condition eventually fail?\n   *Be sure to think about this!*\n9. Structure: Separate the actions to be done once before the repetition (code before the\n   loop) from repetitive actions (in the loop) and from actions not repeated, but\n   done after the loop (code after the loop). Missing this distinction\n   is a *common error*!\n\nThis is quite a sequence of steps. You should at least note a more basic split into two parts:\n\n1. Writing the code to make sure each desired iteration is reached\n   (loop dynamics: initialized data for the test condition, the test condition itself,\n   preparing for the next iteration)\n2. Doing the work for a specific item/iteration (mostly of the body of the loop)\n\nYou generally only need to concentrate on one of those at a time.\nIf you set up how to reach all of the repetitions, giving names for the variables\nto be acted on, then you can separately just concentrate on dealing with the the action/code\nto deal with the *current* situation.\n"
+      }
+    ]
+  },
+  {
+    "id": "B13",
+    "priority": "Medium",
+    "title": "First class construction needs guided application of its core model",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "Class/constructor examples and tuple syntax are present. The params extension already has a guided prediction task.",
+    "gap": "The explicit guided activity develops params, while creating an instance with valid initial fields and calling its behavior is mostly demonstrated. Tuple forms also lack a comparable local attempt.",
+    "recommendation": "Before extensions, guide a small class/constructor/member-call completion with a state/output check. Add a short tuple deconstruction variation, preserving the existing examples.",
+    "evidence": [
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell": 8,
+        "id": "d1471367",
+        "excerpt": "\nTo declare a class, you need to use the `class` keyword and give a unique `identifier` (name) to the class. For example,\nyou want to create a customer class to include some data and methods in one unit:\n\n```csharp\n// [access modifier] - [class] - [identifier]\n\npublic class Customer\n{\n   // Fields, properties, methods and events go here...\n}\n```\n\nAttributes to be considered when creating a class include:\n\n- Access Modifiers: The default access for a class type is internal. Basic levels of access for a class include [2] :  \n  - **public**: Access is not restricted. Anyone code can create instances of this class.\n  - **protected**: Access is limited to the containing class or types derived from the containing class.\n  - **internal**: Access is limited to the current assembly. [3]\n  - **private**: Access is limited to the containing type.\n\n- Class Identifier: A unique name for the class. An identifier is the name you assign to a type (class, interface, struct, delegate, or enum),\n  member, variable, or namespace. An identifier begins with a letter or underscore. As a convention, use PascalCase for class names and method names.\n\n- Class Body: The class body is surrounded by { }. The behavior and data are defined in the class body, including **fields**, properties, **methods**, and events on a class and\n  are collectively referred to as **class members**.\n\n- Base Class or Super Class: Optional. Name of the class\u2019s superclass; preceded by a colon (:).\n\n- Interfaces: Interface names implemented by the class; preceded by a colon (:)."
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell": 11,
+        "id": "df26bbdd",
+        "excerpt": "\nIn the following example, there is a class called `Program` with a Main method. We define another class\ncalled `DoMath` and then, in the Main method of the Program class, 1) instantiate an object of the DoMath class by\nusing the `new` keyword and 2) use the dot notation (`.`) to access a method defined in DoMath:\n\n    internal class Program\n    {\n       static void Main(string[] args)\n       {\n          DoMath doMath = new DoMath();    // create an object using the new keyword\n          int aSum = doMath.Sum(2, 2);     // use the [object].[method] syntax to use the methods\n          Console.WriteLine(aSum);         // output 4\n       }\n    }\n\n    class DoMath                           // class accessability level is default to internal\n    {\n       public int Sum(int num1, int num2)\n       {\n          var total = num1 + num2;\n          return total;\n       }\n    }\n\nIn addition to store data as local variables and call methods in the same class,\nnow we have alternatives for storing and accessing data in the methods within\na new class that we write. Just like using the `UI` class or `Random` class, we\nnow can better design, extend, and organize program functionalities.\n\nWhen you use classes like `StreamReader`, you create a new `StreamReader` object using the `new`\nkeyword and then use the `ReadLine` method. In application code, print the value explicitly:\n\n```csharp\nStreamReader reader = new StreamReader(\"ui.cs\");\nstring line = reader.ReadLine();\nConsole.WriteLine(line);\n```\n\nAs you can see, we are using the `member access operator (.)` to access a member\nof a namespace or a type. Calls to instance methods are always attached to a specific object.\nThat has always been the part through the `.` of\n\n> *object*`.`*method*`(` \u2026 `)`\n\n```{index} OOP; instance variable\n```\n\n\n"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell": 14,
+        "id": "84beb7c2",
+        "excerpt": "\nThe constructor is a special method in the class:\n\n1.  Its `name` is the same as the name of its type. For example, if we create a class named `Contact`, then the\n    constructor method is also called `Contact`.\n2.  Its method `signature` includes only an optional access modifier, the method name, and its parameter list\n3.  Its method `signature` has `no return type` (and *no* `static`). Implicitly you are creating a default object from the class.\n4.  The constructor can have parameters like a regular method. That means giving values to its fields. For example,\n    you may want to store this *state* (the current condition of a system, such as the values of the variables) in\n    instance variables `name`, `phone` and `email` if you are creating a Contact type:\n\n```csharp\n      public Contact(string fullName, string phoneNumber, string emailAddress)\n      {\n         name = fullName;\n         phone = phoneNumber;\n         email = emailAddress;\n      }\n```\n\nWhile the local variables in the formal parameters disappear after the constructor terminates,\nwe want the data to live on as the state of the object. In order to remember state after the\nconstructor terminates, we must *make sure the information gets into the instance variables*\nfor the object. This is the basic operation of most constructors: Copy desired formal\nparameters in to initialize the state in the fields. That is all our simple\ncode above does.\n\nTo further explain how constructors work, take a look at the following code:\n\n    internal class Program\n    {\n       static void Main(string[] args)\n       {\n          CheckID check = new CheckID(\"taylor swift\");\n       }\n    }\n\n    class CheckID\n    {\n       public string name;           // this is an instance field (variable)\n       public CheckID(string name)\n       {\n          this.name = name;          // The \"this\" keyword refers to the current instance of the class\n       }\n\n       public void PrintResult()\n       {\n          // ... if ID for this name exists ...\n          Console.WriteLine($\"{name} has an existing ID!\"); // using the \"name\" variable in method\n       }                             // output \"taylor swift has an existing ID!\"\n       // ....\n       // ....\n    }\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell": 22,
+        "id": "0c352fa4306c",
+        "excerpt": "**Guided practice.** Predict `0`, `9`, and `5` before running. Write a parameter-array method that counts charges above a supplied threshold, placing the threshold before the final array parameter. Test an empty call, an exact-threshold value, and an existing array. Compare this design with the retained extra-practice overload exercise."
+      },
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cell": 26,
+        "id": "094596cb",
+        "excerpt": "A class bundles data with the behavior that belongs to it. Sometimes a program only needs to keep two or three values together for a moment, such as a product code and its price, or the lowest and highest sales day of a week. A **tuple** groups a few values into one value without declaring a class.[^1001_class_syntax-tuple-types]\n\n```csharp\n(Type1 Name1, Type2 Name2) variableName = (value1, value2);\n```"
+      }
+    ]
+  },
+  {
+    "id": "B14",
+    "priority": "Medium",
+    "title": "Regex extraction develops less fully than the validation opening",
+    "dimensions": [
+      "explanation",
+      "practice"
+    ],
+    "existing": "The opening anchored-label pattern has a useful breakdown, contrast with substring matching, and a checkpoint.",
+    "gap": "Later Match/Matches/Replace/capture-group introductions are brief and move toward an independent practice list. They need more explanation of result objects, no-match behavior, and group extraction before transfer.",
+    "recommendation": "Develop one matched/unmatched extraction trace, explain named groups and failure handling, and guide a small extraction/replacement variation with feedback. This is supporting reading, not a new required meeting.",
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell": 18,
+        "id": "81749266",
+        "excerpt": "\n`Regex.Match` returns the first match object:"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell": 22,
+        "id": "57e0824a",
+        "excerpt": "\n`Regex.Matches` returns every match:"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell": 26,
+        "id": "0ccfb926",
+        "excerpt": "\n`Regex.Replace` substitutes every match:"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell": 31,
+        "id": "ff0ba205",
+        "excerpt": "\nParentheses create **capture groups** \u2014 named parts of a match:"
+      },
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cell": 41,
+        "id": "7f5aa13d",
+        "excerpt": "\n1. Write a pattern to match a C# `int` or `double` literal (e.g. `42`, `-3`, `3.14`).\n2. Extract all words (sequences of `\\w+`) from a sentence and print each on its own line.\n3. Validate that a filename ends with `.cs` or `.txt`.\n4. Replace all tab characters in a file line with four spaces."
+      }
+    ]
+  },
+  {
+    "id": "B15",
+    "priority": "Medium",
+    "title": "Optional privacy reading ends with summary rather than guided application",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "Masking, untrusted input, safe logging, and collect/show/keep principles have concrete examples.",
+    "gap": "There is no comparable local learner attempt with explained feedback tying these habits to a particular record or log line.",
+    "recommendation": "Provide a synthetic log-review checkpoint: identify unnecessary exposure, repair one line, and explain why masking display does not erase the stored original. Keep its optional status.",
+    "evidence": [
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell": 10,
+        "id": "76913847",
+        "excerpt": "Many screens and documents need only enough of a value to recognize it. A support agent confirming an account needs to see `a***@example.com`, not the full address. Masking uses the string methods from {ref}`string-methods`:"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell": 14,
+        "id": "5d540c71",
+        "excerpt": "Masking is for display. A program that does not need a value at all should not collect or store it in the first place."
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell": 17,
+        "id": "478d6409",
+        "excerpt": "Every value that comes from outside the program, such as keyboard input, a file, a web form, or another system, may be wrong by accident or on purpose. Check both the **type** and the **business rule** before using it. `int.TryParse` from Chapter 6 handles the type; an `if` handles the range:"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell": 23,
+        "id": "3e3fe35b",
+        "excerpt": "Logs record what a program did so people can investigate problems later. Logs are also read by many people and kept for a long time, so they must not contain secrets such as passwords or full card numbers:"
+      },
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cell": 28,
+        "id": "d30a4823",
+        "excerpt": "Personal data deserves care in every line of code that touches it. Collect, show, and keep only what a task needs; mask values for display; check every input for type and business rules; never build commands from input text; and keep secrets out of logs. These habits match the principles that privacy laws such as GDPR, CCPA, and FERPA share."
+      }
+    ]
+  },
+  {
+    "id": "B16",
+    "priority": "Medium",
+    "title": "SQL queries need concrete results and guided feedback",
+    "dimensions": [
+      "worked",
+      "practice"
+    ],
+    "existing": "The relational model, schema, SELECT/WHERE/GROUP BY/JOIN and data changes are introduced with concrete SQL and independent practice prompts.",
+    "gap": "The Books/Sales query progression does not supply a consistent small seeded dataset and resulting tables. Practice requests lack worked feedback; students cannot readily trace JOIN multiplicity or distinguish grouping from filtering.",
+    "recommendation": "Add one consistent disposable dataset, explain actual result rows for a filter, group and join, and include a partially completed query with feedback. Keep both explicitly distinguished schema variants.",
+    "evidence": [
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 11,
+        "id": "53103c3f5a06",
+        "excerpt": "A **schema** is the planned structure of a database. Here is a small bookstore schema:\n\n```sql\nCREATE TABLE Books (\n    BookId INTEGER PRIMARY KEY,\n    Title TEXT NOT NULL,\n    Author TEXT NOT NULL,\n    Price REAL NOT NULL\n);\n\nCREATE TABLE Sales (\n    SaleId INTEGER PRIMARY KEY,\n    BookId INTEGER NOT NULL,\n    Quantity INTEGER NOT NULL,\n    SoldOn TEXT NOT NULL,\n    FOREIGN KEY (BookId) REFERENCES Books(BookId)\n);\n```\n\n`Books` stores facts about each book. `Sales` stores events that happened over time. The foreign key tells us which book each sale refers to."
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 17,
+        "id": "a2deaaa7bf91",
+        "excerpt": "`SELECT` names the columns to return. `FROM` names the table.\n\n```sql\nSELECT Title, Author, Price\nFROM Books;\n```\n\nUse `SELECT *` only for quick exploration. In application code, name the columns so your program depends on an explicit shape.\n\n\n```{index} WHERE; SQL\n```\n```{index} ORDER BY; SQL\n```"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 19,
+        "id": "52d72eb35f8c",
+        "excerpt": "`WHERE` keeps only rows that match a condition. `ORDER BY` controls the result order.\n\n```sql\nSELECT Title, Price\nFROM Books\nWHERE Price < 25.00\nORDER BY Price DESC;\n```\n\nThe database does the filtering before your C# program receives the rows. That is usually faster and clearer than loading every row and filtering later.\n\n\n```{index} aggregation; SQL\n```\n```{index} GROUP BY; SQL\n```"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 21,
+        "id": "9e6b85b0bd65",
+        "excerpt": "Aggregate functions summarize many rows into one result.\n\n```sql\nSELECT COUNT(*) AS BookCount,\n       AVG(Price) AS AveragePrice\nFROM Books;\n```\n\n`GROUP BY` summarizes rows within each group.\n\n```sql\nSELECT Author, COUNT(*) AS BooksWritten\nFROM Books\nGROUP BY Author\nORDER BY BooksWritten DESC;\n```\n\n\n```{index} JOIN; SQL\n```"
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 23,
+        "id": "8a3532d2f2a9",
+        "excerpt": "A `JOIN` combines rows from related tables. The `ON` clause says how the keys match.\n\n```sql\nSELECT Books.Title,\n       Sales.Quantity,\n       Sales.SoldOn\nFROM Sales\nJOIN Books ON Sales.BookId = Books.BookId\nORDER BY Sales.SoldOn;\n```\n\nThis query reads sale rows and attaches the book title for each sale. Without the join, the sale row would only have a `BookId`."
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 25,
+        "id": "add15615b11e",
+        "excerpt": "Using the `Books` and `Sales` tables, write SQL queries that:\n\n1. list all books by one author;\n2. show the three most expensive books;\n3. count how many sales exist for each book; and\n4. list sale dates with book titles and quantities."
+      },
+      {
+        "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+        "cell": 37,
+        "id": "ac149207e30c",
+        "excerpt": "1. Write an `INSERT` command for a new book.\n2. Write an `UPDATE` command that changes a book price by `BookId`.\n3. Write a `DELETE` command that removes a sale by `SaleId`.\n4. Rewrite this unsafe condition with a parameter: `WHERE Author = '\" + author + \"'`."
+      }
+    ]
+  },
+  {
+    "id": "B17",
+    "priority": "Medium",
+    "title": "SQLite mapping and transactions rely heavily on inspecting the full project",
+    "dimensions": [
+      "worked",
+      "practice"
+    ],
+    "existing": "A complete parameterized query with expected output and a strong contract-check table are already present.",
+    "gap": "Mapping, affected-row outcomes, and transaction coordination are explained mainly by referring to Program.cs. They lack a compact step-by-step worked before/after state and a guided failure-path interpretation.",
+    "recommendation": "Bring a short mapping excerpt and transaction state trace into the content reading; guide a rollback prediction with feedback, retaining the project and existing checks as independent application.",
+    "evidence": [
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell": 8,
+        "id": "f1fe5376700f",
+        "excerpt": "`Book` groups an ID, title, price in cents, and stock. `Inventory.List` uses an explicit column order and reads each row into a new `Book`. `Find` returns either one book or `null`; missing data is an expected result, not automatically an exception.\n\nRead `ReadBook` and match every reader position to its selected column. Predict what could go wrong if a query changed column order without updating the mapper. Keep each command's result shape explicit."
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell": 14,
+        "id": "9ab0fa5f76ee",
+        "excerpt": "`Add` passes the title, price, and stock as values. A title such as `Manager's SQL Guide` needs no manual quote replacement. `SetStock` uses an ID condition and reports whether exactly one row changed. Reject invalid quantities before sending the command, and keep database constraints as a second boundary.\n\nIn the source, compare `Find` with `SetStock`: both use an ID parameter, but one reads a row and the other checks the affected-row count. Explain the expected result for an unknown ID in each operation."
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell": 16,
+        "id": "1b1226617208",
+        "excerpt": "The optional `Sell` operation begins a transaction, reduces stock only if enough remains, inserts a sale, and commits. If the book is missing or stock is insufficient, it rolls back and returns `false`. If an unexpected error occurs before commit, disposal rolls back the uncommitted transaction.\n\nEvery command participating in the transaction sets its `Transaction` property. Updating stock and inserting the sale independently could leave only one change saved after a failure. Atomicity means these changes are committed together."
+      },
+      {
+        "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+        "cell": 18,
+        "id": "7e750c619d45",
+        "excerpt": "Build verification around the contract before adapting the bookstore to another domain. Use a disposable database so the expected starting state is known. The supplied core check mode recreates its in-memory data; an ordinary file-backed run is a separate persistence check.\n\n| Check | Action and expected evidence |\n| --- | --- |\n| Lookup and mapping | Read an existing BookId and compare its title, price, and stock with the seeded values. For an unknown ID, Find reports absence rather than inventing a record. |\n| Parameter values | Add `Manager's SQL Guide` at 1900 cents with stock four, then look it up using the returned ID. The apostrophe remains part of the title. |\n| Affected rows | Set that book's stock to six. A negative value is rejected, and an unknown ID reports false. An unrelated book's stock stays unchanged. |\n| Durable state | Close and reopen the file database; the successful change remains. An in-memory database is deliberately recreated instead. |\n| Optional transaction | Starting with stock six, selling two leaves four and adds one sale. Selling five afterward fails without another sale or stock change. A forced sale-insert failure must also roll back its stock decrement. |\n\nRun `dotnet run -- --check-core` in the supplied project for the core contract. Use `dotnet run -- --check` when undertaking the optional transaction extension. Keep the expected state and failing/passing observations with the project; a green run proves only the checks actually performed. The lab applies these explanations and asks you to implement and explain the behavior."
+      }
+    ]
+  },
+  {
+    "id": "B18",
+    "priority": "Medium",
+    "title": "Operator-overloading extension needs a guided operator contract task",
+    "dimensions": [
+      "practice"
+    ],
+    "existing": "Rational method reasoning and the complete Amount addition example with expected 20.00 are present.",
+    "gap": "The reading offers a finished operator example but no bounded learner attempt checking a custom operator against its declared value contract.",
+    "recommendation": "Guide completion or review of one operator, ask for expected results and unchanged operands, then reveal the explanation. Treat it as optional enrichment, not additional CS1 core.",
+    "evidence": [
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell": 6,
+        "id": "2f193764",
+        "excerpt": "(defining_operators)=\n\n```{index} Operator Definitions\n```\n\n## Operator Definitions\n\nWe can deal with the current object without using dot notation. What if we are\ndealing with *more than one* Rational, the current one *and* another one,\nlike the parameter in Multiply:\n\n```csharp\n      /// Return a new Rational which is the product of this Rational and f.\n      public Rational Multiply(Rational f)\n```\n\nWe can mix the shorthand notation for the current object\u2019s fields\nand dot notation for another\n*named* object: `num` and `denom` refer to the fields in the *current* object, and\n`f.num` and `f.denom` refer to fields for the other\n`Rational`, the parameter `f`.\n\n```csharp\n      /// Return a new Rational which is the product of this Rational and f.\n      public Rational Multiply(Rational f)\n      {  // end Multiply heading chunk\n         return new Rational(num*f.num, denom*f.denom);\n      }\n```\n\nWe do not refer to the fields of `f` through the public methods\n`GetNumerator` and `GetDenominator`.\nThough `f` is not the same *object*, it is the same *type*:\n\nPrivate members of *another* object of the *same* type are\naccessible from method definitions in the class.\n\nThere are a number of other arithmetic methods in the source code for Rational\nthat return a new Rational result of the arithmetic operation. They *do* review\nyour knowledge of arithmetic! They do *not* add further C# syntax.\n\nThe testing code we started with, shown at the top of this section,\nuses all the methods. The whole code for Rational is here:\n\n````{dropdown} Complete code: rational.cs\n```csharp\nusing System;\n\nnamespace IntroCS\n{\n/// Class for fractions (rational numbers),\n/// including basic arithmetic operations.\n   public class Rational\n   {  // INVARIENT: (true at end of any public method)\n      private int num, denom; // denom > 0, fraction reduced to lowest terms\n      // Parse chunk\n      /// Parse a string of an integer, fraction (with /) or decimal (with .)\n      ///  and return the corresponding Rational.\n      public static Rational Parse(string s)\n      {\n         s = s.Trim();      // will adjust numerator and denominator parts\n         string[] parts = {s, \"1\"}; // for an int string, this is correct\n         if (s.Contains(\"/\")) {     // otherwise correct num, denom parts\n            parts = s.Split('/');\n         } else if (s.Contains(\".\")) {\n            string[] intFrac = s.Split('.'); // integer, fractional digits\n            parts[0] = intFrac[0]+intFrac[1];  // \"shift\" decimal point\n            parts[1] = \"1\";                 // denom will have as many 0's\n            foreach( char dig in intFrac[1]) {  //    as digits after '.'\n               parts[1] += \"0\";                 //    to compensate\n            }\n         }\n         return new Rational(int.Parse(parts[0].Trim()),\n                             int.Parse(parts[1].Trim()));\n      }\n      // constructor chunk\n      /// Create a fraction given numerator and denominator.\n      public Rational(int numerator, int denominator)\n      {\n         num = numerator;\n         denom = denominator;\n         Normalize();\n      }\n      // getter chunk\n      public int GetNumerator()\n      {\n         return num;\n      }\n\n      public int GetDenominator()\n      {\n         return denom;\n      }\n      // ToString chunk\n      /// Return a string of the fraction in lowest terms,\n      /// omitting the denominator if it is 1.\n      public override string ToString()\n      {\n         if (denom != 1)\n            return string.Format(\"{0}/{1}\", num, denom);\n         return \"\"+num;\n      }\n      // ToDouble chunk\n      /// Return a double approximation to the fraction.\n      public double ToDouble()\n      {\n         return ((double)num)/denom;\n      }\n\n      /// Return a decimal approximation to the fraction.\n      public decimal ToDecimal()\n      {\n         return ((decimal)num)/denom;\n      }\n      // Reciprocal chunk\n      /// Return a new Rational which is the reciprocal of this Rational.\n      public Rational Reciprocal()\n      {\n         return new Rational(denom, num);\n      }\n\n      /// Return a new Rational which is this Rational negated.\n      public Rational Negate()\n      {\n         return new Rational(-num, denom);\n      }\n\n      // Multiply chunk\n      /// Return a new Rational which is the product of this Rational and f.\n      public Rational Multiply(Rational f)\n      {  // end Multiply heading chunk\n         return new Rational(num*f.num, denom*f.denom);\n      }\n      // Divide chunk\n      /// Return a new Rational which is the quotient of this Rational and f.\n      public Rational Divide(Rational f)\n      {\n         return new Rational(num*f.denom, denom*f.num);\n      }\n      // Add chunk\n      /// Return a new Rational which is the sum of this Rational and f.\n      public Rational Add(Rational f)\n      {\n         return new Rational(num*f.denom + denom*f.num, denom*f.denom);\n      }\n\n      /// Return a new Rational which is the difference of this Rational and f.\n      public Rational Subtract(Rational f)\n      {\n         return new Rational(num*f.denom - denom*f.num, denom*f.denom);\n      }\n\n      /// Return a number that is positive, zero or negative, respectively, if\n      ///   the value of this Rational is bigger than f,\n      ///   the values of this Rational and f are equal or\n      ///   the value of this Rational is smaller than f.\n      public int CompareTo(Rational f)\n      {\n         return num*f.denom - denom*f.num; //numerator of this - f\n      }\n\n      /// Return the positive greatest common divisor of parameters a and b.\n      private static int GCD(int a, int b)\n      {  // assume a or b is not 0\n         if (a == 0)\n            return Math.Abs(b);\n         while (b != 0) {  // Euclid's algorithm\n            int remainder = a % b;\n            a = b;\n            b = remainder;\n         }\n         return Math.Abs(a);\n      }\n      // start normalize chunk\n      /// Force the invarient: in lowest terms with a positive denominator.\n      private void Normalize()\n      {\n         if (denom == 0) { // We *should* force an Exception, but we won't.\n            Console.WriteLine(\"Zero denominator changed to 1!\");\n            denom = 1;\n         }\n         int n = GCD(num, denom);\n         num /= n;         // lowest\n         denom /= n;       //    terms\n         if (denom < 0) {  // make denom positive\n            denom = -denom;//   double negation:\n            num = -num;    //   same mathematical value\n         }\n      }\n   }                                 //end chunk\n}\n```\n````\n\n We will see more advance ways to test Rational\nin {ref}`unit-testing`.\n\nThere is also a more convenient version of Rational,\nusing advanced concepts, in {ref}`defining_operators`.\n"
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell": 11,
+        "id": "operator-worked-context",
+        "excerpt": "This complete console example treats both amounts as one fixed currency. The overloaded addition creates a new value without changing either operand. Expected output is 20.00. A real multi-currency model would also need a currency-compatibility rule. The earlier SomeMath declaration is a non-runnable type template."
+      },
+      {
+        "file": "chapters/appendices/operator_overloading.ipynb",
+        "cell": 12,
+        "id": "operator-worked-code",
+        "excerpt": "using System;\n\nMoney first = new Money(12.50m);\nMoney second = new Money(7.50m);\nMoney total = first + second;\nConsole.WriteLine(total.Amount.ToString(\"F2\"));\n\npublic readonly struct Money\n{\n    public decimal Amount { get; }\n    public Money(decimal amount)\n    {\n        if (amount < 0m) throw new ArgumentOutOfRangeException(nameof(amount));\n        Amount = amount;\n    }\n    public static Money operator +(Money left, Money right)\n    {\n        return new Money(left.Amount + right.Amount);\n    }\n}\n"
+      }
+    ]
+  }
+]

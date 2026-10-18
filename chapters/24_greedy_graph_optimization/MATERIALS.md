@@ -4,6 +4,16 @@ orphan: true
 
 # Chapter Materials — Greedy Algorithms
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `2401_greedy_choice.ipynb` | B06 | Embed MeetingSchedule support in its visible client-check starter; preserve the intended boundary/exchange task and existing answer. |
+| `2404_shortest_paths.ipynb` | B06 | Embed GreedyGraph support in both visible starters; distinguish client checks from reimplementing algorithms; preserve wide-distance, invalid-arc and separate facilities-model tasks. |
+
+Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

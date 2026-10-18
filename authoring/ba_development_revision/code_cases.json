@@ -1,0 +1,395 @@
+[
+  {
+    "cell_id": "ba18_215ab326e744",
+    "source": "using System;\nint exact = 16777217;\nfloat rounded = exact;\nConsole.WriteLine($\"integer={exact}\");\nConsole.WriteLine($\"float={rounded:R}\");\nConsole.WriteLine($\"same value={(double)exact == (double)rounded}\");\n",
+    "stdin": "",
+    "role": "demo",
+    "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+    "expected_stdout": "integer=16777217\nfloat=16777216\nsame value=False\n"
+  },
+  {
+    "cell_id": "ba18_9799bb2ba9d0",
+    "source": "using System;\nConsole.WriteLine(2 + 10 / 3);\nConsole.WriteLine((2 + 10) / 3);\nConsole.WriteLine((2 + 10.0 / 3).ToString(\"F2\", System.Globalization.CultureInfo.InvariantCulture));\n// TODO: change the expression so fractional division happens before assignment.\ndouble hoursPerPerson = 10 / 3;\nConsole.WriteLine(hoursPerPerson.ToString(\"F2\", System.Globalization.CultureInfo.InvariantCulture));\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "expected_stdout": "5\n4\n5.33\n3.00\n"
+  },
+  {
+    "cell_id": "ba18_522d9fe685bb",
+    "source": "using System;\nConsole.WriteLine(2 + 10 / 3);\nConsole.WriteLine((2 + 10) / 3);\nConsole.WriteLine((2 + 10.0 / 3).ToString(\"F2\", System.Globalization.CultureInfo.InvariantCulture));\n// Solution: make an operand floating-point before division.\ndouble hoursPerPerson = 10.0 / 3;\nConsole.WriteLine(hoursPerPerson.ToString(\"F2\", System.Globalization.CultureInfo.InvariantCulture));\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "expected_stdout": "5\n4\n5.33\n3.33\n"
+  },
+  {
+    "cell_id": "ba18_f2f6006d2bfa",
+    "source": "using System;\nint stock = 12;\nint reserved = stock - 8;\nstock = stock - reserved;\nreserved = reserved + 1;\n// TODO: print stock and reserved. Compare with your completed table.\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/02_var_data/0201_variables_types.ipynb",
+    "expected_stdout": ""
+  },
+  {
+    "cell_id": "ba18_dc18b82a19a5",
+    "source": "using System;\n// Solution: the successive states are (12,4), (8,4), (8,5).\nint stock = 12;\nint reserved = stock - 8;\nstock = stock - reserved;\nreserved = reserved + 1;\nConsole.WriteLine($\"stock={stock}, reserved={reserved}\");\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/02_var_data/0201_variables_types.ipynb",
+    "expected_stdout": "stock=8, reserved=5\n"
+  },
+  {
+    "cell_id": "ba18_312a9a0dcdc0",
+    "source": "using System;\nint counter = 2;\nint old = counter++;\nConsole.WriteLine($\"postfix result={old}, counter={counter}\");\nint updated = ++counter;\nConsole.WriteLine($\"prefix result={updated}, counter={counter}\");\n",
+    "stdin": "",
+    "role": "demo",
+    "file": "chapters/04_iteration/0401_iteration.ipynb",
+    "expected_stdout": "postfix result=2, counter=3\nprefix result=4, counter=4\n"
+  },
+  {
+    "cell_id": "ba18_d5cbb17eb653",
+    "source": "using System;\nfor (int minutes = 6; minutes > 2; minutes -= 2) // TODO: include the two-minute reminder.\n    Console.WriteLine($\"Closing in {minutes} minutes\");\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/04_iteration/0401_iteration.ipynb",
+    "expected_stdout": "Closing in 6 minutes\nClosing in 4 minutes\n"
+  },
+  {
+    "cell_id": "ba18_e6cf5885f9a8",
+    "source": "using System;\n// Solution: include the boundary, but do not include zero.\nfor (int minutes = 6; minutes >= 2; minutes -= 2)\n    Console.WriteLine($\"Closing in {minutes} minutes\");\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/04_iteration/0401_iteration.ipynb",
+    "expected_stdout": "Closing in 6 minutes\nClosing in 4 minutes\nClosing in 2 minutes\n"
+  },
+  {
+    "cell_id": "ba18_d5784bb86975",
+    "source": "using System;\nusing System.Globalization;\nCultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\nConsole.Write(\"Quantity: \");\nstring input = Console.ReadLine()!;\nint quantity = int.Parse(input);\ndecimal total = 2.50m * quantity;\nConsole.WriteLine($\"{\"Pens\",-12}{total,8:F2}\");\n",
+    "stdin": "4\n",
+    "role": "demo",
+    "file": "chapters/02_var_data/0203_input_output.ipynb",
+    "expected_stdout": "Quantity: Pens           10.00\n"
+  },
+  {
+    "cell_id": "ba18_e0c455ba28ed",
+    "source": "using System;\nusing System.Globalization;\nCultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\nConsole.Write(\"Quantity: \");\nstring input = Console.ReadLine()!;\n// TODO: parse input, multiply by 3.25m, and print Folders in a 12-column label plus an 8-column F2 amount.\n",
+    "stdin": "2\n",
+    "role": "question",
+    "file": "chapters/02_var_data/0203_input_output.ipynb",
+    "expected_stdout": "Quantity: "
+  },
+  {
+    "cell_id": "ba18_c3183179dd1d",
+    "source": "using System;\nusing System.Globalization;\nCultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\nConsole.Write(\"Quantity: \");\nstring input = Console.ReadLine()!;\nint quantity = int.Parse(input);\ndecimal total = 3.25m * quantity;\nConsole.WriteLine($\"{\"Folders\",-12}{total,8:F2}\");\n",
+    "stdin": "2\n",
+    "role": "solution",
+    "file": "chapters/02_var_data/0203_input_output.ipynb",
+    "expected_stdout": "Quantity: Folders         6.50\n"
+  },
+  {
+    "cell_id": "ba18_85607d2eba8c",
+    "source": "using System;\nusing System.Text.RegularExpressions;\nstring pattern = @\"\\ASKU=(?<sku>[A-Z]{2}-[0-9]{4})\\z\";\nforeach (string input in new[] { \"SKU=AB-0042\", \"SKU=AB-42\", \"note SKU=AB-0042\" })\n{\n    Match result = Regex.Match(input, pattern);\n    Console.WriteLine(result.Success ? $\"sku={result.Groups[\"sku\"].Value}\" : \"rejected\");\n}\nstring original = \"dock    A\";\nstring normalized = Regex.Replace(original, @\" +\", \" \");\nConsole.WriteLine($\"original=[{original}], revised=[{normalized}]\");\n",
+    "stdin": "",
+    "role": "demo",
+    "file": "chapters/09_files_text/0906_regex.ipynb",
+    "expected_stdout": "sku=AB-0042\nrejected\nrejected\noriginal=[dock    A], revised=[dock A]\n"
+  },
+  {
+    "cell_id": "ba18_4c01c952cc5a",
+    "source": "using System;\nusing System.Text.RegularExpressions;\nstring pattern = @\"Ticket=(?<wrong>[0-9]{4})\"; // TODO: whole input, group named id.\nforeach (string input in new[] { \"Ticket=4821\", \"Ticket=48x1\", \"prefix Ticket=4821\" })\n{\n    Match m = Regex.Match(input, pattern);\n    Console.WriteLine(m.Success ? m.Groups[\"wrong\"].Value : \"rejected\");\n}\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/09_files_text/0906_regex.ipynb",
+    "expected_stdout": "4821\nrejected\n4821\n"
+  },
+  {
+    "cell_id": "ba18_398c3d2f6ce8",
+    "source": "using System;\nusing System.Text.RegularExpressions;\n// Solution\nstring pattern = @\"\\ATicket=(?<id>[0-9]{4})\\z\";\nforeach (string input in new[] { \"Ticket=4821\", \"Ticket=48x1\", \"prefix Ticket=4821\" })\n{\n    Match m = Regex.Match(input, pattern);\n    Console.WriteLine(m.Success ? m.Groups[\"id\"].Value : \"rejected\");\n}\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/09_files_text/0906_regex.ipynb",
+    "expected_stdout": "4821\nrejected\nrejected\n"
+  },
+  {
+    "cell_id": "ba18_f842ca458a4d",
+    "source": "using System;\nstring orderId = \"ORD-42\";\nstring email = \"synthetic.customer@example.test\";\nstring status = \"INVALID_QUANTITY\";\n// TODO: keep only the fields needed for the stated diagnostic purpose.\nConsole.WriteLine($\"order={orderId} email={email} status={status}\");\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+    "expected_stdout": "order=ORD-42 email=synthetic.customer@example.test status=INVALID_QUANTITY\n"
+  },
+  {
+    "cell_id": "ba18_e9b149a16702",
+    "source": "using System;\n// Solution\nstring orderId = \"ORD-42\";\nstring email = \"synthetic.customer@example.test\";\nstring status = \"INVALID_QUANTITY\";\nConsole.WriteLine($\"order={orderId} status={status}\");\n// email remains in this variable; no source record was erased.\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+    "expected_stdout": "order=ORD-42 status=INVALID_QUANTITY\n"
+  },
+  {
+    "cell_id": "ba18_89de923dcac4",
+    "source": "using System;\nusing System.Globalization;\nCultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n(int Parcels, decimal Kilograms) shipment = (3, 7.5m);\n(int count, decimal mass) = shipment;\n// TODO: print the deconstructed count and mass with their correct units.\n",
+    "stdin": "",
+    "role": "question",
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "expected_stdout": ""
+  },
+  {
+    "cell_id": "ba18_68c0187512dc",
+    "source": "using System;\nusing System.Globalization;\nCultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n// Solution\n(int Parcels, decimal Kilograms) shipment = (3, 7.5m);\n(int count, decimal mass) = shipment;\nConsole.WriteLine($\"{count} parcels, {mass} kg\");\n",
+    "stdin": "",
+    "role": "solution",
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "expected_stdout": "3 parcels, 7.5 kg\n"
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "cell_id": "ba18_a576e7c7ce06",
+    "source": "using System;\nusing Microsoft.Data.Sqlite;\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\nconnection.Open();\nusing (var setup = connection.CreateCommand())\n{\n    setup.CommandText = \"CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT, Stock INTEGER); INSERT INTO Books VALUES (1, 'C# Operations', 6);\";\n    setup.ExecuteNonQuery();\n}\nusing (var query = connection.CreateCommand())\n{\n    query.CommandText = \"SELECT BookId, Title, Stock FROM Books WHERE BookId = @id;\";\n    query.Parameters.AddWithValue(\"@id\", 1);\n    using var reader = query.ExecuteReader();\n    if (reader.Read())\n    {\n        long id = reader.GetInt64(0);\n        string title = reader.GetString(1);\n        int stock = reader.GetInt32(2);\n        Console.WriteLine($\"{id}: {title}, stock={stock}\");\n    }\n}\nusing var update = connection.CreateCommand();\nupdate.CommandText = \"UPDATE Books SET Stock = @stock WHERE BookId = @id;\";\nupdate.Parameters.AddWithValue(\"@stock\", 4);\nupdate.Parameters.AddWithValue(\"@id\", 999);\nConsole.WriteLine($\"unknown ID affected rows={update.ExecuteNonQuery()}\");\n",
+    "stdin": "",
+    "role": "project_listing",
+    "package": "Microsoft.Data.Sqlite",
+    "label": "sqlite_mapping",
+    "expected_stdout": "1: C# Operations, stock=6\nunknown ID affected rows=0\n"
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "cell_id": "ba18_0327c1191086",
+    "source": "using System;\nusing Microsoft.Data.Sqlite;\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\nconnection.Open();\nusing (var setup = connection.CreateCommand())\n{\n    setup.CommandText = \"CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Stock INTEGER CHECK(Stock >= 0)); CREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER, Quantity INTEGER CHECK(Quantity > 0)); INSERT INTO Books VALUES (1, 6);\";\n    setup.ExecuteNonQuery();\n}\nusing (var transaction = connection.BeginTransaction())\n{\n    try\n    {\n        using var update = connection.CreateCommand();\n        update.Transaction = transaction;\n        update.CommandText = \"UPDATE Books SET Stock = Stock - 2 WHERE BookId = 1 AND Stock >= 2;\";\n        if (update.ExecuteNonQuery() != 1) throw new InvalidOperationException(\"Insufficient stock.\");\n        using var sale = connection.CreateCommand();\n        sale.Transaction = transaction;\n        // Deliberate invalid quantity simulates failure of the second change.\n        sale.CommandText = \"INSERT INTO Sales VALUES (1, 1, 0);\";\n        sale.ExecuteNonQuery();\n        transaction.Commit();\n    }\n    catch (SqliteException)\n    {\n        transaction.Rollback();\n        Console.WriteLine(\"sale rejected; rolled back\");\n    }\n}\nusing var check = connection.CreateCommand();\ncheck.CommandText = \"SELECT Stock FROM Books WHERE BookId = 1;\";\nConsole.WriteLine($\"stock={check.ExecuteScalar()}\");\ncheck.CommandText = \"SELECT COUNT(*) FROM Sales;\";\nConsole.WriteLine($\"sales={check.ExecuteScalar()}\");\n",
+    "stdin": "",
+    "role": "project_listing",
+    "package": "Microsoft.Data.Sqlite",
+    "label": "sqlite_rollback",
+    "expected_stdout": "sale rejected; rolled back\nstock=6\nsales=0\n"
+  },
+  {
+    "cell_id": "ba18_2e09e1ac6f5e",
+    "source": "using System;\nusing System.Globalization;\nvar left = new Amount(12.50m);\nvar right = new Amount(7.50m);\nConsole.WriteLine((left + right).Value.ToString(\"F2\", CultureInfo.InvariantCulture));\nConsole.WriteLine($\"left={left.Value.ToString(\"F2\", CultureInfo.InvariantCulture)}, right={right.Value.ToString(\"F2\", CultureInfo.InvariantCulture)}\");\nConsole.WriteLine((new Amount(0m) + right).Value.ToString(\"F2\", CultureInfo.InvariantCulture));\npublic readonly struct Amount\n{\n    public decimal Value { get; }\n    public Amount(decimal value)\n    {\n        if (value < 0m) throw new ArgumentOutOfRangeException(nameof(value));\n        Value = value;\n    }\n    public static Amount operator +(Amount left, Amount right)\n    {\n        return left; // TODO: return a new amount with the sum.\n    }\n}\n",
+    "stdin": "",
+    "role": "question",
+    "package": null,
+    "file": "chapters/appendices/operator_overloading.ipynb",
+    "expected_stdout": "12.50\nleft=12.50, right=7.50\n0.00\n"
+  },
+  {
+    "cell_id": "ba18_645b0a509026",
+    "source": "using System;\nusing System.Globalization;\nvar left = new Amount(12.50m);\nvar right = new Amount(7.50m);\nConsole.WriteLine((left + right).Value.ToString(\"F2\", CultureInfo.InvariantCulture));\nConsole.WriteLine($\"left={left.Value.ToString(\"F2\", CultureInfo.InvariantCulture)}, right={right.Value.ToString(\"F2\", CultureInfo.InvariantCulture)}\");\nConsole.WriteLine((new Amount(0m) + right).Value.ToString(\"F2\", CultureInfo.InvariantCulture));\npublic readonly struct Amount\n{\n    public decimal Value { get; }\n    public Amount(decimal value)\n    {\n        if (value < 0m) throw new ArgumentOutOfRangeException(nameof(value));\n        Value = value;\n    }\n    public static Amount operator +(Amount left, Amount right)\n    {\n        // Solution\n        return new Amount(left.Value + right.Value);\n    }\n}\n",
+    "stdin": "",
+    "role": "solution",
+    "package": null,
+    "file": "chapters/appendices/operator_overloading.ipynb",
+    "expected_stdout": "20.00\nleft=12.50, right=7.50\n7.50\n"
+  },
+  {
+    "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "ebb5ee3f",
+    "source": "Console.WriteLine(14.0/4.0);\nConsole.WriteLine(14.0 / 4);  // one of the operands is double type\nConsole.WriteLine(6.0/3.0);  // prints 2; the result is still double because the operands are double.\n",
+    "role": "existing_changed",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/03_decision/0301_intro_decision.ipynb",
+    "cell_id": "p4_c40102fa98",
+    "source": "using System;\n\ndecimal total = 64.00m;\nbool international = false;\n\n// Your code starts here.\nbool freeShipping = false;\n// Your code ends here.\n\nConsole.WriteLine(freeShipping);\ninternational = true;\nConsole.WriteLine(total >= 50m && !international);\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/03_decision/0301_intro_decision.ipynb",
+    "cell_id": "p4_4a0e0868af",
+    "source": "using System;\n\n// Solution\ndecimal total = 64.00m;\nbool international = false;\n\nbool freeShipping = total >= 50m && !international;\n\nConsole.WriteLine(freeShipping);\ninternational = true;\nConsole.WriteLine(total >= 50m && !international);\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/09_files_text/0903_text_operations.ipynb",
+    "cell_id": "7f7f6d6b",
+    "source": "using System;\n\nstring[] records = { \"Alice,98,CS\", \"Bob,abc,Math\", \"Carol,87,Physics\", \"\" };\n\nforeach (string line in records)\n{\n    if (TryParseStudent(line, out string name, out int score, out string major))\n        Console.WriteLine($\"{name} ({major}) scored {score}\");\n    else\n        Console.WriteLine($\"Skipped malformed line: '{line}'\");\n}\n\nstatic bool TryParseStudent(string line, out string name, out int score, out string major)\n{\n    name  = \"\";\n    major = \"\";\n    score = 0;\n\n    if (string.IsNullOrWhiteSpace(line)) return false;\n\n    string[] parts = line.Split(',');\n    if (parts.Length != 3) return false;\n\n    name  = parts[0].Trim();\n    major = parts[2].Trim();\n\n    return int.TryParse(parts[1].Trim(), out score);\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_081fb0c712",
+    "source": "using System;\n\nCustomer first = new Customer();       // create one object from the class\nfirst.Name = \"Avery Chen\";             // store state in its fields\nfirst.CreditLimit = 2500m;\nConsole.WriteLine(first.Describe());   // a method reads the object's own fields\n\npublic class Customer\n{\n    public string Name = \"\";\n    public decimal CreditLimit;\n\n    public string Describe()\n    {\n        return $\"{Name} may charge up to {CreditLimit:F2}\";\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_6d684f6ad9",
+    "source": "using System;\n\nDoMath doMath = new DoMath();      // create an object using the new keyword\nint aSum = doMath.Sum(2, 2);       // [object].[method] runs the method on that object\nConsole.WriteLine(aSum);\nConsole.WriteLine(doMath.Sum(10, 32));\n\nclass DoMath                       // accessibility defaults to internal\n{\n    public int Sum(int num1, int num2)\n    {\n        int total = num1 + num2;\n        return total;\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_7c5252758e",
+    "source": "using System;\n\nContact first = new Contact(\"Marie Ortiz\", \"773-508-7890\", \"mortiz2@example.edu\");\nContact second = new Contact(\"Otto Heinz\", \"773-508-9999\", \"oheinz@example.edu\");\nfirst.Print();\nsecond.Print();\n\nclass Contact\n{\n    private string name, phone, email;\n\n    public Contact(string fullName, string phoneNumber, string emailAddress)\n    {\n        name = fullName;          // copy each parameter into a field\n        phone = phoneNumber;\n        email = emailAddress;\n    }\n\n    public void Print()\n    {\n        Console.WriteLine($\"Name: {name}, Phone: {phone}, Email: {email}\");\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_48af6b5454",
+    "source": "using System;\n\nProduct pen = new Product(\"PEN-01\", 2.50m);\nConsole.WriteLine(pen.LineTotal(4).ToString(\"F2\"));\nConsole.WriteLine(pen.Describe(4));\n\nclass Product\n{\n    private string code = \"\";\n    private decimal price;\n\n    public Product(string productCode, decimal unitPrice)\n    {\n        // Your code starts here.\n        // Store both parameters in the fields.\n        // Your code ends here.\n    }\n\n    public decimal LineTotal(int quantity)\n    {\n        // Your code starts here.\n        return 0m;\n        // Your code ends here.\n    }\n\n    public string Describe(int quantity)\n    {\n        return $\"{code} x {quantity} = {LineTotal(quantity):F2}\";\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_148ee99cbc",
+    "source": "using System;\n\n// Solution\nProduct pen = new Product(\"PEN-01\", 2.50m);\nConsole.WriteLine(pen.LineTotal(4).ToString(\"F2\"));\nConsole.WriteLine(pen.Describe(4));\n\nclass Product\n{\n    private string code = \"\";\n    private decimal price;\n\n    public Product(string productCode, decimal unitPrice)\n    {\n        code = productCode;\n        price = unitPrice;\n    }\n\n    public decimal LineTotal(int quantity)\n    {\n        return price * quantity;\n    }\n\n    public string Describe(int quantity)\n    {\n        return $\"{code} x {quantity} = {LineTotal(quantity):F2}\";\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "cell_id": "p2_3411407b56",
+    "source": "using System;\n\nConsole.WriteLine(SomeMath.Sum(2, 2));       // class name, then the method\ndouble dub = -3.14;\nConsole.WriteLine(Math.Abs(dub));\nConsole.WriteLine(Math.Floor(dub));\nConsole.WriteLine(Math.Round(Math.Abs(dub)));\n\nstatic class SomeMath\n{\n    public static int Sum(int a, int b)       // a public static method\n    {\n        return a + b;\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_f1a744b60f",
+    "source": "using System;\n\nContact first = new Contact(\"Marie Ortiz\", \"773-508-7890\");\nConsole.WriteLine($\"{first.Name}: {first.Phone}\");\nfirst.Phone = \"555-555-5555\";          // allowed: Phone has a public set\nConsole.WriteLine($\"{first.Name}: {first.Phone}\");\nConsole.WriteLine(first.Summary);      // computed each time it is read\n\nclass Contact\n{\n    public string Name { get; }                      // read-only after construction\n    public string Phone { get; set; }                // readable and writable\n    public string Summary => $\"{Name} ({Phone})\";   // computed property\n\n    public Contact(string name, string phone)\n    {\n        Name = name;\n        Phone = phone;\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_bfc55b2cea",
+    "source": "using System;\n\nContact c1 = new Contact(\"Marie Ortiz\", \"773-508-7890\", \"mortiz2@example.edu\");\nContact c2 = new Contact(\"Otto Heinz\", \"773-508-9999\", \"oheinz@example.edu\");\nConsole.WriteLine(\"Marie's full name: \" + c1.GetName());\nConsole.WriteLine(\"Her phone number: \" + c1.GetPhone());\nConsole.WriteLine(\"Her email: \" + c1.GetEmail());\nConsole.WriteLine(\"\\nFull contact info for Otto:\");\nc2.Print();\n\nclass Contact\n{\n    private string name, phone, email;\n\n    public Contact(string fullName, string phoneNumber, string emailAddress)\n    {\n        name = fullName;\n        phone = phoneNumber;\n        email = emailAddress;\n    }\n\n    public string GetName() { return name; }\n    public string GetPhone() { return phone; }\n    public string GetEmail() { return email; }\n\n    public void Print()\n    {\n        Console.WriteLine($\"Name:  {name}\\nPhone: {phone}\\nEmail: {email}\");\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_f4eb88fa20",
+    "source": "using System;\n\nContact c = new Contact(\"Amy Li\", \"847-111-2222\");\nc.Print();\n\nclass Contact\n{\n    private string name, phone;\n\n    public Contact(string name, string phone)\n    {\n        this.name = name;      // the field on the left, the parameter on the right\n        this.phone = phone;\n    }\n\n    public void Print()\n    {\n        Console.WriteLine($\"{name}: {phone}\");\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_5f0af294e7",
+    "source": "using System;\n\nContact c1 = new Contact(\"Marie Ortiz\", \"773-508-7890\", \"mortiz2@example.edu\");\nc1.SetEmail(\"maria.ortiz@example.com\");\nc1.SetPhone(\"555-555-5555\");\nc1.Print();\nConsole.WriteLine();\nConsole.WriteLine(c1);          // Console.WriteLine calls ToString for you\n\nclass Contact\n{\n    private string name, phone, email;\n\n    public Contact(string name, string phone, string email)\n    {\n        this.name = name;\n        this.phone = phone;\n        this.email = email;\n    }\n\n    public string GetName() { return name; }\n    public void SetPhone(string newPhone) { phone = newPhone; }\n    public void SetEmail(string email) { this.email = email; }\n\n    public override string ToString()\n    {\n        return $\"Name:  {name}\\nPhone: {phone}\\nEmail: {email}\";\n    }\n\n    public void Print()\n    {\n        Console.WriteLine(ToString());\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_1f315c294e",
+    "source": "using System;\n\nContact c = new Contact(\"Marie Ortiz\", \"773-508-7890\");\nConsole.WriteLine(c.Phone);\nc.Phone = \"555-555-5555\";          // runs the set accessor\nConsole.WriteLine(c.Phone);\ntry\n{\n    c.Phone = \"\";                  // the set accessor rejects this\n}\ncatch (ArgumentException ex)\n{\n    Console.WriteLine($\"Rejected: {ex.Message}\");\n}\nConsole.WriteLine(c.Phone);        // unchanged by the rejected assignment\n\nclass Contact\n{\n    private string phone = \"\";\n\n    public string Name { get; }\n\n    public string Phone\n    {\n        get { return phone; }\n        set\n        {\n            if (string.IsNullOrWhiteSpace(value))\n                throw new ArgumentException(\"Phone cannot be blank.\");\n            phone = value;\n        }\n    }\n\n    public Contact(string name, string phone)\n    {\n        Name = name;\n        Phone = phone;     // runs the setter's check during construction too\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_381f87b120",
+    "source": "using System;\n\nContact c = new Contact(\"Marie Ortiz\", \"MOrtiz2@Example.edu\");\nConsole.WriteLine(c.Email);\ntry { c.Email = \"not-an-address\"; }\ncatch (ArgumentException ex) { Console.WriteLine($\"Rejected: {ex.Message}\"); }\nConsole.WriteLine(c.Email);\n\nclass Contact\n{\n    private string email = \"\";\n\n    public string Name { get; }\n\n    public string Email\n    {\n        get { return email; }\n        set\n        {\n            // Your code starts here.\n            email = value;\n            // Your code ends here.\n        }\n    }\n\n    public Contact(string name, string email)\n    {\n        Name = name;\n        Email = email;\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "cell_id": "p2_b226fc3150",
+    "source": "using System;\n\n// Solution\nContact c = new Contact(\"Marie Ortiz\", \"MOrtiz2@Example.edu\");\nConsole.WriteLine(c.Email);\ntry { c.Email = \"not-an-address\"; }\ncatch (ArgumentException ex) { Console.WriteLine($\"Rejected: {ex.Message}\"); }\nConsole.WriteLine(c.Email);\n\nclass Contact\n{\n    private string email = \"\";\n\n    public string Name { get; }\n\n    public string Email\n    {\n        get { return email; }\n        set\n        {\n            if (!value.Contains('@'))\n                throw new ArgumentException(\"Email must contain @.\");\n            email = value.ToLowerInvariant();\n        }\n    }\n\n    public Contact(string name, string email)\n    {\n        Name = name;\n        Email = email;\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+    "cell_id": "e8496a78",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nvar meetings=new[]{new MeetingSchedule.Meeting(\"A\",-3,0),new MeetingSchedule.Meeting(\"B\",0,2),new MeetingSchedule.Meeting(\"C\",-2,3)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here.\n// Cell-local support: inspect the operations, then write the client checks above.\npublic static class MeetingSchedule\n{\n    public record Meeting(string Id,int Start,int End,int Value=1);\n    // Half-open, positive-duration intervals. Objective: maximum count.\n    public static Meeting[] Select(Meeting[] meetings)\n    {\n        ArgumentNullException.ThrowIfNull(meetings);\n        var ids=new HashSet<string>(StringComparer.Ordinal);\n        foreach(var meeting in meetings)\n            if(meeting is null||meeting.Id is null||!ids.Add(meeting.Id)||meeting.Start>=meeting.End)\n                throw new ArgumentException(\"Unique IDs and Start < End required.\");\n        var chosen=new List<Meeting>();int lastEnd=int.MinValue;\n        foreach(var meeting in meetings.OrderBy(m=>m.End).ThenBy(m=>m.Start).ThenBy(m=>m.Id,StringComparer.Ordinal))\n            if(meeting.Start>=lastEnd){chosen.Add(meeting);lastEnd=meeting.End;}\n        return chosen.ToArray();\n    }\n}\n",
+    "role": "existing_changed",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "cell_id": "6447ba28",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nstring[] vertices={\"A\",\"B\",\"C\",\"Remote\"};\nvar arcs=new[]{new GreedyGraph.Edge(\"A\",\"B\",int.MaxValue),new GreedyGraph.Edge(\"B\",\"C\",1)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here.\n// Cell-local support: inspect the operations, then write the client checks above.\npublic static class GreedyGraph\n{\n    public record Edge(string From,string To,int Weight);\n    public record Forest(Edge[] Edges,long Cost,int Components);\n    public sealed class Routes\n    {\n        public string Source { get; }\n        public IReadOnlyDictionary<string,long?> Distance { get; }\n        public IReadOnlyDictionary<string,string?> Previous { get; }\n        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)\n        {\n            Source=source;\n            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);\n            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);\n        }\n        public string[] PathTo(string target)\n        {\n            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);\n            if(Distance[target] is null)return Array.Empty<string>();\n            var path=new Stack<string>();string? at=target;\n            for(int steps=0;at is not null;steps++)\n            {\n                if(steps>=Distance.Count)throw new InvalidOperationException(\"Invalid predecessor chain.\");\n                path.Push(at);at=Previous[at];\n            }\n            if(path.Peek()!=Source)throw new InvalidOperationException(\"Path does not reach source.\");\n            return path.ToArray();\n        }\n    }\n    // Undirected edges; parallel edges allowed. Negative MST weights are valid.\n    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)\n    {\n        Validate(vertices,edges,false);\n        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);\n        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);\n        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();\n        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))\n        {\n            string a=Find(edge.From),b=Find(edge.To);\n            if(a==b){trace?.Invoke($\"reject {edge.From}-{edge.To} ({edge.Weight}): cycle\");continue;}\n            if(size[a]<size[b])(a,b)=(b,a);\n            parent[b]=a;size[a]+=size[b];components--;\n            chosen.Add(edge);cost=checked(cost+edge.Weight);\n            trace?.Invoke($\"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}\");\n        }\n        return new Forest(chosen.ToArray(),cost,components);\n        string Find(string vertex)\n        {\n            while(parent[vertex]!=vertex)\n            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}\n            return vertex;\n        }\n    }\n    // Directed arcs; nonnegative weights required, including unreachable arcs.\n    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)\n    {\n        Validate(vertices,arcs,true);\n        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);\n        if(!graph.ContainsKey(source))throw new KeyNotFoundException(\"Unknown source.\");\n        foreach(var edge in arcs)graph[edge.From].Add(edge);\n        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);\n        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);\n        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);\n        while(queue.TryDequeue(out string? current,out long queued))\n        {\n            if(distance[current]!=queued){trace?.Invoke($\"skip stale {current} ({queued})\");continue;}\n            trace?.Invoke($\"settle {current} ({queued})\");\n            foreach(var edge in graph[current])\n            {\n                long candidate=checked(queued+edge.Weight);\n                if(distance[edge.To] is null || candidate<distance[edge.To])\n                {\n                    distance[edge.To]=candidate;previous[edge.To]=current;\n                    queue.Enqueue(edge.To,candidate);\n                    trace?.Invoke($\"relax {current}->{edge.To}: {candidate}\");\n                }\n            }\n        }\n        return new Routes(source,distance,previous);\n    }\n    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)\n    {\n        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);\n        var known=new HashSet<string>(StringComparer.Ordinal);\n        foreach(string vertex in vertices)\n            if(vertex is null||!known.Add(vertex))throw new ArgumentException(\"Vertices must be distinct non-null labels.\");\n        foreach(var edge in edges)\n        {\n            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(\"Unknown endpoint.\");\n            if(edge.From==edge.To)throw new ArgumentException(\"This graph contract excludes self-loops.\");\n            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),\"Dijkstra requires nonnegative weights.\");\n        }\n    }\n}\n",
+    "role": "existing_changed",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "cell_id": "daca0787",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nstring[] vertices={\"HQ\",\"Lab\",\"Shop\",\"Depot\",\"Remote\"};\nvar edges=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\nvar arcs=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\n// Your code starts here.\n/* TODO: complete the task. */\n// Your code ends here.\n// Cell-local support: inspect the operations, then write the client checks above.\npublic static class GreedyGraph\n{\n    public record Edge(string From,string To,int Weight);\n    public record Forest(Edge[] Edges,long Cost,int Components);\n    public sealed class Routes\n    {\n        public string Source { get; }\n        public IReadOnlyDictionary<string,long?> Distance { get; }\n        public IReadOnlyDictionary<string,string?> Previous { get; }\n        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)\n        {\n            Source=source;\n            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);\n            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);\n        }\n        public string[] PathTo(string target)\n        {\n            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);\n            if(Distance[target] is null)return Array.Empty<string>();\n            var path=new Stack<string>();string? at=target;\n            for(int steps=0;at is not null;steps++)\n            {\n                if(steps>=Distance.Count)throw new InvalidOperationException(\"Invalid predecessor chain.\");\n                path.Push(at);at=Previous[at];\n            }\n            if(path.Peek()!=Source)throw new InvalidOperationException(\"Path does not reach source.\");\n            return path.ToArray();\n        }\n    }\n    // Undirected edges; parallel edges allowed. Negative MST weights are valid.\n    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)\n    {\n        Validate(vertices,edges,false);\n        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);\n        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);\n        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();\n        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))\n        {\n            string a=Find(edge.From),b=Find(edge.To);\n            if(a==b){trace?.Invoke($\"reject {edge.From}-{edge.To} ({edge.Weight}): cycle\");continue;}\n            if(size[a]<size[b])(a,b)=(b,a);\n            parent[b]=a;size[a]+=size[b];components--;\n            chosen.Add(edge);cost=checked(cost+edge.Weight);\n            trace?.Invoke($\"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}\");\n        }\n        return new Forest(chosen.ToArray(),cost,components);\n        string Find(string vertex)\n        {\n            while(parent[vertex]!=vertex)\n            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}\n            return vertex;\n        }\n    }\n    // Directed arcs; nonnegative weights required, including unreachable arcs.\n    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)\n    {\n        Validate(vertices,arcs,true);\n        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);\n        if(!graph.ContainsKey(source))throw new KeyNotFoundException(\"Unknown source.\");\n        foreach(var edge in arcs)graph[edge.From].Add(edge);\n        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);\n        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);\n        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);\n        while(queue.TryDequeue(out string? current,out long queued))\n        {\n            if(distance[current]!=queued){trace?.Invoke($\"skip stale {current} ({queued})\");continue;}\n            trace?.Invoke($\"settle {current} ({queued})\");\n            foreach(var edge in graph[current])\n            {\n                long candidate=checked(queued+edge.Weight);\n                if(distance[edge.To] is null || candidate<distance[edge.To])\n                {\n                    distance[edge.To]=candidate;previous[edge.To]=current;\n                    queue.Enqueue(edge.To,candidate);\n                    trace?.Invoke($\"relax {current}->{edge.To}: {candidate}\");\n                }\n            }\n        }\n        return new Routes(source,distance,previous);\n    }\n    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)\n    {\n        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);\n        var known=new HashSet<string>(StringComparer.Ordinal);\n        foreach(string vertex in vertices)\n            if(vertex is null||!known.Add(vertex))throw new ArgumentException(\"Vertices must be distinct non-null labels.\");\n        foreach(var edge in edges)\n        {\n            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(\"Unknown endpoint.\");\n            if(edge.From==edge.To)throw new ArgumentException(\"This graph contract excludes self-loops.\");\n            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),\"Dijkstra requires nonnegative weights.\");\n        }\n    }\n}\n",
+    "role": "existing_changed",
+    "stdin": "",
+    "expected_stdout": null
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+    "cell_id": "110acd64",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\n// Solution\nvar meetings=new[]{new MeetingSchedule.Meeting(\"A\",-3,0),new MeetingSchedule.Meeting(\"B\",0,2),new MeetingSchedule.Meeting(\"C\",-2,3)};\nConsole.WriteLine(string.Join(\",\",MeetingSchedule.Select(meetings).Select(m=>m.Id)));\ntry{MeetingSchedule.Select(new[]{new MeetingSchedule.Meeting(\"Bad\",2,2)});}catch(ArgumentException){Console.WriteLine(\"zero duration rejected\");}\npublic static class MeetingSchedule\n{\n    public record Meeting(string Id,int Start,int End,int Value=1);\n    // Half-open, positive-duration intervals. Objective: maximum count.\n    public static Meeting[] Select(Meeting[] meetings)\n    {\n        ArgumentNullException.ThrowIfNull(meetings);\n        var ids=new HashSet<string>(StringComparer.Ordinal);\n        foreach(var meeting in meetings)\n            if(meeting is null||meeting.Id is null||!ids.Add(meeting.Id)||meeting.Start>=meeting.End)\n                throw new ArgumentException(\"Unique IDs and Start < End required.\");\n        var chosen=new List<Meeting>();int lastEnd=int.MinValue;\n        foreach(var meeting in meetings.OrderBy(m=>m.End).ThenBy(m=>m.Start).ThenBy(m=>m.Id,StringComparer.Ordinal))\n            if(meeting.Start>=lastEnd){chosen.Add(meeting);lastEnd=meeting.End;}\n        return chosen.ToArray();\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": "A,B\nzero duration rejected\n"
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "cell_id": "083993b6",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\n// Solution\nstring[] vertices={\"A\",\"B\",\"C\",\"Remote\"};\nvar arcs=new[]{new GreedyGraph.Edge(\"A\",\"B\",int.MaxValue),new GreedyGraph.Edge(\"B\",\"C\",1)};\nvar routes=GreedyGraph.Dijkstra(vertices,arcs,\"A\");\nConsole.WriteLine($\"C={routes.Distance[\"C\"]}, route={string.Join(\"->\",routes.PathTo(\"C\"))}, remote path length={routes.PathTo(\"Remote\").Length}\");\ntry{GreedyGraph.Dijkstra(vertices,arcs.Append(new GreedyGraph.Edge(\"Remote\",\"C\",-1)).ToArray(),\"A\");}catch(ArgumentOutOfRangeException){Console.WriteLine(\"unreachable negative arc rejected\");}\npublic static class GreedyGraph\n{\n    public record Edge(string From,string To,int Weight);\n    public record Forest(Edge[] Edges,long Cost,int Components);\n    public sealed class Routes\n    {\n        public string Source { get; }\n        public IReadOnlyDictionary<string,long?> Distance { get; }\n        public IReadOnlyDictionary<string,string?> Previous { get; }\n        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)\n        {\n            Source=source;\n            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);\n            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);\n        }\n        public string[] PathTo(string target)\n        {\n            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);\n            if(Distance[target] is null)return Array.Empty<string>();\n            var path=new Stack<string>();string? at=target;\n            for(int steps=0;at is not null;steps++)\n            {\n                if(steps>=Distance.Count)throw new InvalidOperationException(\"Invalid predecessor chain.\");\n                path.Push(at);at=Previous[at];\n            }\n            if(path.Peek()!=Source)throw new InvalidOperationException(\"Path does not reach source.\");\n            return path.ToArray();\n        }\n    }\n    // Undirected edges; parallel edges allowed. Negative MST weights are valid.\n    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)\n    {\n        Validate(vertices,edges,false);\n        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);\n        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);\n        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();\n        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))\n        {\n            string a=Find(edge.From),b=Find(edge.To);\n            if(a==b){trace?.Invoke($\"reject {edge.From}-{edge.To} ({edge.Weight}): cycle\");continue;}\n            if(size[a]<size[b])(a,b)=(b,a);\n            parent[b]=a;size[a]+=size[b];components--;\n            chosen.Add(edge);cost=checked(cost+edge.Weight);\n            trace?.Invoke($\"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}\");\n        }\n        return new Forest(chosen.ToArray(),cost,components);\n        string Find(string vertex)\n        {\n            while(parent[vertex]!=vertex)\n            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}\n            return vertex;\n        }\n    }\n    // Directed arcs; nonnegative weights required, including unreachable arcs.\n    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)\n    {\n        Validate(vertices,arcs,true);\n        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);\n        if(!graph.ContainsKey(source))throw new KeyNotFoundException(\"Unknown source.\");\n        foreach(var edge in arcs)graph[edge.From].Add(edge);\n        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);\n        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);\n        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);\n        while(queue.TryDequeue(out string? current,out long queued))\n        {\n            if(distance[current]!=queued){trace?.Invoke($\"skip stale {current} ({queued})\");continue;}\n            trace?.Invoke($\"settle {current} ({queued})\");\n            foreach(var edge in graph[current])\n            {\n                long candidate=checked(queued+edge.Weight);\n                if(distance[edge.To] is null || candidate<distance[edge.To])\n                {\n                    distance[edge.To]=candidate;previous[edge.To]=current;\n                    queue.Enqueue(edge.To,candidate);\n                    trace?.Invoke($\"relax {current}->{edge.To}: {candidate}\");\n                }\n            }\n        }\n        return new Routes(source,distance,previous);\n    }\n    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)\n    {\n        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);\n        var known=new HashSet<string>(StringComparer.Ordinal);\n        foreach(string vertex in vertices)\n            if(vertex is null||!known.Add(vertex))throw new ArgumentException(\"Vertices must be distinct non-null labels.\");\n        foreach(var edge in edges)\n        {\n            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(\"Unknown endpoint.\");\n            if(edge.From==edge.To)throw new ArgumentException(\"This graph contract excludes self-loops.\");\n            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),\"Dijkstra requires nonnegative weights.\");\n        }\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": "C=2147483648, route=A->B->C, remote path length=0\nunreachable negative arc rejected\n"
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "cell_id": "6087cc3e",
+    "source": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\n// Solution\nstring[] vertices={\"HQ\",\"Lab\",\"Shop\",\"Depot\",\"Remote\"};\nvar edges=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\nvar arcs=new[]{new GreedyGraph.Edge(\"HQ\",\"Shop\",2),new GreedyGraph.Edge(\"HQ\",\"Lab\",6),new GreedyGraph.Edge(\"Shop\",\"Lab\",3),new GreedyGraph.Edge(\"Lab\",\"Depot\",4),new GreedyGraph.Edge(\"Shop\",\"Depot\",5)};\nvar forest=GreedyGraph.Kruskal(vertices,edges);\nvar routes=GreedyGraph.Dijkstra(vertices,arcs.Append(new GreedyGraph.Edge(\"HQ\",\"Depot\",1)).ToArray(),\"HQ\");\nConsole.WriteLine($\"cable forest={forest.Cost}, delivery Depot={routes.Distance[\"Depot\"]}\");\npublic static class GreedyGraph\n{\n    public record Edge(string From,string To,int Weight);\n    public record Forest(Edge[] Edges,long Cost,int Components);\n    public sealed class Routes\n    {\n        public string Source { get; }\n        public IReadOnlyDictionary<string,long?> Distance { get; }\n        public IReadOnlyDictionary<string,string?> Previous { get; }\n        internal Routes(string source,Dictionary<string,long?> distance,Dictionary<string,string?> previous)\n        {\n            Source=source;\n            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary<string,long?>(distance);\n            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string?>(previous);\n        }\n        public string[] PathTo(string target)\n        {\n            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);\n            if(Distance[target] is null)return Array.Empty<string>();\n            var path=new Stack<string>();string? at=target;\n            for(int steps=0;at is not null;steps++)\n            {\n                if(steps>=Distance.Count)throw new InvalidOperationException(\"Invalid predecessor chain.\");\n                path.Push(at);at=Previous[at];\n            }\n            if(path.Peek()!=Source)throw new InvalidOperationException(\"Path does not reach source.\");\n            return path.ToArray();\n        }\n    }\n    // Undirected edges; parallel edges allowed. Negative MST weights are valid.\n    public static Forest Kruskal(string[] vertices,Edge[] edges,Action<string>? trace=null)\n    {\n        Validate(vertices,edges,false);\n        var parent=vertices.ToDictionary(v=>v,v=>v,StringComparer.Ordinal);\n        var size=vertices.ToDictionary(v=>v,_=>1,StringComparer.Ordinal);\n        int components=vertices.Length;long cost=0;var chosen=new List<Edge>();\n        foreach(var edge in edges.OrderBy(e=>e.Weight).ThenBy(e=>e.From,StringComparer.Ordinal).ThenBy(e=>e.To,StringComparer.Ordinal))\n        {\n            string a=Find(edge.From),b=Find(edge.To);\n            if(a==b){trace?.Invoke($\"reject {edge.From}-{edge.To} ({edge.Weight}): cycle\");continue;}\n            if(size[a]<size[b])(a,b)=(b,a);\n            parent[b]=a;size[a]+=size[b];components--;\n            chosen.Add(edge);cost=checked(cost+edge.Weight);\n            trace?.Invoke($\"accept {edge.From}-{edge.To} ({edge.Weight}): components={components}\");\n        }\n        return new Forest(chosen.ToArray(),cost,components);\n        string Find(string vertex)\n        {\n            while(parent[vertex]!=vertex)\n            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}\n            return vertex;\n        }\n    }\n    // Directed arcs; nonnegative weights required, including unreachable arcs.\n    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action<string>? trace=null)\n    {\n        Validate(vertices,arcs,true);\n        var graph=vertices.ToDictionary(v=>v,_=>new List<Edge>(),StringComparer.Ordinal);\n        if(!graph.ContainsKey(source))throw new KeyNotFoundException(\"Unknown source.\");\n        foreach(var edge in arcs)graph[edge.From].Add(edge);\n        var distance=vertices.ToDictionary(v=>v,_=>(long?)null,StringComparer.Ordinal);\n        var previous=vertices.ToDictionary(v=>v,_=>(string?)null,StringComparer.Ordinal);\n        var queue=new PriorityQueue<string,long>();distance[source]=0;queue.Enqueue(source,0);\n        while(queue.TryDequeue(out string? current,out long queued))\n        {\n            if(distance[current]!=queued){trace?.Invoke($\"skip stale {current} ({queued})\");continue;}\n            trace?.Invoke($\"settle {current} ({queued})\");\n            foreach(var edge in graph[current])\n            {\n                long candidate=checked(queued+edge.Weight);\n                if(distance[edge.To] is null || candidate<distance[edge.To])\n                {\n                    distance[edge.To]=candidate;previous[edge.To]=current;\n                    queue.Enqueue(edge.To,candidate);\n                    trace?.Invoke($\"relax {current}->{edge.To}: {candidate}\");\n                }\n            }\n        }\n        return new Routes(source,distance,previous);\n    }\n    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)\n    {\n        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);\n        var known=new HashSet<string>(StringComparer.Ordinal);\n        foreach(string vertex in vertices)\n            if(vertex is null||!known.Add(vertex))throw new ArgumentException(\"Vertices must be distinct non-null labels.\");\n        foreach(var edge in edges)\n        {\n            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(\"Unknown endpoint.\");\n            if(edge.From==edge.To)throw new ArgumentException(\"This graph contract excludes self-loops.\");\n            if(nonnegative&&edge.Weight<0)throw new ArgumentOutOfRangeException(nameof(edges),\"Dijkstra requires nonnegative weights.\");\n        }\n    }\n}\n",
+    "role": "existing_rechecked",
+    "stdin": "",
+    "expected_stdout": "cable forest=9, delivery Depot=1\n"
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "cell_id": "sqlite_valid_commit",
+    "source": "using System;\nusing Microsoft.Data.Sqlite;\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\nconnection.Open();\nusing (var setup = connection.CreateCommand())\n{\n    setup.CommandText = \"CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Stock INTEGER CHECK(Stock >= 0)); CREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER, Quantity INTEGER CHECK(Quantity > 0)); INSERT INTO Books VALUES (1, 6);\";\n    setup.ExecuteNonQuery();\n}\nusing (var transaction = connection.BeginTransaction())\n{\n    try\n    {\n        using var update = connection.CreateCommand();\n        update.Transaction = transaction;\n        update.CommandText = \"UPDATE Books SET Stock = Stock - 2 WHERE BookId = 1 AND Stock >= 2;\";\n        if (update.ExecuteNonQuery() != 1) throw new InvalidOperationException(\"Insufficient stock.\");\n        using var sale = connection.CreateCommand();\n        sale.Transaction = transaction;\n        // Deliberate invalid quantity simulates failure of the second change.\n        sale.CommandText = \"INSERT INTO Sales VALUES (1, 1, 2);\";\n        sale.ExecuteNonQuery();\n        transaction.Commit();\n    }\n    catch (SqliteException)\n    {\n        transaction.Rollback();\n        Console.WriteLine(\"sale rejected; rolled back\");\n    }\n}\nusing var check = connection.CreateCommand();\ncheck.CommandText = \"SELECT Stock FROM Books WHERE BookId = 1;\";\nConsole.WriteLine($\"stock={check.ExecuteScalar()}\");\ncheck.CommandText = \"SELECT COUNT(*) FROM Sales;\";\nConsole.WriteLine($\"sales={check.ExecuteScalar()}\");\n",
+    "role": "variation_check",
+    "stdin": "",
+    "package": "Microsoft.Data.Sqlite",
+    "expected_stdout": "stock=4\nsales=1\n"
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "cell_id": "sqlite_valid_without_commit",
+    "source": "using System;\nusing Microsoft.Data.Sqlite;\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\nconnection.Open();\nusing (var setup = connection.CreateCommand())\n{\n    setup.CommandText = \"CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Stock INTEGER CHECK(Stock >= 0)); CREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER, Quantity INTEGER CHECK(Quantity > 0)); INSERT INTO Books VALUES (1, 6);\";\n    setup.ExecuteNonQuery();\n}\nusing (var transaction = connection.BeginTransaction())\n{\n    try\n    {\n        using var update = connection.CreateCommand();\n        update.Transaction = transaction;\n        update.CommandText = \"UPDATE Books SET Stock = Stock - 2 WHERE BookId = 1 AND Stock >= 2;\";\n        if (update.ExecuteNonQuery() != 1) throw new InvalidOperationException(\"Insufficient stock.\");\n        using var sale = connection.CreateCommand();\n        sale.Transaction = transaction;\n        // Deliberate invalid quantity simulates failure of the second change.\n        sale.CommandText = \"INSERT INTO Sales VALUES (1, 1, 2);\";\n        sale.ExecuteNonQuery();\n        // no commit: disposal must roll back\n    }\n    catch (SqliteException)\n    {\n        transaction.Rollback();\n        Console.WriteLine(\"sale rejected; rolled back\");\n    }\n}\nusing var check = connection.CreateCommand();\ncheck.CommandText = \"SELECT Stock FROM Books WHERE BookId = 1;\";\nConsole.WriteLine($\"stock={check.ExecuteScalar()}\");\ncheck.CommandText = \"SELECT COUNT(*) FROM Sales;\";\nConsole.WriteLine($\"sales={check.ExecuteScalar()}\");\n",
+    "role": "variation_check",
+    "stdin": "",
+    "package": "Microsoft.Data.Sqlite",
+    "expected_stdout": "stock=6\nsales=0\n"
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "cell_id": "sqlite_missing_lookup_existing_update",
+    "source": "using System;\nusing Microsoft.Data.Sqlite;\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\nconnection.Open();\nusing (var setup = connection.CreateCommand())\n{\n    setup.CommandText = \"CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT, Stock INTEGER); INSERT INTO Books VALUES (1, 'C# Operations', 6);\";\n    setup.ExecuteNonQuery();\n}\nusing (var query = connection.CreateCommand())\n{\n    query.CommandText = \"SELECT BookId, Title, Stock FROM Books WHERE BookId = @id;\";\n    query.Parameters.AddWithValue(\"@id\", 999);\n    using var reader = query.ExecuteReader();\n    if (reader.Read())\n    {\n        long id = reader.GetInt64(0);\n        string title = reader.GetString(1);\n        int stock = reader.GetInt32(2);\n        Console.WriteLine($\"{id}: {title}, stock={stock}\");\n    }\n}\nusing var update = connection.CreateCommand();\nupdate.CommandText = \"UPDATE Books SET Stock = @stock WHERE BookId = @id;\";\nupdate.Parameters.AddWithValue(\"@stock\", 4);\nupdate.Parameters.AddWithValue(\"@id\", 1);\nConsole.WriteLine($\"existing ID affected rows={update.ExecuteNonQuery()}\");\n",
+    "role": "variation_check",
+    "stdin": "",
+    "package": "Microsoft.Data.Sqlite",
+    "expected_stdout": "existing ID affected rows=1\n"
+  }
+]

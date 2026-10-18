@@ -1,0 +1,2522 @@
+[
+  {
+    "file": "chapters/01_context/0101_cs_ideas.ipynb",
+    "chapter": 1,
+    "scope": "chapter",
+    "title": "Computing and Problem Solving",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Computing models, representation and responsibility use worked reasoning; C# syntax is developed in the first-program reading.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "2b566ed6613c"
+      },
+      {
+        "cell": 6,
+        "id": "af41c46af948"
+      }
+    ]
+  },
+  {
+    "file": "chapters/01_context/0102_computing_responsibility.ipynb",
+    "chapter": 1,
+    "scope": "chapter",
+    "title": "Computing and Professional Responsibility",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Computing models, representation and responsibility use worked reasoning; C# syntax is developed in the first-program reading.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "7ec2ba66ce2b"
+      },
+      {
+        "cell": 6,
+        "id": "b2db55cd29de"
+      }
+    ]
+  },
+  {
+    "file": "chapters/01_context/0103_program_structure.ipynb",
+    "chapter": 1,
+    "scope": "chapter",
+    "title": "Your First C# Program and Basic Syntax",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Computing models, representation and responsibility use worked reasoning; C# syntax is developed in the first-program reading.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "630bdeb4"
+      },
+      {
+        "cell": 6,
+        "id": "28f2b209"
+      }
+    ]
+  },
+  {
+    "file": "chapters/02_var_data/0201_variables_types.ipynb",
+    "chapter": 2,
+    "scope": "chapter",
+    "title": "Variables, Assignment, and State",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B08"
+    ],
+    "note": "Retain the restored material; reconcile conflicting explanations and strengthen local attempts.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "ec20d90f"
+      },
+      {
+        "cell": 7,
+        "id": "2419d88d"
+      }
+    ]
+  },
+  {
+    "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+    "chapter": 2,
+    "scope": "chapter",
+    "title": "Types and Conversion",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [
+      "B01"
+    ],
+    "note": "Retain the restored material; reconcile conflicting explanations and strengthen local attempts.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "7702e792"
+      },
+      {
+        "cell": 6,
+        "id": "cdc243ad"
+      }
+    ]
+  },
+  {
+    "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "chapter": 2,
+    "scope": "chapter",
+    "title": "Operators and Built-In Methods",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Supported in this scan",
+      "worked": "Needs development/correction",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B02",
+      "B09"
+    ],
+    "note": "Retain the restored material; reconcile conflicting explanations and strengthen local attempts.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "dda34bb7"
+      },
+      {
+        "cell": 4,
+        "id": "cfb6b504"
+      }
+    ]
+  },
+  {
+    "file": "chapters/02_var_data/0203_input_output.ipynb",
+    "chapter": 2,
+    "scope": "chapter",
+    "title": "Input and Output",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B10"
+    ],
+    "note": "Retain the restored material; reconcile conflicting explanations and strengthen local attempts.",
+    "sample_evidence": [
+      {
+        "cell": 8,
+        "id": "67297efb"
+      },
+      {
+        "cell": 18,
+        "id": "8dde41ed"
+      }
+    ]
+  },
+  {
+    "file": "chapters/03_decision/0301_intro_decision.ipynb",
+    "chapter": 3,
+    "scope": "chapter",
+    "title": "Boolean Expressions & Logical Operators",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B11"
+    ],
+    "note": "Preserve the branch examples and syntax. Strengthen local translation of a requirement into a Boolean condition.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "5fbdb061"
+      },
+      {
+        "cell": 6,
+        "id": "db38b155"
+      }
+    ]
+  },
+  {
+    "file": "chapters/03_decision/0302_ifstatement.ipynb",
+    "chapter": 3,
+    "scope": "chapter",
+    "title": "Conditional Selection with if and switch",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Preserve the branch examples and syntax. Strengthen local translation of a requirement into a Boolean condition.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "1c8ec441"
+      },
+      {
+        "cell": 8,
+        "id": "75c6d922"
+      }
+    ]
+  },
+  {
+    "file": "chapters/04_iteration/0401_iteration.ipynb",
+    "chapter": 4,
+    "scope": "chapter",
+    "title": "Iteration",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Supported in this scan",
+      "worked": "Needs development/correction",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B03",
+      "B12"
+    ],
+    "note": "Keep the developed for/while, validation, random-range and GCD material; repair the overview wording and planning bridge.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "11ebf0a6"
+      },
+      {
+        "cell": 8,
+        "id": "c7aa980e"
+      }
+    ]
+  },
+  {
+    "file": "chapters/04_iteration/0402_for_statements.ipynb",
+    "chapter": 4,
+    "scope": "chapter",
+    "title": "The `for` Statement",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Keep the developed for/while, validation, random-range and GCD material; repair the overview wording and planning bridge.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "88ca1b34"
+      },
+      {
+        "cell": 6,
+        "id": "88564d93"
+      }
+    ]
+  },
+  {
+    "file": "chapters/04_iteration/0403_while_statement.ipynb",
+    "chapter": 4,
+    "scope": "chapter",
+    "title": "While-Statements",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Keep the developed for/while, validation, random-range and GCD material; repair the overview wording and planning bridge.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "a9e51a42"
+      },
+      {
+        "cell": 5,
+        "id": "a164035a"
+      }
+    ]
+  },
+  {
+    "file": "chapters/04_iteration/0404_gcd.ipynb",
+    "chapter": 4,
+    "scope": "chapter",
+    "title": "Greatest Common Divisor",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Keep the developed for/while, validation, random-range and GCD material; repair the overview wording and planning bridge.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "80bee552"
+      },
+      {
+        "cell": 7,
+        "id": "440ecc6e"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Designing and Calling Methods",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "1204e185"
+      },
+      {
+        "cell": 11,
+        "id": "11b42e40"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0503_parameter.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Method Parameters",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "25270e21"
+      },
+      {
+        "cell": 4,
+        "id": "064ce718"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0502_signature_call.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Returned Results and Method Contracts",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "86fc6018"
+      },
+      {
+        "cell": 11,
+        "id": "7b76c174"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0504_strings.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Strings and Their Methods",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "521553fa"
+      },
+      {
+        "cell": 4,
+        "id": "0276276c"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0505_summary.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Composition, Refactoring, and Method Checks",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "5d849fbd"
+      },
+      {
+        "cell": 8,
+        "id": "d291508b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/05_methods/0506_recursive_methods.ipynb",
+    "chapter": 5,
+    "scope": "chapter",
+    "title": "Recursive Methods",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Method contracts, parameters, return flow, string operations and synthesis have worked checks and guided tasks. The new recursive-method supporting reading includes syntax, call tracing and CountDigits practice.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "54a74f149c39"
+      },
+      {
+        "cell": 5,
+        "id": "1951156c59a8"
+      }
+    ]
+  },
+  {
+    "file": "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+    "chapter": 6,
+    "scope": "chapter",
+    "title": "Error Handling and Validation",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exception flow, debugging and repeatable tests have worked cases and feedback. Optional failures are contextual reasoning, not new syntax lessons.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_4dc0b2267e70436909"
+      },
+      {
+        "cell": 7,
+        "id": "ba_d28a284da4bbc8b2e8"
+      }
+    ]
+  },
+  {
+    "file": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "chapter": 6,
+    "scope": "chapter",
+    "title": "Debugging Workflow",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exception flow, debugging and repeatable tests have worked cases and feedback. Optional failures are contextual reasoning, not new syntax lessons.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "98bbafa2"
+      },
+      {
+        "cell": 7,
+        "id": "5ef586f8a997"
+      }
+    ]
+  },
+  {
+    "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+    "chapter": 6,
+    "scope": "chapter",
+    "title": "Unit Testing",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exception flow, debugging and repeatable tests have worked cases and feedback. Optional failures are contextual reasoning, not new syntax lessons.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "056b11a3"
+      },
+      {
+        "cell": 8,
+        "id": "4195fa17"
+      }
+    ]
+  },
+  {
+    "file": "chapters/06_exceptions_testing/0605_software_responsibility.ipynb",
+    "chapter": 6,
+    "scope": "chapter",
+    "title": "Computing and Society",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exception flow, debugging and repeatable tests have worked cases and feedback. Optional failures are contextual reasoning, not new syntax lessons.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "2953f20c"
+      },
+      {
+        "cell": 7,
+        "id": "17e657d3"
+      }
+    ]
+  },
+  {
+    "file": "chapters/07_arrays/0701_onedim.ipynb",
+    "chapter": 7,
+    "scope": "chapter",
+    "title": "Creating and Accessing Arrays",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Array declarations, processing, search/sort, and multidimensional examples are present, including the new searching/sorting reading. No missing algorithm finding is warranted.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_80b2b2c1123e7db25f"
+      },
+      {
+        "cell": 7,
+        "id": "ba_00657518911c879fbf"
+      }
+    ]
+  },
+  {
+    "file": "chapters/07_arrays/0703_array_processing.ipynb",
+    "chapter": 7,
+    "scope": "chapter",
+    "title": "Processing and Sharing Arrays",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Array declarations, processing, search/sort, and multidimensional examples are present, including the new searching/sorting reading. No missing algorithm finding is warranted.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "91e35a0b"
+      },
+      {
+        "cell": 8,
+        "id": "dc6ca6fb"
+      }
+    ]
+  },
+  {
+    "file": "chapters/07_arrays/0704_searching_sorting_arrays.ipynb",
+    "chapter": 7,
+    "scope": "chapter",
+    "title": "Searching and Sorting Arrays",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Array declarations, processing, search/sort, and multidimensional examples are present, including the new searching/sorting reading. No missing algorithm finding is warranted.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "7467a8bbf958"
+      },
+      {
+        "cell": 6,
+        "id": "a9c73bd02075"
+      }
+    ]
+  },
+  {
+    "file": "chapters/07_arrays/0702_twodim.ipynb",
+    "chapter": 7,
+    "scope": "chapter",
+    "title": "2D & ND Arrays",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Array declarations, processing, search/sort, and multidimensional examples are present, including the new searching/sorting reading. No missing algorithm finding is warranted.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "83fc09d0"
+      },
+      {
+        "cell": 6,
+        "id": "9dcc408c"
+      }
+    ]
+  },
+  {
+    "file": "chapters/08_collections/0801_collections.ipynb",
+    "chapter": 8,
+    "scope": "chapter",
+    "title": "Collection Families and Selection",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Family and operation tables connect the big ideas to the List and Dictionary lessons; worked cases and guided checks are present.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "0801_collections_01"
+      },
+      {
+        "cell": 6,
+        "id": "c06d42c7"
+      }
+    ]
+  },
+  {
+    "file": "chapters/08_collections/0804_collection_operations.ipynb",
+    "chapter": 8,
+    "scope": "chapter",
+    "title": "Collection Operations and Behavior",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Family and operation tables connect the big ideas to the List and Dictionary lessons; worked cases and guided checks are present.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "34bab9f9"
+      },
+      {
+        "cell": 8,
+        "id": "0801_collections_05"
+      }
+    ]
+  },
+  {
+    "file": "chapters/08_collections/0802_list.ipynb",
+    "chapter": 8,
+    "scope": "chapter",
+    "title": "Lists",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Family and operation tables connect the big ideas to the List and Dictionary lessons; worked cases and guided checks are present.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "03098490"
+      },
+      {
+        "cell": 4,
+        "id": "b78aea32"
+      }
+    ]
+  },
+  {
+    "file": "chapters/08_collections/0803_dictionary.ipynb",
+    "chapter": 8,
+    "scope": "chapter",
+    "title": "Dictionaries",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Family and operation tables connect the big ideas to the List and Dictionary lessons; worked cases and guided checks are present.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "f4e0fe85"
+      },
+      {
+        "cell": 4,
+        "id": "8dc3b57b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/09_files_text/0901_stream_file.ipynb",
+    "chapter": 9,
+    "scope": "chapter",
+    "title": "File Foundations: Reading and Writing",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Needs development/correction",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [
+      "B05"
+    ],
+    "note": "Keep the developed ownership/import material; resolve the file-API contradiction and independent-cell issue, and strengthen optional regex/privacy transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "148c182f"
+      },
+      {
+        "cell": 8,
+        "id": "84b7854f"
+      }
+    ]
+  },
+  {
+    "file": "chapters/09_files_text/0902_file_operations.ipynb",
+    "chapter": 9,
+    "scope": "chapter",
+    "title": "File Workflows, Paths, and Resources",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Keep the developed ownership/import material; resolve the file-API contradiction and independent-cell issue, and strengthen optional regex/privacy transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_4a997d0151676ba7e4"
+      },
+      {
+        "cell": 7,
+        "id": "ba_6ff44c10cb88e040db"
+      }
+    ]
+  },
+  {
+    "file": "chapters/09_files_text/0903_text_operations.ipynb",
+    "chapter": 9,
+    "scope": "chapter",
+    "title": "Text Operations",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Needs development/correction",
+      "practice": "Supported in this scan"
+    },
+    "findings": [
+      "B07"
+    ],
+    "note": "Keep the developed ownership/import material; resolve the file-API contradiction and independent-cell issue, and strengthen optional regex/privacy transfer.",
+    "sample_evidence": [
+      {
+        "cell": 6,
+        "id": "fe4091d7"
+      },
+      {
+        "cell": 7,
+        "id": "361d6649"
+      }
+    ]
+  },
+  {
+    "file": "chapters/09_files_text/0906_regex.ipynb",
+    "chapter": 9,
+    "scope": "chapter",
+    "title": "Regular Expressions",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B14"
+    ],
+    "note": "Keep the developed ownership/import material; resolve the file-API contradiction and independent-cell issue, and strengthen optional regex/privacy transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "9f663177"
+      },
+      {
+        "cell": 7,
+        "id": "bb266776"
+      }
+    ]
+  },
+  {
+    "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+    "chapter": 9,
+    "scope": "chapter",
+    "title": "Privacy and Security in Code",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B15"
+    ],
+    "note": "Keep the developed ownership/import material; resolve the file-API contradiction and independent-cell issue, and strengthen optional regex/privacy transfer.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "7804f837"
+      },
+      {
+        "cell": 7,
+        "id": "6df61f7d"
+      }
+    ]
+  },
+  {
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "chapter": 10,
+    "scope": "chapter",
+    "title": "Class Syntax",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B13"
+    ],
+    "note": "Properties need substantive instruction. Add local core-class practice while retaining the params and tuple additions.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "2ee50e56"
+      },
+      {
+        "cell": 8,
+        "id": "d1471367"
+      }
+    ]
+  },
+  {
+    "file": "chapters/10_classes/1002_properties.ipynb",
+    "chapter": 10,
+    "scope": "chapter",
+    "title": "Properties",
+    "ratings": {
+      "explanation": "Needs development/correction",
+      "syntax": "Needs development/correction",
+      "worked": "Needs development/correction",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B04"
+    ],
+    "note": "Properties need substantive instruction. Add local core-class practice while retaining the params and tuple additions.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "0ad059f5"
+      },
+      {
+        "cell": 8,
+        "id": "541fe992"
+      }
+    ]
+  },
+  {
+    "file": "chapters/10_classes/1003_class_instance.ipynb",
+    "chapter": 10,
+    "scope": "chapter",
+    "title": "Instances, State, and Useful Behavior",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Properties need substantive instruction. Add local core-class practice while retaining the params and tuple additions.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "14000cb25fc5"
+      },
+      {
+        "cell": 6,
+        "id": "056a496163b2"
+      }
+    ]
+  },
+  {
+    "file": "chapters/10_classes/1004_averager.ipynb",
+    "chapter": 10,
+    "scope": "chapter",
+    "title": "Averager and Mutable State",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Properties need substantive instruction. Add local core-class practice while retaining the params and tuple additions.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "a88eecb2"
+      },
+      {
+        "cell": 6,
+        "id": "e1922fe5"
+      }
+    ]
+  },
+  {
+    "file": "chapters/11_object_design/1101_objects_references.ipynb",
+    "chapter": 11,
+    "scope": "chapter",
+    "title": "References, Identity, and Copying",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Copying, sharing, struct/record semantics, composition and nullability have contextual examples and guided checks. Concrete declarations count as syntax; no mandatory duplicate template is inferred.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "65697be1"
+      },
+      {
+        "cell": 7,
+        "id": "089914d18a09"
+      }
+    ]
+  },
+  {
+    "file": "chapters/11_object_design/1105_value_record_types.ipynb",
+    "chapter": 11,
+    "scope": "chapter",
+    "title": "Structs, Records, and Data Models",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Copying, sharing, struct/record semantics, composition and nullability have contextual examples and guided checks. Concrete declarations count as syntax; no mandatory duplicate template is inferred.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ae006f1d"
+      },
+      {
+        "cell": 8,
+        "id": "7fcb2c0e"
+      }
+    ]
+  },
+  {
+    "file": "chapters/11_object_design/1102_composition.ipynb",
+    "chapter": 11,
+    "scope": "chapter",
+    "title": "Composition and Object Responsibilities",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Copying, sharing, struct/record semantics, composition and nullability have contextual examples and guided checks. Concrete declarations count as syntax; no mandatory duplicate template is inferred.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ccc82241"
+      },
+      {
+        "cell": 6,
+        "id": "f47bc43c9dd0"
+      }
+    ]
+  },
+  {
+    "file": "chapters/11_object_design/1103_testing_collaboration.ipynb",
+    "chapter": 11,
+    "scope": "chapter",
+    "title": "Testing and Refactoring Collaborating Objects",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Copying, sharing, struct/record semantics, composition and nullability have contextual examples and guided checks. Concrete declarations count as syntax; no mandatory duplicate template is inferred.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "bd1c4e76"
+      },
+      {
+        "cell": 6,
+        "id": "548d4ce9c958"
+      }
+    ]
+  },
+  {
+    "file": "chapters/11_object_design/1104_nullability.ipynb",
+    "chapter": 11,
+    "scope": "chapter",
+    "title": "Nullability and Missing Data",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Copying, sharing, struct/record semantics, composition and nullability have contextual examples and guided checks. Concrete declarations count as syntax; no mandatory duplicate template is inferred.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "326197ab"
+      },
+      {
+        "cell": 6,
+        "id": "ba_1eb250d18d40f647e7"
+      }
+    ]
+  },
+  {
+    "file": "chapters/12_oop/1201_inheritance.ipynb",
+    "chapter": 12,
+    "scope": "chapter",
+    "title": "Inheritance and Substitution",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Inheritance, virtual dispatch, abstract types and interfaces explain their keywords in concrete declarations and include business-contract practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "68a482e1"
+      },
+      {
+        "cell": 6,
+        "id": "6aed7e597e37"
+      }
+    ]
+  },
+  {
+    "file": "chapters/12_oop/1202_polymorphism.ipynb",
+    "chapter": 12,
+    "scope": "chapter",
+    "title": "Runtime Polymorphism and Abstract Classes",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Inheritance, virtual dispatch, abstract types and interfaces explain their keywords in concrete declarations and include business-contract practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "7fe0767c"
+      },
+      {
+        "cell": 6,
+        "id": "014979ba2d0e"
+      }
+    ]
+  },
+  {
+    "file": "chapters/12_oop/1203_interfaces.ipynb",
+    "chapter": 12,
+    "scope": "chapter",
+    "title": "Interfaces and Interchangeable Components",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Inheritance, virtual dispatch, abstract types and interfaces explain their keywords in concrete declarations and include business-contract practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "772f780f"
+      },
+      {
+        "cell": 6,
+        "id": "29ffcbf5b2b1"
+      }
+    ]
+  },
+  {
+    "file": "chapters/12_oop/1204_oop_examples.ipynb",
+    "chapter": 12,
+    "scope": "chapter",
+    "title": "OOP Examples and Variations",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Inheritance, virtual dispatch, abstract types and interfaces explain their keywords in concrete declarations and include business-contract practice.",
+    "sample_evidence": [
+      {
+        "cell": 6,
+        "id": "030f63e7"
+      },
+      {
+        "cell": 9,
+        "id": "f15a3ddb"
+      }
+    ]
+  },
+  {
+    "file": "chapters/13_abstract_data_types/1301_adt_contracts.ipynb",
+    "chapter": 13,
+    "scope": "chapter",
+    "title": "ADT Contracts",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Contracts/costs/generics/iteration include worked reasoning. Generic and yield patterns already exist; they are not missing.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "61abe040"
+      },
+      {
+        "cell": 7,
+        "id": "3128518b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/13_abstract_data_types/1302_representations_costs.ipynb",
+    "chapter": 13,
+    "scope": "chapter",
+    "title": "Representations and Costs",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Contracts/costs/generics/iteration include worked reasoning. Generic and yield patterns already exist; they are not missing.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "69fbe265"
+      },
+      {
+        "cell": 7,
+        "id": "f6d82803"
+      }
+    ]
+  },
+  {
+    "file": "chapters/13_abstract_data_types/1303_generics.ipynb",
+    "chapter": 13,
+    "scope": "chapter",
+    "title": "Generics for Reusable ADTs",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Contracts/costs/generics/iteration include worked reasoning. Generic and yield patterns already exist; they are not missing.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "gen00"
+      },
+      {
+        "cell": 5,
+        "id": "a68cd61a"
+      }
+    ]
+  },
+  {
+    "file": "chapters/13_abstract_data_types/1304_iterators.ipynb",
+    "chapter": 13,
+    "scope": "chapter",
+    "title": "Iterators",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Contracts/costs/generics/iteration include worked reasoning. Generic and yield patterns already exist; they are not missing.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "iter00"
+      },
+      {
+        "cell": 4,
+        "id": "ec14cbf6"
+      }
+    ]
+  },
+  {
+    "file": "chapters/14_arrays_linked_lists/1401_dynamic_arrays.ipynb",
+    "chapter": 14,
+    "scope": "chapter",
+    "title": "Dynamic Arrays",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Growth, linked representations and comparisons include state/cost traces and checkpoint tasks; do not expand solely by word count.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "storage-body"
+      },
+      {
+        "cell": 8,
+        "id": "resize-body"
+      }
+    ]
+  },
+  {
+    "file": "chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb",
+    "chapter": 14,
+    "scope": "chapter",
+    "title": "Linked Nodes",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Growth, linked representations and comparisons include state/cost traces and checkpoint tasks; do not expand solely by word count.",
+    "sample_evidence": [
+      {
+        "cell": 21,
+        "id": "cost-body"
+      },
+      {
+        "cell": 24,
+        "id": "d6c2de55"
+      }
+    ]
+  },
+  {
+    "file": "chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb",
+    "chapter": 14,
+    "scope": "chapter",
+    "title": "Representation Tradeoffs and Verification",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Growth, linked representations and comparisons include state/cost traces and checkpoint tasks; do not expand solely by word count.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "title"
+      },
+      {
+        "cell": 16,
+        "id": "7f8246f7"
+      }
+    ]
+  },
+  {
+    "file": "chapters/15_stacks_queues/1501_stack.ipynb",
+    "chapter": 15,
+    "scope": "chapter",
+    "title": "Stacks",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Stack, queue, ring and application readings have operational traces, examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "1501_stack_003"
+      },
+      {
+        "cell": 16,
+        "id": "9736ece1"
+      }
+    ]
+  },
+  {
+    "file": "chapters/15_stacks_queues/1502_queue_deque.ipynb",
+    "chapter": 15,
+    "scope": "chapter",
+    "title": "Queues and Deques",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Stack, queue, ring and application readings have operational traces, examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "24a1bf1d"
+      },
+      {
+        "cell": 7,
+        "id": "1502_queue_deque_003"
+      }
+    ]
+  },
+  {
+    "file": "chapters/15_stacks_queues/1503_applications_lab.ipynb",
+    "chapter": 15,
+    "scope": "chapter",
+    "title": "Access Policies and Applications",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Stack, queue, ring and application readings have operational traces, examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "1503_applications_la_003"
+      },
+      {
+        "cell": 19,
+        "id": "2aeb08ae"
+      }
+    ]
+  },
+  {
+    "file": "chapters/16_searching_sorting/1601_searching.ipynb",
+    "chapter": 16,
+    "scope": "chapter",
+    "title": "Search Contracts and Repeated Queries",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search, basic sorts and the new merge-sort reading contain contracts, traces and guided comparisons. Blank saved output alone is not evidence of an absent worked explanation.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "00751156"
+      },
+      {
+        "cell": 8,
+        "id": "a89e5a78"
+      }
+    ]
+  },
+  {
+    "file": "chapters/16_searching_sorting/1602_basic_sorting.ipynb",
+    "chapter": 16,
+    "scope": "chapter",
+    "title": "Sorting and Safe Reporting Workloads",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search, basic sorts and the new merge-sort reading contain contracts, traces and guided comparisons. Blank saved output alone is not evidence of an absent worked explanation.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "6e01c663"
+      },
+      {
+        "cell": 8,
+        "id": "54fc90fb"
+      }
+    ]
+  },
+  {
+    "file": "chapters/16_searching_sorting/1604_merge_sort.ipynb",
+    "chapter": 16,
+    "scope": "chapter",
+    "title": "Merge Sort for Reporting Workloads",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search, basic sorts and the new merge-sort reading contain contracts, traces and guided comparisons. Blank saved output alone is not evidence of an absent worked explanation.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "c89bd4bd3d2d"
+      },
+      {
+        "cell": 5,
+        "id": "62b9d88942ac"
+      }
+    ]
+  },
+  {
+    "file": "chapters/17_trees/1701_tree_structure.ipynb",
+    "chapter": 17,
+    "scope": "chapter",
+    "title": "Tree Structure and Recursive Models",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Tree recursion, traversals, BST operations and queries have small models and checkpoints as well as complete implementations.",
+    "sample_evidence": [
+      {
+        "cell": 6,
+        "id": "1601_tree_structure_003"
+      },
+      {
+        "cell": 9,
+        "id": "5b4e21eb"
+      }
+    ]
+  },
+  {
+    "file": "chapters/17_trees/1704_tree_traversal.ipynb",
+    "chapter": 17,
+    "scope": "chapter",
+    "title": "Tree Traversal, Returned Values, and Costs",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Tree recursion, traversals, BST operations and queries have small models and checkpoints as well as complete implementations.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "9b82e862"
+      },
+      {
+        "cell": 8,
+        "id": "7e70a1a1"
+      }
+    ]
+  },
+  {
+    "file": "chapters/17_trees/1702_binary_search_trees.ipynb",
+    "chapter": 17,
+    "scope": "chapter",
+    "title": "Binary Search Trees",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Tree recursion, traversals, BST operations and queries have small models and checkpoints as well as complete implementations.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "1602_binary_search_t_003"
+      },
+      {
+        "cell": 8,
+        "id": "29a272d2"
+      }
+    ]
+  },
+  {
+    "file": "chapters/17_trees/1703_tree_lab.ipynb",
+    "chapter": 17,
+    "scope": "chapter",
+    "title": "Tree Queries and Verification",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Tree recursion, traversals, BST operations and queries have small models and checkpoints as well as complete implementations.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "7a2f788a"
+      },
+      {
+        "cell": 9,
+        "id": "cb397941"
+      }
+    ]
+  },
+  {
+    "file": "chapters/18_priority_queues/1801_priority_queues.ipynb",
+    "chapter": 18,
+    "scope": "chapter",
+    "title": "Priority Queue Contracts and Heap Shape",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Priority contracts, heap state and top-k examples have traces and learner tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "c35b5980"
+      },
+      {
+        "cell": 11,
+        "id": "1ed5b0c97bf8"
+      }
+    ]
+  },
+  {
+    "file": "chapters/18_priority_queues/1802_heap_implementation.ipynb",
+    "chapter": 18,
+    "scope": "chapter",
+    "title": "Implementing and Checking a Binary Heap",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Priority contracts, heap state and top-k examples have traces and learner tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "262aee62"
+      },
+      {
+        "cell": 11,
+        "id": "f59b75e60877"
+      }
+    ]
+  },
+  {
+    "file": "chapters/18_priority_queues/1803_priority_applications.ipynb",
+    "chapter": 18,
+    "scope": "chapter",
+    "title": "Priority Workloads and Top-K Selection",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Priority contracts, heap state and top-k examples have traces and learner tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "0197149e"
+      },
+      {
+        "cell": 6,
+        "id": "273696e5067b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/19_hash_collections/1901_hashing.ipynb",
+    "chapter": 19,
+    "scope": "chapter",
+    "title": "Hash Tables, Equality, and Collisions",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Hash collisions, deletion, equality and coordinated indexes are explained with cases and checking tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "46e689c5"
+      },
+      {
+        "cell": 8,
+        "id": "f66bcaec75e0"
+      }
+    ]
+  },
+  {
+    "file": "chapters/19_hash_collections/1902_dictionaries_sets.ipynb",
+    "chapter": 19,
+    "scope": "chapter",
+    "title": "Dictionaries, Sets, and Reconciliation",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Hash collisions, deletion, equality and coordinated indexes are explained with cases and checking tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "7d5b8ea6"
+      },
+      {
+        "cell": 8,
+        "id": "0b4e81fb"
+      }
+    ]
+  },
+  {
+    "file": "chapters/19_hash_collections/1903_collection_selection.ipynb",
+    "chapter": 19,
+    "scope": "chapter",
+    "title": "Choosing and Coordinating Collections",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Hash collisions, deletion, equality and coordinated indexes are explained with cases and checking tasks.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "8e1fa3f9"
+      },
+      {
+        "cell": 6,
+        "id": "182b7b2561a0"
+      }
+    ]
+  },
+  {
+    "file": "chapters/20_graphs/2001_graph_vocabulary.ipynb",
+    "chapter": 20,
+    "scope": "chapter",
+    "title": "Graph Vocabulary and Models",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Representations, BFS and DFS connect state to traversal guarantees with examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "6094b343"
+      },
+      {
+        "cell": 6,
+        "id": "7098abad"
+      }
+    ]
+  },
+  {
+    "file": "chapters/20_graphs/2002_adjacency_representations.ipynb",
+    "chapter": 20,
+    "scope": "chapter",
+    "title": "Adjacency Representations",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Representations, BFS and DFS connect state to traversal guarantees with examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "0d617101"
+      },
+      {
+        "cell": 7,
+        "id": "bb296912"
+      }
+    ]
+  },
+  {
+    "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+    "chapter": 20,
+    "scope": "chapter",
+    "title": "Breadth-First Search and Paths",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Representations, BFS and DFS connect state to traversal guarantees with examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "f3e8c24c"
+      },
+      {
+        "cell": 7,
+        "id": "ba_15ea5a519c9e644df6"
+      }
+    ]
+  },
+  {
+    "file": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "chapter": 20,
+    "scope": "chapter",
+    "title": "Depth-First Search and Components",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Representations, BFS and DFS connect state to traversal guarantees with examples and practice.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_12be0f7ed9501b08dc"
+      },
+      {
+        "cell": 7,
+        "id": "ba_03a03dd6d4e6d4f58d"
+      }
+    ]
+  },
+  {
+    "file": "chapters/21_algorithm_analysis/2101_big_o.ipynb",
+    "chapter": 21,
+    "scope": "chapter",
+    "title": "Big-O and Complexity",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exact counts, bounds, correctness and recurrence models include derivations and exercises. An expected/amortized distinction is present, not an omitted topic.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "efc9e521"
+      },
+      {
+        "cell": 8,
+        "id": "9a3e817b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/21_algorithm_analysis/2102_correctness.ipynb",
+    "chapter": 21,
+    "scope": "chapter",
+    "title": "Correctness and Invariants",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exact counts, bounds, correctness and recurrence models include derivations and exercises. An expected/amortized distinction is present, not an omitted topic.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "081e6a83"
+      },
+      {
+        "cell": 8,
+        "id": "feaec260"
+      }
+    ]
+  },
+  {
+    "file": "chapters/21_algorithm_analysis/2103_recurrences.ipynb",
+    "chapter": 21,
+    "scope": "chapter",
+    "title": "Recurrences and Recursive Cost",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Exact counts, bounds, correctness and recurrence models include derivations and exercises. An expected/amortized distinction is present, not an omitted topic.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "7d605260"
+      },
+      {
+        "cell": 8,
+        "id": "d9e74229"
+      }
+    ]
+  },
+  {
+    "file": "chapters/22_recursion_divide_conquer/2201_recursion.ipynb",
+    "chapter": 22,
+    "scope": "chapter",
+    "title": "Recursive Contracts and Divide-and-Conquer",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Recursive contracts, ranges and stable merge verification are present; later whole-program examples should remain alongside the smaller traces.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "dc3a45fb"
+      },
+      {
+        "cell": 7,
+        "id": "b78a04a4"
+      }
+    ]
+  },
+  {
+    "file": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb",
+    "chapter": 22,
+    "scope": "chapter",
+    "title": "Stable Merge Sort and Verification",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Recursive contracts, ranges and stable merge verification are present; later whole-program examples should remain alongside the smaller traces.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "15c6939f"
+      },
+      {
+        "cell": 10,
+        "id": "2d184417"
+      }
+    ]
+  },
+  {
+    "file": "chapters/23_searching_sorting/2301_searching.ipynb",
+    "chapter": 23,
+    "scope": "chapter",
+    "title": "Searching",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search boundaries, sorting/workloads and supporting Shell/quicksort readings have new small teaching examples and guided cases.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_a988352f7cde59b440"
+      },
+      {
+        "cell": 7,
+        "id": "ba_bc2c51232fb2c05647"
+      }
+    ]
+  },
+  {
+    "file": "chapters/23_searching_sorting/2302_sorting.ipynb",
+    "chapter": 23,
+    "scope": "chapter",
+    "title": "Sorting",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search boundaries, sorting/workloads and supporting Shell/quicksort readings have new small teaching examples and guided cases.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "5bdb7077"
+      },
+      {
+        "cell": 6,
+        "id": "9f5d0a88"
+      }
+    ]
+  },
+  {
+    "file": "chapters/23_searching_sorting/2303_comparison_lab.ipynb",
+    "chapter": 23,
+    "scope": "chapter",
+    "title": "Comparing Complete Search and Sort Workloads",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search boundaries, sorting/workloads and supporting Shell/quicksort readings have new small teaching examples and guided cases.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "f9cdf945"
+      },
+      {
+        "cell": 6,
+        "id": "8045633a"
+      }
+    ]
+  },
+  {
+    "file": "chapters/23_searching_sorting/2304_advanced_sorts.ipynb",
+    "chapter": 23,
+    "scope": "chapter",
+    "title": "Shell Sort and Gap Families",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search boundaries, sorting/workloads and supporting Shell/quicksort readings have new small teaching examples and guided cases.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "99a405b5"
+      },
+      {
+        "cell": 7,
+        "id": "a0df14e7"
+      }
+    ]
+  },
+  {
+    "file": "chapters/23_searching_sorting/2305_quicksort.ipynb",
+    "chapter": 23,
+    "scope": "chapter",
+    "title": "Quicksort and Partitioning",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Search boundaries, sorting/workloads and supporting Shell/quicksort readings have new small teaching examples and guided cases.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_578cd7d6141d0d9ced"
+      },
+      {
+        "cell": 7,
+        "id": "ba_f2d0f03df8e40bc712"
+      }
+    ]
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+    "chapter": 24,
+    "scope": "chapter",
+    "title": "Greedy Choices and Exchange Reasoning",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B06"
+    ],
+    "note": "The conceptual and algorithm explanations are developed; three visible starters fail without their missing helper types.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "f2354bc4"
+      },
+      {
+        "cell": 10,
+        "id": "71ba835b"
+      }
+    ]
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.ipynb",
+    "chapter": 24,
+    "scope": "chapter",
+    "title": "Minimum Spanning Forests and Kruskal",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "The conceptual and algorithm explanations are developed; three visible starters fail without their missing helper types.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_438560b16b5154fc9c"
+      },
+      {
+        "cell": 7,
+        "id": "ba_01b18bd48f57ae0b96"
+      }
+    ]
+  },
+  {
+    "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "chapter": 24,
+    "scope": "chapter",
+    "title": "Shortest Paths and Dijkstra",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B06"
+    ],
+    "note": "The conceptual and algorithm explanations are developed; three visible starters fail without their missing helper types.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "a12474e2"
+      },
+      {
+        "cell": 8,
+        "id": "3012d47f"
+      }
+    ]
+  },
+  {
+    "file": "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb",
+    "chapter": 25,
+    "scope": "chapter",
+    "title": "Memoization, Tabulation, and Repeated Work",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Memoization/tabulation, optimization witnesses, choose/explore/undo, pruning and failed-state caching are present. Keep these explanations before project transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_b852b76b57bb25b219"
+      },
+      {
+        "cell": 7,
+        "id": "ba_5b6f7e06a8e5ca353d"
+      }
+    ]
+  },
+  {
+    "file": "chapters/25_dynamic_programming_backtracking/2504_optimization_models.ipynb",
+    "chapter": 25,
+    "scope": "chapter",
+    "title": "Optimization States and Reconstructed Solutions",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Memoization/tabulation, optimization witnesses, choose/explore/undo, pruning and failed-state caching are present. Keep these explanations before project transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_88cb81ff444bf320a1"
+      },
+      {
+        "cell": 7,
+        "id": "ba_4fff1ff6c2a1574fd4"
+      }
+    ]
+  },
+  {
+    "file": "chapters/25_dynamic_programming_backtracking/2502_backtracking.ipynb",
+    "chapter": 25,
+    "scope": "chapter",
+    "title": "Backtracking, Pruning, and Search States",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Memoization/tabulation, optimization witnesses, choose/explore/undo, pruning and failed-state caching are present. Keep these explanations before project transfer.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "eef34e3e"
+      },
+      {
+        "cell": 7,
+        "id": "2f7877db"
+      }
+    ]
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.ipynb",
+    "chapter": 26,
+    "scope": "chapter",
+    "title": "Direct String Matching and Result Contracts",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Direct/KMP examples and computational-limit counterexamples include worked reasoning and learner checks; do not confuse implementation limits with lower-bound claims.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_edc4ed46a731140ed8"
+      },
+      {
+        "cell": 7,
+        "id": "ba_59ed5f204d47156a83"
+      }
+    ]
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb",
+    "chapter": 26,
+    "scope": "chapter",
+    "title": "Prefix Reuse and KMP",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Direct/KMP examples and computational-limit counterexamples include worked reasoning and learner checks; do not confuse implementation limits with lower-bound claims.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "ba_7e4875a141dff7ee54"
+      },
+      {
+        "cell": 7,
+        "id": "ba_e11dfbf7a43350f183"
+      }
+    ]
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/2603_limits_project.ipynb",
+    "chapter": 26,
+    "scope": "chapter",
+    "title": "Algorithms and Computational Limits",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Direct/KMP examples and computational-limit counterexamples include worked reasoning and learner checks; do not confuse implementation limits with lower-bound claims.",
+    "sample_evidence": [
+      {
+        "cell": 5,
+        "id": "1d3d1350"
+      },
+      {
+        "cell": 6,
+        "id": "f9161371"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/development_tools/csharp_setup.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "C# Setup and Verification",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "2023ec22"
+      },
+      {
+        "cell": 4,
+        "id": "intro-video"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/development_tools/command_line_basics.md",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Command Line Basics",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "document"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/development_tools/editing_tools.md",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Editing Tools",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "document"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/development_tools/interactive_language_environments.md",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Interactive Language Environments (REPLs)",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Not a new C# construct / contextual patterns",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "document"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/github.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Git and GitHub",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 3,
+        "id": "8ecf679f"
+      },
+      {
+        "cell": 5,
+        "id": "git-why-body"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/github/professional_practice.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Professional Practice",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Supported in this scan"
+    },
+    "findings": [],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 4,
+        "id": "04195bde"
+      },
+      {
+        "cell": 6,
+        "id": "b1c6202f"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/databases/relational_data_sql.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Relational Data and SQL",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Needs development/correction",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B16"
+    ],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "da66ed170f70"
+      },
+      {
+        "cell": 5,
+        "id": "c04917b44b00"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "C# and SQLite",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Needs development/correction",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B17"
+    ],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 1,
+        "id": "e8e0386e6882"
+      },
+      {
+        "cell": 3,
+        "id": "fa505e52fd99"
+      }
+    ]
+  },
+  {
+    "file": "chapters/appendices/operator_overloading.ipynb",
+    "chapter": null,
+    "scope": "appendix",
+    "title": "Operator Overloading",
+    "ratings": {
+      "explanation": "Supported in this scan",
+      "syntax": "Supported in this scan",
+      "worked": "Supported in this scan",
+      "practice": "Needs development/correction"
+    },
+    "findings": [
+      "B18"
+    ],
+    "note": "Appendix scope: evaluate the reference/workflow against its stated role; keep optional enrichment separate from core teaching.",
+    "sample_evidence": [
+      {
+        "cell": 2,
+        "id": "operator-extension-context"
+      },
+      {
+        "cell": 4,
+        "id": "45d113b9"
+      }
+    ]
+  }
+]

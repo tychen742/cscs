@@ -1,0 +1,94 @@
+{
+  "queries": [
+    {
+      "sql": "SELECT Title, Price FROM Books WHERE Price < 25.00 ORDER BY Price DESC;",
+      "rows": [
+        [
+          "C# Operations",
+          20.0
+        ],
+        [
+          "Data",
+          15.0
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "sql": "SELECT COUNT(*) AS BookCount, AVG(Price) AS AveragePrice FROM Books;",
+      "rows": [
+        [
+          3,
+          21.666666666666668
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "sql": "SELECT Author, COUNT(*) AS BooksWritten FROM Books GROUP BY Author ORDER BY BooksWritten DESC;",
+      "rows": [
+        [
+          "Ana",
+          2
+        ],
+        [
+          "Bo",
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "sql": "SELECT Books.Title, Sales.Quantity, Sales.SoldOn FROM Sales JOIN Books ON Sales.BookId = Books.BookId ORDER BY Sales.SoldOn;",
+      "rows": [
+        [
+          "C# Operations",
+          2,
+          "2026-10-01"
+        ],
+        [
+          "C# Operations",
+          1,
+          "2026-10-02"
+        ],
+        [
+          "Systems",
+          1,
+          "2026-10-03"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "sql": "SELECT Title, Price FROM Books WHERE Price >= 20.00 ORDER BY Price DESC;",
+      "rows": [
+        [
+          "Systems",
+          30.0
+        ],
+        [
+          "C# Operations",
+          20.0
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "sql": "SELECT BookId, COUNT(*) AS SaleEvents, SUM(Quantity) AS Copies FROM Sales GROUP BY BookId ORDER BY BookId;",
+      "rows": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "empty_result_boundary_passed": true
+}

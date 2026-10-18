@@ -1,0 +1,1427 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>B-A development repairs and recheck</title><style>body{font:17px/1.6 system-ui;color:#243146;margin:36px auto;padding:0 24px;max-width:1350px}h1,h2,h3{line-height:1.25}a{color:#145ba0;text-decoration:none}a:hover{background:#edf4ff}a:focus-visible{outline:2px solid #145ba0}article{border:1px solid #cbd6e4;border-radius:8px;padding:18px 24px;margin:18px 0}summary{cursor:pointer;font-weight:650;padding:10px 0}pre{font:13px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f8;padding:16px}.add{background:#dff3e6}.remove{background:#ffe6e6}.stats{padding:18px;background:#eef4fa}table{border-collapse:collapse;width:100%}th,td{padding:10px;text-align:left;border-bottom:1px solid #d5deea;vertical-align:top}.scroll{overflow:auto}small{display:block;font:12px monospace}</style><main><h1>B-A development repairs and recheck</h1><p>2026-10-18 · Current reading order preserved · Not deployed</p><p class="stats"><b>18 findings addressed.</b> 873 original cells retained in order; 166 original code cells and all original output records retained. 76 cells added. 48 independent C# checks passed; six SQL result checks plus an empty-result boundary passed. Sixteen planning files updated.</p><p>This revision starts from the source as it existed on October 18, which already contained some improvements made after the audit. Those additions remain. The property-accessor lesson and standalone parser were verified rather than duplicated. Factual errors are corrected in place; their before/after text is documented below. Existing assignments, chapter order and TOC remain unchanged.</p><p><a href="#reaudit">All 18 findings</a> · <a href="#diffs">Before/after source diffs</a> · <a href="#verification">Checks and limits</a></p><h2 id="reaudit">Finding-by-finding recheck</h2><article id="B01"><h3>B01: Conversion explanations contradict the correct worked treatment</h3><p><b>Addressed and rechecked.</b> Qualified the retained conversion chain; separated range, precision, casting, parsing and domain validation; added a verified loss-of-one-unit example and comparison table.</p><ul><li><a href="/chapters/02_var_data/0204_types_conversion.html">chapters/02_var_data/0204_types_conversion.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>edeea9ad</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>ba18_18fe6ebeb08e</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>ba18_d84b93d8c73d</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>ba18_215ab326e744</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>ba18_817b28b86a77</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>0692ab55</code></li><li>chapters/02_var_data/0204_types_conversion.ipynb · cell ID <code>ba18_95d7bbbe955f</code></li></ul></details></article><article id="B02"><h3>B02: Division comments teach a result type that the expression does not have</h3><p><b>Addressed and rechecked.</b> Corrected the integer-division prose and floating-point comment. The new guided evaluation trace distinguishes operand types, intermediate values and display formatting.</p><ul><li><a href="/chapters/02_var_data/0202_operators_built_in_methods.html">chapters/02_var_data/0202_operators_built_in_methods.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>a4d79135</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ebb5ee3f</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_323dcf5f0891</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_e4c1be97b9b8</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_9799bb2ba9d0</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_522d9fe685bb</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_57defb871027</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>2c15cc60</code></li></ul></details></article><article id="B03"><h3>B03: Postfix explanation confuses expression value with the updated variable</h3><p><b>Addressed and rechecked.</b> Corrected the postfix causal explanation. A verified result/state demonstration distinguishes old expression value, updated storage and the location of a for-loop update.</p><ul><li><a href="/chapters/04_iteration/0401_iteration.html">chapters/04_iteration/0401_iteration.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>aaed10f8</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_8a2c16d0011d</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_312a9a0dcdc0</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_1e0c1883d72a</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_22a4d3995fc6</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_149add20a0ed</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_d5cbb17eb653</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_e6cf5885f9a8</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_262eedf97036</code></li></ul></details></article><article id="B04"><h3>B04: Properties are used before a proper property-accessor lesson</h3><p><b>Addressed and rechecked.</b> The current source already contained a proper accessor lesson, validated backing-field example and Email exercise. Retained all of them, independently verified all seven examples, and repaired the question/answer tags.</p><ul><li><a href="/chapters/10_classes/1002_properties.html">chapters/10_classes/1002_properties.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/10_classes/1002_properties.ipynb · cell ID <code>0ad059f5</code></li><li>chapters/10_classes/1002_properties.ipynb · cell ID <code>p2_559bae69e5</code></li><li>chapters/10_classes/1002_properties.ipynb · cell ID <code>p2_381f87b120</code></li><li>chapters/10_classes/1002_properties.ipynb · cell ID <code>p2_b226fc3150</code></li></ul></details></article><article id="B05"><h3>B05: File API explanation names a read method as a write operation</h3><p><b>Addressed and rechecked.</b> Corrected the read/write API call; added separate call/result patterns and an overwrite prediction without replacing the existing walkthrough.</p><ul><li><a href="/chapters/09_files_text/0901_stream_file.html">chapters/09_files_text/0901_stream_file.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/09_files_text/0901_stream_file.ipynb · cell ID <code>7c0bb79e</code></li><li>chapters/09_files_text/0901_stream_file.ipynb · cell ID <code>ba18_6d609f952740</code></li></ul></details></article><article id="B06"><h3>B06: Guided starters require undeclared types</h3><p><b>Addressed and rechecked.</b> Retained each client-check task and embedded its complete supporting types. All three visible starters and all three complete answers compile independently.</p><ul><li><a href="/chapters/24_greedy_graph_optimization/2401_greedy_choice.html">chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb</a></li><li><a href="/chapters/24_greedy_graph_optimization/2404_shortest_paths.html">chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb · cell ID <code>ba18_634642b861ca</code></li><li>chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb · cell ID <code>e8496a78</code></li><li>chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb · cell ID <code>ba18_634642b861ca</code></li><li>chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb · cell ID <code>6447ba28</code></li><li>chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb · cell ID <code>ba18_634642b861ca_2</code></li><li>chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb · cell ID <code>daca0787</code></li></ul></details></article><article id="B07"><h3>B07: A structured-record example silently depends on a previous cell</h3><p><b>Addressed and rechecked.</b> The current caller already included its helper. Preserved that source exactly, verified it in a fresh project, and added accepted/rejected-record and domain-contract interpretation.</p><ul><li><a href="/chapters/09_files_text/0903_text_operations.html">chapters/09_files_text/0903_text_operations.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/09_files_text/0903_text_operations.ipynb · cell ID <code>ba18_244b7af1f4d6</code></li><li>chapters/09_files_text/0903_text_operations.ipynb · cell ID <code>7f7f6d6b</code></li></ul></details></article><article id="B08"><h3>B08: Variable-state practice is mostly supplied rather than attempted locally</h3><p><b>Addressed and rechecked.</b> Retained the newer Swap Two Prices activity and added a learner-completed stock/reservation table, standalone task, solution and feedback about assignment timing.</p><ul><li><a href="/chapters/02_var_data/0201_variables_types.html">chapters/02_var_data/0201_variables_types.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/02_var_data/0201_variables_types.ipynb · cell ID <code>ba18_82c96a2f46f6</code></li><li>chapters/02_var_data/0201_variables_types.ipynb · cell ID <code>ba18_54c3813194b5</code></li><li>chapters/02_var_data/0201_variables_types.ipynb · cell ID <code>ba18_f2f6006d2bfa</code></li><li>chapters/02_var_data/0201_variables_types.ipynb · cell ID <code>ba18_dc18b82a19a5</code></li><li>chapters/02_var_data/0201_variables_types.ipynb · cell ID <code>ba18_08a15bf072ba</code></li></ul></details></article><article id="B09"><h3>B09: Operator practice does not cover the breadth of the operator lesson</h3><p><b>Addressed and rechecked.</b> Retained bill-splitting and Math/pricing tasks. Added a precedence/value/type table and a fractional-hours repair with explained incorrect and correct outputs.</p><ul><li><a href="/chapters/02_var_data/0202_operators_built_in_methods.html">chapters/02_var_data/0202_operators_built_in_methods.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>a4d79135</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ebb5ee3f</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_323dcf5f0891</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_e4c1be97b9b8</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_9799bb2ba9d0</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_522d9fe685bb</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>ba18_57defb871027</code></li><li>chapters/02_var_data/0202_operators_built_in_methods.ipynb · cell ID <code>2c15cc60</code></li></ul></details></article><article id="B10"><h3>B10: Console I/O has many demonstrations but no developed guided checkpoint</h3><p><b>Addressed and rechecked.</b> Added prompt/read/parse/format patterns, an invoice transcript, field-width explanation, guided Folders report and boundary/mistake feedback. Supplied-input assumptions are explicit.</p><ul><li><a href="/chapters/02_var_data/0203_input_output.html">chapters/02_var_data/0203_input_output.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_e0fda9b294de</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_942aaad8cb06</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_d5784bb86975</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_62dff9718a18</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_e0c455ba28ed</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_c3183179dd1d</code></li><li>chapters/02_var_data/0203_input_output.ipynb · cell ID <code>ba18_bdd16880d530</code></li></ul></details></article><article id="B11"><h3>B11: Boolean-condition translation needs a learner-owned checkpoint</h3><p><b>Addressed and rechecked.</b> Retained and verified the newer shipping-condition exercise; added threshold cases and counterexamples for || versus &amp;&amp; and &gt; versus &gt;=, including stored-Boolean timing.</p><ul><li><a href="/chapters/03_decision/0301_intro_decision.html">chapters/03_decision/0301_intro_decision.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/03_decision/0301_intro_decision.ipynb · cell ID <code>ba18_16a5b603e278</code></li></ul></details></article><article id="B12"><h3>B12: The loop-planning rubric is not demonstrated as a planning process</h3><p><b>Addressed and rechecked.</b> Retained the countdown-by-twos activity; applied the planning rubric to a concrete reminder task and added a condition-boundary repair with zero-iteration feedback.</p><ul><li><a href="/chapters/04_iteration/0401_iteration.html">chapters/04_iteration/0401_iteration.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>aaed10f8</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_8a2c16d0011d</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_312a9a0dcdc0</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_1e0c1883d72a</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_22a4d3995fc6</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_149add20a0ed</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_d5cbb17eb653</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_e6cf5885f9a8</code></li><li>chapters/04_iteration/0401_iteration.ipynb · cell ID <code>ba18_262eedf97036</code></li></ul></details></article><article id="B13"><h3>B13: First class construction needs guided application of its core model</h3><p><b>Addressed and rechecked.</b> Retained and verified current Product construction practice and repaired its exercise tags. Added tuple-deconstruction transfer with units/position feedback; kept params and all prior tuple examples.</p><ul><li><a href="/chapters/10_classes/1001_class_syntax.html">chapters/10_classes/1001_class_syntax.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/10_classes/1001_class_syntax.ipynb · cell ID <code>ba18_ad551fe0a4f6</code></li><li>chapters/10_classes/1001_class_syntax.ipynb · cell ID <code>ba18_0a8006e8d65a</code></li><li>chapters/10_classes/1001_class_syntax.ipynb · cell ID <code>ba18_89de923dcac4</code></li><li>chapters/10_classes/1001_class_syntax.ipynb · cell ID <code>ba18_68c0187512dc</code></li><li>chapters/10_classes/1001_class_syntax.ipynb · cell ID <code>ba18_c35e16d5cca8</code></li></ul></details></article><article id="B14"><h3>B14: Regex extraction develops less fully than the validation opening</h3><p><b>Addressed and rechecked.</b> Added extraction API/result patterns, named-group and no-match explanation, matched/unmatched trace, immutable replacement demonstration and a guided whole-record repair before the retained independent practice.</p><ul><li><a href="/chapters/09_files_text/0906_regex.html">chapters/09_files_text/0906_regex.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_612b117e31f5</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_926d36e6c7df</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_17afcff84941</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_85607d2eba8c</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_e803ea2fc006</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_4c01c952cc5a</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_398c3d2f6ce8</code></li><li>chapters/09_files_text/0906_regex.ipynb · cell ID <code>ba18_b2f087170fab</code></li></ul></details></article><article id="B15"><h3>B15: Optional privacy reading ends with summary rather than guided application</h3><p><b>Addressed and rechecked.</b> Retained card masking, corrected its overclaim about identification, and added purpose-based synthetic log review with feedback distinguishing display minimization from storage deletion.</p><ul><li><a href="/chapters/09_files_text/0905_privacy_security.html">chapters/09_files_text/0905_privacy_security.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>p4_86c774d61b</code></li><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>ba18_034701a15f7f</code></li><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>ba18_fc6be0e8e7a9</code></li><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>ba18_f842ca458a4d</code></li><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>ba18_e9b149a16702</code></li><li>chapters/09_files_text/0905_privacy_security.ipynb · cell ID <code>ba18_d5677d8bca2f</code></li></ul></details></article><article id="B16"><h3>B16: SQL queries need concrete results and guided feedback</h3><p><b>Addressed and rechecked.</b> Added a reproducible three-book/three-sale dataset, general query pattern, actual filter/group/join results and guided threshold/grouping feedback. Six query results and an empty boundary were checked with SQLite.</p><ul><li><a href="/chapters/appendices/databases/relational_data_sql.html">chapters/appendices/databases/relational_data_sql.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_c8bb342732b1</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_28cbcc54aadd</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_0d310647e280</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_f295659f0d48</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_069d856763b9</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_fd3f8891f165</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_211580db95cf</code></li><li>chapters/appendices/databases/relational_data_sql.ipynb · cell ID <code>ba18_8daf7e8a6eb4</code></li></ul></details></article><article id="B17"><h3>B17: SQLite mapping and transactions rely heavily on inspecting the full project</h3><p><b>Addressed and rechecked.</b> Added complete project-only row-mapping/affected-row and rollback examples, state tables and explained guided variations. Verified forced failure, valid commit, omitted commit and missing/existing IDs.</p><ul><li><a href="/chapters/appendices/databases/csharp_sqlite.html">chapters/appendices/databases/csharp_sqlite.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_a62f34a88367</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_c1b1d4152d4a</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_a576e7c7ce06</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_9256acb7f9fe</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_bddfff51862e</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_e1db705b9959</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_0327c1191086</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_0fb5acc6cb00</code></li><li>chapters/appendices/databases/csharp_sqlite.ipynb · cell ID <code>ba18_a2f0e31ee223</code></li></ul></details></article><article id="B18"><h3>B18: Operator-overloading extension needs a guided operator contract task</h3><p><b>Addressed and rechecked.</b> Retained Rational and Money. Added general operator syntax, a value/nonmutation contract and a standalone guided Amount addition exercise with zero-boundary and unchanged-operand evidence.</p><ul><li><a href="/chapters/appendices/operator_overloading.html">chapters/appendices/operator_overloading.ipynb</a></li></ul><details><summary>Current evidence locations</summary><ul><li>chapters/appendices/operator_overloading.ipynb · cell ID <code>ba18_8458de7b78ab</code></li><li>chapters/appendices/operator_overloading.ipynb · cell ID <code>ba18_a89f1c7d9462</code></li><li>chapters/appendices/operator_overloading.ipynb · cell ID <code>ba18_2e09e1ac6f5e</code></li><li>chapters/appendices/operator_overloading.ipynb · cell ID <code>ba18_645b0a509026</code></li><li>chapters/appendices/operator_overloading.ipynb · cell ID <code>ba18_e81c17444e5e</code></li></ul></details></article><h2 id="diffs">Before/after lesson sources</h2><p>Red lines show the original wording or a cell whose code was extended; green lines show its replacement or an addition. No original cell is deleted. Complete retained programs are shown in the source diffs. Factual corrections retain their teaching purpose. Cell IDs and old output records are verified separately.</p><details><summary>chapters/02_var_data/0201_variables_types.ipynb</summary><pre><span class="remove">--- Before/chapters/02_var_data/0201_variables_types.ipynb
+</span>
+<span class="add">+++ After/chapters/02_var_data/0201_variables_types.ipynb
+</span>
+<span>@@ -274,6 +274,49 @@
+</span>
+<span> x = y - x;</span>
+<span> Console.WriteLine(x + &quot; &quot; + y);</span>
+<span> </span>
+<span class="add">+[markdown · ba18_82c96a2f46f6]</span>
+<span class="add">+```{index} assignment; state tracing</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Complete a State Trace</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_54c3813194b5]</span>
+<span class="add">+Use the worked trace above, then trace this stock adjustment yourself. Fill the question marks **before** running; each row records the state after the statement.</span>
+<span class="add">+</span>
+<span class="add">+| Statement | `stock` | `reserved` |</span>
+<span class="add">+| --- | ---: | ---: |</span>
+<span class="add">+| `int stock = 12;` | 12 | not declared |</span>
+<span class="add">+| `int reserved = stock - 8;` | ? | ? |</span>
+<span class="add">+| `stock = stock - reserved;` | ? | ? |</span>
+<span class="add">+| `reserved = reserved + 1;` | ? | ? |</span>
+<span class="add">+</span>
+<span class="add">+Which statement changes only `reserved`? Does changing it automatically recompute `stock`? An assignment evaluates its right side once using the values available at that moment.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_f2f6006d2bfa]</span>
+<span class="add">+using System;</span>
+<span class="add">+int stock = 12;</span>
+<span class="add">+int reserved = stock - 8;</span>
+<span class="add">+stock = stock - reserved;</span>
+<span class="add">+reserved = reserved + 1;</span>
+<span class="add">+// TODO: print stock and reserved. Compare with your completed table.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_dc18b82a19a5]</span>
+<span class="add">+using System;</span>
+<span class="add">+// Solution: the successive states are (12,4), (8,4), (8,5).</span>
+<span class="add">+int stock = 12;</span>
+<span class="add">+int reserved = stock - 8;</span>
+<span class="add">+stock = stock - reserved;</span>
+<span class="add">+reserved = reserved + 1;</span>
+<span class="add">+Console.WriteLine($&quot;stock={stock}, reserved={reserved}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_08a15bf072ba]</span>
+<span class="add">+The final output is `stock=8, reserved=5`. The last assignment changes only `reserved`; `stock` keeps 8. If you instead write `reserved = stock + 1` on the last line, its value becomes 9 because the current `stock` is 8. This is different from a spreadsheet relationship that recalculates dependents automatically.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · p4_c09fd58049]</span>
+<span> ```{index} Guided Practice: Swap Two Prices</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/02_var_data/0202_operators_built_in_methods.ipynb</summary><pre><span class="remove">--- Before/chapters/02_var_data/0202_operators_built_in_methods.ipynb
+</span>
+<span class="add">+++ After/chapters/02_var_data/0202_operators_built_in_methods.ipynb
+</span>
+<span>@@ -379,7 +379,8 @@
+</span>
+<span> Console.WriteLine(14.0/4.0);</span>
+<span> </span>
+<span> [markdown · a4d79135]</span>
+<span class="remove">-But C# will implicitly turn the following expression to an `int` type:</span>
+<span class="add">+Both operands in the following expression are integers, so C# selects integer division. It produces an `int` quotient with the fractional part discarded toward zero; there is no implicit conversion of a floating-point quotient:</span>
+<span class="add">+</span>
+<span> </span>
+<span> [code · 8f8bd436]</span>
+<span> Console.WriteLine(14/4);</span>
+<span>@@ -390,7 +391,8 @@
+</span>
+<span> [code · ebb5ee3f]</span>
+<span> Console.WriteLine(14.0/4.0);</span>
+<span> Console.WriteLine(14.0 / 4);  // one of the operands is double type</span>
+<span class="remove">-Console.WriteLine(6.0/3.0);  // when the remainder is 0, the quotient is an int.</span>
+<span class="add">+Console.WriteLine(6.0/3.0);  // prints 2; the result is still double because the operands are double.</span>
+<span class="add">+</span>
+<span> </span>
+<span> [markdown · 93584448]</span>
+<span> Note that C# stores values with only a limited precision, so the results of</span>
+<span>@@ -598,6 +600,49 @@
+</span>
+<span> All symbols are listed at the beginning of the index.</span>
+<span> </span>
+<span> Parentheses for grouping are encouraged with less common combinations, even if not strictly necessary.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_323dcf5f0891]</span>
+<span class="add">+```{index} operator precedence; integer division; guided trace</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Guided Practice: Trace Evaluation Before Display</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_e4c1be97b9b8]</span>
+<span class="add">+A delivery team splits ten hours among three people. Work out each expression before choosing its display format. Multiplication and division bind before addition; parentheses can change grouping. The receiving variable does not change how an earlier subexpression was evaluated.</span>
+<span class="add">+</span>
+<span class="add">+| Expression | First operation | Value before display | Type |</span>
+<span class="add">+| --- | --- | --- | --- |</span>
+<span class="add">+| `2 + 10 / 3` | `10 / 3` | 5 | `int` |</span>
+<span class="add">+| `(2 + 10) / 3` | `2 + 10` | 4 | `int` |</span>
+<span class="add">+| `2 + 10.0 / 3` | `10.0 / 3` | approximately 5.3333 | `double` |</span>
+<span class="add">+</span>
+<span class="add">+Complete the marked line so three people receive fractional hours. Predict the four outputs before running: `5`, `4`, `5.33`, `3.33`. This is valid-input arithmetic; no user-defined method is needed.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_9799bb2ba9d0]</span>
+<span class="add">+using System;</span>
+<span class="add">+Console.WriteLine(2 + 10 / 3);</span>
+<span class="add">+Console.WriteLine((2 + 10) / 3);</span>
+<span class="add">+Console.WriteLine((2 + 10.0 / 3).ToString(&quot;F2&quot;, System.Globalization.CultureInfo.InvariantCulture));</span>
+<span class="add">+// TODO: change the expression so fractional division happens before assignment.</span>
+<span class="add">+double hoursPerPerson = 10 / 3;</span>
+<span class="add">+Console.WriteLine(hoursPerPerson.ToString(&quot;F2&quot;, System.Globalization.CultureInfo.InvariantCulture));</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_522d9fe685bb]</span>
+<span class="add">+using System;</span>
+<span class="add">+Console.WriteLine(2 + 10 / 3);</span>
+<span class="add">+Console.WriteLine((2 + 10) / 3);</span>
+<span class="add">+Console.WriteLine((2 + 10.0 / 3).ToString(&quot;F2&quot;, System.Globalization.CultureInfo.InvariantCulture));</span>
+<span class="add">+// Solution: make an operand floating-point before division.</span>
+<span class="add">+double hoursPerPerson = 10.0 / 3;</span>
+<span class="add">+Console.WriteLine(hoursPerPerson.ToString(&quot;F2&quot;, System.Globalization.CultureInfo.InvariantCulture));</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_57defb871027]</span>
+<span class="add">+The starter ends with `3.00`: assigning the integer quotient to a `double` cannot recover a discarded fraction. The solution ends with `3.33`. Formatting to two places controls the *text*, not the arithmetic or stored type. Change the inputs to 12 and 3: a whole-valued floating-point quotient is still a `double`.</span>
+<span> </span>
+<span> </span>
+<span> [markdown · e842b09e]</span>
+<span>@@ -861,7 +906,7 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · 2c15cc60]</span>
+<span class="remove">-The official documentation describes every method by its **signature**: its name, the types of its parameters, and the type it returns. For example, one overload of `Math.Round` is documented as:</span>
+<span class="add">+The official documentation shows a method declaration: its name, parameter types, return type, and modifiers. The **signature** used to distinguish overloads includes the name and parameter information, not the return type. For example, one overload of `Math.Round` is documented as:</span>
+<span> </span>
+<span> ```text</span>
+<span> public static double Round(double value, int digits)</span>
+</pre></details><details><summary>chapters/02_var_data/0203_input_output.ipynb</summary><pre><span class="remove">--- Before/chapters/02_var_data/0203_input_output.ipynb
+</span>
+<span class="add">+++ After/chapters/02_var_data/0203_input_output.ipynb
+</span>
+<span>@@ -550,6 +550,78 @@
+</span>
+<span> For aligned tables generated by loops, continue to {doc}`The for Statement &lt;../04_iteration/0402_for_statements&gt;`. The single-value output and formatting examples here do not require iteration.</span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_e0fda9b294de]</span>
+<span class="add">+```{index} console input; formatted output; guided invoice</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+## Guided Practice: Read and Report an Invoice Line</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_942aaad8cb06]</span>
+<span class="add">+An invoice line combines three separate jobs: prompt for text, interpret the numeric input, and format the calculated result. Keep those jobs visible so an output error does not get mistaken for an arithmetic error.</span>
+<span class="add">+</span>
+<span class="add">+General forms (schematic):</span>
+<span class="add">+</span>
+<span class="add">+```text</span>
+<span class="add">+Console.Write(promptText);               // leave the cursor on this line</span>
+<span class="add">+string text = Console.ReadLine()!;        // this exercise assumes a line is supplied</span>
+<span class="add">+int quantity = int.Parse(text);          // this exercise assumes valid integer text</span>
+<span class="add">+Console.WriteLine($&quot;{label,-width} {amount,alignment:F2}&quot;);</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+`!` here states the exercise&#x27;s supplied-input assumption; it is not a runtime check. Real missing input needs handling, developed later. A negative alignment left-aligns text, a positive alignment right-aligns it, and `F2` formats a number with two decimal places. Literal widths such as `-12` replace the schematic names. Formatting changes display, not the value used in a calculation.</span>
+<span class="add">+</span>
+<span class="add">+For the worked line, use `Pens` at 2.50 per unit and type `4`. The quantity prompt stays beside the entered text. The unit-price times quantity calculation gives 10.00; the label takes a minimum of 12 columns and the amount eight. All examples here assume valid, nonnegative quantities and use an invariant culture so the decimal point is reproducible.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_d5784bb86975]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;</span>
+<span class="add">+Console.Write(&quot;Quantity: &quot;);</span>
+<span class="add">+string input = Console.ReadLine()!;</span>
+<span class="add">+int quantity = int.Parse(input);</span>
+<span class="add">+decimal total = 2.50m * quantity;</span>
+<span class="add">+Console.WriteLine($&quot;{&quot;Pens&quot;,-12}{total,8:F2}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_62dff9718a18]</span>
+<span class="add">+In a terminal, the interaction is:</span>
+<span class="add">+</span>
+<span class="add">+```text</span>
+<span class="add">+Quantity: 4</span>
+<span class="add">+Pens           10.00</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+The terminal echoes the typed `4`; it is not a second program print. A noninteractive runner may show only the prompt and report in captured stdout. There are eleven spaces between `Pens` and `10.00`: the two fields have combined width 20. With quantity zero, the amount is `0.00`; display alignment remains the same.</span>
+<span class="add">+</span>
+<span class="add">+Now report `Folders` at 3.25 per unit. Complete the read, parse and output lines so input `2` yields an amount of `6.50`, using the same field widths. Do not replace the input with a hard-coded quantity.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_e0c455ba28ed]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;</span>
+<span class="add">+Console.Write(&quot;Quantity: &quot;);</span>
+<span class="add">+string input = Console.ReadLine()!;</span>
+<span class="add">+// TODO: parse input, multiply by 3.25m, and print Folders in a 12-column label plus an 8-column F2 amount.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_c3183179dd1d]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;</span>
+<span class="add">+Console.Write(&quot;Quantity: &quot;);</span>
+<span class="add">+string input = Console.ReadLine()!;</span>
+<span class="add">+int quantity = int.Parse(input);</span>
+<span class="add">+decimal total = 3.25m * quantity;</span>
+<span class="add">+Console.WriteLine($&quot;{&quot;Folders&quot;,-12}{total,8:F2}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_bdd16880d530]</span>
+<span class="add">+The completed report has `Folders` followed by nine spaces and `6.50`. Printing `input` instead of parsing and multiplying would show the characters `2`, not the cost. Using `WriteLine` for the prompt would move the user&#x27;s entry to another line. Finally, `F2` rounds the displayed text; it does not enforce a rule that every stored monetary value has two decimal places. Apply the same distinctions in the existing independent I/O exercises.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · f969133e]</span>
+<span> ```{rubric} Footnotes</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/02_var_data/0204_types_conversion.ipynb</summary><pre><span class="remove">--- Before/chapters/02_var_data/0204_types_conversion.ipynb
+</span>
+<span class="add">+++ After/chapters/02_var_data/0204_types_conversion.ipynb
+</span>
+<span>@@ -651,20 +651,16 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · edeea9ad]</span>
+<span class="remove">-</span>
+<span> C# variables have specific types, but values sometimes need to move between</span>
+<span class="remove">-types. Type conversions are either **implicit** (automatic) or **explicit**</span>
+<span class="remove">-(manual cast required).</span>
+<span class="remove">-</span>
+<span class="remove">-**Implicit casting** happens automatically when converting a smaller type to a</span>
+<span class="remove">-larger one — no data is lost:</span>
+<span class="add">+types. Some numeric conversions are **implicit** (no cast is written); others require an **explicit cast**. Parsing text is a separate operation, explained below.</span>
+<span class="add">+</span>
+<span class="add">+**Implicit numeric conversion** lets the compiler convert between certain numeric types without a written cast. The following is a chain of permitted conversions, not a guarantee that each step preserves every digit:</span>
+<span> </span>
+<span> ```text</span>
+<span> char → int → long → float → double</span>
+<span> ```</span>
+<span> </span>
+<span class="remove">-**Explicit casting** is required when converting a larger type to a smaller one,</span>
+<span class="remove">-because precision or range may be lost:</span>
+<span class="add">+**Explicit casting** requests a conversion the compiler will not insert automatically. This reverse chain illustrates conversions that require casts; it is not a complete table of conversions:</span>
+<span> </span>
+<span> ```text</span>
+<span> double → float → long → int → char</span>
+<span>@@ -678,9 +674,51 @@
+</span>
+<span> int c = (int) b;   // explicit: long → int, cast required</span>
+<span> ```</span>
+<span> </span>
+<span class="remove">-Use `GetType()` to inspect a variable&#x27;s type at runtime. When types are *not*</span>
+<span class="remove">-cast properly, C# raises a compile-time error. For example, assigning a `double`</span>
+<span class="add">+Use `GetType()` to inspect a variable&#x27;s type at runtime. An unsupported assignment without a required cast is a compile-time error. A permitted conversion can still lose precision, and some explicit conversions can fail at runtime. For example, assigning a `double`</span>
+<span> directly to an `int` fails:</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_18fe6ebeb08e]</span>
+<span class="add">+```{index} numeric conversion; precision loss</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Range Is Not the Same as Precision</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_d84b93d8c73d]</span>
+<span class="add">+An integer type represents whole numbers in a fixed range. A floating-point type can cover a much larger range but has only a limited number of significant binary digits. Thus a value can fit the *range* of `float` without its exact integer value being representable. The compiler permits the conversion; that permission does not promise exactness.</span>
+<span class="add">+</span>
+<span class="add">+General patterns (schematic):</span>
+<span class="add">+</span>
+<span class="add">+```text</span>
+<span class="add">+DestinationType converted = source;       // only if an implicit conversion exists</span>
+<span class="add">+DestinationType converted = (DestinationType)source;</span>
+<span class="add">+int parsed = int.Parse(text);              // interpret text, rather than cast it</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+The type name in parentheses requests a conversion of the expression that follows it. `Parse` instead calls a library method and returns a new value. Neither operation validates the business meaning of that value.[^conversion-precision]</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_215ab326e744]</span>
+<span class="add">+using System;</span>
+<span class="add">+int exact = 16777217;</span>
+<span class="add">+float rounded = exact;</span>
+<span class="add">+Console.WriteLine($&quot;integer={exact}&quot;);</span>
+<span class="add">+Console.WriteLine($&quot;float={rounded:R}&quot;);</span>
+<span class="add">+Console.WriteLine($&quot;same value={(double)exact == (double)rounded}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_817b28b86a77]</span>
+<span class="add">+The output is `integer=16777217`, `float=16777216`, and `same value=False`. Both values are well inside the floating-point range, but this `float` cannot distinguish neighboring integers at that magnitude. The `R` format displays a round-trippable representation. Converting both sides to `double` for comparison makes the lost unit visible instead of converting the integer to the same rounded `float` again.</span>
+<span class="add">+</span>
+<span class="add">+| Operation | Question to ask |</span>
+<span class="add">+| --- | --- |</span>
+<span class="add">+| Implicit numeric conversion | Is this permitted, and is the original value exactly representable? |</span>
+<span class="add">+| Explicit numeric cast | What rounding/truncation and range rules apply? |</span>
+<span class="add">+| Parsing text | Does the text obey the numeric format? |</span>
+<span class="add">+| Domain validation | Is the resulting number allowed for this task? |</span>
+<span class="add">+</span>
+<span class="add">+Predict the result with `exact = 123`: that integer is exactly representable in `float`, so the comparison becomes `True`. A successful small example does not prove every conversion of that type is exact.</span>
+<span> </span>
+<span> </span>
+<span> [code · f7191c06]</span>
+<span>@@ -745,17 +783,13 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · 0692ab55]</span>
+<span class="remove">-</span>
+<span class="remove">-The default value from `Console.ReadLine()` is of string type and</span>
+<span class="add">+A line returned by `Console.ReadLine()` is text, and</span>
+<span> when we want the user to supply numbers, we need to explicitly convert the</span>
+<span class="remove">-strings to the proper kind of number. We cannot convert the string type to</span>
+<span class="remove">-int implicitly because strings are immutable in C#. Instead, you need to parse</span>
+<span class="remove">-the string and assign to the intended data type.</span>
+<span class="add">+strings to the proper kind of number. There is no implicit string-to-int conversion. Text such as &quot;123&quot; represents characters; parsing interprets those characters as a number under a format rule. String immutability means the original string is not modified; it is not the reason parsing is needed. Assign the parsed result to the intended numeric variable.</span>
+<span> </span>
+<span> There are C# built-in methods to do that. `int.Parse` takes a string parameter</span>
+<span> that should be the characters in an `int`, like &quot;123&quot; or &quot;-25&quot;, and</span>
+<span> produces the corresponding `int` value, like 123 or -25:</span>
+<span class="remove">-</span>
+<span> </span>
+<span> </span>
+<span> [code · 2239a9b4]</span>
+<span>@@ -879,3 +913,7 @@
+</span>
+<span> </span>
+<span> [markdown · 6db80a4b]</span>
+<span> [^development-reading]: Further reading: [Nakov and colleagues, Primitive Types and Variables](https://introprogramming.info/english-intro-csharp-book/read-online/chapter-2-primitive-types-and-variables/). The worked business scenarios and guided reasoning here are original teaching examples.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_95d7bbbe955f]</span>
+<span class="add">+[^conversion-precision]: Microsoft, [Implicit numeric conversions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions), documents the permitted conversions and the precision-loss cases.</span>
+</pre></details><details><summary>chapters/03_decision/0301_intro_decision.ipynb</summary><pre><span class="remove">--- Before/chapters/03_decision/0301_intro_decision.ipynb
+</span>
+<span class="add">+++ After/chapters/03_decision/0301_intro_decision.ipynb
+</span>
+<span>@@ -250,6 +250,18 @@
+</span>
+<span> A Boolean expression is a value you can store, print, or test later; it does not need an `if` around it. Change the total to 49.99 and predict both lines before running again.</span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_16a5b603e278]</span>
+<span class="add">+Check the shipping condition against boundaries before moving on:</span>
+<span class="add">+</span>
+<span class="add">+| Total | International? | `total &gt;= 50m &amp;&amp; !international` |</span>
+<span class="add">+| --- | --- | --- |</span>
+<span class="add">+| 49.99 | false | false: below the threshold |</span>
+<span class="add">+| 50.00 | false | true: the boundary is included |</span>
+<span class="add">+| 50.00 | true | false: the location rule fails |</span>
+<span class="add">+</span>
+<span class="add">+If you replace `&amp;&amp;` with `||`, the 49.99 domestic order incorrectly qualifies because `!international` is already true. If you replace `&gt;=` with `&gt;`, the exact 50.00 order incorrectly fails. These counterexamples distinguish a logic mistake from a boundary mistake. Recalculate the condition when an input changes: the earlier stored Boolean value does not update itself.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 96ef9d16]</span>
+<span> ```{index} boolean operator; &amp;&amp;</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/04_iteration/0401_iteration.ipynb</summary><pre><span class="remove">--- Before/chapters/04_iteration/0401_iteration.ipynb
+</span>
+<span class="add">+++ After/chapters/04_iteration/0401_iteration.ipynb
+</span>
+<span>@@ -116,7 +116,6 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · aaed10f8]</span>
+<span class="remove">-</span>
+<span> The iterator, also known as **step**, section can contain zero or more expressions, separated by commas.</span>
+<span> Commonly used iterators include:</span>
+<span> </span>
+<span>@@ -124,14 +123,31 @@
+</span>
+<span> - prefix or postfix decrement expression, such as --i or i--</span>
+<span> - assignment</span>
+<span> </span>
+<span class="remove">-The arithmetic unary operators (decrement operator `--` and</span>
+<span class="remove">-increment operator `++`) are probably the most common ones used in for and while loops, especially</span>
+<span class="remove">-the postfix increment operator. The result of a postfix increment operation is that it</span>
+<span class="remove">-increments the value of the local loop variable (`i`) and still evaluates to the original value</span>
+<span class="remove">-as before the operation and will update the value in next iteration. Namely, `i++` will retain</span>
+<span class="remove">-the old value in the body of the for statement until next next iteration.</span>
+<span class="add">+The increment operator `++` adds one and `--` subtracts one. In `i++`, the expression produces the old value of `i`, but the stored variable is updated during that expression&#x27;s evaluation. In `++i`, the expression produces the updated value. Neither form delays the variable&#x27;s update until another iteration.</span>
+<span class="add">+</span>
+<span class="add">+In a `for` loop, the update part is executed *after* the body. That location explains why the next body execution sees the new counter; it is separate from whether increment uses prefix or postfix syntax.</span>
+<span> </span>
+<span> For example, test this with `csharprepl`, `Run C#`, or a small VS Code project:</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_8a2c16d0011d]</span>
+<span class="add">+```{index} increment; postfix evaluation</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Separate the Expression Result from Stored State</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_312a9a0dcdc0]</span>
+<span class="add">+using System;</span>
+<span class="add">+int counter = 2;</span>
+<span class="add">+int old = counter++;</span>
+<span class="add">+Console.WriteLine($&quot;postfix result={old}, counter={counter}&quot;);</span>
+<span class="add">+int updated = ++counter;</span>
+<span class="add">+Console.WriteLine($&quot;prefix result={updated}, counter={counter}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_1e0c1883d72a]</span>
+<span class="add">+The output is `postfix result=2, counter=3`, then `prefix result=4, counter=4`. After the first assignment, two different values exist: `old` receives the expression result 2, while `counter` already holds 3. A common mistake is to conclude that both variables still hold 2 until the next loop iteration. There is no loop in this example, and the update is already observable.</span>
+<span> </span>
+<span> </span>
+<span> [code · 6adb9026]</span>
+<span>@@ -341,6 +357,47 @@
+</span>
+<span> </span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_22a4d3995fc6]</span>
+<span class="add">+```{index} loop design; initialization; termination</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Apply the Loop Plan to a Closing-Time Countdown</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_149add20a0ed]</span>
+<span class="add">+A service desk sends reminders when 6, 4, and 2 minutes remain before closing. First plan the behavior without choosing C# punctuation:</span>
+<span class="add">+</span>
+<span class="add">+| Planning question | Decision and reason |</span>
+<span class="add">+| --- | --- |</span>
+<span class="add">+| What changes? | `minutes`, the time remaining. |</span>
+<span class="add">+| Initial state? | 6, the first reminder time. |</span>
+<span class="add">+| Continue when? | `minutes &gt;= 2`; zero must not produce a reminder. |</span>
+<span class="add">+| Repeated action? | Print the current time remaining. |</span>
+<span class="add">+| Update? | Subtract 2 after the reminder. |</span>
+<span class="add">+| Why stop? | 6 → 4 → 2 → 0, and 0 fails the condition. |</span>
+<span class="add">+</span>
+<span class="add">+The loop is count-controlled because the schedule is known. In `for (initialization; condition; update)`, the initialization runs once, the condition is checked before every body execution, and the update runs after each completed body. Section 4.2 develops this syntax in detail.</span>
+<span class="add">+</span>
+<span class="add">+Guided repair: the starter prints 6, 4, **and no 2**. Change one comparison to implement the plan. Then predict the output if the initial value is 1.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_d5cbb17eb653]</span>
+<span class="add">+using System;</span>
+<span class="add">+for (int minutes = 6; minutes &gt; 2; minutes -= 2) // TODO: include the two-minute reminder.</span>
+<span class="add">+    Console.WriteLine($&quot;Closing in {minutes} minutes&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_e6cf5885f9a8]</span>
+<span class="add">+using System;</span>
+<span class="add">+// Solution: include the boundary, but do not include zero.</span>
+<span class="add">+for (int minutes = 6; minutes &gt;= 2; minutes -= 2)</span>
+<span class="add">+    Console.WriteLine($&quot;Closing in {minutes} minutes&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_262eedf97036]</span>
+<span class="add">+The solution prints `Closing in 6 minutes`, `Closing in 4 minutes`, and `Closing in 2 minutes`. Starting at 1 prints nothing because the condition fails before the body. The error was the continuation boundary, not the update. For a variation using `continue`, ensure it does not skip the only update in a `while` body; in a `for` loop the update part still runs after `continue`. Use the planning table to identify which state must change before testing again.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 569b893a]</span>
+<span> ```{rubric} Footnotes</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/09_files_text/0901_stream_file.ipynb</summary><pre><span class="remove">--- Before/chapters/09_files_text/0901_stream_file.ipynb
+</span>
+<span class="add">+++ After/chapters/09_files_text/0901_stream_file.ipynb
+</span>
+<span>@@ -187,7 +187,6 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · 7c0bb79e]</span>
+<span class="remove">-</span>
+<span> Among the file handling methods is the convenience class `File`, which provides `static methods` for the creation,</span>
+<span> copying, deletion, moving, and opening of a single file, and aids in the creation of `FileStream` objects. For example,</span>
+<span> the Create(), WriteAllText, ReadAllText() and File.Exists() can be used to perform basic file operations</span>
+<span>@@ -208,7 +207,7 @@
+</span>
+<span> </span>
+<span> Sine class `File` provides `static methods`, we can `call` the methods directly by using the `dot notation`</span>
+<span> without having to create a new instance of the class. For example, with `File` class, when you want to write</span>
+<span class="remove">-some content to a file, you can simply say `File.ReadAllText(string path, string content)` to write the</span>
+<span class="add">+some content to a file, you can simply say `File.WriteAllText(path, content)` to write the</span>
+<span> string content to the path file.</span>
+<span> </span>
+<span> You can perform tests such as the following in a small VS Code project to get familiar with the methods:</span>
+<span>@@ -248,6 +247,17 @@
+</span>
+<span> </span>
+<span> To better organize the tests above, use VS Code and a small console project. You should</span>
+<span> also use a variable for the filename:</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_6d609f952740]</span>
+<span class="add">+Read and write have different directions and result contracts:</span>
+<span class="add">+</span>
+<span class="add">+```text</span>
+<span class="add">+File.WriteAllText(path, content);   // writes text; creates or replaces the file</span>
+<span class="add">+string content = File.ReadAllText(path); // reads and returns all text</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+`path` identifies the file; `content` is the text being stored or returned. `ReadAllText` does not take the replacement text as an argument. `WriteAllText` does not append; if the file exists its old contents are replaced. Predict the final text after writing `first`, writing `second`, and reading once: the result is `second`. Use the append operations below when preserving earlier lines is the intended contract.</span>
+<span> </span>
+<span> </span>
+<span> [code · d3440b72]</span>
+</pre></details><details><summary>chapters/09_files_text/0903_text_operations.ipynb</summary><pre><span class="remove">--- Before/chapters/09_files_text/0903_text_operations.ipynb
+</span>
+<span class="add">+++ After/chapters/09_files_text/0903_text_operations.ipynb
+</span>
+<span>@@ -272,6 +272,10 @@
+</span>
+<span> </span>
+<span>     return int.TryParse(parts[1].Trim(), out score);</span>
+<span> }</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_244b7af1f4d6]</span>
+<span class="add">+The standalone demonstration repeats its helper deliberately. It prints Alice and Carol as accepted records and reports Bob and the blank line as malformed. Bob fails integer parsing; the blank line has no record. This helper checks field count and score syntax, not every possible business rule: for example, it does not reject an empty name or a score outside a course&#x27;s permitted range. The prepared stock-import review below adds explicit domain rules; a successful parse alone does not prove the record is valid for every application.</span>
+<span> </span>
+<span> </span>
+<span> [markdown · p3_9a5503835f]</span>
+</pre></details><details><summary>chapters/09_files_text/0905_privacy_security.ipynb</summary><pre><span class="remove">--- Before/chapters/09_files_text/0905_privacy_security.ipynb
+</span>
+<span class="add">+++ After/chapters/09_files_text/0905_privacy_security.ipynb
+</span>
+<span>@@ -151,7 +151,7 @@
+</span>
+<span> </span>
+<span> </span>
+<span> [markdown · p4_86c774d61b]</span>
+<span class="remove">-The mask never stores or prints the hidden digits, so a log line built from `MaskCard` cannot leak them. Compare with `MaskEmail` above: both keep just enough to recognize the record and nothing that identifies the account.</span>
+<span class="add">+The masked display omits the leading digits, but the input variable still contains the original card number. Masking does not erase stored data or make a record anonymous; even a last-four suffix or email domain may help identify someone when combined with other data. Only print or retain the fields the task actually needs.</span>
+<span> </span>
+<span> </span>
+<span> [markdown · f1341a1a]</span>
+<span>@@ -259,6 +259,48 @@
+</span>
+<span> [markdown · d30a4823]</span>
+<span> Personal data deserves care in every line of code that touches it. Collect, show, and keep only what a task needs; mask values for display; check every input for type and business rules; never build commands from input text; and keep secrets out of logs. These habits match the principles that privacy laws such as GDPR, CCPA, and FERPA share.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_034701a15f7f]</span>
+<span class="add">+```{index} privacy; log minimization; masking limits</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Guided Review: Keep Operational Evidence Without Secrets</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_fc6be0e8e7a9]</span>
+<span class="add">+An operations log needs to establish which synthetic order failed validation. The proposed line includes an order ID, a status, and a full invented email address. The first two facts identify the transaction and failure; the email is unnecessary for this diagnostic question.</span>
+<span class="add">+</span>
+<span class="add">+| Proposed field | Needed for this log&#x27;s purpose? | Decision |</span>
+<span class="add">+| --- | --- | --- |</span>
+<span class="add">+| Order ID | yes: find the failed transaction | keep under access/retention policy |</span>
+<span class="add">+| Status code | yes: explain what failed | keep |</span>
+<span class="add">+| Full email | no: already linked through the order | omit |</span>
+<span class="add">+</span>
+<span class="add">+Complete the log expression so the output is exactly `order=ORD-42 status=INVALID_QUANTITY`. Do not print an email merely because a masking helper is available. Then explain whether editing this line deletes the email from a source file or database.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_f842ca458a4d]</span>
+<span class="add">+using System;</span>
+<span class="add">+string orderId = &quot;ORD-42&quot;;</span>
+<span class="add">+string email = &quot;synthetic.customer@example.test&quot;;</span>
+<span class="add">+string status = &quot;INVALID_QUANTITY&quot;;</span>
+<span class="add">+// TODO: keep only the fields needed for the stated diagnostic purpose.</span>
+<span class="add">+Console.WriteLine($&quot;order={orderId} email={email} status={status}&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_e9b149a16702]</span>
+<span class="add">+using System;</span>
+<span class="add">+// Solution</span>
+<span class="add">+string orderId = &quot;ORD-42&quot;;</span>
+<span class="add">+string email = &quot;synthetic.customer@example.test&quot;;</span>
+<span class="add">+string status = &quot;INVALID_QUANTITY&quot;;</span>
+<span class="add">+Console.WriteLine($&quot;order={orderId} status={status}&quot;);</span>
+<span class="add">+// email remains in this variable; no source record was erased.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_d5677d8bca2f]</span>
+<span class="add">+The solution removes the email from this particular output. It does not delete the variable or any source record. The order ID can itself link to personal data, so this remains an access-controlled operational log, not anonymous public data. The mistake to avoid is treating a display transformation as a collection, storage, or retention policy. Apply the same purpose test to future log fields rather than automatically masking and keeping everything.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · bc48af76]</span>
+<span> ```{rubric} Footnotes</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/09_files_text/0906_regex.ipynb</summary><pre><span class="remove">--- Before/chapters/09_files_text/0906_regex.ipynb
+</span>
+<span class="add">+++ After/chapters/09_files_text/0906_regex.ipynb
+</span>
+<span>@@ -140,6 +140,20 @@
+</span>
+<span> </span>
+<span> `Regex.Match` returns the first match object:</span>
+<span> </span>
+<span class="add">+[markdown · ba18_612b117e31f5]</span>
+<span class="add">+General extraction forms (patterns):</span>
+<span class="add">+</span>
+<span class="add">+```csharp</span>
+<span class="add">+Match result = Regex.Match(input, pattern);</span>
+<span class="add">+if (result.Success)</span>
+<span class="add">+    Console.WriteLine(result.Value);</span>
+<span class="add">+MatchCollection results = Regex.Matches(input, pattern);</span>
+<span class="add">+string revised = Regex.Replace(input, pattern, replacement);</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+`Match` is an object describing one match, not the matched text itself. `Success` tells whether a match exists; `Value` is its text, `Index` is its zero-based starting position, and `Length` is the number of characters matched. `Matches` returns a collection, which can be empty. `Replace` returns a new string; it does not edit the original. These are the same call/property/collection distinctions used with strings and other collection families.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [code · 38c4e0cd]</span>
+<span> using System.Text.RegularExpressions;</span>
+<span> </span>
+<span>@@ -300,6 +314,72 @@
+</span>
+<span> </span>
+<span> Regex adds power but also complexity — prefer `Split`, `Trim`, and `Contains` when the pattern is simple and fixed.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_926d36e6c7df]</span>
+<span class="add">+```{index} regular expressions; named groups; failed match</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Trace Named Fields and a Failed Match</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_17afcff84941]</span>
+<span class="add">+A delivery record has exactly `SKU=`, two ASCII letters, a hyphen, and four digits. Capturing a named field lets later code use the field&#x27;s meaning instead of its position in a substring. The syntax `(?&lt;name&gt;pattern)` labels a capture; `result.Groups[&quot;name&quot;].Value` reads its text **after a successful match**. The anchors `\A` and `\z` require the entire input to obey the contract.</span>
+<span class="add">+</span>
+<span class="add">+| Input | Match? | Captured `sku` | Reason |</span>
+<span class="add">+| --- | --- | --- | --- |</span>
+<span class="add">+| `SKU=AB-0042` | yes | `AB-0042` | exact shape |</span>
+<span class="add">+| `SKU=AB-42` | no | do not use | only two digits |</span>
+<span class="add">+| `note SKU=AB-0042` | no | do not use | extra prefix |</span>
+<span class="add">+</span>
+<span class="add">+A capture is still a string, even when it contains digits. Valid shape also does not establish that the SKU exists in an inventory.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_85607d2eba8c]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Text.RegularExpressions;</span>
+<span class="add">+string pattern = @&quot;\ASKU=(?&lt;sku&gt;[A-Z]{2}-[0-9]{4})\z&quot;;</span>
+<span class="add">+foreach (string input in new[] { &quot;SKU=AB-0042&quot;, &quot;SKU=AB-42&quot;, &quot;note SKU=AB-0042&quot; })</span>
+<span class="add">+{</span>
+<span class="add">+    Match result = Regex.Match(input, pattern);</span>
+<span class="add">+    Console.WriteLine(result.Success ? $&quot;sku={result.Groups[&quot;sku&quot;].Value}&quot; : &quot;rejected&quot;);</span>
+<span class="add">+}</span>
+<span class="add">+string original = &quot;dock    A&quot;;</span>
+<span class="add">+string normalized = Regex.Replace(original, @&quot; +&quot;, &quot; &quot;);</span>
+<span class="add">+Console.WriteLine($&quot;original=[{original}], revised=[{normalized}]&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_e803ea2fc006]</span>
+<span class="add">+The first line reports `sku=AB-0042`; the next two report `rejected`. Reading `Groups` without checking `Success` can silently yield empty text rather than a meaningful field. The last line preserves the original four spaces and shows one space in the revised value. Here the replacement pattern uses a literal space plus `+`, so it changes runs of ordinary spaces; `\s+` would additionally match other whitespace, such as tabs and line breaks. Choose the narrower contract when those characters must remain distinct.</span>
+<span class="add">+</span>
+<span class="add">+Guided variation: accept `Ticket=4821` as a whole record and extract only the digits into a group called `id`. Reject `Ticket=48x1` and `prefix Ticket=4821`. The starter&#x27;s unanchored match currently accepts the prefixed case; repair both the pattern and the group lookup.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_4c01c952cc5a]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Text.RegularExpressions;</span>
+<span class="add">+string pattern = @&quot;Ticket=(?&lt;wrong&gt;[0-9]{4})&quot;; // TODO: whole input, group named id.</span>
+<span class="add">+foreach (string input in new[] { &quot;Ticket=4821&quot;, &quot;Ticket=48x1&quot;, &quot;prefix Ticket=4821&quot; })</span>
+<span class="add">+{</span>
+<span class="add">+    Match m = Regex.Match(input, pattern);</span>
+<span class="add">+    Console.WriteLine(m.Success ? m.Groups[&quot;wrong&quot;].Value : &quot;rejected&quot;);</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_398c3d2f6ce8]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Text.RegularExpressions;</span>
+<span class="add">+// Solution</span>
+<span class="add">+string pattern = @&quot;\ATicket=(?&lt;id&gt;[0-9]{4})\z&quot;;</span>
+<span class="add">+foreach (string input in new[] { &quot;Ticket=4821&quot;, &quot;Ticket=48x1&quot;, &quot;prefix Ticket=4821&quot; })</span>
+<span class="add">+{</span>
+<span class="add">+    Match m = Regex.Match(input, pattern);</span>
+<span class="add">+    Console.WriteLine(m.Success ? m.Groups[&quot;id&quot;].Value : &quot;rejected&quot;);</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_b2f087170fab]</span>
+<span class="add">+The solution prints `4821`, `rejected`, `rejected`. An unanchored expression asks whether a matching substring exists; adding whole-input anchors changes the question to record validation. For another variation, collect all ticket numbers in a message with `Matches` instead; in that task, rejecting surrounding prose would be the wrong contract. Use these contrasts before the independent patterns below.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · c2ceba6e]</span>
+<span> ```{index} Practice</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/10_classes/1001_class_syntax.ipynb</summary><pre><span class="remove">--- Before/chapters/10_classes/1001_class_syntax.ipynb
+</span>
+<span class="add">+++ After/chapters/10_classes/1001_class_syntax.ipynb
+</span>
+<span>@@ -762,6 +762,42 @@
+</span>
+<span> </span>
+<span> If you find yourself passing the same tuple shape through many methods, that is a sign it should become a class. Chapter 20 uses tuples for graph edges, where a pair of locations is all an edge needs.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_ad551fe0a4f6]</span>
+<span class="add">+```{index} tuples; deconstruction; guided practice</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Guided Variation: Deconstruct a Shipment Summary</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_0a8006e8d65a]</span>
+<span class="add">+A temporary summary needs only the number of parcels and their total mass. A tuple is enough when it is used briefly and has no behavior or validation to enforce. The pattern `(type name, type name) = tupleExpression;` declares local variables from the fields of one tuple value. Field names describe meaning; deconstruction still follows position.</span>
+<span class="add">+</span>
+<span class="add">+Complete the two variable uses so the report prints `3 parcels, 7.5 kg`. Then swap the *names on the right-hand member accesses* in your explanation: why would using the count as the mass be a meaning error even when a numeric conversion compiles?</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_89de923dcac4]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;</span>
+<span class="add">+(int Parcels, decimal Kilograms) shipment = (3, 7.5m);</span>
+<span class="add">+(int count, decimal mass) = shipment;</span>
+<span class="add">+// TODO: print the deconstructed count and mass with their correct units.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_68c0187512dc]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;</span>
+<span class="add">+// Solution</span>
+<span class="add">+(int Parcels, decimal Kilograms) shipment = (3, 7.5m);</span>
+<span class="add">+(int count, decimal mass) = shipment;</span>
+<span class="add">+Console.WriteLine($&quot;{count} parcels, {mass} kg&quot;);</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_c35e16d5cca8]</span>
+<span class="add">+`count` gets the first element, 3; `mass` gets the second, 7.5. The original tuple remains available. A tuple&#x27;s types help prevent some mistakes, but the type `decimal` alone does not express a unit such as kilograms or dollars. If the summary acquires rules or a lasting responsibility, use the class approach and constructor practice already developed earlier in this section.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 6696de37]</span>
+<span> ```{rubric} Footnotes</span>
+<span> ```</span>
+</pre></details><details><summary>chapters/10_classes/1002_properties.ipynb — source unchanged; exercise presentation rechecked</summary><p>The current teaching development was retained and independently checked.</p></details><details><summary>chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb</summary><pre><span class="remove">--- Before/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb
+</span>
+<span class="add">+++ After/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb
+</span>
+<span>@@ -274,6 +274,10 @@
+</span>
+<span> [markdown · 54362327]</span>
+<span> Choose the maximum-count compatible schedule, including a negative start time and a back-to-back boundary. Explain the exchange argument and reject a zero-duration interval.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_634642b861ca]</span>
+<span class="add">+This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [code · e8496a78]</span>
+<span> using System;</span>
+<span> using System.Linq;</span>
+<span>@@ -283,6 +287,25 @@
+</span>
+<span> // Your code starts here.</span>
+<span> /* TODO: complete the task. */</span>
+<span> // Your code ends here.</span>
+<span class="add">+// Cell-local support: inspect the operations, then write the client checks above.</span>
+<span class="add">+public static class MeetingSchedule</span>
+<span class="add">+{</span>
+<span class="add">+    public record Meeting(string Id,int Start,int End,int Value=1);</span>
+<span class="add">+    // Half-open, positive-duration intervals. Objective: maximum count.</span>
+<span class="add">+    public static Meeting[] Select(Meeting[] meetings)</span>
+<span class="add">+    {</span>
+<span class="add">+        ArgumentNullException.ThrowIfNull(meetings);</span>
+<span class="add">+        var ids=new HashSet&lt;string&gt;(StringComparer.Ordinal);</span>
+<span class="add">+        foreach(var meeting in meetings)</span>
+<span class="add">+            if(meeting is null||meeting.Id is null||!ids.Add(meeting.Id)||meeting.Start&gt;=meeting.End)</span>
+<span class="add">+                throw new ArgumentException(&quot;Unique IDs and Start &lt; End required.&quot;);</span>
+<span class="add">+        var chosen=new List&lt;Meeting&gt;();int lastEnd=int.MinValue;</span>
+<span class="add">+        foreach(var meeting in meetings.OrderBy(m=&gt;m.End).ThenBy(m=&gt;m.Start).ThenBy(m=&gt;m.Id,StringComparer.Ordinal))</span>
+<span class="add">+            if(meeting.Start&gt;=lastEnd){chosen.Add(meeting);lastEnd=meeting.End;}</span>
+<span class="add">+        return chosen.ToArray();</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span> </span>
+<span> [code · 110acd64]</span>
+<span> using System;</span>
+</pre></details><details><summary>chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb</summary><pre><span class="remove">--- Before/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
+</span>
+<span class="add">+++ After/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
+</span>
+<span>@@ -736,6 +736,10 @@
+</span>
+<span> [markdown · 7f93eb17]</span>
+<span> Verify a distance larger than int.MaxValue, a zero edge, and an unreachable vertex. Print route and distance; reject a negative arc even in a disconnected component.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_634642b861ca]</span>
+<span class="add">+This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [code · 6447ba28]</span>
+<span> using System;</span>
+<span> using System.Linq;</span>
+<span>@@ -746,6 +750,102 @@
+</span>
+<span> // Your code starts here.</span>
+<span> /* TODO: complete the task. */</span>
+<span> // Your code ends here.</span>
+<span class="add">+// Cell-local support: inspect the operations, then write the client checks above.</span>
+<span class="add">+public static class GreedyGraph</span>
+<span class="add">+{</span>
+<span class="add">+    public record Edge(string From,string To,int Weight);</span>
+<span class="add">+    public record Forest(Edge[] Edges,long Cost,int Components);</span>
+<span class="add">+    public sealed class Routes</span>
+<span class="add">+    {</span>
+<span class="add">+        public string Source { get; }</span>
+<span class="add">+        public IReadOnlyDictionary&lt;string,long?&gt; Distance { get; }</span>
+<span class="add">+        public IReadOnlyDictionary&lt;string,string?&gt; Previous { get; }</span>
+<span class="add">+        internal Routes(string source,Dictionary&lt;string,long?&gt; distance,Dictionary&lt;string,string?&gt; previous)</span>
+<span class="add">+        {</span>
+<span class="add">+            Source=source;</span>
+<span class="add">+            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary&lt;string,long?&gt;(distance);</span>
+<span class="add">+            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary&lt;string,string?&gt;(previous);</span>
+<span class="add">+        }</span>
+<span class="add">+        public string[] PathTo(string target)</span>
+<span class="add">+        {</span>
+<span class="add">+            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);</span>
+<span class="add">+            if(Distance[target] is null)return Array.Empty&lt;string&gt;();</span>
+<span class="add">+            var path=new Stack&lt;string&gt;();string? at=target;</span>
+<span class="add">+            for(int steps=0;at is not null;steps++)</span>
+<span class="add">+            {</span>
+<span class="add">+                if(steps&gt;=Distance.Count)throw new InvalidOperationException(&quot;Invalid predecessor chain.&quot;);</span>
+<span class="add">+                path.Push(at);at=Previous[at];</span>
+<span class="add">+            }</span>
+<span class="add">+            if(path.Peek()!=Source)throw new InvalidOperationException(&quot;Path does not reach source.&quot;);</span>
+<span class="add">+            return path.ToArray();</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+    // Undirected edges; parallel edges allowed. Negative MST weights are valid.</span>
+<span class="add">+    public static Forest Kruskal(string[] vertices,Edge[] edges,Action&lt;string&gt;? trace=null)</span>
+<span class="add">+    {</span>
+<span class="add">+        Validate(vertices,edges,false);</span>
+<span class="add">+        var parent=vertices.ToDictionary(v=&gt;v,v=&gt;v,StringComparer.Ordinal);</span>
+<span class="add">+        var size=vertices.ToDictionary(v=&gt;v,_=&gt;1,StringComparer.Ordinal);</span>
+<span class="add">+        int components=vertices.Length;long cost=0;var chosen=new List&lt;Edge&gt;();</span>
+<span class="add">+        foreach(var edge in edges.OrderBy(e=&gt;e.Weight).ThenBy(e=&gt;e.From,StringComparer.Ordinal).ThenBy(e=&gt;e.To,StringComparer.Ordinal))</span>
+<span class="add">+        {</span>
+<span class="add">+            string a=Find(edge.From),b=Find(edge.To);</span>
+<span class="add">+            if(a==b){trace?.Invoke($&quot;reject {edge.From}-{edge.To} ({edge.Weight}): cycle&quot;);continue;}</span>
+<span class="add">+            if(size[a]&lt;size[b])(a,b)=(b,a);</span>
+<span class="add">+            parent[b]=a;size[a]+=size[b];components--;</span>
+<span class="add">+            chosen.Add(edge);cost=checked(cost+edge.Weight);</span>
+<span class="add">+            trace?.Invoke($&quot;accept {edge.From}-{edge.To} ({edge.Weight}): components={components}&quot;);</span>
+<span class="add">+        }</span>
+<span class="add">+        return new Forest(chosen.ToArray(),cost,components);</span>
+<span class="add">+        string Find(string vertex)</span>
+<span class="add">+        {</span>
+<span class="add">+            while(parent[vertex]!=vertex)</span>
+<span class="add">+            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}</span>
+<span class="add">+            return vertex;</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+    // Directed arcs; nonnegative weights required, including unreachable arcs.</span>
+<span class="add">+    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action&lt;string&gt;? trace=null)</span>
+<span class="add">+    {</span>
+<span class="add">+        Validate(vertices,arcs,true);</span>
+<span class="add">+        var graph=vertices.ToDictionary(v=&gt;v,_=&gt;new List&lt;Edge&gt;(),StringComparer.Ordinal);</span>
+<span class="add">+        if(!graph.ContainsKey(source))throw new KeyNotFoundException(&quot;Unknown source.&quot;);</span>
+<span class="add">+        foreach(var edge in arcs)graph[edge.From].Add(edge);</span>
+<span class="add">+        var distance=vertices.ToDictionary(v=&gt;v,_=&gt;(long?)null,StringComparer.Ordinal);</span>
+<span class="add">+        var previous=vertices.ToDictionary(v=&gt;v,_=&gt;(string?)null,StringComparer.Ordinal);</span>
+<span class="add">+        var queue=new PriorityQueue&lt;string,long&gt;();distance[source]=0;queue.Enqueue(source,0);</span>
+<span class="add">+        while(queue.TryDequeue(out string? current,out long queued))</span>
+<span class="add">+        {</span>
+<span class="add">+            if(distance[current]!=queued){trace?.Invoke($&quot;skip stale {current} ({queued})&quot;);continue;}</span>
+<span class="add">+            trace?.Invoke($&quot;settle {current} ({queued})&quot;);</span>
+<span class="add">+            foreach(var edge in graph[current])</span>
+<span class="add">+            {</span>
+<span class="add">+                long candidate=checked(queued+edge.Weight);</span>
+<span class="add">+                if(distance[edge.To] is null || candidate&lt;distance[edge.To])</span>
+<span class="add">+                {</span>
+<span class="add">+                    distance[edge.To]=candidate;previous[edge.To]=current;</span>
+<span class="add">+                    queue.Enqueue(edge.To,candidate);</span>
+<span class="add">+                    trace?.Invoke($&quot;relax {current}-&gt;{edge.To}: {candidate}&quot;);</span>
+<span class="add">+                }</span>
+<span class="add">+            }</span>
+<span class="add">+        }</span>
+<span class="add">+        return new Routes(source,distance,previous);</span>
+<span class="add">+    }</span>
+<span class="add">+    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)</span>
+<span class="add">+    {</span>
+<span class="add">+        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);</span>
+<span class="add">+        var known=new HashSet&lt;string&gt;(StringComparer.Ordinal);</span>
+<span class="add">+        foreach(string vertex in vertices)</span>
+<span class="add">+            if(vertex is null||!known.Add(vertex))throw new ArgumentException(&quot;Vertices must be distinct non-null labels.&quot;);</span>
+<span class="add">+        foreach(var edge in edges)</span>
+<span class="add">+        {</span>
+<span class="add">+            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(&quot;Unknown endpoint.&quot;);</span>
+<span class="add">+            if(edge.From==edge.To)throw new ArgumentException(&quot;This graph contract excludes self-loops.&quot;);</span>
+<span class="add">+            if(nonnegative&amp;&amp;edge.Weight&lt;0)throw new ArgumentOutOfRangeException(nameof(edges),&quot;Dijkstra requires nonnegative weights.&quot;);</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span> </span>
+<span> [code · 083993b6]</span>
+<span> using System;</span>
+<span>@@ -1160,6 +1260,10 @@
+</span>
+<span> [markdown · 52920949]</span>
+<span> Add a direct HQ-to-Depot travel arc of cost one and compare routing with the unchanged cable forest. Explain why a route improvement need not alter the separate cable-input optimum.</span>
+<span> </span>
+<span class="add">+[markdown · ba18_634642b861ca_2]</span>
+<span class="add">+This starter includes its supporting types and operations below the marked client area. Run it from a fresh session without running a previous demonstration or revealing the answer. Your task is to write the requested calls, assertions and interpretation, not to recreate the implementation. Compare the ordinary result and each boundary result against the contract before inspecting the hidden solution.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [code · daca0787]</span>
+<span> using System;</span>
+<span> using System.Linq;</span>
+<span>@@ -1171,6 +1275,102 @@
+</span>
+<span> // Your code starts here.</span>
+<span> /* TODO: complete the task. */</span>
+<span> // Your code ends here.</span>
+<span class="add">+// Cell-local support: inspect the operations, then write the client checks above.</span>
+<span class="add">+public static class GreedyGraph</span>
+<span class="add">+{</span>
+<span class="add">+    public record Edge(string From,string To,int Weight);</span>
+<span class="add">+    public record Forest(Edge[] Edges,long Cost,int Components);</span>
+<span class="add">+    public sealed class Routes</span>
+<span class="add">+    {</span>
+<span class="add">+        public string Source { get; }</span>
+<span class="add">+        public IReadOnlyDictionary&lt;string,long?&gt; Distance { get; }</span>
+<span class="add">+        public IReadOnlyDictionary&lt;string,string?&gt; Previous { get; }</span>
+<span class="add">+        internal Routes(string source,Dictionary&lt;string,long?&gt; distance,Dictionary&lt;string,string?&gt; previous)</span>
+<span class="add">+        {</span>
+<span class="add">+            Source=source;</span>
+<span class="add">+            Distance=new System.Collections.ObjectModel.ReadOnlyDictionary&lt;string,long?&gt;(distance);</span>
+<span class="add">+            Previous=new System.Collections.ObjectModel.ReadOnlyDictionary&lt;string,string?&gt;(previous);</span>
+<span class="add">+        }</span>
+<span class="add">+        public string[] PathTo(string target)</span>
+<span class="add">+        {</span>
+<span class="add">+            if(!Distance.ContainsKey(target))throw new KeyNotFoundException(target);</span>
+<span class="add">+            if(Distance[target] is null)return Array.Empty&lt;string&gt;();</span>
+<span class="add">+            var path=new Stack&lt;string&gt;();string? at=target;</span>
+<span class="add">+            for(int steps=0;at is not null;steps++)</span>
+<span class="add">+            {</span>
+<span class="add">+                if(steps&gt;=Distance.Count)throw new InvalidOperationException(&quot;Invalid predecessor chain.&quot;);</span>
+<span class="add">+                path.Push(at);at=Previous[at];</span>
+<span class="add">+            }</span>
+<span class="add">+            if(path.Peek()!=Source)throw new InvalidOperationException(&quot;Path does not reach source.&quot;);</span>
+<span class="add">+            return path.ToArray();</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+    // Undirected edges; parallel edges allowed. Negative MST weights are valid.</span>
+<span class="add">+    public static Forest Kruskal(string[] vertices,Edge[] edges,Action&lt;string&gt;? trace=null)</span>
+<span class="add">+    {</span>
+<span class="add">+        Validate(vertices,edges,false);</span>
+<span class="add">+        var parent=vertices.ToDictionary(v=&gt;v,v=&gt;v,StringComparer.Ordinal);</span>
+<span class="add">+        var size=vertices.ToDictionary(v=&gt;v,_=&gt;1,StringComparer.Ordinal);</span>
+<span class="add">+        int components=vertices.Length;long cost=0;var chosen=new List&lt;Edge&gt;();</span>
+<span class="add">+        foreach(var edge in edges.OrderBy(e=&gt;e.Weight).ThenBy(e=&gt;e.From,StringComparer.Ordinal).ThenBy(e=&gt;e.To,StringComparer.Ordinal))</span>
+<span class="add">+        {</span>
+<span class="add">+            string a=Find(edge.From),b=Find(edge.To);</span>
+<span class="add">+            if(a==b){trace?.Invoke($&quot;reject {edge.From}-{edge.To} ({edge.Weight}): cycle&quot;);continue;}</span>
+<span class="add">+            if(size[a]&lt;size[b])(a,b)=(b,a);</span>
+<span class="add">+            parent[b]=a;size[a]+=size[b];components--;</span>
+<span class="add">+            chosen.Add(edge);cost=checked(cost+edge.Weight);</span>
+<span class="add">+            trace?.Invoke($&quot;accept {edge.From}-{edge.To} ({edge.Weight}): components={components}&quot;);</span>
+<span class="add">+        }</span>
+<span class="add">+        return new Forest(chosen.ToArray(),cost,components);</span>
+<span class="add">+        string Find(string vertex)</span>
+<span class="add">+        {</span>
+<span class="add">+            while(parent[vertex]!=vertex)</span>
+<span class="add">+            {parent[vertex]=parent[parent[vertex]];vertex=parent[vertex];}</span>
+<span class="add">+            return vertex;</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+    // Directed arcs; nonnegative weights required, including unreachable arcs.</span>
+<span class="add">+    public static Routes Dijkstra(string[] vertices,Edge[] arcs,string source,Action&lt;string&gt;? trace=null)</span>
+<span class="add">+    {</span>
+<span class="add">+        Validate(vertices,arcs,true);</span>
+<span class="add">+        var graph=vertices.ToDictionary(v=&gt;v,_=&gt;new List&lt;Edge&gt;(),StringComparer.Ordinal);</span>
+<span class="add">+        if(!graph.ContainsKey(source))throw new KeyNotFoundException(&quot;Unknown source.&quot;);</span>
+<span class="add">+        foreach(var edge in arcs)graph[edge.From].Add(edge);</span>
+<span class="add">+        var distance=vertices.ToDictionary(v=&gt;v,_=&gt;(long?)null,StringComparer.Ordinal);</span>
+<span class="add">+        var previous=vertices.ToDictionary(v=&gt;v,_=&gt;(string?)null,StringComparer.Ordinal);</span>
+<span class="add">+        var queue=new PriorityQueue&lt;string,long&gt;();distance[source]=0;queue.Enqueue(source,0);</span>
+<span class="add">+        while(queue.TryDequeue(out string? current,out long queued))</span>
+<span class="add">+        {</span>
+<span class="add">+            if(distance[current]!=queued){trace?.Invoke($&quot;skip stale {current} ({queued})&quot;);continue;}</span>
+<span class="add">+            trace?.Invoke($&quot;settle {current} ({queued})&quot;);</span>
+<span class="add">+            foreach(var edge in graph[current])</span>
+<span class="add">+            {</span>
+<span class="add">+                long candidate=checked(queued+edge.Weight);</span>
+<span class="add">+                if(distance[edge.To] is null || candidate&lt;distance[edge.To])</span>
+<span class="add">+                {</span>
+<span class="add">+                    distance[edge.To]=candidate;previous[edge.To]=current;</span>
+<span class="add">+                    queue.Enqueue(edge.To,candidate);</span>
+<span class="add">+                    trace?.Invoke($&quot;relax {current}-&gt;{edge.To}: {candidate}&quot;);</span>
+<span class="add">+                }</span>
+<span class="add">+            }</span>
+<span class="add">+        }</span>
+<span class="add">+        return new Routes(source,distance,previous);</span>
+<span class="add">+    }</span>
+<span class="add">+    private static void Validate(string[] vertices,Edge[] edges,bool nonnegative)</span>
+<span class="add">+    {</span>
+<span class="add">+        ArgumentNullException.ThrowIfNull(vertices);ArgumentNullException.ThrowIfNull(edges);</span>
+<span class="add">+        var known=new HashSet&lt;string&gt;(StringComparer.Ordinal);</span>
+<span class="add">+        foreach(string vertex in vertices)</span>
+<span class="add">+            if(vertex is null||!known.Add(vertex))throw new ArgumentException(&quot;Vertices must be distinct non-null labels.&quot;);</span>
+<span class="add">+        foreach(var edge in edges)</span>
+<span class="add">+        {</span>
+<span class="add">+            if(edge is null||!known.Contains(edge.From)||!known.Contains(edge.To))throw new ArgumentException(&quot;Unknown endpoint.&quot;);</span>
+<span class="add">+            if(edge.From==edge.To)throw new ArgumentException(&quot;This graph contract excludes self-loops.&quot;);</span>
+<span class="add">+            if(nonnegative&amp;&amp;edge.Weight&lt;0)throw new ArgumentOutOfRangeException(nameof(edges),&quot;Dijkstra requires nonnegative weights.&quot;);</span>
+<span class="add">+        }</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span> </span>
+<span> [code · 6087cc3e]</span>
+<span> using System;</span>
+</pre></details><details><summary>chapters/appendices/databases/csharp_sqlite.ipynb</summary><pre><span class="remove">--- Before/chapters/appendices/databases/csharp_sqlite.ipynb
+</span>
+<span class="add">+++ After/chapters/appendices/databases/csharp_sqlite.ipynb
+</span>
+<span>@@ -86,6 +86,69 @@
+</span>
+<span> Read `ReadBook` and match every reader position to its selected column. Predict what could go wrong if a query changed column order without updating the mapper. Keep each command&#x27;s result shape explicit.</span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_a62f34a88367]</span>
+<span class="add">+```{index} SQLite; row mapping; affected rows</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Follow a Row from SQL to Local Values</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_c1b1d4152d4a]</span>
+<span class="add">+The column positions in a reader follow the `SELECT` list, not the order you happen to think of the object&#x27;s fields. This miniature example deliberately uses only ID, title and stock. Run the complete listing as `Program.cs` in a separate project with the same SQLite package; its in-memory database starts fresh. It does not replace the full inventory model.</span>
+<span class="add">+</span>
+<span class="add">+General mapping pattern (schematic):</span>
+<span class="add">+</span>
+<span class="add">+```csharp</span>
+<span class="add">+using var reader = command.ExecuteReader();</span>
+<span class="add">+if (reader.Read())</span>
+<span class="add">+{</span>
+<span class="add">+    var first = reader.GetInt64(0);    // match the selected column and its type</span>
+<span class="add">+    var second = reader.GetString(1);</span>
+<span class="add">+    // construct the object from these values</span>
+<span class="add">+}</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+`Read()` advances to a row and reports whether one exists. Do not read fields before that succeeds. The zero-based positions identify columns in that row. The appropriate getter interprets the stored value as the expected .NET type; it does not repair a mismatched column list.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_a576e7c7ce06]</span>
+<span class="add">+```csharp</span>
+<span class="add">+using System;</span>
+<span class="add">+using Microsoft.Data.Sqlite;</span>
+<span class="add">+using var connection = new SqliteConnection(&quot;Data Source=:memory:&quot;);</span>
+<span class="add">+connection.Open();</span>
+<span class="add">+using (var setup = connection.CreateCommand())</span>
+<span class="add">+{</span>
+<span class="add">+    setup.CommandText = &quot;CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT, Stock INTEGER); INSERT INTO Books VALUES (1, &#x27;C# Operations&#x27;, 6);&quot;;</span>
+<span class="add">+    setup.ExecuteNonQuery();</span>
+<span class="add">+}</span>
+<span class="add">+using (var query = connection.CreateCommand())</span>
+<span class="add">+{</span>
+<span class="add">+    query.CommandText = &quot;SELECT BookId, Title, Stock FROM Books WHERE BookId = @id;&quot;;</span>
+<span class="add">+    query.Parameters.AddWithValue(&quot;@id&quot;, 1);</span>
+<span class="add">+    using var reader = query.ExecuteReader();</span>
+<span class="add">+    if (reader.Read())</span>
+<span class="add">+    {</span>
+<span class="add">+        long id = reader.GetInt64(0);</span>
+<span class="add">+        string title = reader.GetString(1);</span>
+<span class="add">+        int stock = reader.GetInt32(2);</span>
+<span class="add">+        Console.WriteLine($&quot;{id}: {title}, stock={stock}&quot;);</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+using var update = connection.CreateCommand();</span>
+<span class="add">+update.CommandText = &quot;UPDATE Books SET Stock = @stock WHERE BookId = @id;&quot;;</span>
+<span class="add">+update.Parameters.AddWithValue(&quot;@stock&quot;, 4);</span>
+<span class="add">+update.Parameters.AddWithValue(&quot;@id&quot;, 999);</span>
+<span class="add">+Console.WriteLine($&quot;unknown ID affected rows={update.ExecuteNonQuery()}&quot;);</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_9256acb7f9fe]</span>
+<span class="add">+The output is `1: C# Operations, stock=6`, then `unknown ID affected rows=0`. Position 0 maps to `BookId`, position 1 to `Title`, and position 2 to `Stock`. In the full project, `ReadBook` adds `PriceCents` and constructs an object from four columns using the same rule. Reordering the query to `Title, BookId, Stock` without changing these getters makes the mapper wrong; adding more casts does not fix the contract.</span>
+<span class="add">+</span>
+<span class="add">+An update&#x27;s affected-row count is a different result from a selected record. Here ID 999 is absent, so the command changes zero rows. In this simple schema, updating an existing primary key changes one matching row; the supplied `SetStock` converts that count into a success Boolean.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 75c0ca10]</span>
+<span> ```{index} injection; SQL injection</span>
+<span> ```</span>
+<span>@@ -135,6 +198,89 @@
+</span>
+<span> The optional `Sell` operation begins a transaction, reduces stock only if enough remains, inserts a sale, and commits. If the book is missing or stock is insufficient, it rolls back and returns `false`. If an unexpected error occurs before commit, disposal rolls back the uncommitted transaction.</span>
+<span> </span>
+<span> Every command participating in the transaction sets its `Transaction` property. Updating stock and inserting the sale independently could leave only one change saved after a failure. Atomicity means these changes are committed together.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_bddfff51862e]</span>
+<span class="add">+```{index} transactions; rollback; atomicity</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Trace a Sale That Fails After the Stock Update</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_e1db705b9959]</span>
+<span class="add">+The transaction&#x27;s purpose is to treat related persistent changes as one unit. The schematic pattern is:</span>
+<span class="add">+</span>
+<span class="add">+```csharp</span>
+<span class="add">+using var transaction = connection.BeginTransaction();</span>
+<span class="add">+// Every participating command sets command.Transaction = transaction.</span>
+<span class="add">+// Execute and check the related changes.</span>
+<span class="add">+transaction.Commit();</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+Commit makes the unit permanent. An explicit rollback, or disposal without a successful commit, abandons its changes. Do not catch a database failure and report a successful sale. A valid row-level constraint is useful, but it cannot by itself coordinate two separate commands.</span>
+<span class="add">+</span>
+<span class="add">+| Step | Stock visible inside transaction | Sale rows | Meaning |</span>
+<span class="add">+| --- | ---: | ---: | --- |</span>
+<span class="add">+| Before sale | 6 | 0 | starting state |</span>
+<span class="add">+| Decrement by two | 4 | 0 | pending, not yet committed |</span>
+<span class="add">+| Sale insert fails | 4 | 0 | incomplete unit |</span>
+<span class="add">+| Rollback completes | 6 | 0 | original state restored |</span>
+<span class="add">+</span>
+<span class="add">+Run this complete listing in a separate SQLite console project. The invalid zero quantity is intentional: it forces the second command to fail after the stock change. The normal inventory `Sell` validates quantity before starting; this miniature failure simulation is not its production input policy.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_0327c1191086]</span>
+<span class="add">+```csharp</span>
+<span class="add">+using System;</span>
+<span class="add">+using Microsoft.Data.Sqlite;</span>
+<span class="add">+using var connection = new SqliteConnection(&quot;Data Source=:memory:&quot;);</span>
+<span class="add">+connection.Open();</span>
+<span class="add">+using (var setup = connection.CreateCommand())</span>
+<span class="add">+{</span>
+<span class="add">+    setup.CommandText = &quot;CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Stock INTEGER CHECK(Stock &gt;= 0)); CREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER, Quantity INTEGER CHECK(Quantity &gt; 0)); INSERT INTO Books VALUES (1, 6);&quot;;</span>
+<span class="add">+    setup.ExecuteNonQuery();</span>
+<span class="add">+}</span>
+<span class="add">+using (var transaction = connection.BeginTransaction())</span>
+<span class="add">+{</span>
+<span class="add">+    try</span>
+<span class="add">+    {</span>
+<span class="add">+        using var update = connection.CreateCommand();</span>
+<span class="add">+        update.Transaction = transaction;</span>
+<span class="add">+        update.CommandText = &quot;UPDATE Books SET Stock = Stock - 2 WHERE BookId = 1 AND Stock &gt;= 2;&quot;;</span>
+<span class="add">+        if (update.ExecuteNonQuery() != 1) throw new InvalidOperationException(&quot;Insufficient stock.&quot;);</span>
+<span class="add">+        using var sale = connection.CreateCommand();</span>
+<span class="add">+        sale.Transaction = transaction;</span>
+<span class="add">+        // Deliberate invalid quantity simulates failure of the second change.</span>
+<span class="add">+        sale.CommandText = &quot;INSERT INTO Sales VALUES (1, 1, 0);&quot;;</span>
+<span class="add">+        sale.ExecuteNonQuery();</span>
+<span class="add">+        transaction.Commit();</span>
+<span class="add">+    }</span>
+<span class="add">+    catch (SqliteException)</span>
+<span class="add">+    {</span>
+<span class="add">+        transaction.Rollback();</span>
+<span class="add">+        Console.WriteLine(&quot;sale rejected; rolled back&quot;);</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+using var check = connection.CreateCommand();</span>
+<span class="add">+check.CommandText = &quot;SELECT Stock FROM Books WHERE BookId = 1;&quot;;</span>
+<span class="add">+Console.WriteLine($&quot;stock={check.ExecuteScalar()}&quot;);</span>
+<span class="add">+check.CommandText = &quot;SELECT COUNT(*) FROM Sales;&quot;;</span>
+<span class="add">+Console.WriteLine($&quot;sales={check.ExecuteScalar()}&quot;);</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_0fb5acc6cb00]</span>
+<span class="add">+The output is `sale rejected; rolled back`, `stock=6`, and `sales=0`. Seeing stock 4 would expose a partial change that the transaction is intended to prevent. In the full project, the forced trigger failure in check mode tests the same obligation without passing an invalid sale quantity.</span>
+<span class="add">+</span>
+<span class="add">+**Guided prediction:** change the inserted quantity to 2 and keep `Commit`. Predict both final counts before running. Next, keep the valid insert but omit `Commit`. Explain why successful commands are not enough to establish a durable sale.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_a2f0e31ee223]</span>
+<span class="add">+```{dropdown} Feedback and transfer</span>
+<span class="add">+With quantity 2 and a successful commit, stock is 4 and there is one sale row; the exception message does not print. Without the commit, disposal rolls the transaction back, so stock returns to 6 and sale count to zero. Run the check *after* leaving the transaction scope, as above.</span>
+<span class="add">+</span>
+<span class="add">+For a mapper variation, change the query ID from 1 to 999: `Read()` returns false, so there are no field reads and no book output. An empty result is not a default book with ID zero. For the update variation, change its ID to 1: its affected-row count becomes one. Use these predictions to interpret the full project&#x27;s checks before extending the lab.</span>
+<span class="add">+```</span>
+<span> </span>
+<span> </span>
+<span> [markdown · ddd1a73604c3]</span>
+</pre></details><details><summary>chapters/appendices/databases/relational_data_sql.ipynb</summary><pre><span class="remove">--- Before/chapters/appendices/databases/relational_data_sql.ipynb
+</span>
+<span class="add">+++ After/chapters/appendices/databases/relational_data_sql.ipynb
+</span>
+<span>@@ -149,6 +149,37 @@
+</span>
+<span> 3. Identify one foreign key relationship between two tables.</span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_c8bb342732b1]</span>
+<span class="add">+```{index} SQL; seed data; query results</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### A Known Dataset for Query Tracing</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_28cbcc54aadd]</span>
+<span class="add">+Use the earlier relationship-and-date schema for the query examples. These are **two steps in a fresh disposable SQLite database**: first run the `CREATE TABLE` statements above, then enable foreign keys and insert the following rows. If the tables already contain your practice data, use a new database rather than mixing datasets. These `Price` examples explain querying; the later inventory lab uses integer `PriceCents` and a different schema explicitly.</span>
+<span class="add">+</span>
+<span class="add">+```sql</span>
+<span class="add">+PRAGMA foreign_keys = ON;</span>
+<span class="add">+INSERT INTO Books (BookId, Title, Author, Price) VALUES</span>
+<span class="add">+    (1, &#x27;C# Operations&#x27;, &#x27;Ana&#x27;, 20.00),</span>
+<span class="add">+    (2, &#x27;Systems&#x27;, &#x27;Bo&#x27;, 30.00),</span>
+<span class="add">+    (3, &#x27;Data&#x27;, &#x27;Ana&#x27;, 15.00);</span>
+<span class="add">+INSERT INTO Sales (SaleId, BookId, Quantity, SoldOn) VALUES</span>
+<span class="add">+    (101, 1, 2, &#x27;2026-10-01&#x27;),</span>
+<span class="add">+    (102, 1, 1, &#x27;2026-10-02&#x27;),</span>
+<span class="add">+    (103, 2, 1, &#x27;2026-10-03&#x27;);</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+| BookId | Title | Author | Price |</span>
+<span class="add">+| ---: | --- | --- | ---: |</span>
+<span class="add">+| 1 | C# Operations | Ana | 20.00 |</span>
+<span class="add">+| 2 | Systems | Bo | 30.00 |</span>
+<span class="add">+| 3 | Data | Ana | 15.00 |</span>
+<span class="add">+</span>
+<span class="add">+There are three book rows and three sale rows, but those are different kinds of records. Two sales refer to book 1, one refers to book 2, and no sale refers to book 3. Keep this distinction while predicting joins and counts. SQL tools may display `20.0` rather than `20.00`; the query result value is the same.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 3f496b7d49f4]</span>
+<span> ## Queries</span>
+<span> </span>
+<span>@@ -169,6 +200,19 @@
+</span>
+<span> </span>
+<span> ```{index} Selecting Columns</span>
+<span> ```</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_0d310647e280]</span>
+<span class="add">+Read the general query pattern before substituting the example names:</span>
+<span class="add">+</span>
+<span class="add">+```sql</span>
+<span class="add">+SELECT column_list</span>
+<span class="add">+FROM table_name</span>
+<span class="add">+WHERE row_condition</span>
+<span class="add">+ORDER BY sort_column DESC;</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+This is a pattern, not a statement to run unchanged. `SELECT` specifies the output columns, `FROM` supplies candidate rows, `WHERE` filters rows, and `ORDER BY` controls their order. `DESC` means descending. A semicolon ends the statement; omit optional clauses when they are unnecessary. Without `ORDER BY`, do not depend on a particular returned row order.</span>
+<span> </span>
+<span> </span>
+<span> [markdown · a2deaaa7bf91]</span>
+<span>@@ -264,6 +308,82 @@
+</span>
+<span> ```</span>
+<span> </span>
+<span> This query reads sale rows and attaches the book title for each sale. Without the join, the sale row would only have a `BookId`.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_f295659f0d48]</span>
+<span class="add">+```{index} SQL; filtering; grouping; join multiplicity</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Read the Filter, Group, and Join Results</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_069d856763b9]</span>
+<span class="add">+For the dataset above, the `Price &lt; 25.00` query returns:</span>
+<span class="add">+</span>
+<span class="add">+| Title | Price |</span>
+<span class="add">+| --- | ---: |</span>
+<span class="add">+| C# Operations | 20.00 |</span>
+<span class="add">+| Data | 15.00 |</span>
+<span class="add">+</span>
+<span class="add">+`Systems` fails the condition and is removed before sorting. Descending price puts 20.00 before 15.00. The query does not change either stored price.</span>
+<span class="add">+</span>
+<span class="add">+The `COUNT(*)`/`AVG(Price)` query returns one aggregate row: `BookCount = 3`, `AveragePrice = 21.666…`. The author grouping returns `Ana, 2` and `Bo, 1`. It counts **book rows**, not copies sold. `GROUP BY` combines rows with the same author for the aggregate; it is not an ordinary alphabetical sort.</span>
+<span class="add">+</span>
+<span class="add">+The join on `Sales.BookId = Books.BookId`, ordered by `SoldOn`, returns:</span>
+<span class="add">+</span>
+<span class="add">+| Title | Quantity | SoldOn |</span>
+<span class="add">+| --- | ---: | --- |</span>
+<span class="add">+| C# Operations | 2 | 2026-10-01 |</span>
+<span class="add">+| C# Operations | 1 | 2026-10-02 |</span>
+<span class="add">+| Systems | 1 | 2026-10-03 |</span>
+<span class="add">+</span>
+<span class="add">+The title repeats because there are two separate sale events for that book. `Data` is absent because this inner join requires a matching sale. Repeated titles are not automatically duplicate errors, and counting sale rows is different from summing `Quantity`.</span>
+<span class="add">+</span>
+<span class="add">+A common mistake is omitting the `ON` relationship. Pairing every sale with every book would produce nine combinations here, including false associations. Another is assuming that every book must appear in this result: finding books with no sales requires a different query, such as a left join.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_fd3f8891f165]</span>
+<span class="add">+```{index} SQL; guided query</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Guided Query: Select Qualifying Prices</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_211580db95cf]</span>
+<span class="add">+List titles and prices costing **at least 20.00**, highest first. Fill the two conditions without changing the output columns:</span>
+<span class="add">+</span>
+<span class="add">+```sql</span>
+<span class="add">+SELECT Title, Price</span>
+<span class="add">+FROM Books</span>
+<span class="add">+WHERE /* complete the comparison */</span>
+<span class="add">+ORDER BY Price /* choose ASC or DESC */;</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+Predict the rows and their order before running. Keep the 20.00 boundary; do not treat “at least” as strictly greater than.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_8daf7e8a6eb4]</span>
+<span class="add">+````{dropdown} Query and explanation</span>
+<span class="add">+```sql</span>
+<span class="add">+SELECT Title, Price</span>
+<span class="add">+FROM Books</span>
+<span class="add">+WHERE Price &gt;= 20.00</span>
+<span class="add">+ORDER BY Price DESC;</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+The result is `Systems, 30.00`, then `C# Operations, 20.00`. Using `&gt;` would wrongly omit the second row. Using `ASC` would keep both rows but reverse the requested order. Change the threshold to 31.00: zero result rows is a valid answer, not a failure of `SELECT`.</span>
+<span class="add">+</span>
+<span class="add">+For a grouping variation, count sale events by book:</span>
+<span class="add">+</span>
+<span class="add">+```sql</span>
+<span class="add">+SELECT BookId, COUNT(*) AS SaleEvents, SUM(Quantity) AS Copies</span>
+<span class="add">+FROM Sales</span>
+<span class="add">+GROUP BY BookId</span>
+<span class="add">+ORDER BY BookId;</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+Book 1 has two events and three copies; book 2 has one event and one copy. A book with no sales is not represented by a zero row automatically in this query. Explain that absence before moving to the independent queries.</span>
+<span class="add">+````</span>
+<span> </span>
+<span> </span>
+<span> [markdown · f15c2077ce3b]</span>
+</pre></details><details><summary>chapters/appendices/operator_overloading.ipynb</summary><pre><span class="remove">--- Before/chapters/appendices/operator_overloading.ipynb
+</span>
+<span class="add">+++ After/chapters/appendices/operator_overloading.ipynb
+</span>
+<span>@@ -755,6 +755,81 @@
+</span>
+<span> }</span>
+<span> </span>
+<span> </span>
+<span class="add">+[markdown · ba18_8458de7b78ab]</span>
+<span class="add">+```{index} operator overloading; value contracts; guided addition</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+### Define the Contract Before Completing an Operator</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_a89f1c7d9462]</span>
+<span class="add">+The addition example connects a familiar symbol to a user-defined type. Its general declaration is a pattern:</span>
+<span class="add">+</span>
+<span class="add">+```csharp</span>
+<span class="add">+public static ResultType operator +(LeftType left, RightType right)</span>
+<span class="add">+{</span>
+<span class="add">+    // return the result promised by this type&#x27;s contract</span>
+<span class="add">+}</span>
+<span class="add">+```</span>
+<span class="add">+</span>
+<span class="add">+`operator` announces an operator declaration; `+` selects the symbol. `public static` makes this a type operation with two explicit operands, rather than an instance method with an implicit `this`. For these ordinary binary overloads at least one operand must have the containing type. The return type and parameter names describe the result and operands. You cannot create a new symbol or change addition&#x27;s precedence by overloading it.</span>
+<span class="add">+</span>
+<span class="add">+For the earlier `Money` type, both operands denote nonnegative amounts in the same assumed currency. The result is a new value containing their sum. The operator does not print, alter either operand, or apply an unstated fee. Keeping that contract explicit makes the symbol predictable.</span>
+<span class="add">+</span>
+<span class="add">+Complete `+` below. With inputs 12.50 and 7.50, expect 20.00, and verify that the operands remain 12.50 and 7.50. Include zero plus 7.50 as a boundary case. The starter intentionally returns only the left operand; it compiles but violates the sum contract.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_2e09e1ac6f5e]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+var left = new Amount(12.50m);</span>
+<span class="add">+var right = new Amount(7.50m);</span>
+<span class="add">+Console.WriteLine((left + right).Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture));</span>
+<span class="add">+Console.WriteLine($&quot;left={left.Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture)}, right={right.Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture)}&quot;);</span>
+<span class="add">+Console.WriteLine((new Amount(0m) + right).Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture));</span>
+<span class="add">+public readonly struct Amount</span>
+<span class="add">+{</span>
+<span class="add">+    public decimal Value { get; }</span>
+<span class="add">+    public Amount(decimal value)</span>
+<span class="add">+    {</span>
+<span class="add">+        if (value &lt; 0m) throw new ArgumentOutOfRangeException(nameof(value));</span>
+<span class="add">+        Value = value;</span>
+<span class="add">+    }</span>
+<span class="add">+    public static Amount operator +(Amount left, Amount right)</span>
+<span class="add">+    {</span>
+<span class="add">+        return left; // TODO: return a new amount with the sum.</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[code · ba18_645b0a509026]</span>
+<span class="add">+using System;</span>
+<span class="add">+using System.Globalization;</span>
+<span class="add">+var left = new Amount(12.50m);</span>
+<span class="add">+var right = new Amount(7.50m);</span>
+<span class="add">+Console.WriteLine((left + right).Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture));</span>
+<span class="add">+Console.WriteLine($&quot;left={left.Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture)}, right={right.Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture)}&quot;);</span>
+<span class="add">+Console.WriteLine((new Amount(0m) + right).Value.ToString(&quot;F2&quot;, CultureInfo.InvariantCulture));</span>
+<span class="add">+public readonly struct Amount</span>
+<span class="add">+{</span>
+<span class="add">+    public decimal Value { get; }</span>
+<span class="add">+    public Amount(decimal value)</span>
+<span class="add">+    {</span>
+<span class="add">+        if (value &lt; 0m) throw new ArgumentOutOfRangeException(nameof(value));</span>
+<span class="add">+        Value = value;</span>
+<span class="add">+    }</span>
+<span class="add">+    public static Amount operator +(Amount left, Amount right)</span>
+<span class="add">+    {</span>
+<span class="add">+        // Solution</span>
+<span class="add">+        return new Amount(left.Value + right.Value);</span>
+<span class="add">+    }</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span class="add">+[markdown · ba18_e81c17444e5e]</span>
+<span class="add">+The solution prints `20.00`, `left=12.50, right=7.50`, and `7.50`. Returning `left` passes no sum test except a zero right operand, so a single convenient test could conceal the defect. Constructing a new value keeps the inputs unchanged and reuses the constructor&#x27;s nonnegative-value contract. Arithmetic overflow is still possible for sufficiently large decimal values; this example does not claim unlimited range. A real multi-currency type would need to check currency compatibility before adding.</span>
+<span class="add">+</span>
+<span class="add">+</span>
+<span> [markdown · 7248e473-6fc1-491e-a327-5cf0eb96654d]</span>
+<span> ```{rubric} Footnotes</span>
+<span> ```</span>
+</pre></details><h2 id="verification">Checks and limits</h2><pre>{
+  &quot;original_cells_retained_in_order&quot;: 873,
+  &quot;original_code_cells_retained&quot;: 166,
+  &quot;original_output_records_unchanged&quot;: 35,
+  &quot;added_cells&quot;: 76,
+  &quot;documented_source_corrections&quot;: 11,
+  &quot;exercise_metadata_repairs&quot;: 14,
+  &quot;unchanged_other_notebooks_and_toc&quot;: 263,
+  &quot;unchanged_assignment_notebooks&quot;: 124,
+  &quot;planning_files_updated&quot;: 16
+}</pre><p>Each checked C# program was compiled and run in a fresh .NET 10 project. SQLite provider examples use the reference project’s pinned package and an in-memory database. New exercise solutions retain verified output. Incomplete starters are tested as intentional learner tasks, so their initial output can differ from the target answer.</p><p>The full HTML build succeeded. It reports one existing lexer warning in an unchanged Chapter 2 character-literal example. The final rendering and index destinations are checked separately. This is a recheck of the 18 identified development gaps, not a claim that every paragraph in the book is beyond further improvement.</p><p>General syntax, explanations, result interpretation and guided practice were checked as connected instruction, not quotas. Setups remain in appendices; optional material remains optional. No deployment was requested or performed.</p></main></html>

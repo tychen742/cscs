@@ -1,0 +1,88 @@
+{
+  "setup": "PRAGMA foreign_keys = ON;\nCREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT NOT NULL, Author TEXT NOT NULL, Price REAL NOT NULL);\nCREATE TABLE Sales (SaleId INTEGER PRIMARY KEY, BookId INTEGER NOT NULL, Quantity INTEGER NOT NULL, SoldOn TEXT NOT NULL, FOREIGN KEY(BookId) REFERENCES Books(BookId));\nINSERT INTO Books VALUES (1, 'C# Operations', 'Ana', 20.00), (2, 'Systems', 'Bo', 30.00), (3, 'Data', 'Ana', 15.00);\nINSERT INTO Sales VALUES (101, 1, 2, '2026-10-01'), (102, 1, 1, '2026-10-02'), (103, 2, 1, '2026-10-03');",
+  "queries": [
+    {
+      "sql": "SELECT Title, Price FROM Books WHERE Price < 25.00 ORDER BY Price DESC;",
+      "expected": [
+        [
+          "C# Operations",
+          20.0
+        ],
+        [
+          "Data",
+          15.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT COUNT(*) AS BookCount, AVG(Price) AS AveragePrice FROM Books;",
+      "expected": [
+        [
+          3,
+          21.666666666666668
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT Author, COUNT(*) AS BooksWritten FROM Books GROUP BY Author ORDER BY BooksWritten DESC;",
+      "expected": [
+        [
+          "Ana",
+          2
+        ],
+        [
+          "Bo",
+          1
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT Books.Title, Sales.Quantity, Sales.SoldOn FROM Sales JOIN Books ON Sales.BookId = Books.BookId ORDER BY Sales.SoldOn;",
+      "expected": [
+        [
+          "C# Operations",
+          2,
+          "2026-10-01"
+        ],
+        [
+          "C# Operations",
+          1,
+          "2026-10-02"
+        ],
+        [
+          "Systems",
+          1,
+          "2026-10-03"
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT Title, Price FROM Books WHERE Price >= 20.00 ORDER BY Price DESC;",
+      "expected": [
+        [
+          "Systems",
+          30.0
+        ],
+        [
+          "C# Operations",
+          20.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT BookId, COUNT(*) AS SaleEvents, SUM(Quantity) AS Copies FROM Sales GROUP BY BookId ORDER BY BookId;",
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

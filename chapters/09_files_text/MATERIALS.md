@@ -1,5 +1,17 @@
 # Chapter Materials — Files and Text
 
+## B-A Development Follow-up (2026-10-18)
+
+| Reading | Audit findings | Developed coverage |
+| --- | --- | --- |
+| `0901_stream_file.ipynb` | B05 | Repair the read-versus-write call and add separate argument/result/overwrite patterns; retain original file walkthrough. |
+| `0903_text_operations.ipynb` | B07 | Verify the current standalone record-parser caller, which already repeats its helper; interpret accepted/rejected records and distinguish parsing from domain validation. |
+| `0906_regex.ipynb` | B14 | Explain Match/Matches/Replace result shapes, named groups and no-match handling; trace three whole-record cases and immutable replacement; guide Ticket extraction before independent pattern practice. Supporting status unchanged. |
+| `0905_privacy_security.ipynb` | B15 | Retain card-masking practice; clarify that display masking does not erase or anonymize stored data; guide purpose-based log review with synthetic input and explained field minimization. Optional status unchanged. |
+
+Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
+
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
