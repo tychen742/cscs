@@ -146,3 +146,10 @@ Chapter 16 retains its full deeper treatment: result contracts, correctness/inva
 ## Legacy Page Development (2026-10-18)
 
 `0701_onedim.ipynb` and `0703_array_processing.ipynb` were developed in place from the content-development audit. 7.1 Creating Arrays and Accessing Array Elements gained runnable worked examples (creation forms; index reads and assignments with the three loop forms and the `d[k + 1]` versus `d[k] + 1` distinction; `PrintStrings` and a returned-array `MakeCodes` standing in for keyboard input), a guided Double Every Slot practice, and a runnable defaults example; legacy indented code and REPL transcripts are now labeled fences. 7.2 Parameters to Main and the Command Line Adder gained browser-runnable versions that supply the argument array, and References and Aliases gained a runnable int-copy versus array-alias and `Scale` example; its two inline image fragments were repaired into figure directives. All 9 new code cells compile and run standalone (.NET 10).
+
+## Pass 7 Cell Run (2026-10-18)
+
+The book-wide standalone compile-and-run check (authoring/content_development_audit/pass7_cell_run_report.md)
+found one defect in this chapter: the jagged-array example in 7.2 (cell `c9f57b8a`) was missing
+semicolons after the three `table2[i] = new int[...] {...}` row initializers. Fixed; the cell now runs
+and prints the output documented in its comments. All other Chapter 7 demonstration cells passed.
