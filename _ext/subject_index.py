@@ -6,6 +6,10 @@ entry instead. Explicit single/pair/triple/see/seealso directives retain their
 normal Sphinx semantics.
 """
 import re
+import json
+from pathlib import Path
+from sphinx import addnodes
+from sphinx.errors import ExtensionError
 from sphinx.domains.index import IndexDirective
 from sphinx.util import logging
 
@@ -79,43 +83,82 @@ def normalize_entry(entry):
 
 
 def clean_subject_index(app, env):
+    """Build the reviewed index from unchanged parsed source nodes.
+
+    Read the doctrees, not previously rewritten domain entries, so cached and
+    clean builds use the same source inventory and never remap our own output.
+    """
+    base = Path(__file__).parent
+    mapping_path = base / 'subject_index_entries.json'
+    additions_path = base / 'subject_index_additions.json'
+    mapping = json.loads(mapping_path.read_text())
+    additions = json.loads(additions_path.read_text())
     domain = env.get_domain('index')
-    canonical = {}
-    prepared = {}
-    suppressed = normalized = 0
-    for document, entries in domain.entries.items():
-        prepared[document] = []
-        for entry in entries:
-            result = normalize_entry(entry)
-            suppressed += not result
-            normalized += bool(result and result != [entry])
-            prepared[document].extend(result)
-            for kind, value, *_ in result:
-                # Merge capitalization variants only where both already exist.
-                # Prefer the lowercase subject term; preserve API capitalization.
-                for part in value.split(';'):
-                    part = part.strip()
-                    key = (kind, part.casefold())
-                    if key not in canonical or part == part.lower():
-                        canonical[key] = part
-    for document, entries in prepared.items():
-        cleaned, seen = [], set()
+    output = {}
+    unknown = set()
+    evidence = []
+    for document in sorted(env.found_docs):
+        tree = env.get_doctree(document)
+        entries = []
+        for node in tree.findall(addnodes.index):
+            for original in node['entries']:
+                for kind, value, target, main, category in normalize_entry(original):
+                    key = value.casefold()
+                    if kind != 'single' or key not in mapping:
+                        unknown.add((document, kind, value))
+                        continue
+                    for subject in mapping[key]:
+                        entries.append(('single', subject, target, main, category))
+                    evidence.append((document, target, value))
+        output[document] = entries
+    if unknown:
+        examples = '\n'.join(f'{doc}: {kind}: {value}'
+                             for doc, kind, value in sorted(unknown))
+        raise ExtensionError('Unreviewed subject-index entries. Review and update '
+                             'subject_index_entries.json before publishing:\n' + examples)
+    for addition in additions['entries']:
+        document, target = addition['document'], addition['target']
+        if document not in output:
+            raise ExtensionError(f'Unknown index destination: {document}')
+        tree = env.get_doctree(document)
+        if target not in tree.ids:
+            raise ExtensionError(f'Missing index destination: {document}#{target}')
+        output[document].append((addition.get('kind', 'single'), addition['value'],
+                                 target, '', None))
+    # Collapse duplicate pointers within the same actual section, not unrelated
+    # passages that happen to share a term. Prefer the stable section anchor.
+    collapsed = {}
+    for document, entries in output.items():
+        tree = env.get_doctree(document)
+        seen, clean = set(), []
         for kind, value, target, main, category in entries:
-            value = '; '.join(canonical[(kind, part.strip().casefold())]
-                              for part in value.split(';'))
-            item = (kind, value, target, main, category)
-            if item not in seen:
-                cleaned.append(item)
-                seen.add(item)
-        domain.entries[document] = cleaned
-    LOGGER.info('Subject index: omitted %s task/boilerplate entries; normalized %s entries.',
-                suppressed, normalized)
-    # Rebuild one ordinary document so Sphinx also regenerates genindex when
-    # only this extension has changed and no notebook needs rereading.
+            node = tree.ids.get(target)
+            section = node
+            while section is not None and section.tagname != 'section':
+                section = section.parent
+            section_id = section['ids'][0] if section is not None and section['ids'] else target
+            key = (kind, value, section_id)
+            if key not in seen:
+                clean.append((kind, value, target, main, category))
+                seen.add(key)
+        collapsed[document] = clean
+    roots = {value.split(';')[0].strip() for entries in collapsed.values()
+             for kind, value, *_ in entries if kind == 'single'}
+    for entries in collapsed.values():
+        for kind, value, *_ in entries:
+            if kind in {'see', 'seealso'}:
+                for destination in value.split(';', 1)[1].split(','):
+                    if destination.strip() not in roots:
+                        raise ExtensionError(f'Unknown index cross-reference: {value}')
+    domain.entries.clear()
+    domain.entries.update(collapsed)
+    LOGGER.info('Reviewed subject index: %s source locations, %s lookup entries, '
+                '%s explicit additions/cross-references.', len(evidence),
+                sum(map(len, collapsed.values())), len(additions['entries']))
     return ['index']
 
 
 def setup(app):
     app.add_directive('index', SubjectIndexDirective, override=True)
     app.connect('env-updated', clean_subject_index)
-    return {'version': '2.0', 'parallel_read_safe': True, 'parallel_write_safe': True}
+    return {'version': '3.0', 'parallel_read_safe': True, 'parallel_write_safe': True}

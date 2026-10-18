@@ -408,3 +408,19 @@ navigation entries, merge case variants, expand long subentry lists and repair
 repeated words/markup/placeholders. Notebook text and anchors remain intact.
 See `authoring/index_cleanup/editorial_review.html` and verification evidence.
 Local work, not deployed.
+
+## Full subject-index revision (2026-10-17)
+
+Resolved the complete 1,435-entry audit using a reviewed source-to-subject map.
+Replaced teaching-heading entries with concept names; corrected API ownership,
+LIFO/FIFO groupings and unrelated keyword hierarchies; consolidated variants;
+added 41 direct entries and 42 explicit cross-references. Conservative grouping
+flags were checked against their passages and retained where appropriate.
+
+All 1,920 original indexed locations are accounted for in the mapping. The
+rendered index matches every retained mapped passage and addition; duplicate
+pointers within a passage are collapsed. All 341 tracked notebooks are unchanged;
+276 existing baseline notebooks are byte-identical, with one absent ignored checkpoint recorded separately.
+Full build passes with the existing Chapter 2 character-literal lexing warning.
+See `authoring/index_revision/` and the local `index_revision_review.html` for
+complete evidence and before/after mappings. Local changes, not deployed.
