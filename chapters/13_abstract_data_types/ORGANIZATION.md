@@ -140,3 +140,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 | Growth cost and storage evidence | 1302_representations_costs existing growth/amortized tables | Existing representation comparisons | New independent capacity-one doubling trace derives copy total rather than only naming amortized complexity. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+## Caption-Only Section Development (2026-10-18)
+
+13.3 keeps its section order; every construct section now shows the pattern before the example and interprets the output after it.

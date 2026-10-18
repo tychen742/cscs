@@ -173,3 +173,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Legacy Page Development (2026-10-18)
 
 `0901_stream_file.ipynb` gained a Console-versus-file method comparison table in File Stream, labeled fences for the File-class transcripts, and a runnable `File.WriteAllText`, `AppendAllText`, `ReadAllText`, `Exists`, `Delete` example in an owned temporary location with interpretation; two unlabeled fences were labeled. `0902_file_operations.ipynb` gained runnable `Path` helper, `Directory` listing, and partial-output resource-lifetime examples (the last runs the page's guided scenario: two lines written, the third fails, the report is partial) and a fenced using-declaration pattern. All 4 new code cells compile and run standalone (.NET 10) and clean up after themselves.
+
+## Caption-Only Section Development (2026-10-18)
+
+Pass 3 of the content-development audit: in 9.3 Splitting and Tokenizing gained the `Split` pattern and interpretation after each of its three cells (including the index-shift hazard of RemoveEmptyEntries on fixed-format records), Safe Replacement gained a sentence per step and the `Replace` pattern, Structured Lines gained an explanation of the TryParse-shaped parser and interpretation of the four results, and When to Use a Database gained a text-file-versus-database comparison table. No code changed; cells were rerun to confirm outputs.

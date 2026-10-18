@@ -131,3 +131,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 | Composition/refactoring judgment | 1102_composition and 1103_testing_collaboration existing object contracts | Existing order model and collaboration checks | New assessment requires refactoring duplicated address fields while retaining public-behavior regression checks. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+## Caption-Only Section Development (2026-10-18)
+
+11.5 remains a supporting reading; its construct sections now interpret their outputs and the pattern-matching section has a runnable example.

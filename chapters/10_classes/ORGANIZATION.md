@@ -146,3 +146,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Legacy Page Development (2026-10-18)
 
 10.1 and 10.2 now follow the section pattern: explanation, labeled syntax pattern, runnable worked example, output interpretation, a common mistake, and guided practice. The getter and setter subsections of 10.2 are kept as the explanation of what accessors do and are followed by the property form students should write. No headings, cell IDs, or exercise IDs were removed.
+
+## Caption-Only Section Development (2026-10-18)
+
+10.3's three worked examples now end with interpretation; order and IDs unchanged.

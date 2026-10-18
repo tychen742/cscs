@@ -105,3 +105,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 | Composition/refactoring judgment | 1102_composition and 1103_testing_collaboration existing object contracts | Existing order model and collaboration checks | New assessment requires refactoring duplicated address fields while retaining public-behavior regression checks. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+## Caption-Only Section Development (2026-10-18)
+
+Pass 3 of the content-development audit: in 11.5 Nullability the nullable value, nullable reference, and null-operator sections gained output interpretation and the mistakes of reading `.Value` when empty, silencing warnings with `!`, and expecting a non-nullable result from `?.`; Pattern Matching and Null gained a runnable switch-expression example over three samples (compiles and runs standalone, .NET 10).

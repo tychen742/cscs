@@ -119,3 +119,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Summary
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+The short code-first sections at the top of 14.1, 14.2, and 14.3 now read as explanation, pattern, example, interpretation, mistake, so the developed trace sections later on each page build on something students have already run and understood. Headings, cell IDs, and exercise IDs are unchanged.

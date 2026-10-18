@@ -117,3 +117,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Summary
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+From the content-development audit (`authoring/content_development_audit/`), pass 3. In 14.1 Contiguous Storage, Resizing by Copying, and the Worked Example gained the append and resize patterns as labeled syntax, two-to-three-sentence explanations before each cell, output interpretation after it, and a named mistake (Length as count; forgetting to reassign the grown array; indexer bound by Count); Cost of Append gained a copy-count table. In 14.2 Nodes, Traversal, Insertion, and Deletion gained the node class and traversal loop as patterns, interpretation of each output, and the classic defects (null dereference past the tail, skipping the last node, reversed insertion assignments). In 14.3 the three cost examples gained interpretation that ties the visit counts and shift counts to the costs table. No code cell changed; existing cells were rerun to confirm the stated outputs.

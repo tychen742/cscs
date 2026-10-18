@@ -170,3 +170,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - AI Review: Challenge Suggested Tests
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+6.1's construct sections now follow explanation, pattern, example, interpretation, mistake. Section order, cell IDs, and exercise IDs are unchanged.

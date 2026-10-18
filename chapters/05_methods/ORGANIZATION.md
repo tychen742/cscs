@@ -250,3 +250,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Guided Practice: Use a Returned Value
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+5.4's string-method sections now interpret their outputs; order and IDs unchanged.

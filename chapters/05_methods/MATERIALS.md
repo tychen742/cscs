@@ -250,3 +250,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Guided Practice: Use a Returned Value
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+Pass 3 of the content-development audit: in 5.4 Searching, Extracting Part of a String, and Replacing Text gained output interpretation and a named mistake each (treating IndexOf as a Boolean, position-dependent Substring arguments, case-sensitive Replace), and Extracting gained the two Substring forms as a labeled pattern. No code changed; cells were rerun to confirm outputs.

@@ -178,3 +178,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - AI Review: Challenge Suggested Tests
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Caption-Only Section Development (2026-10-18)
+
+Pass 3 of the content-development audit. In 6.1 the four construct sections (try/catch/finally, TryParse, file I/O, throwing) gained general-syntax patterns, explanations of control flow and catch ordering, output interpretation, and named mistakes. Three code cells were made browser-safe so their catch branches actually run: the parse example falls back to the sample `12x` when there is no keyboard, the TryParse example to `41`, and the intentional `Divide(10, 0)` throw is caught by the caller. Validation vs. Exceptions gained a comparison table and Common Mistakes gained a sentence of reasoning per item plus an anti-pattern. The three modified cells compile and run with the outputs the prose states (.NET 10).
