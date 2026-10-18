@@ -92,3 +92,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2502_backtracking.ipynb`: Backtracking, Pruning, and Search States.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 15 mistakes beside the examples (incomplete cache keys, backward table fills, comparing counts at different n, the unguarded table[1], storing the shared list, reusing a position, pruning signed values on remaining < 0, caching r alone, not resetting used, reference sharing the search's pruning rule, zero for unreachable, largest-first packs, witness as proof of optimality, deduplicating inventory, re-enqueueing discovered amounts) and interpretation after the exercise and practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

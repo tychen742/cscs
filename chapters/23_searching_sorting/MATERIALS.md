@@ -112,3 +112,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2305_quicksort.ipynb`: Quicksort and Partitioning.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all five pages: mistakes beside the examples (stopping at equality in boundary search, mismatched sort and search comparers, insertion point read as a match, the naive swap, swapping during the selection scan, shifting on equality, full-width bubble passes, integer-only stability tests, unequal search tasks, reusing one input across algorithms, summing unlike operations, small-n conclusions from growth models, omitting preparation, recommendations by name, gap sequences without 1, non-advancing quicksort scans) and interpretation after the exercise solutions and the result-comparison cells. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

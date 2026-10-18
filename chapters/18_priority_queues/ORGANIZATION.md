@@ -99,3 +99,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added task text with the required output property above the code-only triage Exercise in 18.3. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (expecting enumeration in priority order, checking the heap rule only at the root, the wrong parent formula, swapping with the left child without checking the right, a max-heap for top-k) and interpretation after the practice and exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

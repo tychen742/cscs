@@ -110,3 +110,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 17.1 (sum the values) and 17.4 (find the largest ID), and task text with expected output above the code-only Exercise cells of 17.2, 17.3, and 17.4. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all four pages: 16 common-mistake paragraphs beside the examples (building below a missing node, non-shrinking recursion, reading a trace top-down, pruning the wrong side, a stack in place of the level-order queue, successor left in place after removal) and interpretation after the exercise solutions, the SortedSet example, the TicketTree opener, and the range-count solution. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

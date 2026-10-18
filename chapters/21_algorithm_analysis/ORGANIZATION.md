@@ -61,3 +61,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2103_recurrences.ipynb`: Recurrences and Recursive Cost.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 16 mistakes beside the examples (mixed cost models, multiplying dependent bounds, merging independent sizes, reading O as Theta, reporting the best case, counting stack depth as memory, weak specifications, closed-range invariants, invariant without variant, early return without its own argument, best initialized to zero, missing base case, fractional halving, dropped combine work, odd splits, call count as stack depth) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

@@ -79,3 +79,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 | Coordinated indexes and workload choice | 1903_collection_selection existing queue/dictionary cancellation example | Existing skip-cancelled exercise retained | New independent cancellation queue enforces never-reused IDs, checks stale/duplicate/empty cases, states coordination invariant, and compares sorted-range workload. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (Math.Abs on hash codes, appending to a chain without scanning it, clearing a tombstone, mismatched comparers, mutating a source set, indexing to test membership, forcing one structure to answer every need, trusting one stopwatch run, assuming cancellation empties the queue) and interpretation after the colliding-key, set-algebra, lookup, workload, and lazy-deletion cells. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

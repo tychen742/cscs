@@ -91,3 +91,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2404_shortest_paths.ipynb`: Shortest Paths and Dijkstra.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (sorting by start or duration, treating back-to-back as a conflict, keeping earliest-finish for weighted values, exhaustive checks at scale, reading parent links as cables, V-1 as the success test, forest cost as travel cost, one arc per two-way road, relaxing with <=, fabricated one-vertex routes, Kruskal for routing, endpoint-only path checks, rejecting negative weights everywhere) and interpretation after the forest trace, the boundary cells, and the practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.

@@ -99,3 +99,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `2601_graph_traversal.ipynb`: Traversal Verification.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Mistakes and Interpretation Pass (2026-10-18)
+
+Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (skipping overlapping matches, int shifts for 2^40, feasible read as optimal, timing before validating, improper borders, resetting q after a match, the off-by-one fallback index, moving the text backward, scan counts without preparation) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
