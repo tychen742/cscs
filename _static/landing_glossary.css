@@ -1,0 +1,37 @@
+/* Jupyter Book chapter-landing glossary table.
+ *
+ * Use with landing-page Markdown glossary tables shaped as:
+ * | # | Term | Explanation |
+ *
+ * The first column stays narrow, terms stay scannable, and definitions get the
+ * remaining space. Jupyter Book renders the right-aligned `#` header as
+ * `th.text-right`, so the selector keys off that generated table shape.
+ */
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) {
+    width: 100% !important;
+    margin: 0 0 1.25rem 0 !important;
+    table-layout: fixed;
+}
+
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) th:first-child,
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) td:first-child {
+    width: 3.25rem;
+    text-align: right;
+    color: #64748b !important;
+    font-variant-numeric: tabular-nums;
+}
+
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) th:nth-child(2),
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) td:nth-child(2) {
+    width: 22%;
+    font-weight: 600;
+}
+
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) th,
+.bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) td {
+    vertical-align: top;
+}
+
+html[data-theme="dark"] .bd-article-container h2 + .pst-scrollable-table-container > table:has(thead th.text-right:first-child):has(thead th:nth-child(2)):has(thead th:nth-child(3)) td:first-child {
+    color: #94a3b8 !important;
+}

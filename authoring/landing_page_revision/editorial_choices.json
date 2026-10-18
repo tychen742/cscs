@@ -1,0 +1,589 @@
+{
+  "introductions": {
+    "1": "How does an appointment reminder become a program that people can trust? This chapter connects a precise procedure and checkable output to the hardware, software, and people involved in computing. You will consider professional responsibility and AI suggestions, then create, edit, and run a first saved C# program. Installation and detailed Git workflows remain in the appendices.",
+    "2": "A sales total, an inventory count, and a customer name require different kinds of data. This chapter follows values through variables, assignments, expressions, conversion, and console input/output. You will trace how program state changes and use built-in methods before learning to define your own methods in Chapter 5.",
+    "3": "A business rule becomes useful only when a program chooses the right action for each input. This chapter develops Boolean conditions, alternative branches, and multiway decisions through familiar eligibility and classification problems. You will trace the selected path and check the boundaries where the answer changes.",
+    "4": "Processing a range of values or repeatedly asking for valid input requires controlled repetition. This chapter connects loop initialization, continuation conditions, and updates to counted work, string traversal, and running totals. You will explain why a loop stops and test its first, last, and empty cases; the GCD lesson provides additional supporting practice.",
+    "5": "When a calculation or text-cleaning step appears in several places, it needs a name and a clear promise. This chapter builds on the built-in calls from Chapter 2 to develop your own methods, parameters, results, and reusable string-processing operations. You will connect method design to caller behavior, scope, and repeatable checks rather than simply breaking a program into smaller files.",
+    "6": "An invalid quantity, a failing file operation, and a wrong total call for different responses. This chapter brings the earlier checking habits together into validation, intentional exception handling, evidence-based debugging, and repeatable unit tests. You will distinguish reporting an expected failure from investigating a defect and verify that a repair preserves working cases.",
+    "7": "A week of sales figures is easier to process as one indexed group than as seven unrelated variables. An array is a collection type with a fixed length. This chapter connects element access and loop traversal to aggregation, shared references, method calls, and rectangular data; Chapter 8 broadens the choice of collection families.",
+    "8": "An inventory report may need ordered items, a lookup by product ID, or a record of which IDs have already appeared. Arrays are one collection family, but different access rules support different tasks. This chapter compares those families and their shared operations, then develops lists and dictionaries through creation, updates, traversal, missing-data policies, and reference behavior.",
+    "9": "An order-import program must find its input, keep file resources under control, and decide whether each text record is usable. This chapter connects reading and writing to paths, resource lifetime, and field validation. Core sections develop file and text workflows; regular expressions and privacy/security cases remain labeled supporting reading.",
+    "10": "A product has state and rules that should travel together. This chapter introduces classes as definitions of objects with fields, constructors, properties, and methods. You will build and check small business types, distinguish instance state from shared members, and use encapsulation to keep an object valid.",
+    "11": "An order and its line items form a collaborating model, not just a collection of individually correct classes. This chapter connects reference sharing and identity to structs, records, composition, and object responsibilities. You will make copying and mutation policies explicit, protect internal collections, and test collaborations; deeper nullability is supporting reading in this same sequence.",
+    "12": "A reporting client should be able to use different implementations without changing its expectations. Building on composition, this chapter develops inheritance, virtual dispatch, abstract classes, and interfaces as ways to express and share behavior. You will test substitution and choose a relationship from the requirements rather than inheriting merely to reuse code.",
+    "13": "A client needs to know what a collection promises before it needs to know where the values live. This chapter connects abstract data type contracts to representations, invariants, generics, iteration, and operation costs. These ideas provide the vocabulary for comparing the concrete structures in the following chapters.",
+    "14": "A resizable product list and a chain of linked nodes can represent the same sequence while doing very different work. This chapter develops both representations and compares access, growth, insertion, and removal under explicit invariants. You will test the sequence contract and justify a representation for a workload; Chapter 16 develops search and sorting algorithms separately.",
+    "15": "Undoing the latest edit and serving the earliest waiting request require different access rules. This chapter connects stack, queue, and deque contracts to array and linked representations, bounded capacity, and ring-buffer wraparound. You will apply the structures to histories, delimiter checks, and worklists while checking both failure behavior and operation costs.",
+    "16": "Finding a product and preparing a report are different tasks, even when they use the same records. These two sections connect first-match search contracts, sorted-input requirements, and sorting policies to complete query and reporting workloads. You will account for preparation and updates as well as lookup cost, and preserve the original records when a report requires a separate ordered view.",
+    "17": "A hierarchy of categories or an ordered set can be represented through nodes and child subtrees. This chapter introduces recursive models before using them to traverse trees, compute results, and maintain a binary search tree. You will connect each update to the ordering invariant and analyze work in terms of tree shape and height.",
+    "18": "The next service request may be the most urgent rather than the earliest arrival. This chapter separates a priority queue's removal contract from a heap's representation, then develops insertion and removal repairs. You will test heap invariants and apply bounded priority selection to top-k workloads while distinguishing priority from fairness.",
+    "19": "Fast lookup depends on what it means for two keys to be the same. This chapter connects equality policies and hash codes to collisions, resizing, dictionaries, sets, and frequency counts. You will choose collections for reconciliation and coordinated-index workloads and explain how to preserve consistency when records change.",
+    "20": "A delivery network is more than a list of places: its edges determine which routes exist. This chapter connects graph vocabulary and model assumptions to adjacency representations, breadth-first search, and depth-first search. Across four sections, you will recover minimum-hop paths, identify undirected components, and verify results against direction, discovery, and cost contracts.",
+    "21": "A program can produce the right sample answer and still lack a correctness argument or a useful cost model. This chapter connects specifications and loop invariants to operation counts, asymptotic bounds, and recurrences. You will state the input and counting assumptions behind each claim and distinguish measured performance from general reasoning.",
+    "22": "A recursive call is useful when a smaller problem has a precise contract and makes progress toward a base case. This chapter connects separate call frames and returned values to divide-and-conquer design, then develops stable merge sort. You will verify splitting, occurrence preservation, tie policies, and auxiliary storage as well as sorted output.",
+    "23": "A search result must say which match it promises, and a sorted report must preserve more than order. This chapter deepens Chapter 16 through duplicate-aware bounds, elementary-sort invariants, exact counts, and complete workload comparisons. Shell sort and quicksort remain supporting readings after the core sequence.",
+    "24": "A locally attractive choice needs evidence before it can be trusted as a global solution. This chapter develops exchange reasoning through interval scheduling, minimum spanning forests, and nonnegative shortest paths. You will distinguish network construction from route finding and verify feasibility, costs, and boundary cases independently.",
+    "25": "Repeated subproblems invite reuse; a tree of choices requires careful exploration and undo. This chapter connects memoization and tabulation to complete state definitions, optimization recurrences, reconstructed solutions, and backtracking. You will compare reusable-pack planning with one-use record selection and report resource-limited searches honestly.",
+    "26": "A text search can reuse a proved prefix match, while an optimization search may still face rapidly growing work. This chapter connects direct matching and KMP to computational growth, exact witnesses, heuristics, and approximation guarantees. The three core sections emphasize result contracts and evidence; this chapter remains optional for the College of Business pathway."
+  },
+  "concepts": {
+    "11": [
+      [
+        "References and identity",
+        "Trace when variables share one object and when domain equality differs from identity."
+      ],
+      [
+        "Structs and records",
+        "Choose copying and equality behavior for a data model."
+      ],
+      [
+        "Composition",
+        "Assign coherent responsibilities to collaborating objects."
+      ],
+      [
+        "Mutation and ownership",
+        "Protect internal state and recognize shallow copies."
+      ],
+      [
+        "Contracts and missing data",
+        "Check observable behavior and make optional data explicit."
+      ]
+    ],
+    "16": [
+      [
+        "Search contract",
+        "Specify the required match and the meaning of a missing result."
+      ],
+      [
+        "Sorted input",
+        "Binary search depends on compatible ordering and indexed access."
+      ],
+      [
+        "Stable sorting",
+        "Preserve arrival order among records with equivalent keys."
+      ],
+      [
+        "Mutation policy",
+        "Distinguish changing a collection from preparing a report snapshot."
+      ],
+      [
+        "Complete workload",
+        "Include preparation, queries, and updates in the cost comparison."
+      ]
+    ],
+    "18": [
+      [
+        "Priority queue",
+        "Choose the next item by priority rather than arrival order."
+      ],
+      [
+        "Binary heap",
+        "Combine complete-tree shape with a parent-child order invariant."
+      ],
+      [
+        "Sift repair",
+        "Restore order along one affected path after an update."
+      ],
+      [
+        "Tie policy",
+        "State what happens when primary priorities are equal."
+      ],
+      [
+        "Top-k selection",
+        "Keep a bounded set of the most relevant items."
+      ]
+    ],
+    "19": [
+      [
+        "Key equality",
+        "Decide which identifiers represent the same key."
+      ],
+      [
+        "Hashing",
+        "Map keys to buckets and resolve collisions without confusing them with equality."
+      ],
+      [
+        "Growth",
+        "Keep load and rehashing costs visible as the collection expands."
+      ],
+      [
+        "Sets and counts",
+        "Distinguish membership from how many times a value appears."
+      ],
+      [
+        "Coordinated indexes",
+        "Keep multiple collection views consistent under updates."
+      ]
+    ],
+    "20": [
+      [
+        "Graph model",
+        "Choose vertices, directed or undirected edges, and weight assumptions."
+      ],
+      [
+        "Adjacency representation",
+        "Trade storage and neighbor-access costs between matrices and collections."
+      ],
+      [
+        "Breadth-first search",
+        "Discover vertices in layers and recover minimum-hop paths."
+      ],
+      [
+        "Depth-first search",
+        "Explore a branch while preserving suspended traversal state."
+      ],
+      [
+        "Verification",
+        "Check reachability and components against the stated graph contract."
+      ]
+    ],
+    "23": [
+      [
+        "Match policy",
+        "Distinguish first, any, and all matches under explicit equality rules."
+      ],
+      [
+        "Search bounds",
+        "Locate duplicate groups and insertion positions in sorted data."
+      ],
+      [
+        "Sort invariants",
+        "Explain why selection, insertion, and bubble sorts preserve every occurrence."
+      ],
+      [
+        "Stability and mutation",
+        "Preserve tied-record order and state which collection changes."
+      ],
+      [
+        "Workload comparison",
+        "Count preparation, repeated queries, updates, and auxiliary storage."
+      ]
+    ]
+  },
+  "objectives": {
+    "2": [
+      "Declare and initialize variables, then trace assignment and reassignment through changes in program state.",
+      "Choose numeric, Boolean, character, and string types appropriate to a stated data requirement.",
+      "Predict arithmetic, comparison, logical, and string-expression results using C# precedence and division rules.",
+      "Read a built-in method signature, supply arguments, and use results from methods such as `Math.Round` and `int.Parse`.",
+      "Convert values with casts or parsing, read console input, and produce labeled, formatted output with checkable results."
+    ],
+    "5": [
+      "Define and call methods with names, parameter lists, and return types that communicate their responsibilities.",
+      "Trace arguments, parameters, local scope, and returned values between a caller and a method.",
+      "Distinguish a `void` method from a value-returning method and use a returned result in a larger expression.",
+      "Decompose repeated calculations into methods with explicit input and result contracts.",
+      "Clean, search, and extract text with string methods while preserving the original string unless a result is assigned.",
+      "Check methods with expected results and boundary cases, including reviewing a prepared AI suggestion against its contract."
+    ],
+    "6": [
+      "Choose validation or exception handling for a stated failure and use `TryParse` for expected invalid input.",
+      "Trace `try`, matching `catch`, and `finally` paths and report or throw failures intentionally.",
+      "Reproduce a defect, form a hypothesis, and use breakpoints, watches, stepping, and the call stack to test it.",
+      "Write repeatable method tests with explicit expected results and meaningful normal, boundary, and failure cases.",
+      "Verify a repair with regression checks and evaluate whether proposed tests challenge the actual contract."
+    ],
+    "7": [
+      "Explain why an array is a collection, then declare, initialize, and access one-dimensional arrays within their valid index ranges.",
+      "Traverse arrays with `for` and `foreach` to calculate results and update elements where appropriate.",
+      "Trace array reference assignment and distinguish sharing from making a separate shallow copy.",
+      "Pass arrays to methods and return array results while explaining which operations can change the caller's elements.",
+      "Declare and process rectangular arrays using the correct bounds for each dimension."
+    ],
+    "8": [
+      "Match the introductory collection families to their access rules and choose a family for a stated business task.",
+      "Compare shared collection operations while using the correct API for an array, list, dictionary, set, stack, or queue.",
+      "Create and update type-safe `List<T>` values and explain indexing, count, capacity, and traversal behavior.",
+      "Store and retrieve `Dictionary<TKey, TValue>` entries using an explicit key and missing-value policy.",
+      "Distinguish collection reference assignment from copying elements, and explain the limits of a shallow copy.",
+      "Check collection operations with empty inputs, duplicates, missing keys, and mutations that affect traversal."
+    ],
+    "9": [
+      "Read and write text with `File`, `StreamReader`, and `StreamWriter` under an explicit overwrite or append policy.",
+      "Construct and inspect paths and handle file resources and expected I/O failures intentionally.",
+      "Clean and split text, validate fields, and convert accepted records into typed values.",
+      "Check an import against malformed, missing, empty, and boundary cases without silently accepting invalid records.",
+      "For the supporting regex reading, select simple patterns and groups for targeted matching and extraction; for the privacy/security reading, explain how to reduce exposed data."
+    ],
+    "10": [
+      "Define classes with fields, constructors, methods, and properties for a stated business responsibility.",
+      "Construct valid instances and protect their state with private fields and controlled public operations.",
+      "Trace changes to independent objects and distinguish instance members from static members.",
+      "Explain class reference assignment and distinguish a shared object from an independent value.",
+      "Check constructor and operation contracts using normal and invalid inputs."
+    ],
+    "14": [
+      "Explain how array-backed and linked representations store the same sequence contract.",
+      "Trace resizing, shifting, and the total copy cost of repeated array-backed appends.",
+      "Implement generic array-backed and singly linked sequences while preserving count, head, and tail invariants.",
+      "Separate the cost of locating a position from the cost of insertion or deletion at that position.",
+      "Test empty, singleton, duplicate, and invalid-index cases and justify a representation using workload and memory-locality evidence."
+    ],
+    "16": [
+      "Specify first-match search and missing-result behavior, including the meaning of a library search result.",
+      "Trace linear search and binary search while enforcing sorted-input and comparer requirements.",
+      "Implement insertion sorting and verify order, occurrence preservation, and behavior at boundaries.",
+      "Prepare a report with explicit mutation and tie-order policies, including a separate snapshot when needed.",
+      "Compare complete search/report workloads, accounting for preparation, repeated queries, updates, and storage."
+    ],
+    "18": [
+      "Specify priority order, tie behavior, and empty-removal behavior for a priority queue.",
+      "Map complete-tree positions to array indexes and check the heap-order invariant.",
+      "Trace and implement sift-up and sift-down repairs for insertion and removal.",
+      "Explain heap operation costs and distinguish a valid heap from a fully sorted array.",
+      "Maintain a bounded top-k selection and compare priority scheduling with fairness requirements."
+    ],
+    "19": [
+      "Choose a key equality policy and explain why equal keys must have compatible hash codes.",
+      "Trace bucket selection, collision resolution, deletion, and rehashing as load changes.",
+      "Use dictionaries, sets, and frequency counts to distinguish lookup, membership, and multiplicity.",
+      "Compute union, intersection, and difference for a record-reconciliation task under a consistent equality policy.",
+      "Choose and coordinate collection indexes for a workload, test cancelled or updated entries, and explain consistency and operation costs."
+    ],
+    "20": [
+      "Model a network with explicit vertex, edge, direction, weight, and simple-graph assumptions.",
+      "Compare adjacency matrices and adjacency collections in terms of storage, density, and required operations.",
+      "Trace BFS discovery and layer invariants and reconstruct a valid minimum-hop path.",
+      "Trace DFS with explicit suspended frames and identify components only under the appropriate direction assumptions.",
+      "Verify reachability, paths, and component reports with boundary cases and explain traversal costs for the chosen representation."
+    ]
+  },
+  "titles": {
+    "2": "Variables, Data Types, and Operators",
+    "3": "Decisions",
+    "13": "Abstract Data Types",
+    "14": "Arrays and Linked Lists",
+    "15": "Stacks, Queues, and Deques",
+    "17": "Trees and Binary Search Trees",
+    "21": "Algorithm Analysis",
+    "22": "Recursion and Divide-and-Conquer",
+    "24": "Greedy Algorithms and Graph Optimization",
+    "25": "Dynamic Programming and Backtracking",
+    "26": "String Matching and Computational Limits"
+  },
+  "glossary_additions": {
+    "2": [
+      [
+        "Program state",
+        "The values held by the program at a particular point in execution."
+      ],
+      [
+        "Method signature",
+        "The name and parameter information that distinguish a method; its declaration also shows the return type."
+      ]
+    ],
+    "3": [
+      [
+        "Boundary case",
+        "An input at or near a point where the selected branch changes."
+      ]
+    ],
+    "4": [
+      [
+        "Accumulator",
+        "A variable that combines values across iterations."
+      ],
+      [
+        "Sentinel",
+        "A designated input value that ends a repeated-input process."
+      ]
+    ],
+    "5": [
+      [
+        "Argument",
+        "A value or expression supplied at a method call."
+      ],
+      [
+        "Local scope",
+        "The region where a local name can be used."
+      ],
+      [
+        "Method contract",
+        "The required inputs, promised result, and stated failure behavior of a method."
+      ],
+      [
+        "String immutability",
+        "String operations produce results rather than changing the existing string object."
+      ],
+      [
+        "Boundary test",
+        "A check at or near an input-domain limit."
+      ]
+    ],
+    "6": [
+      [
+        "Regression test",
+        "A repeatable check that previously working behavior still works after a change."
+      ],
+      [
+        "Reproduction",
+        "A repeatable sequence of inputs and actions that exposes a failure."
+      ],
+      [
+        "Hypothesis",
+        "A proposed explanation of a defect that can be tested with execution evidence."
+      ],
+      [
+        "Call stack",
+        "The active chain of method calls available for inspecting a failure."
+      ],
+      [
+        "TryParse",
+        "A parsing pattern that reports success as a Boolean and supplies a converted result without throwing for expected invalid text."
+      ]
+    ],
+    "7": [
+      [
+        "Alias",
+        "Another reference to the same array object."
+      ],
+      [
+        "Shallow copy",
+        "A separate array containing copied element values or references, without cloning referenced objects."
+      ],
+      [
+        "Rectangular array",
+        "An array with a fixed length for each dimension and the same row width throughout."
+      ]
+    ],
+    "8": [
+      [
+        "Push",
+        "Add an item at the top of a stack."
+      ],
+      [
+        "Pop",
+        "Remove and return the top stack item."
+      ],
+      [
+        "Peek",
+        "Inspect the next item without removing it."
+      ],
+      [
+        "Enqueue",
+        "Add an item at the back of a queue."
+      ],
+      [
+        "Dequeue",
+        "Remove and return the front queue item."
+      ],
+      [
+        "Shallow copy",
+        "A new collection containing copied values or references rather than independent copies of every referenced object."
+      ]
+    ],
+    "9": [
+      [
+        "Path",
+        "A string locating a file or directory within a filesystem."
+      ],
+      [
+        "Resource lifetime",
+        "The interval during which a file handle or other resource is owned and must eventually be released."
+      ],
+      [
+        "Token validation",
+        "Checking a separated text field before accepting or converting it."
+      ],
+      [
+        "Append",
+        "Write additional content after the existing contents of a file."
+      ],
+      [
+        "Overwrite",
+        "Replace existing contents when writing a file."
+      ]
+    ],
+    "10": [
+      [
+        "Instance member",
+        "A field, property, or method associated with a particular object."
+      ],
+      [
+        "Static member",
+        "A member associated with the type rather than a separate member for every instance."
+      ]
+    ],
+    "11": [
+      [
+        "Nullable reference annotation",
+        "A type annotation documenting that a reference may be missing and enabling compiler flow analysis."
+      ],
+      [
+        "Ownership",
+        "A policy specifying which object may control or change a piece of state."
+      ],
+      [
+        "Snapshot",
+        "A saved view of values whose independence depends on its copying policy."
+      ],
+      [
+        "Record struct",
+        "A value type with compiler-generated record members, including value-based equality."
+      ],
+      [
+        "Record class",
+        "A reference type with compiler-generated record members, including value-based equality."
+      ]
+    ],
+    "12": [
+      [
+        "Composition",
+        "Building a type from collaborators rather than inheriting all of its behavior."
+      ],
+      [
+        "Virtual member",
+        "An overridable member whose implementation can be selected through runtime dispatch."
+      ],
+      [
+        "Behavioral contract",
+        "The observable promises that a client relies on across interchangeable implementations."
+      ]
+    ],
+    "14": [
+      [
+        "Count",
+        "The number of logical sequence elements currently stored."
+      ],
+      [
+        "Location cost",
+        "The work required to find an index or node before changing the sequence."
+      ]
+    ],
+    "16": [
+      [
+        "First-match search",
+        "A search that returns the earliest position satisfying its matching rule."
+      ],
+      [
+        "Missing result",
+        "The explicitly documented result used when no match exists."
+      ],
+      [
+        "Comparer",
+        "An ordering rule used consistently by sorting and ordered searching."
+      ],
+      [
+        "Sorted snapshot",
+        "A separate ordered view prepared without changing the source sequence."
+      ],
+      [
+        "Occurrence preservation",
+        "Keeping every input occurrence, including duplicates, after an operation."
+      ],
+      [
+        "Preparation cost",
+        "The work required to construct an ordered representation before answering queries."
+      ],
+      [
+        "Mutation policy",
+        "A statement of which input or collection an operation may change."
+      ]
+    ],
+    "18": [
+      [
+        "Complete binary tree",
+        "A binary tree filled by levels, with the last level occupied from left to right."
+      ],
+      [
+        "Heap invariant",
+        "The required parent-child priority order at every occupied heap position."
+      ],
+      [
+        "Heap count",
+        "The number of occupied positions representing logical priority-queue items."
+      ],
+      [
+        "Capacity",
+        "The number of positions currently available in backing storage."
+      ],
+      [
+        "Fairness",
+        "A scheduling requirement about how waiting work receives service, separate from priority order."
+      ]
+    ],
+    "19": [
+      [
+        "Dictionary",
+        "A collection mapping unique keys to associated values under a chosen equality policy."
+      ],
+      [
+        "Set",
+        "A collection representing distinct members under a chosen equality policy."
+      ],
+      [
+        "Multiplicity",
+        "The number of occurrences of a value, retained by a count rather than a plain set."
+      ],
+      [
+        "Separate chaining",
+        "Resolving collisions by retaining a group of entries for each bucket."
+      ],
+      [
+        "Open addressing",
+        "Resolving collisions by probing other positions in the same table."
+      ],
+      [
+        "Tombstone",
+        "A deleted-slot marker that preserves a probe sequence for later searches."
+      ],
+      [
+        "Union",
+        "Members present in either of two sets."
+      ],
+      [
+        "Intersection",
+        "Members shared by two sets."
+      ],
+      [
+        "Index consistency",
+        "Agreement among collection views that represent the same changing records."
+      ]
+    ],
+    "20": [
+      [
+        "Adjacency matrix",
+        "A table whose vertex-pair positions describe the presence or weight of edges."
+      ],
+      [
+        "Adjacency collection",
+        "A representation storing the neighbors associated with each vertex."
+      ],
+      [
+        "Degree",
+        "The number of incident edges, with incoming and outgoing counts distinguished for directed graphs."
+      ],
+      [
+        "Density",
+        "How many edges a graph has relative to the possible edges under its model."
+      ],
+      [
+        "Simple graph",
+        "A graph whose contract excludes self-loops and repeated edges."
+      ],
+      [
+        "Minimum-hop path",
+        "A route using the fewest edges, regardless of differing edge weights."
+      ]
+    ],
+    "26": [
+      [
+        "KMP",
+        "Knuth-Morris-Pratt matching, which uses a prefix table to avoid restarting proven text comparisons."
+      ],
+      [
+        "Witness",
+        "A concrete candidate whose stated feasibility and objective value can be checked."
+      ],
+      [
+        "Exact search",
+        "A search intended to establish the required exact answer under its stated contract."
+      ],
+      [
+        "Resource limit",
+        "A bound on work or storage that may stop a search before it establishes an answer."
+      ]
+    ]
+  }
+}

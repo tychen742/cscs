@@ -1,6 +1,17 @@
 // Concise primary-navigation labels; full page headings remain unchanged.
 (function () {
     const labels = {
+    "chapters/02_var_data/0200_variables_types.html": "Variables & Types",
+    "chapters/03_decision/0300_conditionals.html": "Decisions",
+    "chapters/13_abstract_data_types/1300_abstract_data_types.html": "ADTs",
+    "chapters/14_arrays_linked_lists/1400_arrays_linked_lists.html": "Linear Lists",
+    "chapters/15_stacks_queues/1500_stacks_queues.html": "Stacks & Queues",
+    "chapters/17_trees/1700_trees_bst.html": "Trees & BSTs",
+    "chapters/21_algorithm_analysis/2100_algorithm_analysis.html": "Analysis",
+    "chapters/22_recursion_divide_conquer/2200_recursion_divide_conquer.html": "Recursion",
+    "chapters/24_greedy_graph_optimization/2400_greedy_graph_optimization.html": "Greedy Algorithms",
+    "chapters/25_dynamic_programming_backtracking/2500_dynamic_programming_backtracking.html": "Dynamic Programming",
+    "chapters/26_advanced_graphs_strings_limits/2600_advanced_graphs_strings_limits.html": "Strings & Limits",
     "chapters/09_files_text/0906_regex.html": "Regex (Reading)",
     "chapters/26_advanced_graphs_strings_limits/2601_graph_traversal.html": "Traversal (Reading)",
     "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.html": "KMP & Prefixes",

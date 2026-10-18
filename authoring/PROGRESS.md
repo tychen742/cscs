@@ -424,3 +424,20 @@ pointers within a passage are collapsed. All 341 tracked notebooks are unchanged
 Full build passes with the existing Chapter 2 character-literal lexing warning.
 See `authoring/index_revision/` and the local `index_revision_review.html` for
 complete evidence and before/after mappings. Local changes, not deployed.
+
+## Chapter landing-page revision (2026-10-17)
+
+Revised all 26 numbered chapter landing pages against B-A: chapter-specific
+orientation and measurable objectives, content-only ordered Chapter Flow,
+repaired and supplemented numbered glossaries, full page titles with short
+sidebar labels and retained old anchors, and accessible privacy-enhanced video
+embeds with verified public metadata. Existing video selections are retained;
+five empty slots are filled and Chapter 26 adds a KMP introduction alongside
+its retained graph review.
+
+All 315 other notebooks and the current TOC remain unchanged. Full build and
+all 26 rendered-page checks pass, with the existing Chapter 2 highlighting
+warning. The author explicitly deferred lecture decks to a separate task;
+`authoring/landing_page_revision/README.md` tracks all 26 deck deliverables.
+See that folder for before/after comparisons, metadata, and preservation
+verification. Local changes, not deployed.
