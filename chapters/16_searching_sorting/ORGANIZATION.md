@@ -72,6 +72,27 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 The landing page `1600_searching_sorting.ipynb` now orients students to the two sections (search contracts and repeated queries; sorting and safe reporting workloads) with a grounded introduction, measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
 
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `homework.ipynb` | Independent Search, Stable Sort, and Workload Choice |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Independent search/sort and workload decision | 1601_searching and 1602_basic_sorting existing algorithms, invariant/stability/cost examples | Existing scaffolded first-match and insertion-sort exercises retained | New algorithm bodies, independently derived boundary checks, visible stability labels, original snapshot, comparison convention, and Q-query/U-update workload justification. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
 ## Merge Sort Supporting Reading (2026-10-18)
 
 16.3 Merge Sort is optional reading after the two core sections and depends on Chapter 5's Recursive Methods reading. It is not in the direct assessment scope. The landing page introduction, Chapter Flow, and glossary (run, merge, merge sort, divide and conquer) were updated.

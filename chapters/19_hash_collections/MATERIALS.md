@@ -52,3 +52,25 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Landing Page Development (2026-10-17)
 
 `1900_hash_collections.ipynb` was rewritten from a generic template (about 200 words, three generic objectives, six glossary rows) to a full chapter landing page. It now has a chapter introduction grounded in the three sections (hash tables, equality, and collisions; dictionaries, sets, and reconciliation; choosing and coordinating collections) and the chapter's service-desk and reporting examples, seven numbered objectives tied to hash-to-bucket mapping, equality policy and dictionary contracts, chaining and tombstone traces, load factor and rehashing with costs, set algebra for reconciliation, workload-based selection, and coordinated indexes with lazy deletion, the Chapter Flow in TOC order without the assignments link, a numbered glossary of 35 terms drawn from 1901 through 1903, and a Lecture Slides section marked pending. No Chapter Video is embedded yet; the slot stays open for author selection. The landing page carries no content sections or index entries; content notebooks, `_toc.yml`, and assignments were not changed.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `homework.ipynb` | Trace Collisions and Maintain Coordinated Indexes |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Hash representation behavior | 1901_hashing existing collision/growth/deletion examples | Existing collision practice and set/comparer tasks retained | New separate-chaining rehash trace and independent linear-probing tombstone trace distinguish deletion policies. |
+| Coordinated indexes and workload choice | 1903_collection_selection existing queue/dictionary cancellation example | Existing skip-cancelled exercise retained | New independent cancellation queue enforces never-reused IDs, checks stale/duplicate/empty cases, states coordination invariant, and compares sorted-range workload. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.

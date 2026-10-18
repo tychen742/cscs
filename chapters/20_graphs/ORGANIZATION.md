@@ -97,3 +97,55 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Landing Page Alignment (2026-10-17)
 
 The landing page `2000_graphs.ipynb` now orients students to the four sections (vocabulary and models; adjacency representations; breadth-first search and paths; depth-first search and components) with a grounded introduction, seven measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `homework.ipynb` | Implement and Verify Traversal Evidence |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Traversal construction and verification | 2003_graph_traversal and 2004_depth_first_components existing queue/frame traces and contracts | Existing guided BFS/DFS practice retained | New independent BFS discovery/predecessor/distance/path evidence, DFS frame/finish trace, components/cycle distinction, and adversarial cases. |
+| Representation tradeoffs | 2002_adjacency_representations existing density/storage examples | Existing representation practice | New five-vertex list/matrix comparison requires stored-entry count and operation-specific workload reasoning. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `2003_graph_traversal.ipynb`
+
+- Discover a Vertex Once, Then Process Its Neighbors
+  - Turn Queue Events into a Traversal Loop
+  - Breadth-First Search and Discovery
+- Recover a Path from Earlier Layers
+  - Recover a Path with Predecessors
+  - Guide the Route and Tie-Policy Checks
+
+### `2004_depth_first_components.ipynb`
+
+- Watch the Suspended Neighbor Loop
+  - Finish One Branch Before Returning to Its Alternatives
+  - Depth-First Search and Cycles
+- Connectivity Depends on Direction
+  - Extend Reachability into a Component Report
+  - Connected Components and Direction
+  - Components and Direction
+- Costs and Contracts
+- Verify a Traversal
+  - Traversal Verification Contracts
+  - Practice: Check a Reachability Report
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

@@ -68,6 +68,27 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 `1600_searching_sorting.ipynb` was rewritten from a generic template (about 200 words, three generic objectives, six glossary rows) to a full chapter landing page. It now has a chapter introduction grounded in the two sections (search contracts and repeated queries; sorting and safe reporting workloads) and the chapter's service-desk and reporting examples, seven numbered objectives tied to search contracts, linear/binary traces, the half-open interval, library result contracts, stable insertion sort, comparison counts, and order/preservation checks with snapshot and workload reasoning, the Chapter Flow in TOC order without the assignments link, a numbered glossary of 30 terms drawn from 1601 and 1602, and a Lecture Slides section marked pending. No Chapter Video is embedded yet; the slot stays open for author selection. The landing page carries no content sections or index entries; content notebooks, `_toc.yml`, and assignments were not changed.
 
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `homework.ipynb` | Independent Search, Stable Sort, and Workload Choice |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Independent search/sort and workload decision | 1601_searching and 1602_basic_sorting existing algorithms, invariant/stability/cost examples | Existing scaffolded first-match and insertion-sort exercises retained | New algorithm bodies, independently derived boundary checks, visible stability labels, original snapshot, comparison convention, and Q-query/U-update workload justification. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
 ## Merge Sort Supporting Reading (2026-10-18)
 
 Added `1604_merge_sort.ipynb` as supporting reading 16.3, following the textbook comparison in `authoring/toc_comparison/README.md`: comparable CS2 texts teach an O(n log n) sort in the core, and a Parts IV and V route previously saw only insertion sort. The reading motivates with a comparison-count table, teaches merge on two sorted runs with a trace and the `<= 0` stability rule, builds the recursive `MergeSort` with range slices and a copy-returning contract, counts comparisons on reversed input against n log2 n and insertion sort's worst case, verifies stability with the 16.2 invoice comparer, compares insertion sort, merge sort, and `Array.Sort` for workloads, and ends with a merge-two-files practice. Six code cells compile and run standalone (.NET 10). The file is numbered 1604 because `1603_workloads.ipynb` is a retained redirect stub. Chapter 22 keeps the buffered implementation, proofs, and verification lab.

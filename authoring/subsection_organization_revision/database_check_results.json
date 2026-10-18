@@ -1,0 +1,5 @@
+{
+  "command": "dotnet run --no-restore --disable-build-servers --project demos/_extras/bookstore_inventory/BookstoreInventory.csproj -- --check",
+  "exit_code": 0,
+  "stdout": "19 inventory checks passed.\n"
+}

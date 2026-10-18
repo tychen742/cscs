@@ -103,6 +103,42 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `0702_twodim.ipynb` | From One Row to a Table Summary |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Two-dimensional aggregation bridge | 0702_twodim: branch/day table, one-row and one-column standalone demo | Change fixed coordinate, add branch, then reset each outer-loop total | Existing independent branch-by-day lab retained intact; it is assessment, not a replacement for the guided bridge. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+
+## CS1 Search and Sort Progression
+
+The core reading `0704_searching_sorting_arrays.ipynb` (7.3, between Processing and Sharing Arrays and 2D & ND Arrays) teaches linear search, binary search, and insertion sort, combining the library calls with hand-written versions. No existing notebook or exercise is removed or renamed; the search/sort cells drafted inside `0703_array_processing.ipynb` were moved into 7.3 on 2026-10-18 so nothing is taught twice. `0702_twodim.ipynb` places its core row/column bridge before optional jagged arrays.
+
+| Outcome | Explanation and worked example | Guided practice | Independent assessment |
+| --- | --- | --- | --- |
+| Sequential matching | Linear-search method/call syntax, indexed trace, first-match/-1 contract | FirstAtLeast matching-rule variation and boundary inputs | Last matching shipment, including duplicates and absence |
+| Ordered lookup | Binary-search precondition, half-open bounds as in Chapter 16, midpoint trace, progress and duplicate policy; `Array.BinarySearch` sign test | Repair final-candidate defect; test endpoints and empty input | Invoice lookup with independent expected cases and missing-target trace |
+| Ordering and preservation | Insertion-sort saved-item trace, shifts, in-place mutation and copy | Restore saved-item placement; check empty, singleton, reversed, and duplicate inputs | Descending stock report preserving original input and occurrences |
+
+All three topics use purposeful state tables and standalone executable examples, output interpretation, common mistakes, and progressively more independent practice. Student methods assume non-null arrays; empty arrays are supported. Sorting changes positions, so a search result in a sorted copy is not an original arrival index.
+
+Chapter 16 retains its full deeper treatment: result contracts, correctness/invariants, ordering policies and comparers, labeled-record stability, exact work counts, preparation/update costs, library contracts, and repeated-query choices. Do not remove that development as duplication of the CS1 introduction. The chapter landing objectives and glossary now reflect the introductory algorithms.
+
 ## Searching and Sorting Section (2026-10-18)
 
 `0704_searching_sorting_arrays.ipynb` is core reading 7.3. It combines two drafts: a library-first page (search contract and sentinel, first-match linear search against `Array.IndexOf`, count and largest-element scans, `Array.Sort` on a clone with `StringComparer.Ordinal`, `Array.BinarySearch` with its sorted precondition and sign test, a halving table) and the hand-written algorithms drafted for 7.2 (binary search, insertion sort, three defect-repair guided practices, NIST footnotes). The hand-written binary search uses the half-open interval [low, high) so that Chapter 7 and Chapter 16 teach one convention. Labels `ch07-linear-search`, `ch07-binary-search`, and `ch07-insertion-sort` are kept for the homework. All 14 code cells compile and run standalone (.NET 10) with the outputs the prose states, including the deliberately defective starters.

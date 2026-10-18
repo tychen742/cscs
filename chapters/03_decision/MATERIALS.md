@@ -93,3 +93,36 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0302_ifstatement.ipynb`: Conditional Selection with if and switch.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `0301_intro_decision.ipynb`
+
+- Selection Statements
+- Boolean Data Type
+- Boolean Expressions
+- Compound Boolean Expressions
+  - Logical Operators
+  - Compound test conditions
+
+### `0302_ifstatement.ipynb`
+
+- Compare Ways to Express the Same Decision
+- Reason About the Unselected Branches
+- Simple `if` Statements
+- `if-else` Statements: Two-Way Selection
+- `else-if` Statements: Multi-Selection
+  - else-if Statements
+  - `else-if` Statements for Cases
+- Nested Conditionals
+  - Nested `if` Statements
+  - Nested `if-else` Statements
+- Switch Statement
+  - Switch Syntax and Case Behavior
+  - The `default` Keyword
+  - The `break` Keyword
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

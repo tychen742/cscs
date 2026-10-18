@@ -1,0 +1,14 @@
+[
+  {
+    "phase": "intentional_failure",
+    "exit_code": 1,
+    "stdout": "  MathApp -> /tmp/cscs_gap_mstest/MathApp/bin/Debug/net10.0/MathApp.dll\nCSC : warning MSTEST0001: Explicitly enable or disable tests parallelization (https://learn.microsoft.com/dotnet/core/testing/mstest-analyzers/mstest0001) [/tmp/cscs_gap_mstest/MathAppTest/MathAppTest.csproj]\n  MathAppTest -> /tmp/cscs_gap_mstest/MathAppTest/bin/Debug/net10.0/MathAppTest.dll\nTest run for /tmp/cscs_gap_mstest/MathAppTest/bin/Debug/net10.0/MathAppTest.dll (.NETCoreApp,Version=v10.0)\nA total of 1 test files matched the specified pattern.\n  Failed Test_MultiplyMethod [4 ms]\n  Error Message:\n   Assert.AreEqual failed. Expected:<100>. Actual:<20>. 'expected' expression: '100.0', 'actual' expression: 'result'.\n  Stack Trace:\n     at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.ThrowAssertAreEqualFailed(Object expected, Object actual, String userMessage) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 665\n   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492\n   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405\n   at MathAppTest.UnitTest1.Test_MultiplyMethod() in /private/tmp/cscs_gap_mstest/MathAppTest/UnitTest1.cs:line 33\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\nFailed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 16 ms - MathAppTest.dll (net10.0)\n",
+    "stderr": ""
+  },
+  {
+    "phase": "repaired",
+    "exit_code": 0,
+    "stdout": "  MathApp -> /tmp/cscs_gap_mstest/MathApp/bin/Debug/net10.0/MathApp.dll\n  MathAppTest -> /tmp/cscs_gap_mstest/MathAppTest/bin/Debug/net10.0/MathAppTest.dll\nTest run for /tmp/cscs_gap_mstest/MathAppTest/bin/Debug/net10.0/MathAppTest.dll (.NETCoreApp,Version=v10.0)\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 11 ms - MathAppTest.dll (net10.0)\n",
+    "stderr": ""
+  }
+]

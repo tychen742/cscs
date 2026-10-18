@@ -1,0 +1,954 @@
+[
+  {
+    "id": "F01",
+    "priority": "Must fix",
+    "title": "Heap repair is taught but not independently demonstrated",
+    "observed": "Chapter 18 explicitly asks students to implement sift-up and sift-down. In Lab 3 the complete 76-line heap is supplied and the edit is an Enqueue call; Lab 4 changes the draining condition. Homework likewise changes calls, policies, and constants. The section exercise writes an invariant checker, not the repair bodies.",
+    "consequence": "Correct output from supplied code cannot establish the published implementation outcome. Fairness is in the organization document's direct assessment scope, but neither standard assignment asks for its analysis.",
+    "next_check": "Retain these introductory API tasks. Identify a later repair-body or diagnostic-trace task with its own invariant and boundary checks, plus a fairness justification when required.",
+    "evidence": [
+      {
+        "file": "chapters/18_priority_queues/1802_heap_implementation.ipynb",
+        "cells": [
+          5,
+          23
+        ],
+        "cell_ids": [
+          "262aee62",
+          "70f322dc9b27",
+          "1cec339f",
+          "786296949905",
+          "3d476713294d",
+          "d826865dff58",
+          "f59b75e60877",
+          "500c9490e50c",
+          "a2d372f5",
+          "edf6c964d7fd",
+          "674d010ddfbe",
+          "9d6b3877b830",
+          "8ee6ee9541bb",
+          "5b651caa97a6",
+          "28066c782c6d",
+          "2d346f606ffd",
+          "1c230ff6",
+          "f544bf28fbc5",
+          "063746a5c8dd"
+        ],
+        "excerpt": "Enqueue adds a new entry at the next open leaf position so the complete shape is preserved. All old parent-child relations are unchanged. Only the new entry's path toward the root can violate min-heap order. Bubble-up compares with the parent and swaps while the child is smaller. Moving upward strictly decreases its index, so repair terminates.\n\nStart with [2, 5, 4] and enqueue 1. Appending produces [2, 5, 4, 1]. Comparing 1 with parent 5 gives [2, 1, 4, 5]. Comparing that 1 with root 2 gives [1, 2, 4, 5]. Do not sort the whole array; that would enforce a stronger and more expensive condition than the operation needs.\n\nDequeue first saves the root result. Move the last live entry to the root and reduce Count. The only possible ordering defects now lie downward from that replacement. Choose the smaller existing child before swapping; exchanging with an arbitrary child can leave a smaller sibling above a larger parent relation.\n\n| Heap after removing 1 | Inspection | Next step |\n| --- | --- | --- |\n| [5, 2, 4] | Children 2 and 4 | Choose 2 |\n| [2, 5, 4] | 5 has no child | Stop |\n\nA singleton removal needs no child access after Count becomes zero. An empty removal must follow the stated failure policy without first reading position zero. Also clear unused reference slots when the implementation owns a backing array and should release references to removed objects. Reducing Count hides a slot from the abstract sequence, but it does not itself erase a stored reference.\n\nThe height of a complete heap is logarithmic in its live size, which bounds the number of repair levels. Array growth can add copying to an enqueue, so qualify an operation's cost rather than ignoring representation maintenance. Bulk building by bottom-up repair is a related algorithm with a different aggrega"
+      },
+      {
+        "file": "chapters/18_priority_queues/assignments/lab.ipynb",
+        "cells": [
+          8,
+          13
+        ],
+        "cell_ids": [
+          "1b46bc7968a9",
+          "04528c9c55fb",
+          "d8ac27e31c7b",
+          "1ccf46daf364",
+          "a237bd0df3c6",
+          "edfc136bf87d"
+        ],
+        "excerpt": "**Question 3: Check Heap Repair**\n\nUse the teaching heap for the same numeric urgency values; verify the invariant after each insertion.\n\n\nusing System;\nusing System.Collections.Generic;\n\nBinaryMinHeap<int> heap = new BinaryMinHeap<int>();\nforeach (int urgency in new[] {5, 1, 3, 2}) { // Your code starts here.\n/* TODO: insert each urgency. */\n// Your code ends here.\n if (!heap.IsValid()) throw new Exception(\"Heap failed.\"); }\nConsole.WriteLine(heap.Peek());\n\npublic class BinaryMinHeap<T>\n{\n    private readonly List<T> items = new List<T>();\n    private readonly IComparer<T> comparer;\n    public int Count => items.Count;\n    public int Capacity => items.Capacity;\n    public BinaryMinHeap(IComparer<T>? comparer = null)\n        => this.comparer = comparer ?? Comparer<T>.Default;\n\n    public void Enqueue(T item)\n    {\n        items.Add(item);\n        int child = items.Count - 1;\n        while (child > 0)\n        {\n            int parent = (child - 1) / 2;\n            if (comparer.Compare(items[parent], items[child]) <= 0) break;\n            (items[parent], items[child]) = (items[child], items[parent]);\n            child = parent;\n        }\n    }\n\n    public T Peek()\n    {\n        if (items.Count == 0) throw new InvalidOperationException(\"Heap is empty.\");\n        return items[0];\n    }\n\n    public T Dequeue()\n    {\n        T minimum = Peek();\n        T last = items[^1];\n        items.RemoveAt(items.Count - 1);\n        if (items.Count == 0) return minimum;\n        items[0] = last;\n        int parent = 0;\n        while (parent < items.Count / 2)\n        {\n            int left = 2 * parent + 1;\n            int right = left + 1;\n            int smaller = left;\n            if (right < items.Count && comparer.Compare(items[right], items[left]) < 0)\n                smaller = right"
+      },
+      {
+        "file": "chapters/18_priority_queues/assignments/homework.ipynb",
+        "cells": [
+          14,
+          27
+        ],
+        "cell_ids": [
+          "43fd3470aafa",
+          "222470d29d2b",
+          "52450c2fdc68",
+          "0bce1a9cb79c",
+          "5dbf0d7c0419",
+          "78f107be0c9c",
+          "827779d9dcb7",
+          "d48b72ff2f1c",
+          "8c7e98547a56",
+          "deea2355d3e9",
+          "710407c9e5b2",
+          "c21d753ce3de",
+          "64c3fcd61240",
+          "59c2ebbd833f"
+        ],
+        "excerpt": "**Question 6: Inspect Without Removing**\n\nPeek at the next shipment without changing queue size.\n\n\nusing System;\nusing System.Collections.Generic;\n\nBinaryMinHeap<int> heap = new BinaryMinHeap<int>();\nheap.Enqueue(7); heap.Enqueue(2);\n// Your code starts here.\nConsole.WriteLine(0); // TODO: inspect the next priority.\n// Your code ends here.\n Console.WriteLine(heap.Count);\n\npublic class BinaryMinHeap<T>\n{\n    private readonly List<T> items = new List<T>();\n    private readonly IComparer<T> comparer;\n    public int Count => items.Count;\n    public int Capacity => items.Capacity;\n    public BinaryMinHeap(IComparer<T>? comparer = null)\n        => this.comparer = comparer ?? Comparer<T>.Default;\n\n    public void Enqueue(T item)\n    {\n        items.Add(item);\n        int child = items.Count - 1;\n        while (child > 0)\n        {\n            int parent = (child - 1) / 2;\n            if (comparer.Compare(items[parent], items[child]) <= 0) break;\n            (items[parent], items[child]) = (items[child], items[parent]);\n            child = parent;\n        }\n    }\n\n    public T Peek()\n    {\n        if (items.Count == 0) throw new InvalidOperationException(\"Heap is empty.\");\n        return items[0];\n    }\n\n    public T Dequeue()\n    {\n        T minimum = Peek();\n        T last = items[^1];\n        items.RemoveAt(items.Count - 1);\n        if (items.Count == 0) return minimum;\n        items[0] = last;\n        int parent = 0;\n        while (parent < items.Count / 2)\n        {\n            int left = 2 * parent + 1;\n            int right = left + 1;\n            int smaller = left;\n            if (right < items.Count && comparer.Compare(items[right], items[left]) < 0)\n                smaller = right;\n            if (comparer.Compare(items[parent], items[smaller]) <= 0) break;\n         "
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "priority": "Must fix",
+    "title": "Coordinated indexes and hash traces do not reach matching assessment",
+    "observed": "Chapter 19 teaches rehashing, deleted slots, and a coordinated queue/dictionary cancellation model. Lab 3\u20134 call Put/Remove on a supplied 98-line map; homework changes isolated dictionary/set calls. No standard task assesses the coordinated-index workload choice from 19.3.",
+    "consequence": "The tasks check collection use but do not establish the stated trace and coordination outcomes.",
+    "next_check": "Add an appropriately sized collision/growth trace or repair, and an independently reasoned cancellation/consistency task; implementing an entire hash library from scratch is not necessary.",
+    "evidence": [
+      {
+        "file": "chapters/19_hash_collections/1901_hashing.ipynb",
+        "cells": [
+          16,
+          28
+        ],
+        "cell_ids": [
+          "552ae28e2518",
+          "c5da4027",
+          "a628b0364f7c",
+          "382573cd88d2",
+          "3f6320807cf5",
+          "9b1579fe386c",
+          "357130b3",
+          "00eac67a9205",
+          "1a3532a8d1e0",
+          "93c69aae",
+          "12b0459fddb6",
+          "50946d9a3ec8",
+          "b2a8a0ccdfc8"
+        ],
+        "excerpt": "```{index} Separate Chaining and Complete Operations\n```\n\n## Separate Chaining and Complete Operations\n\n\n\n\n```{index} separate chaining; collision; hash-table update\n```\n\nA collision occurs when different keys choose the same bucket. **Separate chaining** stores a collection of entries at each bucket. A lookup computes the bucket and compares keys within that chain. An update must search the chain before appending; otherwise it can create duplicate keys. Removal must preserve the other colliding entries.\n\nWith four buckets, IDs 101, 105, and 109 all choose bucket one. To find 109, inspect 101, then 105, then 109. To report that 113 is absent, inspect the entire chain. A successful lookup may stop early; an unsuccessful one must establish that no matching key exists.\n\nThe complete `TicketMap` stores integer ticket IDs and string owners. `Put` returns true for a new key and false for replacement. `Remove` reports whether membership changed. `TryGetValue` returns false on absence; ignore its output value in that case.\n\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\n\nvar owners = new TicketMap();\nowners.Put(101, \"Amina\"); owners.Put(105, \"Diego\"); owners.Put(109, \"Mina\");\nConsole.WriteLine(\"before=\" + owners.DescribeBuckets());\nConsole.WriteLine($\"replacement inserted={owners.Put(105, \"Lee\")}, count={owners.Count}\");\nowners.Put(113, \"Noor\");\nConsole.WriteLine($\"after growth: buckets={owners.BucketCount}, count={owners.Count}\");\nConsole.WriteLine(owners.DescribeBuckets());\nowners.Remove(101);\nConsole.WriteLine($\"109 survives={owners.TryGetValue(109, out string owner)}, owner={owner}\");\nConsole.WriteLine($\"missing={owners.TryGetValue(101, out _)}, count={owners.Count}\");\n\npublic class TicketMap\n{\n    private List<Entry>[] buckets = CreateBuckets(4);\n    pu"
+      },
+      {
+        "file": "chapters/19_hash_collections/1903_collection_selection.ipynb",
+        "cells": [
+          16,
+          28
+        ],
+        "cell_ids": [
+          "2fdde2e991ed",
+          "6e51ed39",
+          "f2a43261bfbe",
+          "392202c28b9d",
+          "fe1343259c33",
+          "e4e3f4cb1a82",
+          "6731f138",
+          "1f4129e80afa",
+          "49bd02509be1",
+          "dc81d746",
+          "d5f736b72a17",
+          "d91076c70e02",
+          "e93c226f206a"
+        ],
+        "excerpt": "```{index} Dispatch from Two Consistent Indexes\n```\n\n## Dispatch from Two Consistent Indexes\n\n\n\n\n```{index} priority queue; dictionary; consistency\n```\n\nThe service desk keeps active records in a dictionary and pending IDs in a priority queue. A simple cancellation policy removes the active record while leaving its old queue entry in place. On dequeue, skip IDs no longer active. This is **lazy deletion**: defer physical cleanup until an obsolete entry reaches the front.\n\nThis example allows each ID to be registered once during the batch. If an ID can be reused or reprioritized, an old entry may still refer to an active ID. Use a generation/version field and verify it on dequeue, or implement an indexed heap with explicit updates. Presence alone would then be insufficient.\n\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\n\nvar active = new Dictionary<string, string>();\nvar registered = new HashSet<string>();\nvar pending = new PriorityQueue<string, (int Urgency, long Arrival)>();\nlong arrival = 0;\nbool Register(string id, string owner, int urgency)\n{\n    if (!registered.Add(id)) return false;\n    active.Add(id, owner);\n    pending.Enqueue(id, (urgency, arrival++));\n    return true;\n}\nRegister(\"T-100\", \"Amina\", 2);\nRegister(\"T-101\", \"Diego\", 0);\nRegister(\"T-102\", \"Mina\", 2);\nConsole.WriteLine($\"duplicate accepted={Register(\"T-100\", \"Other\", 0)}\");\nactive.Remove(\"T-101\");\nwhile (pending.TryDequeue(out string? id, out _))\n{\n    if (!active.TryGetValue(id, out string? owner)) { Console.WriteLine($\"skip cancelled {id}\"); continue; }\n    active.Remove(id);\n    Console.WriteLine($\"serve {id}: {owner}\");\n}\nConsole.WriteLine($\"active={active.Count}, pending={pending.Count}\");\n\nThe cancelled urgent ticket is skipped, then T-100 and T-102 are served in their arriva"
+      },
+      {
+        "file": "chapters/19_hash_collections/assignments/lab.ipynb",
+        "cells": [
+          8,
+          13
+        ],
+        "cell_ids": [
+          "38a06e4c95b8",
+          "d33e6e59fd26",
+          "e6d1bf2a0d88",
+          "e7e58a4d6759",
+          "dfb47656eef2",
+          "9fcac05f46fa"
+        ],
+        "excerpt": "**Question 3: Retrieve Through Collisions**\n\nThe teaching map must distinguish keys even when they enter the same bucket.\n\n\nusing System;\nusing System.Collections.Generic;\n\nTicketMap map = new TicketMap();\nmap.Put(1, \"Notebook\"); // Your code starts here.\n/* TODO: store the second record. */\n// Your code ends here.\n\nConsole.WriteLine(map.TryGetValue(9, out string value) ? value : \"missing\");\n\npublic class TicketMap\n{\n    private List<Entry>[] buckets = CreateBuckets(4);\n    public int Count { get; private set; }\n    public int BucketCount => buckets.Length;\n    public double LoadFactor => (double)Count / buckets.Length;\n\n    public bool Put(int id, string owner)\n    {\n        int index = Bucket(id, buckets.Length);\n        for (int i = 0; i < buckets[index].Count; i++)\n        {\n            if (buckets[index][i].Id == id)\n            {\n                buckets[index][i] = new Entry(id, owner);\n                return false;\n            }\n        }\n        if ((Count + 1.0) / buckets.Length > 0.75)\n        {\n            Grow();\n            index = Bucket(id, buckets.Length);\n        }\n        buckets[index].Add(new Entry(id, owner));\n        Count++;\n        return true;\n    }\n\n    public bool TryGetValue(int id, out string owner)\n    {\n        foreach (Entry entry in buckets[Bucket(id, buckets.Length)])\n        {\n            if (entry.Id == id) { owner = entry.Owner; return true; }\n        }\n        owner = default!;\n        return false;\n    }\n\n    public bool Remove(int id)\n    {\n        List<Entry> chain = buckets[Bucket(id, buckets.Length)];\n        for (int i = 0; i < chain.Count; i++)\n        {\n            if (chain[i].Id != id) continue;\n            chain.RemoveAt(i);\n            Count--;\n            return true;\n        }\n        return false;\n    }\n\n    private v"
+      },
+      {
+        "file": "chapters/19_hash_collections/assignments/homework.ipynb",
+        "cells": [
+          14,
+          27
+        ],
+        "cell_ids": [
+          "73fcda90d396",
+          "f9df66b2397e",
+          "c1b109179b24",
+          "c1c8f7d5baaa",
+          "855b84ce94ae",
+          "7a7f6bd2ba00",
+          "d81a13d7fd41",
+          "1f730374b535",
+          "06196182c90c",
+          "e71c3cfb5f1d",
+          "9ddbfa7e7a89",
+          "9f3d44fe9cf9",
+          "6526c4b8fa3a",
+          "f6ccc4623e3d"
+        ],
+        "excerpt": "**Question 6: A Missing Key Is Not Zero**\n\nDistinguish absent records from recorded zero values.\n\n\nusing System;\nusing System.Collections.Generic;\n\nDictionary<string, int> stock = new Dictionary<string, int>(); stock[\"P100\"] = 0;\nConsole.WriteLine(// Your code starts here.\nstock.TryGetValue(\"P100\", out int quantity) /* TODO: inspect P200 */\n// Your code ends here.\n ? quantity.ToString() : \"unrecorded\");\n\n\nusing System;\nusing System.Collections.Generic;\n\nDictionary<string, int> stock = new Dictionary<string, int>(); stock[\"P100\"] = 0;\nConsole.WriteLine(stock.TryGetValue(\"P200\", out int quantity) ? quantity.ToString() : \"unrecorded\");\n\n\n**Question 7: Combine Branch Membership**\n\nCreate the union of two branch subscription sets.\n\n\nusing System;\nusing System.Collections.Generic;\n\nHashSet<string> all = new HashSet<string> {\"A\", \"B\"};\n// Your code starts here.\nall.IntersectWith /* TODO: choose union */\n// Your code ends here.\n(new[] {\"B\", \"C\"});\nConsole.WriteLine(all.Count);\n\n\nusing System;\nusing System.Collections.Generic;\n\nHashSet<string> all = new HashSet<string> {\"A\", \"B\"};\nall.UnionWith(new[] {\"B\", \"C\"});\nConsole.WriteLine(all.Count);\n\n\n**Question 8: Find Shared Membership**\n\nCount customers present in both branch sets.\n\n\nusing System;\nusing System.Collections.Generic;\n\nHashSet<string> shared = new HashSet<string> {\"A\", \"B\"};\n// Your code starts here.\nshared.UnionWith /* TODO: choose intersection */\n// Your code ends here.\n(new[] {\"B\", \"C\"});\nConsole.WriteLine(shared.Count);\n\n\nusing System;\nusing System.Collections.Generic;\n\nHashSet<string> shared = new HashSet<string> {\"A\", \"B\"};\nshared.IntersectWith(new[] {\"B\", \"C\"});\nConsole.WriteLine(shared.Count);\n\n\n**Question 9: Use Identifier Equality**\n\nIgnore letter case consistently when storing and looking up department IDs.\n\n"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "priority": "Must fix",
+    "title": "Graph assignments select supplied traversals rather than assess their reasoning",
+    "observed": "Chapter 20 supplies complete BFS, DFS, and component implementations in the lab/homework cells. Typical edits select a source, target, or component call. They do not require the queue/discovery/predecessor or suspended-frame trace that the objectives promise. Representation/density analysis is also not independently assessed.",
+    "consequence": "The explanations are present, but assessed API use is weaker evidence than the published traversal and cost outcomes require.",
+    "next_check": "Keep API-use practice and follow it with a new trace, partial implementation, or deliberately defective traversal plus independently chosen verification cases. Require a representation/cost justification where that outcome is assessed.",
+    "evidence": [
+      {
+        "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+        "cells": [
+          5,
+          24
+        ],
+        "cell_ids": [
+          "ba_15ea5a519c9e644df6",
+          "ba_e6988cf2a41450d2e9",
+          "ba_57efd0ddeaf1328b04",
+          "ba_2a3c00f3180efde135",
+          "ba_70a6232bef6aa951a8",
+          "6e1c54cc",
+          "f3e8c24c",
+          "590349c1",
+          "964c3deb",
+          "6906328e",
+          "bb1835ce03f1",
+          "f1254589d6df",
+          "c95b226d5859",
+          "44e23b23",
+          "7bd03f5a667f",
+          "d15ebcb3e7d1",
+          "691adac0e0cf",
+          "11f8b2bd",
+          "5e5f21058375",
+          "94c4f76b0c26"
+        ],
+        "excerpt": "A facilities graph answers which rooms can be reached and how many doorways a shortest route uses. Every edge in this lesson contributes one hop. The queue is not a list of completed rooms; it holds discovered rooms whose neighbors still need examination. This is the queue policy from Chapter 15 applied to the graph model from the preceding sections.\n\nUse directed edges A\u2192B, A\u2192C, B\u2192D and C\u2192D, plus an isolated E. Neighbor order is written explicitly. Begin with A discovered, distance zero and no predecessor. The small program exposes the traversal core; the full graph class and validation examples remain below.\n\n\nusing System;\nusing System.Collections.Generic;\nvar next = new Dictionary<string, string[]>\n{\n    [\"A\"] = new[] { \"B\", \"C\" }, [\"B\"] = new[] { \"D\" },\n    [\"C\"] = new[] { \"D\" }, [\"D\"] = Array.Empty<string>(), [\"E\"] = Array.Empty<string>()\n};\nvar distance = new Dictionary<string, int> { [\"A\"] = 0 };\nvar previous = new Dictionary<string, string>();\nvar waiting = new Queue<string>();\nwaiting.Enqueue(\"A\");\nwhile (waiting.Count > 0)\n{\n    string current = waiting.Dequeue();\n    foreach (string neighbor in next[current])\n    {\n        if (distance.ContainsKey(neighbor)) continue;\n        distance[neighbor] = distance[current] + 1;\n        previous[neighbor] = current;\n        waiting.Enqueue(neighbor);\n        Console.WriteLine($\"Discover {neighbor}: distance {distance[neighbor]}, from {current}\");\n    }\n}\nConsole.WriteLine($\"D hops: {distance[\"D\"]}; E reached: {distance.ContainsKey(\"E\")}\");\n\n\nHere membership in `distance` also means discovered, so a separate visited set would duplicate that fact. All endpoints are declared in this teaching graph. Production validation of unknown labels is retained in the complete implementation.\n\n| Statement group | Meaning in the trac"
+      },
+      {
+        "file": "chapters/20_graphs/2004_depth_first_components.ipynb",
+        "cells": [
+          5,
+          39
+        ],
+        "cell_ids": [
+          "ba_12be0f7ed9501b08dc",
+          "ba_9e9f84f97e30d42aa3",
+          "ba_03a03dd6d4e6d4f58d",
+          "ba_13cae13d53b5db86d9",
+          "ba_e35c477100d4ad821a",
+          "ba_bfb6b140924d8d2a0c",
+          "ba_a9f2014603d46e90b4",
+          "5b444a56",
+          "ad19f75a",
+          "f877656d",
+          "ce3029ae",
+          "7b2f0381",
+          "872ec23f42bc",
+          "8ef22506",
+          "066fd0205779",
+          "b622532636f3",
+          "d60adbf69cae",
+          "d55dffc5",
+          "fcfc02025c67",
+          "cc9d1794f4fd",
+          "3526fe2c9435",
+          "7b98feeb",
+          "4abcb6fed102",
+          "7a6d695627a4",
+          "95ed627b",
+          "388ddfc26a41",
+          "3deb8f9f1bfb",
+          "6fc02fb8a224",
+          "1803e85f",
+          "3475e0cd",
+          "2ce7abea",
+          "b92928b1",
+          "05bcbed7",
+          "3615022f",
+          "82515936"
+        ],
+        "excerpt": "Depth-first search is ordinary recursive control flow applied to a graph. A call must remember which neighbor it is considering while a child explores its branch. This connects the suspended calls in Chapter 17 to Chapter 20's cycles and shared destinations. A discovered set avoids repeated discovery; it does not erase the caller's unfinished neighbor loop.\n\nUse the undirected diamond A-B, A-C, B-D, C-D, and isolated E. In each array below, the listed neighbor order determines the trace. Watch enter and exit events separately. A vertex is entered once; returning from a child resumes an already active parent rather than entering that parent again.\n\n\nusing System;\nusing System.Collections.Generic;\nvar neighbors = new Dictionary<string, string[]>\n{\n    [\"A\"] = new[] { \"B\", \"C\" }, [\"B\"] = new[] { \"A\", \"D\" },\n    [\"C\"] = new[] { \"A\", \"D\" }, [\"D\"] = new[] { \"B\", \"C\" }, [\"E\"] = Array.Empty<string>()\n};\nvar seen = new HashSet<string>();\nvoid Visit(string room, int depth)\n{\n    seen.Add(room);\n    Console.WriteLine($\"Enter {room} depth {depth}\");\n    foreach (string next in neighbors[room])\n        if (!seen.Contains(next)) Visit(next, depth + 1);\n    Console.WriteLine($\"Exit {room}\");\n}\nVisit(\"A\", 0);\nConsole.WriteLine($\"E reached: {seen.Contains(\"E\")}\");\n\n\nC is first entered from D, not from A. A's neighbor loop has not finished, but C is already discovered by the time A resumes and considers it. C's DFS depth is three although A has a direct edge to C. A first DFS route therefore need not minimize hops.\n\n| Event | Active frames from oldest to newest | What waits in the caller? |\n| --- | --- | --- |\n| Enter A | A | A will consider C after B returns |\n| Enter B | A,B | B will finish after D returns |\n| Enter D | A,B,D | D will finish after C returns |\n| Enter C | A,B,D,C | C fi"
+      },
+      {
+        "file": "chapters/20_graphs/assignments/lab.ipynb",
+        "cells": [
+          5,
+          16
+        ],
+        "cell_ids": [
+          "b2c111e57a9c",
+          "77377829b639",
+          "90d8f92cbdef",
+          "b14a422b0912",
+          "76fc41942a53",
+          "8849474bf294",
+          "0e992aa44352",
+          "2c1c7fb28371",
+          "57ee3b1d379e",
+          "e1d66b2eda83",
+          "f0fee4229459",
+          "b8db10365335"
+        ],
+        "excerpt": "**Question 2: Report BFS Layers**\n\nExtend the facilities model with connections. Report the hop distance from A to C.\n\n\nusing System;\nusing System.Collections.Generic;\n\nSimpleGraph graph = new SimpleGraph();\nforeach (string v in new[] {\"A\", \"B\", \"C\", \"D\", \"Remote\"}) graph.AddVertex(v);\ngraph.AddEdge(\"A\", \"B\"); graph.AddEdge(\"B\", \"C\"); graph.AddEdge(\"C\", \"D\"); graph.AddEdge(\"D\", \"B\");\nConsole.WriteLine(// Your code starts here.\ngraph.Bfs(\"C\") /* TODO: choose the report source */\n// Your code ends here.\n.DistanceTo(\"C\"));\n\npublic class SimpleGraph\n{\n    private readonly Dictionary<string, List<string>> adjacency\n        = new Dictionary<string, List<string>>(StringComparer.Ordinal);\n    private readonly List<string> vertexOrder = new List<string>();\n    public bool IsDirected { get; }\n    public SimpleGraph(bool directed = false) { IsDirected = directed; }\n    public void AddVertex(string vertex)\n    {\n        if (string.IsNullOrWhiteSpace(vertex)) throw new ArgumentException(\"Vertex required.\");\n        if (adjacency.ContainsKey(vertex)) return;\n        adjacency.Add(vertex, new List<string>());\n        vertexOrder.Add(vertex);\n    }\n    public void AddEdge(string from, string to)\n    {\n        RequireVertex(from); RequireVertex(to);\n        if (!adjacency[from].Contains(to)) adjacency[from].Add(to);\n        if (!IsDirected && !adjacency[to].Contains(from)) adjacency[to].Add(from);\n    }\n    public string[] Vertices() { return vertexOrder.ToArray(); }\n    public string[] Neighbors(string vertex)\n    {\n        RequireVertex(vertex);\n        return adjacency[vertex].ToArray();\n    }\n    private void RequireVertex(string vertex)\n    {\n        if (!adjacency.ContainsKey(vertex)) throw new ArgumentException(\"Unknown vertex: \" + vertex);\n    }\n    public SearchResult Bfs(strin"
+      },
+      {
+        "file": "chapters/20_graphs/assignments/homework.ipynb",
+        "cells": [
+          14,
+          28
+        ],
+        "cell_ids": [
+          "8449d032c4f6",
+          "5a68c14e00b3",
+          "e26e4e231da7",
+          "95c024c7a278",
+          "61f56493c482",
+          "8d5002385db4",
+          "e87009580edf",
+          "dce8b89bdc2f",
+          "6d0eb3bfbe90",
+          "8119ae646f9e",
+          "bafba51582de",
+          "5cfe96d95c26",
+          "a701d2489195",
+          "7301bf8bb531",
+          "26c8fc8d4184"
+        ],
+        "excerpt": "**Question 6: Respect Workflow Direction**\n\nAn approval edge does not permit a reverse transition.\n\n\nusing System;\nusing System.Collections.Generic;\n\nSimpleGraph graph = // Your code starts here.\nnew SimpleGraph(false) /* TODO: directed workflow */\n// Your code ends here.\n;\ngraph.AddVertex(\"Approve\"); graph.AddVertex(\"Pay\"); graph.AddEdge(\"Approve\", \"Pay\");\nConsole.WriteLine(graph.Bfs(\"Pay\").DistanceTo(\"Approve\") is null);\n\npublic class SimpleGraph\n{\n    private readonly Dictionary<string, List<string>> adjacency\n        = new Dictionary<string, List<string>>(StringComparer.Ordinal);\n    private readonly List<string> vertexOrder = new List<string>();\n    public bool IsDirected { get; }\n    public SimpleGraph(bool directed = false) { IsDirected = directed; }\n    public void AddVertex(string vertex)\n    {\n        if (string.IsNullOrWhiteSpace(vertex)) throw new ArgumentException(\"Vertex required.\");\n        if (adjacency.ContainsKey(vertex)) return;\n        adjacency.Add(vertex, new List<string>());\n        vertexOrder.Add(vertex);\n    }\n    public void AddEdge(string from, string to)\n    {\n        RequireVertex(from); RequireVertex(to);\n        if (!adjacency[from].Contains(to)) adjacency[from].Add(to);\n        if (!IsDirected && !adjacency[to].Contains(from)) adjacency[to].Add(from);\n    }\n    public string[] Vertices() { return vertexOrder.ToArray(); }\n    public string[] Neighbors(string vertex)\n    {\n        RequireVertex(vertex);\n        return adjacency[vertex].ToArray();\n    }\n    private void RequireVertex(string vertex)\n    {\n        if (!adjacency.ContainsKey(vertex)) throw new ArgumentException(\"Unknown vertex: \" + vertex);\n    }\n    public SearchResult Bfs(string source)\n    {\n        RequireVertex(source);\n        var distance = new Dictionary<string, int>(S"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "priority": "Must fix",
+    "title": "Chapter 13 does not assess its iterator outcome or much independent analysis",
+    "observed": "13.4 has explanations, runnable examples, and CountDown/Pair<T> section exercises. No preview/lab/homework task addresses IEnumerable<T> or yield return. The generic history class is supplied in the assignments; homework 6 changes Push(0) to Push(42). Quantitative cost reasoning is mostly assessed through a recognition question or true/false claim.",
+    "consequence": "An explicit outcome is not connected to a formal assignment; template edits provide limited evidence of designing a generic abstraction or deriving a cost claim.",
+    "next_check": "Map a small independent enumerable or generic transfer and a counted-work explanation into an assessment, preserving the existing undo-history tasks.",
+    "evidence": [
+      {
+        "file": "chapters/13_abstract_data_types/1304_iterators.ipynb",
+        "cells": [
+          10,
+          25
+        ],
+        "cell_ids": [
+          "df6a06f4",
+          "iter02",
+          "3dbaa8f2",
+          "d1689366",
+          "iter03",
+          "iter04",
+          "iter05",
+          "0c13d580",
+          "d4aecfec",
+          "iter06",
+          "iter07",
+          "iter08",
+          "f41bb102",
+          "577e7982",
+          "iter09",
+          "75470d9f"
+        ],
+        "excerpt": "The pattern `IEnumerable<T> Produce(...) { ... yield return value; ... }` defines an iterator. Yielding supplies one element and suspends that enumeration's progress until the consumer requests another. An ordinary return from a value-returning method finishes that call; yield return participates in a sequence of resumptions. Explain this distinction before treating yield as abbreviated list construction.\n\nLaziness changes when work and failures occur. Obtaining an enumerable need not run every statement that will produce its values. If the consumer stops after two elements, later elements may never be computed. An expensive calculation inside an iterator is not paid simply because an enumerable variable has been declared, but repeated enumerations may repeat that work. Do not promise caching unless the implementation explicitly provides it.\n\nThe producer also needs a mutation policy. An enumeration over shared mutable storage can be affected by changes made after the enumerable is obtained. Library collections may detect invalid mutation during enumeration; custom types must state their own behavior. Returning IEnumerable<T> does not automatically create a snapshot or make private storage immutable.\n\nGuided prediction: an iterator announces each produced number and yields 2, 4, 6. A caller breaks after consuming 4. Which production announcements should appear? Then run a second enumeration and ask whether it starts with a fresh progress state. Use the existing runnable iterator examples to check your prediction and distinguish fresh enumeration from continuing one enumerator.\n\n\n```{index} yield return\n```\n\n\n\n```{index} Writing an Iterator with yield return\n```\n\n## Writing an Iterator with yield return\n\n\n\n\nImplementing `IEnumerator<T>` by hand \u2014 tracking a position fiel"
+      },
+      {
+        "file": "chapters/13_abstract_data_types/assignments/homework.ipynb",
+        "cells": [
+          14,
+          27
+        ],
+        "cell_ids": [
+          "c29462e01671",
+          "a5104bdd4616",
+          "e928ecdbd4f8",
+          "f4ae9dc23758",
+          "1e468ccd3841",
+          "35bce68d1421",
+          "205c367f8092",
+          "a6b126d74ed0",
+          "740264658b85",
+          "dfd4b4b26b78",
+          "dda7c65c9722",
+          "9f9fe8905047",
+          "24cd19af61f3",
+          "8af94d9bf2de"
+        ],
+        "excerpt": "**Question 6: Reuse the Generic Contract**\n\nUse the same implementation for integer task IDs.\n\n\nusing System;\nusing System.Collections.Generic;\n\nUndoLog<int> log = new UndoLog<int>(); // Your code starts here.\nlog.Push(0); // TODO: store task 42.\n// Your code ends here.\n log.TryPop(out int id); Console.WriteLine(id);\n\nclass UndoLog<T>\n{\n    private readonly List<T> items = new List<T>();\n    public int Count { get { return items.Count; } }\n    public void Push(T value) { items.Add(value); }\n    public bool TryPop(out T value)\n    {\n        if (items.Count == 0) { value = default!; return false; }\n        int last = items.Count - 1;\n        value = items[last]; items.RemoveAt(last); return true;\n    }\n    public T[] Snapshot() { return items.ToArray(); }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nUndoLog<int> log = new UndoLog<int>(); log.Push(42); log.TryPop(out int id); Console.WriteLine(id);\n\nclass UndoLog<T>\n{\n    private readonly List<T> items = new List<T>();\n    public int Count { get { return items.Count; } }\n    public void Push(T value) { items.Add(value); }\n    public bool TryPop(out T value)\n    {\n        if (items.Count == 0) { value = default!; return false; }\n        int last = items.Count - 1;\n        value = items[last]; items.RemoveAt(last); return true;\n    }\n    public T[] Snapshot() { return items.ToArray(); }\n}\n\n\n**Question 7: Inspect an Empty Snapshot**\n\nA new history has an empty snapshot.\n\n\nusing System;\nusing System.Collections.Generic;\n\nUndoLog<string> log = new UndoLog<string>(); Console.WriteLine(log.Snapshot().Length);\n\nclass UndoLog<T>\n{\n    private readonly List<T> items = new List<T>();\n    public int Count { get { return items.Count; } }\n    public void Push(T value) { items.Add(value); }\n    public bool TryPop(out T value)\n   "
+      },
+      {
+        "file": "chapters/13_abstract_data_types/assignments/preview.ipynb",
+        "cells": [
+          3,
+          4
+        ],
+        "cell_ids": [
+          "f47feb24",
+          "b17635f0"
+        ],
+        "excerpt": "## Foundation Check\n\n```{index} algorithmic foundations; preview\n```\n\n\nWhat does O(n) describe under a stated cost model?\n\na) An upper growth bound proportional to input size  \nb) Exactly n milliseconds  \nc) Constant auxiliary space  \nd) The same time on every computer  \n\n```{dropdown} Answer\n**a)** Big-O bounds growth rather than wall-clock time.\n```\n"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "priority": "Must fix",
+    "title": "Structs and records have no corresponding independent assessment",
+    "observed": "11.2 explains value copying, generated equality, defaults, shallow with copies, and record structs, with worked programs and predictions. The chapter's preview, lab, and homework still assess ordinary class references and composition only.",
+    "consequence": "The recently expanded explanation is useful, but its core published outcome is not independently demonstrated.",
+    "next_check": "Add a compact type-choice/copy/equality task that distinguishes a struct, record class, and class without replacing the existing order-model work.",
+    "evidence": [
+      {
+        "file": "chapters/11_object_design/1105_value_record_types.ipynb",
+        "cells": [
+          5,
+          20
+        ],
+        "cell_ids": [
+          "ae006f1d",
+          "d32f1b69",
+          "5fd8f5fb",
+          "7fcb2c0e",
+          "types-1fa1edec",
+          "1a28867b",
+          "b2e201af",
+          "cde03997",
+          "76bc9cd4",
+          "types-1574411f",
+          "265ce5bb",
+          "daaa458c",
+          "e7699a24",
+          "fe9634d9",
+          "types-743a810a",
+          "f8397570"
+        ],
+        "excerpt": "An order line refers to a product, but a point on a warehouse plan may simply consist of two coordinates. Before choosing class, struct or record, ask what one value means, whether it can change, and what callers should expect when it is assigned or compared. The forms below solve related modeling problems, but none is an automatic replacement for every ordinary class.\n\nAssigning a struct variable copies its value. That copy contains the values of its fields; if one of those fields is itself a reference, both copies can still refer to a shared object. Value-type copying is not a promise that every reachable object has been recursively duplicated. A record class is a reference type with compiler-supported value-oriented equality and copying syntax; assigning its variable still copies a reference. A record struct combines record features with value-type copying.\n\n| Choice | Assignment behavior | Design question |\n| --- | --- | --- |\n| Ordinary class instance | Another reference to the same object | Is identity and a controlled lifecycle important? |\n| Struct value | Copy of its fields | Is this a small coherent value with a meaningful default? |\n| Record class instance | Another reference on assignment | Does value-oriented equality fit a reference-based data model? |\n| Record struct value | Copy of its fields | Do both value copying and record conveniences fit? |\n\nFor positional records, the parameter list declares the data used by generated members. A with expression creates a copied result with selected changes; it is not a deep-cloning operator. If a copied record contains a mutable list, later changes to that list may be visible through both record objects. Keep this distinction beside the syntax so that a concise expression does not suggest stronger isolation than i"
+      },
+      {
+        "file": "chapters/11_object_design/assignments/preview.ipynb",
+        "cells": [
+          2,
+          21
+        ],
+        "cell_ids": [
+          "c68189610e69",
+          "fe204fd9eff3",
+          "f16bb188004a",
+          "1f8e0cd249ab",
+          "d675ff51c0ba",
+          "48063c608d28",
+          "37f1c9b0a67e",
+          "f59e95a899bc",
+          "39927f6d6560",
+          "eed6dee5ab56",
+          "86ed6223b254",
+          "1e87717f353b",
+          "974560ece8f5",
+          "f4e4084808e0",
+          "bc49354ceb13",
+          "47550f6ef0a9",
+          "adc8a2b0b5ce",
+          "77ec86818364",
+          "0789eb262458",
+          "4fccb957899c"
+        ],
+        "excerpt": "<fieldset><legend>1. What is an alias?</legend>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-1\" value=\"0\"> An independent field copy</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-1\" value=\"1\"> Another reference to the same object</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-1\" value=\"2\"> A derived class</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-1\" value=\"3\"> A private method</label><br>\n</fieldset>\n\n\n```{dropdown} Answer\nAnswer: Another reference to the same object. Assignment can copy a reference without constructing another object.\n```\n\n\n<fieldset><legend>2. What does object identity describe?</legend>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-2\" value=\"0\"> Matching names</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-2\" value=\"1\"> Matching prices</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-2\" value=\"2\"> Being the same runtime object</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-2\" value=\"3\"> Having the same class name</label><br>\n</fieldset>\n\n\n```{dropdown} Answer\nAnswer: Being the same runtime object. Business equality can hold for distinct objects.\n```\n\n\n<fieldset><legend>3. What is an immutable object?</legend>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-3\" value=\"0\"> An object whose observable state stays fixed</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-3\" value=\"1\"> An object with no constructor</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-3\" value=\"2\"> A static variable</label><br>\n<label><input type=\"radio\" name=\"cscs-object-design-preview-3\" value=\"3\"> An object that cannot be shared</label><br>\n<"
+      },
+      {
+        "file": "chapters/11_object_design/assignments/lab.ipynb",
+        "cells": [
+          2,
+          16
+        ],
+        "cell_ids": [
+          "3c4929cd9edb",
+          "4938791d3acb",
+          "30a9fb96e6be",
+          "d023932e3bad",
+          "d86b073639fe",
+          "a67e67744290",
+          "8a62299ae547",
+          "bf45252a8486",
+          "f0d722d14bbf",
+          "186a5036c5d3",
+          "6976f53f8417",
+          "16d62b7bd67a",
+          "87e4df5d3af2",
+          "9cac3d626f42",
+          "1f47178b7811"
+        ],
+        "excerpt": "**Question 1: Create a Valid Product**\n\nThe office-supply order starts with an immutable product. Validate and trim the SKU, retaining a read-only public property.\n\n\nusing System;\nusing System.Collections.Generic;\n\nProduct product = new Product(\" P100 \", \" Notebook \", 6m);\nConsole.WriteLine($\"{product.Sku}: {product.Name}, {product.UnitPrice:F2}\");\n\nclass Product\n{\n    public string Sku { get; }\n    public string Name { get; }\n    public decimal UnitPrice { get; }\n\n    public Product(string sku, string name, decimal unitPrice)\n    {\n        if (string.IsNullOrWhiteSpace(sku)) throw new ArgumentException(\"SKU required.\");\n        if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required.\");\n        if (unitPrice < 0m) throw new ArgumentOutOfRangeException(nameof(unitPrice));\n        // Your code starts here.\nSku = sku; // TODO: trim the validated identifier.\n// Your code ends here.\n        Name = name.Trim();\n        UnitPrice = unitPrice;\n    }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nProduct product = new Product(\" P100 \", \" Notebook \", 6m);\nConsole.WriteLine($\"{product.Sku}: {product.Name}, {product.UnitPrice:F2}\");\n\nclass Product\n{\n    public string Sku { get; }\n    public string Name { get; }\n    public decimal UnitPrice { get; }\n\n    public Product(string sku, string name, decimal unitPrice)\n    {\n        if (string.IsNullOrWhiteSpace(sku)) throw new ArgumentException(\"SKU required.\");\n        if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required.\");\n        if (unitPrice < 0m) throw new ArgumentOutOfRangeException(nameof(unitPrice));\n        Sku = sku.Trim();\n        Name = name.Trim();\n        UnitPrice = unitPrice;\n    }\n}\n\n\n**Question 2: Calculate a Line Amount**\n\nExtend the same model with a product r"
+      },
+      {
+        "file": "chapters/11_object_design/assignments/homework.ipynb",
+        "cells": [
+          14,
+          28
+        ],
+        "cell_ids": [
+          "f5304e078d2e",
+          "96d7003dbbb7",
+          "f4f1b4027763",
+          "63e4bf48bb6e",
+          "3cbecee48daf",
+          "6404ae1860f3",
+          "0b0bf8247c3e",
+          "4e7225cf61fc",
+          "35cea5d05323",
+          "d3e7352564f5",
+          "c3dbd7dd7c8b",
+          "1c6eacd23564",
+          "9a0726cc923a",
+          "081dad13454f",
+          "b7f5ac0e0167"
+        ],
+        "excerpt": "**Question 6: Make an Independent Copy**\n\nA branch directory needs an independent customer object. Create it before the original is renamed.\n\n\nusing System;\nusing System.Collections.Generic;\n\nCustomer customer = new Customer(\"North\");\n// Your code starts here.\nCustomer copy = customer; // TODO: construct an independent object.\n// Your code ends here.\ncustomer.Name = \"Central\";\nConsole.WriteLine(copy.Name);\n\nclass Customer { public string Name { get; set; } public Customer(string name) { Name = name; } }\n\n\nusing System;\nusing System.Collections.Generic;\n\nCustomer customer = new Customer(\"North\");\nCustomer copy = new Customer(customer.Name);\ncustomer.Name = \"Central\";\nConsole.WriteLine(copy.Name);\n\nclass Customer { public string Name { get; set; } public Customer(string name) { Name = name; } }\n\n\n**Question 7: Compare Business Identifiers**\n\nCompare separately imported products by case-sensitive SKU rather than object identity, name, or price.\n\n\nusing System;\nusing System.Collections.Generic;\n\nProduct a = new Product(\"P100\", \"Notebook\", 6m);\nProduct b = new Product(\"P100\", \"Updated title\", 7m);\nConsole.WriteLine(HasSameSku(a, b));\nbool HasSameSku(Product left, Product right) { // Your code starts here.\nreturn false; // TODO\n// Your code ends here.\n }\n\nclass Product\n{\n    public string Sku { get; }\n    public string Name { get; }\n    public decimal UnitPrice { get; }\n\n    public Product(string sku, string name, decimal unitPrice)\n    {\n        if (string.IsNullOrWhiteSpace(sku)) throw new ArgumentException(\"SKU required.\");\n        if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required.\");\n        if (unitPrice < 0m) throw new ArgumentOutOfRangeException(nameof(unitPrice));\n        Sku = sku.Trim();\n        Name = name.Trim();\n        UnitPrice = u"
+      }
+    ]
+  },
+  {
+    "id": "F06",
+    "priority": "Must fix",
+    "title": "Some language prerequisites are introduced in practice instead of lessons",
+    "observed": "Chapter 4 Lab 2 explains TryParse(text, out quantity), while the preceding while lesson uses Parse. Random bounds/seeding are taught in Chapter 4 additional practice; params syntax is taught in Chapter 10 additional practice. Chapter 9 shows and assigns a custom multi-out parser, and 13.3/14 homework request ref parameters without a developed declaration/call explanation beforehand.",
+    "consequence": "This conflicts with the requested content-first progression. The distinction between passing an object reference by value and a ref parameter is particularly easy to misunderstand.",
+    "next_check": "Locate the first assigned use of each construct, then provide general syntax, caller/callee behavior, and a small worked example in an appropriate earlier content section. Retain application instructions and all practice variants.",
+    "evidence": [
+      {
+        "file": "chapters/04_iteration/assignments/lab.ipynb",
+        "cells": [
+          5,
+          6
+        ],
+        "cell_ids": [
+          "lab_004",
+          "lab_005"
+        ],
+        "excerpt": "## 2. Prompt Until a Whole Number\n\nUse a do-while loop to ask for quantity until it is a whole number. `int.TryParse(text, out quantity)` returns a Boolean and fills quantity. Declare quantity before the loop; this is a call to a built-in method, not a method definition. Break on null input and print `No more input.`. For other invalid text, print `Enter a whole number.`.\n\n\nusing System;\n\nConsole.WriteLine(\"Order Entry\");\n\n// Your code starts here.\n\n\n// Your code ends here.\n"
+      },
+      {
+        "file": "chapters/04_iteration/0403_while_statement.ipynb",
+        "cells": [
+          56,
+          56
+        ],
+        "cell_ids": [
+          "4ae3a546"
+        ],
+        "excerpt": "\nSuppose you want the user to enter three integers for sides of a right triangle. If they do not make a right triangle, say so and make the user try again. One way to look at the while statement rubric is:\n\n```csharp\nset data for condition\nwhile (condition) {\n   accomplish something\n   set data for condition\n}\n```\n\n**Reading integer input**: In this example, you will solicit user input three times. Each value is read with `Console.ReadLine()` and converted with `int.Parse`\n(see {ref}`parsing-input`).\n\nIn cases like this, we would like to intake user data, perform certain operations to the data that are too complicated for the while header condition, then make the decision about the iteration. A {{ do_while }} loop works better because we want to collect user input first, perform some calculation, before we tell the user that their input is correct or not:"
+      },
+      {
+        "file": "chapters/04_iteration/assignments/additional_practice.ipynb",
+        "cells": [
+          9,
+          13
+        ],
+        "cell_ids": [
+          "588e225e",
+          "4439f713",
+          "0915ca0c",
+          "ddcfaeae",
+          "03718054"
+        ],
+        "excerpt": "A simulation uses generated values to model possible outcomes. Create one `Random` object and reuse it throughout the experiment. For `low < high`, `r.Next(low, high)` includes `low` and excludes `high`, so `r.Next(0, 2)` can return only zero or one. Map zero to Heads and one to Tails.\n\nFirst print one flip, then 10 flips. Count the two outcomes; the counts must add to the number of flips. Randomness does not guarantee equal counts in a short run. A seed makes a run repeatable in the same runtime environment; it does not make the outcomes alternate.\n\nFor Group Flips, print `total` outcomes, `groupSize` per line. The last line may be shorter. End the final nonempty line with exactly one newline. Require `total >= 0` and `groupSize > 0`. Test totals zero, one, an exact multiple, and a remainder. In Chapter 5, turn this into `GroupFlips(int total, int groupSize)` and give `Flip` a return value that the caller can count and print.\n\n### Grouped simulation\n\n```{index} Grouped simulation\n```\n\nImplement the grouped simulation and print the outcome counts after the groups. Keep the generator outside the loop. Try `(total, groupSize) = (10, 4)` and `(8, 4)`.\n\n// Exercise: Grouped simulation\n// Complete the task described above.\nusing System;\nConsole.WriteLine(\"Replace this line with your solution.\");\n\nusing System;\nRandom r = new Random(17);\nint total = 10, groupSize = 4, heads = 0;\nfor (int i = 0; i < total; i++)\n{\n    bool isHead = r.Next(0, 2) == 0;\n    if (isHead) heads++;\n    Console.Write(isHead ? \"Heads\" : \"Tails\");\n    if ((i + 1) % groupSize == 0 || i + 1 == total) Console.WriteLine();\n    else Console.Write(\" \");\n}\nConsole.WriteLine($\"Heads: {heads}; Tails: {total - heads}; Total: {total}\");"
+      },
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cells": [
+          28,
+          28
+        ],
+        "cell_ids": [
+          "53856479"
+        ],
+        "excerpt": "static bool TryParseStudent(string line, out string name, out int score, out string major)\n{\n    name  = \"\";\n    major = \"\";\n    score = 0;\n\n    if (string.IsNullOrWhiteSpace(line)) return false;\n\n    string[] parts = line.Split(',');\n    if (parts.Length != 3) return false;\n\n    name  = parts[0].Trim();\n    major = parts[2].Trim();\n\n    return int.TryParse(parts[1].Trim(), out score);\n}"
+      },
+      {
+        "file": "chapters/09_files_text/assignments/homework.ipynb",
+        "cells": [
+          6,
+          6
+        ],
+        "cell_ids": [
+          "727f8c6a"
+        ],
+        "excerpt": "## Practice prompt\n\nWrite a method that accepts one CSV-like line and returns:\n\n- whether parsing succeeded\n- normalized name\n- parsed score\n\nUse `out` parameters and do not throw on malformed input."
+      },
+      {
+        "file": "chapters/10_classes/assignments/additional_practice.ipynb",
+        "cells": [
+          15,
+          20
+        ],
+        "cell_ids": [
+          "3d61799c",
+          "10a9b710",
+          "3a964c46",
+          "01a57654",
+          "restore2-params-question",
+          "restore2-params-answer"
+        ],
+        "excerpt": "### Variable-Length Arguments with params\n\n```{index} Variable-Length Arguments with params\n```\n\nFor question nine, define `int Sum(params int[] values)`. The final parameter collects zero or more int arguments into an array for the method body. It is a single parameter declaration with flexible call syntax, not a request to invent many overloads. You may also supply an existing int array. This array form is sufficient for the exercise; modern C# supports additional params collection forms.[^params]\n\nStart the accumulator at zero, add each value, and return the sum. Test no arguments, one argument, several arguments, negative values, and an explicit array. Document that your classroom int arithmetic must remain within range, or use checked addition to reject overflow. Compare overload resolution for Sum(2,3) with params expansion only after the two separate designs work.\n\n### Overloaded Sum and SumManyArgs\n\n```{index} Overloaded Sum and SumManyArgs\n```\n\nComplete the original two- and three-argument instance overloads, then implement the separate SumManyArgs class with params. Use a client to show both approaches, including the empty argument list.\n\n// Exercise: Overloaded Sum and SumManyArgs\nusing System;\n// Your code starts here.\nConsole.WriteLine(\"Complete the task above.\");\n// Your code ends here.\n\nusing System;\nSumOverloads math = new SumOverloads();\nConsole.WriteLine(math.Sum(2, 3)); Console.WriteLine(math.Sum(2, 3, 4));\nSumManyArgs many = new SumManyArgs();\nConsole.WriteLine(many.Sum()); Console.WriteLine(many.Sum(7));\nConsole.WriteLine(many.Sum(2, 3, 4)); Console.WriteLine(many.Sum(new int[] {5, -2, 1}));\nclass SumOverloads {\n    public int Sum(int a, int b) { return checked(a + b); }\n    public int Sum(int a, int b, int c) { return checked(a + b + c); }\n}\nclass "
+      },
+      {
+        "file": "chapters/13_abstract_data_types/1303_generics.ipynb",
+        "cells": [
+          36,
+          36
+        ],
+        "cell_ids": [
+          "74e0c585"
+        ],
+        "excerpt": "\n1. Write a generic `static T First<T>(List<T> list)` that returns the first element or throws `InvalidOperationException` if the list is empty.\n2. Write a generic `static void Swap<T>(ref T a, ref T b)` and test it with `int` and `string`.\n3. Add a generic `IQueue<T>` interface with `Count`, `Enqueue`, `Dequeue`, and `Peek` members.\n4. Explain why `IStack<T>` is a better ADT contract than separate `StringStack`, `IntStack`, and `BookStack` interfaces."
+      },
+      {
+        "file": "chapters/14_arrays_linked_lists/assignments/homework.ipynb",
+        "cells": [
+          16,
+          17
+        ],
+        "cell_ids": [
+          "2c6f8971",
+          "295a1a0f"
+        ],
+        "excerpt": "**5. Remove the head safely (applied).** Write `RemoveHead` to return the removed label, or null for an empty chain. Pass head by `ref` so the caller's reference changes. Remove both orders and call it again on the empty chain. Expect `removed=WO-10; first=WO-20`, `removed=WO-20; first=empty`, and `removed=none; first=empty`. Explain how a wrapper with a tail must handle singleton removal. Submit a reference diagram.\n\n\nusing System;\nNode? head = new Node(\"WO-10\");\nhead.Next = new Node(\"WO-20\");\nfor (int attempt = 0; attempt < 3; attempt++)\n{\n    string? removed = RemoveHead(ref head);\n    Console.WriteLine($\"removed={removed ?? \"none\"}; first={head?.Value ?? \"empty\"}\");\n}\nstatic string? RemoveHead(ref Node? head)\n{\n    // Your code starts here\n    throw new NotImplementedException();\n    // Your code ends here\n}\nclass Node\n{\n    public string Value;\n    public Node? Next;\n    public Node(string value) => Value = value;\n}\n"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "priority": "Must fix",
+    "title": "The coherent test-project walkthrough lives in assignments while the lesson is inconsistent",
+    "observed": "0603 cell 25 describes a project-reference command as adding NUnit, then presents MSTest attributes and Assert.AreEqual(res, expected) calls. The retained Unit Testing Walkthrough instead provides coherent MSTest project commands and expected/actual order. Homework also asks about throw versus throw ex without a corresponding developed rethrow explanation in the content.",
+    "consequence": "Students must resolve conflicting instructions or learn prerequisite explanation in a lab. This is an explanation/consistency gap, not a reason to remove testing.",
+    "next_check": "Make the content lesson the authoritative framework and failure-output walkthrough; preserve the full lab as application. Explain rethrow semantics before assessing them, or explicitly classify that question as extension.",
+    "evidence": [
+      {
+        "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+        "cells": [
+          24,
+          25
+        ],
+        "cell_ids": [
+          "int_testing_framework_reference",
+          "9faa57bd"
+        ],
+        "excerpt": "```{index} Framework Setup and Test Attributes\n```\n\n## Framework Setup and Test Attributes\n\n\n\nAfter the test cases are prepared, a test framework (e.g., xUnit, NUnit, or MSTest) is\nadded to the project. From there, for NUnit, you can run the following command to add NUnit\nto your test project (xUnit and MSTest follow similar syntax) [3]:\n\ndotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]\n\nThe method test code would look like the follows:\n\n    using System;\n    using Microsoft.VisualStudio.TestTools.UnitTesting;\n    using BasicMath;\n    namespace BasicMathTest {\n\n    [TestClass]\n    public class UnitTest1 {\n       [TestMethod]\n       public void Test_AddMethod() {\n                BasicMaths bm = new BasicMaths();\n                double res = bm.Add(10, 10);\n                Assert.AreEqual(res, 20);\n          }\n          [TestMethod]\n       public void Test_SubstractMethod() {\n                BasicMaths bm = new BasicMaths();\n                double res = bm.Substract(10, 10);\n                Assert.AreEqual(res, 0);\n          }\n          [TestMethod]\n       public void Test_DivideMethod() {\n                BasicMaths bm = new BasicMaths();\n                double res = bm.divide(10, 5);\n                Assert.AreEqual(res, 2);\n          }\n          [TestMethod]\n       public void Test_MultiplyMethod() {\n          BasicMaths bm = new BasicMaths();\n          double res = bm.Multiply(10, 10);\n          Assert.AreEqual(res, 100);\n       }\n    }}\n\nNote that, in the test code:\n\n- The method must be defined with the [TestMethod] attribute just above method name.\n- The method must having return type void.\n- The method cannot have any parameters.\n\n% Testing \u201cRational\u201d\n\n% \u2014\u2014\u2014\u2014\u2014\u2014\u2013\n\n% \\*\\* This section is kept here for your"
+      },
+      {
+        "file": "chapters/06_exceptions_testing/assignments/unit_testing_walkthrough.ipynb",
+        "cells": [
+          4,
+          12
+        ],
+        "cell_ids": [
+          "4e07c4cd",
+          "77d2282a",
+          "cd69bb93",
+          "516bc604",
+          "9d900506",
+          "160d310d",
+          "f2326cff",
+          "da9e0704",
+          "66d35384"
+        ],
+        "excerpt": "An application project contains the behavior to test. A test project contains independent examples of expected behavior. A solution groups them without merging their source files. The test project's reference permits it to use the application's public class.\n\nFrom a terminal in your workspace, run these commands in order:\n\n```bash\nmkdir UnitTestProject1\ncd UnitTestProject1\ndotnet new sln -n UnitTestProject1\ndotnet new console -n MathApp\ndotnet new mstest -n MathAppTest\ndotnet sln add MathApp/MathApp.csproj\ndotnet sln add MathAppTest/MathAppTest.csproj\ndotnet add MathAppTest/MathAppTest.csproj reference MathApp/MathApp.csproj\n```\n\nRun each command from the UnitTestProject1 directory. The solution file extension depends on the SDK default; `dotnet sln` finds it in this directory. There should be two project folders. Do not put both projects' source files into a single project or add a second Main to the generated console project.\n\nIf templates need packages, restore with access to the configured NuGet source. SDK/editor installation remains in the Development Tools appendix. The full steps here teach how the two projects collaborate.\n\n## Prepare Application Code\n\n```{index} Prepare Application Code\n```\n\nReplace `MathApp/Program.cs` with the following complete file. `BasicMath` must be public because the test project is a different assembly. The `SomeMath` namespace supplies the name imported by the test file. Main is just an application entry point; the tests call BasicMath directly.\n\n**Intentional defect:** Multiply uses `+`. The program builds because both operators are legal for doubles; testing must reveal the incorrect behavior.\n\n```csharp\nusing System;\nnamespace SomeMath\n{\n    internal class Program\n    {\n        private static void Main(string[] args)\n        {\n   "
+      },
+      {
+        "file": "chapters/06_exceptions_testing/assignments/homework.ipynb",
+        "cells": [
+          1,
+          1
+        ],
+        "cell_ids": [
+          "c44b5e5e"
+        ],
+        "excerpt": "# Homework\n\n01. What is the difference between a **compile-time error** and a **runtime exception**?\n    Give an example of each.\n\n02. What are the three blocks in C# exception handling? Describe when each one executes.\n\n03. Why is it bad practice to catch `Exception` as the base type for all error handling?\n    What should you do instead?\n\n04. What happens if an exception is thrown inside a `finally` block?\n\n05. Write a short code snippet that reads a number from the user and handles the case\n    where the input is not a valid integer using `int.TryParse` rather than a try/catch.\n    When is `TryParse` preferable to exception handling?\n\n06. What is the difference between `throw` and `throw ex` when re-throwing an exception?\n    Which preserves the original stack trace?\n\n07. Describe the **Red-Green-Refactor** cycle in TDD. What does each color represent?\n\n08. What is the role of `[TestClass]` and `[TestMethod]` attributes in MSTest?\n\n09. In the `BasicMath` example, the `Multiply` method used `+` instead of `*`. Which\n    test caught the bug, and what did `Assert.AreEqual` report?\n\n10. What is the difference between a **unit test** and an **integration test**?"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "priority": "Should fix",
+    "title": "Search/sort homework retains almost the entire algorithm",
+    "observed": "Chapter 16 contains real algorithm and workload development. The lab repairs one linear return or binary boundary; homework restores one saved insertion value, changes a library condition, or increments a comparison counter. The complete loops are supplied.",
+    "consequence": "These are useful guided repairs but weak final evidence for implementing an insertion sort or reasoning independently about a whole reporting/query workload.",
+    "next_check": "Follow them with a faded scaffold or transfer task that requires a complete loop, occurrence/stability checks, and a brief preparation/query/update comparison.",
+    "evidence": [
+      {
+        "file": "chapters/16_searching_sorting/1602_basic_sorting.ipynb",
+        "cells": [
+          5,
+          50
+        ],
+        "cell_ids": [
+          "6e01c663",
+          "29464b50",
+          "e3c32ad9",
+          "54fc90fb",
+          "4bb901610fce",
+          "f38aaa11bc83",
+          "1b38ea82e53a",
+          "7525b21f",
+          "d5ed53eae0d0",
+          "353efcdc7831",
+          "b9b82df8e73e",
+          "876d4659",
+          "21141d727f7a",
+          "17eed5f838fa",
+          "45981ad13a52",
+          "8e0a50bf",
+          "e6aa62360e98",
+          "47e7f4f4b252",
+          "a8af834c7605",
+          "1e1ddfe9",
+          "f860cc8da42d",
+          "e3bbc3e274ad",
+          "98ff7775",
+          "7b0a79c53edd",
+          "0a897bbe20cf",
+          "05ea219f0531",
+          "f547e8ee4fa3",
+          "d9b5ff90",
+          "f2da702909ff",
+          "38b067ce18fd",
+          "9a456865b11d",
+          "c505f554",
+          "52c87782217d",
+          "0af940be3cee",
+          "b8b53ffd",
+          "65423ec111ab",
+          "8e97988f2fb5",
+          "1e368cfcf78f",
+          "7aabe297e6db",
+          "b03b3ee86ee4",
+          "60de055f0a9e",
+          "8dfe9a33",
+          "7d880b6514de",
+          "daa334888eb8",
+          "5d6dc67768b8",
+          "b804024f"
+        ],
+        "excerpt": "Sorting has at least two obligations: output order must satisfy the chosen comparison policy, and output must contain exactly the input occurrences. Producing 1, 2, 3 from input 3, 1, 2 looks right, but so would returning a fixed 1, 2, 3 regardless of input. Tests need to challenge preservation as well as ordering.\n\nInsertion sort maintains a sorted prefix. The next item is saved outside the moving region. Larger prefix items shift one position right until the saved item fits. Assigning the saved item back closes the hole. This explains why writing over the next item before saving it can lose data even though the remaining positions appear ordered.\n\n| Input prefix and next item | Work | Resulting prefix |\n| --- | --- | --- |\n| [4], next 2 | Save 2, shift 4, insert 2 | [2, 4] |\n| [2, 4], next 3 | Save 3, shift 4, insert 3 | [2, 3, 4] |\n\nBefore each outer iteration, the processed prefix is sorted and is a permutation of the corresponding original prefix. The inner shifts preserve all saved occurrences while opening the correct position. When the prefix includes the full array, both obligations hold. This is a reasoning structure, not simply a description of what a successful example happened to print.\n\nEqual keys reveal another contract. If the inner loop moves only items strictly greater than the saved key, equal-key items retain their previous relative order. This is stability. Moving equal items as well can change that order. Use labeled records, such as two invoices with the same total but different IDs, to see the distinction; identical integer values cannot show which occurrence moved.\n\nFor related explanation, see the further reading below.[^development-reading]\n\n\n```{index} Preparation, Mutation, and the Report Caller\n```\n\n\n\n```{index} Preparation, Mutation, and t"
+      },
+      {
+        "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+        "cells": [
+          2,
+          16
+        ],
+        "cell_ids": [
+          "9dabaef9eea0",
+          "af920e5daee7",
+          "fe45b6fa4d8b",
+          "a6a1882a20f7",
+          "4332258d8863",
+          "c537dfe2c2ae",
+          "bbd230bfbe81",
+          "cf17b6121c70",
+          "a361e98543da",
+          "e2462c383973",
+          "3dafa851e888",
+          "b29c421ec6df",
+          "70b32aff857c",
+          "cdecef885956",
+          "4d30850e9d3b"
+        ],
+        "excerpt": "**Question 1: Locate the First Ticket**\n\nBegin the service-desk report by finding the first occurrence of ticket 42. Report -1 when absent.\n\n\nusing System;\nusing System.Collections.Generic;\n\nint[] ids = {42, 17, 42, 8};\nConsole.WriteLine(BasicSearch.LinearFirst(ids, 42, EqualityComparer<int>.Default));\n\npublic static class BasicSearch\n{\n    public static int LinearFirst<T>(T[] values, T target, IEqualityComparer<T> equality)\n    {\n        for (int i = 0; i < values.Length; i++)\n            if (equality.Equals(values[i], target)) // Your code starts here.\nreturn -1; // TODO: report the matching position.\n// Your code ends here.\n\n        return -1;\n    }\n    public static int BinaryAny<T>(T[] sorted, T target, IComparer<T> comparer)\n    {\n        int low = 0, high = sorted.Length;\n        while (low < high)\n        {\n            int middle = low + (high - low) / 2;\n            int comparison = comparer.Compare(sorted[middle], target);\n            if (comparison == 0) return middle;\n            if (comparison < 0) low = middle + 1;\n            else high = middle;\n        }\n        return -1;\n    }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nint[] ids = {42, 17, 42, 8};\nConsole.WriteLine(BasicSearch.LinearFirst(ids, 42, EqualityComparer<int>.Default));\n\npublic static class BasicSearch\n{\n    public static int LinearFirst<T>(T[] values, T target, IEqualityComparer<T> equality)\n    {\n        for (int i = 0; i < values.Length; i++)\n            if (equality.Equals(values[i], target)) return i;\n        return -1;\n    }\n    public static int BinaryAny<T>(T[] sorted, T target, IComparer<T> comparer)\n    {\n        int low = 0, high = sorted.Length;\n        while (low < high)\n        {\n            int middle = low + (high - low) / 2;\n            int comparison = comparer.Com"
+      },
+      {
+        "file": "chapters/16_searching_sorting/assignments/homework.ipynb",
+        "cells": [
+          14,
+          28
+        ],
+        "cell_ids": [
+          "f7b255db4544",
+          "5ce82ccd57ed",
+          "a74abd0dde3c",
+          "32c94fea4f9c",
+          "6eed9314b80d",
+          "2b00b6485dc3",
+          "dca63c2f1aa8",
+          "c6b888d3e7f2",
+          "bc148b2e88dc",
+          "5143f128e920",
+          "98a787152a51",
+          "a379b72f2a5e",
+          "c99b9fc57604",
+          "25543d557147",
+          "a53c60f85367"
+        ],
+        "excerpt": "**Question 6: Case-Insensitive Customer Search**\n\nFind a customer code using case-insensitive equality.\n\n\nusing System;\nusing System.Collections.Generic;\n\nstring[] ids = {\"North\", \"CENTRAL\"};\nConsole.WriteLine(BasicSearch.LinearFirst(ids, \"central\", // Your code starts here.\nStringComparer.Ordinal /* TODO: change equality policy */\n// Your code ends here.\n));\n\npublic static class BasicSearch\n{\n    public static int LinearFirst<T>(T[] values, T target, IEqualityComparer<T> equality)\n    {\n        for (int i = 0; i < values.Length; i++)\n            if (equality.Equals(values[i], target)) return i;\n        return -1;\n    }\n    public static int BinaryAny<T>(T[] sorted, T target, IComparer<T> comparer)\n    {\n        int low = 0, high = sorted.Length;\n        while (low < high)\n        {\n            int middle = low + (high - low) / 2;\n            int comparison = comparer.Compare(sorted[middle], target);\n            if (comparison == 0) return middle;\n            if (comparison < 0) low = middle + 1;\n            else high = middle;\n        }\n        return -1;\n    }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nstring[] ids = {\"North\", \"CENTRAL\"};\nConsole.WriteLine(BasicSearch.LinearFirst(ids, \"central\", StringComparer.OrdinalIgnoreCase));\n\npublic static class BasicSearch\n{\n    public static int LinearFirst<T>(T[] values, T target, IEqualityComparer<T> equality)\n    {\n        for (int i = 0; i < values.Length; i++)\n            if (equality.Equals(values[i], target)) return i;\n        return -1;\n    }\n    public static int BinaryAny<T>(T[] sorted, T target, IComparer<T> comparer)\n    {\n        int low = 0, high = sorted.Length;\n        while (low < high)\n        {\n            int middle = low + (high - low) / 2;\n            int comparison = comparer.Compare(sorted[mid"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "priority": "Should fix",
+    "title": "Independent testing and debugging evidence is thinner than the taught progression",
+    "observed": "Chapter 5 develops contracts, refactoring checks, and AI-candidate review. Chapter 6 develops a hypothesis-driven debugger investigation and boundary-test critique. The main Chapter 6 homework asks recall questions and one TryParse snippet; its lab adds one method/test to a supplied project. It does not request an independent debugger record or justified boundary/regression suite.",
+    "consequence": "The conceptual progression is stronger than the evidence students are required to produce.",
+    "next_check": "Ask students to choose expected results from a contract, expose a defect, record debugging evidence, repair it, and rerun unchanged regression checks on a fresh small method.",
+    "evidence": [
+      {
+        "file": "chapters/05_methods/0505_summary.ipynb",
+        "cells": [
+          5,
+          21
+        ],
+        "cell_ids": [
+          "5d849fbd",
+          "7baa645d",
+          "b89572d4",
+          "d291508b",
+          "92fdce70",
+          "deea2c08",
+          "f703b331",
+          "db88adeb",
+          "m5-db2b8343",
+          "1fb77b86",
+          "m5-ad6baa27",
+          "ff5a6dfc",
+          "eeb2f1ab",
+          "6f89d5aa",
+          "369a4c67",
+          "47cc52c2",
+          "m5-751ba022"
+        ],
+        "excerpt": "An invoice caller repeats price-times-quantity arithmetic in several places. Extracting LineTotal can give that calculation one name, but a safe refactoring needs more than moving those characters into braces. First record the existing accepted inputs, numerical outputs, formatting and mutation behavior. Then choose the new method's inputs/result so that callers can express the same work without depending on its internal temporary variables.\n\nFor price 12 and quantity three, independently calculate 36 before running either version. A fixed packing charge of four makes the order total 40. Keep these two contracts distinct: LineTotal returns 36; OrderTotal returns 40. If the extracted line calculation starts adding packing as well, a caller that already adds packing can charge it twice even though both helper methods contain plausible arithmetic.\n\n| Refactoring stage | Evidence to retain |\n| --- | --- |\n| Before extraction | Expected amount and current observable output |\n| After extracting LineTotal | Same line amount for ordinary and zero inputs |\n| After composing OrderTotal | Exactly one application of the fixed charge |\n| After formatting a report | Same numerical meaning; display policy stays explicit |\n\nA useful composition passes returned values between helpers. It does not make each helper prompt independently for the same data. If CalculateTotal reads a second quantity while the caller formats the first, the report can display one order and charge another. Keep interaction in the caller and pass the accepted values into calculation helpers.\n\nFor related explanation, see the further reading below.[^development-reading]\n\n\n```{index} Choose Tests That Can Distinguish Plausible Defects\n```\n\n\n\n```{index} Choose Tests That Can Distinguish Plausible Defects\n```\n\n## Cho"
+      },
+      {
+        "file": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+        "cells": [
+          5,
+          19
+        ],
+        "cell_ids": [
+          "ba_26ba7b7ad9c881b771",
+          "ba_3e10138791c8204613",
+          "ba_4cdc4f6885ad2461ae",
+          "ba_7d03ef855d21b8ab57",
+          "ba_6a47546807b629ce81",
+          "ba_4c918aff17d63333f1",
+          "feac379c",
+          "98bbafa2",
+          "d8a4bed4",
+          "08bb3463",
+          "44059c3f",
+          "f3f5e9cb",
+          "2888eab5",
+          "cbf5028a",
+          "38a9d7b8"
+        ],
+        "excerpt": "Before the retained array and CSV applications, use a calculation that needs only methods, decisions, and loops. A shop awards one credit for each of the first `days` days. With three days, the expected credits are 1 + 2 + 3 = 6. This expectation comes from the problem, not from running the implementation.\n\nThe following complete cell deliberately contains a logic defect. It compiles, but the loop stops too soon. A compiler cannot infer that the business rule requires the last day.\n\n\nusing System;\nstatic int Credits(int days)\n{\n    int total = 0;\n    for (int day = 1; day < days; day++) // Intentional defect: excludes the last day.\n        total += day;\n    return total;\n}\nConsole.WriteLine($\"Expected 6; actual {Credits(3)}\");\n\n\nSave this code as the Program.cs of a console project using the Appendix B workflow. Run `dotnet run` to reproduce the failure before starting a debugger. In VS Code, open the folder containing the project, set a breakpoint on `total += day`, and start the C# debugger for that project. The browser cell can demonstrate the result; the editor debugger supplies paused state.\n\nWrite the hypothesis: \u201cthe loop omits day three.\u201d A breakpoint pauses **before** the marked statement executes. At its first stop, watch `day`, `days`, and `total`. Step Over the update, then continue to the next stop. Use the method's own frame in the Call Stack panel to inspect its local values. The call stack explains who called the method; it is not a list of all previous loop iterations.\n\n| Observation | day | total before addition | total after addition |\n| --- | ---: | ---: | ---: |\n| First stopped iteration | 1 | 0 | 1 |\n| Second stopped iteration | 2 | 1 | 3 |\n| Third iteration required by the contract | 3 | 3 | 6 |\n\nThe third row does not occur in the defective run. "
+      },
+      {
+        "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+        "cells": [
+          17,
+          22
+        ],
+        "cell_ids": [
+          "b317ef09961d",
+          "de6c50df81a3",
+          "fca85fa9b8e7",
+          "a9d4fd57b77e",
+          "a69d267d007e",
+          "2fffc1824a06"
+        ],
+        "excerpt": "This is a prepared review example, not a transcript from a named model. Predict and review it yourself first. If your course permits AI assistance, use the suggested prompt to ask for an explanation or additional checks. You can complete the entire activity with the supplied candidate and your own reasoning; no AI account is required.\n\n**Contract:** Positive order quantities below 10 cost 5.00 to ship. Quantities of 10 or more ship free. Reject zero and negative quantities with `ArgumentOutOfRangeException`.\n\nA prepared candidate uses `units > 10` and offers only tests for 3 and 12 units. Those tests pass, but do not cover the full contract. Derive expected results from the contract before looking at the candidate's result.\n\n**Possible AI prompt:** \u201cReview this shipping contract and these two tests. Suggest missing boundary and invalid-input cases with expected outcomes derived from the contract. Explain each choice.\u201d Verify the suggestions independently; generating implementation and expected results from the same mistake can make a faulty program appear correct.\n\n\n// Prepared candidate: intentionally incomplete behavior; both ordinary tests pass.\nusing System;\n\nstatic decimal ShippingFee(int units)\n{\n    return units > 10 ? 0m : 5m;\n}\n\nstatic void CheckFee(int units, decimal expected)\n{\n    decimal actual = ShippingFee(units);\n    Console.WriteLine($\"{(actual == expected ? \"PASS\" : \"FAIL\")} fee for {units}: {actual:F2}\");\n}\n\n\nCheckFee(3, 5m);\nCheckFee(12, 0m);\n\n\nThe starter adds a check for zero. Add checks for 10 and -1. Run all three against the original candidate and record the failures. Then repair the method and rerun the same checks. Keep the expected outcomes unchanged; changing the expected result to match the defect is not a repair.\n\nThe supplied helpers prin"
+      },
+      {
+        "file": "chapters/06_exceptions_testing/assignments/lab.ipynb",
+        "cells": [
+          3,
+          3
+        ],
+        "cell_ids": [
+          "aaa54721"
+        ],
+        "excerpt": "## Your Tasks\n\n1. Implement this unit testing project.\n2. Add one method in the application and one corresponding test in the test project.\n3. As usual, prepare the assignment using a Word document with screenshots (code and execution with path\n   and username) and your annotations.\n\n## Preparing Project\n\nThe idea of TDD is to write tests first, so that you will be focused with the requirements and not\nto be distracted by your own coding. That's why we start with simple test cases in the test project to test the\nunits in the application project. After you make sure the application tests can pass, you then improve the\nunits (methods, classes) in the application project.\n\nThe process of creating a unit test involves several steps:\n\n1. Create a lab folder, call it `Ch13SelectedTopicsLab`, inside `[USERNAME]\\workspace\\introcscs\\`.\n\n2. Create a solution folder:\n\n   1. Inside Ch13SelectedTopicsLab, create a folder `UnitTestProject1` and run:\n\n      ```bash\n      dotnet new sln\n      ```\n\n   2. To open the solution in VS Code: `View` \u2192 `Command Palette` \u2192 `.NET: Open Solution`.\n\n3. Create an **application project** folder `MathApp`, and a **test project** folder `MathAppTest` inside UnitTestProject1.\n\n4. Initialize them:\n\n   ```bash\n   cd MathApp && dotnet new console\n   cd ../MathAppTest && dotnet new mstest\n   ```\n\n5. Add both to the solution and link them:\n\n   ```bash\n   dotnet sln add MathApp\n   dotnet sln add MathAppTest\n   dotnet add MathAppTest reference MathApp\n   ```\n\n## Preparing Code\n\nRevise `Program.cs` in MathApp with a `BasicMath` class containing 4 arithmetic methods,\nand revise `UnitTest1.cs` in MathAppTest with corresponding `[TestMethod]` test methods.\nRun `dotnet test` inside UnitTestProject1 to verify.\n\n## Run Testing in VS Code\n\nYou can also run tests visu"
+      },
+      {
+        "file": "chapters/06_exceptions_testing/assignments/homework.ipynb",
+        "cells": [
+          1,
+          1
+        ],
+        "cell_ids": [
+          "c44b5e5e"
+        ],
+        "excerpt": "# Homework\n\n01. What is the difference between a **compile-time error** and a **runtime exception**?\n    Give an example of each.\n\n02. What are the three blocks in C# exception handling? Describe when each one executes.\n\n03. Why is it bad practice to catch `Exception` as the base type for all error handling?\n    What should you do instead?\n\n04. What happens if an exception is thrown inside a `finally` block?\n\n05. Write a short code snippet that reads a number from the user and handles the case\n    where the input is not a valid integer using `int.TryParse` rather than a try/catch.\n    When is `TryParse` preferable to exception handling?\n\n06. What is the difference between `throw` and `throw ex` when re-throwing an exception?\n    Which preserves the original stack trace?\n\n07. Describe the **Red-Green-Refactor** cycle in TDD. What does each color represent?\n\n08. What is the role of `[TestClass]` and `[TestMethod]` attributes in MSTest?\n\n09. In the `BasicMath` example, the `Multiply` method used `+` instead of `*`. Which\n    test caught the bug, and what did `Assert.AreEqual` report?\n\n10. What is the difference between a **unit test** and an **integration test**?"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "priority": "Should fix",
+    "title": "Stale prerequisites and cross-references remain below the landing pages",
+    "observed": "Chapter 14 Preview Foundation Check asks for the binary-search precondition before the developed Chapter 16 lesson. Chapter 1.1 says decisions and iteration are in Chapters 3 and 5; Chapter 9.3 describes string methods as Section 3.4 even though they are now 5.4. The semantic string label resolves, but the visible number is wrong.",
+    "consequence": "Correct landing pages do not remove assessment sequencing or instructional navigation drift.",
+    "next_check": "Correct visible references and decide whether the Chapter 14 preview item belongs in Chapter 16 or needs an explicit earlier prerequisite. Keep stable assessment IDs through any later move.",
+    "evidence": [
+      {
+        "file": "chapters/14_arrays_linked_lists/assignments/preview.ipynb",
+        "cells": [
+          4,
+          5
+        ],
+        "cell_ids": [
+          "a319e342",
+          "b2144993"
+        ],
+        "excerpt": "## Foundation Check\n\n```{index} algorithmic foundations; preview\n```\n\n\nWhat must be true before binary search?\n\na) The array contains no duplicates  \nb) The array is sorted using the search ordering  \nc) The target occurs exactly once  \nd) The data uses linked nodes  \n\n```{dropdown} Answer\n**b)** Binary search eliminates intervals using the same sorted order.\n```\n"
+      },
+      {
+        "file": "chapters/01_context/0101_cs_ideas.ipynb",
+        "cells": [
+          34,
+          34
+        ],
+        "cell_ids": [
+          "ae2141ec6d0e"
+        ],
+        "excerpt": "A **statement** instructs the program to do something. In the example, statements execute in order from top to bottom. This is **sequential execution**. A later instruction does not change output already printed by an earlier one.\n\nOther programming constructs select between actions or repeat them. Chapters 3 and 5 teach decisions and iteration. You do not need those constructs to write your first useful output program.\n\nA **syntax error** violates the language's rules and can prevent compilation. A **logical error** occurs when instructions run but produce an unintended result. Printing an outdated appointment time may compile successfully while still misleading a customer. Compilation is one check, not proof that the program is correct. Chapter 6 develops debugging and testing.\n\n**Practice:** Change the two messages in the cell to describe a fictional bookstore appointment. Predict both lines before running. Reverse the statement order and explain the result. Use fictional information throughout your exercises.\n"
+      },
+      {
+        "file": "chapters/09_files_text/0903_text_operations.ipynb",
+        "cells": [
+          6,
+          6
+        ],
+        "cell_ids": [
+          "361d6649"
+        ],
+        "excerpt": "This section applies the string methods from {ref}`string-methods` (Section 3.4) to whole lines of text: splitting lines into fields, validating them, cleaning text safely, and reading structured records.\n\nAs a reminder, strings are immutable, so methods such as `Trim`, `ToUpper`, and `Replace` return new strings. Clean a line with `Trim()` and check it with `string.IsNullOrWhiteSpace()` before splitting or parsing it.\n"
+      }
+    ]
+  },
+  {
+    "id": "F11",
+    "priority": "Could improve",
+    "title": "Two-dimensional arrays jump from a full example to a substantial report",
+    "observed": "7.2 provides rectangular-array syntax, GetLength, and a complete row/column-sum report. The sales lab asks students to produce a branch-by-day report. No small in-section aggregation checkpoint bridges the demonstration and the larger task.",
+    "consequence": "The topic and an implementation task are present. The gap is scaffolding, not absent 2D coverage or necessarily missing homework.",
+    "next_check": "Consider one guided row-total or column-total step before the full report, without adding another lesson or a practice quota.",
+    "evidence": [
+      {
+        "file": "chapters/07_arrays/0702_twodim.ipynb",
+        "cells": [
+          14,
+          16
+        ],
+        "cell_ids": [
+          "06e201b3",
+          "96b47dee",
+          "cc261105"
+        ],
+        "excerpt": "\nAll rows must be the same length when using this notation.\n\nOften two dimensional arrays, like one dimensional arrays, are processed\nin loops. Multiple dimension arrays are often processed in nested loops.\nWe could print out this table using columns 5 spaces wide with the code:\n\n```csharp\n         for (int r = 0; r < 3; r++) {\n            for (int c = 0; c < 4; c++) {\n               Console.Write(\"{0, 5}\", table[r, c]);\n            }\n            Console.WriteLine();\n         }\n```\n\nIf we wanted to make a more general function out of that code,\nwe have a problem: the number of rows and columns were literal values\nthat we knew. We need something more general. For one dimensional\narrays we had the Length property, but now there are more than one\nlengths!\n\nThe following standalone example illustrates the syntax needed:\n\n\nint[, ] table = { {2, 4,  7, 55},\n                  {3, 1,  8, 10},\n                  {6, 0, 49, 12} };\nConsole.WriteLine(table.Length);        // get the total number of elements\nConsole.WriteLine(table.GetLength(0));  // get number of elements in the 1st dimension (rows)\nConsole.WriteLine(table.GetLength(1));  // get number of elements in the 2nd dimension (columns)\nforeach (int n in table) {\n   Console.Write($\"{n} \");\n}\n\n\nNote:\n\n- The meaning for the Length property,\n  is now the *total* number of elements, (3)(4) = 12.\n- The separate method `GetLength` is needed to find the number of rows and columns.\n  The entries in the list of array indices in the multi-dimensional array notation\n  are themselves indexed to provide the `GetLength` method parameter for each dimension.\n  In this case index 0 gives the row length (left index of the array notation),\n  and 1 gives the column length (right index of the array notation).\n- The `foreach` statement behavior i"
+      },
+      {
+        "file": "chapters/07_arrays/assignments/lab.ipynb",
+        "cells": [
+          14,
+          16
+        ],
+        "cell_ids": [
+          "lab08_013",
+          "lab08_014",
+          "lab08_015"
+        ],
+        "excerpt": "## 5. Build a Branch-by-Day Report\n\nA third branch is added and the week is now stored in a two-dimensional array (one row per branch, one column per day). Print each branch's weekly total, each day's total across branches, and the top branch, as shown in the expected output.\n\nusing System;\n\nstring[] branches = { \"Downtown\", \"Airport\", \"Campus\" };\nstring[] days = { \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\" };\nint[,] sales = {\n    { 1200,  950, 1100, 1300, 1650, 2100, 1800 },\n    {  800,  870,  900,  950, 1020, 1100, 1250 },\n    { 1500, 1450, 1400, 1350,  900,  600,  700 }\n};\n\nint rows = sales.GetLength(0);\nint cols = sales.GetLength(1);\n\n// Your code starts here.\n\n\n\n// Your code ends here.\n\nusing System;\n\nstring[] branches = { \"Downtown\", \"Airport\", \"Campus\" };\nstring[] days = { \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\" };\nint[,] sales = {\n    { 1200,  950, 1100, 1300, 1650, 2100, 1800 },\n    {  800,  870,  900,  950, 1020, 1100, 1250 },\n    { 1500, 1450, 1400, 1350,  900,  600,  700 }\n};\n\nint rows = sales.GetLength(0);\nint cols = sales.GetLength(1);\n\nConsole.WriteLine(\"Branch totals:\");\nint bestBranch = 0;\nint bestTotal = 0;\nfor (int r = 0; r < rows; r++)\n{\n    int branchTotal = 0;\n    for (int c = 0; c < cols; c++)\n    {\n        branchTotal += sales[r, c];\n    }\n    Console.WriteLine($\"  {branches[r]}: {branchTotal}\");\n    if (branchTotal > bestTotal)\n    {\n        bestTotal = branchTotal;\n        bestBranch = r;\n    }\n}\n\nConsole.WriteLine(\"Day totals:\");\nfor (int c = 0; c < cols; c++)\n{\n    int dayTotal = 0;\n    for (int r = 0; r < rows; r++)\n    {\n        dayTotal += sales[r, c];\n    }\n    Console.WriteLine($\"  {days[c]}: {dayTotal}\");\n}\n\nConsole.WriteLine($\"Top branch: {branches[bestBranch]} ({bestTotal})\");"
+      }
+    ]
+  }
+]

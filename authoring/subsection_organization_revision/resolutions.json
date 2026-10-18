@@ -1,0 +1,154 @@
+[
+  {
+    "audit_finding": 1,
+    "file": "chapters/03_decision/0301_intro_decision.ipynb",
+    "status": "implemented",
+    "original_problem": "Compound Boolean Expressions has no substantive body before a second peer heading begins. The related operators and compound-condition examples are disconnected in the hierarchy.",
+    "before_outline": "Boolean Expressions & Logical Operators\n  Selection Statements\n  Boolean Data Type\n  Boolean Expressions\n  Compound Boolean Expressions\n  Logical Operators\n  Compound test conditions",
+    "after_outline": "Boolean Expressions & Logical Operators\n  Selection Statements\n  Boolean Data Type\n  Boolean Expressions\n  Compound Boolean Expressions\n    Logical Operators\n    Compound test conditions"
+  },
+  {
+    "audit_finding": 2,
+    "file": "chapters/03_decision/0302_ifstatement.ipynb",
+    "status": "implemented",
+    "original_problem": "One conceptual family is repeatedly introduced at the same level. Switch Statement is immediately followed by the separate peer Switch Syntax heading.",
+    "before_outline": "Conditional Selection with if and switch\n  Compare Ways to Express the Same Decision\n  Reason About the Unselected Branches\n  Simple `if` Statements\n  `if-else` Statements: Two-Way Selection\n  `else-if` Statements: Multi-Selection\n  else-if Statements\n  `else-if` Statements for Cases\n  Nested Conditionals\n  Nested `if` Statements\n  Nested `if-else` Statements\n  Switch Statement\n  Switch Syntax and Case Behavior\n  The `default` Keyword\n  The `break` Keyword",
+    "after_outline": "Conditional Selection with if and switch\n  Compare Ways to Express the Same Decision\n  Reason About the Unselected Branches\n  Simple `if` Statements\n  `if-else` Statements: Two-Way Selection\n  `else-if` Statements: Multi-Selection\n    else-if Statements\n    `else-if` Statements for Cases\n  Nested Conditionals\n    Nested `if` Statements\n    Nested `if-else` Statements\n  Switch Statement\n    Switch Syntax and Case Behavior\n    The `default` Keyword\n    The `break` Keyword"
+  },
+  {
+    "audit_finding": 3,
+    "file": "chapters/04_iteration/0402_for_statements.ipynb",
+    "status": "implemented",
+    "original_problem": "Short overview headings and their details are peers, so subsection numbering suggests unrelated topics.",
+    "before_outline": "The `for` Statement\n  For Statement Syntax\n    Execution sequence\n  `break` and `continue` Statements\n  Nested `for` Loop\n  Additional Loop Step Patterns\n  Step in loop header\n  `foreach` Essentials\n  `foreach` Statement\n    Numeric Character Codes with Two Loop Forms\n  `break` in `foreach`\n  Apply Loops to Formatted Tables\n  Format Output: Console.Write()\n  Formatting Tables\n  Repeated Trials and Random Values",
+    "after_outline": "The `for` Statement\n  For Statement Syntax\n    Execution sequence\n  `break` and `continue` Statements\n  Nested `for` Loop\n  Additional Loop Step Patterns\n    Step in loop header\n  `foreach` Essentials\n    `foreach` Statement\n      Numeric Character Codes with Two Loop Forms\n    `break` in `foreach`\n  Apply Loops to Formatted Tables\n    Format Output: Console.Write()\n    Formatting Tables\n  Repeated Trials and Random Values"
+  },
+  {
+    "audit_finding": 4,
+    "file": "chapters/04_iteration/0403_while_statement.ipynb",
+    "status": "implemented",
+    "original_problem": "The screenshot is confirmed: do-while overview, syntax, and example are peers. Infinite loops is empty while its substantial explanation appears after the GCD example. Strange-sequence and roundoff tasks are incorrectly children of Long Term Investment.",
+    "before_outline": "While-Statements\n  Infinite loops\n  While Examples\n  String Operations\n  Long Term Investment\n    Strange Sequence Exercise\n    Roundoff Exercise II\n  Do-While Loops\n  Read and Trace the Do-While Syntax\n  `do-while` Example: Right Triangle\n  GCD Example with a `while` Loop\n  Validate a Number Before Using It",
+    "after_outline": "While-Statements\n  Infinite loops\n  While Examples\n    String Operations\n    Long Term Investment\n    Strange Sequence Exercise\n    Roundoff Exercise II\n    GCD Example with a `while` Loop\n  Do-While Loops\n    Read and Trace the Do-While Syntax\n    `do-while` Example: Right Triangle\n  Validate a Number Before Using It"
+  },
+  {
+    "audit_finding": 5,
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "status": "implemented",
+    "original_problem": "Newer integrated explanations are followed by another definition/call sequence, splitting related explanations into two passes without a clear recap/variation relationship.",
+    "before_outline": "Designing and Calling Methods\n  Discover a Task Before Naming a Method\n  A Repeated Task Needs a Name\n  Connect Calls, Definitions, and Program Forms\n  Guided Practice: Reuse a Notice\n  Designing Methods\n  Method Signature\n  Method Calls & Returns\n  Flow of execution\n  Static Methods\n  Method definition\n  Method Calls",
+    "after_outline": "Designing and Calling Methods\n  Discover a Task Before Naming a Method\n  A Repeated Task Needs a Name\n    Designing Methods\n      Design Checklist and Chapter Connections\n  Connect Calls, Definitions, and Program Forms\n    Method definition\n    Method Signature\n    Static Methods\n    Method Calls & Returns\n      Method Calls\n      Flow of execution\n  Guided Practice: Reuse a Notice"
+  },
+  {
+    "audit_finding": 6,
+    "file": "chapters/05_methods/0503_parameter.ipynb",
+    "status": "implemented",
+    "original_problem": "Scope and static-storage explanations recur near the end after guided practice, while out/ref is appended beyond those reference fragments.",
+    "before_outline": "Method Parameters\n  Map Arguments to Parameters\n  Variable Scopes\n  Static Variables\n  Method Tracing\n  Reuse a Loop Through a Method Contract\n  Keep Interaction in the Caller\n  Guided Practice: Use a Returned Value\n  Scope\n  Static Storage Reference\n  Return Values, out, and ref",
+    "after_outline": "Method Parameters\n  Map Arguments to Parameters\n  Return Values, out, and ref\n  Variable Scopes\n    Scope\n  Static Variables\n    Static Storage Reference\n  Method Tracing\n  Reuse a Loop Through a Method Contract\n  Keep Interaction in the Caller\n  Guided Practice: Use a Returned Value"
+  },
+  {
+    "audit_finding": 7,
+    "file": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "status": "implemented",
+    "original_problem": "The named workflow and all six numbered steps are peers. The new worked investigation and the older step sequence are separated.",
+    "before_outline": "Debugging Workflow\n  Debug One Familiar Loop from Symptom to Evidence\n  Use a Different Symptom to Challenge the Hypothesis\n  Turn a Symptom into a Reproducible Question\n  Test a Hypothesis Against Execution\n  Keep Evidence After the Repair\n  The Workflow\n  Step 1: Reproduce Reliably\n  Step 2: Minimize the Failing Case\n  Step 3: Breakpoints and Stepping in VS Code\n  Step 4: Watch and Call Stack\n  Step 5: Typical Bug Patterns\n  Step 6: Validate the Fix\n  Practice",
+    "after_outline": "Debugging Workflow\n  Turn a Symptom into a Reproducible Question\n  The Workflow\n    Step 1: Reproduce Reliably\n    Step 2: Minimize the Failing Case\n    Step 3: Breakpoints and Stepping in VS Code\n    Step 4: Watch and Call Stack\n      Test a Hypothesis Against Execution\n    Step 5: Typical Bug Patterns\n    Step 6: Validate the Fix\n      Keep Evidence After the Repair\n  Debug One Familiar Loop from Symptom to Evidence\n    Use a Different Symptom to Challenge the Hypothesis\n  Practice"
+  },
+  {
+    "audit_finding": 8,
+    "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+    "status": "implemented",
+    "original_problem": "The complete restored project sequence is present, but its stages are flat peers of Framework Setup. A retained AI-review sentence refers to an earlier framework workflow even though the complete workflow now follows it.",
+    "before_outline": "Unit Testing\n  Introduction\n  Simple Testing\n  The Unit Testing Process\n  AI Review: Challenge Suggested Tests\n  Framework Setup and Test Attributes\n  Prepare the Solution\n  Prepare Application Code\n  Prepare Tests\n  Run, Read, and Repair\n  Run in VS Code\n  Design Tests Independently of the Implementation",
+    "after_outline": "Unit Testing\n  Introduction\n  Simple Testing\n  The Unit Testing Process\n  Design Tests Independently of the Implementation\n  Framework Setup and Test Attributes\n    Prepare the Solution\n    Prepare Application Code\n    Prepare Tests\n    Run, Read, and Repair\n    Run in VS Code\n  AI Review: Challenge Suggested Tests"
+  },
+  {
+    "audit_finding": 10,
+    "file": "chapters/08_collections/0803_dictionary.ipynb",
+    "status": "implemented",
+    "original_problem": "The motivating word-count example and its trace/full runnable version are peers even though the latter develops the former.",
+    "before_outline": "Dictionaries\n  Creating a Dictionary\n  Accessing Data in Dictionary\n  Properties and Methods in Dictionary\n  Guided Practice: Update Stock Safely\n  Word Count Example\n  Trace and Run the Word Counter\n  Dictionary Efficiency",
+    "after_outline": "Dictionaries\n  Creating a Dictionary\n  Accessing Data in Dictionary\n  Properties and Methods in Dictionary\n  Guided Practice: Update Stock Safely\n  Word Count Example\n    Trace and Run the Word Counter\n  Dictionary Efficiency"
+  },
+  {
+    "audit_finding": 11,
+    "file": "chapters/09_files_text/0901_stream_file.ipynb",
+    "status": "implemented",
+    "original_problem": "Writer/reader introductions are separated from their respective worked file operations, and Directory path is nested under end-of-stream reading.",
+    "before_outline": "File Foundations: Reading and Writing\n  File Stream\n    File handling process\n    The `System.IO` namespace\n  Simple File Handling: `File` Class\n  `StreamWriter`\n  Writing Files\n  `StreamReader`\n  Reading to End of Stream\n    Directory path",
+    "after_outline": "File Foundations: Reading and Writing\n  File Stream\n    File handling process\n    The `System.IO` namespace\n    Directory path\n  Simple File Handling: `File` Class\n  `StreamWriter`\n    Writing Files\n  `StreamReader`\n    Reading to End of Stream"
+  },
+  {
+    "audit_finding": 12,
+    "file": "chapters/09_files_text/0902_file_operations.ipynb",
+    "status": "implemented",
+    "original_problem": "Path concepts, the retained path reference, and C# path examples occur in separate passes.",
+    "before_outline": "File Workflows, Paths, and Resources\n  Run a Complete File Lifetime in an Owned Workspace\n  Predict Append and Missing-Input Outcomes\n  Separate a File's Location from Its Contents\n  Bound Resource Lifetime Explicitly\n  Path Strings\n  Paths in C\\#\n  The Directory Class",
+    "after_outline": "File Workflows, Paths, and Resources\n  Run a Complete File Lifetime in an Owned Workspace\n  Predict Append and Missing-Input Outcomes\n  Separate a File's Location from Its Contents\n    Path Strings\n    Paths in C\\#\n    The Directory Class\n  Bound Resource Lifetime Explicitly"
+  },
+  {
+    "audit_finding": 13,
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "status": "implemented",
+    "original_problem": "The new parameter-array method topic appears after the tuple group rather than next to the method forms it develops.",
+    "before_outline": "Class Syntax\n  Overview\n  Declaring Classes\n  Using a Class\n  Constructors\n  Static Classes & Methods\n  Tuples: When a Class Is Too Much\n    Creating Tuples\n    Returning Multiple Values\n    Destructuring\n    Tuples in Collections\n    Tuples or Classes?\n  A Variable Number of Arguments",
+    "after_outline": "Class Syntax\n  Overview\n  Declaring Classes\n  Using a Class\n  Constructors\n  Static Classes & Methods\n  A Variable Number of Arguments\n  Tuples: When a Class Is Too Much\n    Creating Tuples\n    Returning Multiple Values\n    Destructuring\n    Tuples in Collections\n    Tuples or Classes?"
+  },
+  {
+    "audit_finding": 14,
+    "file": "chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb",
+    "status": "implemented",
+    "original_problem": "The application task group precedes the fuller explanation of location/update costs, workload counting, and verification. Some initial tasks are reasonable checkpoints, but the full sequence is not explicitly staged.",
+    "before_outline": "Representation Tradeoffs and Verification\n  Array Search and Indexing\n  Linked Traversal\n  Middle Insertion Costs\n  Decision Guide\n  Lab Tasks\n  Separate Location Cost from Update Cost\n  Count a Concrete Workload\n  Test the Contract Before Comparing Speed\n  Memory and Locality Qualify the Recommendation\n  Summary",
+    "after_outline": "Representation Tradeoffs and Verification\n  Array Search and Indexing\n  Linked Traversal\n  Middle Insertion Costs\n  Separate Location Cost from Update Cost\n  Count a Concrete Workload\n  Test the Contract Before Comparing Speed\n  Memory and Locality Qualify the Recommendation\n  Decision Guide\n  Lab Tasks\n  Summary"
+  },
+  {
+    "audit_finding": 15,
+    "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+    "status": "implemented",
+    "original_problem": "New path explanation and retained predecessor implementation are separated by another BFS heading.",
+    "before_outline": "Breadth-First Search and Paths\n  Turn Queue Events into a Traversal Loop\n  Guide the Route and Tie-Policy Checks\n  Discover a Vertex Once, Then Process Its Neighbors\n  Recover a Path from Earlier Layers\n  Breadth-First Search and Discovery\n  Recover a Path with Predecessors",
+    "after_outline": "Breadth-First Search and Paths\n  Discover a Vertex Once, Then Process Its Neighbors\n    Turn Queue Events into a Traversal Loop\n    Breadth-First Search and Discovery\n  Recover a Path from Earlier Layers\n    Recover a Path with Predecessors\n    Guide the Route and Tie-Policy Checks"
+  },
+  {
+    "audit_finding": 16,
+    "file": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "status": "implemented",
+    "original_problem": "Component/direction discussions occur in multiple separated groups, and verification has two adjacent parent-level introductions.",
+    "before_outline": "Depth-First Search and Components\n  Watch the Suspended Neighbor Loop\n  Extend Reachability into a Component Report\n  Finish One Branch Before Returning to Its Alternatives\n  Connectivity Depends on Direction\n  Depth-First Search and Cycles\n  Connected Components and Direction\n  Costs and Contracts\n  Practice: Check a Reachability Report\n  Verify a Traversal\n  Traversal Verification Contracts\n  Components and Direction",
+    "after_outline": "Depth-First Search and Components\n  Watch the Suspended Neighbor Loop\n    Finish One Branch Before Returning to Its Alternatives\n    Depth-First Search and Cycles\n  Connectivity Depends on Direction\n    Extend Reachability into a Component Report\n    Connected Components and Direction\n    Components and Direction\n  Costs and Contracts\n  Verify a Traversal\n    Traversal Verification Contracts\n    Practice: Check a Reachability Report"
+  },
+  {
+    "audit_finding": 17,
+    "file": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb",
+    "status": "implemented",
+    "original_problem": "An initial Exercise is followed by a second developed sequence and another practice block. This can support staged learning, but the generic title hides which stage students are completing.",
+    "before_outline": "Stable Merge Sort and Verification\n  Prove the Combining Step Before Hiding It in Recursion\n  Combining Sorted Parts\n  Merge Sort\n  Design Checklist\n  Exercise\n  Trace Merge Fronts\n  Sort Ranges with One Buffer\n  Verify Stability with Labeled Invoices\n  Check Order, Preservation, and Copying\n  Compare Measured Operations\n  Practice: Verify Merge Results",
+    "after_outline": "Stable Merge Sort and Verification\n  Prove the Combining Step Before Hiding It in Recursion\n  Combining Sorted Parts\n  Merge Sort\n  Design Checklist\n  Checkpoint: Apply the Basic Merge Sort\n  Trace Merge Fronts\n  Sort Ranges with One Buffer\n  Verify Stability with Labeled Invoices\n  Check Order, Preservation, and Copying\n  Compare Measured Operations\n  Practice: Verify Merge Results"
+  },
+  {
+    "audit_finding": 18,
+    "file": "chapters/appendices/development_tools/csharp_setup.ipynb",
+    "status": "implemented",
+    "original_problem": "Templates and multiple projects are a child of CSharpRepl even though they concern project/application tooling.",
+    "before_outline": "C# Setup and Verification\n  The Microsoft Language and .NET Ecosystem\n  Install and Check the .NET SDK\n  Prepare Your Terminal and Workspace\n  Set Up VS Code for C#\n  Try C# Interactively with CSharpRepl\n    Reference: Templates and Multiple Projects\n  Check Setup Before Returning to the Chapter",
+    "after_outline": "C# Setup and Verification\n  The Microsoft Language and .NET Ecosystem\n  Install and Check the .NET SDK\n  Prepare Your Terminal and Workspace\n  Set Up VS Code for C#\n  Try C# Interactively with CSharpRepl\n  Reference: Templates and Multiple Projects\n  Check Setup Before Returning to the Chapter"
+  },
+  {
+    "audit_finding": 19,
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "status": "implemented",
+    "original_problem": "Verify Before Extending has no body before Injection begins. Verification and injection prevention are different topics.",
+    "before_outline": "C# and SQLite\n  Set Up and Run\n  Connections, Commands, and Disposal\n  Map Rows to Objects\n  Supply Parameters and Check Outcomes\n  Transactions for Related Changes\n  Verify Before Extending\n  Injection",
+    "after_outline": "C# and SQLite\n  Set Up and Run\n  Connections, Commands, and Disposal\n  Map Rows to Objects\n  Injection\n  Supply Parameters and Check Outcomes\n  Transactions for Related Changes\n  Verify Before Extending"
+  },
+  {
+    "audit_finding": 20,
+    "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+    "status": "implemented",
+    "original_problem": "General conversion is nested within Types while its input-casting examples and trace are top-level peers. The hierarchy does not reveal the conceptual relationship.",
+    "before_outline": "Types and Conversion\n  Types\n    The Type System: Value, Reference, void, and Defaults\n      Value Types\n      Reference Types\n      `void`\n      Default Values\n      A Note on Unmanaged Types\n    Common Data Types in C\\#\n      Type Hierarchy at a Glance\n    Data Types in Action\n      Integer Types\n      Floating-Point Types\n      Boolean (`bool`)\n      Character (`char`)\n      String (`string`)\n      Creating a String\n      String Concatenation\n      Escape Special Characters\n    Type Conversion\n  Casting (Type Conversion) in Input\n  Follow a Value Through a Conversion\n  Keep Stored Values Separate from Their Display",
+    "after_outline": "Types and Conversion\n  Types\n    The Type System: Value, Reference, void, and Defaults\n      Value Types\n      Reference Types\n      `void`\n      Default Values\n      A Note on Unmanaged Types\n    Common Data Types in C\\#\n      Type Hierarchy at a Glance\n    Data Types in Action\n      Integer Types\n      Floating-Point Types\n      Boolean (`bool`)\n      Character (`char`)\n      String (`string`)\n      Creating a String\n      String Concatenation\n      Escape Special Characters\n  Type Conversion\n    Casting (Type Conversion) in Input\n    Follow a Value Through a Conversion\n  Keep Stored Values Separate from Their Display"
+  }
+]

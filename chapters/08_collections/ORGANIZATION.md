@@ -114,3 +114,20 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0803_dictionary.ipynb`: Dictionaries.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `0803_dictionary.ipynb`
+
+- Creating a Dictionary
+- Accessing Data in Dictionary
+- Properties and Methods in Dictionary
+- Guided Practice: Update Stock Safely
+- Word Count Example
+  - Trace and Run the Word Counter
+- Dictionary Efficiency
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

@@ -76,3 +76,44 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `1403_comparison_lab.ipynb`: Representation Tradeoffs and Verification.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `preview.ipynb` | Assess binary-search prerequisite with the chapter that develops it. |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Linked-head replacement and valid prerequisites | 1402_linked_nodes existing reference-link operations, now linked to Ch5 ref contract | Existing link/invariant practice | Preview checks link preservation; original binary-search question and ID moved to Chapter 16 preview. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `1403_comparison_lab.ipynb`
+
+- Array Search and Indexing
+- Linked Traversal
+- Middle Insertion Costs
+- Separate Location Cost from Update Cost
+- Count a Concrete Workload
+- Test the Contract Before Comparing Speed
+- Memory and Locality Qualify the Recommendation
+- Decision Guide
+- Lab Tasks
+- Summary
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

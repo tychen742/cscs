@@ -1,0 +1,752 @@
+[
+  {
+    "priority": "High",
+    "file": "chapters/03_decision/0301_intro_decision.ipynb",
+    "evidence": [
+      {
+        "title": "Compound Boolean Expressions",
+        "cell": 18,
+        "cell_id": "6e062790",
+        "level": 2
+      },
+      {
+        "title": "Logical Operators",
+        "cell": 20,
+        "cell_id": "8fc84f07",
+        "level": 2
+      },
+      {
+        "title": "Compound test conditions",
+        "cell": 25,
+        "cell_id": "5b40a38e",
+        "level": 2
+      }
+    ],
+    "problem": "Compound Boolean Expressions has no substantive body before a second peer heading begins. The related operators and compound-condition examples are disconnected in the hierarchy.",
+    "recommendation": "Keep Compound Boolean Expressions as the topic; nest operator explanation and compound-condition applications beneath it, retaining the existing anchor.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/03_decision/0302_ifstatement.ipynb",
+    "evidence": [
+      {
+        "title": "`else-if` Statements: Multi-Selection",
+        "cell": 20,
+        "cell_id": "96af7412",
+        "level": 2
+      },
+      {
+        "title": "else-if Statements",
+        "cell": 23,
+        "cell_id": "b8a25f4a",
+        "level": 2
+      },
+      {
+        "title": "Nested Conditionals",
+        "cell": 45,
+        "cell_id": "25c4d6bb",
+        "level": 2
+      },
+      {
+        "title": "Nested `if` Statements",
+        "cell": 48,
+        "cell_id": "bf5709a2",
+        "level": 2
+      },
+      {
+        "title": "Nested `if-else` Statements",
+        "cell": 52,
+        "cell_id": "997d9b7a",
+        "level": 2
+      },
+      {
+        "title": "Switch Statement",
+        "cell": 55,
+        "cell_id": "43013eb8",
+        "level": 2
+      },
+      {
+        "title": "Switch Syntax and Case Behavior",
+        "cell": 57,
+        "cell_id": "96250845",
+        "level": 2
+      }
+    ],
+    "problem": "One conceptual family is repeatedly introduced at the same level. Switch Statement is immediately followed by the separate peer Switch Syntax heading.",
+    "recommendation": "Use one parent per family: else-if, nested conditionals, and switch. Nest syntax, variants, default, and break under the appropriate parent; preserve every example and published fragment.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/04_iteration/0402_for_statements.ipynb",
+    "evidence": [
+      {
+        "title": "Additional Loop Step Patterns",
+        "cell": 33,
+        "cell_id": "f45836e0",
+        "level": 2
+      },
+      {
+        "title": "Step in loop header",
+        "cell": 36,
+        "cell_id": "3addae62",
+        "level": 2
+      },
+      {
+        "title": "`foreach` Essentials",
+        "cell": 46,
+        "cell_id": "9540fc58",
+        "level": 2
+      },
+      {
+        "title": "`foreach` Statement",
+        "cell": 49,
+        "cell_id": "918e0c5b",
+        "level": 2
+      },
+      {
+        "title": "`break` in `foreach`",
+        "cell": 57,
+        "cell_id": "9290fb25",
+        "level": 2
+      },
+      {
+        "title": "Apply Loops to Formatted Tables",
+        "cell": 59,
+        "cell_id": "29106036",
+        "level": 2
+      },
+      {
+        "title": "Format Output: Console.Write()",
+        "cell": 62,
+        "cell_id": "cc4efe18",
+        "level": 2
+      },
+      {
+        "title": "Formatting Tables",
+        "cell": 67,
+        "cell_id": "22e5d928",
+        "level": 2
+      }
+    ],
+    "problem": "Short overview headings and their details are peers, so subsection numbering suggests unrelated topics.",
+    "recommendation": "Nest step patterns under their conceptual parent; use one foreach parent with syntax and break children; group output formatting and table examples together. Keep Random as a meaningful application after loop fundamentals.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/04_iteration/0403_while_statement.ipynb",
+    "evidence": [
+      {
+        "title": "Infinite loops",
+        "cell": 12,
+        "cell_id": "ff6ea068",
+        "level": 2
+      },
+      {
+        "title": "While Examples",
+        "cell": 14,
+        "cell_id": "d057d066",
+        "level": 2
+      },
+      {
+        "title": "String Operations",
+        "cell": 17,
+        "cell_id": "1ddac3c3",
+        "level": 2
+      },
+      {
+        "title": "Long Term Investment",
+        "cell": 29,
+        "cell_id": "188f30f5",
+        "level": 2
+      },
+      {
+        "title": "Strange Sequence Exercise",
+        "cell": 32,
+        "cell_id": "939f0153",
+        "level": 3
+      },
+      {
+        "title": "Roundoff Exercise II",
+        "cell": 37,
+        "cell_id": "dd4c8665",
+        "level": 3
+      },
+      {
+        "title": "Do-While Loops",
+        "cell": 42,
+        "cell_id": "3f240241",
+        "level": 2
+      },
+      {
+        "title": "Read and Trace the Do-While Syntax",
+        "cell": 45,
+        "cell_id": "7ee4c85b",
+        "level": 2
+      },
+      {
+        "title": "`do-while` Example: Right Triangle",
+        "cell": 55,
+        "cell_id": "a81a6be4",
+        "level": 2
+      },
+      {
+        "title": "GCD Example with a `while` Loop",
+        "cell": 60,
+        "cell_id": "2832d000",
+        "level": 2
+      }
+    ],
+    "problem": "The screenshot is confirmed: do-while overview, syntax, and example are peers. Infinite loops is empty while its substantial explanation appears after the GCD example. Strange-sequence and roundoff tasks are incorrectly children of Long Term Investment.",
+    "recommendation": "Group do-while syntax and triangle example under Do-While Loops. Relocate the retained nontermination explanation beneath Infinite loops. Give unrelated while applications a shared example parent or make them independent peers; do not nest them under investment.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "evidence": [
+      {
+        "title": "Connect Calls, Definitions, and Program Forms",
+        "cell": 15,
+        "cell_id": "5275fbe6",
+        "level": 2
+      },
+      {
+        "title": "Method Signature",
+        "cell": 31,
+        "cell_id": "dab45af7",
+        "level": 2
+      },
+      {
+        "title": "Method Calls & Returns",
+        "cell": 37,
+        "cell_id": "23b2fc18",
+        "level": 2
+      },
+      {
+        "title": "Method definition",
+        "cell": 50,
+        "cell_id": "5c2905c8",
+        "level": 2
+      },
+      {
+        "title": "Method Calls",
+        "cell": 53,
+        "cell_id": "c03ef2a8",
+        "level": 2
+      }
+    ],
+    "problem": "Newer integrated explanations are followed by another definition/call sequence, splitting related explanations into two passes without a clear recap/variation relationship.",
+    "recommendation": "Integrate the retained signature, definition, and call variants under the corresponding conceptual topics. Keep the distinct program-form comparison and guided reuse task; use descriptive variation titles where a second treatment adds value.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/05_methods/0503_parameter.ipynb",
+    "evidence": [
+      {
+        "title": "Variable Scopes",
+        "cell": 16,
+        "cell_id": "bc262d4c",
+        "level": 2
+      },
+      {
+        "title": "Static Variables",
+        "cell": 22,
+        "cell_id": "7bdf5eeb",
+        "level": 2
+      },
+      {
+        "title": "Scope",
+        "cell": 51,
+        "cell_id": "8672b6c3",
+        "level": 2
+      },
+      {
+        "title": "Static Storage Reference",
+        "cell": 54,
+        "cell_id": "7ad992cb",
+        "level": 2
+      },
+      {
+        "title": "Return Values, out, and ref",
+        "cell": 56,
+        "cell_id": "b6afdb929884",
+        "level": 2
+      }
+    ],
+    "problem": "Scope and static-storage explanations recur near the end after guided practice, while out/ref is appended beyond those reference fragments.",
+    "recommendation": "Consolidate scope and storage variants under their first meaningful topics. Put parameter-passing modes beside the initial parameter explanation and mark advanced reference material distinctly.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "evidence": [
+      {
+        "title": "The Workflow",
+        "cell": 21,
+        "cell_id": "70312484",
+        "level": 2
+      },
+      {
+        "title": "Step 1: Reproduce Reliably",
+        "cell": 24,
+        "cell_id": "ae3a292f",
+        "level": 2
+      },
+      {
+        "title": "Step 2: Minimize the Failing Case",
+        "cell": 27,
+        "cell_id": "b1224fc3",
+        "level": 2
+      },
+      {
+        "title": "Step 3: Breakpoints and Stepping in VS Code",
+        "cell": 33,
+        "cell_id": "f43a3ede",
+        "level": 2
+      },
+      {
+        "title": "Step 4: Watch and Call Stack",
+        "cell": 36,
+        "cell_id": "cf165e24",
+        "level": 2
+      },
+      {
+        "title": "Step 5: Typical Bug Patterns",
+        "cell": 39,
+        "cell_id": "07f62745",
+        "level": 2
+      },
+      {
+        "title": "Step 6: Validate the Fix",
+        "cell": 42,
+        "cell_id": "55dc9a29",
+        "level": 2
+      }
+    ],
+    "problem": "The named workflow and all six numbered steps are peers. The new worked investigation and the older step sequence are separated.",
+    "recommendation": "Use a workflow parent with ordered child steps, and attach the worked observations to the corresponding steps or explicitly frame the earlier investigation as a worked overview.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+    "evidence": [
+      {
+        "title": "AI Review: Challenge Suggested Tests",
+        "cell": 15,
+        "cell_id": "462c721ca684",
+        "level": 2
+      },
+      {
+        "title": "Framework Setup and Test Attributes",
+        "cell": 24,
+        "cell_id": "int_testing_framework_reference",
+        "level": 2
+      },
+      {
+        "title": "Prepare the Solution",
+        "cell": 26,
+        "cell_id": "e378aab7",
+        "level": 2
+      },
+      {
+        "title": "Prepare Application Code",
+        "cell": 29,
+        "cell_id": "77d2282a",
+        "level": 2
+      },
+      {
+        "title": "Prepare Tests",
+        "cell": 32,
+        "cell_id": "516bc604",
+        "level": 2
+      },
+      {
+        "title": "Run, Read, and Repair",
+        "cell": 35,
+        "cell_id": "160d310d",
+        "level": 2
+      },
+      {
+        "title": "Run in VS Code",
+        "cell": 38,
+        "cell_id": "da9e0704",
+        "level": 2
+      },
+      {
+        "title": "Design Tests Independently of the Implementation",
+        "cell": 41,
+        "cell_id": "0f3d5412401e",
+        "level": 2
+      }
+    ],
+    "problem": "The complete restored project sequence is present, but its stages are flat peers of Framework Setup. A retained AI-review sentence refers to an earlier framework workflow even though the complete workflow now follows it.",
+    "recommendation": "Place the project stages under a coherent MSTest workflow parent; teach independent expected-result design before applying it to AI review, and repair the directional reference. Preserve the full historical project lesson.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/07_arrays/0702_twodim.ipynb",
+    "evidence": [
+      {
+        "title": "Rectangular Arrays (Two Dimensional)",
+        "cell": 5,
+        "cell_id": "1757d089",
+        "level": 2
+      },
+      {
+        "title": "Advanced topic: Array of Arrays",
+        "cell": 18,
+        "cell_id": "693b29b2",
+        "level": 2
+      },
+      {
+        "title": "From One Row to a Table Summary",
+        "cell": 24,
+        "cell_id": "2a1041916373",
+        "level": 2
+      }
+    ],
+    "problem": "The new core guided aggregation bridge follows the optional jagged-array extension. Students encounter optional complexity before the simpler core practice.",
+    "recommendation": "Move the row/column bridge and its practice into the rectangular-array topic before the optional jagged-array extension. This ordering problem was introduced in the last fix pass.",
+    "status": "Fixed in the authorized Chapter 7 pass: core aggregation now precedes optional jagged arrays."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/08_collections/0803_dictionary.ipynb",
+    "evidence": [
+      {
+        "title": "Word Count Example",
+        "cell": 49,
+        "cell_id": "673200fe",
+        "level": 2
+      },
+      {
+        "title": "Trace and Run the Word Counter",
+        "cell": 51,
+        "cell_id": "36025da6",
+        "level": 2
+      }
+    ],
+    "problem": "The motivating word-count example and its trace/full runnable version are peers even though the latter develops the former.",
+    "recommendation": "Nest the trace and full program under Word Count Example, retaining both the central helper listing and the standalone program.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/09_files_text/0901_stream_file.ipynb",
+    "evidence": [
+      {
+        "title": "`StreamWriter`",
+        "cell": 20,
+        "cell_id": "4eb234a8",
+        "level": 2
+      },
+      {
+        "title": "Writing Files",
+        "cell": 23,
+        "cell_id": "4ac7001c",
+        "level": 2
+      },
+      {
+        "title": "`StreamReader`",
+        "cell": 28,
+        "cell_id": "a6afd07f",
+        "level": 2
+      },
+      {
+        "title": "Reading to End of Stream",
+        "cell": 35,
+        "cell_id": "1f0a0510",
+        "level": 2
+      },
+      {
+        "title": "Directory path",
+        "cell": 42,
+        "cell_id": "01b88eb8",
+        "level": 3
+      }
+    ],
+    "problem": "Writer/reader introductions are separated from their respective worked file operations, and Directory path is nested under end-of-stream reading.",
+    "recommendation": "Group writing syntax/examples under StreamWriter and reading syntax/examples under StreamReader. Put path guidance beside file-location prerequisites or link to the path lesson.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/09_files_text/0902_file_operations.ipynb",
+    "evidence": [
+      {
+        "title": "Separate a File's Location from Its Contents",
+        "cell": 12,
+        "cell_id": "74f7273e",
+        "level": 2
+      },
+      {
+        "title": "Path Strings",
+        "cell": 18,
+        "cell_id": "51032539",
+        "level": 2
+      },
+      {
+        "title": "Paths in C\\#",
+        "cell": 21,
+        "cell_id": "a27022d9",
+        "level": 2
+      }
+    ],
+    "problem": "Path concepts, the retained path reference, and C# path examples occur in separate passes.",
+    "recommendation": "Keep one location/path group and nest literal/path API variations there. Preserve the complete file-lifetime example as the opening worked overview.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/10_classes/1001_class_syntax.ipynb",
+    "evidence": [
+      {
+        "title": "Static Classes & Methods",
+        "cell": 16,
+        "cell_id": "ab689c39",
+        "level": 2
+      },
+      {
+        "title": "Tuples: When a Class Is Too Much",
+        "cell": 19,
+        "cell_id": "f1bcb96f",
+        "level": 2
+      },
+      {
+        "title": "A Variable Number of Arguments",
+        "cell": 40,
+        "cell_id": "429444a2162d",
+        "level": 2
+      }
+    ],
+    "problem": "The new parameter-array method topic appears after the tuple group rather than next to the method forms it develops.",
+    "recommendation": "Place parameter arrays beside static/instance method syntax before the separate tuple data-model alternative. No notebook or chapter move is needed.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb",
+    "evidence": [
+      {
+        "title": "Decision Guide",
+        "cell": 15,
+        "cell_id": "eaee5943",
+        "level": 2
+      },
+      {
+        "title": "Lab Tasks",
+        "cell": 18,
+        "cell_id": "def11631",
+        "level": 2
+      },
+      {
+        "title": "Separate Location Cost from Update Cost",
+        "cell": 21,
+        "cell_id": "5be62187",
+        "level": 2
+      },
+      {
+        "title": "Count a Concrete Workload",
+        "cell": 24,
+        "cell_id": "dd91e75f",
+        "level": 2
+      },
+      {
+        "title": "Test the Contract Before Comparing Speed",
+        "cell": 27,
+        "cell_id": "86c46d82",
+        "level": 2
+      }
+    ],
+    "problem": "The application task group precedes the fuller explanation of location/update costs, workload counting, and verification. Some initial tasks are reasonable checkpoints, but the full sequence is not explicitly staged.",
+    "recommendation": "Keep simple checkpoint traces near their examples; place the transfer/representation-selection tasks after the developed cost and verification discussion, and label the two practice stages.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+    "evidence": [
+      {
+        "title": "Recover a Path from Earlier Layers",
+        "cell": 13,
+        "cell_id": "964c3deb",
+        "level": 2
+      },
+      {
+        "title": "Breadth-First Search and Discovery",
+        "cell": 17,
+        "cell_id": "c95b226d5859",
+        "level": 2
+      },
+      {
+        "title": "Recover a Path with Predecessors",
+        "cell": 21,
+        "cell_id": "691adac0e0cf",
+        "level": 2
+      }
+    ],
+    "problem": "New path explanation and retained predecessor implementation are separated by another BFS heading.",
+    "recommendation": "Group the BFS trace, loop explanation, and implementation together; then group path recovery explanation and implementation together. Retain the event trace and all tie-policy variations.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "evidence": [
+      {
+        "title": "Extend Reachability into a Component Report",
+        "cell": 8,
+        "cell_id": "ba_13cae13d53b5db86d9",
+        "level": 2
+      },
+      {
+        "title": "Connectivity Depends on Direction",
+        "cell": 15,
+        "cell_id": "ce3029ae",
+        "level": 2
+      },
+      {
+        "title": "Connected Components and Direction",
+        "cell": 21,
+        "cell_id": "d60adbf69cae",
+        "level": 2
+      },
+      {
+        "title": "Verify a Traversal",
+        "cell": 33,
+        "cell_id": "1803e85f",
+        "level": 2
+      },
+      {
+        "title": "Traversal Verification Contracts",
+        "cell": 35,
+        "cell_id": "2ce7abea",
+        "level": 2
+      },
+      {
+        "title": "Components and Direction",
+        "cell": 38,
+        "cell_id": "3615022f",
+        "level": 2
+      }
+    ],
+    "problem": "Component/direction discussions occur in multiple separated groups, and verification has two adjacent parent-level introductions.",
+    "recommendation": "Integrate direction/component variants into one conceptual group and verification under one parent with specific contract checks. Preserve the frame-based DFS explanation and direction distinctions.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Could refine",
+    "file": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb",
+    "evidence": [
+      {
+        "title": "Exercise",
+        "cell": 19,
+        "cell_id": "b6d9f75f",
+        "level": 2
+      },
+      {
+        "title": "Trace Merge Fronts",
+        "cell": 26,
+        "cell_id": "921c541a",
+        "level": 2
+      },
+      {
+        "title": "Sort Ranges with One Buffer",
+        "cell": 31,
+        "cell_id": "c3626f52",
+        "level": 2
+      },
+      {
+        "title": "Practice: Verify Merge Results",
+        "cell": 50,
+        "cell_id": "d8dff5df",
+        "level": 2
+      }
+    ],
+    "problem": "An initial Exercise is followed by a second developed sequence and another practice block. This can support staged learning, but the generic title hides which stage students are completing.",
+    "recommendation": "Rename the first checkpoint to state its scope; explicitly connect the subsequent full implementation and verification practice. Do not move every checkpoint to the end or remove the later development.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Medium",
+    "file": "chapters/appendices/development_tools/csharp_setup.ipynb",
+    "evidence": [
+      {
+        "title": "Try C# Interactively with CSharpRepl",
+        "cell": 13,
+        "cell_id": "aa9ef992",
+        "level": 2
+      },
+      {
+        "title": "Reference: Templates and Multiple Projects",
+        "cell": 15,
+        "cell_id": "402072bc",
+        "level": 3
+      }
+    ],
+    "problem": "Templates and multiple projects are a child of CSharpRepl even though they concern project/application tooling.",
+    "recommendation": "Make the project/template reference a sibling reference topic or nest it under project setup, retaining the REPL-to-project distinction.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "High",
+    "file": "chapters/appendices/databases/csharp_sqlite.ipynb",
+    "evidence": [
+      {
+        "title": "Verify Before Extending",
+        "cell": 13,
+        "cell_id": "ddd1a73604c3",
+        "level": 2
+      },
+      {
+        "title": "Injection",
+        "cell": 14,
+        "cell_id": "75c0ca10",
+        "level": 2
+      }
+    ],
+    "problem": "Verify Before Extending has no body before Injection begins. Verification and injection prevention are different topics.",
+    "recommendation": "Give verification its actual checks or merge the empty label with the intended checklist. Keep parameterized/injection explanation as its own safety topic before applied database tasks.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  },
+  {
+    "priority": "Could refine",
+    "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+    "evidence": [
+      {
+        "title": "Types",
+        "cell": 5,
+        "cell_id": "b162dc06",
+        "level": 2
+      },
+      {
+        "title": "Type Conversion",
+        "cell": 60,
+        "cell_id": "dd85d58f",
+        "level": 3
+      },
+      {
+        "title": "Casting (Type Conversion) in Input",
+        "cell": 69,
+        "cell_id": "96b7e040",
+        "level": 2
+      },
+      {
+        "title": "Follow a Value Through a Conversion",
+        "cell": 77,
+        "cell_id": "a12486db",
+        "level": 2
+      }
+    ],
+    "problem": "General conversion is nested within Types while its input-casting examples and trace are top-level peers. The hierarchy does not reveal the conceptual relationship.",
+    "recommendation": "Use a conversion parent with general conversion, input conversion, and trace children. Retain the separate stored-value/display distinction.",
+    "status": "Fixed in subsection_organization_revision; see resolutions.json for the before/after outline and verification."
+  }
+]

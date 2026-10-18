@@ -99,3 +99,46 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `1004_averager.ipynb`: Averager and Mutable State.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `1001_class_syntax.ipynb` | A Variable Number of Arguments |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Parameter arrays and overload contrast | 1001_class_syntax: params-array syntax, empty/existing-array examples, overload distinction | Threshold-count method with final parameter array | Original SumManyArgs and two/three-argument overload tasks retained; their first explanation now lives in content. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `1001_class_syntax.ipynb`
+
+- Overview
+- Declaring Classes
+- Using a Class
+- Constructors
+- Static Classes & Methods
+- A Variable Number of Arguments
+- Tuples: When a Class Is Too Much
+  - Creating Tuples
+  - Returning Multiple Values
+  - Destructuring
+  - Tuples in Collections
+  - Tuples or Classes?
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

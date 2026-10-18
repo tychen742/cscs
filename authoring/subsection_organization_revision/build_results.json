@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "warnings": [
+    "\u001b[91m/Users/tychen/workspace/cscs/chapters/02_var_data/0204_types_conversion.ipynb:360002: WARNING: Lexing literal_block \"char letter  = 'A';\\nchar digit   = '7';\\nchar newline = '\\\\n';\\nchar unicode = '\\\\u00E9';       // \u00e9 \u2014 U+00E9 LATIN SMALL LETTER E WITH ACUTE\\n\\n// char \u2194 int\\nint  code = letter;            // 65 \u2014 implicit cast to int\\nchar back = (char)(code + 1);  // 'B' \u2014 explicit cast back\\n\\nConsole.WriteLine(letter);\\nConsole.WriteLine(code);\\nConsole.WriteLine(back);\\nConsole.WriteLine(unicode);\" as \"csharp\" resulted in an error at token: \"'\". Retrying in relaxed mode.\u001b[39;49;00m"
+  ],
+  "command": ".venv/bin/jupyter-book build . --path-output /tmp/cscs-section-revision"
+}

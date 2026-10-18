@@ -1101,6 +1101,21 @@
   "creating tuples": [
     "tuples; creation"
   ],
+  "cs1 arrays: binary-search": [
+    "binary search; sorted arrays",
+    "array searching; binary search"
+  ],
+  "cs1 arrays: insertion-sort": [
+    "insertion sort; integer arrays",
+    "array sorting; in-place mutation"
+  ],
+  "cs1 arrays: linear-search": [
+    "linear search; arrays",
+    "array searching; first match"
+  ],
+  "cs1 arrays: search and sort choices": [
+    "arrays; searching and sorting"
+  ],
   "csharprepl; expressions": [
     "CSharpRepl; expressions"
   ],
@@ -1644,6 +1659,51 @@
   ],
   "gap experiments": [
     "Shell sort; gap experiments"
+  ],
+  "gap revision: a variable number of arguments": [
+    "method parameters; params",
+    "method overloading; parameter arrays"
+  ],
+  "gap revision: design tests independently of the implementation": [
+    "testing; independent expected results",
+    "testing; boundary cases"
+  ],
+  "gap revision: from one row to a table summary": [
+    "arrays; row and column totals"
+  ],
+  "gap revision: repeated trials and random values": [
+    "Random; Next",
+    "simulation; repeated trials"
+  ],
+  "gap revision: rethrow without losing the failure origin": [
+    "exceptions; rethrowing",
+    "stack trace; preservation"
+  ],
+  "gap revision: return values, out, and ref": [
+    "method parameters; out",
+    "method parameters; ref"
+  ],
+  "gap revision: validate a number before using it": [
+    "input validation; TryParse",
+    "int.TryParse"
+  ],
+  "gap testing: prepare application code": [
+    "testing; public application code"
+  ],
+  "gap testing: prepare tests": [
+    "MSTest; attributes",
+    "testing; expected and actual results"
+  ],
+  "gap testing: prepare the solution": [
+    "testing; project references",
+    "testing; solution organization"
+  ],
+  "gap testing: run in vs code": [
+    "testing; Test Explorer"
+  ],
+  "gap testing: run, read, and repair": [
+    "testing; failure diagnosis",
+    "regression testing"
   ],
   "gcd \"brute force\" method": [
     "greatest common divisor; brute-force algorithm"
@@ -4405,5 +4465,9 @@
   ],
   "yield return": [
     "yield return"
+  ],
+  "subsection integration: method design connections": [
+    "methods; design checklist",
+    "methods; chapter connections"
   ]
 }

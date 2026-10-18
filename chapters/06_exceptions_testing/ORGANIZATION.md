@@ -107,3 +107,66 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0605_software_responsibility.ipynb`: Computing and Society.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `0601_error_handling.ipynb` | Rethrow Without Losing the Failure Origin |
+| `0603_testing.ipynb` | Correct mixed framework, namespace, and assertion-order instructions; preserve reference bank. |
+| `unit_testing_walkthrough.ipynb` | Move full historical explanation and listings before assignment; retain application and deliverables. |
+| `0603_testing.ipynb` | Design Tests Independently of the Implementation |
+| `homework.ipynb` | A Debugging Investigation with Regression Evidence |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Test-project architecture and framework | 0603_testing: complete historical two-project MSTest workflow, corrected expected/actual order | Existing worked four-test failure/repair and new test-design table | Testing Walkthrough applies the content; independent permit homework requires a new suite and failure/pass transcripts. |
+| Rethrow and debugging evidence | 0601_error_handling: propagation syntax/table/demo; 0602_debugging_workflow existing diagnostic process | Trace caller catch; inspect stack; derive threshold cases | Independent permit investigation requires hypothesis, breakpoint/watch evidence, invalid-input exception, and unchanged regression checks. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+
+## Subsection Integration (2026-10-17)
+
+This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
+
+### `0602_debugging_workflow.ipynb`
+
+- Turn a Symptom into a Reproducible Question
+- The Workflow
+  - Step 1: Reproduce Reliably
+  - Step 2: Minimize the Failing Case
+  - Step 3: Breakpoints and Stepping in VS Code
+  - Step 4: Watch and Call Stack
+    - Test a Hypothesis Against Execution
+  - Step 5: Typical Bug Patterns
+  - Step 6: Validate the Fix
+    - Keep Evidence After the Repair
+- Debug One Familiar Loop from Symptom to Evidence
+  - Use a Different Symptom to Challenge the Hypothesis
+- Practice
+
+### `0603_testing.ipynb`
+
+- Introduction
+- Simple Testing
+- The Unit Testing Process
+- Design Tests Independently of the Implementation
+- Framework Setup and Test Attributes
+  - Prepare the Solution
+  - Prepare Application Code
+  - Prepare Tests
+  - Run, Read, and Repair
+  - Run in VS Code
+- AI Review: Challenge Suggested Tests
+
+Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.

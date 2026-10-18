@@ -1,0 +1,609 @@
+[
+  {
+    "action": "heading level",
+    "cell_id": "8fc84f07",
+    "title": "Logical Operators",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "5b40a38e",
+    "title": "Compound test conditions",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "b8a25f4a",
+    "title": "else-if Statements",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "e4852c08",
+    "title": "`else-if` Statements for Cases",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "bf5709a2",
+    "title": "Nested `if` Statements",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "997d9b7a",
+    "title": "Nested `if-else` Statements",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "96250845",
+    "title": "Switch Syntax and Case Behavior",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "c31cf9cc",
+    "title": "The `default` Keyword",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "53db042b",
+    "title": "The `break` Keyword",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "3addae62",
+    "title": "Step in loop header",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "918e0c5b",
+    "title": "`foreach` Statement",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "c918f882",
+    "title": "Numeric Character Codes with Two Loop Forms",
+    "level": 4
+  },
+  {
+    "action": "heading level",
+    "cell_id": "9290fb25",
+    "title": "`break` in `foreach`",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "cc4efe18",
+    "title": "Format Output: Console.Write()",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "22e5d928",
+    "title": "Formatting Tables",
+    "level": 3
+  },
+  {
+    "file": "chapters/04_iteration/0403_while_statement.ipynb",
+    "action": "move original nontermination explanation",
+    "cell_id": "8702f8b6"
+  },
+  {
+    "action": "heading level",
+    "cell_id": "1ddac3c3",
+    "title": "String Operations",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "188f30f5",
+    "title": "Long Term Investment",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "2832d000",
+    "title": "GCD Example with a `while` Loop",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "7ee4c85b",
+    "title": "Read and Trace the Do-While Syntax",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "a81a6be4",
+    "title": "`do-while` Example: Right Triangle",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Infinite loops",
+      "While Examples",
+      "String Operations",
+      "Long Term Investment",
+      "Strange Sequence Exercise",
+      "Roundoff Exercise II",
+      "GCD Example with a `while` Loop",
+      "Do-While Loops",
+      "Read and Trace the Do-While Syntax",
+      "`do-while` Example: Right Triangle",
+      "Validate a Number Before Using It"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "9f1c08e0-4c54-4bc8-8168-0ad6df83de56",
+    "title": "Designing Methods",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "5c2905c8",
+    "title": "Method definition",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "dab45af7",
+    "title": "Method Signature",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "fb260642",
+    "title": "Static Methods",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "23b2fc18",
+    "title": "Method Calls & Returns",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "c03ef2a8",
+    "title": "Method Calls",
+    "level": 4
+  },
+  {
+    "action": "heading level",
+    "cell_id": "1dfe09a4",
+    "title": "Flow of execution",
+    "level": 4
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Discover a Task Before Naming a Method",
+      "A Repeated Task Needs a Name",
+      "Designing Methods",
+      "Connect Calls, Definitions, and Program Forms",
+      "Method definition",
+      "Method Signature",
+      "Static Methods",
+      "Method Calls & Returns",
+      "Method Calls",
+      "Flow of execution",
+      "Guided Practice: Reuse a Notice"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "8672b6c3",
+    "title": "Scope",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "7ad992cb",
+    "title": "Static Storage Reference",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Map Arguments to Parameters",
+      "Return Values, out, and ref",
+      "Variable Scopes",
+      "Scope",
+      "Static Variables",
+      "Static Storage Reference",
+      "Method Tracing",
+      "Reuse a Loop Through a Method Contract",
+      "Keep Interaction in the Caller",
+      "Guided Practice: Use a Returned Value"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "ae3a292f",
+    "title": "Step 1: Reproduce Reliably",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "b1224fc3",
+    "title": "Step 2: Minimize the Failing Case",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "f43a3ede",
+    "title": "Step 3: Breakpoints and Stepping in VS Code",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "cf165e24",
+    "title": "Step 4: Watch and Call Stack",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "08bb3463",
+    "title": "Test a Hypothesis Against Execution",
+    "level": 4
+  },
+  {
+    "action": "heading level",
+    "cell_id": "07f62745",
+    "title": "Step 5: Typical Bug Patterns",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "55dc9a29",
+    "title": "Step 6: Validate the Fix",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "2888eab5",
+    "title": "Keep Evidence After the Repair",
+    "level": 4
+  },
+  {
+    "action": "heading level",
+    "cell_id": "ba_6a47546807b629ce81",
+    "title": "Use a Different Symptom to Challenge the Hypothesis",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Turn a Symptom into a Reproducible Question",
+      "The Workflow",
+      "Step 1: Reproduce Reliably",
+      "Step 2: Minimize the Failing Case",
+      "Step 3: Breakpoints and Stepping in VS Code",
+      "Step 4: Watch and Call Stack",
+      "Test a Hypothesis Against Execution",
+      "Step 5: Typical Bug Patterns",
+      "Step 6: Validate the Fix",
+      "Keep Evidence After the Repair",
+      "Debug One Familiar Loop from Symptom to Evidence",
+      "Use a Different Symptom to Challenge the Hypothesis",
+      "Practice"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "e378aab7",
+    "title": "Prepare the Solution",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "77d2282a",
+    "title": "Prepare Application Code",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "516bc604",
+    "title": "Prepare Tests",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "160d310d",
+    "title": "Run, Read, and Repair",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "da9e0704",
+    "title": "Run in VS Code",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Introduction",
+      "Simple Testing",
+      "The Unit Testing Process",
+      "Design Tests Independently of the Implementation",
+      "Framework Setup and Test Attributes",
+      "Prepare the Solution",
+      "Prepare Application Code",
+      "Prepare Tests",
+      "Run, Read, and Repair",
+      "Run in VS Code",
+      "AI Review: Challenge Suggested Tests"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "36025da6",
+    "title": "Trace and Run the Word Counter",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "4ac7001c",
+    "title": "Writing Files",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "1f0a0510",
+    "title": "Reading to End of Stream",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "File Stream",
+      "File handling process",
+      "The `System.IO` namespace",
+      "Directory path",
+      "Simple File Handling: `File` Class",
+      "`StreamWriter`",
+      "Writing Files",
+      "`StreamReader`",
+      "Reading to End of Stream"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "51032539",
+    "title": "Path Strings",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "a27022d9",
+    "title": "Paths in C\\#",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "2eb7ed5c",
+    "title": "The Directory Class",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Run a Complete File Lifetime in an Owned Workspace",
+      "Predict Append and Missing-Input Outcomes",
+      "Separate a File's Location from Its Contents",
+      "Path Strings",
+      "Paths in C\\#",
+      "The Directory Class",
+      "Bound Resource Lifetime Explicitly"
+    ]
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Overview",
+      "Declaring Classes",
+      "Using a Class",
+      "Constructors",
+      "Static Classes & Methods",
+      "A Variable Number of Arguments",
+      "Tuples: When a Class Is Too Much",
+      "Creating Tuples",
+      "Returning Multiple Values",
+      "Destructuring",
+      "Tuples in Collections",
+      "Tuples or Classes?"
+    ]
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Array Search and Indexing",
+      "Linked Traversal",
+      "Middle Insertion Costs",
+      "Separate Location Cost from Update Cost",
+      "Count a Concrete Workload",
+      "Test the Contract Before Comparing Speed",
+      "Memory and Locality Qualify the Recommendation",
+      "Decision Guide",
+      "Lab Tasks",
+      "Summary"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "ba_ced0a9cca0ad24caea",
+    "title": "Turn Queue Events into a Traversal Loop",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "c95b226d5859",
+    "title": "Breadth-First Search and Discovery",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "691adac0e0cf",
+    "title": "Recover a Path with Predecessors",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "ba_2a3c00f3180efde135",
+    "title": "Guide the Route and Tie-Policy Checks",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Discover a Vertex Once, Then Process Its Neighbors",
+      "Turn Queue Events into a Traversal Loop",
+      "Breadth-First Search and Discovery",
+      "Recover a Path from Earlier Layers",
+      "Recover a Path with Predecessors",
+      "Guide the Route and Tie-Policy Checks"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "5b444a56",
+    "title": "Finish One Branch Before Returning to Its Alternatives",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "872ec23f42bc",
+    "title": "Depth-First Search and Cycles",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "ba_13cae13d53b5db86d9",
+    "title": "Extend Reachability into a Component Report",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "d60adbf69cae",
+    "title": "Connected Components and Direction",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "3615022f",
+    "title": "Components and Direction",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "2ce7abea",
+    "title": "Traversal Verification Contracts",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "7a6d695627a4",
+    "title": "Practice: Check a Reachability Report",
+    "level": 3
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Watch the Suspended Neighbor Loop",
+      "Finish One Branch Before Returning to Its Alternatives",
+      "Depth-First Search and Cycles",
+      "Connectivity Depends on Direction",
+      "Extend Reachability into a Component Report",
+      "Connected Components and Direction",
+      "Components and Direction",
+      "Costs and Contracts",
+      "Verify a Traversal",
+      "Traversal Verification Contracts",
+      "Practice: Check a Reachability Report"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "402072bc",
+    "title": "Reference: Templates and Multiple Projects",
+    "level": 2
+  },
+  {
+    "action": "group order",
+    "order": [
+      "Set Up and Run",
+      "Connections, Commands, and Disposal",
+      "Map Rows to Objects",
+      "Injection",
+      "Supply Parameters and Check Outcomes",
+      "Transactions for Related Changes",
+      "Verify Before Extending"
+    ]
+  },
+  {
+    "action": "heading level",
+    "cell_id": "dd85d58f",
+    "title": "Type Conversion",
+    "level": 2
+  },
+  {
+    "action": "heading level",
+    "cell_id": "96b7e040",
+    "title": "Casting (Type Conversion) in Input",
+    "level": 3
+  },
+  {
+    "action": "heading level",
+    "cell_id": "a12486db",
+    "title": "Follow a Value Through a Conversion",
+    "level": 3
+  },
+  {
+    "action": "reference correction",
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "cell_id": "135d6aad",
+    "old": "Here we refactor the same checkout calculation twice and verify that naming helpers preserves its behavior.",
+    "new": "The [composition and refactoring lesson](0505_summary.ipynb) refactors the same checkout calculation twice and verifies that naming helpers preserves its behavior."
+  },
+  {
+    "action": "reference correction",
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "cell_id": "135d6aad",
+    "old": "5.2 definitions, calls, returns",
+    "new": "5.1 definitions and calls; 5.3 returned results"
+  },
+  {
+    "action": "reference correction",
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "cell_id": "135d6aad",
+    "old": "5.3 parameter binding and scope",
+    "new": "5.2 parameter binding and scope"
+  },
+  {
+    "action": "move design map beside designing methods",
+    "file": "chapters/05_methods/0501_intro_methods.ipynb",
+    "cell_id": "135d6aad"
+  },
+  {
+    "action": "reference correction",
+    "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+    "cell_id": "ba_70a6232bef6aa951a8",
+    "old": "The retained complete programs below provide the graph container, boundary checks and additional practice.",
+    "new": "The complete BFS and predecessor-path programs in this section provide the graph container, boundary checks and additional practice."
+  },
+  {
+    "action": "reference correction",
+    "file": "chapters/appendices/development_tools/csharp_setup.ipynb",
+    "cell_id": "2023ec22",
+    "old": "The ecosystem reference below explains additional .NET application choices",
+    "new": "The ecosystem reference at the start of this page explains additional .NET application choices"
+  }
+]

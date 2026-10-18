@@ -1,0 +1,60 @@
+using System;
+static int LinearSearch(int[] values, int target)
+{
+    for (int i = 0; i < values.Length; i++)
+        if (values[i] == target) return i;
+    return -1;
+}
+static int BinarySearch(int[] values, int target)
+{
+    int low = 0;
+    int high = values.Length - 1;
+    while (low <= high)
+    {
+        int middle = low + (high - low) / 2;
+        if (values[middle] == target) return middle;
+        if (values[middle] < target) low = middle + 1;
+        else high = middle - 1;
+    }
+    return -1;
+}
+static void InsertionSort(int[] values)
+{
+    for (int i = 1; i < values.Length; i++)
+    {
+        int saved = values[i];
+        int j = i - 1;
+        while (j >= 0 && values[j] > saved)
+        {
+            values[j + 1] = values[j];
+            j--;
+        }
+        values[j + 1] = saved;
+    }
+}
+Random random = new Random(7);
+int cases = 0;
+int lookups = 0;
+for (int length = 0; length <= 30; length++)
+{
+    for (int trial = 0; trial < 20; trial++)
+    {
+        int[] original = new int[length];
+        for (int i = 0; i < length; i++) original[i] = random.Next(-10, 11);
+        int[] sorted = (int[])original.Clone();
+        int[] oracle = (int[])original.Clone();
+        InsertionSort(sorted); Array.Sort(oracle);
+        for (int i = 0; i < length; i++) if (sorted[i] != oracle[i]) throw new Exception("Sort mismatch");
+        for (int target = -12; target <= 12; target++)
+        {
+            int expected = Array.IndexOf(original, target);
+            if (LinearSearch(original, target) != expected) throw new Exception("First match mismatch");
+            int found = BinarySearch(sorted, target);
+            if ((found == -1) != (expected == -1)) throw new Exception("Membership mismatch");
+            if (found != -1 && (found < 0 || found >= length || sorted[found] != target)) throw new Exception("Bad matching index");
+            lookups++;
+        }
+        cases++;
+    }
+}
+Console.WriteLine($"Verified {cases} arrays and {lookups} lookup targets");

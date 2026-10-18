@@ -1,0 +1,98 @@
+[
+  {
+    "finding": "F01",
+    "title": "Heap repair is taught but not independently demonstrated",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/18_priority_queues/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F02",
+    "title": "Coordinated indexes and hash traces do not reach matching assessment",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/19_hash_collections/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F03",
+    "title": "Graph assignments select supplied traversals rather than assess their reasoning",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/20_graphs/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F04",
+    "title": "Chapter 13 does not assess its iterator outcome or much independent analysis",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/13_abstract_data_types/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F05",
+    "title": "Structs and records have no corresponding independent assessment",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/11_object_design/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F06",
+    "title": "Some language prerequisites are introduced in practice instead of lessons",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/04_iteration/0402_for_statements.ipynb",
+      "chapters/04_iteration/0403_while_statement.ipynb",
+      "chapters/05_methods/0503_parameter.ipynb",
+      "chapters/10_classes/1001_class_syntax.ipynb"
+    ]
+  },
+  {
+    "finding": "F07",
+    "title": "The coherent test-project walkthrough lives in assignments while the lesson is inconsistent",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+      "chapters/06_exceptions_testing/0603_testing.ipynb"
+    ]
+  },
+  {
+    "finding": "F08",
+    "title": "Search/sort homework retains almost the entire algorithm",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/16_searching_sorting/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F09",
+    "title": "Independent testing and debugging evidence is thinner than the taught progression",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/05_methods/assignments/homework.ipynb",
+      "chapters/06_exceptions_testing/assignments/homework.ipynb",
+      "chapters/12_oop/assignments/homework.ipynb"
+    ]
+  },
+  {
+    "finding": "F10",
+    "title": "Stale prerequisites and cross-references remain below the landing pages",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/14_arrays_linked_lists/assignments/preview.ipynb",
+      "chapters/16_searching_sorting/assignments/preview.ipynb",
+      "chapters/09_files_text/0903_text_operations.ipynb"
+    ]
+  },
+  {
+    "finding": "F11",
+    "title": "Two-dimensional arrays jump from a full example to a substantial report",
+    "status": "Implemented; verify against the linked lesson and new independent task",
+    "files": [
+      "chapters/07_arrays/0702_twodim.ipynb"
+    ]
+  }
+]

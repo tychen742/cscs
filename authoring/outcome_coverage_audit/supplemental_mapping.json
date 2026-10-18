@@ -1,0 +1,641 @@
+[
+  {
+    "id": "C01-P1",
+    "chapter": 1,
+    "route": "CS1",
+    "outcome": "Explain number representation and address-space assumptions",
+    "role": "Core conceptual review",
+    "explanation": [
+      {
+        "file": "chapters/01_context/0101_cs_ideas.ipynb",
+        "cells": [
+          23,
+          23
+        ],
+        "cell_ids": [
+          "31e7fc32"
+        ],
+        "excerpt": "A **binary**, or base-2, number uses the digits `0` and `1`. Each position has a value that is a power of two, just as decimal positions represent powers of ten. A byte contains eight bits, so it has `2^8 = 256` possible patterns, from `0000 0000` through `1111 1111`.\n\nThe ASCII code for uppercase `A` is decimal 65. Its eight-bit representation is `0100 0001`. Work from right to left to convert the pattern:\n\n| Bit position | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Place value | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |\n| Bit in `0100 0001` | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |\n\nOnly the 64 and 1 positions are set, so the value is `64 + 1 = 65`. The pattern is a number until an encoding gives it an interpretation. Under ASCII it denotes `A`; under another interpretation the same byte can represent the number 65. C# uses Unicode for text; the ASCII characters share the corresponding Unicode values. Chapter 2 connects `char` values with their numeric codes.\n\nThe number of bits also limits the number of distinct addresses. A hypothetical byte-addressed machine with 32 address bits has `2^32` distinct addresses, covering 4 GiB of byte locations. A 64-bit address has many more possible patterns. A real computer's usable memory also depends on its processor, operating system, and hardware configuration; a label such as \u201c64-bit\u201d does not promise that every theoretically possible address is available.\n\n**Check Your Understanding:** Convert `0000 1101` to decimal, and explain why `0000 1101` and `0100 0001` can both fit in one byte.\n\n```{dropdown} Suggested Answer\n`8 + 4 + 1 = 13`. Both patterns use eight bit positions. The number of available positions determines the byte's capacity; leading zeros still occupy positions.\n```"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/01_context/0101_cs_ideas.ipynb",
+        "cells": [
+          23,
+          23
+        ],
+        "cell_ids": [
+          "31e7fc32"
+        ],
+        "excerpt": "A **binary**, or base-2, number uses the digits `0` and `1`. Each position has a value that is a power of two, just as decimal positions represent powers of ten. A byte contains eight bits, so it has `2^8 = 256` possible patterns, from `0000 0000` through `1111 1111`.\n\nThe ASCII code for uppercase `A` is decimal 65. Its eight-bit representation is `0100 0001`. Work from right to left to convert the pattern:\n\n| Bit position | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Place value | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |\n| Bit in `0100 0001` | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |\n\nOnly the 64 and 1 positions are set, so the value is `64 + 1 = 65`. The pattern is a number until an encoding gives it an interpretation. Under ASCII it denotes `A`; under another interpretation the same byte can represent the number 65. C# uses Unicode for text; the ASCII characters share the corresponding Unicode values. Chapter 2 connects `char` values with their numeric codes.\n\nThe number of bits also limits the number of distinct addresses. A hypothetical byte-addressed machine with 32 address bits has `2^32` distinct addresses, covering 4 GiB of byte locations. A 64-bit address has many more possible patterns. A real computer's usable memory also depends on its processor, operating system, and hardware configuration; a label such as \u201c64-bit\u201d does not promise that every theoretically possible address is available.\n\n**Check Your Understanding:** Convert `0000 1101` to decimal, and explain why `0000 1101` and `0100 0001` can both fit in one byte.\n\n```{dropdown} Suggested Answer\n`8 + 4 + 1 = 13`. Both patterns use eight bit positions. The number of available positions determines the byte's capacity; leading zeros still occupy positions.\n```"
+      }
+    ],
+    "section_practice": [],
+    "assessment": [
+      {
+        "file": "chapters/01_context/assignments/additional_practice.ipynb",
+        "cells": [
+          4,
+          6
+        ],
+        "cell_ids": [
+          "bccefd87",
+          "1096bf70",
+          "a45130a2"
+        ],
+        "excerpt": "1. What is the input-process-output (IPO) model in computer science and information systems? Apply it to one information system and identify stored data and feedback.\n2. What are the basic constructs of programming? Explain sequence, selection, and iteration, and distinguish them from the supporting ideas of variables, types, operators, subroutines, nesting, and arrays. You will study decisions and loops in later chapters; describe their purpose now.\n3. What is an algorithm, and why is it important in computer science and information systems? Give instructions precise enough for another person to follow.\n4. Why does a hypothetical **32-bit, byte-addressed address space** contain at most `2^32` byte locations (4 GiB)? Explain why this address-space calculation alone does not prove that every computer described as \u201c32-bit\u201d can install no more than 4 GiB of physical RAM. Processor extensions, operating-system limits, and usable address space are separate issues.\n5. What is a bit, and what is a byte? How many different patterns can one byte represent? Explain how a pattern can have different meanings under different encodings.\n6. Describe compilation and interpretation and give two implementation examples of each. Explain where ordinary C# compilation, intermediate language, and JIT execution fit. Avoid classifying every implementation of a language permanently as compiled or interpreted.\n7. Is computer science all about writing computer programs? Describe important areas beyond coding and explain how mathematical reasoning, engineering design, and empirical investigation contribute.\n\n## Check Your Explanations\n\n```{index} Check Your Explanations\n```\n\nUse the chapter's worked examples to check your answers. For question four, derive `2^32` before converting bytes to GiB. Fo"
+      }
+    ],
+    "judgment": "Existing conceptual coverage; no new curriculum gap inferred."
+  },
+  {
+    "id": "C04-P1",
+    "chapter": 4,
+    "route": "CS1",
+    "outcome": "Use Random and a repeatable simulation",
+    "role": "Retained extension",
+    "explanation": [
+      {
+        "file": "chapters/04_iteration/assignments/additional_practice.ipynb",
+        "cells": [
+          9,
+          9
+        ],
+        "cell_ids": [
+          "588e225e"
+        ],
+        "excerpt": "A simulation uses generated values to model possible outcomes. Create one `Random` object and reuse it throughout the experiment. For `low < high`, `r.Next(low, high)` includes `low` and excludes `high`, so `r.Next(0, 2)` can return only zero or one. Map zero to Heads and one to Tails.\n\nFirst print one flip, then 10 flips. Count the two outcomes; the counts must add to the number of flips. Randomness does not guarantee equal counts in a short run. A seed makes a run repeatable in the same runtime environment; it does not make the outcomes alternate.\n\nFor Group Flips, print `total` outcomes, `groupSize` per line. The last line may be shorter. End the final nonempty line with exactly one newline. Require `total >= 0` and `groupSize > 0`. Test totals zero, one, an exact multiple, and a remainder. In Chapter 5, turn this into `GroupFlips(int total, int groupSize)` and give `Flip` a return value that the caller can count and print."
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/04_iteration/assignments/additional_practice.ipynb",
+        "cells": [
+          13,
+          13
+        ],
+        "cell_ids": [
+          "03718054"
+        ],
+        "excerpt": "using System;\nRandom r = new Random(17);\nint total = 10, groupSize = 4, heads = 0;\nfor (int i = 0; i < total; i++)\n{\n    bool isHead = r.Next(0, 2) == 0;\n    if (isHead) heads++;\n    Console.Write(isHead ? \"Heads\" : \"Tails\");\n    if ((i + 1) % groupSize == 0 || i + 1 == total) Console.WriteLine();\n    else Console.Write(\" \");\n}\nConsole.WriteLine($\"Heads: {heads}; Tails: {total - heads}; Total: {total}\");"
+      }
+    ],
+    "section_practice": [
+      {
+        "file": "chapters/04_iteration/assignments/additional_practice.ipynb",
+        "cells": [
+          11,
+          13
+        ],
+        "cell_ids": [
+          "0915ca0c",
+          "ddcfaeae",
+          "03718054"
+        ],
+        "excerpt": "Implement the grouped simulation and print the outcome counts after the groups. Keep the generator outside the loop. Try `(total, groupSize) = (10, 4)` and `(8, 4)`.\n\n// Exercise: Grouped simulation\n// Complete the task described above.\nusing System;\nConsole.WriteLine(\"Replace this line with your solution.\");\n\nusing System;\nRandom r = new Random(17);\nint total = 10, groupSize = 4, heads = 0;\nfor (int i = 0; i < total; i++)\n{\n    bool isHead = r.Next(0, 2) == 0;\n    if (isHead) heads++;\n    Console.Write(isHead ? \"Heads\" : \"Tails\");\n    if ((i + 1) % groupSize == 0 || i + 1 == total) Console.WriteLine();\n    else Console.Write(\" \");\n}\nConsole.WriteLine($\"Heads: {heads}; Tails: {total - heads}; Total: {total}\");"
+      }
+    ],
+    "assessment": [
+      {
+        "file": "chapters/04_iteration/assignments/additional_practice.ipynb",
+        "cells": [
+          15,
+          18
+        ],
+        "cell_ids": [
+          "f22a988f",
+          "147ebb96",
+          "f828c850",
+          "2b353e7b"
+        ],
+        "excerpt": "Two players model the problem: one chooses a positive integer less than `big`, and the other repeatedly guesses. After an incorrect guess, the first player must truthfully say Higher or Lower. The computer takes the first role.\n\nFor a secret of 29, guesses 50, 25, 30, and 29 produce Lower, Higher, Lower, and a win. Each answer narrows the possible interval. With a secret of 68, guesses 60, 72, 66, and 68 win on guess **four**.\n\n1. Print the range using `big`, rather than embedding 100 in several messages.\n2. Generate the secret once per game with `r.Next(1, big)`.\n3. Read guesses until the correct value is found. Use `TryParse` to reject non-integers; handle exhausted input by ending the program.\n4. Count valid guesses and print the count when the player wins. State whether out-of-range guesses count; use the same policy throughout.\n5. Extend the program with an outer replay loop. Generate a fresh secret for each game and reset the counter; retain the same random generator.\n\nDuring testing, assign a fixed secret first so you can exercise Higher, Lower, and Correct deliberately. Restore random selection only after those branches work.\n\n### Guessing-game state\n\n```{index} Guessing-game state\n```\n\nUse this deterministic demonstration to test the game logic with the four guesses above. Then replace each supplied guess with console input and add replay. Explain why generating the secret inside the guessing loop would break the game.\n\n// Exercise: Guessing-game state\n// Complete the task described above.\nusing System;\nConsole.WriteLine(\"Replace this line with your solution.\");"
+      }
+    ],
+    "judgment": "The API explanation exists, but only in assignment material; move its prerequisite teaching into content before using it."
+  },
+  {
+    "id": "C09-P1",
+    "chapter": 9,
+    "route": "CS1",
+    "outcome": "Use regex matching, extraction, and validation",
+    "role": "Supporting reading",
+    "explanation": [
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cells": [
+          5,
+          38
+        ],
+        "cell_ids": [
+          "9f663177",
+          "887a3310",
+          "bb266776",
+          "bfaec7ea",
+          "ac51b659",
+          "984c5c48",
+          "4a8e4177",
+          "eebea810",
+          "119d0865",
+          "233745f7",
+          "45d27135",
+          "2abcccf3",
+          "42a70220",
+          "81749266",
+          "38c4e0cd",
+          "07e353d3",
+          "07e7c825",
+          "57e0824a",
+          "e548c0b6",
+          "6671644e",
+          "66b3ee17",
+          "0ccfb926",
+          "2937a394",
+          "80c26c68",
+          "46bf9c48",
+          "4313af48",
+          "ff0ba205",
+          "d06ac1ef",
+          "310a1a97",
+          "f07b0706",
+          "b60b38d0",
+          "ce80efc3",
+          "3b6d3c49",
+          "4d839785"
+        ],
+        "excerpt": "A product label consists of two uppercase ASCII letters, a hyphen and four digits. Before choosing regular-expression symbols, write accepted and rejected examples. AB-0042 fits; A-0042 has too few letters; AB-42 has too few digits; and a larger sentence containing AB-0042 is not itself one complete label. This last distinction separates finding a matching substring from validating an entire field.\n\nFor this deliberately narrow label, the pattern `\\A[A-Z]{2}-[0-9]{4}\\z` uses beginning/end-of-input anchors, a range of letters repeated twice, a literal hyphen and four ASCII digits. It states shape, not whether AB is a known department. In a C# verbatim string literal the pattern can be written `@\"\\A[A-Z]{2}-[0-9]{4}\\z\"`; ordinary C# string escaping and regex escaping are different layers. The @ belongs to the string literal form, not to the regex language.\n\n| Pattern part | Meaning under this contract |\n| --- | --- |\n| \\A | Beginning of the input |\n| [A-Z]{2} | Exactly two letters from the stated ASCII range |\n| - | The separator |\n| [0-9]{4} | Exactly four ASCII digits |\n| \\z | End of the input |\n\nA group such as `(?<number>[0-9]{4})` names a captured part. Extracting number as text retains leading zeros; converting it to an integer would answer a different question. Check whether a match succeeded before treating group contents as a valid field. A match object exists even when the match is unsuccessful, so object existence alone is not the success test.\n\nRegex replacement also has a policy. Removing every nondigit character may produce a digit-only result while silently discarding an unexpected department or separator. Decide whether malformed input should be repaired, rejected or retained with a warning. A cleaning rule is not equivalent to a validation rule.\n\nGuided e"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cells": [
+          11,
+          36
+        ],
+        "cell_ids": [
+          "4a8e4177",
+          "eebea810",
+          "119d0865",
+          "233745f7",
+          "45d27135",
+          "2abcccf3",
+          "42a70220",
+          "81749266",
+          "38c4e0cd",
+          "07e353d3",
+          "07e7c825",
+          "57e0824a",
+          "e548c0b6",
+          "6671644e",
+          "66b3ee17",
+          "0ccfb926",
+          "2937a394",
+          "80c26c68",
+          "46bf9c48",
+          "4313af48",
+          "ff0ba205",
+          "d06ac1ef",
+          "310a1a97",
+          "f07b0706",
+          "b60b38d0",
+          "ce80efc3"
+        ],
+        "excerpt": "\n`Regex.IsMatch` returns `true` if the pattern appears anywhere in the string:\n\nusing System.Text.RegularExpressions;\n\n// Does the string contain any digit?\nbool hasDigit = Regex.IsMatch(\"Score: 98\", @\"\\d\");\nConsole.WriteLine(hasDigit);  // True\n\n// Does it start with a capital letter?\nbool startsUpper = Regex.IsMatch(\"Alice\", @\"^[A-Z]\");\nConsole.WriteLine(startsUpper);  // True\n\n```{index} Common Pattern Elements\n```\n\n\n\n```{index} Common Pattern Elements\n```\n\n## Common Pattern Elements\n\n\n\n\n| Pattern | Meaning | Example match |\n|---------|---------|---------------|\n| `\\d` | any digit | `7`, `0` |\n| `\\w` | word character (letter, digit, `_`) | `a`, `Z`, `3` |\n| `\\s` | whitespace | space, tab |\n| `.` | any character except newline | `x`, `!` |\n| `^` | start of string | `^Hello` matches `Hello world` |\n| `$` | end of string | `\\.txt$` matches `file.txt` |\n| `[abc]` | one of a, b, c | `[aeiou]` matches any vowel |\n| `[A-Z]` | range | any uppercase letter |\n| `+` | one or more | `\\d+` matches `42` |\n| `*` | zero or more | `\\d*` matches `` or `99` |\n| `?` | zero or one | `colou?r` matches `color` or `colour` |\n\n```{index} Extracting a Match\n```\n\n\n\n```{index} Extracting a Match\n```\n\n## Extracting a Match\n\n\n\n\n`Regex.Match` returns the first match object:\n\nusing System.Text.RegularExpressions;\n\nstring line = \"Student: Alice, Score: 98\";\nMatch m = Regex.Match(line, @\"\\d+\");\n\nif (m.Success)\n    Console.WriteLine($\"First number found: {m.Value}\");  // 98\n\n```{index} Finding All Matches\n```\n\n\n\n```{index} Finding All Matches\n```\n\n## Finding All Matches\n\n\n\n\n`Regex.Matches` returns every match:\n\nusing System.Text.RegularExpressions;\n\nstring data = \"Scores: 85, 92, 78, 90\";\nMatchCollection matches = Regex.Matches(data, @\"\\d+\");\n\nforeach (Match m in matches)\n    Console.WriteLine(m.Value"
+      }
+    ],
+    "section_practice": [
+      {
+        "file": "chapters/09_files_text/0906_regex.ipynb",
+        "cells": [
+          40,
+          41
+        ],
+        "cell_ids": [
+          "c2ceba6e",
+          "7f5aa13d"
+        ],
+        "excerpt": "```{index} Practice\n```\n\n## Practice\n\n\n\n\n1. Write a pattern to match a C# `int` or `double` literal (e.g. `42`, `-3`, `3.14`).\n2. Extract all words (sequences of `\\w+`) from a sentence and print each on its own line.\n3. Validate that a filename ends with `.cs` or `.txt`.\n4. Replace all tab characters in a file line with four spaces."
+      }
+    ],
+    "assessment": [],
+    "judgment": "Developed supporting lesson; no separate standard assessment. This does not make regex a missing core requirement."
+  },
+  {
+    "id": "C09-P2",
+    "chapter": 9,
+    "route": "CS1",
+    "outcome": "Mask data and validate privacy-safe logging",
+    "role": "Optional reading",
+    "explanation": [
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cells": [
+          7,
+          25
+        ],
+        "cell_ids": [
+          "6df61f7d",
+          "1adbf8da",
+          "cf634b5d",
+          "76913847",
+          "64e30fe8",
+          "98426ac4",
+          "ade4b181",
+          "5d540c71",
+          "f1341a1a",
+          "fa9da4a7",
+          "478d6409",
+          "a323e72b",
+          "ec20a164",
+          "7fd3f81b0584",
+          "78d0e928",
+          "b8ebb742",
+          "3e3fe35b",
+          "ed31232f",
+          "fc0302de"
+        ],
+        "excerpt": "Privacy laws differ by place, but they share common ideas. Three examples:\n\n- **GDPR** (EU Regulation 2016/679, applies from May 25, 2018) sets principles for processing personal data, including *purpose limitation* (use data only for the stated purpose), *data minimisation* (collect only what is needed), and *storage limitation* (do not keep it longer than needed).[^0905_privacy_security-gdpr]\n- **CCPA** (California Consumer Privacy Act, in effect since January 1, 2020, and expanded by the CPRA from January 1, 2023) gives California residents rights to know about, delete, and opt out of the sale of their personal information.[^0905_privacy_security-ccpa]\n- **FERPA** (Family Educational Rights and Privacy Act of 1974) protects the privacy of student education records in the United States, including your grades in this course.[^0905_privacy_security-ferpa]\n\nYou do not need to be a lawyer to follow the habits these laws have in common: **collect less, show less, and keep less.**\n\n```{index} masking; personal data\n```\n\n\n\n```{index} Show Less: Masking\n```\n\n## Show Less: Masking\n\n\n\nMany screens and documents need only enough of a value to recognize it. A support agent confirming an account needs to see `a***@example.com`, not the full address. Masking uses the string methods from {ref}`string-methods`:\n\nusing System;\n\n// Show enough to recognize the address, hide the rest.\nstatic string MaskEmail(string email)\n{\n    int at = email.IndexOf('@');\n    if (at < 1)\n    {\n        return \"(invalid email)\";\n    }\n    return email.Substring(0, 1) + \"***\" + email.Substring(at);\n}\n\nConsole.WriteLine(MaskEmail(\"ana.diaz@example.com\"));   // a***@example.com\nConsole.WriteLine(MaskEmail(\"@example.com\"));           // (invalid email)\n\nReceipts and order confirmations conventionally show on"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+        "cells": [
+          11,
+          24
+        ],
+        "cell_ids": [
+          "64e30fe8",
+          "98426ac4",
+          "ade4b181",
+          "5d540c71",
+          "f1341a1a",
+          "fa9da4a7",
+          "478d6409",
+          "a323e72b",
+          "ec20a164",
+          "7fd3f81b0584",
+          "78d0e928",
+          "b8ebb742",
+          "3e3fe35b",
+          "ed31232f"
+        ],
+        "excerpt": "using System;\n\n// Show enough to recognize the address, hide the rest.\nstatic string MaskEmail(string email)\n{\n    int at = email.IndexOf('@');\n    if (at < 1)\n    {\n        return \"(invalid email)\";\n    }\n    return email.Substring(0, 1) + \"***\" + email.Substring(at);\n}\n\nConsole.WriteLine(MaskEmail(\"ana.diaz@example.com\"));   // a***@example.com\nConsole.WriteLine(MaskEmail(\"@example.com\"));           // (invalid email)\n\nReceipts and order confirmations conventionally show only the last four digits of a card:\n\nusing System;\n\n// Receipts and support screens need only the last four digits of a card.\nstatic string MaskCard(string cardNumber)\n{\n    string digits = cardNumber.Replace(\" \", \"\").Replace(\"-\", \"\");\n    if (digits.Length < 4)\n    {\n        return \"(invalid card number)\";\n    }\n    return \"**** **** **** \" + digits.Substring(digits.Length - 4);\n}\n\nConsole.WriteLine(MaskCard(\"4111 1111 1111 1234\"));   // **** **** **** 1234\nConsole.WriteLine(MaskCard(\"12\"));                    // (invalid card number)\n\nMasking is for display. A program that does not need a value at all should not collect or store it in the first place.\n\n```{index} untrusted input; validation\n```\n\n\n\n```{index} Treat Every Input as Untrusted\n```\n\n## Treat Every Input as Untrusted\n\n\n\nEvery value that comes from outside the program, such as keyboard input, a file, a web form, or another system, may be wrong by accident or on purpose. Check both the **type** and the **business rule** before using it. `int.TryParse` from Chapter 6 handles the type; an `if` handles the range:\n\nusing System;\n\n// Treat every input as untrusted: check the type and the business range.\nstatic string CheckQuantity(string input)\n{\n    if (!int.TryParse(input, out int quantity))\n    {\n        return $\"Rejected \\\"{input}\\\": not a w"
+      }
+    ],
+    "section_practice": [
+      {
+        "file": "chapters/09_files_text/assignments/privacy_lab.ipynb",
+        "cells": [
+          4,
+          17
+        ],
+        "cell_ids": [
+          "85d982d1",
+          "2b5586bd",
+          "687663f6",
+          "55d6e5db",
+          "3088a4af",
+          "9913236c",
+          "7d5b13dc",
+          "613e147c",
+          "fb1ab213",
+          "cbc05924",
+          "f6357a41",
+          "2dc2c13c",
+          "56ec5c9a",
+          "7c439c9f"
+        ],
+        "excerpt": "```{index} lab; email validation\n```\n\n## Task 1: Validate an Email Address\n\nRidgeline Supply is adding an online sign-up form for its loyalty program. Before the form stores anything, it must reject malformed email addresses. Complete `IsValidEmail` so the five checks print the expected values. Use `IndexOf`, `Contains`, and `Substring` from Section 3.4.\n\nusing System;\n\n/// Return true when email has exactly one '@' that is not the first character,\n/// at least one '.' after the '@', and no spaces.\nstatic bool IsValidEmail(string email)\n{\n    // TODO: replace this line with your checks.\n    return false;\n}\n\nConsole.WriteLine(IsValidEmail(\"ana.diaz@example.com\"));   // expected: True\nConsole.WriteLine(IsValidEmail(\"ana.diaz@example\"));       // expected: False (no '.' after '@')\nConsole.WriteLine(IsValidEmail(\"@example.com\"));           // expected: False\nConsole.WriteLine(IsValidEmail(\"ana diaz@example.com\"));   // expected: False (space)\nConsole.WriteLine(IsValidEmail(\"ana@@example.com\"));       // expected: False (two '@')\n\n```{index} lab; email masking\n```\n\n## Task 2: Mask an Email Address\n\nSupport staff see sign-ups on a dashboard that should not show full addresses. Paste your `IsValidEmail` from Task 1, then complete `MaskEmail`.\n\nusing System;\n\n// Paste your completed IsValidEmail from Task 1 here.\nstatic bool IsValidEmail(string email)\n{\n    return true;   // placeholder\n}\n\n/// Return \"(invalid email)\" when IsValidEmail(email) is false.\n/// Otherwise keep the first character and everything from '@' on,\n/// and replace the rest of the name with \"***\".\nstatic string MaskEmail(string email)\n{\n    // TODO\n    return email;\n}\n\nConsole.WriteLine(MaskEmail(\"ana.diaz@example.com\"));   // expected: a***@example.com\nConsole.WriteLine(MaskEmail(\"bo@example.com\"));         "
+      }
+    ],
+    "assessment": [
+      {
+        "file": "chapters/09_files_text/assignments/privacy_homework.ipynb",
+        "cells": [
+          3,
+          4
+        ],
+        "cell_ids": [
+          "69fc1ca4",
+          "ab8d21bd"
+        ],
+        "excerpt": "## True or False\n\nExplain each answer in one sentence.\n\n01. Fixing a defect in the code is always enough; the people it already affected are not the programmer's concern.\n02. Under GDPR's *storage limitation* principle, personal data should not be kept longer than needed for its purpose.\n03. Checking that an input is a valid `int` is enough to make it safe to use.\n04. Code produced by an AI assistant does not need to be tested if it compiles.\n05. Formatting a date as `11/3/2026` means the same thing to readers in every country.\n\n## Coding\n\nWrite each method in its own cell, with at least three test calls that print results, including one boundary or invalid case.\n\n01. `static string Initials(string fullName)` returns the initials of a two-word name with periods, for example `Initials(\"Ana Diaz\")` returns `\"A. D.\"`. Return `\"(unknown)\"` if the name has no space.\n02. `static bool IsStrongPassword(string password)` returns `true` when the password has at least 12 characters, at least one letter, and at least one digit. Use a loop with `char.IsLetter` and `char.IsDigit`.\n03. `static string RedactDigits(string note)` returns a copy of a customer-service note with every digit replaced by `#`, so that account and card numbers do not appear in shared notes.\n04. `static string SafeDiscountMessage(string percentInput)` uses `int.TryParse` and returns `\"Discount set to N%.\"` for whole numbers from 0 to 50, or a message explaining the allowed range otherwise. The program must never throw an exception.\n05. `static string LocalPrice(decimal amount, string cultureName)` returns `amount` formatted as currency for the given culture name, such as `\"en-US\"` or `\"de-DE\"`. Print the same amount for three cultures."
+      }
+    ],
+    "judgment": "Retained optional assessment track is present. Its guided tasks are assignments, not content-section checkpoints."
+  },
+  {
+    "id": "C10-P1",
+    "chapter": 10,
+    "route": "CS1",
+    "outcome": "Use tuples for small grouped results",
+    "role": "Content extension",
+    "explanation": [
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cells": [
+          19,
+          38
+        ],
+        "cell_ids": [
+          "f1bcb96f",
+          "094596cb",
+          "b47f65b9",
+          "2e53595b",
+          "c0539994",
+          "505f1a86",
+          "73806cd9",
+          "6af2e4fb",
+          "892af1bd",
+          "c6f37c18",
+          "ae1e16eb",
+          "c82dba36",
+          "17d10031",
+          "9f1bbd09",
+          "001e03ad",
+          "361375cb",
+          "3be55fc4",
+          "12934a38",
+          "c22c445a",
+          "21c93e1f"
+        ],
+        "excerpt": "```{index} Tuples: When a Class Is Too Much\n```\n\n(tuples)=\n\n## Tuples: When a Class Is Too Much\n\n\n\nA class bundles data with the behavior that belongs to it. Sometimes a program only needs to keep two or three values together for a moment, such as a product code and its price, or the lowest and highest sales day of a week. A **tuple** groups a few values into one value without declaring a class.[^1001_class_syntax-tuple-types]\n\n```csharp\n(Type1 Name1, Type2 Name2) variableName = (value1, value2);\n```\n\n```{index} tuple; creating\n```\n\n\n\n```{index} Creating Tuples\n```\n\n### Creating Tuples\n\n\n\nTuple fields can be unnamed or named. Unnamed fields are read as `Item1`, `Item2`, and so on. Named fields make the code say what each value means, so prefer them.\n\nusing System;\n\n// Unnamed fields: read them as Item1 and Item2\nvar item = (\"SKU-1042\", 19.99m);\nConsole.WriteLine($\"{item.Item1} costs ${item.Item2:F2}\");\n\n// Named fields: much clearer\nvar product = (Sku: \"SKU-1042\", Price: 19.99m);\nConsole.WriteLine($\"{product.Sku} costs ${product.Price:F2}\");\n\n```{index} tuple; returning multiple values\n```\n\n\n\n```{index} Returning Multiple Values\n```\n\n### Returning Multiple Values\n\n\n\nA method returns one value. Before tuples, returning two results required `out` parameters or a small class written just for that purpose. A tuple return type lets one method report both the lowest and the highest sales day:\n\nusing System;\n\nstatic (decimal Low, decimal High) SalesRange(decimal[] dailySales)\n{\n    decimal low = dailySales[0], high = dailySales[0];\n    foreach (decimal sales in dailySales)\n    {\n        if (sales < low) low = sales;\n        if (sales > high) high = sales;\n    }\n    return (low, high);\n}\n\ndecimal[] dailySales = { 1250.00m, 980.50m, 1610.25m, 1105.75m, 1432.00m };\nvar range = Sa"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/10_classes/1001_class_syntax.ipynb",
+        "cells": [
+          24,
+          36
+        ],
+        "cell_ids": [
+          "505f1a86",
+          "73806cd9",
+          "6af2e4fb",
+          "892af1bd",
+          "c6f37c18",
+          "ae1e16eb",
+          "c82dba36",
+          "17d10031",
+          "9f1bbd09",
+          "001e03ad",
+          "361375cb",
+          "3be55fc4",
+          "12934a38"
+        ],
+        "excerpt": "using System;\n\n// Unnamed fields: read them as Item1 and Item2\nvar item = (\"SKU-1042\", 19.99m);\nConsole.WriteLine($\"{item.Item1} costs ${item.Item2:F2}\");\n\n// Named fields: much clearer\nvar product = (Sku: \"SKU-1042\", Price: 19.99m);\nConsole.WriteLine($\"{product.Sku} costs ${product.Price:F2}\");\n\n```{index} tuple; returning multiple values\n```\n\n\n\n```{index} Returning Multiple Values\n```\n\n### Returning Multiple Values\n\n\n\nA method returns one value. Before tuples, returning two results required `out` parameters or a small class written just for that purpose. A tuple return type lets one method report both the lowest and the highest sales day:\n\nusing System;\n\nstatic (decimal Low, decimal High) SalesRange(decimal[] dailySales)\n{\n    decimal low = dailySales[0], high = dailySales[0];\n    foreach (decimal sales in dailySales)\n    {\n        if (sales < low) low = sales;\n        if (sales > high) high = sales;\n    }\n    return (low, high);\n}\n\ndecimal[] dailySales = { 1250.00m, 980.50m, 1610.25m, 1105.75m, 1432.00m };\nvar range = SalesRange(dailySales);\nConsole.WriteLine($\"Lowest day: ${range.Low:F2}, highest day: ${range.High:F2}\");\n\n```{index} tuple; destructuring, discard\n```\n\n\n\n```{index} Destructuring\n```\n\n### Destructuring\n\n\n\n**Destructuring** unpacks a tuple into separate variables in one statement. Use the discard `_` for a value you do not need.\n\nusing System;\n\nstatic (decimal Low, decimal High) SalesRange(decimal[] dailySales)\n{\n    decimal low = dailySales[0], high = dailySales[0];\n    foreach (decimal sales in dailySales)\n    {\n        if (sales < low) low = sales;\n        if (sales > high) high = sales;\n    }\n    return (low, high);\n}\n\n// Unpack both values into separate variables in one statement\nvar (low, high) = SalesRange(new[] { 1250.00m, 980.50m, 1610.25m });\n"
+      }
+    ],
+    "section_practice": [],
+    "assessment": [],
+    "judgment": "Worked tuple material exists; adoption/assessment expectations are not specified in the primary chapter objectives."
+  },
+  {
+    "id": "C10-P2",
+    "chapter": 10,
+    "route": "CS1",
+    "outcome": "Define params-array calls and compare overloads",
+    "role": "Retained extension",
+    "explanation": [
+      {
+        "file": "chapters/10_classes/assignments/additional_practice.ipynb",
+        "cells": [
+          15,
+          16
+        ],
+        "cell_ids": [
+          "3d61799c",
+          "10a9b710"
+        ],
+        "excerpt": "### Variable-Length Arguments with params\n\n```{index} Variable-Length Arguments with params\n```\n\nFor question nine, define `int Sum(params int[] values)`. The final parameter collects zero or more int arguments into an array for the method body. It is a single parameter declaration with flexible call syntax, not a request to invent many overloads. You may also supply an existing int array. This array form is sufficient for the exercise; modern C# supports additional params collection forms.[^params]\n\nStart the accumulator at zero, add each value, and return the sum. Test no arguments, one argument, several arguments, negative values, and an explicit array. Document that your classroom int arithmetic must remain within range, or use checked addition to reject overflow. Compare overload resolution for Sum(2,3) with params expansion only after the two separate designs work."
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/10_classes/assignments/additional_practice.ipynb",
+        "cells": [
+          20,
+          20
+        ],
+        "cell_ids": [
+          "restore2-params-answer"
+        ],
+        "excerpt": "using System;\nSumOverloads math = new SumOverloads();\nConsole.WriteLine(math.Sum(2, 3)); Console.WriteLine(math.Sum(2, 3, 4));\nSumManyArgs many = new SumManyArgs();\nConsole.WriteLine(many.Sum()); Console.WriteLine(many.Sum(7));\nConsole.WriteLine(many.Sum(2, 3, 4)); Console.WriteLine(many.Sum(new int[] {5, -2, 1}));\nclass SumOverloads {\n    public int Sum(int a, int b) { return checked(a + b); }\n    public int Sum(int a, int b, int c) { return checked(a + b + c); }\n}\nclass SumManyArgs {\n    public int Sum(params int[] values) {\n        int total = 0; foreach (int value in values) total = checked(total + value); return total;\n    }\n}"
+      }
+    ],
+    "section_practice": [
+      {
+        "file": "chapters/10_classes/assignments/additional_practice.ipynb",
+        "cells": [
+          17,
+          19
+        ],
+        "cell_ids": [
+          "3a964c46",
+          "01a57654",
+          "restore2-params-question"
+        ],
+        "excerpt": "### Overloaded Sum and SumManyArgs\n\n```{index} Overloaded Sum and SumManyArgs\n```\n\nComplete the original two- and three-argument instance overloads, then implement the separate SumManyArgs class with params. Use a client to show both approaches, including the empty argument list.\n\n// Exercise: Overloaded Sum and SumManyArgs\nusing System;\n// Your code starts here.\nConsole.WriteLine(\"Complete the task above.\");\n// Your code ends here."
+      }
+    ],
+    "assessment": [
+      {
+        "file": "chapters/10_classes/assignments/additional_practice.ipynb",
+        "cells": [
+          14,
+          20
+        ],
+        "cell_ids": [
+          "f7f376a4",
+          "3d61799c",
+          "10a9b710",
+          "3a964c46",
+          "01a57654",
+          "restore2-params-question",
+          "restore2-params-answer"
+        ],
+        "excerpt": "01. What is the keyword used to create an instance of a class?\n\n02. Can you create an object from a class resides in another file?\n\n03. What is the purpose of a constructor?\n\n04. Describe the process of implementing inheritance and polymorphism in steps.\n\n05. If you want to use an instance variable (field) in a method, should you declare\n    that instance variable in the method? Why?\n\n06. How do you create an instance of the following class?\n\n\n\n    class DoMath\n    {\n        public int Sum(int num1, int num2)\n        {\n            var total = num1 + num2;\n            return total;\n        }\n    }\n\n\n\n07. How do you use the following class to use the Sum method for summing up two integers? Prepare\n    your code in your Program.cs Main method.\n\n\n\n    static class SomeMath\n    {\n        public static int Sum(int a, int b)\n        {\n            return a + b;\n        }\n    }\n\n\n\n08. Define a `Math` class, when **instantiated**, offer the functionality of two\n    summing methods with the same name Sum that would take 2 and 3 arguments,\n    respectively, and sum them up and return the results.\n\n09. Change the preceding code to allow the passing of an unspecified number of integer arguments\n    (use the params explanation below).\n    Save the file in the project folder,call it SumManyArgs.cs and use SumManyArgs as the class name.\n\n10. What is the accessibility of the following top-level class? Add an access modifier without\n    changing the existing accessibility level. Show your changed code and explain why.\n\n\n\n    class Customer\n    {\n        // Fields, properties, methods and events go here...\n    }\n\n\n\n\nThe Math class in question eight is an exercise class, distinct from System.Math. Use the descriptive name SumOverloads in the runnable answer to avoid confusing the two. A top"
+      }
+    ],
+    "judgment": "First substantive params explanation is in assignment practice. Provide content-first instruction if this extension is assigned."
+  },
+  {
+    "id": "C11-P1",
+    "chapter": 11,
+    "route": "CS1",
+    "outcome": "Distinguish nullable data and runtime guards; use null operators",
+    "role": "Supporting reading",
+    "explanation": [
+      {
+        "file": "chapters/11_object_design/1104_nullability.ipynb",
+        "cells": [
+          6,
+          30
+        ],
+        "cell_ids": [
+          "ba_1eb250d18d40f647e7",
+          "ba_6b6bda7405fba01144",
+          "ba_f3d6464eb5ed4c222e",
+          "ba_be0f395b3f1dac7259",
+          "ba_6eb9b7931a33a40209",
+          "ba_c9368d6e87bcbd380d",
+          "ba_a7bbeed9fdf36ef5a8",
+          "a95cb348",
+          "b1978ab6",
+          "nul02",
+          "nul03",
+          "c117f92e",
+          "ca598088",
+          "nul04",
+          "nul05",
+          "aa9201f0",
+          "6fde349f",
+          "nul06",
+          "nul07",
+          "df6fecca",
+          "e8f66a09",
+          "nul08",
+          "nul09",
+          "c3ddc506",
+          "f8004066"
+        ],
+        "excerpt": "An unrecorded score, a recorded zero and an empty label are different states. Replacing every missing value with zero may make a screen easy to print while making its calculation wrong. Connect nullability to Chapter 11's object contracts: choose what may be absent, what absence means, and where a required value is enforced.\n\nFor a value type, the schematic declaration `ValueType? name = null;` creates a nullable value that can hold either an ordinary value or no value. `int?` is shorthand for Nullable<int>. Read `HasValue` before an explicit `.Value` access; accessing Value when HasValue is false throws. `GetValueOrDefault()` supplies the type's default, which may erase the distinction your business rule needs.\n\nFor a reference type, `string?` annotates a reference that may be null. Under nullable analysis, `string` expresses an intended non-null contract to the compiler. These annotations guide warnings; they do not install runtime validation. Required constructor input still needs a guard, and the null-forgiving `!` operator only suppresses a warning.\n\n\nusing System;\n#nullable enable\nstatic string Describe(int? score)\n{\n    if (!score.HasValue) return \"Not recorded\";\n    return $\"Recorded {score.Value}\";\n}\nConsole.WriteLine(Describe(null));\nConsole.WriteLine(Describe(0));\nstring? absent = null;\nstring empty = \"\";\nConsole.WriteLine($\"Absent: {absent is null}; empty length: {empty.Length}\");\nConsole.WriteLine($\"Absent length: {absent?.Length ?? -1}\");\n\n\nThe output preserves absence separately from zero. Empty is a real string object with Length zero; absent has no object whose Length can be read. `absent?.Length` produces a nullable length, and `?? -1` supplies a display fallback only when that result is missing.\n\n| Expression or policy | Missing reference | Empty stri"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/11_object_design/1104_nullability.ipynb",
+        "cells": [
+          7,
+          27
+        ],
+        "cell_ids": [
+          "ba_6b6bda7405fba01144",
+          "ba_f3d6464eb5ed4c222e",
+          "ba_be0f395b3f1dac7259",
+          "ba_6eb9b7931a33a40209",
+          "ba_c9368d6e87bcbd380d",
+          "ba_a7bbeed9fdf36ef5a8",
+          "a95cb348",
+          "b1978ab6",
+          "nul02",
+          "nul03",
+          "c117f92e",
+          "ca598088",
+          "nul04",
+          "nul05",
+          "aa9201f0",
+          "6fde349f",
+          "nul06",
+          "nul07",
+          "df6fecca",
+          "e8f66a09",
+          "nul08"
+        ],
+        "excerpt": "using System;\n#nullable enable\nstatic string Describe(int? score)\n{\n    if (!score.HasValue) return \"Not recorded\";\n    return $\"Recorded {score.Value}\";\n}\nConsole.WriteLine(Describe(null));\nConsole.WriteLine(Describe(0));\nstring? absent = null;\nstring empty = \"\";\nConsole.WriteLine($\"Absent: {absent is null}; empty length: {empty.Length}\");\nConsole.WriteLine($\"Absent length: {absent?.Length ?? -1}\");\n\n\nThe output preserves absence separately from zero. Empty is a real string object with Length zero; absent has no object whose Length can be read. `absent?.Length` produces a nullable length, and `?? -1` supplies a display fallback only when that result is missing.\n\n| Expression or policy | Missing reference | Empty string | Nonempty string |\n| --- | --- | --- | --- |\n| `text?.Length` | null | 0 | Actual length |\n| `text?.Length ?? -1` | -1 | 0 | Actual length |\n| `text ?? \"Unknown\"` | Unknown | Empty string retained | Original text |\n\nRead `?.` as conditional access, not a request to manufacture a default object. In `order?.ShippingAddress?.City ?? \"Unknown\"`, a missing order or address stops that access chain, then the final fallback provides a display value. An empty City is retained because empty is not null. If blank cities are also unacceptable, validate that separately.\n\n\n```{index} Guide a Required-Value Guard and an Optional Label\n```\n\n## Guide a Required-Value Guard and an Optional Label\n\n\nSuppose a customer must have a name but may omit a delivery note. The required name belongs in a constructor or boundary guard. The note can remain null in the model; its display fallback belongs where the display is produced. Do not use `note!` to make a missing note behave like a real string: it has no such runtime effect.\n\nGuided prediction: what should the following print f"
+      }
+    ],
+    "section_practice": [
+      {
+        "file": "chapters/11_object_design/1104_nullability.ipynb",
+        "cells": [
+          9,
+          12
+        ],
+        "cell_ids": [
+          "ba_be0f395b3f1dac7259",
+          "ba_6eb9b7931a33a40209",
+          "ba_c9368d6e87bcbd380d",
+          "ba_a7bbeed9fdf36ef5a8"
+        ],
+        "excerpt": "```{index} Guide a Required-Value Guard and an Optional Label\n```\n\n## Guide a Required-Value Guard and an Optional Label\n\n\nSuppose a customer must have a name but may omit a delivery note. The required name belongs in a constructor or boundary guard. The note can remain null in the model; its display fallback belongs where the display is produced. Do not use `note!` to make a missing note behave like a real string: it has no such runtime effect.\n\nGuided prediction: what should the following print for null, empty and \u201cLeave at desk\u201d? The empty note has been supplied explicitly; this policy preserves it. Then change the policy to treat whitespace-only notes as absent and explain which condition must be added.\n\n\nusing System;\n#nullable enable\nstatic string NoteLabel(string? note) => note ?? \"No delivery note\";\nConsole.WriteLine($\"[{NoteLabel(null)}]\");\nConsole.WriteLine($\"[{NoteLabel(\"\")}]\");\nConsole.WriteLine($\"[{NoteLabel(\"Leave at desk\")}]\");\n\n\nUse `string.IsNullOrWhiteSpace(note)` if the revised domain treats null, empty and whitespace-only strings alike. That is a business normalization decision, not the definition of null. As a second variation, replace a required-name `!` with an explicit argument guard and explain the difference between an early, informative rejection and a later NullReferenceException. The operator table below remains a quick reference. Pattern matching and LINQ exercises are optional extensions; neither is required to apply these missing-data contracts.\n"
+      },
+      {
+        "file": "chapters/11_object_design/1104_nullability.ipynb",
+        "cells": [
+          31,
+          32
+        ],
+        "cell_ids": [
+          "nul10",
+          "d18d117d"
+        ],
+        "excerpt": "```{index} Practice\n```\n\n## Practice\n\n\n\n\n1. Write `int SafeParse(string? input)` that returns the parsed integer, or `0` if `input` is null or not a valid number. Use `int.TryParse`.\n2. Given `List<string?> names`, use LINQ and `??` to produce a `List<string>` where every null is replaced with `\"Anonymous\"`.\n3. Rewrite this safely using null operators:\n   ```csharp\n   if (user != null && user.Address != null)\n       Console.WriteLine(user.Address.City);\n   ```"
+      }
+    ],
+    "assessment": [
+      {
+        "file": "chapters/11_object_design/assignments/lab.ipynb",
+        "cells": [
+          2,
+          6
+        ],
+        "cell_ids": [
+          "3c4929cd9edb",
+          "4938791d3acb",
+          "30a9fb96e6be",
+          "d023932e3bad",
+          "d86b073639fe"
+        ],
+        "excerpt": "**Question 1: Create a Valid Product**\n\nThe office-supply order starts with an immutable product. Validate and trim the SKU, retaining a read-only public property.\n\n\nusing System;\nusing System.Collections.Generic;\n\nProduct product = new Product(\" P100 \", \" Notebook \", 6m);\nConsole.WriteLine($\"{product.Sku}: {product.Name}, {product.UnitPrice:F2}\");\n\nclass Product\n{\n    public string Sku { get; }\n    public string Name { get; }\n    public decimal UnitPrice { get; }\n\n    public Product(string sku, string name, decimal unitPrice)\n    {\n        if (string.IsNullOrWhiteSpace(sku)) throw new ArgumentException(\"SKU required.\");\n        if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required.\");\n        if (unitPrice < 0m) throw new ArgumentOutOfRangeException(nameof(unitPrice));\n        // Your code starts here.\nSku = sku; // TODO: trim the validated identifier.\n// Your code ends here.\n        Name = name.Trim();\n        UnitPrice = unitPrice;\n    }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nProduct product = new Product(\" P100 \", \" Notebook \", 6m);\nConsole.WriteLine($\"{product.Sku}: {product.Name}, {product.UnitPrice:F2}\");\n\nclass Product\n{\n    public string Sku { get; }\n    public string Name { get; }\n    public decimal UnitPrice { get; }\n\n    public Product(string sku, string name, decimal unitPrice)\n    {\n        if (string.IsNullOrWhiteSpace(sku)) throw new ArgumentException(\"SKU required.\");\n        if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required.\");\n        if (unitPrice < 0m) throw new ArgumentOutOfRangeException(nameof(unitPrice));\n        Sku = sku.Trim();\n        Name = name.Trim();\n        UnitPrice = unitPrice;\n    }\n}\n\n\n**Question 2: Calculate a Line Amount**\n\nExtend the same model with a product r"
+      },
+      {
+        "file": "chapters/11_object_design/assignments/homework.ipynb",
+        "cells": [
+          26,
+          28
+        ],
+        "cell_ids": [
+          "9a0726cc923a",
+          "081dad13454f",
+          "b7f5ac0e0167"
+        ],
+        "excerpt": "**Question 10: Preserve State on Failure**\n\nValidate an expense before updating its accumulated total. Keep the supplied failure check independent of private fields.\n\n\nusing System;\nusing System.Collections.Generic;\n\nExpenseClaim claim = new ExpenseClaim();\nclaim.Add(10m);\nbool rejected = false;\ntry { claim.Add(-2m); } catch (ArgumentOutOfRangeException) { rejected = true; }\nif (!rejected || claim.Total != 10m) throw new Exception(\"Claim contract failed.\");\nConsole.WriteLine(\"Rejected expense preserved total.\");\n\nclass ExpenseClaim\n{\n    public decimal Total { get; private set; }\n    public void Add(decimal amount)\n    {\n        // Your code starts here.\n/* TODO: reject negative values before changing Total. */\n// Your code ends here.\n        Total += amount;\n    }\n}\n\n\nusing System;\nusing System.Collections.Generic;\n\nExpenseClaim claim = new ExpenseClaim();\nclaim.Add(10m);\nbool rejected = false;\ntry { claim.Add(-2m); } catch (ArgumentOutOfRangeException) { rejected = true; }\nif (!rejected || claim.Total != 10m) throw new Exception(\"Claim contract failed.\");\nConsole.WriteLine(\"Rejected expense preserved total.\");\n\nclass ExpenseClaim\n{\n    public decimal Total { get; private set; }\n    public void Add(decimal amount)\n    {\n        if (amount < 0m) throw new ArgumentOutOfRangeException(nameof(amount));\n        Total += amount;\n    }\n}\n"
+      }
+    ],
+    "judgment": "Required-value guards are assessed in the core model. Deeper nullable-flow and operator tasks remain section practice, not a separately assessed core outcome."
+  },
+  {
+    "id": "C13-P1",
+    "chapter": 13,
+    "route": "CS2 foundation",
+    "outcome": "Read short lambda and LINQ pipelines",
+    "role": "Supporting prerequisite bridge",
+    "explanation": [
+      {
+        "file": "chapters/13_abstract_data_types/1303_generics.ipynb",
+        "cells": [
+          30,
+          34
+        ],
+        "cell_ids": [
+          "generic-bridge-14",
+          "2cb62634",
+          "generic-bridge-15",
+          "generic-bridge-16",
+          "generic-bridge-17"
+        ],
+        "excerpt": "```{index} Reading Short Expressions and Queries\n```\n\n## Reading Short Expressions and Queries\n\n\n\n\n```{index} Reading Short Expressions and Queries\n```\n\n\nLater collection examples sometimes use compact C# forms. The expression x => x > 0 is a lambda: a function receiving x and returning the comparison result. A library method can call that function for each value. Where filters values, Select transforms them, OrderBy orders them, and ToArray materializes a separate array. These LINQ extension methods require using System.Linq. Prefer an explicit loop when it makes the algorithm or mutation clearer. Query pipelines can defer work until enumeration; ToArray executes the pipeline now.\n\n\nusing System.Collections.Generic;\nusing System;\nusing System.Linq;\nint[] arrivals = { 30, -1, 10, 20 };\nint[] report = arrivals.Where(value => value >= 0).OrderBy(value => value).Select(value => value * 2).ToArray();\nConsole.WriteLine(string.Join(\", \", report));\nConsole.WriteLine(string.Join(\", \", arrivals));\n\n\nAn expression-bodied member such as public int Count => items.Count; is shorthand for a getter returning that expression. A target-typed new() uses the declared variable type, so List<int> values = new(); constructs a List<int>. Neither abbreviation changes the data-structure contract. Named classes and explicit constructors remain useful while learning a new model.\n"
+      }
+    ],
+    "worked_example": [
+      {
+        "file": "chapters/13_abstract_data_types/1303_generics.ipynb",
+        "cells": [
+          33,
+          33
+        ],
+        "cell_ids": [
+          "generic-bridge-16"
+        ],
+        "excerpt": "using System.Collections.Generic;\nusing System;\nusing System.Linq;\nint[] arrivals = { 30, -1, 10, 20 };\nint[] report = arrivals.Where(value => value >= 0).OrderBy(value => value).Select(value => value * 2).ToArray();\nConsole.WriteLine(string.Join(\", \", report));\nConsole.WriteLine(string.Join(\", \", arrivals));\n"
+      }
+    ],
+    "section_practice": [],
+    "assessment": [],
+    "judgment": "A real introductory explanation and runnable pipeline exist. A complete query-design lesson and independent query assignment are not supplied here; absence of all LINQ teaching would be an inaccurate claim."
+  }
+]

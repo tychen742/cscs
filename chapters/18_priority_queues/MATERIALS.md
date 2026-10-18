@@ -69,3 +69,24 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Landing Page Development (2026-10-17)
 
 `1800_priority_queues.ipynb` was rewritten from a generic template (about 200 words, three generic objectives, six glossary rows) to a full chapter landing page. It now has a chapter introduction grounded in the three sections (contracts and heap shape; implementing and checking a binary heap; priority workloads and top-k) and the chapter's service-desk and reporting examples, seven numbered objectives tied to the removal contract and tie policy, the library queue, array index arithmetic, bubble-up/sink-down traces, the generic BinaryMinHeap with costs, top-k with its invariant, and priority versus fairness, the Chapter Flow in TOC order without the assignments link, a numbered glossary of 30 terms drawn from 1801 through 1803, and a Lecture Slides section marked pending. The existing Chapter Video (Tech With Tim) was kept unchanged and moved to its standard position after the overview. The landing page carries no content sections or index entries; content notebooks, `_toc.yml`, and assignments were not changed.
+
+
+## Outcome Gap Repair (2026-10-17)
+
+Preserve the current chapter notebooks, reading order, existing explanations, exercise variants, and assessment identifiers. The additions below close the outcome audit gaps within that organization. Explanations belong in content before independent application; earlier scaffolded tasks remain available.
+
+| Location | Development or assessment |
+| --- | --- |
+| `homework.ipynb` | Implement Heap Repairs Without a Supplied Heap |
+
+Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
+
+Lecture decks remain a separately tracked task. No additional chapter, meeting, or required optional-topic track is introduced.
+
+### Verified Topic-to-Assessment Progression
+
+| Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
+| --- | --- | --- | --- |
+| Heap repair and service policy | 1802_heap_implementation and 1803_priority_applications existing repair traces and top-k/fairness development | Existing invariant checker and scaffolded API tasks retained | New independent Push/PopMin bodies, invariant scan after each operation, boundary/duplicate checks, repair trace, fairness/aging scenario, and top-k orientation justification. |
+
+Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
