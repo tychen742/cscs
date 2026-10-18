@@ -1,0 +1,1930 @@
+[
+ {
+  "file": "chapters/01_context/0101_cs_ideas.ipynb",
+  "title": "Computing and Problem Solving",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2142,
+  "code_cells": 1,
+  "sections": 7,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Describe Input, Processing, and Output (275 words)",
+   "Thinking Like a Computer Scientist (254 words)",
+   "Algorithms and Development Workflow (368 words)",
+   "Number Systems and Data Representation (310 words)",
+   "Execution Order and Correctness (247 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Computers, Software, and Data",
+   "Thinking Like a Computer Scientist",
+   "Algorithms and Development Workflow"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/01_context/0102_computing_responsibility.ipynb",
+  "title": "Computing and Professional Responsibility",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2746,
+  "code_cells": 0,
+  "sections": 6,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Identify Stakeholders and Possible Harm (411 words)",
+   "Distinguish Correct Execution from Sound Decisions (368 words)",
+   "Handle Personal Information with Care (430 words)",
+   "Make Information Understandable and Accessible (405 words)",
+   "Respect Sources and Explain Your Work (328 words)",
+   "Understand the Role of AI Assistance (627 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Identify Stakeholders and Possible Harm",
+   "Distinguish Correct Execution from Sound Decisions",
+   "Respect Sources and Explain Your Work",
+   "Understand the Role of AI Assistance"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/01_context/0103_program_structure.ipynb",
+  "title": "Your First C# Program and Basic Syntax",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2464,
+  "code_cells": 12,
+  "sections": 10,
+  "sections_with_practice": [
+   "Edit, Save, and Run Again",
+   "Statements, Expressions, and Literal Values",
+   "Read and Repair Compiler Messages"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Read the Program from the Outside In (500 words)",
+   "Names, Keywords, and Case (292 words)",
+   "Source Files and the Project File (266 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Read and Repair Compiler Messages"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/02_var_data/0201_variables_types.ipynb",
+  "title": "Variables, Assignment, and State",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1263,
+  "code_cells": 9,
+  "sections": 6,
+  "sections_with_practice": [],
+  "code_with_caption_only": [
+   "The `var` Keyword (35 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/02_var_data/0204_types_conversion.ipynb",
+  "title": "Types and Conversion",
+  "part": "Part I. Fundamentals",
+  "prose_words": 3325,
+  "code_cells": 25,
+  "sections": 3,
+  "sections_with_practice": [
+   "Keep Stored Values Separate from Their Display"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+  "title": "Operators and Built-In Methods",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2468,
+  "code_cells": 18,
+  "sections": 5,
+  "sections_with_practice": [
+   "Built-In Methods"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "C# Operator Types (510 words)",
+   "C# Operator Reference (679 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/02_var_data/0203_input_output.ipynb",
+  "title": "Input and Output",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1560,
+  "code_cells": 16,
+  "sections": 5,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "User Input with a Supplied UI Class (350 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/03_decision/0301_intro_decision.ipynb",
+  "title": "Boolean Expressions & Logical Operators",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1282,
+  "code_cells": 4,
+  "sections": 4,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/03_decision/0302_ifstatement.ipynb",
+  "title": "Conditional Selection with if and switch",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2078,
+  "code_cells": 9,
+  "sections": 7,
+  "sections_with_practice": [
+   "Reason About the Unselected Branches"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Compare Ways to Express the Same Decision (293 words)",
+   "`if-else` Statements: Two-Way Selection (247 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Switch Statement"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/04_iteration/0401_iteration.ipynb",
+  "title": "Iteration",
+  "part": "Part I. Fundamentals",
+  "prose_words": 962,
+  "code_cells": 5,
+  "sections": 4,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Loop Planning Rubric (413 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/04_iteration/0402_for_statements.ipynb",
+  "title": "The `for` Statement",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2308,
+  "code_cells": 15,
+  "sections": 7,
+  "sections_with_practice": [
+   "Repeated Trials and Random Values"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/04_iteration/0403_while_statement.ipynb",
+  "title": "While-Statements",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2233,
+  "code_cells": 9,
+  "sections": 4,
+  "sections_with_practice": [
+   "Validate a Number Before Using It"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Infinite loops (388 words)",
+   "Do-While Loops (630 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Validate a Number Before Using It"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/04_iteration/0404_gcd.ipynb",
+  "title": "Greatest Common Divisor",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2155,
+  "code_cells": 1,
+  "sections": 6,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Euclid's Algorithm (341 words)",
+   "GCD \"Brute Force\" Method (634 words)",
+   "GCD Subtraction Method (455 words)",
+   "Preview: Recursive GCD (334 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/05_methods/0501_intro_methods.ipynb",
+  "title": "Designing and Calling Methods",
+  "part": "Part I. Fundamentals",
+  "prose_words": 3361,
+  "code_cells": 6,
+  "sections": 4,
+  "sections_with_practice": [
+   "Discover a Task Before Naming a Method",
+   "Guided Practice: Reuse a Notice"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Discover a Task Before Naming a Method"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/05_methods/0503_parameter.ipynb",
+  "title": "Method Parameters",
+  "part": "Part I. Fundamentals",
+  "prose_words": 2348,
+  "code_cells": 10,
+  "sections": 8,
+  "sections_with_practice": [
+   "Return Values, out, and ref",
+   "Guided Practice: Use a Returned Value"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Map Arguments to Parameters",
+   "Keep Interaction in the Caller"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/05_methods/0502_signature_call.ipynb",
+  "title": "Returned Results and Method Contracts",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1803,
+  "code_cells": 10,
+  "sections": 7,
+  "sections_with_practice": [
+   "A Boolean Result Answers a Question",
+   "AI Review: Match a Method to Its Contract",
+   "Guided Practice: Return a Commission"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "A Boolean Result Answers a Question",
+   "Print or Return? Choose the Contract"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/05_methods/0504_strings.ipynb",
+  "title": "Strings and Their Methods",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1023,
+  "code_cells": 10,
+  "sections": 10,
+  "sections_with_practice": [
+   "Guided Practice: Clean a Department Code"
+  ],
+  "code_with_caption_only": [
+   "Searching (25 words, 1 cells)",
+   "Extracting Part of a String (40 words, 1 cells)",
+   "Replacing Text (19 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Strings Are Immutable"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/05_methods/0505_summary.ipynb",
+  "title": "Composition, Refactoring, and Method Checks",
+  "part": "Part I. Fundamentals",
+  "prose_words": 942,
+  "code_cells": 4,
+  "sections": 5,
+  "sections_with_practice": [
+   "Choose Tests That Can Distinguish Plausible Defects",
+   "Refactor and Check a Checkout Calculation",
+   "Guided Synthesis: Report a Line Total"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Refactor in Small Steps That Keep an Observable Contract (252 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Choose Tests That Can Distinguish Plausible Defects",
+   "Refactor and Check a Checkout Calculation"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/05_methods/0506_recursive_methods.ipynb",
+  "title": "Recursive Methods",
+  "part": "Part I. Fundamentals",
+  "prose_words": 937,
+  "code_cells": 6,
+  "sections": 6,
+  "sections_with_practice": [
+   "Guided Practice: Count the Digits of an Order Number"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "The Call Stack and Why Progress Matters"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+  "title": "Error Handling and Validation",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1505,
+  "code_cells": 7,
+  "sections": 13,
+  "sections_with_practice": [
+   "Follow Control Through an Exception",
+   "Practice",
+   "Rethrow Without Losing the Failure Origin"
+  ],
+  "code_with_caption_only": [
+   "Basic `try` / `catch` / `finally` (8 words, 1 cells)",
+   "Prefer `TryParse` for User Input (36 words, 1 cells)",
+   "File I/O with Safe Handling (7 words, 1 cells)",
+   "Throwing Exceptions Intentionally (22 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Decide What a Failure Means Before Catching It (265 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Validation vs. Exceptions",
+   "Throwing Exceptions Intentionally",
+   "Rethrow Without Losing the Failure Origin"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+  "title": "Debugging Workflow",
+  "part": "Part I. Fundamentals",
+  "prose_words": 1465,
+  "code_cells": 5,
+  "sections": 4,
+  "sections_with_practice": [
+   "The Workflow",
+   "Debug One Familiar Loop from Symptom to Evidence",
+   "Practice"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Turn a Symptom into a Reproducible Question",
+   "The Workflow",
+   "Debug One Familiar Loop from Symptom to Evidence",
+   "Practice"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/06_exceptions_testing/0603_testing.ipynb",
+  "title": "Unit Testing",
+  "part": "Part I. Fundamentals",
+  "prose_words": 4003,
+  "code_cells": 5,
+  "sections": 6,
+  "sections_with_practice": [
+   "Design Tests Independently of the Implementation",
+   "AI Review: Challenge Suggested Tests"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Introduction (384 words)",
+   "Framework Setup and Test Attributes (2784 words)"
+  ],
+  "code_without_interpretation": [
+   "The Unit Testing Process"
+  ],
+  "sections_with_mistakes": [
+   "Design Tests Independently of the Implementation",
+   "Framework Setup and Test Attributes",
+   "AI Review: Challenge Suggested Tests"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/06_exceptions_testing/0605_software_responsibility.ipynb",
+  "title": "Computing and Society",
+  "part": "Part I. Fundamentals",
+  "prose_words": 958,
+  "code_cells": 2,
+  "sections": 5,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "When Software Fails People (226 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Small Defects at Scale",
+   "Thinking Through an Ethical Question",
+   "Professional Codes of Ethics",
+   "Summary"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/07_arrays/0701_onedim.ipynb",
+  "title": "Creating and Accessing Arrays",
+  "part": "Part II. Data and I/O",
+  "prose_words": 2304,
+  "code_cells": 2,
+  "sections": 6,
+  "sections_with_practice": [
+   "Guide a Last-Element Check"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Creating Arrays (498 words)",
+   "Accessing Array Elements (765 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Default Initializations"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/07_arrays/0703_array_processing.ipynb",
+  "title": "Processing and Sharing Arrays",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1749,
+  "code_cells": 1,
+  "sections": 4,
+  "sections_with_practice": [
+   "Passing an Array Does Not Copy Its Elements"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Process Positions Before Introducing a New Container (243 words)",
+   "Parameters to Main (916 words)",
+   "References and Aliases (342 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Process Positions Before Introducing a New Container"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/07_arrays/0704_searching_sorting_arrays.ipynb",
+  "title": "Searching and Sorting Arrays",
+  "part": "Part II. Data and I/O",
+  "prose_words": 2718,
+  "code_cells": 14,
+  "sections": 12,
+  "sections_with_practice": [
+   "Guided Practice: Change the Matching Rule",
+   "Guided Practice: Repair the Boundary",
+   "Guided Practice: Preserve the Saved Item",
+   "Guided Practice: Find a Product Code"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Ask What the Answer Must Be (366 words)",
+   "Why a Sorted Array Searches Faster (221 words)"
+  ],
+  "code_without_interpretation": [
+   "Binary Search by Hand: Narrow a Sorted Interval"
+  ],
+  "sections_with_mistakes": [
+   "Linear Search: Visit Positions in Order",
+   "Binary Search by Hand: Narrow a Sorted Interval",
+   "Guided Practice: Repair the Boundary",
+   "Insertion Sort: Grow an Ordered Prefix"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/07_arrays/0702_twodim.ipynb",
+  "title": "2D & ND Arrays",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1873,
+  "code_cells": 8,
+  "sections": 3,
+  "sections_with_practice": [
+   "From One Row to a Table Summary"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/08_collections/0801_collections.ipynb",
+  "title": "Collection Families and Selection",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1831,
+  "code_cells": 0,
+  "sections": 3,
+  "sections_with_practice": [
+   "Choosing a Collection"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Collections and Operations (384 words)",
+   "Collection Families (462 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/08_collections/0804_collection_operations.ipynb",
+  "title": "Collection Operations and Behavior",
+  "part": "Part II. Data and I/O",
+  "prose_words": 3953,
+  "code_cells": 11,
+  "sections": 6,
+  "sections_with_practice": [
+   "Read an Operation as a State Change and a Result",
+   "Traversal and Shared References"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Generic Collections (499 words)",
+   "Similar Operations, Different Methods (938 words)",
+   "Summary (231 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Traversal and Shared References"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/08_collections/0802_list.ipynb",
+  "title": "Lists",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1562,
+  "code_cells": 23,
+  "sections": 6,
+  "sections_with_practice": [
+   "Exercise: Generic List"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/08_collections/0803_dictionary.ipynb",
+  "title": "Dictionaries",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1894,
+  "code_cells": 16,
+  "sections": 6,
+  "sections_with_practice": [
+   "Guided Practice: Update Stock Safely"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Accessing Data in Dictionary"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/09_files_text/0901_stream_file.ipynb",
+  "title": "File Foundations: Reading and Writing",
+  "part": "Part II. Data and I/O",
+  "prose_words": 2376,
+  "code_cells": 6,
+  "sections": 4,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "File Stream (429 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "`StreamReader`"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/09_files_text/0902_file_operations.ipynb",
+  "title": "File Workflows, Paths, and Resources",
+  "part": "Part II. Data and I/O",
+  "prose_words": 1794,
+  "code_cells": 2,
+  "sections": 4,
+  "sections_with_practice": [
+   "Predict Append and Missing-Input Outcomes",
+   "Bound Resource Lifetime Explicitly"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Separate a File's Location from Its Contents (1032 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Run a Complete File Lifetime in an Owned Workspace",
+   "Separate a File's Location from Its Contents"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/09_files_text/0903_text_operations.ipynb",
+  "title": "Text Operations",
+  "part": "Part II. Data and I/O",
+  "prose_words": 939,
+  "code_cells": 9,
+  "sections": 6,
+  "sections_with_practice": [
+   "Treat Each Imported Line as a Small Contract",
+   "AI Review: Specify and Validate a Text Import"
+  ],
+  "code_with_caption_only": [
+   "Splitting and Tokenizing (41 words, 4 cells)",
+   "Safe Replacement Strategy (22 words, 1 cells)",
+   "Structured Lines (23 words, 2 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Structured Lines"
+  ],
+  "sections_with_mistakes": [
+   "Treat Each Imported Line as a Small Contract"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/09_files_text/0906_regex.ipynb",
+  "title": "Regular Expressions",
+  "part": "Part II. Data and I/O",
+  "prose_words": 732,
+  "code_cells": 9,
+  "sections": 10,
+  "sections_with_practice": [
+   "Read a Pattern as a Description of Accepted Text",
+   "Checking for a Match",
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Extracting a Match (6 words, 1 cells)",
+   "Finding All Matches (4 words, 1 cells)",
+   "Replacing with a Pattern (4 words, 2 cells)",
+   "Using Groups to Extract Fields (10 words, 1 cells)",
+   "Validation Patterns (5 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/09_files_text/0905_privacy_security.ipynb",
+  "title": "Privacy and Security in Code",
+  "part": "Part II. Data and I/O",
+  "prose_words": 683,
+  "code_cells": 4,
+  "sections": 5,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Treat Every Input as Untrusted"
+  ],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/10_classes/1001_class_syntax.ipynb",
+  "title": "Class Syntax",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1981,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "A Variable Number of Arguments"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Overview (255 words)",
+   "Declaring Classes (234 words)",
+   "Using a Class (263 words)",
+   "Constructors (430 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/10_classes/1002_properties.ipynb",
+  "title": "Properties",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1496,
+  "code_cells": 2,
+  "sections": 2,
+  "sections_with_practice": [],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Properties (1241 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/10_classes/1003_class_instance.ipynb",
+  "title": "Instances, State, and Useful Behavior",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 929,
+  "code_cells": 6,
+  "sections": 7,
+  "sections_with_practice": [
+   "Practice: Reset and Reuse a Register",
+   "Statistics Exercise",
+   "Unneeded Constructor Code Exercise",
+   "Alternate Internal State Exercise"
+  ],
+  "code_with_caption_only": [
+   "Give Each Instance Its Own State (49 words, 1 cells)",
+   "Calculate Behavior from State (55 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Give Each Instance Its Own State",
+   "Properties Describe the Public Surface",
+   "Calculate Behavior from State"
+  ],
+  "sections_with_mistakes": [
+   "Statistics Exercise"
+  ],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/10_classes/1004_averager.ipynb",
+  "title": "Averager and Mutable State",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 866,
+  "code_cells": 3,
+  "sections": 2,
+  "sections_with_practice": [
+   "More Getters and Setters"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/11_object_design/1101_objects_references.ipynb",
+  "title": "References, Identity, and Copying",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1062,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "Missing Is Different from Empty",
+   "Practice: Draw the Arrows"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/11_object_design/1105_value_record_types.ipynb",
+  "title": "Structs, Records, and Data Models",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1293,
+  "code_cells": 3,
+  "sections": 4,
+  "sections_with_practice": [
+   "Choose Copy and Equality Semantics Together"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/11_object_design/1102_composition.ipynb",
+  "title": "Composition and Object Responsibilities",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1195,
+  "code_cells": 5,
+  "sections": 6,
+  "sections_with_practice": [
+   "Establish Required and Optional Relationships at Their Boundary",
+   "Practice: Count Requested Units"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Has-a Relationships"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/11_object_design/1103_testing_collaboration.ipynb",
+  "title": "Testing and Refactoring Collaborating Objects",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1182,
+  "code_cells": 4,
+  "sections": 7,
+  "sections_with_practice": [
+   "Test Through the Surface a Client Is Allowed to Use",
+   "Practice: Challenge the Ownership Rules"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Arrange, Act, Assert",
+   "Rejected Changes Must Preserve State",
+   "Refactor Without Changing the Contract"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/11_object_design/1104_nullability.ipynb",
+  "title": "Nullability and Missing Data",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 830,
+  "code_cells": 6,
+  "sections": 7,
+  "sections_with_practice": [
+   "Guide a Required-Value Guard and an Optional Label",
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Nullable Value Types (28 words, 1 cells)",
+   "Nullable Reference Types (C# 8+) (27 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Give Missing Data Its Own Meaning"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/12_oop/1201_inheritance.ipynb",
+  "title": "Inheritance and Substitution",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1017,
+  "code_cells": 4,
+  "sections": 6,
+  "sections_with_practice": [
+   "Substitution Is a Client's Behavioral Expectation",
+   "Practice: Preserve the Discount Contract"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/12_oop/1202_polymorphism.ipynb",
+  "title": "Runtime Polymorphism and Abstract Classes",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1016,
+  "code_cells": 4,
+  "sections": 6,
+  "sections_with_practice": [
+   "Distinguish Choosing a Member from Dispatching Its Implementation",
+   "Check Every Implementation Against Shared Expectations",
+   "Practice: Test Through the Base Type"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/12_oop/1203_interfaces.ipynb",
+  "title": "Interfaces and Interchangeable Components",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 998,
+  "code_cells": 5,
+  "sections": 6,
+  "sections_with_practice": [
+   "Depend on the Capability the Client Needs",
+   "Practice: Replace a Component Without Changing Its Client"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Use a Test Double to Observe Collaboration"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/12_oop/1204_oop_examples.ipynb",
+  "title": "OOP Examples and Variations",
+  "part": "Part III. Object-Oriented Programming",
+  "prose_words": 1735,
+  "code_cells": 6,
+  "sections": 6,
+  "sections_with_practice": [],
+  "code_with_caption_only": [
+   "Inheritance: Vehicle and Car (54 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Programming Paradigms and Separation of Concerns (720 words)"
+  ],
+  "code_without_interpretation": [
+   "Inheritance: Vehicle and Car",
+   "Nonvirtual Hiding and Virtual Overriding",
+   "Overloading by Type and Number of Arguments"
+  ],
+  "sections_with_mistakes": [
+   "Overloading by Type and Number of Arguments"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/13_abstract_data_types/1301_adt_contracts.ipynb",
+  "title": "ADT Contracts",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 846,
+  "code_cells": 1,
+  "sections": 8,
+  "sections_with_practice": [
+   "Separate Client Knowledge from Implementation Knowledge",
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Interfaces as Contracts (25 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Describe the Observable History First (263 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Separate Client Knowledge from Implementation Knowledge"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/13_abstract_data_types/1302_representations_costs.ipynb",
+  "title": "Representations and Costs",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1183,
+  "code_cells": 3,
+  "sections": 9,
+  "sections_with_practice": [
+   "Define What You Count",
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Array-Backed Stack (35 words, 1 cells)",
+   "Linked Nodes and References (50 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "One Behavior Can Have Different Physical Work (277 words)"
+  ],
+  "code_without_interpretation": [
+   "Linked Nodes and References"
+  ],
+  "sections_with_mistakes": [
+   "Define What You Count",
+   "Operation Costs"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/13_abstract_data_types/1303_generics.ipynb",
+  "title": "Generics for Reusable ADTs",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1023,
+  "code_cells": 6,
+  "sections": 10,
+  "sections_with_practice": [
+   "State Which Operations the Generic Code Needs",
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Generic Methods (0 words, 1 cells)",
+   "Generic Classes (0 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Reuse an Algorithm Without Erasing Its Types"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/13_abstract_data_types/1304_iterators.ipynb",
+  "title": "Iterators",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 994,
+  "code_cells": 2,
+  "sections": 7,
+  "sections_with_practice": [
+   "A Yield Point Suspends Rather than Finishes the Sequence",
+   "Practice"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/14_arrays_linked_lists/1401_dynamic_arrays.ipynb",
+  "title": "Dynamic Arrays",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1352,
+  "code_cells": 4,
+  "sections": 11,
+  "sections_with_practice": [
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Contiguous Storage (43 words, 1 cells)",
+   "Resizing by Copying (54 words, 1 cells)",
+   "Worked Example: A Small Dynamic Array (23 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Middle Updates: Preserve the Unread Values (262 words)",
+   "Why Doubling Gives Amortized Constant Cost (233 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb",
+  "title": "Linked Nodes",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1134,
+  "code_cells": 5,
+  "sections": 12,
+  "sections_with_practice": [
+   "Practice"
+  ],
+  "code_with_caption_only": [
+   "Nodes and References (32 words, 1 cells)",
+   "Traversal (25 words, 1 cells)",
+   "Insertion After a Node (34 words, 1 cells)",
+   "Deletion After a Node (17 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Removal, Head, and Tail Invariants"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb",
+  "title": "Representation Tradeoffs and Verification",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1211,
+  "code_cells": 3,
+  "sections": 10,
+  "sections_with_practice": [],
+  "code_with_caption_only": [
+   "Array Search and Indexing (21 words, 1 cells)",
+   "Linked Traversal (14 words, 1 cells)",
+   "Middle Insertion Costs (31 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Separate Location Cost from Update Cost (235 words)",
+   "Test the Contract Before Comparing Speed (237 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/15_stacks_queues/1501_stack.ipynb",
+  "title": "Stacks",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 893,
+  "code_cells": 7,
+  "sections": 9,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/15_stacks_queues/1502_queue_deque.ipynb",
+  "title": "Queues and Deques",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1288,
+  "code_cells": 8,
+  "sections": 11,
+  "sections_with_practice": [
+   "Separate Logical Order from the Positions That Store It",
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Worklists and Scheduling (54 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Trace Wraparound and Distinguish Full from Empty (244 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "A Complete Bounded Generic Queue"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/15_stacks_queues/1503_applications_lab.ipynb",
+  "title": "Access Policies and Applications",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 938,
+  "code_cells": 7,
+  "sections": 9,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Backtracking with a Stack (54 words, 1 cells)",
+   "Breadth-First Processing with a Queue (44 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/16_searching_sorting/1601_searching.ipynb",
+  "title": "Search Contracts and Repeated Queries",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1154,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "Trace a Shrinking Candidate Region",
+   "Practice: State the Matching Policy"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Specify the Answer Before Counting Comparisons (225 words)"
+  ],
+  "code_without_interpretation": [
+   "Library Results Have Their Own Contract"
+  ],
+  "sections_with_mistakes": [
+   "Trace a Shrinking Candidate Region",
+   "Binary Search Requires the Right Order"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/16_searching_sorting/1602_basic_sorting.ipynb",
+  "title": "Sorting and Safe Reporting Workloads",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1443,
+  "code_cells": 9,
+  "sections": 13,
+  "sections_with_practice": [
+   "Preparation, Mutation, and the Report Caller",
+   "Practice: Preserve the Saved Item",
+   "Practice: Choose a Safe Reporting Snapshot"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Maintain a Sorted Prefix While Preserving Every Record (289 words)"
+  ],
+  "code_without_interpretation": [
+   "Insert into a Sorted Prefix",
+   "Sorting Objects Uses an Ordering Policy",
+   "Count Work for Different Inputs",
+   "Library Operations and Clear Comparers",
+   "Preserve Arrival Order While Preparing a Report"
+  ],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/16_searching_sorting/1604_merge_sort.ipynb",
+  "title": "Merge Sort for Reporting Workloads",
+  "part": "Part IV. Data Abstraction and Linear Structures",
+  "prose_words": 1197,
+  "code_cells": 6,
+  "sections": 7,
+  "sections_with_practice": [
+   "Practice: Merge Two Daily Files"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Verify Order, Preservation, and Stability",
+   "Practice: Merge Two Daily Files"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/17_trees/1701_tree_structure.ipynb",
+  "title": "Tree Structure and Recursive Models",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1192,
+  "code_cells": 5,
+  "sections": 5,
+  "sections_with_practice": [
+   "Complete a Recursive Summary Before Designing a New Query"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/17_trees/1704_tree_traversal.ipynb",
+  "title": "Tree Traversal, Returned Values, and Costs",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1024,
+  "code_cells": 4,
+  "sections": 6,
+  "sections_with_practice": [
+   "Count Active Calls Separately from Visited Nodes",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "A Visit and a Returned Result Are Different Events (234 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/17_trees/1702_binary_search_trees.ipynb",
+  "title": "Binary Search Trees",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1773,
+  "code_cells": 9,
+  "sections": 8,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Tree Shape and Library Choice"
+  ],
+  "sections_with_mistakes": [
+   "The BST Invariant"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/17_trees/1703_tree_lab.ipynb",
+  "title": "Tree Queries and Verification",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 844,
+  "code_cells": 6,
+  "sections": 6,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "An Ordered Service Desk"
+  ],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/18_priority_queues/1801_priority_queues.ipynb",
+  "title": "Priority Queue Contracts and Heap Shape",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 878,
+  "code_cells": 5,
+  "sections": 4,
+  "sections_with_practice": [
+   "Priority Describes Removal, Not a Fully Sorted Array",
+   "Practice: Service the Minimum Priority"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/18_priority_queues/1802_heap_implementation.ipynb",
+  "title": "Implementing and Checking a Binary Heap",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1043,
+  "code_cells": 5,
+  "sections": 4,
+  "sections_with_practice": [
+   "Repair Only the Part an Operation Can Disturb",
+   "Practice: Check Every Parent"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Repair Only the Part an Operation Can Disturb"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/18_priority_queues/1803_priority_applications.ipynb",
+  "title": "Priority Workloads and Top-K Selection",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 814,
+  "code_cells": 5,
+  "sections": 5,
+  "sections_with_practice": [
+   "Keep the Boundary of the Best K Items",
+   "Exercise",
+   "Practice: Explain Priority and Fairness"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Keep the Boundary of the Best K Items"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/19_hash_collections/1901_hashing.ipynb",
+  "title": "Hash Tables, Equality, and Collisions",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1367,
+  "code_cells": 6,
+  "sections": 7,
+  "sections_with_practice": [
+   "A Collision Is Not Evidence That Keys Are Equal",
+   "Practice: Find a Colliding Key"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Load Factor and Rehashing (278 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/19_hash_collections/1902_dictionaries_sets.ipynb",
+  "title": "Dictionaries, Sets, and Reconciliation",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 882,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "Choose Equality Before Comparing the Groups",
+   "Practice: Report Missing IDs"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "A Set Answers Membership; a Count Answers Multiplicity (234 words)"
+  ],
+  "code_without_interpretation": [
+   "Union, Intersection, and Difference",
+   "Lookup and Missing Values"
+  ],
+  "sections_with_mistakes": [
+   "A Set Answers Membership; a Count Answers Multiplicity"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/19_hash_collections/1903_collection_selection.ipynb",
+  "title": "Choosing and Coordinating Collections",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1100,
+  "code_cells": 5,
+  "sections": 6,
+  "sections_with_practice": [
+   "Coordinate Indexes with One Consistency Story",
+   "Practice: Skip a Cancelled Entry"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Match the Structure to the Workload"
+  ],
+  "sections_with_mistakes": [
+   "Coordinate Indexes with One Consistency Story"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/20_graphs/2001_graph_vocabulary.ipynb",
+  "title": "Graph Vocabulary and Models",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1052,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Vertices and Edges"
+  ],
+  "sections_with_mistakes": [
+   "Weights and Model Assumptions",
+   "Walks, Paths, and Cycles"
+  ],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/20_graphs/2002_adjacency_representations.ipynb",
+  "title": "Adjacency Representations",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1124,
+  "code_cells": 7,
+  "sections": 7,
+  "sections_with_practice": [
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Weights and Absence (53 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Removal, Invariants, and Testing (243 words)"
+  ],
+  "code_without_interpretation": [
+   "Weights and Absence",
+   "A Protected Route Graph"
+  ],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/20_graphs/2003_graph_traversal.ipynb",
+  "title": "Breadth-First Search and Paths",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1210,
+  "code_cells": 3,
+  "sections": 2,
+  "sections_with_practice": [
+   "Recover a Path from Earlier Layers"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/20_graphs/2004_depth_first_components.ipynb",
+  "title": "Depth-First Search and Components",
+  "part": "Part V. Trees, Hashing, and Graphs",
+  "prose_words": 1501,
+  "code_cells": 6,
+  "sections": 4,
+  "sections_with_practice": [
+   "Connectivity Depends on Direction",
+   "Verify a Traversal"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/21_algorithm_analysis/2101_big_o.ipynb",
+  "title": "Big-O and Complexity",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 1097,
+  "code_cells": 8,
+  "sections": 9,
+  "sections_with_practice": [
+   "A Bound Is a Statement with a Domain",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/21_algorithm_analysis/2102_correctness.ipynb",
+  "title": "Correctness and Invariants",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 977,
+  "code_cells": 7,
+  "sections": 8,
+  "sections_with_practice": [
+   "Partial Correctness and Termination Are Separate Questions",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Make the Claim Strong Enough to Guide the Program (245 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Make the Claim Strong Enough to Guide the Program"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/21_algorithm_analysis/2103_recurrences.ipynb",
+  "title": "Recurrences and Recursive Cost",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 984,
+  "code_cells": 7,
+  "sections": 8,
+  "sections_with_practice": [
+   "Track Rounding and Live Storage",
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Halving with Integer Inputs (59 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Account for the Children and the Work Around Them (232 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/22_recursion_divide_conquer/2201_recursion.ipynb",
+  "title": "Recursive Contracts and Divide-and-Conquer",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 1000,
+  "code_cells": 7,
+  "sections": 7,
+  "sections_with_practice": [
+   "Let a Helper Promise Exactly One Smaller Problem",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb",
+  "title": "Stable Merge Sort and Verification",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 1255,
+  "code_cells": 11,
+  "sections": 11,
+  "sections_with_practice": [
+   "Prove the Combining Step Before Hiding It in Recursion",
+   "Design Checklist",
+   "Checkpoint: Apply the Basic Merge Sort",
+   "Check Order, Preservation, and Copying",
+   "Practice: Verify Merge Results"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Prove the Combining Step Before Hiding It in Recursion"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/23_searching_sorting/2301_searching.ipynb",
+  "title": "Searching",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 1100,
+  "code_cells": 5,
+  "sections": 6,
+  "sections_with_practice": [
+   "Trace the Boundary Rather than Stopping at Equality",
+   "Duplicates Turn One Position into an Interval",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Duplicates Turn One Position into an Interval"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/23_searching_sorting/2302_sorting.ipynb",
+  "title": "Sorting",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 931,
+  "code_cells": 7,
+  "sections": 7,
+  "sections_with_practice": [
+   "Compare the Invariant That Each Sort Maintains",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/23_searching_sorting/2303_comparison_lab.ipynb",
+  "title": "Comparing Complete Search and Sort Workloads",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 952,
+  "code_cells": 8,
+  "sections": 8,
+  "sections_with_practice": [
+   "Make Competing Implementations Answer the Same Question",
+   "Check Order and Occurrence Preservation",
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Write a Requirement-Based Recommendation (43 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [
+   "Write a Requirement-Based Recommendation"
+  ],
+  "sections_with_mistakes": [
+   "Make Competing Implementations Answer the Same Question",
+   "Exercise"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/23_searching_sorting/2304_advanced_sorts.ipynb",
+  "title": "Shell Sort and Gap Families",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 836,
+  "code_cells": 1,
+  "sections": 3,
+  "sections_with_practice": [
+   "Each Gap Pass Solves an Interleaved Insertion Problem"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Shell Sort (250 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": false
+ },
+ {
+  "file": "chapters/23_searching_sorting/2305_quicksort.ipynb",
+  "title": "Quicksort and Partitioning",
+  "part": "Part VI. Algorithm Analysis and Design",
+  "prose_words": 1009,
+  "code_cells": 2,
+  "sections": 3,
+  "sections_with_practice": [
+   "Work the Two-Scan Partition Before Recursing",
+   "Partition Establishes a Boundary, Not a Fully Sorted Array"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Work the Two-Scan Partition Before Recursing"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+  "title": "Greedy Choices and Exchange Reasoning",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 934,
+  "code_cells": 7,
+  "sections": 8,
+  "sections_with_practice": [
+   "Identify the Objective That Makes the Exchange Work",
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Trace Accepted and Rejected Choices (42 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.ipynb",
+  "title": "Minimum Spanning Forests and Kruskal",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1202,
+  "code_cells": 3,
+  "sections": 6,
+  "sections_with_practice": [
+   "Connect Every Site Without Paying for a Cycle"
+  ],
+  "code_with_caption_only": [
+   "Inspect the Cable Forest (45 words, 1 cells)"
+  ],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+  "title": "Shortest Paths and Dijkstra",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1316,
+  "code_cells": 11,
+  "sections": 12,
+  "sections_with_practice": [
+   "Check the Witness as Well as the Number",
+   "Exercise",
+   "Practice: Compare Facilities Models"
+  ],
+  "code_with_caption_only": [
+   "Boundary Policies Are Part of Correctness (31 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Improve Tentative Routes Before Declaring Them Final (279 words)"
+  ],
+  "code_without_interpretation": [
+   "Boundary Policies Are Part of Correctness"
+  ],
+  "sections_with_mistakes": [
+   "Minimum Hops Is Not Minimum Cost",
+   "Practice: Compare Facilities Models"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb",
+  "title": "Memoization, Tabulation, and Repeated Work",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1158,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "Fill the Same States Without Recursive Calls",
+   "Save Answers to Repeated Questions, Not Arbitrary Intermediate State"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Memoization Stores Complete States"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/25_dynamic_programming_backtracking/2504_optimization_models.ipynb",
+  "title": "Optimization States and Reconstructed Solutions",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1536,
+  "code_cells": 7,
+  "sections": 10,
+  "sections_with_practice": [
+   "Guide an Unreachable Entry and Check Its Witness",
+   "Preserve Enough Information to Explain the Answer",
+   "Exercise"
+  ],
+  "code_with_caption_only": [
+   "Inventory Changes the Answer (59 words, 1 cells)"
+  ],
+  "long_prose_without_example": [
+   "Define the State from the Choices That Remain (266 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/25_dynamic_programming_backtracking/2502_backtracking.ipynb",
+  "title": "Backtracking, Pruning, and Search States",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1352,
+  "code_cells": 10,
+  "sections": 11,
+  "sections_with_practice": [
+   "Undo Exactly the Choice Owned by the Current Call",
+   "Exercise",
+   "Check Search Against Exhaustive Positions",
+   "Practice: Validate Search Evidence"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Practice: Validate Search Evidence"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.ipynb",
+  "title": "Direct String Matching and Result Contracts",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 930,
+  "code_cells": 2,
+  "sections": 4,
+  "sections_with_practice": [
+   "Separate a Candidate Start from Its Matched Length",
+   "Use Mismatches as Evidence"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Define What Counts as a Match Before Choosing an Algorithm (241 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [
+   "Separate a Candidate Start from Its Matched Length",
+   "Use Mismatches as Evidence"
+  ],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb",
+  "title": "Prefix Reuse and KMP",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1514,
+  "code_cells": 7,
+  "sections": 8,
+  "sections_with_practice": [
+   "Keep a Proven Suffix After Reporting a Match",
+   "Separate Two Progress Arguments",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [
+   "Reuse a Prefix Only When It Is Also the Needed Suffix (244 words)"
+  ],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ },
+ {
+  "file": "chapters/26_advanced_graphs_strings_limits/2603_limits_project.ipynb",
+  "title": "Algorithms and Computational Limits",
+  "part": "Part VII. Optimization and Computational Limits",
+  "prose_words": 1028,
+  "code_cells": 5,
+  "sections": 7,
+  "sections_with_practice": [
+   "A Limit on One Program Is Not a Lower Bound on Every Algorithm",
+   "Exercise"
+  ],
+  "code_with_caption_only": [],
+  "long_prose_without_example": [],
+  "code_without_interpretation": [],
+  "sections_with_mistakes": [],
+  "has_table_or_figure": true
+ }
+]
