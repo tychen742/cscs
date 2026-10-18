@@ -92,6 +92,8 @@ parts:
     - file: chapters/05_methods/0502_signature_call
     - file: chapters/05_methods/0504_strings
     - file: chapters/05_methods/0505_summary
+    - file: chapters/05_methods/0506_recursive_methods
+      title: Recursive Methods (Supporting Reading)
     - file: chapters/05_methods/assignments/index
       title: Assignments
       sections:
@@ -132,6 +134,7 @@ parts:
     sections:
     - file: chapters/07_arrays/0701_onedim
     - file: chapters/07_arrays/0703_array_processing
+    - file: chapters/07_arrays/0704_searching_sorting_arrays
     - file: chapters/07_arrays/0702_twodim
     - file: chapters/07_arrays/assignments/index
       title: Assignments
@@ -304,6 +307,8 @@ parts:
     sections:
     - file: chapters/16_searching_sorting/1601_searching
     - file: chapters/16_searching_sorting/1602_basic_sorting
+    - file: chapters/16_searching_sorting/1604_merge_sort
+      title: Merge Sort (Supporting Reading)
     - file: chapters/16_searching_sorting/assignments/index
       title: Assignments
       sections:

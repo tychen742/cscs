@@ -188,3 +188,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0505_summary.ipynb`: Composition, Refactoring, and Method Checks.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Recursive Methods Supporting Reading (2026-10-18)
+
+Added `0506_recursive_methods.ipynb` as a supporting reading after 5.5, following the textbook comparison in `authoring/toc_comparison/README.md`: comparable CS1 texts teach recursion in the first semester, and this book previously first taught it in 17.1. The reading gives the general shape (base case, recursive case, progress), a deadline countdown trace, `SumTo` recursive versus loop, an indented call-stack trace, the GCD example from 4.4 in both forms, a loop-versus-recursion table, and a guided digit-count practice with solution. Six code cells compile and run standalone (.NET 10). 5.5's Bounded Extensions paragraph and 17.1 link to it. It adds no meeting and no assessment.

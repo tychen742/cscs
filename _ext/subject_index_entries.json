@@ -29,6 +29,10 @@
     "lower bounds",
     "heuristics"
   ],
+  "a method may call itself": [
+    "recursion; definition",
+    "methods; recursive"
+  ],
   "a protected route graph": [
     "graph; encapsulation"
   ],
@@ -331,6 +335,10 @@
   "ascending values and runs": [
     "arrays; ascending runs exercise"
   ],
+  "ask what the answer must be": [
+    "searching; result contract",
+    "sentinel value"
+  ],
   "assignment": [
     "assignment"
   ],
@@ -418,6 +426,10 @@
   "binary number system; byte": [
     "binary number system",
     "bytes"
+  ],
+  "binary search by hand: narrow a sorted interval": [
+    "binary search; half-open interval",
+    "binary search; ordering precondition"
   ],
   "binary search requires the right order": [
     "binary search; ordering precondition"
@@ -659,7 +671,7 @@
   "check search against exhaustive positions": [
     "backtracking; exhaustive-reference tests"
   ],
-  "check the help desk\u2019s contract": [
+  "check the help desk’s contract": [
     "abstract data types; help-desk contract tests"
   ],
   "check the witness as well as the number": [
@@ -670,6 +682,10 @@
   ],
   "choose a search for the workload": [
     "searching; workload selection"
+  ],
+  "choose among the three": [
+    "searching; choosing an algorithm",
+    "sorting; choosing an algorithm"
   ],
   "choose an input and a cost model": [
     "algorithm analysis; cost models"
@@ -685,6 +701,10 @@
   ],
   "choose equality before comparing the groups": [
     "sets; equality policies"
+  ],
+  "choose for the workload": [
+    "sorting; choosing an algorithm",
+    "merge sort; workload comparison"
   ],
   "choose tests that can distinguish plausible defects": [
     "testing; distinguishing plausible defects"
@@ -1048,6 +1068,13 @@
   "count active calls separately from visited nodes": [
     "recursion; active calls versus visited nodes"
   ],
+  "count matches and find the largest": [
+    "array; counting matches",
+    "array; largest element"
+  ],
+  "count the work": [
+    "merge sort; comparison counts"
+  ],
   "count work before timing": [
     "operation counting; before timing"
   ],
@@ -1286,6 +1313,10 @@
   ],
   "distinguish correct execution from sound decisions": [
     "computing ethics; correctness versus sound decisions"
+  ],
+  "divide, sort each half, merge": [
+    "merge sort; recursive structure",
+    "divide and conquer; merge sort"
   ],
   "divide-and-conquer design": [
     "divide and conquer"
@@ -1848,8 +1879,23 @@
   "guide the route and tie-policy checks": [
     "shortest paths; tie-policy checks"
   ],
+  "guided practice: change the matching rule": [
+    "linear search; matching-rule practice"
+  ],
   "guided practice: clean a department code": [
     "string; cleaning department codes"
+  ],
+  "guided practice: count the digits of an order number": [
+    "recursion; guided practice"
+  ],
+  "guided practice: find a product code": [
+    "linear search; string-code practice"
+  ],
+  "guided practice: preserve the saved item": [
+    "insertion sort; saved-item practice"
+  ],
+  "guided practice: repair the boundary": [
+    "binary search; boundary practice"
   ],
   "guided practice: return a commission": [
     "methods; commission calculation"
@@ -2037,6 +2083,9 @@
   "insertion sort, shifts, and nearly sorted data": [
     "insertion sort; shifts and nearly sorted input"
   ],
+  "insertion sort: grow an ordered prefix": [
+    "insertion sort; sorted prefix"
+  ],
   "insertion; linked list": [
     "linked list; insertion"
   ],
@@ -2197,6 +2246,9 @@
   ],
   "linear order": [
     "linear time complexity"
+  ],
+  "linear search: visit positions in order": [
+    "linear search; first match"
   ],
   "linked list": [
     "linked list"
@@ -2408,6 +2460,9 @@
   ],
   "merge sort lab": [
     "merge sort; applied exercises"
+  ],
+  "merge two sorted runs": [
+    "merge sort; merging runs"
   ],
   "method call; argument": [
     "method calls; arguments"
@@ -2755,6 +2810,9 @@
   "practice: find a colliding key": [
     "hashing; collision exercise"
   ],
+  "practice: merge two daily files": [
+    "merge sort; applied exercises"
+  ],
   "practice: preserve the discount contract": [
     "inheritance; discount contract exercise"
   ],
@@ -3057,6 +3115,9 @@
   "recursion and iteration": [
     "recursion; comparison with iteration"
   ],
+  "recursion or a loop?": [
+    "recursion; comparison with loops"
+  ],
   "recursive problem solving": [
     "recursion; problem solving"
   ],
@@ -3186,6 +3247,9 @@
   ],
   "respect sources and explain your work": [
     "computing ethics; source attribution"
+  ],
+  "return a value: sum the first n numbers": [
+    "recursion; value-returning methods"
   ],
   "return useful results without exposing storage": [
     "composition; result encapsulation"
@@ -3420,6 +3484,11 @@
   ],
   "sort ranges with one buffer": [
     "merge sort; shared-buffer sorting"
+  ],
+  "sort with the library, then search faster": [
+    "Array.Sort",
+    "Array.BinarySearch",
+    "sorting; library methods"
   ],
   "sorting objects uses an ordering policy": [
     "sorting; object ordering policy"
@@ -3784,6 +3853,10 @@
   "the bst invariant": [
     "binary search tree; ordering invariant"
   ],
+  "the call stack and why progress matters": [
+    "recursion; call stack",
+    "recursion; progress argument"
+  ],
   "the cheapest network is not a shortest-route tree": [
     "minimum spanning tree; comparison with shortest paths"
   ],
@@ -3881,6 +3954,9 @@
   ],
   "trace the boundary rather than stopping at equality": [
     "binary search; duplicate boundaries"
+  ],
+  "trace the calls: a deadline countdown": [
+    "recursion; countdown trace"
   ],
   "trace the stack invariant": [
     "stack; invariant trace"
@@ -4157,6 +4233,10 @@
   "verify order and preservation": [
     "sorting; order and element preservation"
   ],
+  "verify order, preservation, and stability": [
+    "merge sort; stability",
+    "sorting; verification"
+  ],
   "verify stability with labeled invoices": [
     "merge sort; stability tests"
   ],
@@ -4247,6 +4327,10 @@
   "what an adt specifies": [
     "abstract data types; specifications"
   ],
+  "when insertion sort is not enough": [
+    "merge sort; motivation",
+    "insertion sort; worst case"
+  ],
   "when software fails people": [
     "software failures; human impact"
   ],
@@ -4264,6 +4348,9 @@
   ],
   "while; statement": [
     "while statement"
+  ],
+  "why a sorted array searches faster": [
+    "binary search; halving"
   ],
   "why doubling gives amortized constant cost": [
     "dynamic array; amortized doubling"

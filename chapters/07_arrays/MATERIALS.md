@@ -102,3 +102,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0702_twodim.ipynb`: 2D & ND Arrays.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Searching and Sorting Section (2026-10-18)
+
+`0704_searching_sorting_arrays.ipynb` is core reading 7.3. It combines two drafts: a library-first page (search contract and sentinel, first-match linear search against `Array.IndexOf`, count and largest-element scans, `Array.Sort` on a clone with `StringComparer.Ordinal`, `Array.BinarySearch` with its sorted precondition and sign test, a halving table) and the hand-written algorithms drafted for 7.2 (binary search, insertion sort, three defect-repair guided practices, NIST footnotes). The hand-written binary search uses the half-open interval [low, high) so that Chapter 7 and Chapter 16 teach one convention. Labels `ch07-linear-search`, `ch07-binary-search`, and `ch07-insertion-sort` are kept for the homework. All 14 code cells compile and run standalone (.NET 10) with the outputs the prose states, including the deliberately defective starters.

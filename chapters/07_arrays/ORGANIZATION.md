@@ -98,3 +98,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0702_twodim.ipynb`: 2D & ND Arrays.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Searching and Sorting Section (2026-10-18)
+
+Reading order: 7.1 Creating and Accessing, 7.2 Processing and Sharing, 7.3 Searching and Sorting Arrays, 7.4 2D & ND Arrays. 7.3 follows traversal and aliasing because the search loop reuses the accumulator pattern and sorting a clone reuses the aliasing discussion. Sequence within 7.3: contract, linear search, matching-rule practice, count and largest, library sort and search, why halving is faster, binary search by hand with a boundary-repair practice, insertion sort with a saved-item practice, choosing among the three, product-code practice. The landing page has eight objectives and 28 glossary terms; the homework's search and sort tasks are the independent evidence.

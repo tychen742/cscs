@@ -170,3 +170,7 @@ The Part title itself links to its overview in the sidebar and Contents page. Do
 ## Part I Order (2026-10-16)
 
 Chapters 3-5 are Decisions, Iteration, then Methods. Keep built-in calls in Chapter 2. Use top-level statements in Decisions/Iteration and their required assignments; do not require user-defined methods before Chapter 5. Teach minimal string equality/length/indexing locally, with full string methods in 5.4. The optional function-based Grade Calculation 2 assignment belongs in Chapter 5. Preserve assessment IDs and old-URL redirects.
+
+## Early Recursion and Search Readings (2026-10-18)
+
+Chapter 7 teaches linear search, library sorting, binary search on a half-open interval, and insertion sort in core section 7.3; Chapter 16 keeps the contract-and-cost treatment and uses the same half-open convention. Chapter 5 ends with the supporting reading Recursive Methods (5.6), which 17.1 recalls; Chapter 17 remains the CS2 entry for recursive structures. Chapter 16 ends with the supporting reading Merge Sort (16.3), which depends on 5.6; Chapter 22 keeps the proofs and verification lab. Supporting readings add no meetings and are not assessed.

@@ -188,3 +188,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0505_summary.ipynb`: Composition, Refactoring, and Method Checks.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Recursive Methods Supporting Reading (2026-10-18)
+
+5.6 Recursive Methods is optional reading after the five core sections. Do not assess it in the Chapter 5 preview, lab, or homework; Chapter 17 recalls it before tree recursion. The landing page lists it in Chapter Flow and adds four glossary terms (recursion, base case, recursive case, call stack).

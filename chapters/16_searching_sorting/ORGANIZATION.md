@@ -71,3 +71,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Landing Page Alignment (2026-10-17)
 
 The landing page `1600_searching_sorting.ipynb` now orients students to the two sections (search contracts and repeated queries; sorting and safe reporting workloads) with a grounded introduction, measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
+
+## Merge Sort Supporting Reading (2026-10-18)
+
+16.3 Merge Sort is optional reading after the two core sections and depends on Chapter 5's Recursive Methods reading. It is not in the direct assessment scope. The landing page introduction, Chapter Flow, and glossary (run, merge, merge sort, divide and conquer) were updated.

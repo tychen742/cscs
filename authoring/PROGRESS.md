@@ -441,3 +441,7 @@ warning. The author explicitly deferred lecture decks to a separate task;
 `authoring/landing_page_revision/README.md` tracks all 26 deck deliverables.
 See that folder for before/after comparisons, metadata, and preservation
 verification. Local changes, not deployed.
+
+## Search, Recursion, and Merge Sort Readings (2026-10-18)
+
+From the textbook comparison in `authoring/toc_comparison/README.md`: added 7.3 Searching and Sorting Arrays as core CS1 content (search contract, linear search, library sort and binary search, hand-written half-open binary search and insertion sort, three defect-repair practices), combining a library-first draft with the hand-written draft from the outcome-gap pass and removing the latter from 7.2; 5.6 Recursive Methods as a supporting reading; 16.3 Merge Sort as a supporting reading. Updated the three landing pages, Chapter Topics, 5.5 and 17.1 cross-references, and chapter planning docs. All 26 new code cells compile and run standalone. Assessment IDs are unchanged; Chapter 7's 2D section is now 7.4.
