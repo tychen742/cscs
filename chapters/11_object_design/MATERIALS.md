@@ -1,5 +1,37 @@
 # Materials: Object Design and Composition
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1101_objects_references.ipynb` | References, Identity, and Copying | Core content |
+| `1105_value_record_types.ipynb` | Structs, Records, and Data Models | Core content |
+| `1102_composition.ipynb` | Composition and Object Responsibilities | Core content |
+| `1103_testing_collaboration.ipynb` | Testing and Refactoring Collaborating Objects | Core content |
+| `1104_nullability.ipynb` | Nullability and Missing Data | Supporting reading |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `1104_nullability.ipynb` | Distinguish missing/zero/empty, value/reference nullable semantics, annotation/runtime checks, null operators and guided optional-data output. |
+
+Keep the four current core readings and integrate nullability as supporting reading beside references and composition, without adding another required meeting. Struct/record instruction still precedes record use.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 Active notebooks: `1100_object_design`, `1101_objects_references`, `1102_composition`, and `1103_testing_collaboration`.
 
 Assignments: `assignments/index.ipynb`, `preview.ipynb`, `lab.ipynb`, and `homework.ipynb`. The lab builds one order model; homework transfers the ideas to other business models. Source and runnable checks live in `demos/11/object_design/`. All code cells provide their own imports, setup, and complete type definitions.

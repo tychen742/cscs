@@ -4,6 +4,24 @@ orphan: true
 
 # Chapter Materials — Data Collections
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0801_collections.ipynb` | Collection Families and Selection | Core content |
+| `0804_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
+| `0802_list.ipynb` | Lists | Core content |
+| `0803_dictionary.ipynb` | Dictionaries | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Landing Page
 
 - `0800_data_collections.ipynb` — Chapter landing page

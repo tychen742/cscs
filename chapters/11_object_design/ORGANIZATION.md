@@ -1,5 +1,43 @@
 # Organization: Object Design and Composition
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1101_objects_references.ipynb` | References, Identity, and Copying | Core content |
+| `1105_value_record_types.ipynb` | Structs, Records, and Data Models | Core content |
+| `1102_composition.ipynb` | Composition and Object Responsibilities | Core content |
+| `1103_testing_collaboration.ipynb` | Testing and Refactoring Collaborating Objects | Core content |
+| `1104_nullability.ipynb` | Nullability and Missing Data | Supporting reading |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Keep the four current core readings and integrate nullability as supporting reading beside references and composition, without adding another required meeting. Struct/record instruction still precedes record use.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `1104_nullability.ipynb` | Distinguish missing/zero/empty, value/reference nullable semantics, annotation/runtime checks, null operators and guided optional-data output. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Predict missing versus zero/empty values; interpret conditional access and fallbacks; replace warning suppression with a runtime boundary guard. Apply required/optional relationship rules in the existing object-design assignments; LINQ/pattern tasks remain extensions.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Objectives
 
 Trace aliases; distinguish identity from business equality; select mutability and sharing policies; compose collaborating classes; preserve collection ownership; and test contracts independently of console input.

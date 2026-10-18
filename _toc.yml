@@ -111,7 +111,7 @@ parts:
     - file: chapters/06_exceptions_testing/0602_debugging_workflow
     - file: chapters/06_exceptions_testing/0603_testing
     - file: chapters/06_exceptions_testing/0605_software_responsibility
-      title: Software Failures and Responsibility (Optional Cases)
+      title: Software Responsibility (Supporting Reading)
     - file: chapters/06_exceptions_testing/assignments/index
       title: Assignments
       sections:
@@ -165,7 +165,9 @@ parts:
     - file: chapters/09_files_text/0902_file_operations
     - file: chapters/09_files_text/0903_text_operations
     - file: chapters/09_files_text/0906_regex
+      title: Regular Expressions (Supporting Reading)
     - file: chapters/09_files_text/0905_privacy_security
+      title: Privacy and Security (Optional Reading)
     - file: chapters/09_files_text/assignments/index
       title: Assignments
       sections:
@@ -222,6 +224,7 @@ parts:
     - file: chapters/11_object_design/1102_composition
     - file: chapters/11_object_design/1103_testing_collaboration
     - file: chapters/11_object_design/1104_nullability
+      title: Nullability (Supporting Reading)
     - file: chapters/11_object_design/assignments/index
       title: Assignments
       sections:
@@ -411,7 +414,9 @@ parts:
     - file: chapters/23_searching_sorting/2302_sorting
     - file: chapters/23_searching_sorting/2303_comparison_lab
     - file: chapters/23_searching_sorting/2304_advanced_sorts
+      title: Shell Sort (Supporting Reading)
     - file: chapters/23_searching_sorting/2305_quicksort
+      title: Quicksort (Supporting Reading)
     - file: chapters/23_searching_sorting/assignments/index
       title: Assignments
       sections:
@@ -461,7 +466,6 @@ parts:
     - file: chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings
     - file: chapters/26_advanced_graphs_strings_limits/2604_prefix_matching
     - file: chapters/26_advanced_graphs_strings_limits/2603_limits_project
-    - file: chapters/26_advanced_graphs_strings_limits/2601_graph_traversal
     - file: chapters/26_advanced_graphs_strings_limits/assignments/index
       title: Assignments
       sections:

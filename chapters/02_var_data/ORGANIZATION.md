@@ -1,5 +1,23 @@
 # Chapter Organization — Variables and Data Types
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0201_variables_types.ipynb` | Variables, Assignment, and State | Core content |
+| `0204_types_conversion.ipynb` | Types and Conversion | Core content |
+| `0202_operators_built_in_methods.ipynb` | Operators and Built-In Methods | Core content |
+| `0203_input_output.ipynb` | Input and Output | Core content |
+
+Four readings remain: variables/state, types/conversion, operators/library calls, then console I/O. Teach types and conversion before the developed division/display cases. All input-casting examples now reside with conversion. Chapter 2 retains single-value output/composite/interpolation explanations; loop-generated report tables and their exercise variants are in 0402, after loop syntax.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Learning Objectives
 
 1. Declare and initialize variables with types appropriate to the data.
@@ -16,12 +34,12 @@
 
 ## Notes
 
-- 2026-10-10: five sections merged into three (one per class meeting). Built-in methods are taught here, before Chapters 3-5, so students know what a method call, argument, and return value are before they write methods. Chapter 5 defines methods and keeps the full string methods section (5.4).
+- Historical 2026-10-10 arrangement: five sections were merged into three. The current four-reading order is specified above; readings and class meetings are separate units. Built-in methods are taught here, before Chapters 3-5, so students know what a method call, argument, and return value are before they write methods. Chapter 5 defines methods and keeps the full string methods section (5.4).
 - `using`/namespaces are covered in 1.4 (implicit usings); this chapter only reminds students that `Math` and `string` live in `System`.
 
 ## Assessment Sequence (2026-10-15)
 
-Preview introduces vocabulary from all three sections without code prediction. Lab retains the office-supply theme: declare an order, calculate rounded amounts, parse a quantity, plan boxes with quotient/remainder and Ceiling, and produce a normalized input-driven invoice. Homework transfers the same concepts to sales targets, workload averages, staff badges, expense summaries, and budget differences.
+Preview introduces vocabulary from all four readings without code prediction. Lab retains the office-supply theme: declare an order, calculate rounded amounts, parse a quantity, plan boxes with quotient/remainder and Ceiling, and produce a normalized input-driven invoice. Homework transfers the same concepts to sales targets, workload averages, staff badges, expense summaries, and budget differences.
 
 The five true/false cases have two true and three false answers. They address value assignment, method return values, parsed input, cast placement, and logical conjunction. Homework code is independent of the lab and uses no later control-flow or object-design skills. Valid-input and numeric-culture assumptions are explicit. The chapter's three section notebooks remain unchanged by this assessment pass.
 

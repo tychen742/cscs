@@ -1,8 +1,48 @@
 # Chapter Organization — Files and Text
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0901_stream_file.ipynb` | File Foundations: Reading and Writing | Core content |
+| `0902_file_operations.ipynb` | File Workflows, Paths, and Resources | Core content |
+| `0903_text_operations.ipynb` | Text Operations | Core content |
+| `0906_regex.ipynb` | Regular Expressions | Supporting reading |
+| `0905_privacy_security.ipynb` | Privacy and Security in Code | Optional reading |
+
+Retain three core readings: file foundations, paths/resources, and text operations. Regex is explicitly Supporting Reading and privacy explicitly Optional Reading in the TOC, matching their supporting roles. Keep the recent standalone path/resource examples. No recombination of these developed lessons is performed.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Keep file foundations, paths/resources and text operations in the current order. Regex and privacy remain supporting readings. Teach scope/disposal in content before an import or export lab.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `0902_file_operations.ipynb` | Standalone temporary-directory workflow, Path.Combine/using syntax, resource timeline, deterministic unavailable-input check and guided append variation. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Run an owned temporary-directory workflow; predict append versus overwrite; distinguish missing input from invalid rows. Transfer to the existing file/grade import assignments, preserving their IDs and tasks.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Learning Objectives
 
-<!-- List 3–5 measurable student outcomes -->
+1. Choose file modes and paths and distinguish resource failures from invalid records.
+2. Use streams with a deliberate disposal lifetime and interpret read/write output.
+3. Parse and validate text records before applying them; keep regex and privacy as supporting extensions.
 
 ## Sequence
 

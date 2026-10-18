@@ -1,5 +1,23 @@
 # Chapter Materials — Iteration
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0401_iteration.ipynb` | Iteration | Core content |
+| `0402_for_statements.ipynb` | The `for` Statement | Core content |
+| `0403_while_statement.ipynb` | While-Statements | Core content |
+| `0404_gcd.ipynb` | Greatest Common Divisor | Supporting reading |
+
+0402 now includes every loop-generated output/table example formerly in Chapter 2, after the for/foreach foundations. Field widths, headings, power-table output and all code variants are retained. Chapter 2 links forward rather than requiring loops early. The infinite-loop discussion is before final Footnotes, and do-while headings distinguish overview from syntax/tracing.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Landing Page
 
 - `0400_iteration.ipynb` — Chapter landing page

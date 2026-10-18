@@ -1,12 +1,31 @@
 # Chapter Materials — Variables and Data Types
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0201_variables_types.ipynb` | Variables, Assignment, and State | Core content |
+| `0204_types_conversion.ipynb` | Types and Conversion | Core content |
+| `0202_operators_built_in_methods.ipynb` | Operators and Built-In Methods | Core content |
+| `0203_input_output.ipynb` | Input and Output | Core content |
+
+Four readings remain: variables/state, types/conversion, operators/library calls, then console I/O. Teach types and conversion before the developed division/display cases. All input-casting examples now reside with conversion. Chapter 2 retains single-value output/composite/interpolation explanations; loop-generated report tables and their exercise variants are in 0402, after loop syntax.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Landing Page
 
 - `0200_variables_types.ipynb` — Chapter landing page
 
 ## Section Notebooks
 
-- `0201_variables_types.ipynb` — Variables, assignment, identifiers, and primitive data types (merged from the former 0201 and 0202, 2026-10-10)
+- `0201_variables_types.ipynb` — Variables, assignment, state and identifiers
+- `0204_types_conversion.ipynb` — Type foundations, conversion, input-casting examples and worked conversion/display reasoning
 - `0202_operators_built_in_methods.ipynb` — Operators and expressions, then built-in methods: method calls, `Math`, `Parse`, a first look at string methods (full treatment in 5.4)
 - `0203_input_output.ipynb` — Console input and output (renamed from 0206)
 

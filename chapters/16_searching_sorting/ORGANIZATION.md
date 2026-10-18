@@ -4,6 +4,22 @@ orphan: true
 
 # Chapter Organization: Searching and Basic Sorting
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1601_searching.ipynb` | Search Contracts and Repeated Queries | Core content |
+| `1602_basic_sorting.ipynb` | Sorting and Safe Reporting Workloads | Core content |
+
+Two core readings remain. 1601 develops search contracts and repeated queries, with a short preparation bridge. 1602 first teaches sorting, then retains the entire reporting snapshot, preparation/update-cost and workload comparison material. All sort-a-copy code and exercises now follow sorting instruction. Legacy workload URLs/fragments point to the retained destinations.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Class Meetings
 
 1. **Searching Ordered and Unordered Data, 35 minutes.** Predict a result, trace a small example, inspect the runnable model, and complete a nearby exercise.

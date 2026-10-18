@@ -1,5 +1,23 @@
 # Chapter Materials: Classes and Objects
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1001_class_syntax.ipynb` | Class Syntax | Core content |
+| `1002_properties.ipynb` | Properties | Core content |
+| `1003_class_instance.ipynb` | Instances, State, and Useful Behavior | Core content |
+| `1004_averager.ipynb` | Averager and Mutable State | Supporting reading |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Landing Page
 
 - `1000_classes.ipynb` — Chapter landing page

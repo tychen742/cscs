@@ -58,6 +58,7 @@ sphinx:
   recursive_update: true
   local_extensions:
     lexer_alias: _ext
+    subject_index: _ext
     notebook_cell_metadata: _ext
     appendix_numbering: _ext
     chapter_redirects: _ext

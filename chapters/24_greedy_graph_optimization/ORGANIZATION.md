@@ -4,6 +4,42 @@ orphan: true
 
 # Chapter Organization — Greedy Algorithms
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2401_greedy_choice.ipynb` | Greedy Choices and Exchange Reasoning | Core content |
+| `2402_spanning_trees_shortest_paths.ipynb` | Minimum Spanning Forests and Kruskal | Core content |
+| `2404_shortest_paths.ipynb` | Shortest Paths and Dijkstra | Core content |
+
+The complete minimum-hops/minimum-cost graph counterexample from 2602 now appears with Dijkstra and the network-versus-route comparison in 2404. Preserve its original executable program, output and objective explanation. Kruskal and the newly developed union-find walkthrough remain in 2402.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Keep greedy choices, minimum spanning forests and Dijkstra as the three current content readings. Introduce union-find roots/size separately from chosen graph edges before the complete Kruskal program.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2402_spanning_trees_shortest_paths.ipynb` | Teach union-find roots and size policy with a concrete Kruskal edge table, cut exchange and guided disconnected forest. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Fill the edge/root/budget table; test an isolate, a newly connecting edge and changed costs; justify a cut exchange. Apply forest validity and objective checks in the current facilities lab and homework.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Teaching Plan — 110 Minutes
 
 1. Greedy choice and correctness (35 minutes): specify objective and feasibility, trace interval scheduling, exchange the first choice, and disprove inappropriate greedy rules with feasible alternatives.

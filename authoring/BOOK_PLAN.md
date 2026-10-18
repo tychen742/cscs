@@ -53,7 +53,7 @@ Parts I-III (Chapters 1-12) form the complete CS1 route. Parts IV-V (Chapters 13
 
 24. Greedy Algorithms and Graph Optimization.
 25. Dynamic Programming and Backtracking.
-26. Advanced Graphs, Strings, and Computational Limits.
+26. Advanced Algorithms: String Matching and Computational Limits.
 
 ## Testing, Debugging, and Error-Handling Progression
 

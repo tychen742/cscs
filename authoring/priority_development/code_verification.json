@@ -1,0 +1,222 @@
+[
+  {
+    "path": "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+    "cell_id": "ba_c9ab1dd8d1662f826d",
+    "source": "using System;\nstatic decimal PerPeriod(decimal total, int periods)\n{\n    if (periods <= 0)\n        throw new ArgumentOutOfRangeException(nameof(periods), \"Use a positive period count.\");\n    return total / periods;\n}\nstatic void ShowPlan(int periods)\n{\n    try\n    {\n        Console.WriteLine($\"Begin {periods}\");\n        decimal amount = PerPeriod(120m, periods);\n        Console.WriteLine($\"Amount {amount:0.00}\");\n    }\n    catch (ArgumentOutOfRangeException)\n    {\n        Console.WriteLine(\"Choose at least one period.\");\n    }\n    finally\n    {\n        Console.WriteLine(\"End attempt\");\n    }\n}\nShowPlan(3);\nShowPlan(0);\n",
+    "expected_stdout": "Begin 3\nAmount 40.00\nEnd attempt\nBegin 0\nChoose at least one period.\nEnd attempt\n",
+    "passed": true,
+    "actual_stdout": "Begin 3\nAmount 40.00\nEnd attempt\nBegin 0\nChoose at least one period.\nEnd attempt\n",
+    "stderr": "",
+    "source_sha256": "cb6e3f7c21ee0287f0c830350d4fc5e12acb53fb2102ba2ded17de570ef93445"
+  },
+  {
+    "path": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "cell_id": "ba_3e10138791c8204613",
+    "source": "using System;\nstatic int Credits(int days)\n{\n    int total = 0;\n    for (int day = 1; day < days; day++) // Intentional defect: excludes the last day.\n        total += day;\n    return total;\n}\nConsole.WriteLine($\"Expected 6; actual {Credits(3)}\");\n",
+    "expected_stdout": "Expected 6; actual 3\n",
+    "passed": true,
+    "actual_stdout": "Expected 6; actual 3\n",
+    "stderr": "",
+    "source_sha256": "07d591759b9d51f6cf718624cf525fb8f8177b7ab496970684fa81e5f1963192"
+  },
+  {
+    "path": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "cell_id": "ba_7d03ef855d21b8ab57",
+    "source": "using System;\nstatic int Credits(int days)\n{\n    if (days < 0) throw new ArgumentOutOfRangeException(nameof(days));\n    int total = 0;\n    for (int day = 1; day <= days; day++) total += day;\n    return total;\n}\nstatic void Check(int days, int expected)\n{\n    int actual = Credits(days);\n    Console.WriteLine($\"days={days}: expected={expected}, actual={actual}, pass={actual == expected}\");\n}\nCheck(0, 0);\nCheck(1, 1);\nCheck(3, 6);\nCheck(4, 10);\n",
+    "expected_stdout": "days=0: expected=0, actual=0, pass=True\ndays=1: expected=1, actual=1, pass=True\ndays=3: expected=6, actual=6, pass=True\ndays=4: expected=10, actual=10, pass=True\n",
+    "passed": true,
+    "actual_stdout": "days=0: expected=0, actual=0, pass=True\ndays=1: expected=1, actual=1, pass=True\ndays=3: expected=6, actual=6, pass=True\ndays=4: expected=10, actual=10, pass=True\n",
+    "stderr": "",
+    "source_sha256": "dc08b3f1933350e1ce1919dce20f205f6b96d26cae7789384bda37d8804b0900"
+  },
+  {
+    "path": "chapters/07_arrays/0701_onedim.ipynb",
+    "cell_id": "ba_be49b38a763489a176",
+    "source": "using System;\nint[] quantities = new int[4];\nConsole.WriteLine($\"Before: {string.Join(\", \", quantities)}\");\nquantities[0] = 7;\nquantities[1] = 5;\nquantities[2] = 9;\nquantities[3] = 6;\nquantities[2] = 4 * quantities[1] - quantities[3];\nfor (int index = 0; index < quantities.Length; index++)\n    Console.WriteLine($\"Slot {index}: {quantities[index]}\");\n",
+    "expected_stdout": "Before: 0, 0, 0, 0\nSlot 0: 7\nSlot 1: 5\nSlot 2: 14\nSlot 3: 6\n",
+    "passed": true,
+    "actual_stdout": "Before: 0, 0, 0, 0\nSlot 0: 7\nSlot 1: 5\nSlot 2: 14\nSlot 3: 6\n",
+    "stderr": "",
+    "source_sha256": "33bd0a5e4d2cfa7007f745cc78b495a0e3e7de7943ec411c681539795c40e20a"
+  },
+  {
+    "path": "chapters/07_arrays/0701_onedim.ipynb",
+    "cell_id": "ba_f0d5ef1a4f280ca44b",
+    "source": "using System;\nstatic void ShowLast(int[] values)\n{\n    if (values.Length > 0)\n        Console.WriteLine($\"Last: {values[values.Length - 1]}\");\n    else\n        Console.WriteLine(\"No deliveries\");\n}\nShowLast(new int[] { 7, 5, 9, 6 });\nShowLast(Array.Empty<int>());\n",
+    "expected_stdout": "Last: 6\nNo deliveries\n",
+    "passed": true,
+    "actual_stdout": "Last: 6\nNo deliveries\n",
+    "stderr": "",
+    "source_sha256": "fb9981de937eb34d2dcefd87640ab03233f8a47cc01238268a03c8202ecc2a50"
+  },
+  {
+    "path": "chapters/09_files_text/0902_file_operations.ipynb",
+    "cell_id": "ba_73525d4da3c6adbebf",
+    "source": "using System;\nusing System.IO;\nstring workspace = Path.Combine(Path.GetTempPath(), \"cscs_report_\" + Guid.NewGuid().ToString(\"N\"));\nDirectory.CreateDirectory(workspace);\ntry\n{\n    string reportPath = Path.Combine(workspace, \"report.txt\");\n    using (StreamWriter writer = new StreamWriter(reportPath, append: false))\n    {\n        writer.WriteLine(\"Order 101\");\n        writer.WriteLine(\"Units 3\");\n    }\n    using (StreamReader reader = new StreamReader(reportPath))\n    {\n        Console.WriteLine(reader.ReadLine());\n        Console.WriteLine(reader.ReadLine());\n        Console.WriteLine($\"At end: {reader.EndOfStream}\");\n    }\n    Console.WriteLine($\"Exists before cleanup: {File.Exists(reportPath)}\");\n}\nfinally\n{\n    Directory.Delete(workspace, recursive: true);\n}\nConsole.WriteLine($\"Directory remains: {Directory.Exists(workspace)}\");\n",
+    "expected_stdout": "Order 101\nUnits 3\nAt end: True\nExists before cleanup: True\nDirectory remains: False\n",
+    "passed": true,
+    "actual_stdout": "Order 101\nUnits 3\nAt end: True\nExists before cleanup: True\nDirectory remains: False\n",
+    "stderr": "",
+    "source_sha256": "8609ec5e90e1f2421756fd73f35ee858ee90669e0408f278f705e9789367e9cd"
+  },
+  {
+    "path": "chapters/09_files_text/0902_file_operations.ipynb",
+    "cell_id": "ba_5b73fa02d07464775f",
+    "source": "using System;\nusing System.IO;\nstring workspace = Path.Combine(Path.GetTempPath(), \"cscs_missing_\" + Guid.NewGuid().ToString(\"N\"));\nDirectory.CreateDirectory(workspace);\ntry\n{\n    string inputPath = Path.Combine(workspace, \"not_created.txt\");\n    try\n    {\n        using StreamReader reader = new StreamReader(inputPath);\n        Console.WriteLine(reader.ReadToEnd());\n    }\n    catch (FileNotFoundException)\n    {\n        Console.WriteLine(\"Input unavailable; import did not run.\");\n    }\n}\nfinally { Directory.Delete(workspace, recursive: true); }\n",
+    "expected_stdout": "Input unavailable; import did not run.\n",
+    "passed": true,
+    "actual_stdout": "Input unavailable; import did not run.\n",
+    "stderr": "",
+    "source_sha256": "5ca09cf0479ce2dc7d0cfc947b3c390c56cbc70547b6f7bbc7728f3a00c7326d"
+  },
+  {
+    "path": "chapters/11_object_design/1104_nullability.ipynb",
+    "cell_id": "ba_6b6bda7405fba01144",
+    "source": "using System;\n#nullable enable\nstatic string Describe(int? score)\n{\n    if (!score.HasValue) return \"Not recorded\";\n    return $\"Recorded {score.Value}\";\n}\nConsole.WriteLine(Describe(null));\nConsole.WriteLine(Describe(0));\nstring? absent = null;\nstring empty = \"\";\nConsole.WriteLine($\"Absent: {absent is null}; empty length: {empty.Length}\");\nConsole.WriteLine($\"Absent length: {absent?.Length ?? -1}\");\n",
+    "expected_stdout": "Not recorded\nRecorded 0\nAbsent: True; empty length: 0\nAbsent length: -1\n",
+    "passed": true,
+    "actual_stdout": "Not recorded\nRecorded 0\nAbsent: True; empty length: 0\nAbsent length: -1\n",
+    "stderr": "",
+    "source_sha256": "83d04315c1c3e7153cc9e4430bec1a866958a62e5bed0057f908ac85b49393a3"
+  },
+  {
+    "path": "chapters/11_object_design/1104_nullability.ipynb",
+    "cell_id": "ba_c9368d6e87bcbd380d",
+    "source": "using System;\n#nullable enable\nstatic string NoteLabel(string? note) => note ?? \"No delivery note\";\nConsole.WriteLine($\"[{NoteLabel(null)}]\");\nConsole.WriteLine($\"[{NoteLabel(\"\")}]\");\nConsole.WriteLine($\"[{NoteLabel(\"Leave at desk\")}]\");\n",
+    "expected_stdout": "[No delivery note]\n[]\n[Leave at desk]\n",
+    "passed": true,
+    "actual_stdout": "[No delivery note]\n[]\n[Leave at desk]\n",
+    "stderr": "",
+    "source_sha256": "7e7e067239900b85cfe7dda820ca7dfedf6af9a4551224da23e4c174f6bc2772"
+  },
+  {
+    "path": "chapters/17_trees/1701_tree_structure.ipynb",
+    "cell_id": "ba_9b09e08a5e661098a3",
+    "source": "using System;\n#nullable enable\nstatic int CountLeaves(Node? node)\n{\n    if (node is null) return 0;\n    if (node.Left is null && node.Right is null) return 1;\n    return CountLeaves(node.Left) + CountLeaves(node.Right);\n}\nvar root = new Node(8, new Node(3, new Node(1)), new Node(10));\nConsole.WriteLine($\"Leaves: {CountLeaves(root)}\");\nConsole.WriteLine($\"Empty: {CountLeaves(null)}\");\nConsole.WriteLine($\"Single: {CountLeaves(new Node(4))}\");\nsealed class Node\n{\n    public int Value { get; }\n    public Node? Left { get; }\n    public Node? Right { get; }\n    public Node(int value, Node? left = null, Node? right = null)\n    { Value = value; Left = left; Right = right; }\n}\n",
+    "expected_stdout": "Leaves: 2\nEmpty: 0\nSingle: 1\n",
+    "passed": true,
+    "actual_stdout": "Leaves: 2\nEmpty: 0\nSingle: 1\n",
+    "stderr": "",
+    "source_sha256": "3a26bd6962b2eb2d790d1b20248ae991c60edee40163b924938adf2792edcd8f"
+  },
+  {
+    "path": "chapters/20_graphs/2003_graph_traversal.ipynb",
+    "cell_id": "ba_e6988cf2a41450d2e9",
+    "source": "using System;\nusing System.Collections.Generic;\nvar next = new Dictionary<string, string[]>\n{\n    [\"A\"] = new[] { \"B\", \"C\" }, [\"B\"] = new[] { \"D\" },\n    [\"C\"] = new[] { \"D\" }, [\"D\"] = Array.Empty<string>(), [\"E\"] = Array.Empty<string>()\n};\nvar distance = new Dictionary<string, int> { [\"A\"] = 0 };\nvar previous = new Dictionary<string, string>();\nvar waiting = new Queue<string>();\nwaiting.Enqueue(\"A\");\nwhile (waiting.Count > 0)\n{\n    string current = waiting.Dequeue();\n    foreach (string neighbor in next[current])\n    {\n        if (distance.ContainsKey(neighbor)) continue;\n        distance[neighbor] = distance[current] + 1;\n        previous[neighbor] = current;\n        waiting.Enqueue(neighbor);\n        Console.WriteLine($\"Discover {neighbor}: distance {distance[neighbor]}, from {current}\");\n    }\n}\nConsole.WriteLine($\"D hops: {distance[\"D\"]}; E reached: {distance.ContainsKey(\"E\")}\");\n",
+    "expected_stdout": "Discover B: distance 1, from A\nDiscover C: distance 1, from A\nDiscover D: distance 2, from B\nD hops: 2; E reached: False\n",
+    "passed": true,
+    "actual_stdout": "Discover B: distance 1, from A\nDiscover C: distance 1, from A\nDiscover D: distance 2, from B\nD hops: 2; E reached: False\n",
+    "stderr": "",
+    "source_sha256": "0e3bd61bdb964a54ea6884ed55ad22d6de8bbadddd8642d80f90e76a495536fa"
+  },
+  {
+    "path": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "cell_id": "ba_9e9f84f97e30d42aa3",
+    "source": "using System;\nusing System.Collections.Generic;\nvar neighbors = new Dictionary<string, string[]>\n{\n    [\"A\"] = new[] { \"B\", \"C\" }, [\"B\"] = new[] { \"A\", \"D\" },\n    [\"C\"] = new[] { \"A\", \"D\" }, [\"D\"] = new[] { \"B\", \"C\" }, [\"E\"] = Array.Empty<string>()\n};\nvar seen = new HashSet<string>();\nvoid Visit(string room, int depth)\n{\n    seen.Add(room);\n    Console.WriteLine($\"Enter {room} depth {depth}\");\n    foreach (string next in neighbors[room])\n        if (!seen.Contains(next)) Visit(next, depth + 1);\n    Console.WriteLine($\"Exit {room}\");\n}\nVisit(\"A\", 0);\nConsole.WriteLine($\"E reached: {seen.Contains(\"E\")}\");\n",
+    "expected_stdout": "Enter A depth 0\nEnter B depth 1\nEnter D depth 2\nEnter C depth 3\nExit C\nExit D\nExit B\nExit A\nE reached: False\n",
+    "passed": true,
+    "actual_stdout": "Enter A depth 0\nEnter B depth 1\nEnter D depth 2\nEnter C depth 3\nExit C\nExit D\nExit B\nExit A\nE reached: False\n",
+    "stderr": "",
+    "source_sha256": "0645e6015fb4dc69720f8defb6df076ec27502f4dbad4691269d0598b4ca9732"
+  },
+  {
+    "path": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "cell_id": "ba_bfb6b140924d8d2a0c",
+    "source": "using System;\nusing System.Collections.Generic;\nvar neighbors = new Dictionary<string, string[]>\n{\n    [\"A\"] = new[] { \"B\", \"C\" }, [\"B\"] = new[] { \"A\", \"D\" },\n    [\"C\"] = new[] { \"A\", \"D\" }, [\"D\"] = new[] { \"B\", \"C\" }, [\"E\"] = Array.Empty<string>()\n};\nvar component = new Dictionary<string, int>();\nvoid Label(string room, int id)\n{\n    component[room] = id;\n    foreach (string next in neighbors[room])\n        if (!component.ContainsKey(next)) Label(next, id);\n}\nint count = 0;\nforeach (string room in new[] { \"A\", \"B\", \"C\", \"D\", \"E\" })\n    if (!component.ContainsKey(room)) Label(room, ++count);\nforeach (string room in new[] { \"A\", \"B\", \"C\", \"D\", \"E\" })\n    Console.WriteLine($\"{room}: component {component[room]}\");\nConsole.WriteLine($\"Components: {count}\");\n",
+    "expected_stdout": "A: component 1\nB: component 1\nC: component 1\nD: component 1\nE: component 2\nComponents: 2\n",
+    "passed": true,
+    "actual_stdout": "A: component 1\nB: component 1\nC: component 1\nD: component 1\nE: component 2\nComponents: 2\n",
+    "stderr": "",
+    "source_sha256": "ab00afe1de02cd0bb5b8fb19c56ef74f7c669b9cacfdea0df1db017e11e69ed6"
+  },
+  {
+    "path": "chapters/23_searching_sorting/2301_searching.ipynb",
+    "cell_id": "ba_b286f52cdc760b8f3b",
+    "source": "using System;\nstatic int Boundary(int[] values, int target, bool upper)\n{\n    int low = 0, high = values.Length;\n    while (low < high)\n    {\n        int mid = low + (high - low) / 2;\n        bool beforeBoundary = values[mid] < target || (upper && values[mid] == target);\n        if (beforeBoundary) low = mid + 1;\n        else high = mid;\n    }\n    return low;\n}\nint[] values = { 2, 4, 4, 4, 7 };\nforeach (int target in new[] { 4, 5, 9 })\n{\n    int first = Boundary(values, target, false);\n    int after = Boundary(values, target, true);\n    Console.WriteLine($\"{target}: [{first},{after}), count {after - first}\");\n}\n",
+    "expected_stdout": "4: [1,4), count 3\n5: [4,4), count 0\n9: [5,5), count 0\n",
+    "passed": true,
+    "actual_stdout": "4: [1,4), count 3\n5: [4,4), count 0\n9: [5,5), count 0\n",
+    "stderr": "",
+    "source_sha256": "d3cd11dd1e6d4ed84af029b82f481141a6743ebd1db639cbb6dffdac9a4fa27b"
+  },
+  {
+    "path": "chapters/23_searching_sorting/2305_quicksort.ipynb",
+    "cell_id": "ba_70951de5de7002b45a",
+    "source": "using System;\nstatic void QuickSort(int[] data, int low, int high)\n{\n    if (low >= high) return;\n    int left = low, right = high;\n    int pivot = data[low + (high - low) / 2];\n    while (left <= right)\n    {\n        while (data[left] < pivot) left++;\n        while (data[right] > pivot) right--;\n        if (left <= right)\n        {\n            (data[left], data[right]) = (data[right], data[left]);\n            left++; right--;\n        }\n    }\n    if (low < right) QuickSort(data, low, right);\n    if (left < high) QuickSort(data, left, high);\n}\nint[] values = { 5, 2, 5, 1, 8 };\nQuickSort(values, 0, values.Length - 1);\nConsole.WriteLine(string.Join(\",\", values));\nint[] equal = { 4, 4, 4 };\nQuickSort(equal, 0, equal.Length - 1);\nConsole.WriteLine(string.Join(\",\", equal));\n",
+    "expected_stdout": "1,2,5,5,8\n4,4,4\n",
+    "passed": true,
+    "actual_stdout": "1,2,5,5,8\n4,4,4\n",
+    "stderr": "",
+    "source_sha256": "3b184f6e435726c4d752ad95b984327f827797b0018d1f895c41a8810ab53cb7"
+  },
+  {
+    "path": "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.ipynb",
+    "cell_id": "ba_1244ead09ccc360596",
+    "source": "using System;\nint[] parent = { 0, 1, 2, 3 }; // A, B, C, isolated D\nint[] size = { 1, 1, 1, 1 };\nint Find(int vertex)\n{\n    while (parent[vertex] != vertex) vertex = parent[vertex];\n    return vertex;\n}\nbool Union(int a, int b)\n{\n    int ra = Find(a), rb = Find(b);\n    if (ra == rb) return false;\n    if (size[ra] < size[rb]) (ra, rb) = (rb, ra);\n    parent[rb] = ra;\n    size[ra] += size[rb];\n    return true;\n}\nint cost = 0, components = 4;\nforeach (var edge in new[] { (A: 0, B: 1, Cost: 1), (A: 1, B: 2, Cost: 2), (A: 0, B: 2, Cost: 5) })\n{\n    bool accepted = Union(edge.A, edge.B);\n    if (accepted) { cost += edge.Cost; components--; }\n    Console.WriteLine($\"Cost {edge.Cost}: {(accepted ? \"accept\" : \"reject\")}\");\n}\nConsole.WriteLine($\"Parents: {string.Join(\",\", parent)}\");\nConsole.WriteLine($\"Root A size: {size[Find(0)]}; total {cost}; components {components}\");\n",
+    "expected_stdout": "Cost 1: accept\nCost 2: accept\nCost 5: reject\nParents: 0,0,0,3\nRoot A size: 3; total 3; components 2\n",
+    "passed": true,
+    "actual_stdout": "Cost 1: accept\nCost 2: accept\nCost 5: reject\nParents: 0,0,0,3\nRoot A size: 3; total 3; components 2\n",
+    "stderr": "",
+    "source_sha256": "f67579692c95eb69338f6b9e44c23225757d0bfcf31169e0d57e15d50c2cf42a"
+  },
+  {
+    "path": "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb",
+    "cell_id": "ba_ba8c313b2de676a748",
+    "source": "using System;\nusing System.Collections.Generic;\nvar cache = new Dictionary<int, long>();\nint calls = 0, hits = 0, computed = 0;\nlong Fib(int n)\n{\n    calls++;\n    if (n <= 1) return n;\n    if (cache.TryGetValue(n, out long saved))\n    {\n        hits++;\n        Console.WriteLine($\"Hit F({n})={saved}\");\n        return saved;\n    }\n    long value = checked(Fib(n - 1) + Fib(n - 2));\n    cache[n] = value;\n    computed++;\n    Console.WriteLine($\"Store F({n})={value}\");\n    return value;\n}\nlong result = Fib(4);\nConsole.WriteLine($\"F(4)={result}; calls={calls}; hits={hits}; computed={computed}\");\n",
+    "expected_stdout": "Store F(2)=1\nStore F(3)=2\nHit F(2)=1\nStore F(4)=3\nF(4)=3; calls=7; hits=1; computed=3\n",
+    "passed": true,
+    "actual_stdout": "Store F(2)=1\nStore F(3)=2\nHit F(2)=1\nStore F(4)=3\nF(4)=3; calls=7; hits=1; computed=3\n",
+    "stderr": "",
+    "source_sha256": "757cf3e41101091e1fe47e71877527ba1919b6da0a2169572533eebe8e3eff08"
+  },
+  {
+    "path": "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb",
+    "cell_id": "ba_380ac417ba8888f861",
+    "source": "using System;\nint n = 4;\nlong[] table = new long[n + 1];\ntable[0] = 0;\nif (n >= 1) table[1] = 1;\nfor (int i = 2; i <= n; i++)\n{\n    table[i] = checked(table[i - 1] + table[i - 2]);\n    Console.WriteLine($\"F({i})={table[i]}\");\n}\nConsole.WriteLine($\"Table: {string.Join(\",\", table)}\");\n",
+    "expected_stdout": "F(2)=1\nF(3)=2\nF(4)=3\nTable: 0,1,1,2,3\n",
+    "passed": true,
+    "actual_stdout": "F(2)=1\nF(3)=2\nF(4)=3\nTable: 0,1,1,2,3\n",
+    "stderr": "",
+    "source_sha256": "6d3da66ab74da7dbd6e43be66255afd6dd78ce981aeb840e44254d31a68ee2a3"
+  },
+  {
+    "path": "chapters/25_dynamic_programming_backtracking/2504_optimization_models.ipynb",
+    "cell_id": "ba_f1664f67d936b09b5a",
+    "source": "using System;\nusing System.Collections.Generic;\nint[] packs = { 1, 3, 4 };\nint target = 6;\nint?[] best = new int?[target + 1];\nint[] last = new int[target + 1];\nbest[0] = 0;\nfor (int amount = 1; amount <= target; amount++)\n{\n    foreach (int pack in packs)\n    {\n        if (pack > amount || best[amount - pack] is not int previous) continue;\n        int candidate = previous + 1;\n        if (!best[amount].HasValue || candidate < best[amount].GetValueOrDefault())\n        {\n            best[amount] = candidate;\n            last[amount] = pack;\n        }\n    }\n    Console.WriteLine($\"Amount {amount}: count {best[amount]}, last {last[amount]}\");\n}\nvar plan = new List<int>();\nif (best[target].HasValue)\n    for (int remaining = target; remaining > 0; remaining -= last[remaining])\n        plan.Add(last[remaining]);\nConsole.WriteLine($\"Plan: {string.Join(\"+\", plan)}\");\n",
+    "expected_stdout": "Amount 1: count 1, last 1\nAmount 2: count 2, last 1\nAmount 3: count 1, last 3\nAmount 4: count 1, last 4\nAmount 5: count 2, last 1\nAmount 6: count 2, last 3\nPlan: 3+3\n",
+    "passed": true,
+    "actual_stdout": "Amount 1: count 1, last 1\nAmount 2: count 2, last 1\nAmount 3: count 1, last 3\nAmount 4: count 1, last 4\nAmount 5: count 2, last 1\nAmount 6: count 2, last 3\nPlan: 3+3\n",
+    "stderr": "",
+    "source_sha256": "6bee5628c17e820acad870138980c2b4175c3bfe2fe771c4e47ed8a887684204"
+  },
+  {
+    "path": "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.ipynb",
+    "cell_id": "ba_636c560f80389c264c",
+    "source": "using System;\nusing System.Collections.Generic;\nstatic int[] Direct(string text, string pattern)\n{\n    var starts = new List<int>();\n    for (int start = 0; start <= text.Length - pattern.Length; start++)\n    {\n        int offset = 0;\n        while (offset < pattern.Length && text[start + offset] == pattern[offset]) offset++;\n        if (offset == pattern.Length) starts.Add(start);\n    }\n    return starts.ToArray();\n}\nConsole.WriteLine($\"Overlaps: {string.Join(\",\", Direct(\"ABABA\", \"ABA\"))}\");\nConsole.WriteLine($\"Longer count: {Direct(\"AB\", \"ABC\").Length}\");\nConsole.WriteLine($\"Empty starts: {string.Join(\",\", Direct(\"AB\", \"\"))}\");\n",
+    "expected_stdout": "Overlaps: 0,2\nLonger count: 0\nEmpty starts: 0,1,2\n",
+    "passed": true,
+    "actual_stdout": "Overlaps: 0,2\nLonger count: 0\nEmpty starts: 0,1,2\n",
+    "stderr": "",
+    "source_sha256": "7d18c942a0f46f95edce52651c5e3308f17b0e4e2ca4d1bcffc81d07bb44f957"
+  },
+  {
+    "path": "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb",
+    "cell_id": "ba_a141fe29725da76656",
+    "source": "using System;\nstatic int[] Prefix(string pattern)\n{\n    int[] prefix = new int[pattern.Length];\n    int q = 0;\n    for (int i = 1; i < pattern.Length; i++)\n    {\n        while (q > 0 && pattern[i] != pattern[q]) q = prefix[q - 1];\n        if (pattern[i] == pattern[q]) q++;\n        prefix[i] = q;\n    }\n    return prefix;\n}\nConsole.WriteLine(string.Join(\",\", Prefix(\"ABABACA\")));\nConsole.WriteLine(string.Join(\",\", Prefix(\"AAAA\")));\n",
+    "expected_stdout": "0,0,1,2,3,0,1\n0,1,2,3\n",
+    "passed": true,
+    "actual_stdout": "0,0,1,2,3,0,1\n0,1,2,3\n",
+    "stderr": "",
+    "source_sha256": "e4724892ee2737e41297e76c8255d8f5d251ce6c5fcc9c8901ee7caf6e78a754"
+  },
+  {
+    "path": "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb",
+    "cell_id": "ba_e9cde3ade540a0a37d",
+    "source": "using System;\nusing System.Collections.Generic;\nstatic int[] AllMatches(string text, string pattern)\n{\n    if (pattern.Length == 0)\n    {\n        int[] boundaries = new int[text.Length + 1];\n        for (int i = 0; i < boundaries.Length; i++) boundaries[i] = i;\n        return boundaries;\n    }\n    int[] prefix = new int[pattern.Length];\n    for (int i = 1, q = 0; i < pattern.Length; i++)\n    {\n        while (q > 0 && pattern[i] != pattern[q]) q = prefix[q - 1];\n        if (pattern[i] == pattern[q]) q++;\n        prefix[i] = q;\n    }\n    var starts = new List<int>();\n    for (int i = 0, q = 0; i < text.Length; i++)\n    {\n        while (q > 0 && text[i] != pattern[q]) q = prefix[q - 1];\n        if (text[i] == pattern[q]) q++;\n        if (q == pattern.Length)\n        {\n            starts.Add(i - pattern.Length + 1);\n            q = prefix[q - 1];\n        }\n    }\n    return starts.ToArray();\n}\nConsole.WriteLine($\"Overlaps: {string.Join(\",\", AllMatches(\"ABABAB\", \"ABAB\"))}\");\nConsole.WriteLine($\"Repeated: {string.Join(\",\", AllMatches(\"AAAAA\", \"AAAA\"))}\");\nConsole.WriteLine($\"Empty: {string.Join(\",\", AllMatches(\"AB\", \"\"))}\");\n",
+    "expected_stdout": "Overlaps: 0,2\nRepeated: 0,1\nEmpty: 0,1,2\n",
+    "passed": true,
+    "actual_stdout": "Overlaps: 0,2\nRepeated: 0,1\nEmpty: 0,1,2\n",
+    "stderr": "",
+    "source_sha256": "1e1769cd6501be623dfb73be7e56f01fa59944b7e3817e8fd4fd149f7a9d9dfa"
+  }
+]

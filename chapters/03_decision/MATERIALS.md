@@ -1,5 +1,21 @@
 # Chapter Materials — Decision Structures
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0301_intro_decision.ipynb` | Boolean Expressions & Logical Operators | Core content |
+| `0302_ifstatement.ipynb` | Conditional Selection with if and switch | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Landing Page
 
 - `0300_conditionals.ipynb` — Chapter landing page

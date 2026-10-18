@@ -4,6 +4,43 @@ orphan: true
 
 # Chapter Organization — Dynamic Programming
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2501_memoization_tabulation.ipynb` | Memoization, Tabulation, and Repeated Work | Core content |
+| `2504_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
+| `2502_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Keep repeated-work strategies, optimization states and backtracking. Teach cache misses/hits and table dependencies before exact-count claims, then derive minimum-pack updates and predecessor reconstruction before inventory transfer.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2501_memoization_tabulation.ipynb` | Derive Fibonacci recursion calls and cache hits, compare a fully traced memo with tabulation and guide a recurrence variation. |
+| `2504_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Trace F(4) three ways; repair dependency order; change bases; fill pack tables and reconstruct a witness; distinguish unreachable, zero and one-use inventory. Existing purchasing lab and homework supply transfer to new inputs/problems.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Teaching Plan — 110 Minutes
 
 1. Memoization and tabulation (40 minutes): define states and base cases, measure the same recursive problem, prove cache/table invariants, compare rolling storage, derive minimum coins, and reconstruct optimal plans.

@@ -1,0 +1,25 @@
+{
+  "active_readings": 92,
+  "core_readings": 83,
+  "supporting_readings": 9,
+  "chapter_planning_files_updated": 42,
+  "affected_chapters": 21,
+  "moved_code_examples_independently_compiled_run": 10,
+  "moved_code_expected_results": "pass",
+  "compiler_context": "Standard .NET 10 console project, implicit usings and nullable analysis enabled; retained input example emits its existing nullable-flow warnings. No executable source or saved output was altered.",
+  "full_book_build": "passed after restoring named-label titles; final incremental build passes without warnings",
+  "existing_full_read_warning": "The existing Chapter 2 character-literal Pygments warning remains outside this cleanup.",
+  "local_article_links_assets": "all 92 articles checked; no missing targets",
+  "fragment_routes": 162,
+  "fragment_route_targets": "all exist",
+  "routing_runtime_checks": "five cross-chapter routes preserve query parameters",
+  "assignments": "124 notebooks byte-identical",
+  "current_preservation": "all 582 original executable cells unchanged, including outputs and metadata except collision-resolved cell IDs",
+  "prior_development": "all 22 recently added examples retained; older baselines checked through exact integration lineage",
+  "limits": [
+    "This is integration/preservation verification, not a fresh execution of every retained example.",
+    "Historical commented reference banks remain preserved.",
+    "Hosted runner, actual VS Code debugger interaction and slides are not certified by this pass."
+  ],
+  "deployment": "not deployed"
+}

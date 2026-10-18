@@ -4,6 +4,23 @@ orphan: true
 
 # Chapter Materials: Computing, Programs, and Responsibility
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0101_cs_ideas.ipynb` | Computing and Problem Solving | Core content |
+| `0102_computing_responsibility.ipynb` | Computing and Professional Responsibility | Core content |
+| `0103_program_structure.ipynb` | Your First C# Program and Basic Syntax | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Core Sections
 
 - `0101_cs_ideas.ipynb`: computing, hardware/software/data, IPO, algorithms/workflow, compilation, sequential execution, and correctness.

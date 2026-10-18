@@ -1,5 +1,24 @@
 # Chapter Organization — Methods
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0501_intro_methods.ipynb` | Designing and Calling Methods | Core content |
+| `0503_parameter.ipynb` | Method Parameters | Core content |
+| `0502_signature_call.ipynb` | Returned Results and Method Contracts | Core content |
+| `0504_strings.ipynb` | Strings and Their Methods | Core content |
+| `0505_summary.ipynb` | Composition, Refactoring, and Method Checks | Core content |
+
+Keep all five readings and their recently developed teaching content. Remove redundant page-level contents boxes and the obsolete Introduction wrapper; keep every syntax, scope, static-storage, call/return and exercise variation. The second static-storage heading is a reference heading, not a duplicate first introduction.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Learning Objectives
 
 See the five measurable objectives in the Current Five-Section Teaching Plan below.

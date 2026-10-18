@@ -4,6 +4,38 @@ orphan: true
 
 # Materials: Graphs and Traversal
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2001_graph_vocabulary.ipynb` | Graph Vocabulary and Models | Core content |
+| `2002_adjacency_representations.ipynb` | Adjacency Representations | Core content |
+| `2003_graph_traversal.ipynb` | Breadth-First Search and Paths | Core content |
+| `2004_depth_first_components.ipynb` | Depth-First Search and Components | Core content |
+
+Four core readings remain. The DFS/components reading closes with the full traversal-verification contracts previously published as 2601. The landing objectives/vocabulary now include those checks. Preserve the new BFS queue and DFS frame/component walkthroughs and original complete implementations. The former 2601 page redirects here.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2003_graph_traversal.ipynb` | Connect BFS queue/discovery/predecessor updates to a small standalone traversal and guided route reconstruction. |
+| `2004_depth_first_components.ipynb` | Trace recursive DFS frames and entry/exit events, then label undirected components with a guided isolate variation. |
+
+Retain vocabulary, representations, BFS/paths and DFS/components. Use small traversal cores and state traces before the complete standalone graph classes. Component labeling uses symmetric undirected input.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Core Materials
 
 - `2001_graph_vocabulary.ipynb`: Graph Vocabulary

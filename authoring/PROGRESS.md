@@ -353,3 +353,49 @@ labels, five combined-page redirects and 120 moved-heading/label routes. Six
 new runnable examples compile/run independently with expected output. The
 verification report distinguishes these checks from historical checks on
 retained examples. See `authoring/section_revision/README.md`. No deployment.
+
+### 2026-10-17: Priority-section B-A development
+
+Developed 15 priority readings across 10 chapters following the count review:
+small worked algorithm cores, output interpretation, purposeful state/decision
+traces, guided completion and boundary variations before independent transfer.
+Retained the section order and every assignment notebook. Updated both chapter
+planning files with current coverage and teaching progression. Preserved 414
+original cells and all 45 original code cells; eight documented Markdown repairs
+correct array presentation/syntax/results or stale references. Added 22 examples
+that independently compile/run with expected output. See
+`authoring/priority_development/README.md` and its full source differences.
+Local development, not deployed.
+
+### 2026-10-17: Integration cleanup and prerequisite placement
+
+Consolidated duplicate local contents directives, removed obsolete wrapper
+headings while preserving anchors, distinguished repeated practice headings,
+replaced move-provenance notices with instructional transitions, and placed
+instructional text before final Footnotes. Preserved all recent development.
+
+Chapter 2 now develops type foundations before conversion applications; the
+input-casting examples are with conversion, and the complete loop-generated
+formatting/table examples are in Chapter 4 after loop instruction. Chapter 16
+keeps search preparation as a short bridge and teaches every reporting snapshot
+and preparation/update workload beside sorting. The Chapter 26 graph objective
+counterexample is in Chapter 24; traversal-verification contracts close Chapter
+20's DFS/components reading. Chapter 26 now has three core string/limits
+readings, with matching landing objectives, glossary and Chapter Flow. Its
+existing video is retained as graph-prerequisite review.
+
+Updated 42 chapter planning files, the book plan, supporting-reading TOC labels,
+Chapter Topics and compatibility routes. Current active readings: 92. The
+integration preservation ledger accounts for 3,917 original cells, consolidating
+68 empty/navigation/rubric cells while retaining all 582 executable cells and
+124 assignment notebooks. Earlier baselines remain available and are checked
+through exact cell/source lineage. See `authoring/integration_cleanup/` for
+current verification and complete source differences. Local work, not deployed.
+
+## Subject index cleanup (2026-10-17)
+
+Excluded 80 numbered task titles from generated subject entries without changing
+notebooks or anchors. Filed one-dimensional arrays under array and separated
+the combined .NET entry. Full build passed with the existing Chapter 2 lexing
+warning; all 2,039 local index links resolve and all 277 notebooks are unchanged.
+Evidence: `authoring/index_cleanup/`. Local work, not deployed.

@@ -4,6 +4,44 @@ orphan: true
 
 # Chapter Organization: Graphs and Traversal
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2001_graph_vocabulary.ipynb` | Graph Vocabulary and Models | Core content |
+| `2002_adjacency_representations.ipynb` | Adjacency Representations | Core content |
+| `2003_graph_traversal.ipynb` | Breadth-First Search and Paths | Core content |
+| `2004_depth_first_components.ipynb` | Depth-First Search and Components | Core content |
+
+Four core readings remain. The DFS/components reading closes with the full traversal-verification contracts previously published as 2601. The landing objectives/vocabulary now include those checks. Preserve the new BFS queue and DFS frame/component walkthroughs and original complete implementations. The former 2601 page redirects here.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Retain vocabulary, representations, BFS/paths and DFS/components. Use small traversal cores and state traces before the complete standalone graph classes. Component labeling uses symmetric undirected input.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2003_graph_traversal.ipynb` | Connect BFS queue/discovery/predecessor updates to a small standalone traversal and guided route reconstruction. |
+| `2004_depth_first_components.ipynb` | Trace recursive DFS frames and entry/exit events, then label undirected components with a guided isolate variation. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Predict queue and frame events; change neighbor order; reconstruct paths; label an isolate. Then use the current network lab/homework, checking distances, route witnesses and component membership independently of tie-dependent order.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Class Meetings
 
 1. **Graph Vocabulary, 35 minutes.** Predict a result, trace a small example, inspect the runnable model, and complete a nearby exercise.

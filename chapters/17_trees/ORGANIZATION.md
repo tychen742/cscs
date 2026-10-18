@@ -4,6 +4,43 @@ orphan: true
 
 # Chapter Organization: Trees
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1701_tree_structure.ipynb` | Tree Structure and Recursive Models | Core content |
+| `1704_tree_traversal.ipynb` | Tree Traversal, Returned Values, and Costs | Core content |
+| `1702_binary_search_trees.ipynb` | Binary Search Trees | Core content |
+| `1703_tree_lab.ipynb` | Tree Queries and Verification | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Retain structure/recursive models, traversal, BST updates and tree queries in the current reading order. Add leaf-query completion before students design a new recursive summary.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `1701_tree_structure.ipynb` | Add guided node/leaf recursion with completed return table and standalone checkpoint before independent tree-query design. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Fill a return table, complete two operators, check empty/singleton/one-child/two-child trees, then design a one-child count. Existing service-desk lab and homework remain the independent application track.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Learning Objectives
 
 Students trace recursive algorithms, preserve the BST ordering invariant across complete updates, analyze costs using height, and verify ordered-set behavior against an independent model.

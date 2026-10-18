@@ -4,6 +4,37 @@ orphan: true
 
 # Chapter Materials: Trees
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1701_tree_structure.ipynb` | Tree Structure and Recursive Models | Core content |
+| `1704_tree_traversal.ipynb` | Tree Traversal, Returned Values, and Costs | Core content |
+| `1702_binary_search_trees.ipynb` | Binary Search Trees | Core content |
+| `1703_tree_lab.ipynb` | Tree Queries and Verification | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `1701_tree_structure.ipynb` | Add guided node/leaf recursion with completed return table and standalone checkpoint before independent tree-query design. |
+
+Retain structure/recursive models, traversal, BST updates and tree queries in the current reading order. Add leaf-query completion before students design a new recursive summary.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Sequence
 
 - `1700_trees_bst.ipynb`: Orientation, measurable objectives, glossary, and content flow.

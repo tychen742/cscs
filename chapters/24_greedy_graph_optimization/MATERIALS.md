@@ -4,6 +4,36 @@ orphan: true
 
 # Chapter Materials — Greedy Algorithms
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2401_greedy_choice.ipynb` | Greedy Choices and Exchange Reasoning | Core content |
+| `2402_spanning_trees_shortest_paths.ipynb` | Minimum Spanning Forests and Kruskal | Core content |
+| `2404_shortest_paths.ipynb` | Shortest Paths and Dijkstra | Core content |
+
+The complete minimum-hops/minimum-cost graph counterexample from 2602 now appears with Dijkstra and the network-versus-route comparison in 2404. Preserve its original executable program, output and objective explanation. Kruskal and the newly developed union-find walkthrough remain in 2402.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2402_spanning_trees_shortest_paths.ipynb` | Teach union-find roots and size policy with a concrete Kruskal edge table, cut exchange and guided disconnected forest. |
+
+Keep greedy choices, minimum spanning forests and Dijkstra as the three current content readings. Introduce union-find roots/size separately from chosen graph edges before the complete Kruskal program.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Sequence and Coverage
 
 - `2400_greedy_graph_optimization.ipynb`: objectives, chapter navigation, glossary, and deferred slides.

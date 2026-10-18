@@ -1,5 +1,37 @@
 # Chapter Materials — Files and Text
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0901_stream_file.ipynb` | File Foundations: Reading and Writing | Core content |
+| `0902_file_operations.ipynb` | File Workflows, Paths, and Resources | Core content |
+| `0903_text_operations.ipynb` | Text Operations | Core content |
+| `0906_regex.ipynb` | Regular Expressions | Supporting reading |
+| `0905_privacy_security.ipynb` | Privacy and Security in Code | Optional reading |
+
+Retain three core readings: file foundations, paths/resources, and text operations. Regex is explicitly Supporting Reading and privacy explicitly Optional Reading in the TOC, matching their supporting roles. Keep the recent standalone path/resource examples. No recombination of these developed lessons is performed.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `0902_file_operations.ipynb` | Standalone temporary-directory workflow, Path.Combine/using syntax, resource timeline, deterministic unavailable-input check and guided append variation. |
+
+Keep file foundations, paths/resources and text operations in the current order. Regex and privacy remain supporting readings. Teach scope/disposal in content before an import or export lab.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Landing Page
 
 - `0900_files_text.ipynb` — Chapter landing page

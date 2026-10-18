@@ -4,6 +4,37 @@ orphan: true
 
 # Chapter Materials — Advanced Algorithms
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2602_shortest_paths_strings.ipynb` | Direct String Matching and Result Contracts | Core content |
+| `2604_prefix_matching.ipynb` | Prefix Reuse and KMP | Core content |
+| `2603_limits_project.ipynb` | Algorithms and Computational Limits | Core content |
+
+Three core readings remain: direct matching, prepared-prefix/KMP matching, then computational limits. The complete graph objective block is in 2404; traversal verification is the closing section of 2004 and the former page redirects there. Landing framing, objectives, glossary and Chapter Flow now match strings/limits. The existing graph video is retained and clearly captioned as prerequisite review for service-network assignments. All newly developed direct/KMP examples remain.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2602_shortest_paths_strings.ipynb` | Trace candidate/character indexes in a complete direct matcher and guide overlap, empty and missing-result variations. |
+| `2604_prefix_matching.ipynb` | Derive prefix fallback links and annotate KMP scanning/overlap with a compact executable matcher and guided repeated-symbol trace. |
+
+Keep direct matching, prefix/KMP matching and computational limits. Traversal verification is now in Chapter 20. Develop direct candidate/offset reasoning before prefix construction, fallback and overlapping scan events. Retain graph objective reminders as a cross-chapter comparison.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Sequence and Coverage
 
 - `2600_advanced_graphs_strings_limits.ipynb`: objectives, glossary, navigation, and deferred slides.

@@ -4,6 +4,23 @@ orphan: true
 
 # Materials: Priority Queues and Heaps
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `1801_priority_queues.ipynb` | Priority Queue Contracts and Heap Shape | Core content |
+| `1802_heap_implementation.ipynb` | Implementing and Checking a Binary Heap | Core content |
+| `1803_priority_applications.ipynb` | Priority Workloads and Top-K Selection | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Core Materials
 
 - `1801_priority_queues.ipynb`: Priority Contracts

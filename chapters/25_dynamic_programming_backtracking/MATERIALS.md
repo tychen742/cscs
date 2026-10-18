@@ -4,6 +4,37 @@ orphan: true
 
 # Chapter Materials — Dynamic Programming
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2501_memoization_tabulation.ipynb` | Memoization, Tabulation, and Repeated Work | Core content |
+| `2504_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
+| `2502_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2501_memoization_tabulation.ipynb` | Derive Fibonacci recursion calls and cache hits, compare a fully traced memo with tabulation and guide a recurrence variation. |
+| `2504_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
+
+Keep repeated-work strategies, optimization states and backtracking. Teach cache misses/hits and table dependencies before exact-count claims, then derive minimum-pack updates and predecessor reconstruction before inventory transfer.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Sequence and Coverage
 
 - `2500_dynamic_programming_backtracking.ipynb`: objectives, glossary, navigation, and deferred slides.

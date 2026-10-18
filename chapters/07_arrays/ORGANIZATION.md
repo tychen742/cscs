@@ -1,8 +1,46 @@
 # Chapter Organization — Arrays
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0701_onedim.ipynb` | Creating and Accessing Arrays | Core content |
+| `0703_array_processing.ipynb` | Processing and Sharing Arrays | Core content |
+| `0702_twodim.ipynb` | 2D & ND Arrays | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Keep creation/access first, processing/sharing second and rectangular arrays third. Keep jagged arrays as extension reading. The repaired defaults/LINQ material remains in 0701.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `0701_onedim.ipynb` | Executable allocation/index/update examples, index-state table, safe last access and guided bound repair; repair retained markup without discarding variants. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Trace indexed state changes; complete the safe last-element guard; vary empty/singleton inputs before the existing sales lab and array homework. Preserve all original loop, returned-array and string-array variations.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Learning Objectives
 
-<!-- List 3–5 measurable student outcomes -->
+1. Declare, initialize and safely index an array; explain fixed length versus mutable elements.
+2. Trace and implement traversal, accumulation and indexed updates, including empty inputs.
+3. Explain aliasing and method-side element changes, and process rectangular arrays with nested loops.
 
 ## Sequence
 

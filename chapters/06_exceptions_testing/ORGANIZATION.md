@@ -1,5 +1,43 @@
 # Chapter Organization: Testing, Debugging, and Error Handling
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `0601_error_handling.ipynb` | Error Handling and Validation | Core content |
+| `0602_debugging_workflow.ipynb` | Debugging Workflow | Core content |
+| `0603_testing.ipynb` | Unit Testing | Core content |
+| `0605_software_responsibility.ipynb` | Computing and Society | Supporting reading |
+
+Keep the newly developed validation/debugger lessons and all original unit-testing material. The framework-setup/test-attribute discussion is now content before Footnotes. Historical commented reference banks remain preserved as source; they are not newly certified current setup instructions.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Use the existing three meetings: validation/control flow, debugging with methods and loops, then unit testing. Arrays and CSV are explicitly retained as later applications after Chapters 7 and 9.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `0601_error_handling.ipynb` | Trace normal and exceptional control, specific catches, finally, throw contracts and guided boundary checks. |
+| `0602_debugging_workflow.ipynb` | Use a prerequisite-safe methods/loop debugger case with commands, watch observations, repair and regression evidence. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Predict normal/throw/catch/finally output; trace the credit loop in a debugger; repair one cause and retain independently expected regression cases. Apply the established testing workflow in the current lab and homework.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Learning Objectives
 
 1. Design ordinary, boundary, and invalid-input tests with independently derived expected results.

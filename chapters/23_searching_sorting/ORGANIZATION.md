@@ -4,6 +4,45 @@ orphan: true
 
 # Chapter Organization: Search and Sort
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2301_searching.ipynb` | Searching | Core content |
+| `2302_sorting.ipynb` | Sorting | Core content |
+| `2303_comparison_lab.ipynb` | Comparing Complete Search and Sort Workloads | Core content |
+| `2304_advanced_sorts.ipynb` | Shell Sort and Gap Families | Supporting reading |
+| `2305_quicksort.ipynb` | Quicksort and Partitioning | Supporting reading |
+
+Retain all five readings and the recently developed duplicate-boundary and QuickSort instruction. Shell sort and QuickSort are explicitly supporting readings in the TOC. Remove only the obsolete Shell Sort and Quicksort wrapper heading from the Shell lesson, not its examples or comparison program.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current B-A Teaching Progression (2026-10-17)
+
+This is the current progression within the existing section order; earlier meeting outlines below are historical where they conflict. Readings are not additional required meetings.
+
+Retain the current five readings. Develop duplicate boundaries in the search extension and two-scan partitioning in the optional QuickSort reading. Keep the combined Shell/QuickSort example as an additional comparison.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2301_searching.ipynb` | Step through lower/upper-bound intervals, connect equality choices to executable loop updates and scaffold duplicate-range transfer. |
+| `2305_quicksort.ipynb` | Work an actual two-scan partition including swaps and recursive intervals, plus a focused standalone QuickSort and guided duplicates/subrange cases. |
+
+**Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
+
+**Subsection development:** use the new small trace and standalone worked example before the complete retained implementation. Interpret the saved output, vary an assumption and diagnose a plausible mistake. Syntax scaffolds are patterns, not hidden executable prerequisites.
+
+**Practice progression:** Complete low/high/mid updates; derive duplicate intervals; trace equal-pivot progress and recursive endpoints. Transfer to the existing duplicate-report and workload assignments; QuickSort remains optional depth.
+
+Keep prerequisite explanations in these content sections. Labs apply the explained ideas and may scaffold the task; homework increases transfer. No existing explanation, exercise variation, assignment identity or independent-work requirement is removed to fit a time or word quota.
+
+
 ## Class Meetings
 
 1. **Search contracts, 40 minutes.** Distinguish first, any, and all matches; choose equality/order policies; trace half-open binary search and missing targets; derive lower/upper bounds, count probes, and decode library return values.

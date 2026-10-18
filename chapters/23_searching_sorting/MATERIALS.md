@@ -4,6 +4,39 @@ orphan: true
 
 # Chapter Materials: Search and Sort
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2301_searching.ipynb` | Searching | Core content |
+| `2302_sorting.ipynb` | Sorting | Core content |
+| `2303_comparison_lab.ipynb` | Comparing Complete Search and Sort Workloads | Core content |
+| `2304_advanced_sorts.ipynb` | Shell Sort and Gap Families | Supporting reading |
+| `2305_quicksort.ipynb` | Quicksort and Partitioning | Supporting reading |
+
+Retain all five readings and the recently developed duplicate-boundary and QuickSort instruction. Shell sort and QuickSort are explicitly supporting readings in the TOC. Remove only the obsolete Shell Sort and Quicksort wrapper heading from the Shell lesson, not its examples or comparison program.
+
+No assessment identity, assignment notebook, worked code, output or exercise variant is removed. `authoring/integration_cleanup/` records the original cells, exact edits, moves and URL/fragment compatibility.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
+## Current Priority-Section Coverage (2026-10-17)
+
+This coverage update describes the current notebooks and supersedes older pre-reorganization filename summaries below. Historical plans and verification records are retained.
+
+| Reading | Developed content-section coverage |
+| --- | --- |
+| `2301_searching.ipynb` | Step through lower/upper-bound intervals, connect equality choices to executable loop updates and scaffold duplicate-range transfer. |
+| `2305_quicksort.ipynb` | Work an actual two-scan partition including swaps and recursive intervals, plus a focused standalone QuickSort and guided duplicates/subrange cases. |
+
+Retain the current five readings. Develop duplicate boundaries in the search extension and two-scan partitioning in the optional QuickSort reading. Keep the combined Shell/QuickSort example as an additional comparison.
+
+All original lesson cells remain, except the explicitly documented presentation/syntax/result corrections and stale chapter references in `authoring/priority_development/source_corrections.json`. Original assignment notebooks and exercise IDs remain untouched. Full standalone code is retained beside the new smaller teaching cores; newly added code verification is recorded separately from historical checks.
+
+
 ## Sequence
 
 - `2301_searching.ipynb`: Equality/order policies, duplicate lower/upper bounds, and whole-workload costs; basic search and library return values are in Chapter 16.

@@ -4,6 +4,22 @@ orphan: true
 
 # Chapter Organization: Recursion
 
+## Current Integrated Arrangement (2026-10-17)
+
+This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+
+| Current reading file | Instructional role/title | Status |
+| --- | --- | --- |
+| `2201_recursion.ipynb` | Recursive Contracts and Divide-and-Conquer | Core content |
+| `2203_merge_sort_lab.ipynb` | Stable Merge Sort and Verification | Core content |
+
+Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+
+Teach the section conceptual framework before detailed application; place syntax prerequisites before reasoning that requires them. Keep the new worked traces and guided checkpoints, followed by existing lab/homework transfer. Reading count does not set a meeting or word quota.
+
+Each content page has one local contents directive and one final Footnotes group. Retained reference details receive useful headings rather than obsolete page titles or provenance notices.
+
+
 ## Class Meetings
 
 1. **Recursive contracts and calls, 35 minutes.** State valid domains and base answers, trace factorial frames and returns, prove progress and inductive results, hide helper indexes, and contrast stack cost with iteration.

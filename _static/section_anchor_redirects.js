@@ -1,6 +1,7 @@
-// Preserve section links after the additive reading reorganization.
+/* Preserve moved section headings and labels after integration cleanup. */
 (function () {
-  const targets = {
+  "use strict";
+  const routes = {
   "chapters/07_arrays/0701_onedim.html#parameters-to-main": "chapters/07_arrays/0703_array_processing.html#parameters-to-main",
   "chapters/07_arrays/0701_onedim.html#command-line-param": "chapters/07_arrays/0703_array_processing.html#command-line-param",
   "chapters/07_arrays/0701_onedim.html#command-line-adder": "chapters/07_arrays/0703_array_processing.html#command-line-adder",
@@ -33,9 +34,9 @@
   "chapters/09_files_text/0902_file_operations.html#streamreader": "chapters/09_files_text/0901_stream_file.html#streamreader",
   "chapters/09_files_text/0902_file_operations.html#reading-to-end-of-stream": "chapters/09_files_text/0901_stream_file.html#reading-to-end-of-stream",
   "chapters/09_files_text/0902_file_operations.html#endofstream": "chapters/09_files_text/0901_stream_file.html#endofstream",
-  "chapters/16_searching_sorting/1603_workloads.html#search-and-sort-workloads": "chapters/16_searching_sorting/1601_searching.html#search-and-sort-workloads",
-  "chapters/16_searching_sorting/1603_workloads.html#preserve-arrival-order-while-preparing-a-report": "chapters/16_searching_sorting/1601_searching.html#preserve-arrival-order-while-preparing-a-report",
-  "chapters/16_searching_sorting/1603_workloads.html#include-preparation-and-updates": "chapters/16_searching_sorting/1601_searching.html#include-preparation-and-updates",
+  "chapters/16_searching_sorting/1603_workloads.html#search-and-sort-workloads": "chapters/16_searching_sorting/1602_basic_sorting.html#compare-reporting-and-query-workloads",
+  "chapters/16_searching_sorting/1603_workloads.html#preserve-arrival-order-while-preparing-a-report": "chapters/16_searching_sorting/1602_basic_sorting.html#preserve-arrival-order-while-preparing-a-report",
+  "chapters/16_searching_sorting/1603_workloads.html#include-preparation-and-updates": "chapters/16_searching_sorting/1602_basic_sorting.html#include-preparation-and-updates",
   "chapters/16_searching_sorting/1603_workloads.html#library-operations-and-clear-comparers": "chapters/16_searching_sorting/1602_basic_sorting.html#library-operations-and-clear-comparers",
   "chapters/16_searching_sorting/1603_workloads.html#design-a-boundary-matrix": "chapters/16_searching_sorting/1602_basic_sorting.html#design-a-boundary-matrix",
   "chapters/16_searching_sorting/1603_workloads.html#practice-choose-a-safe-reporting-snapshot": "chapters/16_searching_sorting/1602_basic_sorting.html#practice-choose-a-safe-reporting-snapshot",
@@ -120,13 +121,55 @@
   "chapters/11_object_design/1101_objects_references.html#records-data-and-equality": "chapters/11_object_design/1105_value_record_types.html#records-data-and-equality",
   "chapters/11_object_design/1101_objects_references.html#record-data-types": "chapters/11_object_design/1105_value_record_types.html#record-data-types",
   "chapters/11_object_design/1101_objects_references.html#record-structs-and-choosing-a-type": "chapters/11_object_design/1105_value_record_types.html#record-structs-and-choosing-a-type",
-  "chapters/11_object_design/1101_objects_references.html#record-struct-choice": "chapters/11_object_design/1105_value_record_types.html#record-struct-choice"
+  "chapters/11_object_design/1101_objects_references.html#record-struct-choice": "chapters/11_object_design/1105_value_record_types.html#record-struct-choice",
+  "chapters/02_var_data/0201_variables_types.html#variables-and-types": "chapters/02_var_data/0201_variables_types.html#variables-and-types",
+  "chapters/02_var_data/0203_input_output.html#casting-type-conversion-in-input": "chapters/02_var_data/0204_types_conversion.html#casting-type-conversion-in-input",
+  "chapters/02_var_data/0203_input_output.html#parsing-input": "chapters/02_var_data/0204_types_conversion.html#parsing-input",
+  "chapters/02_var_data/0203_input_output.html#console-writeline": "chapters/02_var_data/0203_input_output.html#output",
+  "chapters/02_var_data/0203_input_output.html#composite-formatting": "chapters/02_var_data/0203_input_output.html#composite-formatting",
+  "chapters/02_var_data/0203_input_output.html#writing-to-the-console": "chapters/02_var_data/0203_input_output.html#writing-to-the-console",
+  "chapters/02_var_data/0203_input_output.html#table-formatting-with-loop-output": "chapters/04_iteration/0402_for_statements.html#apply-loops-to-formatted-tables",
+  "chapters/02_var_data/0203_input_output.html#format-output-console-write": "chapters/04_iteration/0402_for_statements.html#format-output-console-write",
+  "chapters/02_var_data/0203_input_output.html#formatting-tables": "chapters/04_iteration/0402_for_statements.html#formatting-tables",
+  "chapters/02_var_data/0203_input_output.html#left-justification": "chapters/04_iteration/0402_for_statements.html#left-justification",
+  "chapters/03_decision/0302_ifstatement.html#conditional-if-statements": "chapters/03_decision/0302_ifstatement.html#conditional-if-statements",
+  "chapters/03_decision/0302_ifstatement.html#index-24": "chapters/03_decision/0302_ifstatement.html#switch-syntax-and-case-behavior",
+  "chapters/04_iteration/0403_while_statement.html#do-while": "chapters/04_iteration/0403_while_statement.html#read-and-trace-the-do-while-syntax",
+  "chapters/05_methods/0501_intro_methods.html#introduction": "chapters/05_methods/0501_intro_methods.html#introduction",
+  "chapters/05_methods/0503_parameter.html#index-22": "chapters/05_methods/0503_parameter.html#static-storage-reference",
+  "chapters/07_arrays/0701_onedim.html#d-arrays": "chapters/07_arrays/0701_onedim.html#1d-arrays",
+  "chapters/08_collections/0801_collections.html#data-collections": "chapters/08_collections/0801_collections.html#data-collections",
+  "chapters/09_files_text/0901_stream_file.html#files-as-streams": "chapters/09_files_text/0901_stream_file.html#files-as-streams",
+  "chapters/16_searching_sorting/1601_searching.html#searching-ordered-and-unordered-data": "chapters/16_searching_sorting/1601_searching.html#searching-ordered-and-unordered-data",
+  "chapters/16_searching_sorting/1601_searching.html#search-and-sort-workloads": "chapters/16_searching_sorting/1602_basic_sorting.html#compare-reporting-and-query-workloads",
+  "chapters/16_searching_sorting/1601_searching.html#preserve-arrival-order-while-preparing-a-report": "chapters/16_searching_sorting/1602_basic_sorting.html#preserve-arrival-order-while-preparing-a-report",
+  "chapters/16_searching_sorting/1601_searching.html#include-preparation-and-updates": "chapters/16_searching_sorting/1602_basic_sorting.html#include-preparation-and-updates",
+  "chapters/16_searching_sorting/1602_basic_sorting.html#basic-sorting-with-insertion-sort": "chapters/16_searching_sorting/1602_basic_sorting.html#basic-sorting-with-insertion-sort",
+  "chapters/17_trees/1701_tree_structure.html#tree-structure-and-traversal": "chapters/17_trees/1701_tree_structure.html#tree-structure-and-traversal",
+  "chapters/18_priority_queues/1803_priority_applications.html#index-8": "chapters/18_priority_queues/1803_priority_applications.html#practice-explain-priority-and-fairness",
+  "chapters/20_graphs/2003_graph_traversal.html#graph-traversal-reachability-paths-and-components": "chapters/20_graphs/2003_graph_traversal.html#graph-traversal-reachability-paths-and-components",
+  "chapters/22_recursion_divide_conquer/2201_recursion.html#recursive-problem-solving": "chapters/22_recursion_divide_conquer/2201_recursion.html#recursive-problem-solving",
+  "chapters/22_recursion_divide_conquer/2201_recursion.html#divide-and-conquer-design": "chapters/22_recursion_divide_conquer/2201_recursion.html#divide-and-conquer-design",
+  "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.html#merge-sort-lab": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.html#merge-sort-lab",
+  "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.html#index-21": "chapters/22_recursion_divide_conquer/2203_merge_sort_lab.html#practice-verify-merge-results",
+  "chapters/23_searching_sorting/2304_advanced_sorts.html#shell-sort-and-quicksort": "chapters/23_searching_sorting/2304_advanced_sorts.html#shell-sort-and-quicksort",
+  "chapters/24_greedy_graph_optimization/2401_greedy_choice.html#greedy-choice-and-correctness": "chapters/24_greedy_graph_optimization/2401_greedy_choice.html#greedy-choice-and-correctness",
+  "chapters/24_greedy_graph_optimization/2401_greedy_choice.html#greedy-optimization-lab": "chapters/24_greedy_graph_optimization/2401_greedy_choice.html#greedy-optimization-lab",
+  "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.html#spanning-trees-and-shortest-paths": "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.html#spanning-trees-and-shortest-paths",
+  "chapters/24_greedy_graph_optimization/2404_shortest_paths.html#index-20": "chapters/24_greedy_graph_optimization/2404_shortest_paths.html#practice-compare-facilities-models",
+  "chapters/25_dynamic_programming_backtracking/2504_optimization_models.html#dynamic-programming-and-backtracking-lab": "chapters/25_dynamic_programming_backtracking/2504_optimization_models.html#dynamic-programming-and-backtracking-lab",
+  "chapters/25_dynamic_programming_backtracking/2502_backtracking.html#index-19": "chapters/25_dynamic_programming_backtracking/2502_backtracking.html#practice-validate-search-evidence",
+  "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.html#shortest-paths-and-string-matching": "chapters/24_greedy_graph_optimization/2404_shortest_paths.html#shortest-paths-and-string-matching",
+  "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.html#minimum-hops-is-not-minimum-cost": "chapters/24_greedy_graph_optimization/2404_shortest_paths.html#minimum-hops-is-not-minimum-cost",
+  "chapters/26_advanced_graphs_strings_limits/2601_graph_traversal.html#traversal-verification": "chapters/20_graphs/2004_depth_first_components.html#verify-a-traversal",
+  "chapters/26_advanced_graphs_strings_limits/2601_graph_traversal.html#traversal-verification-contracts": "chapters/20_graphs/2004_depth_first_components.html#traversal-verification-contracts",
+  "chapters/26_advanced_graphs_strings_limits/2601_graph_traversal.html#components-and-direction": "chapters/20_graphs/2004_depth_first_components.html#components-and-direction"
 };
-  const path = location.pathname.replace(/^\//, "");
-  const destination = targets[path + location.hash];
-  if (destination) {
-    const next = new URL("/" + destination, location.origin);
-    next.search = location.search;
-    location.replace(next.href);
-  }
-})();
+  const source = location.pathname.replace(/^\//, "") + decodeURIComponent(location.hash);
+  const moved = routes[source];
+  if (!moved) return;
+  const base = location.href.slice(0, location.href.lastIndexOf("/chapters/") + 1);
+  const target = new URL(moved, base);
+  target.search = location.search;
+  if (target.href !== location.href) location.replace(target.href);
+}());
