@@ -109,10 +109,45 @@ POST /v1/admin/git/sync
 ```
 
 The endpoint commits pending source changes in the mounted Git checkout, rebases
-on `origin/main`, and pushes to GitHub. In production, the API container must be
+on `origin/main`, and pushes to GitHub. It answers
+`{ synced, message, committed, head, status }`; `committed` is false when there
+was nothing to commit. In production, the API container must be
 able to run `git` and authenticate to GitHub. The current deployment mounts the
 host SSH configuration read-only into the API container, so the container user
 must be able to read that key without broadening SSH key permissions.
+
+The matching read-only status endpoint is:
+
+```text
+GET /v1/admin/git/status
+```
+
+It requires the same author pass (edit permission is enough; it changes nothing)
+and answers `{ "dirty": true, "files": ["chapters/.../0902_list.ipynb"], "head": "ec3cc50b" }`
+from `git status --porcelain` and `git rev-parse --short HEAD` in the mounted
+checkout. The browser calls it when author mode is enabled and after every
+successful save and sync, shows the Sync button as `Sync (N unsynced)` while
+`dirty` is true, and warns before leaving the page.
+
+### Save, then Sync
+
+Save and Sync are two separate steps, and the order matters:
+
+1. **Save notebook** writes the edited `.ipynb` into the server checkout. The
+   change is now an ordinary unsynced Git working-tree change: it is not on
+   GitHub, the book has not been rebuilt, and the deploy workflow's last step
+   will refuse to refresh the server checkout while it stays there.
+2. **Sync** commits only what was saved before the button was clicked, rebases
+   on `origin/main`, and pushes. The button then reports either
+   `Committed and pushed <head>` or `Nothing to sync (at <head>)`.
+3. Any save made after that click is unsynced again. Sync once more after the
+   last save; the button keeps showing the unsynced count until the checkout
+   is clean.
+
+`execution/check_git_status.mjs` is an integration check for the status
+endpoint: it builds the API, starts it against a throwaway Git checkout with a
+locally generated author-pass key, and checks the 401, clean, and dirty answers.
+Run it from `execution/` with `node check_git_status.mjs`.
 
 After a push to `main`, GitHub Actions builds the book, deploys the generated
 HTML to `/var/www/cscs/`, and updates the server-side authoring checkout from

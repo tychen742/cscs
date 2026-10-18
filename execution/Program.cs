@@ -73,6 +73,18 @@ app.MapGet("/v1/admin/notebooks/source", async (string path, HttpRequest http, N
         : Results.NotFound(new { error = result.Message });
 });
 
+// Unsynced edits in the server checkout: Save writes notebooks into the working tree,
+// so they are not on GitHub (and block the deploy workflow's checkout refresh) until Sync.
+app.MapGet("/v1/admin/git/status", async (HttpRequest http, GitRepository repository, CancellationToken cancellationToken) =>
+{
+    var (author, denied) = Authorize(http);
+    if (denied is not null) return denied;
+    var result = await repository.StatusAsync(author!.Email ?? string.Empty, cancellationToken);
+    return result.Error is null
+        ? Results.Ok(new { dirty = result.Dirty, files = result.Files, head = result.Head })
+        : Results.BadRequest(new { error = result.Error });
+});
+
 app.MapPost("/v1/admin/git/sync", async (GitSyncRequest request, HttpRequest http, GitRepository repository, CancellationToken cancellationToken) =>
 {
     var (author, denied) = Authorize(http, publish: true);

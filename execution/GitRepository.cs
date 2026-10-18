@@ -45,6 +45,33 @@ public sealed class GitRepository(IConfiguration configuration)
         return GitSyncResult.Success(committed, head.Output.Trim(), statusAfter.Output.Trim());
     }
 
+    /// <summary>
+    /// What the mounted checkout holds that Sync has not yet committed and pushed: saved
+    /// notebooks are working-tree changes until the author clicks Sync.
+    /// </summary>
+    public async Task<GitStatusResult> StatusAsync(string actor, CancellationToken cancellationToken)
+    {
+        var rootPath = Path.GetFullPath(root);
+        if (!Directory.Exists(Path.Combine(rootPath, ".git")))
+            return GitStatusResult.Failure("The book root is not a Git checkout.");
+
+        var status = await GitAsync(["status", "--porcelain"], actor, cancellationToken);
+        if (!status.Succeeded) return GitStatusResult.Failure(status.Error);
+
+        var head = await GitAsync(["rev-parse", "--short", "HEAD"], actor, cancellationToken);
+        if (!head.Succeeded) return GitStatusResult.Failure(head.Error);
+
+        return GitStatusResult.Success(ParsePorcelainPaths(status.Output), head.Output.Trim());
+    }
+
+    /// <summary>Paths from `git status --porcelain` (v1): a two-letter state, a space, then the path.</summary>
+    internal static string[] ParsePorcelainPaths(string output) =>
+        output.Split('\n', StringSplitOptions.RemoveEmptyEntries)
+            .Select(line => line.Length > 3 ? line[3..] : line.Trim())
+            .Select(path => path.Contains(" -> ", StringComparison.Ordinal) ? path[(path.IndexOf(" -> ", StringComparison.Ordinal) + 4)..] : path)
+            .Where(path => path.Length > 0)
+            .ToArray();
+
     private async Task<GitCommandResult> GitAsync(string[] arguments, string actor, CancellationToken cancellationToken, int[]? allowExitCodes = null)
     {
         allowExitCodes ??= [0];
@@ -94,3 +121,13 @@ public sealed record GitSyncResult(bool Synced, string Message, bool Committed, 
 }
 
 public sealed record GitSyncRequest(string? Message);
+
+/// <summary>Unsynced changes in the mounted checkout; Error is set only when Git could not answer.</summary>
+public sealed record GitStatusResult(bool Dirty, string[] Files, string? Head, string? Error)
+{
+    public static GitStatusResult Success(string[] files, string head) =>
+        new(files.Length > 0, files, head, null);
+
+    public static GitStatusResult Failure(string message) =>
+        new(false, [], null, message);
+}

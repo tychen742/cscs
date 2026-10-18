@@ -83,7 +83,14 @@ rollback all happen through Git.
 
 The optional browser `Sync` action calls `POST /v1/admin/git/sync`, which
 commits pending source changes, rebases on `origin/main`, and pushes to GitHub.
-That container needs Git and GitHub credentials. The current deployment uses a
+Sync commits only what was saved before it was clicked, so an author must sync
+again after any later save. `GET /v1/admin/git/status` (same author pass,
+read-only) reports `{ dirty, files, head }` from the checkout; the browser asks
+it when author mode starts and after each successful save and sync, shows the
+Sync button as `Sync (N unsynced)` while edits are pending, and warns before
+the page is left with unsynced edits. The sync result's `committed` flag drives
+the button's `Committed and pushed <head>` or `Nothing to sync (at <head>)`
+message. That container needs Git and GitHub credentials. The current deployment uses a
 read-only host SSH mount and runs the API as the host checkout owner so SSH can
 read the private key without relaxing key permissions. For source write access,
 prefer a dedicated host group such as `cscs-authoring`; avoid `www-data` unless
