@@ -67,3 +67,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `1602_basic_sorting.ipynb`: Sorting and Safe Reporting Workloads.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Landing Page Alignment (2026-10-17)
+
+The landing page `1600_searching_sorting.ipynb` now orients students to the two sections (search contracts and repeated queries; sorting and safe reporting workloads) with a grounded introduction, measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
