@@ -254,3 +254,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 Pass 3 of the content-development audit: in 5.4 Searching, Extracting Part of a String, and Replacing Text gained output interpretation and a named mistake each (treating IndexOf as a Boolean, position-dependent Substring arguments, case-sensitive Replace), and Extracting gained the two Substring forms as a labeled pattern. No code changed; cells were rerun to confirm outputs.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 5.4 (normalize a product code) and 5.6 (count up instead of down), so each page has a checkpoint before its final practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

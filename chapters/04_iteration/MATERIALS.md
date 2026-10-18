@@ -166,3 +166,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Legacy Page Development (2026-10-18)
 
 `0404_gcd.ipynb` (supporting) gained top-level runnable versions of the brute-force and subtraction methods with step counters (729 tests and 9 subtractions for 810 and 729, against two remainder steps), labeled its remaining indented listings as patterns, marked the mathematical formula as text, tied the three counts together in Run the Loop Now, and links the recursive preview to 5.6 Recursive Methods. Both new cells compile and run standalone (.NET 10).
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 4.1 (count down by twos), 4.2 (find the first space with break), 4.3 (years to double an investment), and the supporting 4.4 (count the remainder steps). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

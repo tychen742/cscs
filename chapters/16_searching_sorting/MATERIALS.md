@@ -92,3 +92,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Merge Sort Supporting Reading (2026-10-18)
 
 Added `1604_merge_sort.ipynb` as supporting reading 16.3, following the textbook comparison in `authoring/toc_comparison/README.md`: comparable CS2 texts teach an O(n log n) sort in the core, and a Parts IV and V route previously saw only insertion sort. The reading motivates with a comparison-count table, teaches merge on two sorted runs with a trace and the `<= 0` stability rule, builds the recursive `MergeSort` with range slices and a copy-returning contract, counts comparisons on reversed input against n log2 n and insertion sort's worst case, verifies stability with the 16.2 invoice comparer, compares insertion sort, merge sort, and `Array.Sort` for workloads, and ends with a merge-two-files practice. Six code cells compile and run standalone (.NET 10). The file is numbered 1604 because `1603_workloads.ipynb` is a retained redirect stub. Chapter 22 keeps the buffered implementation, proofs, and verification lab.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to the supporting 16.3 (merge descending runs) and an expected-output sentence to the 16.2 snapshot practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

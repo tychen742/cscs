@@ -60,3 +60,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `1503_applications_lab.ipynb`: Access Policies and Applications.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 15.1 (undo past the beginning with TryPop) and 15.3 (visit pages in arrival order), and task text with expected output above the previously code-only Exercise cells of 15.1, 15.2, and 15.3. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

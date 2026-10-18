@@ -254,3 +254,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 5.4's string-method sections now interpret their outputs; order and IDs unchanged.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 5.4 (normalize a product code) and 5.6 (count up instead of down), so each page has a checkpoint before its final practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

@@ -157,3 +157,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Legacy Page Development (2026-10-18)
 
 4.4 stays a supporting reading after the loop sections. Its method listings remain reading patterns for after Chapter 5; the runnable cells use only loops and variables, so the Part I order rule is kept.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 4.1 (count down by twos), 4.2 (find the first space with break), 4.3 (years to double an investment), and the supporting 4.4 (count the remainder steps). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

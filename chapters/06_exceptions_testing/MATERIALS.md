@@ -182,3 +182,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 Pass 3 of the content-development audit. In 6.1 the four construct sections (try/catch/finally, TryParse, file I/O, throwing) gained general-syntax patterns, explanations of control flow and catch ordering, output interpretation, and named mistakes. Three code cells were made browser-safe so their catch branches actually run: the parse example falls back to the sample `12x` when there is no keyboard, the TryParse example to `41`, and the intentional `Divide(10, 0)` throw is caught by the caller. Validation vs. Exceptions gained a comparison table and Common Mistakes gained a sentence of reasoning per item plus an anti-pattern. The three modified cells compile and run with the outputs the prose states (.NET 10).
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page reflection questions to 6.5 (apply the ethical questions to a small defect), the first practice prompt on that page. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

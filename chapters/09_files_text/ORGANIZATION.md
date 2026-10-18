@@ -176,3 +176,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 9.3 keeps its order; each code cell now has explanation before and interpretation after.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 9.1 (write a receipt and read it back, whose starter demonstrates the forgotten Close) and the optional 9.5 (mask a card number). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

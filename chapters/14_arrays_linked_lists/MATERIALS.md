@@ -121,3 +121,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 From the content-development audit (`authoring/content_development_audit/`), pass 3. In 14.1 Contiguous Storage, Resizing by Copying, and the Worked Example gained the append and resize patterns as labeled syntax, two-to-three-sentence explanations before each cell, output interpretation after it, and a named mistake (Length as count; forgetting to reassign the grown array; indexer bound by Count); Cost of Append gained a copy-count table. In 14.2 Nodes, Traversal, Insertion, and Deletion gained the node class and traversal loop as patterns, interpretation of each output, and the classic defects (null dereference past the tail, skipping the last node, reversed insertion assignments). In 14.3 the three cost examples gained interpretation that ties the visit counts and shift counts to the costs table. No code cell changed; existing cells were rerun to confirm the stated outputs.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 14.1 (append with growth; the starter throws until the growth check is added), 14.2 (count the nodes), and 14.3 (count the deletion shifts). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

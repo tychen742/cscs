@@ -133,3 +133,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Keep Stored Values Separate from Their Display
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 2.1 (swap two prices), 2.2 (split a bill with integer division and remainder), and 2.3 (format an order line with composite formatting), pages that previously had no practice or only a final exercise. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

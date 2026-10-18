@@ -123,3 +123,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 The short code-first sections at the top of 14.1, 14.2, and 14.3 now read as explanation, pattern, example, interpretation, mistake, so the developed trace sections later on each page build on something students have already run and understood. Headings, cell IDs, and exercise IDs are unchanged.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 14.1 (append with growth; the starter throws until the growth check is added), 14.2 (count the nodes), and 14.3 (count the deletion shifts). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

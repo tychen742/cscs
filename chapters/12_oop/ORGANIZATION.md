@@ -90,3 +90,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 | Substitution and composition judgment | 1202_polymorphism and 1203_interfaces existing contracts and examples | Existing interface implementation practice | New exporter/destination design requires independently chosen contracts, two implementations, a recording collaborator, and failure-policy reasoning. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to the supporting 12.4 (add a Truck subclass). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

@@ -96,3 +96,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Merge Sort Supporting Reading (2026-10-18)
 
 16.3 Merge Sort is optional reading after the two core sections and depends on Chapter 5's Recursive Methods reading. It is not in the direct assessment scope. The landing page introduction, Chapter Flow, and glossary (run, merge, merge sort, divide and conquer) were updated.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to the supporting 16.3 (merge descending runs) and an expected-output sentence to the 16.2 snapshot practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

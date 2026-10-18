@@ -177,3 +177,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 Pass 3 of the content-development audit: in 9.3 Splitting and Tokenizing gained the `Split` pattern and interpretation after each of its three cells (including the index-shift hazard of RemoveEmptyEntries on fixed-format records), Safe Replacement gained a sentence per step and the `Replace` pattern, Structured Lines gained an explanation of the TryParse-shaped parser and interpretation of the four results, and When to Use a Database gained a text-file-versus-database comparison table. No code changed; cells were rerun to confirm outputs.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 9.1 (write a receipt and read it back, whose starter demonstrates the forgotten Close) and the optional 9.5 (mask a card number). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.

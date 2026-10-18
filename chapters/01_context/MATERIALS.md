@@ -107,3 +107,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0103_program_structure.ipynb`: Your First C# Program and Basic Syntax.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Guided Practice Pass (2026-10-18)
+
+Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page reflection questions to 1.1 (describe a system you use) and 1.2 (map the stakeholders of one feature), the first practice prompts on those conceptual pages. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
