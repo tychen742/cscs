@@ -169,3 +169,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Bound Resource Lifetime Explicitly
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Legacy Page Development (2026-10-18)
+
+`0901_stream_file.ipynb` gained a Console-versus-file method comparison table in File Stream, labeled fences for the File-class transcripts, and a runnable `File.WriteAllText`, `AppendAllText`, `ReadAllText`, `Exists`, `Delete` example in an owned temporary location with interpretation; two unlabeled fences were labeled. `0902_file_operations.ipynb` gained runnable `Path` helper, `Directory` listing, and partial-output resource-lifetime examples (the last runs the page's guided scenario: two lines written, the third fails, the report is partial) and a fenced using-declaration pattern. All 4 new code cells compile and run standalone (.NET 10) and clean up after themselves.

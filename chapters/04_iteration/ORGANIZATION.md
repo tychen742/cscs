@@ -153,3 +153,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Validate a Number Before Using It
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Legacy Page Development (2026-10-18)
+
+4.4 stays a supporting reading after the loop sections. Its method listings remain reading patterns for after Chapter 5; the runnable cells use only loops and variables, so the Part I order rule is kept.

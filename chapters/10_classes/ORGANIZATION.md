@@ -142,3 +142,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
   - Tuples or Classes?
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Legacy Page Development (2026-10-18)
+
+10.1 and 10.2 now follow the section pattern: explanation, labeled syntax pattern, runnable worked example, output interpretation, a common mistake, and guided practice. The getter and setter subsections of 10.2 are kept as the explanation of what accessors do and are followed by the property form students should write. No headings, cell IDs, or exercise IDs were removed.

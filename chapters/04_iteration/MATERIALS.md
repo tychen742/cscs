@@ -162,3 +162,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Validate a Number Before Using It
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Legacy Page Development (2026-10-18)
+
+`0404_gcd.ipynb` (supporting) gained top-level runnable versions of the brute-force and subtraction methods with step counters (729 tests and 9 subtractions for 810 and 729, against two remainder steps), labeled its remaining indented listings as patterns, marked the mathematical formula as text, tied the three counts together in Run the Loop Now, and links the recursive preview to 5.6 Recursive Methods. Both new cells compile and run standalone (.NET 10).

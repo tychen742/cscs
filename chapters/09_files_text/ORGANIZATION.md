@@ -168,3 +168,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
 - Bound Resource Lifetime Explicitly
 
 Treat syntax, examples, and meaningful variations as children of their conceptual topic. Place prerequisite explanations before application, and distinguish a local checkpoint from later synthesis. Preserve distinct older/newer treatments by grouping them rather than deleting them. Keep the final Footnotes group after instructional content.
+
+## Legacy Page Development (2026-10-18)
+
+9.1 and 9.2 keep their order. Each previously code-free section (File Stream, Paths in C#, The Directory Class, Bound Resource Lifetime Explicitly) now has a worked example or a comparison table, and the File-class section has a modern top-level example beside the project form.

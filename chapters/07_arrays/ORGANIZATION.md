@@ -138,3 +138,7 @@ Chapter 16 retains its full deeper treatment: result contracts, correctness/inva
 ## Searching and Sorting Section (2026-10-18)
 
 Reading order: 7.1 Creating and Accessing, 7.2 Processing and Sharing, 7.3 Searching and Sorting Arrays, 7.4 2D & ND Arrays. 7.3 follows traversal and aliasing because the search loop reuses the accumulator pattern and sorting a clone reuses the aliasing discussion. Sequence within 7.3: contract, linear search, matching-rule practice, count and largest, library sort and search, why halving is faster, binary search by hand with a boundary-repair practice, insertion sort with a saved-item practice, choosing among the three, product-code practice. The landing page has eight objectives and 28 glossary terms; the homework's search and sort tasks are the independent evidence.
+
+## Legacy Page Development (2026-10-18)
+
+7.1 and 7.2 keep their reading order and headings; each legacy section now has a runnable worked example with interpretation after its explanation, and 7.1 has a guided practice before the defaults section. The command-line material remains a project exercise, with the runnable cells showing the same code on a supplied array.
