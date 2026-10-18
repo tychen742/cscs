@@ -2916,3 +2916,10 @@ nav.bd-links .caption-text a.part-overview-link:focus-visible {
 .bd-content a.reference:not(.image-reference):hover {
     background-color: color-mix(in srgb, var(--pst-color-link, #176de8) 12%, transparent);
 }
+
+/* Chapter landing pages: Chapter Flow links inside the {div} chapter-flow container (book-authoring skill). */
+.chapter-flow a,
+.chapter-flow a:hover,
+.chapter-flow a:focus-visible {
+    text-decoration: none;
+}
