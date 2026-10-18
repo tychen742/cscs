@@ -161,3 +161,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 4.1 (count down by twos), 4.2 (find the first space with break), 4.3 (years to double an investment), and the supporting 4.4 (count the remainder steps). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 4.1 gained a four-column trace table for the opening `for` loop, a runnable `break`/`continue` example with interpretation, and a worked running-total example placed before the Loop Planning Rubric with a table mapping each rubric question to a line of the loop; 4.4 gained a remainder-step trace and a three-method work comparison table. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

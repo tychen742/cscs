@@ -150,3 +150,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Caption-Only Section Development (2026-10-18)
 
 10.3's three worked examples now end with interpretation; order and IDs unchanged.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 10.2 gained a property-forms table (who may read and write each form, and its typical use); 10.3 gained an object diagram of the two registers and a state table over the three `Add` calls; 10.4 gained an Averager state table over the demonstration. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

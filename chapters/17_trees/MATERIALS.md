@@ -114,3 +114,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all four pages: 16 common-mistake paragraphs beside the examples (building below a missing node, non-shrinking recursion, reading a trace top-down, pruning the wrong side, a stack in place of the level-order queue, successor left in place after removal) and interpretation after the exercise solutions, the SortedSet example, the TicketTree opener, and the range-count solution. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 17.4 gained a pruning diagram marking visited and skipped nodes for the 25 to 60 range query and a step-by-step queue table for level order. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

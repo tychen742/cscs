@@ -130,3 +130,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to 3.1 (decide free shipping with a Boolean expression), previously a page with no practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 3.1 gained a runnable `if` example right after the syntax pattern and before the list of statement forms, and a runnable Boolean example in which a comparison produces the stored `bool`. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

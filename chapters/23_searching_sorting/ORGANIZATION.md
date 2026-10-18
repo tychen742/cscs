@@ -120,3 +120,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all five pages: mistakes beside the examples (stopping at equality in boundary search, mismatched sort and search comparers, insertion point read as a match, the naive swap, swapping during the selection scan, shifting on equality, full-width bubble passes, integer-only stability tests, unequal search tasks, reusing one input across algorithms, summing unlike operations, small-n conclusions from growth models, omitting preparation, recommendations by name, gap sequences without 1, non-advancing quicksort scans) and interpretation after the exercise solutions and the result-comparison cells. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 23.4 gained the gap-3 and gap-1 subsequence table the guided trace asks for, with the array state after the gap-3 pass. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

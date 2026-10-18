@@ -135,3 +135,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Caption-Only Section Development (2026-10-18)
 
 11.5 remains a supporting reading; its construct sections now interpret their outputs and the pattern-matching section has a runnable example.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 11.1 gained the reference diagrams its prose asks students to draw (alias versus independent objects, before and after the assignment) and a summary table. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

@@ -145,3 +145,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 2.1 (swap two prices), 2.2 (split a bill with integer division and remainder), and 2.3 (format an order line with composite formatting), pages that previously had no practice or only a final exercise. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 2.2 gained a runnable example that uses an operator from each group, placed before the operator-types catalogue so students meet the symbols in a working line before the reference tables. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.

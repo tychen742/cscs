@@ -157,3 +157,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all four pages: mistakes beside the examples (deriving vertices from edges, counting arcs as degrees, one-direction matrix entries, zero as absence, a missing reverse entry, a matrix for a sparse graph, exposing the internal dictionary, marking on dequeue, forgetting to reverse a path, marking on exit, reading forward reachability as a component, checking only the destination) and interpretation after every code cell that had none, including the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## Visual Support and Part I Shape (2026-10-18)
+
+Pass 6 of the content-development audit (`authoring/content_development_audit/`): 20.1 gained a side-by-side table of undirected and directed terms on the chapter's own examples and the degree list that the handshake check relies on. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
