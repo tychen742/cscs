@@ -226,6 +226,60 @@ document.addEventListener('DOMContentLoaded', function () {
         return { ...extra, ...passHeader };
     }
 
+    // Unsynced edits in the server checkout. Save writes the notebook into the Git working
+    // tree; Sync commits and pushes only what was saved before it was clicked, so anything
+    // saved afterwards stays unsynced (and blocks the deploy workflow's checkout refresh)
+    // until the next Sync. The Sync button shows the count; leaving the page warns.
+    const gitState = { dirty: false, files: [], head: '' };
+    let syncButton = null;
+    let syncBusy = false;
+    let syncMessageTimer = 0;
+
+    function renderSyncButton() {
+        if (!syncButton || syncBusy || syncMessageTimer) return;
+        syncButton.classList.toggle('cscs-author-sync--dirty', gitState.dirty);
+        syncButton.textContent = gitState.dirty ? `Sync (${gitState.files.length} unsynced)` : 'Sync';
+        syncButton.title = gitState.dirty
+            ? `Saved but not yet committed and pushed:\n${gitState.files.join('\n')}`
+            : (gitState.head ? `Server checkout at ${gitState.head}` : '');
+    }
+
+    // A transient message for 4.5 s; the dirty count comes back afterwards.
+    function showSyncMessage(message) {
+        if (!syncButton) return;
+        window.clearTimeout(syncMessageTimer);
+        syncButton.classList.toggle('cscs-author-sync--dirty', gitState.dirty);
+        syncButton.textContent = message;
+        syncMessageTimer = window.setTimeout(() => {
+            syncMessageTimer = 0;
+            renderSyncButton();
+        }, 4500);
+    }
+
+    async function refreshGitStatus() {
+        try {
+            const response = await fetch(`${apiBaseUrl}/v1/admin/git/status`, {
+                headers: await authorHeaders(),
+                cache: 'no-store'
+            });
+            if (!response.ok) return;
+            const result = await response.json();
+            gitState.dirty = Boolean(result.dirty);
+            gitState.files = Array.isArray(result.files) ? result.files : [];
+            gitState.head = result.head || '';
+            renderSyncButton();
+        } catch (error) {
+            console.warn('[cscs authoring] Could not read the server Git status', error);
+        }
+    }
+
+    // gitState is only ever dirty once author mode has asked the API, so readers are unaffected.
+    window.addEventListener('beforeunload', event => {
+        if (!gitState.dirty) return;
+        event.preventDefault();
+        event.returnValue = '';
+    });
+
     async function enableAuthorMode() {
         const path = window.location.pathname
             .replace(/^\//, '')
@@ -436,6 +490,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.add('cscs-author-active');
             document.querySelectorAll('.cscs-markdown-controls').forEach(controls => { controls.hidden = false; });
             addAuthorSaveControl();
+            refreshGitStatus();
         } catch (error) {
             alert(error.message);
         }
@@ -502,6 +557,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!response.ok) throw new Error(result.message || result.error || `Save failed (${response.status})`);
                 save.textContent = 'Saved';
                 closeInlineEditors();
+                refreshGitStatus();
             } catch (error) {
                 save.textContent = error.message || 'Save failed';
             }
@@ -515,7 +571,12 @@ document.addEventListener('DOMContentLoaded', function () {
         sync.type = 'button';
         sync.textContent = 'Sync';
         sync.addEventListener('click', async () => {
+            if (syncBusy) return;
+            syncBusy = true;
+            window.clearTimeout(syncMessageTimer);
+            syncMessageTimer = 0;
             sync.textContent = 'Syncing...';
+            let message;
             try {
                 const response = await fetch(`${apiBaseUrl}/v1/admin/git/sync`, {
                     method: 'POST',
@@ -532,12 +593,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
                 if (!response.ok) throw new Error(result.message || `Sync failed (${response.status})`);
-                sync.textContent = result.head ? `Synced ${result.head}` : 'Synced';
+                const at = result.head ? ` ${result.head}` : '';
+                message = result.committed ? `Committed and pushed${at}` : `Nothing to sync${at ? ` (at${at})` : ''}`;
             } catch (error) {
-                sync.textContent = error.message || 'Sync failed';
+                message = error.message || 'Sync failed';
             }
-            window.setTimeout(() => { sync.textContent = 'Sync'; }, 4500);
+            // Whether it succeeded or not, show what the server checkout holds now.
+            await refreshGitStatus();
+            syncBusy = false;
+            showSyncMessage(message);
         });
+        syncButton = sync;
+        renderSyncButton();
         if (window.thinkpressSession?.user?.publish_books?.includes('cscs')) document.body.appendChild(sync);
         document.querySelectorAll('.cscs-student-copy').forEach(copy => {
             if (copy.querySelector('.cscs-author-copy-save')) return;
