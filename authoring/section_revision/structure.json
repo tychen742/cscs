@@ -1,0 +1,135 @@
+{
+  "orders": {
+    "2": [
+      "chapters/02_var_data/0201_variables_types",
+      "chapters/02_var_data/0204_types_conversion",
+      "chapters/02_var_data/0202_operators_built_in_methods",
+      "chapters/02_var_data/0203_input_output"
+    ],
+    "3": [
+      "chapters/03_decision/0301_intro_decision",
+      "chapters/03_decision/0302_ifstatement"
+    ],
+    "5": [
+      "chapters/05_methods/0501_intro_methods",
+      "chapters/05_methods/0503_parameter",
+      "chapters/05_methods/0502_signature_call",
+      "chapters/05_methods/0504_strings",
+      "chapters/05_methods/0505_summary"
+    ],
+    "7": [
+      "chapters/07_arrays/0701_onedim",
+      "chapters/07_arrays/0703_array_processing",
+      "chapters/07_arrays/0702_twodim"
+    ],
+    "8": [
+      "chapters/08_collections/0801_collections",
+      "chapters/08_collections/0804_collection_operations",
+      "chapters/08_collections/0802_list",
+      "chapters/08_collections/0803_dictionary"
+    ],
+    "9": [
+      "chapters/09_files_text/0901_stream_file",
+      "chapters/09_files_text/0902_file_operations",
+      "chapters/09_files_text/0903_text_operations",
+      "chapters/09_files_text/0906_regex",
+      "chapters/09_files_text/0905_privacy_security"
+    ],
+    "11": [
+      "chapters/11_object_design/1101_objects_references",
+      "chapters/11_object_design/1105_value_record_types",
+      "chapters/11_object_design/1102_composition",
+      "chapters/11_object_design/1103_testing_collaboration",
+      "chapters/11_object_design/1104_nullability"
+    ],
+    "17": [
+      "chapters/17_trees/1701_tree_structure",
+      "chapters/17_trees/1704_tree_traversal",
+      "chapters/17_trees/1702_binary_search_trees",
+      "chapters/17_trees/1703_tree_lab"
+    ],
+    "20": [
+      "chapters/20_graphs/2001_graph_vocabulary",
+      "chapters/20_graphs/2002_adjacency_representations",
+      "chapters/20_graphs/2003_graph_traversal",
+      "chapters/20_graphs/2004_depth_first_components"
+    ],
+    "16": [
+      "chapters/16_searching_sorting/1601_searching",
+      "chapters/16_searching_sorting/1602_basic_sorting"
+    ],
+    "22": [
+      "chapters/22_recursion_divide_conquer/2201_recursion",
+      "chapters/22_recursion_divide_conquer/2203_merge_sort_lab"
+    ],
+    "23": [
+      "chapters/23_searching_sorting/2301_searching",
+      "chapters/23_searching_sorting/2302_sorting",
+      "chapters/23_searching_sorting/2303_comparison_lab",
+      "chapters/23_searching_sorting/2304_advanced_sorts",
+      "chapters/23_searching_sorting/2305_quicksort"
+    ],
+    "24": [
+      "chapters/24_greedy_graph_optimization/2401_greedy_choice",
+      "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths",
+      "chapters/24_greedy_graph_optimization/2404_shortest_paths"
+    ],
+    "25": [
+      "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation",
+      "chapters/25_dynamic_programming_backtracking/2504_optimization_models",
+      "chapters/25_dynamic_programming_backtracking/2502_backtracking"
+    ],
+    "26": [
+      "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings",
+      "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching",
+      "chapters/26_advanced_graphs_strings_limits/2603_limits_project",
+      "chapters/26_advanced_graphs_strings_limits/2601_graph_traversal"
+    ]
+  },
+  "redirects": {
+    "chapters/03_decision/0306_switch": "chapters/03_decision/0302_ifstatement",
+    "chapters/16_searching_sorting/1603_workloads": "chapters/16_searching_sorting/1602_basic_sorting",
+    "chapters/22_recursion_divide_conquer/2202_divide_conquer": "chapters/22_recursion_divide_conquer/2201_recursion",
+    "chapters/24_greedy_graph_optimization/2403_optimization_lab": "chapters/24_greedy_graph_optimization/2404_shortest_paths",
+    "chapters/25_dynamic_programming_backtracking/2503_optimization_lab": "chapters/25_dynamic_programming_backtracking/2504_optimization_models"
+  },
+  "changed": [
+    "chapters/02_var_data/0201_variables_types",
+    "chapters/02_var_data/0204_types_conversion",
+    "chapters/03_decision/0302_ifstatement",
+    "chapters/03_decision/0306_switch",
+    "chapters/05_methods/0501_intro_methods",
+    "chapters/05_methods/0502_signature_call",
+    "chapters/05_methods/0505_summary",
+    "chapters/07_arrays/0701_onedim",
+    "chapters/07_arrays/0703_array_processing",
+    "chapters/08_collections/0801_collections",
+    "chapters/08_collections/0804_collection_operations",
+    "chapters/09_files_text/0901_stream_file",
+    "chapters/09_files_text/0902_file_operations",
+    "chapters/11_object_design/1101_objects_references",
+    "chapters/11_object_design/1105_value_record_types",
+    "chapters/16_searching_sorting/1601_searching",
+    "chapters/16_searching_sorting/1602_basic_sorting",
+    "chapters/16_searching_sorting/1603_workloads",
+    "chapters/17_trees/1701_tree_structure",
+    "chapters/17_trees/1704_tree_traversal",
+    "chapters/20_graphs/2003_graph_traversal",
+    "chapters/20_graphs/2004_depth_first_components",
+    "chapters/22_recursion_divide_conquer/2201_recursion",
+    "chapters/22_recursion_divide_conquer/2202_divide_conquer",
+    "chapters/22_recursion_divide_conquer/2203_merge_sort_lab",
+    "chapters/23_searching_sorting/2304_advanced_sorts",
+    "chapters/23_searching_sorting/2305_quicksort",
+    "chapters/24_greedy_graph_optimization/2401_greedy_choice",
+    "chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths",
+    "chapters/24_greedy_graph_optimization/2403_optimization_lab",
+    "chapters/24_greedy_graph_optimization/2404_shortest_paths",
+    "chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation",
+    "chapters/25_dynamic_programming_backtracking/2502_backtracking",
+    "chapters/25_dynamic_programming_backtracking/2503_optimization_lab",
+    "chapters/25_dynamic_programming_backtracking/2504_optimization_models",
+    "chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings",
+    "chapters/26_advanced_graphs_strings_limits/2604_prefix_matching"
+  ]
+}

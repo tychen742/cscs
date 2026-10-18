@@ -1,0 +1,513 @@
+format: jb-book
+root: index
+parts:
+- caption: Front Matter
+  numbered: false
+  chapters:
+  - file: chapters/front_matter/title_page
+    title: Title Page
+  - file: chapters/front_matter/contents
+    title: Contents
+  - file: chapters/front_matter/chapter_topics
+    title: Chapter Topics
+  - file: chapters/front_matter/preface
+    title: Preface
+- caption: Part I. Fundamentals
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_01_fundamentals
+    title: Part I Overview
+  - file: chapters/01_context/0100_getting_started
+    sections:
+    - file: chapters/01_context/0101_cs_ideas
+    - file: chapters/01_context/0102_computing_responsibility
+    - file: chapters/01_context/0103_program_structure
+    - file: chapters/01_context/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/01_context/assignments/preview
+        title: Preview
+      - file: chapters/01_context/assignments/lab
+        title: Lab
+      - file: chapters/01_context/assignments/homework
+        title: Homework
+      - file: chapters/01_context/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/02_var_data/0200_variables_types
+    sections:
+    - file: chapters/02_var_data/0201_variables_types
+    - file: chapters/02_var_data/0202_operators_built_in_methods
+    - file: chapters/02_var_data/0203_input_output
+    - file: chapters/02_var_data/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/02_var_data/assignments/preview
+        title: Preview
+      - file: chapters/02_var_data/assignments/lab
+        title: Lab
+      - file: chapters/02_var_data/assignments/homework
+        title: Homework
+      - file: chapters/02_var_data/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/03_decision/0300_conditionals
+    sections:
+    - file: chapters/03_decision/0301_intro_decision
+    - file: chapters/03_decision/0302_ifstatement
+    - file: chapters/03_decision/0306_switch
+    - file: chapters/03_decision/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/03_decision/assignments/preview
+        title: Preview
+      - file: chapters/03_decision/assignments/lab
+        title: Lab
+      - file: chapters/03_decision/assignments/homework
+        title: Homework
+      - file: chapters/03_decision/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/04_iteration/0400_iteration
+    sections:
+    - file: chapters/04_iteration/0401_iteration
+    - file: chapters/04_iteration/0402_for_statements
+    - file: chapters/04_iteration/0403_while_statement
+    - file: chapters/04_iteration/0404_gcd
+      title: GCD (Supporting Reading)
+    - file: chapters/04_iteration/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/04_iteration/assignments/preview
+        title: Preview
+      - file: chapters/04_iteration/assignments/lab
+        title: Lab
+      - file: chapters/04_iteration/assignments/homework_gradecalculation
+        title: 'Homework: Grade Calculation'
+      - file: chapters/04_iteration/assignments/homework
+        title: Homework
+      - file: chapters/04_iteration/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/05_methods/0500_methods
+    sections:
+    - file: chapters/05_methods/0501_intro_methods
+    - file: chapters/05_methods/0502_signature_call
+    - file: chapters/05_methods/0503_parameter
+    - file: chapters/05_methods/0504_strings
+    - file: chapters/05_methods/0505_summary
+    - file: chapters/05_methods/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/05_methods/assignments/preview
+        title: Preview
+      - file: chapters/05_methods/assignments/lab
+        title: Lab
+      - file: chapters/05_methods/assignments/homework
+        title: Homework
+      - file: chapters/05_methods/assignments/homework_gradecalculation2
+        title: 'Homework: Grade Calculation 2'
+      - file: chapters/05_methods/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/06_exceptions_testing/0600_exceptions_testing
+    sections:
+    - file: chapters/06_exceptions_testing/0601_error_handling
+    - file: chapters/06_exceptions_testing/0602_debugging_workflow
+    - file: chapters/06_exceptions_testing/0603_testing
+    - file: chapters/06_exceptions_testing/0605_software_responsibility
+      title: Software Failures and Responsibility (Optional Cases)
+    - file: chapters/06_exceptions_testing/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/06_exceptions_testing/assignments/preview
+        title: Preview
+      - file: chapters/06_exceptions_testing/assignments/lab
+        title: Lab
+      - file: chapters/06_exceptions_testing/assignments/homework
+        title: Homework
+      - file: chapters/06_exceptions_testing/assignments/unit_testing_walkthrough
+        title: Testing Walkthrough
+- caption: Part II. Data and I/O
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_02_data_io
+    title: Part II Overview
+  - file: chapters/07_arrays/0700_arrays
+    sections:
+    - file: chapters/07_arrays/0701_onedim
+    - file: chapters/07_arrays/0702_twodim
+    - file: chapters/07_arrays/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/07_arrays/assignments/preview
+        title: Preview
+      - file: chapters/07_arrays/assignments/lab
+        title: Lab
+      - file: chapters/07_arrays/assignments/homework
+        title: Homework
+      - file: chapters/07_arrays/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/08_collections/0800_data_collections
+    sections:
+    - file: chapters/08_collections/0801_collections
+    - file: chapters/08_collections/0802_list
+    - file: chapters/08_collections/0803_dictionary
+    - file: chapters/08_collections/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/08_collections/assignments/preview
+        title: Preview
+      - file: chapters/08_collections/assignments/lab
+        title: Lab
+      - file: chapters/08_collections/assignments/homework
+        title: Homework
+  - file: chapters/09_files_text/0900_files_text
+    sections:
+    - file: chapters/09_files_text/0901_stream_file
+    - file: chapters/09_files_text/0902_file_operations
+    - file: chapters/09_files_text/0903_text_operations
+    - file: chapters/09_files_text/0906_regex
+    - file: chapters/09_files_text/0905_privacy_security
+      title: Privacy and Security in Code (Optional Practice)
+    - file: chapters/09_files_text/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/09_files_text/assignments/preview
+        title: Preview
+      - file: chapters/09_files_text/assignments/lab
+        title: Lab
+      - file: chapters/09_files_text/assignments/hw_gradefiles
+        title: 'Homework: Grade Files'
+      - file: chapters/09_files_text/assignments/homework
+        title: Homework
+      - file: chapters/09_files_text/assignments/privacy_index
+        title: Optional Privacy Practice
+        sections:
+        - file: chapters/09_files_text/assignments/privacy_preview
+          title: Privacy Preview
+        - file: chapters/09_files_text/assignments/privacy_lab
+          title: Privacy Lab
+        - file: chapters/09_files_text/assignments/privacy_homework
+          title: Privacy Homework
+      - file: chapters/09_files_text/assignments/additional_practice
+        title: Extra Practice
+      - file: chapters/09_files_text/assignments/help_responses
+        title: File-Driven Responses
+- caption: Part III. Object-Oriented Programming
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_03_oop
+    title: Part III Overview
+  - file: chapters/10_classes/1000_classes
+    sections:
+    - file: chapters/10_classes/1001_class_syntax
+    - file: chapters/10_classes/1002_properties
+    - file: chapters/10_classes/1003_class_instance
+    - file: chapters/10_classes/1004_averager
+      title: Averager (Supporting Reading)
+    - file: chapters/10_classes/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/10_classes/assignments/preview
+        title: Preview
+      - file: chapters/10_classes/assignments/lab
+        title: Lab
+      - file: chapters/10_classes/assignments/hw_booklist
+        title: 'Homework: Book List'
+      - file: chapters/10_classes/assignments/homework
+        title: Homework
+      - file: chapters/10_classes/assignments/additional_practice
+        title: Extra Practice
+  - file: chapters/11_object_design/1100_object_design
+    sections:
+    - file: chapters/11_object_design/1101_objects_references
+    - file: chapters/11_object_design/1102_composition
+    - file: chapters/11_object_design/1103_testing_collaboration
+    - file: chapters/11_object_design/1104_nullability
+      title: Nullability and Missing Data (Supporting Reading)
+    - file: chapters/11_object_design/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/11_object_design/assignments/preview
+        title: Preview
+      - file: chapters/11_object_design/assignments/lab
+        title: Lab
+      - file: chapters/11_object_design/assignments/homework
+        title: Homework
+  - file: chapters/12_oop/1200_oop_principles
+    sections:
+    - file: chapters/12_oop/1201_inheritance
+    - file: chapters/12_oop/1202_polymorphism
+    - file: chapters/12_oop/1203_interfaces
+    - file: chapters/12_oop/1204_oop_examples
+      title: OOP Examples (Supporting Reading)
+    - file: chapters/12_oop/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/12_oop/assignments/preview
+        title: Preview
+      - file: chapters/12_oop/assignments/lab
+        title: Lab
+      - file: chapters/12_oop/assignments/homework
+        title: Homework
+      - file: chapters/12_oop/assignments/additional_practice
+        title: Extra Practice
+- caption: Part IV. Data Abstraction and Linear Structures
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_04_data_structures
+    title: Part IV Overview
+  - file: chapters/13_abstract_data_types/1300_abstract_data_types
+    sections:
+    - file: chapters/13_abstract_data_types/1301_adt_contracts
+    - file: chapters/13_abstract_data_types/1302_representations_costs
+    - file: chapters/13_abstract_data_types/1303_generics
+    - file: chapters/13_abstract_data_types/1304_iterators
+    - file: chapters/13_abstract_data_types/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/13_abstract_data_types/assignments/preview
+        title: Preview
+      - file: chapters/13_abstract_data_types/assignments/lab
+        title: Lab
+      - file: chapters/13_abstract_data_types/assignments/homework
+        title: Homework
+  - file: chapters/14_arrays_linked_lists/1400_arrays_linked_lists
+    sections:
+    - file: chapters/14_arrays_linked_lists/1401_dynamic_arrays
+    - file: chapters/14_arrays_linked_lists/1402_linked_nodes
+    - file: chapters/14_arrays_linked_lists/1403_comparison_lab
+    - file: chapters/14_arrays_linked_lists/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/14_arrays_linked_lists/assignments/preview
+        title: Preview
+      - file: chapters/14_arrays_linked_lists/assignments/lab
+        title: Lab
+      - file: chapters/14_arrays_linked_lists/assignments/homework
+        title: Homework
+  - file: chapters/15_stacks_queues/1500_stacks_queues
+    sections:
+    - file: chapters/15_stacks_queues/1501_stack
+    - file: chapters/15_stacks_queues/1502_queue_deque
+    - file: chapters/15_stacks_queues/1503_applications_lab
+    - file: chapters/15_stacks_queues/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/15_stacks_queues/assignments/preview
+        title: Preview
+      - file: chapters/15_stacks_queues/assignments/lab
+        title: Lab
+      - file: chapters/15_stacks_queues/assignments/homework
+        title: Homework
+  - file: chapters/16_searching_sorting/1600_searching_sorting
+    sections:
+    - file: chapters/16_searching_sorting/1601_searching
+    - file: chapters/16_searching_sorting/1602_basic_sorting
+    - file: chapters/16_searching_sorting/1603_workloads
+    - file: chapters/16_searching_sorting/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/16_searching_sorting/assignments/preview
+        title: Preview
+      - file: chapters/16_searching_sorting/assignments/lab
+        title: Lab
+      - file: chapters/16_searching_sorting/assignments/homework
+        title: Homework
+- caption: Part V. Trees, Hashing, and Graphs
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_05_trees_hashing_graphs
+    title: Part V Overview
+  - file: chapters/17_trees/1700_trees_bst
+    sections:
+    - file: chapters/17_trees/1701_tree_structure
+    - file: chapters/17_trees/1702_binary_search_trees
+    - file: chapters/17_trees/1703_tree_lab
+    - file: chapters/17_trees/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/17_trees/assignments/preview
+        title: Preview
+      - file: chapters/17_trees/assignments/lab
+        title: Lab
+      - file: chapters/17_trees/assignments/homework
+        title: Homework
+  - file: chapters/18_priority_queues/1800_priority_queues
+    sections:
+    - file: chapters/18_priority_queues/1801_priority_queues
+    - file: chapters/18_priority_queues/1802_heap_implementation
+    - file: chapters/18_priority_queues/1803_priority_applications
+    - file: chapters/18_priority_queues/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/18_priority_queues/assignments/preview
+        title: Preview
+      - file: chapters/18_priority_queues/assignments/lab
+        title: Lab
+      - file: chapters/18_priority_queues/assignments/homework
+        title: Homework
+  - file: chapters/19_hash_collections/1900_hash_collections
+    sections:
+    - file: chapters/19_hash_collections/1901_hashing
+    - file: chapters/19_hash_collections/1902_dictionaries_sets
+    - file: chapters/19_hash_collections/1903_collection_selection
+    - file: chapters/19_hash_collections/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/19_hash_collections/assignments/preview
+        title: Preview
+      - file: chapters/19_hash_collections/assignments/lab
+        title: Lab
+      - file: chapters/19_hash_collections/assignments/homework
+        title: Homework
+  - file: chapters/20_graphs/2000_graphs
+    sections:
+    - file: chapters/20_graphs/2001_graph_vocabulary
+    - file: chapters/20_graphs/2002_adjacency_representations
+    - file: chapters/20_graphs/2003_graph_traversal
+    - file: chapters/20_graphs/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/20_graphs/assignments/preview
+        title: Preview
+      - file: chapters/20_graphs/assignments/lab
+        title: Lab
+      - file: chapters/20_graphs/assignments/homework
+        title: Homework
+- caption: Part VI. Algorithm Analysis and Design
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_06_algorithm_analysis_design
+    title: Part VI Overview
+  - file: chapters/21_algorithm_analysis/2100_algorithm_analysis
+    sections:
+    - file: chapters/21_algorithm_analysis/2101_big_o
+    - file: chapters/21_algorithm_analysis/2102_correctness
+    - file: chapters/21_algorithm_analysis/2103_recurrences
+    - file: chapters/21_algorithm_analysis/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/21_algorithm_analysis/assignments/preview
+        title: Preview
+      - file: chapters/21_algorithm_analysis/assignments/lab
+        title: Lab
+      - file: chapters/21_algorithm_analysis/assignments/homework
+        title: Homework
+  - file: chapters/22_recursion_divide_conquer/2200_recursion_divide_conquer
+    sections:
+    - file: chapters/22_recursion_divide_conquer/2201_recursion
+    - file: chapters/22_recursion_divide_conquer/2202_divide_conquer
+    - file: chapters/22_recursion_divide_conquer/2203_merge_sort_lab
+    - file: chapters/22_recursion_divide_conquer/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/22_recursion_divide_conquer/assignments/preview
+        title: Preview
+      - file: chapters/22_recursion_divide_conquer/assignments/lab
+        title: Lab
+      - file: chapters/22_recursion_divide_conquer/assignments/homework
+        title: Homework
+  - file: chapters/23_searching_sorting/2300_searching_sorting
+    sections:
+    - file: chapters/23_searching_sorting/2301_searching
+    - file: chapters/23_searching_sorting/2302_sorting
+    - file: chapters/23_searching_sorting/2303_comparison_lab
+    - file: chapters/23_searching_sorting/2304_advanced_sorts
+      title: Shell Sort and Quicksort
+    - file: chapters/23_searching_sorting/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/23_searching_sorting/assignments/preview
+        title: Preview
+      - file: chapters/23_searching_sorting/assignments/lab
+        title: Lab
+      - file: chapters/23_searching_sorting/assignments/homework
+        title: Homework
+      - file: chapters/23_searching_sorting/assignments/search_performance
+        title: Search Performance
+- caption: Part VII. Optimization and Computational Limits
+  numbered: true
+  chapters:
+  - file: chapters/parts/part_07_optimization_limits
+    title: Part VII Overview
+  - file: chapters/24_greedy_graph_optimization/2400_greedy_graph_optimization
+    sections:
+    - file: chapters/24_greedy_graph_optimization/2401_greedy_choice
+    - file: chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths
+    - file: chapters/24_greedy_graph_optimization/2403_optimization_lab
+    - file: chapters/24_greedy_graph_optimization/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/24_greedy_graph_optimization/assignments/preview
+        title: Preview
+      - file: chapters/24_greedy_graph_optimization/assignments/lab
+        title: Lab
+      - file: chapters/24_greedy_graph_optimization/assignments/homework
+        title: Homework
+  - file: chapters/25_dynamic_programming_backtracking/2500_dynamic_programming_backtracking
+    sections:
+    - file: chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation
+    - file: chapters/25_dynamic_programming_backtracking/2502_backtracking
+    - file: chapters/25_dynamic_programming_backtracking/2503_optimization_lab
+    - file: chapters/25_dynamic_programming_backtracking/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/25_dynamic_programming_backtracking/assignments/preview
+        title: Preview
+      - file: chapters/25_dynamic_programming_backtracking/assignments/lab
+        title: Lab
+      - file: chapters/25_dynamic_programming_backtracking/assignments/homework
+        title: Homework
+  - file: chapters/26_advanced_graphs_strings_limits/2600_advanced_graphs_strings_limits
+    sections:
+    - file: chapters/26_advanced_graphs_strings_limits/2601_graph_traversal
+    - file: chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings
+    - file: chapters/26_advanced_graphs_strings_limits/2603_limits_project
+    - file: chapters/26_advanced_graphs_strings_limits/assignments/index
+      title: Assignments
+      sections:
+      - file: chapters/26_advanced_graphs_strings_limits/assignments/preview
+        title: Preview
+      - file: chapters/26_advanced_graphs_strings_limits/assignments/lab
+        title: Lab
+      - file: chapters/26_advanced_graphs_strings_limits/assignments/homework
+        title: Homework
+- caption: Appendices
+  numbered: true
+  restart_numbering: true
+  chapters:
+  - file: chapters/appendices/appendix_overview
+    title: Appendices
+  - file: chapters/appendices/resources
+  - file: chapters/appendices/command_line
+    sections:
+    - file: chapters/appendices/development_tools/csharp_setup
+      title: C# Setup and Verification
+    - file: chapters/appendices/development_tools/command_line_basics
+    - file: chapters/appendices/development_tools/editing_tools
+    - file: chapters/appendices/development_tools/interactive_language_environments
+  - file: chapters/appendices/github
+    sections:
+    - file: chapters/appendices/github/professional_practice
+      title: Professional Practice and Attribution
+  - file: chapters/appendices/project
+    sections:
+    - file: chapters/appendices/project/individual_project
+      title: Individual Project
+    - file: chapters/appendices/project/group_project
+      title: Group Project
+    - file: chapters/appendices/project/ai_extension
+      title: AI Application Extension (Optional)
+  - file: chapters/appendices/databases/index
+    title: Databases and Bookstore Inventory
+    sections:
+    - file: chapters/appendices/databases/relational_data_sql
+    - file: chapters/appendices/databases/csharp_sqlite
+    - file: chapters/appendices/databases/bookstore_inventory_lab
+  - file: chapters/appendices/graph_representation_workshop
+    title: Graph Representation Workshop (Optional)
+  - file: chapters/appendices/operator_overloading
+    title: Operator Overloading (Optional)
+  - file: chapters/appendices/cs2023_alignment
+- caption: Index
+  numbered: false
+  chapters:
+  - url: https://cscs.thinkpress.org/genindex.html
+    title: Index

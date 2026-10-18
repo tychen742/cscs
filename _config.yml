@@ -30,6 +30,7 @@ parse:
 
 # Exclude virtualenv and other non-book content
 exclude_patterns:
+  - authoring/**
   - .venv/**
   - _build/**
   - "**/.DS_Store"
@@ -75,6 +76,7 @@ sphinx:
       - custom.css
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
+      - section_anchor_redirects.js
       - front_matter_sidebar.js
       - thinkpress-config.js
       - custom.js

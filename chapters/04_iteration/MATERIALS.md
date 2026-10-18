@@ -46,3 +46,40 @@ GCD remains supporting reading; required loop programs use top-level statements.
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original ABCabc character-code indexed/foreach illustration restored. The incomplete final Additional Iteration Homework question now includes the standalone review’s decrementing-loop program and zero-start follow-up.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Retain three core lessons and GCD support. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0401_iteration.ipynb`: Iteration | Core content | 963 | 10 | 5 |
+| `0402_for_statements.ipynb`: The `for` Statement | Core content | 1,427 | 30 | 9 |
+| `0403_while_statement.ipynb`: While-Statements | Core content | 1,581 | 36 | 8 |
+| `0404_gcd.ipynb`: Greatest Common Divisor | Supporting reading | 2,166 | 19 | 1 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0401` | Retain a conceptual first section; introduce termination and zero/one/many iteration reasoning before syntax comparisons. |
+| `0402` | Retain for/nested-for/foreach comparison with locally introduced string indexing. |
+| `0403` | Keep while/do-while and input/termination together; organize duplicated do-while titles and label the investment/Strange Sequence/roundoff examples as applied cases. |
+| `0404` | Keep the full GCD lesson, all algorithm variants and recursive preview as supporting reading. Do not use the shorter GCD example as a replacement. |
+
+### Development Needed Before Moving Material
+
+Develop loop selection and invariant/state traces; distinguish required fundamentals from optional mathematical cases. No new page is needed simply to meet a three-meeting template.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0401_iteration.ipynb`: Iteration.
+- `0402_for_statements.ipynb`: The `for` Statement.
+- `0403_while_statement.ipynb`: While-Statements.
+- `0404_gcd.ipynb`: Greatest Common Divisor.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

@@ -28,3 +28,38 @@ All 25 completed notebook cells compiled and ran independently without compiler 
 ## Foundation Placement (2026-10-07)
 
 Basic graph traversal now belongs to Chapter 20. `2601_graph_traversal.ipynb` retains its published URL and develops verification contracts; string algorithms, limits, and the network integration lab remain here.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Reframe around string algorithms and limits. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `2601_graph_traversal.ipynb`: Traversal Verification | Supporting reading | 224 | 8 | 0 |
+| `2602_shortest_paths_strings.ipynb`: Shortest Paths and String Matching | Core content | 687 | 21 | 7 |
+| `2603_limits_project.ipynb`: Algorithms and Computational Limits | Core content | 718 | 21 | 5 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `2601` | Keep traversal verification as supporting reading and incorporate its distinct checks in Chapter 20. Preserve the published page and final network-lab connections. |
+| `2602` | Split direct ordinal matching/overlap/empty-pattern contracts from proper borders, prefix preparation, fallback and KMP work counts. Retain the hop/cost contrast as a linked reminder to Chapters 20 and 24, not a separate required algorithm lesson. |
+| `2603` | Retain limits/heuristics/exact-witness verification and final comparison guidance. Project requirements remain in the established appendix/project track. |
+
+### Development Needed Before Moving Material
+
+Develop character-by-character direct/prefix/fallback traces, explain text units and full preparation/output costs, and expand feasibility versus guarantee reasoning. Retain the exact cover counterexample and all boundary witnesses.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `2602_shortest_paths_strings.ipynb`: Direct String Matching and Result Contracts.
+- `2604_prefix_matching.ipynb`: Prefix Reuse and KMP.
+- `2603_limits_project.ipynb`: Algorithms and Computational Limits.
+- `2601_graph_traversal.ipynb`: Traversal Verification.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

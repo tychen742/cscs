@@ -56,3 +56,43 @@ Landing pages and opening explanations explicitly classify arrays as collections
 Preserved the three-section order, prior explanations, original exercise purposes, and existing lab assessment IDs. 0801 now has an explicit reading path, access-pattern visual, and guided selection reasoning. 0802 introduces the basket problem, construction/operation syntax, list-position visual and trace, integer removal variation, actual content displays, guided score filtering, and a called null-safe ReadLines example. 0803 adds key/value mapping, local syntax and update traces, guided safe lookup/update, and a runnable traced word counter alongside the original functions. Sources live in demos/08/word_count/ and are downloadable.
 
 All completed lesson code cells have required imports and independently verified saved output. Existing type-name printing pitfalls remain explicitly illustrated. Homework retains the original review and adds five concept checks and five transfer coding tasks; the malformed Clear/reassignment prompt is repaired as two separate reading alternatives. Preview's append question is disambiguated; the lab's five connected tasks are retained with boundary checks and collection-choice reflection. The three new SVG diagrams have alt text and prose interpretation; tables supply traces and comparison. No lecture deck was added; aligned slides remain pending. The recognition-level family scope and current organization are unchanged.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0801_collections.ipynb`: Data Collections | Core content | 5,337 | 54 | 11 |
+| `0802_list.ipynb`: Lists | Core content | 1,594 | 40 | 23 |
+| `0803_dictionary.ipynb`: Dictionaries | Core content | 1,874 | 36 | 16 |
+
+**Recommendation:** Split the collection overview by instructional role.
+
+0801 contains 5,337 prose words, family orientation, generic notation, operation tables, behavioral demonstrations and reference sharing. The big-idea map should remain first, but the operational development can have its own focused reading.
+
+### Proposed Reading Sequence
+
+1. Collection big ideas, families, and selection.
+2. Shared operations, syntax, traversal, and behavioral comparisons.
+3. Lists.
+4. Dictionaries.
+
+### Adequacy Before Reorganization
+
+The new operations lesson must connect the tables to interpreted behavior. Keep linked lists/sets/stacks/queues/priority queues at recognition level; detailed implementations remain in Chapters 14, 15, 18 and 19.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0801_collections.ipynb`: Collection Families and Selection.
+- `0804_collection_operations.ipynb`: Collection Operations and Behavior.
+- `0802_list.ipynb`: Lists.
+- `0803_dictionary.ipynb`: Dictionaries.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

@@ -59,3 +59,41 @@ Use the restored diagrams/place-value walkthrough within meeting one (35 minutes
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original seven-question conceptual review and mathematics/engineering/empirical CS-thinking discussion restored. Existing responsibility/output assignments remain; Extra Practice adds the original open-ended questions with corrected implementation/address-space premises.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0101_cs_ideas.ipynb`: Computing and Problem Solving | Core content | 2,319 | 27 | 1 |
+| `0102_computing_responsibility.ipynb`: Computing and Professional Responsibility | Core content | 2,796 | 21 | 0 |
+| `0103_program_structure.ipynb`: Your First C# Program and Basic Syntax | Core content | 2,489 | 47 | 12 |
+
+**Recommendation:** Retain; clarify internal reading levels.
+
+The three pages answer different questions: how computing solves problems, what responsible decisions require, and how to run/read a program. Word count alone does not justify combining them.
+
+### Proposed Reading Sequence
+
+1. Computing and problem solving.
+2. Computing and professional responsibility.
+3. First program and basic syntax.
+
+### Adequacy Before Reorganization
+
+Strengthen transitions between development workflow and the first program; use a visible reading path rather than creating separate pages for every platform detail.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0101_cs_ideas.ipynb`: Computing and Problem Solving.
+- `0102_computing_responsibility.ipynb`: Computing and Professional Responsibility.
+- `0103_program_structure.ipynb`: Your First C# Program and Basic Syntax.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

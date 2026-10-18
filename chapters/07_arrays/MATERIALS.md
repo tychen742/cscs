@@ -40,3 +40,35 @@ The final source-list check also retains the original named array, reversal, and
 ## Arrays and Collection Families (2026-10-17)
 
 Landing pages and opening explanations explicitly classify arrays as collections and connect fixed-length indexed storage to lists, dictionaries, sets, and processing-order families. Chapter 7 develops array operations; Chapter 8 compares the broader families. Existing section order, examples, and assessments are unchanged.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Split the one-dimensional array lesson. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0701_onedim.ipynb`: 1D Arrays | Core content | 2,713 | 9 | 0 |
+| `0702_twodim.ipynb`: 2D & ND Arrays | Core content | 1,598 | 13 | 7 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0701` | Split after foundational creation/access/traversal: keep element types, allocation, initialization, defaults and index bounds in the first lesson. Put processing algorithms, arrays passed to methods, aliases and the command-line adder in the second, preserving all original examples. |
+| `0702` | Retain rectangular arrays as the third lesson; keep jagged arrays as an explicitly labeled extension, not a replacement for core rectangular-array explanation. |
+
+### Development Needed Before Moving Material
+
+Develop sum/count/search or transformation traces and guided tasks before the processing page is separated. Explain reference copying before its method-side effects; use command-line tooling as an application rather than the definition of array processing.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0701_onedim.ipynb`: Creating and Accessing Arrays.
+- `0703_array_processing.ipynb`: Processing and Sharing Arrays.
+- `0702_twodim.ipynb`: 2D & ND Arrays.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

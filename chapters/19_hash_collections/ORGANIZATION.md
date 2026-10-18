@@ -14,4 +14,42 @@ Total: 110 minutes. Lab and homework add guided and independent practice.
 
 ## Assignment Roles
 
-Preview checks vocabulary and contracts. Lab contains five connected coding tasks. Homework contains five workplace true/false questions and five standalone coding tasks. Graph traversal is assessed directly; weighted route optimization remains in Part VII.
+Preview checks vocabulary and contracts. Lab contains five connected coding tasks. Homework contains five workplace true/false questions and five standalone coding tasks. Hash/equality contracts, collisions, sets, reconciliation, and coordinated indexes are the direct assessment scope. Graph traversal follows in Chapter 20.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `1901_hashing.ipynb`: Hash Tables, Equality, and Collisions | Core content | 1,158 | 20 | 6 |
+| `1902_dictionaries_sets.ipynb`: Dictionaries, Sets, and Reconciliation | Core content | 454 | 15 | 5 |
+| `1903_collection_selection.ipynb`: Choosing and Coordinating Collections | Core content | 772 | 16 | 5 |
+
+**Recommendation:** Retain hashing, set semantics, and coordination.
+
+Set algebra is not simply a shorter form of dictionary storage, and coordinating multiple indexes has its own consistency contract. The three roles should remain while underdeveloped explanations are expanded.
+
+### Proposed Reading Sequence
+
+1. Hashing, key equality, and collision handling.
+2. Set algebra, frequency counts, and reconciliation.
+3. Selecting and coordinating collection indexes.
+
+### Adequacy Before Reorganization
+
+Add worked collision/deletion/rehash reasoning, equality-policy examples and set membership diagrams. Align assignment-role prose with hashing/reconciliation rather than copied graph-traversal wording.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `1901_hashing.ipynb`: Hash Tables, Equality, and Collisions.
+- `1902_dictionaries_sets.ipynb`: Dictionaries, Sets, and Reconciliation.
+- `1903_collection_selection.ipynb`: Choosing and Coordinating Collections.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

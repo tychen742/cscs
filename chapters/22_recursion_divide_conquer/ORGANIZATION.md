@@ -25,3 +25,39 @@ Wrappers validate public inputs and hide internal ranges. Sort returns a fresh s
 Basic recursive cases and call/return traces now belong to Chapter 17. This optional chapter begins with progress measures and helper contracts before divide-and-conquer design.
 
 The earlier lecture allocation is superseded where it repeats relocated introductory topics. Use that time for contract counterexamples, verification traces, and the chapter’s optional advanced applications. Students complete Chapters 14, 16, and 19 foundations first as relevant.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `2201_recursion.ipynb`: Recursive Problem Solving | Core content | 405 | 15 | 5 |
+| `2202_divide_conquer.ipynb`: Divide-and-Conquer Design | Core content | 661 | 20 | 6 |
+| `2203_merge_sort_lab.ipynb`: Merge Sort Lab | Core content | 558 | 20 | 7 |
+
+**Recommendation:** Combine recursive design; retain merge sort as a full lesson.
+
+2201 is a 405-word bridge after introductory recursion moved to Chapter 17. It naturally precedes the decomposition/range reasoning in 2202. The merge implementation has a separate substantial combining-and-verification role.
+
+### Proposed Reading Sequence
+
+1. Recursive contracts and divide-and-conquer design.
+2. Stable merge sort, verification, and measured work.
+
+### Adequacy Before Reorganization
+
+Expand call/return and half-open/odd-split traces plus the combining step. Two reading sections do not require reducing the original example set or squeezing all teaching into two meetings.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `2201_recursion.ipynb`: Recursive Contracts and Divide-and-Conquer.
+- `2203_merge_sort_lab.ipynb`: Stable Merge Sort and Verification.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

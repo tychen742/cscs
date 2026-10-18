@@ -55,3 +55,38 @@ Verification: all 13 restored code cells compiled independently as .NET 10 conso
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02/ui_helper.zip`). Setup and Git remain in appendices.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Split Variables and Types. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0201_variables_types.ipynb`: Variables and Types | Core content | 3,753 | 58 | 30 |
+| `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods | Core content | 1,858 | 40 | 18 |
+| `0203_input_output.ipynb`: Input and Output | Core content | 2,021 | 40 | 24 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0201` | Split at Types: declarations, var, assignment/state trace, identifiers and literals form the first page; types, concrete type examples and conversion form the second. Keep contextual-keyword, hierarchy and unmanaged-type passages as labeled reference material. |
+| `0202` | Retain operators and built-in calls; use type/conversion prerequisites from the preceding page. Keep bitwise detail as a bounded extension. |
+| `0203` | Retain input/output; consolidate repeated formatting headings internally and label the supplied UI-class workflow and loop-based table output as later supporting applications. |
+
+### Development Needed Before Moving Material
+
+Develop type selection and numeric conversion through worked decisions, not only a hierarchy/table. Each resulting page needs a coherent problem and guided application before any physical split.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0201_variables_types.ipynb`: Variables, Assignment, and State.
+- `0204_types_conversion.ipynb`: Types and Conversion.
+- `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods.
+- `0203_input_output.ipynb`: Input and Output.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

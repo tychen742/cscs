@@ -327,3 +327,29 @@ Removed remaining hover/focus underlines from body links, Previous/Next title el
 ### 2026-10-17: Chapter 8 framework improvement
 
 Improved conceptual framing, syntax scaffolds, worked output/interpretation, variations, guided practice, and independent transfer while retaining the section order and original material. Added three purposeful SVG diagrams, list/dictionary traces, repaired preview/homework defects, and retained five connected lab tasks with boundary checks. Added executable word-counter source/downloads. Full verification and preservation details are recorded in the chapter's authoring review.
+
+### 2026-10-17: Chapter 5 coverage and teaching development
+
+Implemented the five-section coverage plan with contracts, call/return flow,
+parameter copying and scope, decisions/loops in helpers, strings, refactoring,
+and repeatable checks. Relocated lab explanations into lessons while preserving
+application tasks and all original exercise variants. Added four SVG diagrams,
+comparison/trace tables, guided starters and revealed solutions. Preserved the
+original class-based programs as reading references and repaired runnable forms.
+See `authoring/CH05_FRAMEWORK_REVIEW.md` for validation and remaining limits.
+
+### 2026-10-17: Section reorganization and content development
+
+Implemented the 26-chapter section-boundary plan. Published content readings
+change from 88 to 93, including supporting readings; the chapter sequence is
+unchanged. Added topic-specific explanations, worked traces/tables, common
+mistakes and guided variations in 54 readings. Preserved all 2,425 original
+nonempty lesson cells and 554 original lesson code cells under the documented
+heading, reference and footnote normalization. Assignment content, code, IDs and
+outputs remain, with corrected section references in the Methods lab.
+
+Updated planning inventories, landing flows, Chapter Topics, concise sidebar
+labels, five combined-page redirects and 120 moved-heading/label routes. Six
+new runnable examples compile/run independently with expected output. The
+verification report distinguishes these checks from historical checks on
+retained examples. See `authoring/section_revision/README.md`. No deployment.

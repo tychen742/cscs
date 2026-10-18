@@ -13,3 +13,41 @@ No database, inheritance, interfaces, LINQ, or custom equality operators are pre
 ## Struct and Record Introduction (2026-10-17)
 
 1101 adds three independent runnable examples for readonly struct copying/default values, record-class equality/with, and readonly record structs. Microsoft language-reference citations appear in the section footnotes. Existing notebook order and assignments remain unchanged.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Split reference semantics from struct/record design. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `1101_objects_references.ipynb`: Objects, References, and State | Core content | 1,638 | 26 | 8 |
+| `1102_composition.ipynb`: Composition and Object Responsibilities | Core content | 892 | 18 | 5 |
+| `1103_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects | Core content | 928 | 18 | 4 |
+| `1104_nullability.ipynb`: Nullability and Missing Data | Supporting reading | 325 | 10 | 4 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `1101` | Split references/identity/mutation/copy-depth from struct/record/record-struct syntax, defaults, equality and with; teach the first before the second. Keep type-specific shallow-copy cautions beside the corresponding examples. |
+| `1102` | Retain composition and collection ownership; incorporate required/optional reference and constructor-guard explanations from 1104 where they are used. |
+| `1103` | Retain collaboration checks, rejected mutation and refactoring; add missing-data checks tied to the taught contracts. |
+| `1104` | Distribute core nullable value/reference and flow-warning explanation into references and composition. Retain null-operator, pattern and advanced query variants as supporting reading; do not discard any original example. |
+
+### Development Needed Before Moving Material
+
+Expand structs/records beyond a quick syntax comparison and develop null versus empty/zero, annotations versus runtime guards, and shallow-copy consequences before exercises.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `1101_objects_references.ipynb`: References, Identity, and Copying.
+- `1105_value_record_types.ipynb`: Structs, Records, and Data Models.
+- `1102_composition.ipynb`: Composition and Object Responsibilities.
+- `1103_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects.
+- `1104_nullability.ipynb`: Nullability and Missing Data.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

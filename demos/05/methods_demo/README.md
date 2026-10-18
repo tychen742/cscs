@@ -21,3 +21,8 @@ The verification run checks for these results:
 
 - `2 + 3 = 5`.
 - `Old MacDonald had a farm`.
+
+This companion’s `LastFirst` greeting is its own demonstration contract; it is
+not the lab’s lastname-first `LastFirst` answer. The lesson and lab specify that
+separate contract explicitly. For the exact Product Code Report reference, use
+`demos/05/sku_report_lab_solution.cs` and the linked instructor lab walkthrough.

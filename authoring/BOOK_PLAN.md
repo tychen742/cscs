@@ -385,3 +385,14 @@ Part I now runs Computing (1), Variables/Data/Operators (2), Decisions (3), Iter
 Minimal string prerequisites are taught where needed: Chapter 2 introduces strings and library calls; Chapter 3 explains case-sensitive string equality; Chapter 4 introduces Length, zero-based character indexing, and foreach over a string. General cleaning, searching, extraction, immutability, and chaining remain in Section 5.4. Validation-loop labs use exact lowercase y/n responses and explain TryParse/out locally. No early required task depends on later string-processing tools.
 
 The optional function-based Grade Calculation 2 assignment now belongs to Chapter 5. The first Grade Calculation stays with Iteration and explicitly permits top-level code. Existing assessment/cell IDs are independent of displayed numbering. Published old chapter/assignment URLs redirect directly to their new locations.
+
+## Reading Boundaries (2026-10-17)
+
+The 26-chapter sequence is unchanged. Section reorganization implements the
+chapter MATERIALS/ORGANIZATION review: combine related fragments, separate
+distinct substantial learning sequences, and retain supporting readings.
+Reading-page counts are independent of teaching-meeting counts. Full original
+explanations and exercise variants remain, with new worked reasoning and
+guided development in thin lessons. Current paths/order are in `_toc.yml`;
+preservation, online comparisons and verification are in
+`authoring/section_revision/`. Setup and Git remain in the appendices.

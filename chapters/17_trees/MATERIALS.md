@@ -40,3 +40,38 @@ Moved base/recursive cases and call-stack traces from Chapter 22 into `1701_tree
 ## Move Verification (2026-10-07)
 
 The four receiving sections contain 21 completed cells. Each compiled and ran in an isolated namespace with its own setup under .NET 10; completed exercise answers retain captured stdout. Intentional student starters were excluded. The full Jupyter Book build passed with the five previously recorded warnings outside these chapters. New content pages and prerequisite links are included in the TOC and rendered output. Slides remain pending.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Split the initial tree/recursion/traversal lesson. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `1701_tree_structure.ipynb`: Tree Structure and Traversal | Core content | 1,380 | 29 | 8 |
+| `1702_binary_search_trees.ipynb`: Binary Search Trees | Core content | 1,686 | 29 | 9 |
+| `1703_tree_lab.ipynb`: Tree Implementation Lab | Core content | 864 | 17 | 6 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `1701` | Split vocabulary/recursive shape/base and recursive cases from traversal orders/returned aggregation/height and work-space traces; keep recursion before recursive BST operations. |
+| `1702` | Retain BST search/insertion/removal and duplicate policies; treat deletion as a substantial developed subsection with all root/successor cases. |
+| `1703` | Retain range pruning, level order and model verification as content, with applied guided work separate from the assignments lab. |
+
+### Development Needed Before Moving Material
+
+Expand stack-frame traces and connect visits versus returned values. Four reading pages can support three meetings; do not cut deletion cases to fit the meeting count.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `1701_tree_structure.ipynb`: Tree Structure and Recursive Models.
+- `1704_tree_traversal.ipynb`: Tree Traversal, Returned Values, and Costs.
+- `1702_binary_search_trees.ipynb`: Binary Search Trees.
+- `1703_tree_lab.ipynb`: Tree Queries and Verification.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

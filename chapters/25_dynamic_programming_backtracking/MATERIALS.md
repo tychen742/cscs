@@ -17,8 +17,42 @@ orphan: true
 
 Fibonacci accepts 0..92 and uses checked long arithmetic; naive recursion is capped at 25. Minimum coins accepts unlimited positive denominations (duplicates normalized), targets 0..1,000,000, and null count for unreachable targets. Zero uses an empty valid witness. One-use subset search preserves distinct positions, supports signed int values and long targets, and returns null only for proven infeasibility. It accepts up to 128 positions and an explicit call budget, default one million; exhausting it throws with feasibility unknown. Bounds sum suffix negatives and positives. Enumeration snapshots position arrays; materialized subsets are capped at 16 positions and permutations at eight. Empty input has one empty subset and one empty permutation.
 
-The chapter follows recursion/analysis and greedy counterexamples. Amount-level exploration is used only as a small reference here; systematic BFS/DFS and broader algorithm limits belong to Chapter 26. Slides remain a deferred Press task: student HTML/PDF and instructor-only PPTX.
+The chapter follows recursion/analysis and greedy counterexamples. Amount-level exploration is used only as a small reference here; systematic BFS/DFS is taught in Chapter 20; broader algorithm limits belong to Chapter 26. Slides remain a deferred Press task: student HTML/PDF and instructor-only PPTX.
 
 ## Verification — 2026-10-05
 
 All 26 completed notebook cells compiled and ran independently; 13 hidden answers retain verified stdout. All 30 implementation copies match the downloadable verified classes. Reference checks passed 600 coin instances, 600 signed subset instances (each compared with three search variants), all 93 supported Fibonacci values, positional enumeration cardinality/uniqueness, snapshot independence, and boundary/input/resource guards. The full-book HTML build passed with five existing warnings outside Chapter 25. Six browser Runs passed: naive/memo counts, zero and upper Fibonacci boundary, minimum-coin reconstruction/unreachable quantity, signed wide-sum search with an honest budget limit, duplicate-label positional permutations, and the final lab comparison. The last instance measured 8,191 raw calls, 3,431 with safe bounds, and 85 with memoization; these are instance-specific measurements.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Split DP foundations from optimization modeling; integrate verification. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `2501_memoization_tabulation.ipynb`: Memoization and Tabulation | Core content | 779 | 21 | 6 |
+| `2502_backtracking.ipynb`: Backtracking and Search Spaces | Core content | 793 | 21 | 7 |
+| `2503_optimization_lab.ipynb`: Dynamic Programming and Backtracking Lab | Core content | 476 | 21 | 6 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `2501` | Split before Minimum Coins: Fibonacci/cache/table/rolling-state reasoning forms foundations; coin-state recurrence, unreachable states, reconstruction and state-size costs form optimization modeling. |
+| `2502` | Retain backtracking/undo/snapshots and signed one-use subset state, safe pruning and memoization; keep positional permutations as a developed application or labeled extension. |
+| `2503` | Distribute optimum/witness checks into the corresponding DP/backtracking lessons and preserve inventory comparisons, exhaustive references and final recommendation as synthesis. |
+
+### Development Needed Before Moving Material
+
+Develop tables and decision/reconstruction traces, explain state sufficiency and optimal substructure, and contrast unlimited packs with one-use positions. Preserve every boundary and resource-limit policy.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `2501_memoization_tabulation.ipynb`: Memoization, Tabulation, and Repeated Work.
+- `2504_optimization_models.ipynb`: Optimization States and Reconstructed Solutions.
+- `2502_backtracking.ipynb`: Backtracking, Pruning, and Search States.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

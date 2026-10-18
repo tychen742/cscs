@@ -44,3 +44,36 @@ Now Chapter 3, before Iteration and Methods. Active lessons and the connected pa
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original Congress three-way conclusion added alongside the independent eligibility booleans. The original return-fragment variants are fully retained in Methods Extra Practice because user-defined methods follow this chapter.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Combine Switch with selection forms. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0301_intro_decision.ipynb`: Boolean Expressions & Logical Operators | Core content | 1,045 | 16 | 4 |
+| `0302_ifstatement.ipynb`: Conditional (`if`) Statements | Core content | 1,336 | 25 | 6 |
+| `0306_switch.ipynb`: Switch Statement | Core content | 249 | 9 | 2 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0301` | Retain Boolean/compound-expression reasoning as the first section. |
+| `0302` | Retain all if/else and nested variations; organize duplicate else-if/nesting headings into a developed progression, not deletion. |
+| `0306` | Combine switch/default/break into the selection lesson after multi-way if; add a same-rule comparison, fall-through restrictions and boundary checks. Preserve its old URL. |
+
+### Development Needed Before Moving Material
+
+Expand switch explanation and decision-table practice before merging; combining three short descriptions is not adequate instruction by itself.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0301_intro_decision.ipynb`: Boolean Expressions & Logical Operators.
+- `0302_ifstatement.ipynb`: Conditional Selection with if and switch.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

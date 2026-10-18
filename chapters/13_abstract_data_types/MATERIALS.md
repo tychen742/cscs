@@ -48,3 +48,40 @@ The four receiving sections contain 21 completed cells. Each compiled and ran in
 ## Prerequisite Bridge
 
 The generics lesson distinguishes IComparer<T> ordering from IEqualityComparer<T> identity, explains consistent hashing, and introduces the small lambda/LINQ forms read later. Group this bridge with the iterator lesson within the existing 110-minute plan.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Retain four roles; develop the foundations. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `1301_adt_contracts.ipynb`: ADT Contracts | Core content | 382 | 14 | 1 |
+| `1302_representations_costs.ipynb`: Representations and Costs | Core content | 683 | 17 | 3 |
+| `1303_generics.ipynb`: Generics for Reusable ADTs | Core content | 556 | 14 | 6 |
+| `1304_iterators.ipynb`: Iterators | Core content | 541 | 9 | 2 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `1301` | Expand the contract/client boundary before implementation is shown. |
+| `1302` | Retain representation diagrams, array/linked alternatives and basic counts/Big-O; do not shift all cost explanation to Chapter 21. |
+| `1303` | Retain authoring generic types and constraints. Develop comparer/equality policy carefully and label lambda/LINQ syntax as a prerequisite bridge, not an unexplained prerequisite to the first generic class. |
+| `1304` | Retain a dedicated iterator lesson with construction, MoveNext/yield trace and laziness; connect it to the same ADT. |
+
+### Development Needed Before Moving Material
+
+Use one contract across client, alternate representations, generic implementation and enumeration. Add worked transitions and counterexamples before independent implementation.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `1301_adt_contracts.ipynb`: ADT Contracts.
+- `1302_representations_costs.ipynb`: Representations and Costs.
+- `1303_generics.ipynb`: Generics for Reusable ADTs.
+- `1304_iterators.ipynb`: Iterators.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

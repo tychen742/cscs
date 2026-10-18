@@ -59,3 +59,44 @@ The generics lesson distinguishes IComparer<T> ordering from IEqualityComparer<T
 ## Assignment Refresh
 
 The lab implements one generic undo-history contract. Each coding task supplies all setup and types. Homework transfers empty, value-type, snapshot, and success-signal contracts; hidden solutions retain verified outputs.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `1301_adt_contracts.ipynb`: ADT Contracts | Core content | 382 | 14 | 1 |
+| `1302_representations_costs.ipynb`: Representations and Costs | Core content | 683 | 17 | 3 |
+| `1303_generics.ipynb`: Generics for Reusable ADTs | Core content | 556 | 14 | 6 |
+| `1304_iterators.ipynb`: Iterators | Core content | 541 | 9 | 2 |
+
+**Recommendation:** Retain four roles; develop the foundations.
+
+Contracts, representations, generics and iterators are distinct foundations for CS2. Their low counts do not make them redundant; merging them now would conceal missing development.
+
+### Proposed Reading Sequence
+
+1. ADT behavior and contracts.
+2. Representations, invariants, and elementary costs.
+3. Defining reusable generic types and policies.
+4. Iteration contracts and lazy traversal.
+
+### Adequacy Before Reorganization
+
+Use one contract across client, alternate representations, generic implementation and enumeration. Add worked transitions and counterexamples before independent implementation.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `1301_adt_contracts.ipynb`: ADT Contracts.
+- `1302_representations_costs.ipynb`: Representations and Costs.
+- `1303_generics.ipynb`: Generics for Reusable ADTs.
+- `1304_iterators.ipynb`: Iterators.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

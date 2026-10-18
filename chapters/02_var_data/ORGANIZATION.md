@@ -43,3 +43,43 @@ Section 2.1 adds the original step-by-step variable state table and independentl
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02/ui_helper.zip`). Setup and Git remain in appendices.
+
+## Section-Boundary Review (2026-10-17)
+
+**Status: implemented.** The following records the reviewed recommendation and its baseline. See Implemented Reading Organization below for the final current filenames and order; earlier meeting allocations are historical where they conflict.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0201_variables_types.ipynb`: Variables and Types | Core content | 3,753 | 58 | 30 |
+| `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods | Core content | 1,858 | 40 | 18 |
+| `0203_input_output.ipynb`: Input and Output | Core content | 2,021 | 40 | 24 |
+
+**Recommendation:** Split Variables and Types.
+
+0201 combines changing variable state with a substantial type taxonomy and conversion lesson. These are distinct beginner reasoning tasks. 0202 and 0203 already provide separate application roles.
+
+### Proposed Reading Sequence
+
+1. Variables, assignment, and state.
+2. Types, representation, and conversion.
+3. Operators and built-in calls.
+4. Console input and formatted output.
+
+### Adequacy Before Reorganization
+
+Develop type selection and numeric conversion through worked decisions, not only a hierarchy/table. Each resulting page needs a coherent problem and guided application before any physical split.
+
+Reading sections and class meetings are different units; allocate discussion and practice after developing adequate explanations. Do not reduce distinct material to meet a section or word quota.
+
+Preserve every existing explanation, exercise variation and assessment identity. The source-to-destination dispositions in MATERIALS.md govern any later move. Update TOC, links and redirects only in an authorized implementation pass.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0201_variables_types.ipynb`: Variables, Assignment, and State.
+- `0204_types_conversion.ipynb`: Types and Conversion.
+- `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods.
+- `0203_input_output.ipynb`: Input and Output.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

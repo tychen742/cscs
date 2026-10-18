@@ -1,0 +1,503 @@
+{
+  "1": {
+    "action": "Retain; clarify internal reading levels",
+    "target": 3,
+    "priority": "Later",
+    "sequence": [
+      "Computing and problem solving",
+      "Computing and professional responsibility",
+      "First program and basic syntax"
+    ],
+    "reason": "The three pages answer different questions: how computing solves problems, what responsible decisions require, and how to run/read a program. Word count alone does not justify combining them.",
+    "moves": {
+      "0101": "Keep IPO, algorithms, workflow, and execution together; explicitly distinguish binary/address-width/runtime reference passages from the first conceptual reading.",
+      "0102": "Retain its conceptual case sequence; do not merge responsibility into a syntax lesson.",
+      "0103": "Retain first edit/build/run and basic syntax; keep installation and Git in Appendices B and C."
+    },
+    "gaps": "Strengthen transitions between development workflow and the first program; use a visible reading path rather than creating separate pages for every platform detail.",
+    "support": []
+  },
+  "2": {
+    "action": "Split Variables and Types",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "Variables, assignment, and state",
+      "Types, representation, and conversion",
+      "Operators and built-in calls",
+      "Console input and formatted output"
+    ],
+    "reason": "0201 combines changing variable state with a substantial type taxonomy and conversion lesson. These are distinct beginner reasoning tasks. 0202 and 0203 already provide separate application roles.",
+    "moves": {
+      "0201": "Split at Types: declarations, var, assignment/state trace, identifiers and literals form the first page; types, concrete type examples and conversion form the second. Keep contextual-keyword, hierarchy and unmanaged-type passages as labeled reference material.",
+      "0202": "Retain operators and built-in calls; use type/conversion prerequisites from the preceding page. Keep bitwise detail as a bounded extension.",
+      "0203": "Retain input/output; consolidate repeated formatting headings internally and label the supplied UI-class workflow and loop-based table output as later supporting applications."
+    },
+    "gaps": "Develop type selection and numeric conversion through worked decisions, not only a hierarchy/table. Each resulting page needs a coherent problem and guided application before any physical split.",
+    "support": []
+  },
+  "3": {
+    "action": "Combine Switch with selection forms",
+    "target": 2,
+    "priority": "High",
+    "sequence": [
+      "Boolean expressions and decision reasoning",
+      "Selection with if, else-if, nested conditions, and switch"
+    ],
+    "reason": "The 249-word switch page describes a related selection form but does not develop an independent problem. Combining it with conditional selection supports direct comparison. Boolean reasoning remains a separate prerequisite.",
+    "moves": {
+      "0301": "Retain Boolean/compound-expression reasoning as the first section.",
+      "0302": "Retain all if/else and nested variations; organize duplicate else-if/nesting headings into a developed progression, not deletion.",
+      "0306": "Combine switch/default/break into the selection lesson after multi-way if; add a same-rule comparison, fall-through restrictions and boundary checks. Preserve its old URL."
+    },
+    "gaps": "Expand switch explanation and decision-table practice before merging; combining three short descriptions is not adequate instruction by itself.",
+    "support": []
+  },
+  "4": {
+    "action": "Retain three core lessons and GCD support",
+    "target": 3,
+    "priority": "Medium",
+    "sequence": [
+      "Iteration models and loop planning",
+      "Counted loops, traversal, and nested repetition",
+      "Condition-controlled loops, input, and termination"
+    ],
+    "reason": "Planning repetition, counted traversal, and condition-controlled repetition have different instructional roles. The complete GCD lesson is a supporting case, not a fourth required meeting.",
+    "moves": {
+      "0401": "Retain a conceptual first section; introduce termination and zero/one/many iteration reasoning before syntax comparisons.",
+      "0402": "Retain for/nested-for/foreach comparison with locally introduced string indexing.",
+      "0403": "Keep while/do-while and input/termination together; organize duplicated do-while titles and label the investment/Strange Sequence/roundoff examples as applied cases.",
+      "0404": "Keep the full GCD lesson, all algorithm variants and recursive preview as supporting reading. Do not use the shorter GCD example as a replacement."
+    },
+    "gaps": "Develop loop selection and invariant/state traces; distinguish required fundamentals from optional mathematical cases. No new page is needed simply to meet a three-meeting template.",
+    "support": [
+      "0404"
+    ]
+  },
+  "5": {
+    "action": "Redistribute the overloaded design lesson",
+    "target": 5,
+    "priority": "High",
+    "sequence": [
+      "Decomposition, definitions, and calls",
+      "Parameters, scope, and local state",
+      "Returned results, contracts, and return paths",
+      "String methods and composed transformations",
+      "Method composition, refactoring, and checks"
+    ],
+    "reason": "0502 mixes initial definition/call mechanics with returned-value reasoning and contract checks. Meanwhile 0505 repeats syntax/scope reference material. Redistributing those topics yields five focused lessons without adding a sixth.",
+    "moves": {
+      "0501": "Combine the definition/header and first-call material from 0502 with the existing decomposition problem.",
+      "0502": "Split its conceptual jobs: send definition/call basics to the first lesson; retain returned expressions, LastFirst, formatted results, print-versus-return, decisions and AI review in the returned-result lesson. Teach parameters before this in the proposed reading order.",
+      "0503": "Retain parameter binding, scope/value-copy, loop helpers, and interaction separation as the parameter/state lesson.",
+      "0504": "Retain a dedicated string lesson; strengthen its sustained transformation problem.",
+      "0505": "Distribute repeated definition/call/scope/static reference explanations next to their teaching points, preserving their distinct examples. Keep the checkout refactoring and tests as the final synthesis lesson."
+    },
+    "gaps": "Add fuller method-boundary design reasoning, Boolean-returning helpers, argument-expression/type variations, and multi-step string reasoning. This plan does not declare the recent revision fully adequate.",
+    "support": []
+  },
+  "6": {
+    "action": "Retain distinct lessons; expand two thin ones",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Validation and recoverable exceptions",
+      "Systematic debugging",
+      "Repeatable tests and a unit-test workflow"
+    ],
+    "reason": "Validation/recovery, diagnosing a defect, and testing a contract are different skills. The 280-word and 313-word pages need teaching development, not consolidation that hides missing instruction.",
+    "moves": {
+      "0601": "Keep validation versus exceptions, TryParse/null checks, specific try/catch and throwing; treat file I/O as a forward-linked preview until Chapter 9, not an unexplained prerequisite.",
+      "0602": "Retain a complete reproducible debugging case with hypotheses, breakpoint/step/watch observations, repair and regression check.",
+      "0603": "Retain unit testing; develop the project workflow from content before the lab. Use the preserved unit_testing_walkthrough assignment as a source for prerequisite explanations, while retaining all lab tasks.",
+      "0605": "Keep software-failure/responsibility cases optional and linked to the relevant testing principles."
+    },
+    "gaps": "Add interpreted error examples, validation/failure-policy comparisons and an actual debugging walkthrough. The large testing page is not evidence that the other two lessons are adequate.",
+    "support": [
+      "0605"
+    ]
+  },
+  "7": {
+    "action": "Split the one-dimensional array lesson",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Arrays as fixed-length indexed collections",
+      "Processing arrays, method arguments, and shared references",
+      "Rectangular multidimensional arrays"
+    ],
+    "reason": "0701 moves from declaration/indexing to command-line parameters and reference aliasing. Creating/accessing a collection and reasoning about processing/sharing it deserve separate teaching sequences.",
+    "moves": {
+      "0701": "Split after foundational creation/access/traversal: keep element types, allocation, initialization, defaults and index bounds in the first lesson. Put processing algorithms, arrays passed to methods, aliases and the command-line adder in the second, preserving all original examples.",
+      "0702": "Retain rectangular arrays as the third lesson; keep jagged arrays as an explicitly labeled extension, not a replacement for core rectangular-array explanation."
+    },
+    "gaps": "Develop sum/count/search or transformation traces and guided tasks before the processing page is separated. Explain reference copying before its method-side effects; use command-line tooling as an application rather than the definition of array processing.",
+    "support": []
+  },
+  "8": {
+    "action": "Split the collection overview by instructional role",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "Collection big ideas, families, and selection",
+      "Shared operations, syntax, traversal, and behavioral comparisons",
+      "Lists",
+      "Dictionaries"
+    ],
+    "reason": "0801 contains 5,337 prose words, family orientation, generic notation, operation tables, behavioral demonstrations and reference sharing. The big-idea map should remain first, but the operational development can have its own focused reading.",
+    "moves": {
+      "0801": "Split conceptual orientation (purpose, family map, access patterns and choosing a collection) from operations/typed construction, worked family comparisons, traversal and shared references. Retain the cited family table and the cross-family operation tables, not merely links to later chapters.",
+      "0802": "Retain List<T> development and its original variations; use the preceding operation lesson as a bridge.",
+      "0803": "Retain Dictionary<TKey,TValue>, safe access/update and word-counter development. Keep word counting here as an applied composition case."
+    },
+    "gaps": "The new operations lesson must connect the tables to interpreted behavior. Keep linked lists/sets/stacks/queues/priority queues at recognition level; detailed implementations remain in Chapters 14, 15, 18 and 19.",
+    "support": []
+  },
+  "9": {
+    "action": "Recombine file basics; integrate thin regex orientation",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "File model and basic reading/writing",
+      "Paths, streaming workflows, failure handling, and cleanup",
+      "Text records, validation, and pattern-based processing"
+    ],
+    "reason": "0901 introduces File operations that overlap 0902, while 0902 has competing top-level titles. 0903 and the 297-word regex page need a connected text-processing development rather than two thin API tours.",
+    "moves": {
+      "0901": "Combine streams/file lifecycle and simple File-class operations with initial read/write material from 0902.",
+      "0902": "Split its duties: basic read/write joins file foundations; StreamReader/Writer lifecycle, paths/directories and failure/cleanup form the workflow lesson. Preserve all examples and path variants.",
+      "0903": "Retain text tokenization/schema validation and AI import review as the final core lesson; integrate a small regex-versus-string comparison after the same text problem is understood.",
+      "0906": "Use the introductory regex explanations in the text lesson; retain the full regex examples/groups/replacement practice as a linked supporting reading at the existing URL. Expand that reading if it is later taught independently.",
+      "0905": "Keep privacy/security and legacy privacy assessments as optional reinforcement."
+    },
+    "gaps": "Develop malformed-record handling, partial processing, resource cleanup and a sustained worked import. Do not let moving regex examples substitute for explanation of patterns and groups.",
+    "support": [
+      "0905",
+      "0906"
+    ]
+  },
+  "10": {
+    "action": "Retain core progression and Averager support",
+    "target": 3,
+    "priority": "Medium",
+    "sequence": [
+      "Classes, objects, and construction",
+      "Controlled state through properties and behavior",
+      "Independent instances, state traces, and model checks"
+    ],
+    "reason": "Class construction, encapsulation, and tracing state through clients have distinct purposes. The retained Averager is supporting development of the same ideas, not an additional required introductory lesson.",
+    "moves": {
+      "1001": "Retain class/object/construction foundations; label tuple alternatives as a bounded comparison after students understand the class contract.",
+      "1002": "Retain getters/setters/this/ToString and develop their connection to valid state rather than merging with syntax.",
+      "1003": "Retain the CashRegister progression and original Statistics/constructor/state variations.",
+      "1004": "Keep the complete Example and Averager development as supporting reading; cross-link its getter/setter/alias explanations at the relevant core concepts without deleting the source lesson."
+    },
+    "gaps": "Use identity/reference and constructor state traces consistently. Preserve the full old development alongside the newer business examples.",
+    "support": [
+      "1004"
+    ]
+  },
+  "11": {
+    "action": "Split reference semantics from struct/record design",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "References, identity, mutation, and copying",
+      "Structs, records, and selecting a data model",
+      "Composition, ownership, and optional relationships",
+      "Testing collaborating objects"
+    ],
+    "reason": "1101 now teaches both reference/alias semantics and several new type forms. A proper struct/record introduction has its own syntax, copy/equality reasoning and selection decisions. The short nullability page should support relevant object contracts rather than stand alone as another required meeting.",
+    "moves": {
+      "1101": "Split references/identity/mutation/copy-depth from struct/record/record-struct syntax, defaults, equality and with; teach the first before the second. Keep type-specific shallow-copy cautions beside the corresponding examples.",
+      "1102": "Retain composition and collection ownership; incorporate required/optional reference and constructor-guard explanations from 1104 where they are used.",
+      "1103": "Retain collaboration checks, rejected mutation and refactoring; add missing-data checks tied to the taught contracts.",
+      "1104": "Distribute core nullable value/reference and flow-warning explanation into references and composition. Retain null-operator, pattern and advanced query variants as supporting reading; do not discard any original example."
+    },
+    "gaps": "Expand structs/records beyond a quick syntax comparison and develop null versus empty/zero, annotations versus runtime guards, and shallow-copy consequences before exercises.",
+    "support": [
+      "1104"
+    ]
+  },
+  "12": {
+    "action": "Retain the three conceptual boundaries",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Inheritance and substitution",
+      "Runtime dispatch and abstract classes",
+      "Interfaces and interchangeable collaborators"
+    ],
+    "reason": "The three core pages are short but represent different reasoning tasks. Combining them would obscure substitution, dynamic dispatch and capability contracts rather than solve underdevelopment.",
+    "moves": {
+      "1201": "Retain inheritance/substitution and constructor chaining; develop traces through base and derived objects.",
+      "1202": "Retain override/overload/hiding distinctions and abstract classes; use restored contrasting cases alongside the current policies.",
+      "1203": "Retain interface/client collaboration and test doubles; develop the design choice among composition, interfaces and base classes.",
+      "1204": "Keep all original OOP examples and variations as supporting reading; link each case at its prerequisite rather than turning the entire bank into a fourth core meeting."
+    },
+    "gaps": "Add slower worked client-call reasoning, common failures and guided design comparisons. Supporting examples do not replace core explanation.",
+    "support": [
+      "1204"
+    ]
+  },
+  "13": {
+    "action": "Retain four roles; develop the foundations",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "ADT behavior and contracts",
+      "Representations, invariants, and elementary costs",
+      "Defining reusable generic types and policies",
+      "Iteration contracts and lazy traversal"
+    ],
+    "reason": "Contracts, representations, generics and iterators are distinct foundations for CS2. Their low counts do not make them redundant; merging them now would conceal missing development.",
+    "moves": {
+      "1301": "Expand the contract/client boundary before implementation is shown.",
+      "1302": "Retain representation diagrams, array/linked alternatives and basic counts/Big-O; do not shift all cost explanation to Chapter 21.",
+      "1303": "Retain authoring generic types and constraints. Develop comparer/equality policy carefully and label lambda/LINQ syntax as a prerequisite bridge, not an unexplained prerequisite to the first generic class.",
+      "1304": "Retain a dedicated iterator lesson with construction, MoveNext/yield trace and laziness; connect it to the same ADT."
+    },
+    "gaps": "Use one contract across client, alternate representations, generic implementation and enumeration. Add worked transitions and counterexamples before independent implementation.",
+    "support": []
+  },
+  "14": {
+    "action": "Retain representation-to-comparison sequence",
+    "target": 3,
+    "priority": "Medium",
+    "sequence": [
+      "Dynamic arrays",
+      "Linked representations",
+      "Comparing representations under the same contract"
+    ],
+    "reason": "The two implementation lessons and the comparison lesson have distinct outcomes. The comparison page contains instruction, so its Lab title should not cause explanations to be moved out of content.",
+    "moves": {
+      "1401": "Retain dynamic-array invariants, growth/shifts and amortized derivation.",
+      "1402": "Retain linked updates/endpoints, lost-link/cycle reasoning and doubly linked contrast.",
+      "1403": "Keep cost/workload/contract-testing explanations in content; treat its tasks as guided practice and use a future navigation title such as Representation Tradeoffs. Keep the separate assignments lab."
+    },
+    "gaps": "Preserve the workload comparison and all implementation variants; clarify navigation/lesson-versus-assignment roles. Remove stale planning claims that search remains in Chapter 14; the core search lesson is Chapter 16.",
+    "support": []
+  },
+  "15": {
+    "action": "Retain; organize queue complexity internally",
+    "target": 3,
+    "priority": "Medium",
+    "sequence": [
+      "Stack behavior and implementation",
+      "Queues, ring buffers, and deque tradeoffs",
+      "Access policies, undo/redo, and worklist applications"
+    ],
+    "reason": "LIFO, FIFO and applied policy selection form a coherent sequence. Queue/ring/deque details need layered development, but the current short page should be developed before considering another notebook.",
+    "moves": {
+      "1501": "Retain stack contracts, implementation and delimiter reasoning.",
+      "1502": "Use internal subsections to distinguish queue contract, ring representation, wraparound/growth and deque contrast. If future full deque implementation becomes required, reassess a separate page then.",
+      "1503": "Retain undo/redo, discovery/fairness and verification instruction as content; a future title such as Access Policies and Applications avoids confusing it with assignments/lab."
+    },
+    "gaps": "Develop ring-state traces and the relationship between logical and physical order. Do not combine stacks and queues merely because both restrict access.",
+    "support": []
+  },
+  "16": {
+    "action": "Combine workload material into two developed lessons",
+    "target": 2,
+    "priority": "High",
+    "sequence": [
+      "Search contracts, traces, and repeated queries",
+      "Ordering, insertion sort, and safe reporting workloads"
+    ],
+    "reason": "1603 applies the searches and sorting already introduced; its 513 words work as synthesis within those two lessons. The result should be two full lessons, not a thin chapter compressed into fewer pages.",
+    "moves": {
+      "1601": "Retain linear/binary search; incorporate repeated-query preparation/update comparisons from 1603 after developing result contracts and ordered-input requirements.",
+      "1602": "Retain insertion sort and ordering; incorporate reporting snapshots, comparer consistency, boundary matrices and guided report task from 1603.",
+      "1603": "Distribute its explanations and exercises into the preceding lessons, preserving the cross-cutting end-to-end report comparison as the closing case. Preserve the published URL."
+    },
+    "gaps": "Expand successful/missing/duplicate search traces, insertion movement, sorted-prefix reasoning and independent order/preservation checks before consolidation. These are core CS2 lessons, not optional advanced prerequisites.",
+    "support": []
+  },
+  "17": {
+    "action": "Split the initial tree/recursion/traversal lesson",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "Tree structure and recursive modeling",
+      "Traversal orders, call/return traces, and costs",
+      "BST contracts and complete updates",
+      "Applied queries and independent verification"
+    ],
+    "reason": "1701 introduces tree vocabulary, first recursion, traversal timing and height/space costs in one page. First encountering recursive control flow deserves space before comparing traversal algorithms.",
+    "moves": {
+      "1701": "Split vocabulary/recursive shape/base and recursive cases from traversal orders/returned aggregation/height and work-space traces; keep recursion before recursive BST operations.",
+      "1702": "Retain BST search/insertion/removal and duplicate policies; treat deletion as a substantial developed subsection with all root/successor cases.",
+      "1703": "Retain range pruning, level order and model verification as content, with applied guided work separate from the assignments lab."
+    },
+    "gaps": "Expand stack-frame traces and connect visits versus returned values. Four reading pages can support three meetings; do not cut deletion cases to fit the meeting count.",
+    "support": []
+  },
+  "18": {
+    "action": "Retain contract, implementation, and application roles",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Priority contracts and heap representation",
+      "Heap operations and invariants",
+      "Priority workloads, top-K, and fairness"
+    ],
+    "reason": "The application page is short but top-K and fairness are genuine transfers, not duplicate heap syntax. All three pages need expansion rather than automatic merging.",
+    "moves": {
+      "1801": "Retain priority policy, ties and array/tree shape relation.",
+      "1802": "Develop bubble-up and sink-down through individual state changes and complete operation contracts.",
+      "1803": "Retain top-K as a new problem with an explicit invariant and explain why priority differs from fairness. Develop the example before assigning independent variants."
+    },
+    "gaps": "Add index/parent reasoning, empty/singleton/tied-priority traces, heap versus sorted-order distinctions and top-K justification. Correct generic planning text that claims graph traversal is this chapter's direct assessment target.",
+    "support": []
+  },
+  "19": {
+    "action": "Retain hashing, set semantics, and coordination",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Hashing, key equality, and collision handling",
+      "Set algebra, frequency counts, and reconciliation",
+      "Selecting and coordinating collection indexes"
+    ],
+    "reason": "Set algebra is not simply a shorter form of dictionary storage, and coordinating multiple indexes has its own consistency contract. The three roles should remain while underdeveloped explanations are expanded.",
+    "moves": {
+      "1901": "Retain hash/equality, chaining, rehashing and open-addressing contrasts; distinguish essential implementation from optional alternatives.",
+      "1902": "Develop set union/intersection/difference and reconciliation with small concrete sets and counts; do not merge it away because it has 454 words.",
+      "1903": "Retain workload choice and two-index cancellation/consistency as synthesis beyond Chapter 8's orientation."
+    },
+    "gaps": "Add worked collision/deletion/rehash reasoning, equality-policy examples and set membership diagrams. Align assignment-role prose with hashing/reconciliation rather than copied graph-traversal wording.",
+    "support": []
+  },
+  "20": {
+    "action": "Split BFS/path reasoning from DFS/components",
+    "target": 4,
+    "priority": "High",
+    "sequence": [
+      "Graph modeling and contracts",
+      "Adjacency representations and update invariants",
+      "BFS discovery, layers, and predecessor paths",
+      "DFS, cycles, components, and verification"
+    ],
+    "reason": "2003 packs two traversal strategies, path reconstruction, cycle behavior and connectivity into 504 prose words. Different worklist semantics and correctness arguments need distinct teaching sequences.",
+    "moves": {
+      "2001": "Retain graph vocabulary/model assumptions.",
+      "2002": "Retain representations and protected updates; link the optional representation workshop without adding it as a prerequisite.",
+      "2003": "Split BFS discovery/layers/predecessor recovery from DFS discovery/cycle issues and component policies. Include a common graph to compare outcomes and costs.",
+      "2601 (cross-chapter source)": "Use Chapter 26 traversal-verification contracts beside the relevant BFS/DFS arguments. Retain its existing URL as a supporting verification reading and retain final synthesis references."
+    },
+    "gaps": "Develop frontier/visited/predecessor state tables, marking-time mistakes and direction-sensitive component reasoning before splitting physically. Do not create two skeletal outlines.",
+    "support": []
+  },
+  "21": {
+    "action": "Retain three distinct analysis tools",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Cost models and asymptotic bounds",
+      "Correctness, invariants, and termination",
+      "Recurrences, total work, and active storage"
+    ],
+    "reason": "Growth analysis, proof of behavior and recursive cost modeling answer different questions. The 515-672-word pages are compressed treatments of substantial topics; merging them would not resolve missing explanation.",
+    "moves": {
+      "2101": "Retain exact-count to bound reasoning, with multiple input shapes and clear units.",
+      "2102": "Retain a dedicated correctness lesson; develop initialization/maintenance/exit and termination step by step.",
+      "2103": "Retain recurrences; connect unfolding, level sums and stack/storage to already taught recursion rather than reintroducing its syntax."
+    },
+    "gaps": "Add derivations and interpreted diagrams between formulas and code. Current runnable checks and historical verification notes do not demonstrate adequate proof instruction.",
+    "support": []
+  },
+  "22": {
+    "action": "Combine recursive design; retain merge sort as a full lesson",
+    "target": 2,
+    "priority": "High",
+    "sequence": [
+      "Recursive contracts and divide-and-conquer design",
+      "Stable merge sort, verification, and measured work"
+    ],
+    "reason": "2201 is a 405-word bridge after introductory recursion moved to Chapter 17. It naturally precedes the decomposition/range reasoning in 2202. The merge implementation has a separate substantial combining-and-verification role.",
+    "moves": {
+      "2201": "Combine helper contracts/progress/iteration tradeoffs with the opening design material in 2202.",
+      "2202": "Split internally at Combining Sorted Parts: general pattern/halving/ranges joins recursive design; merge invariant and introductory merge sort join 2203.",
+      "2203": "Develop merging, range/buffer implementation, stable ties and independent checks as content, not a lab-only source of explanation. Preserve all exercises and the existing assignments lab."
+    },
+    "gaps": "Expand call/return and half-open/odd-split traces plus the combining step. Two reading sections do not require reducing the original example set or squeezing all teaching into two meetings.",
+    "support": []
+  },
+  "23": {
+    "action": "Retain advanced core; separate optional sort families",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Duplicate-aware search contracts",
+      "Elementary sort behavior, invariants, and stability",
+      "Equivalent-workload comparison"
+    ],
+    "reason": "Search-result policies, sort invariants and fair comparisons remain distinct even after basics moved to Chapter 16. Optional Shell sort and quicksort are different algorithms and should not be rushed in one reference tour.",
+    "moves": {
+      "2301": "Retain and expand lower/upper bounds and equality/order policies; use Chapter 16 as the basic-search prerequisite.",
+      "2302": "Retain elementary-sort contrasts, including original insertion variants; explain what is new relative to Chapter 16.",
+      "2303": "Retain comparative workload reasoning as instructional content; use assignments for independent comparison.",
+      "2304": "Plan two optional supporting readings: Shell sort with all three gap families, and quicksort with partition/recursion reasoning. Retain all existing variants and the old URL through a future redirect/overview."
+    },
+    "gaps": "Expand duplicate-bound traces and comparison-count interpretation. Develop each optional algorithm before separating the pages; short pages are not the goal.",
+    "support": [
+      "2304"
+    ]
+  },
+  "24": {
+    "action": "Split spanning forests from shortest paths; distribute verification",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Greedy choices, objectives, and exchange reasoning",
+      "Minimum spanning forests and Kruskal",
+      "Single-source shortest paths and Dijkstra"
+    ],
+    "reason": "2402 combines different optimization objectives, graph contracts, invariants and proofs. The 389-word verification page is better used beside each relevant algorithm plus a final comparison than as an underspecified third meeting.",
+    "moves": {
+      "2401": "Retain scheduling/exchange argument and greedy counterexamples; incorporate objective checks from 2403.",
+      "2402": "Split before Dijkstra: MST/forest, union-find and cut reasoning form one lesson; relaxation, settling, stale priorities, paths and costs form another. Retain the network-versus-route counterexample as the bridge/closing comparison.",
+      "2403": "Distribute schedule/forest/path verification and boundary cases into their content lessons; preserve the full facilities comparison and exercise as final synthesis, not removal."
+    },
+    "gaps": "Develop stepwise union/find and relaxation/queue traces, why each greedy choice is safe, and independent witness checks. Word count is low even though topic load is high.",
+    "support": []
+  },
+  "25": {
+    "action": "Split DP foundations from optimization modeling; integrate verification",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Repeated subproblems, memoization, and tabulation",
+      "Modeling an optimum and reconstructing a solution",
+      "Backtracking, pruning, and search-state correctness"
+    ],
+    "reason": "2501 moves from counting Fibonacci to deriving minimum-coin optimal substructure and reconstruction. 2502 has a different exhaustive-search design. Verification in 2503 belongs beside these respective reasoning steps.",
+    "moves": {
+      "2501": "Split before Minimum Coins: Fibonacci/cache/table/rolling-state reasoning forms foundations; coin-state recurrence, unreachable states, reconstruction and state-size costs form optimization modeling.",
+      "2502": "Retain backtracking/undo/snapshots and signed one-use subset state, safe pruning and memoization; keep positional permutations as a developed application or labeled extension.",
+      "2503": "Distribute optimum/witness checks into the corresponding DP/backtracking lessons and preserve inventory comparisons, exhaustive references and final recommendation as synthesis."
+    },
+    "gaps": "Develop tables and decision/reconstruction traces, explain state sufficiency and optimal substructure, and contrast unlimited packs with one-use positions. Preserve every boundary and resource-limit policy.",
+    "support": []
+  },
+  "26": {
+    "action": "Reframe around string algorithms and limits",
+    "target": 3,
+    "priority": "High",
+    "sequence": [
+      "Direct string matching and result contracts",
+      "Prefix reuse, KMP, and complete workload costs",
+      "Computational limits, guarantees, and synthesis"
+    ],
+    "reason": "The 224-word traversal page is already a verification extension of Chapter 20. The other page combines a graph-objective reminder with direct matching and KMP, whose prefix/fallback reasoning warrants its own development.",
+    "moves": {
+      "2601": "Keep traversal verification as supporting reading and incorporate its distinct checks in Chapter 20. Preserve the published page and final network-lab connections.",
+      "2602": "Split direct ordinal matching/overlap/empty-pattern contracts from proper borders, prefix preparation, fallback and KMP work counts. Retain the hop/cost contrast as a linked reminder to Chapters 20 and 24, not a separate required algorithm lesson.",
+      "2603": "Retain limits/heuristics/exact-witness verification and final comparison guidance. Project requirements remain in the established appendix/project track."
+    },
+    "gaps": "Develop character-by-character direct/prefix/fallback traces, explain text units and full preparation/output costs, and expand feasibility versus guarantee reasoning. Retain the exact cover counterexample and all boundary witnesses.",
+    "support": [
+      "2601"
+    ]
+  }
+}

@@ -8,9 +8,9 @@
 
 - `0501_intro_methods.ipynb` — Introduction to methods
 - `0502_signature_call.ipynb` — Method signatures and calls
-- `0503_parameter.ipynb` — Parameters and return values
+- `0503_parameter.ipynb` — Parameters, scope, static variables, and tracing; return-value development is shared with 5.2.
 - `0504_strings.ipynb` — Strings and their methods (moved early from Chapter 9's text operations, 2026-10-04): length, indexing, cleaning, immutability, searching, `Substring`, `Replace`, chaining
-- `0505_summary.ipynb` — Methods summary and practice
+- `0505_summary.ipynb` — Static-method syntax and scope reference; worked synthesis and guided practice.
 
 ## Assignments
 
@@ -53,3 +53,119 @@ The optional Grade Calculation 2 assignment now lives here because its FindAvera
 Complete original returning-method equivalence/side-effect/unreachable/semicolon/nested-else fragments restored after method prerequisites. Strange Sequence now also has the original separate Jump, PrintStrangeSequence and CountStrangeSequence contracts, alongside the earlier combined variant. Term versus transition counting is explicit.
 
 The final source-list check also retains the original named array, reversal, and small abstract/interface variations in the corresponding supporting practice; see the preservation matrix for exact locations.
+
+## Topic-to-Section Coverage Map (2026-10-17)
+
+This map distinguishes material that exists from material that adequately teaches
+its purpose. It is a revision plan, not a claim that the improvements below are
+implemented. Keep all five current content sections, existing explanations,
+examples, exercise variations, assessment IDs, and published paths. Correct
+inaccuracies explicitly rather than removing the surrounding teaching material.
+
+| Topic | Content-section home | Current evidence | Required development |
+| --- | --- | --- | --- |
+| Purpose: abstraction, reuse, decomposition, single responsibility | 5.1 Introduction | Benefits and terminology are listed; executable example is Hello World. | Develop one concrete repeated business task, then show a helper removing repetition. Explain what the name hides and what remains visible to callers. |
+| Definition, header, signature, and call syntax | 5.2 Designing Methods; reference in 5.5 | Syntax template, component table, and examples exist. Terminology and Main/top-level explanations conflict. | Correct required return-type syntax and distinguish full header from C# signature. Explain each component and one consistent primary program form; connect other forms explicitly. |
+| Parameters, arguments, matching types and positions | 5.3 Method Parameters | Verse comparison and parameter explanation exist. | Show argument evaluation and binding in a table; vary names and values without changing the contract. Explain that arguments are expressions and parameter names need not match caller variables. |
+| Returning versus printing; void versus value-returning methods | 5.2, reinforced in 5.3 and 5.5 | Brief lesson discussion; fuller Return Statement, Return Strings, and Return Formatted String explanation in lab. | Relocate instructional explanation to the lesson. Compare two related methods that print or return; show storage, composition, and intentional or accidental discarded results. |
+| Returned calls as expressions | 5.2 Designing Methods | Square example exists; explanatory bullets disagree with its code. Lab contains the fuller substitution walkthrough. | Correct the trace; teach F(3), F(3) + F(4), and replacement by returned values before students perform lab tasks. |
+| Call/return execution flow and method composition | 5.2, applied in 5.3 and 5.5 | Prose descriptions, parameter tracing fragment, and lab LastFirst trace. | Add a correct complete caller/helper example, call/return diagram, and trace returning to the exact calling expression. Show helpers calling helpers. |
+| Local and block scope; ordinary parameter value copying | 5.3 Method Parameters | Scope rules and name independence are stated; homework asks about separate x variables. | Demonstrate distinct caller/parameter/local variables and block boundaries. Trace reassignment of a value parameter without changing the caller. Distinguish scope from lifetime without promising a physical memory layout. |
+| Static members, constants, and instance-call orientation | 5.3, concise reference in 5.5; connect string calls in 5.4 | Static variables and static/instance terminology are present. | Clarify static methods versus mutable static fields and constants. Explain only the call distinction needed now; defer class/object design depth to Chapters 10–12. |
+| Familiar decisions and loops inside methods | 5.2–5.3; synthesis in 5.5 | Many examples are in Extra Practice and optional Grade Calculation 2. | Develop ordinary examples connecting Chapters 3–4 to reusable method contracts before assigning the larger variations. |
+| Return paths, early returns, unreachable statements, semicolon mistakes | 5.2–5.3; reference in 5.5 | Restored return-equivalence and nested-decision variations are in Extra Practice. | Teach return-path reasoning and labeled mistakes in content, then retain all original fragment sets as practice. |
+| Contracts, input assumptions, and separation of computation from interaction | 5.2 and 5.3; synthesis in 5.5 | Packing-charge review is useful. Lab InterviewSentence and formatted-return tasks separate computation from Main. | Use contracts consistently; teach the separation in content before the lab asks students to apply it. State assumptions and failure policies. |
+| Refactoring repeated code without changing behavior | 5.1 motivation; 5.5 synthesis | Stated objective; optional grade assignment and restored exercises offer applications. | Show an actual before/after transformation, explain parameter choices, and compare results before and after. |
+| Repeatable tests with independently derived expected results | 5.2 onward; consolidate in 5.5 | Packing-charge activity has ordinary/zero cases; broader progression remains a planning intention. | Develop expected/actual tables and ordinary/boundary checks for returned values, preparing for Chapter 6 without requiring a testing framework. |
+| String methods, properties, indexing, immutability, extraction, and chaining | 5.4 Strings and Their Methods | Seven examples and useful tables; no saved outputs or guided section exercise. | Retain APIs and business context; add verified output interpretation, indexed-string/chain visuals, input assumptions, meaningful variations, and guided practice before the SKU lab. |
+| Guided practice to independent application | Guided work in each content section; application in assignments | Main lessons have one tagged guided activity, the AI review. Original lab/review and restored practice provide substantial material. | Add scaffolding and feedback in content. Keep labs focused on applying taught ideas; retain original review and exercise purposes while strengthening independent transfer and checking. |
+| Overloading and recursion | Explicitly bounded extension; later chapters for developed treatment | Preview/homework mention them without developed core instruction here. | Label extension questions or defer required assessment until instruction exists. Do not silently make them prerequisites for core Methods work. |
+
+## Explanations to Relocate from Lab to Content
+
+Content sections teach; labs apply what has already been taught. Relocate the
+following instructional passages while retaining their original examples and
+exercise purposes. A lab may retain requirements, starter code, brief reminders,
+lesson links, expected behavior, checks, and deliverables, but must not be the
+first place students learn a concept required to complete its work.
+
+| Current lab material | Content destination | What remains in the lab |
+| --- | --- | --- |
+| Return Statement: mathematical F(x), returned-value substitution, and F(3) + F(4) evaluation | 5.2, beside the value-returning example and flow trace | Returns task, code to inspect/run/annotate, and application questions. |
+| Return Strings: generality of returned types, local intermediate values, and the LastFirst execution walkthrough | 5.2 for returned strings and flow; 5.3 for argument binding and local variables | LastFirst tracing/application task, with a link to the taught walkthrough. |
+| Return Formatted String: distinction between constructing a string and printing it, string.Format behavior, and newline discussion | 5.2 for returning versus printing; 5.4 for the formatting API reminder | SumProblemString application, renaming variation, and execution checks. |
+| Interview String Return: why input/output stays in Main while InterviewSentence computes a reusable result | 5.3, consolidated in 5.5 | Refactor the interview program using the taught separation; retain its requirements. |
+| Birthday Method: any explanation needed to distinguish a new call from a new definition or to choose where blank-line output belongs | 5.2 calls/void methods; 5.3 parameterization | Add Maria, compare the two blank-line placements, and explain observed behavior. |
+| Product Code Report: explanations of normalization, extraction, and helper composition required to implement the TODO methods | 5.4 for string operations; 5.5 for helper composition | The SKU problem context, method requirements, starter, expected report, new-input variation, and design reflection. |
+
+Do not replace the original exercises with generic drills. Preserve their distinct
+learning purposes and the full restored Extra Practice bank. When relocating a
+passage, record its source and destination and verify that it remains available
+in the content sequence. The completed lesson must precede its application task.
+
+## Implementation Checklist (Completed 2026-10-17)
+
+- Completed: repaired the contradictory top-level/Main prose, incorrect square-example trace,
+  invalid standalone parameter-tracing cell, and inconsistent signature rules.
+- Completed: gave complete runnable examples their own imports, caller/setup, verified
+  outputs, and nearby interpretation; label schematic fragments and intentional
+  errors explicitly.
+- Completed: added purposeful visuals: decomposition before/after, call/return flow,
+  argument-to-parameter binding, scope/value-copying, and string-index/chain
+  traces. Select by teaching need, not by quota.
+- Completed: reviewed assignment alignment, including extension-only preview questions and
+  screenshot/document instructions; preserve existing assessment identities.
+- Verification and preservation evidence: `authoring/CH05_FRAMEWORK_REVIEW.md`.
+- An aligned chapter slide deck remains a teaching-support gap. Keep the current
+  video until the author requests a replacement.
+
+## Coverage Implementation (2026-10-17)
+
+The coverage table above retains the audit baseline and the required development
+so the reason for each addition remains visible. The five existing sections now
+implement that plan: conceptual framing, syntax scaffolds, worked traces, four
+editable SVG diagrams, guided starters with revealed verified solutions, and
+repeatable expected/actual checks. Full original class-based examples remain as
+labeled reading references beside the standalone runnable forms. Lab explanations
+now precede application; tasks, variants, and the Extra Practice bank remain.
+The slide-deck gap remains open.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Redistribute the overloaded design lesson. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0501_intro_methods.ipynb`: Introduction | Core content | 1,293 | 16 | 4 |
+| `0502_signature_call.ipynb`: Designing Methods | Core content | 2,823 | 52 | 11 |
+| `0503_parameter.ipynb`: Method Parameters | Core content | 1,778 | 34 | 9 |
+| `0504_strings.ipynb`: Strings and Their Methods | Core content | 1,025 | 33 | 10 |
+| `0505_summary.ipynb`: Static Methods | Core content | 1,193 | 24 | 4 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0501` | Combine the definition/header and first-call material from 0502 with the existing decomposition problem. |
+| `0502` | Split its conceptual jobs: send definition/call basics to the first lesson; retain returned expressions, LastFirst, formatted results, print-versus-return, decisions and AI review in the returned-result lesson. Teach parameters before this in the proposed reading order. |
+| `0503` | Retain parameter binding, scope/value-copy, loop helpers, and interaction separation as the parameter/state lesson. |
+| `0504` | Retain a dedicated string lesson; strengthen its sustained transformation problem. |
+| `0505` | Distribute repeated definition/call/scope/static reference explanations next to their teaching points, preserving their distinct examples. Keep the checkout refactoring and tests as the final synthesis lesson. |
+
+### Development Needed Before Moving Material
+
+Add fuller method-boundary design reasoning, Boolean-returning helpers, argument-expression/type variations, and multi-step string reasoning. This plan does not declare the recent revision fully adequate.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0501_intro_methods.ipynb`: Designing and Calling Methods.
+- `0503_parameter.ipynb`: Method Parameters.
+- `0502_signature_call.ipynb`: Returned Results and Method Contracts.
+- `0504_strings.ipynb`: Strings and Their Methods.
+- `0505_summary.ipynb`: Composition, Refactoring, and Method Checks.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

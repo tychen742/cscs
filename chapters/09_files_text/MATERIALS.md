@@ -45,3 +45,43 @@ The text-processing lesson adds a prepared AI-review activity for a synthetic st
 - `assignments/help_responses.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 
 The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09/help_responses_lab.zip`.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Recombine file basics; integrate thin regex orientation. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0901_stream_file.ipynb`: Files As Streams | Core content | 834 | 8 | 1 |
+| `0902_file_operations.ipynb`: `StreamWriter` | Core content | 2,329 | 15 | 5 |
+| `0903_text_operations.ipynb`: Text Operations | Core content | 559 | 17 | 9 |
+| `0906_regex.ipynb`: Regular Expressions | Supporting reading | 297 | 13 | 8 |
+| `0905_privacy_security.ipynb`: Privacy and Security in Code | Supporting reading | 696 | 20 | 4 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0901` | Combine streams/file lifecycle and simple File-class operations with initial read/write material from 0902. |
+| `0902` | Split its duties: basic read/write joins file foundations; StreamReader/Writer lifecycle, paths/directories and failure/cleanup form the workflow lesson. Preserve all examples and path variants. |
+| `0903` | Retain text tokenization/schema validation and AI import review as the final core lesson; integrate a small regex-versus-string comparison after the same text problem is understood. |
+| `0906` | Use the introductory regex explanations in the text lesson; retain the full regex examples/groups/replacement practice as a linked supporting reading at the existing URL. Expand that reading if it is later taught independently. |
+| `0905` | Keep privacy/security and legacy privacy assessments as optional reinforcement. |
+
+### Development Needed Before Moving Material
+
+Develop malformed-record handling, partial processing, resource cleanup and a sustained worked import. Do not let moving regex examples substitute for explanation of patterns and groups.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0901_stream_file.ipynb`: File Foundations: Reading and Writing.
+- `0902_file_operations.ipynb`: File Workflows, Paths, and Resources.
+- `0903_text_operations.ipynb`: Text Operations.
+- `0906_regex.ipynb`: Regular Expressions.
+- `0905_privacy_security.ipynb`: Privacy and Security in Code.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

@@ -56,3 +56,37 @@ Verification: all 13 restored code cells compiled independently as .NET 10 conso
 ## CS1 Preservation Follow-up (2026-10-17)
 
 Original seven-question conceptual review and mathematics/engineering/empirical CS-thinking discussion restored. Existing responsibility/output assignments remain; Extra Practice adds the original open-ended questions with corrected implementation/address-space premises.
+
+## Section-Boundary Coverage Disposition (2026-10-17)
+
+**Reviewed plan, now implemented:** Retain; clarify internal reading levels. The disposition below records the preimplementation baseline and rationale. See Implemented Reading Organization for the current reading files. Counts in this baseline exclude fenced code from prose; the refreshed inventory is in authoring/content_size/. They flag review needs, not quality scores.
+
+| Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
+| --- | --- | ---: | ---: | ---: |
+| `0101_cs_ideas.ipynb`: Computing and Problem Solving | Core content | 2,319 | 27 | 1 |
+| `0102_computing_responsibility.ipynb`: Computing and Professional Responsibility | Core content | 2,796 | 21 | 0 |
+| `0103_program_structure.ipynb`: Your First C# Program and Basic Syntax | Core content | 2,489 | 47 | 12 |
+
+### Source-to-Destination Plan
+
+| Existing source | Proposed treatment and coverage to preserve |
+| --- | --- |
+| `0101` | Keep IPO, algorithms, workflow, and execution together; explicitly distinguish binary/address-width/runtime reference passages from the first conceptual reading. |
+| `0102` | Retain its conceptual case sequence; do not merge responsibility into a syntax lesson. |
+| `0103` | Retain first edit/build/run and basic syntax; keep installation and Git in Appendices B and C. |
+
+### Development Needed Before Moving Material
+
+Strengthen transitions between development workflow and the first program; use a visible reading path rather than creating separate pages for every platform detail.
+
+Before a later move, create a cell-level preservation map for these sources, including citations, figures, original code forms, worked traces, guided questions and independent exercise variants. Relocate prerequisite explanations from assignments into content when needed while retaining application requirements and IDs. A consolidated page must still teach its concepts; a split must not create two unsupported outlines. Existing runnable verification records describe earlier work, not verification of this proposal.
+
+## Implemented Reading Organization (2026-10-17)
+
+The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
+
+- `0101_cs_ideas.ipynb`: Computing and Problem Solving.
+- `0102_computing_responsibility.ipynb`: Computing and Professional Responsibility.
+- `0103_program_structure.ipynb`: Your First C# Program and Basic Syntax.
+
+All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
