@@ -1,11 +1,12 @@
 # Subject index cleanup
 
-Numbered exercise titles are excluded from the generated subject index; their source directives, anchors, content, and navigation are preserved. One-dimensional arrays are filed under array, and the combined .NET SDK/runtime/command entry is separated.
+The index directive preserves literal commas in headings and generic type names. Explicit Sphinx entry types retain their normal meaning. Generated subject entries exclude numbered task titles and generic navigation labels, expand malformed lists of subentries, merge capitalization variants, and repair specific repeated words, escaped markup and a replacement placeholder. All source notebook directives, teaching text and anchors remain intact.
 
-Implementation: `_ext/subject_index.py`, registered in `_config.yml`.
+Implementation: `_ext/subject_index.py`, registered in `_config.yml`. Full editorial before/after term lists are in `editorial_changes.json`; examples and scope are in `editorial_review.html`.
 
-Verification: full book build passed with the existing Chapter 2 character-literal highlighting warning; all 2,039 local index links resolve, and all 277 notebook files remain byte-identical to the pre-cleanup snapshot. See `verification.json`. Recheck the preview build with `.venv/bin/python scripts/verify_subject_index.py`.
+Verification: `.venv/bin/python scripts/verify_subject_index.py` checks the local build, every local index target/fragment and the pre-cleanup notebook hashes. See `verification.json` for current results. The full build passes with the existing Chapter 2 character-literal highlighting warning.
 
 Local preview: http://127.0.0.1:8800/genindex.html
+Review: http://127.0.0.1:8800/index_cleanup_review.html
 
-Not deployed. This addresses the malformed Symbols entries; it is not a complete editorial curation of every subject term.
+Not deployed. Descriptive teaching headings remain indexed; this pass repairs malformed entries rather than replacing the entire index with a new controlled subject vocabulary.

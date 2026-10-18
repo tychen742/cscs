@@ -32,6 +32,16 @@ REPAIRS = {
     'class; Rational Rational class': 'class; Rational',
     'loop; for for': 'loop; for',
     'statement; if if': 'statement; if',
+    'collections, data collections': 'collections',
+    'tuple; destructuring, discard': 'tuple; destructuring; discard',
+    'string; Contains, string': 'string; Contains',
+    'string; Contains, string; IndexOf, string; StartsWith': 'string; Contains; IndexOf; StartsWith',
+    'string; Length, string; indexing': 'string; Length; indexing',
+    'string; Trim, string; ToUpper, string; ToLower': 'string; Trim; ToUpper; ToLower',
+    'string; IndexOf, string': 'string; IndexOf',
+    'string; Length, string': 'string; Length',
+    'string; ToUpper, string': 'string; ToUpper',
+    'string; Trim, string': 'string; Trim',
     'escape code; \\g<2>': 'escape sequence',
 }
 
@@ -58,6 +68,8 @@ def normalize_entry(entry):
         return []
     if value == '.NET; SDK; runtime; dotnet --version':
         values = ['.NET; SDK', '.NET; runtime', 'dotnet --version']
+    elif parts and parts[0] in {'Add', 'Count', 'pwd'} and len(parts) > 2:
+        values = parts
     elif len(parts) > 2:
         # Semicolons describe main term / subentry, not an unlimited hierarchy.
         values = [parts[0] + '; ' + child for child in parts[1:]]
@@ -81,13 +93,16 @@ def clean_subject_index(app, env):
             for kind, value, *_ in result:
                 # Merge capitalization variants only where both already exist.
                 # Prefer the lowercase subject term; preserve API capitalization.
-                key = (kind, value.casefold())
-                if key not in canonical or value == value.lower():
-                    canonical[key] = value
+                for part in value.split(';'):
+                    part = part.strip()
+                    key = (kind, part.casefold())
+                    if key not in canonical or part == part.lower():
+                        canonical[key] = part
     for document, entries in prepared.items():
         cleaned, seen = [], set()
         for kind, value, target, main, category in entries:
-            value = canonical[(kind, value.casefold())]
+            value = '; '.join(canonical[(kind, part.strip().casefold())]
+                              for part in value.split(';'))
             item = (kind, value, target, main, category)
             if item not in seen:
                 cleaned.append(item)
@@ -95,6 +110,9 @@ def clean_subject_index(app, env):
         domain.entries[document] = cleaned
     LOGGER.info('Subject index: omitted %s task/boilerplate entries; normalized %s entries.',
                 suppressed, normalized)
+    # Rebuild one ordinary document so Sphinx also regenerates genindex when
+    # only this extension has changed and no notebook needs rereading.
+    return ['index']
 
 
 def setup(app):

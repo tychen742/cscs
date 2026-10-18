@@ -399,3 +399,12 @@ notebooks or anchors. Filed one-dimensional arrays under array and separated
 the combined .NET entry. Full build passed with the existing Chapter 2 lexing
 warning; all 2,039 local index links resolve and all 277 notebooks are unchanged.
 Evidence: `authoring/index_cleanup/`. Local work, not deployed.
+
+## Whole-index parser and editorial cleanup (2026-10-17)
+
+Reviewed all alphabetical groups. Preserve commas within index phrases rather
+than splitting headings into fragments such as “and Comments.” Exclude generic
+navigation entries, merge case variants, expand long subentry lists and repair
+repeated words/markup/placeholders. Notebook text and anchors remain intact.
+See `authoring/index_cleanup/editorial_review.html` and verification evidence.
+Local work, not deployed.

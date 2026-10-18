@@ -11,6 +11,7 @@ assert not [a.get_text(' ',strip=True) for a in article.select('.indextable a') 
 assert 'Blocks, Formatting, and Comments' in text
 assert 'Best, Worst, Expected, and Amortized Costs' in text
 assert '\\g<2>' not in text
+assert not [a.get_text(' ',strip=True) for a in article.select('.indextable a') if ', string' in a.get_text(' ',strip=True)]
 from importlib.util import spec_from_file_location, module_from_spec
 spec=spec_from_file_location('subject_index',R/'_ext/subject_index.py');mod=module_from_spec(spec);spec.loader.exec_module(mod)
 assert mod.normalize_entry(('single','Summary','x','',None)) == []
