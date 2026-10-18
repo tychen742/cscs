@@ -53,3 +53,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `1903_collection_selection.ipynb`: Choosing and Coordinating Collections.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
+
+## Landing Page Alignment (2026-10-17)
+
+The landing page `1900_hash_collections.ipynb` now orients students to the three sections (hash tables, equality, and collisions; dictionaries, sets, and reconciliation; choosing and coordinating collections) with a grounded introduction, measurable objectives, and a glossary built from the content notebooks (see MATERIALS.md, Landing Page Development). Preview quizzes should draw vocabulary from that glossary. Class meeting allocations above are unchanged.
