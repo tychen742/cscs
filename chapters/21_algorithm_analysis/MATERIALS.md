@@ -60,3 +60,21 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 16 mistakes beside the examples (mixed cost models, multiplying dependent bounds, merging independent sizes, reading O as Theta, reporting the best case, counting stack depth as memory, weak specifications, closed-range invariants, invariant without variant, early return without its own argument, best initialized to zero, missing base case, fractional halving, dropped combine work, odd splits, call count as stack depth) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS3 3.5 Summations, 3.6 Recurrence Relations, 3.7 Proof Techniques, 4.2 Problems, Algorithms, and Programs, 4.3 Growth Rates, 4.5 Faster Computer or Faster Algorithm, 4.6 Asymptotic Analysis (simplifying rules), 4.9 Analyzing Problems, 4.10 Common Misunderstandings, and 4.14 Summary Exercises. Gaps found and where they are now developed:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Simplifying rules; upper bound versus worst case confusion | 4.6.1.2, 4.10 | 21.1 Simplifying Rules for Growth Classes (new) |
+| Faster computer versus faster algorithm; problem-size gain table | 4.5 | 21.1 A Faster Computer or a Faster Algorithm? (new, computed) |
+| Growth-rate ordering; loop-body counting practice | 4.3.2, 4.8 | 21.1 Growth-Rate Ordering; Code Tracing: Count the Loop Bodies |
+| Lower bounds on problems versus algorithms | 4.9 | 21.1 Check Your Understanding |
+| Direct proof, contradiction, induction; invariants as induction | 3.7 | 21.2 Three Proof Shapes (new) |
+| Executable invariant checks; invariant table practice | 3.7 exercises | 21.2 Code Completion: Assert the Invariant; Code Tracing: Fill the Invariant Table |
+| Closed forms of common summations | 3.5 | 21.3 Summations You Will Meet (new, verified) |
+| Solving recurrences by expansion, then induction | 3.6 | 21.3 Solve a Recurrence by Expanding (new) |
+| Recurrence classification; call-count tracing | 3.9, 4.14 | 21.3 Concept Check; Code Tracing: How Many Calls? |
+
+Exercises added: code tracing (21.1, 21.2, 21.3), code completion (21.2), growth-rate ordering (21.1), concept recall (21.3), and Check Your Understanding on every page. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.

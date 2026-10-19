@@ -24,6 +24,10 @@
   "a complete singly linked sequence": [
     "linked list; singly linked implementation"
   ],
+  "a faster computer or a faster algorithm?": [
+    "growth rate; faster hardware",
+    "algorithm choice versus hardware"
+  ],
   "a header node removes special cases": [
     "linked list; header node",
     "sentinel node"
@@ -791,6 +795,10 @@
   "code completion: a generic last element": [
     "generic method; code completion exercise"
   ],
+  "code completion: assert the invariant": [
+    "loop invariant; code completion exercise",
+    "running balance; invariant check"
+  ],
   "code completion: build the matrix from the neighbor map": [
     "adjacency matrix; code completion exercise",
     "representation conversion"
@@ -836,11 +844,18 @@
     "dynamic array; tracing exercise",
     "capacity; growth trace"
   ],
+  "code tracing: count the loop bodies": [
+    "loop counting; tracing exercise",
+    "nested loops; exact count"
+  ],
   "code tracing: enqueue four priorities": [
     "heap; enqueue trace"
   ],
   "code tracing: enter and exit events": [
     "depth-first search; tracing exercise"
+  ],
+  "code tracing: fill the invariant table": [
+    "loop invariant; tracing exercise"
   ],
   "code tracing: fill the return table": [
     "tree recursion; tracing exercise",
@@ -853,6 +868,9 @@
   "code tracing: follow the recursion": [
     "merge sort; tracing exercise",
     "recursion; trace"
+  ],
+  "code tracing: how many calls?": [
+    "recursion; call counting exercise"
   ],
   "code tracing: is this array a heap?": [
     "heap; tracing exercise",
@@ -1089,6 +1107,9 @@
   ],
   "concept check: match the need to the structure": [
     "data structure; selection recall"
+  ],
+  "concept check: match the recurrence to its growth": [
+    "recurrence relations; concept recall"
   ],
   "concept check: which operation answers the question?": [
     "set operations; concept recall"
@@ -2098,8 +2119,7 @@
     "algorithm analysis; growth models versus benchmarks"
   ],
   "growth-rate ordering": [
-    "growth rate; ordering exercise",
-    "Big O; comparing growth rates"
+    "growth rate; ordering exercise"
   ],
   "guarantees, heuristics, and unknown answers": [
     "computational limits; guarantees and unknown results"
@@ -3896,6 +3916,10 @@
   "simple-graph contracts": [
     "graph; simple-graph contracts"
   ],
+  "simplifying rules for growth classes": [
+    "asymptotic notation; simplifying rules",
+    "Big O; arithmetic of bounds"
+  ],
   "size, membership, and safe access": [
     "collections; size, membership, and safe access"
   ],
@@ -3904,6 +3928,10 @@
   ],
   "software failures; case studies": [
     "software failures; case studies"
+  ],
+  "solve a recurrence by expanding": [
+    "recurrence relations; expansion",
+    "recurrence relations; closed form"
   ],
   "sort ranges with one buffer": [
     "merge sort; shared-buffer sorting"
@@ -4233,6 +4261,10 @@
   "sum from one to n": [
     "loops; summation exercise"
   ],
+  "summations you will meet": [
+    "summations; closed forms",
+    "arithmetic and geometric series"
+  ],
   "supply collaborators through constructors": [
     "dependency injection; constructor collaborators"
   ],
@@ -4365,6 +4397,10 @@
   ],
   "this object": [
     "this; current object"
+  ],
+  "three proof shapes": [
+    "proof techniques; direct, contradiction, induction",
+    "loop invariant; induction"
   ],
   "throwing exceptions intentionally": [
     "exceptions; throwing"
