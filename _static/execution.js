@@ -19,6 +19,18 @@ function initializeCsharpExecution() {
     const runnableCells = [];
     const pageHooks = { expectedChanged() {} };
 
+    async function executeCode(code, stdin = "", signal) {
+        const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
+        const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", ...passHeader },
+            body: JSON.stringify({ code, stdin }), signal
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || "The execution request failed.");
+        return result;
+    }
+
     const cells = Array.from(document.querySelectorAll("div.cell"));
 
     cells.forEach((cell, cellIndex) => {
@@ -40,6 +52,8 @@ function initializeCsharpExecution() {
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
         editor.value = executableCode;
+        // Bounded section checks use the current editor without modifying its state.
+        cell.cscsPractice = { getCode: () => editor.value, execute: executeCode };
         editor.spellcheck = false;
         editor.hidden = true;
         codeElement.closest(".cell_input").appendChild(editor);
@@ -273,18 +287,7 @@ function initializeCsharpExecution() {
                 const currentCode = editor.value;
                 // A Press run pass gives signed-in readers priority and a longer timeout;
                 // without one (signed out, or Press unreachable) the run is a guest run.
-                const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
-                const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json", ...passHeader },
-                    body: JSON.stringify({
-                        code: currentCode,
-                        stdin: collectStdin()
-                    }),
-                    signal
-                });
-                const result = await response.json();
-                if (!response.ok) throw new Error(result.error || "The execution request failed.");
+                const result = await executeCode(currentCode, collectStdin(), signal);
 
                 const messages = [result.output, result.error].filter(Boolean);
                 output.textContent = messages.join("\n");

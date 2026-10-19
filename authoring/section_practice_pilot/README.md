@@ -38,3 +38,13 @@ The original Predict prompt mixed a score comparison with an unrelated service-t
 [Review the Tab 2 diff](tab2_revision.html). The revised prompt distinguishes its faulty program from the correct preceding example. Students run P and X, add a missing default that reports Unknown service and returns, and rerun the two specified tests. The hidden solution retains verified output. A multiple-choice question checks why an initial zero cannot prove recognition in the faulty version, with feedback for missing, wrong and correct answers. It explains why Tab 4's free-standard policy requires reporting the service explicitly.
 
 Ten local C# cases verify both faulty and repaired programs for P, X, E, S and another unknown Z; see tab2_code_verification.json. Only the existing Tab 2 prompt cell changes, with three added cells. All other existing notebook cells, assignments and optional readings are unchanged. This correction is not committed or deployed.
+
+## Tabs 3 and 4 explicit tests and automated output checks
+
+[Read the content diff](tabs34_revision.html) or inspect [the source diff](tabs34_revision.diff). Four existing prompt/feedback cells change; every runnable code cell and saved output is preserved.
+
+Tab 3 has five local expected-output cases. Tab 4 has seven cases, including express at 50 and both X and Z as unknown inputs. Both specify the accepted input scope, how to edit/run one case, how check-all substitutes the provided literal input declarations in temporary copies, and that saved starter output is not a target. The checker compares successful stdout against fixed expected output and displays each result. It snapshots the editor once per check without overwriting it. Compile failures stop remaining cases; transport failures and unsupported declaration forms are reported explicitly. Check-all results are practice feedback, not grades or proof over all inputs.
+
+The runner transport is shared with the ordinary Run control; no new execution endpoint or grading service is introduced. The DOM verification uses the actual execution adapter with controlled runner responses, checks both successful and failing output, compile/network failures, unchanged editor state, missing declarations, and ordinary Run. This does not constitute a live browser/API test. See tabs34_dom_verification.json and scripts/verify_section_output_checks.js. The book build and existing tab checks pass. Local C# verification of starter/reference cases is recorded separately in tabs34_code_verification.json.
+
+No assignment or optional reading was changed. This revision has not been committed or deployed.

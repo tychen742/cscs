@@ -1,5 +1,9 @@
 # Chapter Materials — Decision Structures
 
+## Tabs 3 and 4 Output Checks (2026-10-19)
+
+Tab 3 supplies its own five-row score/output table; Tab 4 lists seven delivery cases, including express at 50 and a second unknown code. Explicit input scope and temporary declaration substitution keep the checks bounded. Check-all controls execute the reader's current editor code through the existing C# runner transport, compare successful stdout to fixed expected output, and show each actual result. They preserve editor state and distinguish runner/compile failures from incorrect output. Starter saved outputs are labeled historical, not targets. Explanations are revealable. Existing exercise IDs, code cells and outputs remain unchanged. Assignments and optional readings are unchanged.
+
 ## Tab 2 Repair and Evidence Revision (2026-10-19)
 
 Tab 2 shows a deliberately faulty standalone service program, asks students to complete its missing default branch, and provides explicit P/X expected-output tests. The hidden verified answer rejects all unsupported services with a diagnostic and return; it does not add an X case or assign an invalid service a charge. A checked multiple-choice explanation distinguishes numeric price from recognition evidence and connects the different zero-price policy in Tab 4. Existing executable cells and other tabs are preserved. Assignments and optional readings are unchanged.

@@ -99,6 +99,67 @@
                     });
                 });
             });
+            section.querySelectorAll("[data-practice-tests]").forEach(check => {
+                const button = check.querySelector("button");
+                const status = check.querySelector("[data-test-status]");
+                const results = check.querySelector("[data-test-results]");
+                const scores = [[59,"No pass"],[60,"Pass"],[89,"Pass"],[90,"Distinction"],[95,"Distinction"]];
+                const delivery = [["E",25,"Service E: 8"],["E",50,"Service E: 8"],["S",49.99,"Service S: 3"],["S",50,"Service S: 0"],["P",25,"Service P: 0"],["X",50,"Unknown service"],["Z",50,"Unknown service"]];
+                button.addEventListener("click", async () => {
+                    const cell = Array.from(section.querySelectorAll("[data-cscs-cell-id]")).find(node => node.dataset.cscsCellId === check.dataset.practiceCell);
+                    const runner = cell?.cscsPractice;
+                    results.replaceChildren();
+                    if (!runner) {
+                        status.textContent = "Code runner unavailable. Reload the page, or use Run and compare with the table.";
+                        return;
+                    }
+                    const source = runner.getCode();
+                    const scorePattern = /^([ \t]*int[ \t]+score[ \t]*=[ \t]*)-?\d+([ \t]*;)/gm;
+                    const servicePattern = /^([ \t]*string[ \t]+service[ \t]*=[ \t]*)"[^"\r\n]*"([ \t]*;)/gm;
+                    const totalPattern = /^([ \t]*decimal[ \t]+orderTotal[ \t]*=[ \t]*)\d+(?:\.\d+)?m([ \t]*;)/gm;
+                    const isScores = check.dataset.practiceTests === "scores";
+                    const patterns = isScores ? [scorePattern] : [servicePattern,totalPattern];
+                    if (patterns.some(pattern => [...source.matchAll(pattern)].length !== 1)) {
+                        status.textContent = "Keep exactly one supplied input declaration for each input, using literal values (for example int score = 95; or string service = \"S\"; and decimal orderTotal = 50m;). Your code was not changed or run.";
+                        return;
+                    }
+                    const cases = isScores ? scores : delivery;
+                    let passed = 0;
+                    button.disabled = true;
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 180000);
+                    try {
+                        for (let i = 0; i < cases.length; i++) {
+                            status.textContent = `Checking case ${i + 1} of ${cases.length}…`;
+                            const values = cases[i];
+                            const code = isScores ? source.replace(scorePattern, (_,a,b) => a + values[0] + b) :
+                                source.replace(servicePattern, (_,a,b) => a + JSON.stringify(values[0]) + b)
+                                    .replace(totalPattern, (_,a,b) => a + values[1] + "m" + b);
+                            const result = await runner.execute(code, "", controller.signal);
+                            const expected = values[values.length - 1];
+                            const actual = (result.output || "").replace(/\r\n/g,"\n").trimEnd();
+                            const ok = result.exitCode === 0 && !result.error && actual === expected;
+                            if (ok) passed++;
+                            const row = document.createElement("li");
+                            row.textContent = `${ok ? "PASS" : "FAIL"}: ${isScores ? "score " + values[0] : values[0] + " / " + values[1]}: expected ${JSON.stringify(expected)}; actual ${JSON.stringify(actual)}.`;
+                            if (result.error) row.textContent += " " + result.error;
+                            if (result.exitCode !== 0) row.textContent += ` Execution did not succeed (exit ${result.exitCode ?? "unknown"}).`;
+                            results.appendChild(row);
+                            if (result.exitCode !== 0) {
+                                status.textContent = `Execution stopped. ${passed} of ${cases.length} cases passed; remaining cases were not run. Fix the error and check again.`;
+                                return;
+                            }
+                        }
+                        status.textContent = `${passed} of ${cases.length} cases passed. These checks cover the listed cases; they do not prove correctness for every input.`;
+                    } catch (error) {
+                        status.textContent = `Check incomplete: ${error.name === "AbortError" ? "time limit reached" : error.message}. ${passed} cases passed before stopping. Try again when the runner is available.`;
+                    } finally {
+                        clearTimeout(timer);
+                        button.disabled = false;
+                    }
+                });
+            });
+
             marker.dataset.practiceReady = "true";
             section.querySelectorAll('[data-practice-check="zero-evidence"]').forEach(form => {
                 form.addEventListener("submit", event => {

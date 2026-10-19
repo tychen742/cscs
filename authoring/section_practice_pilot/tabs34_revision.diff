@@ -1,0 +1,199 @@
+diff --git a/_static/execution.js b/_static/execution.js
+index 093796a4..a237fb24 100644
+--- a/_static/execution.js
++++ b/_static/execution.js
+@@ -19,6 +19,18 @@ function initializeCsharpExecution() {
+     const runnableCells = [];
+     const pageHooks = { expectedChanged() {} };
+ 
++    async function executeCode(code, stdin = "", signal) {
++        const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
++        const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
++            method: "POST",
++            headers: { "Content-Type": "application/json", ...passHeader },
++            body: JSON.stringify({ code, stdin }), signal
++        });
++        const result = await response.json();
++        if (!response.ok) throw new Error(result.error || "The execution request failed.");
++        return result;
++    }
++
+     const cells = Array.from(document.querySelectorAll("div.cell"));
+ 
+     cells.forEach((cell, cellIndex) => {
+@@ -40,6 +52,8 @@ function initializeCsharpExecution() {
+         const editor = document.createElement("textarea");
+         editor.className = "cscs-code-editor";
+         editor.value = executableCode;
++        // Bounded section checks use the current editor without modifying its state.
++        cell.cscsPractice = { getCode: () => editor.value, execute: executeCode };
+         editor.spellcheck = false;
+         editor.hidden = true;
+         codeElement.closest(".cell_input").appendChild(editor);
+@@ -273,18 +287,7 @@ function initializeCsharpExecution() {
+                 const currentCode = editor.value;
+                 // A Press run pass gives signed-in readers priority and a longer timeout;
+                 // without one (signed out, or Press unreachable) the run is a guest run.
+-                const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
+-                const response = await fetch(`${runnerBaseUrl}/v1/tasks/${taskId}/execute`, {
+-                    method: "POST",
+-                    headers: { "Content-Type": "application/json", ...passHeader },
+-                    body: JSON.stringify({
+-                        code: currentCode,
+-                        stdin: collectStdin()
+-                    }),
+-                    signal
+-                });
+-                const result = await response.json();
+-                if (!response.ok) throw new Error(result.error || "The execution request failed.");
++                const result = await executeCode(currentCode, collectStdin(), signal);
+ 
+                 const messages = [result.output, result.error].filter(Boolean);
+                 output.textContent = messages.join("\n");
+diff --git a/_static/section_practice.js b/_static/section_practice.js
+index 07286856..4d8d1377 100644
+--- a/_static/section_practice.js
++++ b/_static/section_practice.js
+@@ -99,6 +99,67 @@
+                     });
+                 });
+             });
++            section.querySelectorAll("[data-practice-tests]").forEach(check => {
++                const button = check.querySelector("button");
++                const status = check.querySelector("[data-test-status]");
++                const results = check.querySelector("[data-test-results]");
++                const scores = [[59,"No pass"],[60,"Pass"],[89,"Pass"],[90,"Distinction"],[95,"Distinction"]];
++                const delivery = [["E",25,"Service E: 8"],["E",50,"Service E: 8"],["S",49.99,"Service S: 3"],["S",50,"Service S: 0"],["P",25,"Service P: 0"],["X",50,"Unknown service"],["Z",50,"Unknown service"]];
++                button.addEventListener("click", async () => {
++                    const cell = Array.from(section.querySelectorAll("[data-cscs-cell-id]")).find(node => node.dataset.cscsCellId === check.dataset.practiceCell);
++                    const runner = cell?.cscsPractice;
++                    results.replaceChildren();
++                    if (!runner) {
++                        status.textContent = "Code runner unavailable. Reload the page, or use Run and compare with the table.";
++                        return;
++                    }
++                    const source = runner.getCode();
++                    const scorePattern = /^([ \t]*int[ \t]+score[ \t]*=[ \t]*)-?\d+([ \t]*;)/gm;
++                    const servicePattern = /^([ \t]*string[ \t]+service[ \t]*=[ \t]*)"[^"\r\n]*"([ \t]*;)/gm;
++                    const totalPattern = /^([ \t]*decimal[ \t]+orderTotal[ \t]*=[ \t]*)\d+(?:\.\d+)?m([ \t]*;)/gm;
++                    const isScores = check.dataset.practiceTests === "scores";
++                    const patterns = isScores ? [scorePattern] : [servicePattern,totalPattern];
++                    if (patterns.some(pattern => [...source.matchAll(pattern)].length !== 1)) {
++                        status.textContent = "Keep exactly one supplied input declaration for each input, using literal values (for example int score = 95; or string service = \"S\"; and decimal orderTotal = 50m;). Your code was not changed or run.";
++                        return;
++                    }
++                    const cases = isScores ? scores : delivery;
++                    let passed = 0;
++                    button.disabled = true;
++                    const controller = new AbortController();
++                    const timer = setTimeout(() => controller.abort(), 180000);
++                    try {
++                        for (let i = 0; i < cases.length; i++) {
++                            status.textContent = `Checking case ${i + 1} of ${cases.length}…`;
++                            const values = cases[i];
++                            const code = isScores ? source.replace(scorePattern, (_,a,b) => a + values[0] + b) :
++                                source.replace(servicePattern, (_,a,b) => a + JSON.stringify(values[0]) + b)
++                                    .replace(totalPattern, (_,a,b) => a + values[1] + "m" + b);
++                            const result = await runner.execute(code, "", controller.signal);
++                            const expected = values[values.length - 1];
++                            const actual = (result.output || "").replace(/\r\n/g,"\n").trimEnd();
++                            const ok = result.exitCode === 0 && !result.error && actual === expected;
++                            if (ok) passed++;
++                            const row = document.createElement("li");
++                            row.textContent = `${ok ? "PASS" : "FAIL"}: ${isScores ? "score " + values[0] : values[0] + " / " + values[1]}: expected ${JSON.stringify(expected)}; actual ${JSON.stringify(actual)}.`;
++                            if (result.error) row.textContent += " " + result.error;
++                            if (result.exitCode !== 0) row.textContent += ` Execution did not succeed (exit ${result.exitCode ?? "unknown"}).`;
++                            results.appendChild(row);
++                            if (result.exitCode !== 0) {
++                                status.textContent = `Execution stopped. ${passed} of ${cases.length} cases passed; remaining cases were not run. Fix the error and check again.`;
++                                return;
++                            }
++                        }
++                        status.textContent = `${passed} of ${cases.length} cases passed. These checks cover the listed cases; they do not prove correctness for every input.`;
++                    } catch (error) {
++                        status.textContent = `Check incomplete: ${error.name === "AbortError" ? "time limit reached" : error.message}. ${passed} cases passed before stopping. Try again when the runner is available.`;
++                    } finally {
++                        clearTimeout(timer);
++                        button.disabled = false;
++                    }
++                });
++            });
++
+             marker.dataset.practiceReady = "true";
+             section.querySelectorAll('[data-practice-check="zero-evidence"]').forEach(form => {
+                 form.addEventListener("submit", event => {
+diff --git a/chapters/03_decision/0302_ifstatement.ipynb b/chapters/03_decision/0302_ifstatement.ipynb
+index 81340dec..78cc2e79 100644
+--- a/chapters/03_decision/0302_ifstatement.ipynb
++++ b/chapters/03_decision/0302_ifstatement.ipynb
+@@ -1529,7 +1529,19 @@
+    "id": "core19_choice_task",
+    "metadata": {},
+    "source": [
+-    "Repair the intentionally misordered chain so that 95 prints `Distinction`. Then replace the score with 59, 60, 89, and 90 in separate runs and compare with the table above. Use top-level statements; no loops or user-defined methods are needed. The supplied starter compiles and prints `Pass`, exposing the rule-order defect.\n"
++    "Repair the marked `if` / `else if` chain so each score receives exactly one category. Keep the supplied input declaration, `category` variable, and final print statement. The starter intentionally prints `Pass` for 95; the required result is `Distinction`.\n",
++    "\n",
++    "| Score | Required output |\n",
++    "| ---: | --- |\n",
++    "| 59 | `No pass` |\n",
++    "| 60 | `Pass` |\n",
++    "| 89 | `Pass` |\n",
++    "| 90 | `Distinction` |\n",
++    "| 95 | `Distinction` |\n",
++    "\n",
++    "Use **Edit** or **Inline** to change the code. You can change `score` and use **Run** for one case, or select **Check all score cases** below to test your current code against all five rows. The checker substitutes only the supplied `int score = ...;` declaration in temporary copies; it does not change your editor. Keep that declaration in its supplied form. Inputs for this task are valid integer scores from 0 to 100; validation is outside this repair. No loops or methods are needed.\n",
++    "\n",
++    "**Show saved output** displays the original starter's output, not a target or a test result.\n"
+    ]
+   },
+   {
+@@ -1597,7 +1609,11 @@
+    "id": "tabs19_q3_feedback",
+    "metadata": {},
+    "source": [
+-    "The repair tests the narrower distinction category before the broader pass category. Check 59, 60, 89, 90, and 95 without changing the expected categories to suit the implementation. The hidden answer preserves the original completed example; use it after attempting the repair.\n"
++    "<div data-practice-tests=\"scores\" data-practice-cell=\"core19_choice_starter\"><button type=\"button\">Check all score cases</button><p data-test-status role=\"status\" aria-live=\"polite\"></p><ol data-test-results></ol></div>\n",
++    "\n",
++    "```{dropdown} Repair explanation\n",
++    "Test the narrower distinction category before the broader pass category. The required outputs stay fixed when you change the implementation. Reveal the code solution after attempting the repair.\n",
++    "```\n"
+    ]
+   },
+   {
+@@ -1618,17 +1634,21 @@
+    "source": [
+     "Prepare one delivery quote. The recognized services are express `E` at 8, standard `S` at 3, and pickup `P` at zero. Standard delivery is free when `orderTotal >= 50m`; the waiver does not apply to express. An unknown code must print `Unknown service`.\n",
+     "\n",
+-    "Complete the marked area using the selection forms taught in this reading. Use top-level statements; no loop or method is required. The starter compiles and prints `Not implemented` until you supply the rule.\n",
++    "Complete the marked area using the selection forms taught in this reading. Assign the final text to `report`; keep the supplied final `Console.WriteLine(report)` as the only report-printing statement. Inputs are uppercase service codes and nonnegative decimal order totals. Case normalization and negative-total validation are outside this task. Use top-level statements; no loop or method is required. The starter compiles and prints `Not implemented` until you supply the rule.\n",
+     "\n",
+     "| Service | Order total | Required report |\n",
+     "| --- | ---: | --- |\n",
+     "| E | 25.00 | `Service E: 8` |\n",
++    "| E | 50.00 | `Service E: 8` |\n",
+     "| S | 49.99 | `Service S: 3` |\n",
+     "| S | 50.00 | `Service S: 0` |\n",
+     "| P | 25.00 | `Service P: 0` |\n",
+     "| X | 50.00 | `Unknown service` |\n",
++    "| Z | 50.00 | `Unknown service` |\n",
++    "\n",
++    "Use **Edit** or **Inline** to write your code. Change the two input values and use **Run** for one row, or select **Check all delivery cases** below to run all seven rows. Keep the supplied `string service = ...;` and `decimal orderTotal = ...;` declarations in their supplied form. The checker changes those declarations only in temporary copies and preserves your editor.\n",
+     "\n",
+-    "Change the two supplied input values and run each row separately.\n",
++    "**Show saved output** displays `Not implemented` from the original starter, not the required result.\n",
+     "\n",
+     "```{dropdown} Hint\n",
+     "Recognize the service first. Apply the threshold waiver only to standard delivery. Keep recognition separate from the numeric charge so that pickup and invalid input cannot be confused.\n",
+@@ -1710,7 +1730,11 @@
+    "id": "tabs19_q4_feedback",
+    "metadata": {},
+    "source": [
+-    "The initial S/50 input prints `Service S: 0`. The code first answers “was the service recognized?” and then applies the waiver, so X/50 is still rejected. Test just below and exactly at 50 to check the inclusive boundary; test E/50 as well to ensure a standard-only policy has not spread to every service.\n"
++    "<div data-practice-tests=\"delivery\" data-practice-cell=\"tabs19_quote_starter\"><button type=\"button\">Check all delivery cases</button><p data-test-status role=\"status\" aria-live=\"polite\"></p><ol data-test-results></ol></div>\n",
++    "\n",
++    "```{dropdown} Delivery explanation\n",
++    "For S/50 the report is `Service S: 0`. Recognition and price are separate: X/50 and Z/50 must be rejected, while P/25 is recognized and free. S/49.99 and S/50 test the inclusive boundary. E/50 checks that the standard-only waiver does not spread to express. A recognized zero-price service is not necessarily pickup.\n",
++    "```\n"
+    ]
+   },
+   {
