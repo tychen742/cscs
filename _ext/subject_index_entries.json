@@ -793,6 +793,10 @@
   "code completion: count down": [
     "iterator; code completion exercise"
   ],
+  "code completion: count occurrences": [
+    "frequency count; code completion exercise",
+    "dictionary; counting pattern"
+  ],
   "code completion: dequeue from a ring": [
     "ring buffer; code completion exercise",
     "dequeue; implementation"
@@ -840,6 +844,9 @@
     "heap; tracing exercise",
     "heap property; validation"
   ],
+  "code tracing: linear probing placement": [
+    "linear probing; tracing exercise"
+  ],
   "code tracing: narrow the interval": [
     "binary search; tracing exercise"
   ],
@@ -862,6 +869,10 @@
   ],
   "code tracing: undo and redo histories": [
     "undo and redo; tracing exercise"
+  ],
+  "code tracing: versioned lazy deletion": [
+    "lazy deletion; tracing exercise",
+    "priority queue; stale entries"
   ],
   "code tracing: which values remain reachable?": [
     "linked list; tracing exercise",
@@ -1052,6 +1063,12 @@
   ],
   "computers, software, and data": [
     "computers; hardware, software, and data"
+  ],
+  "concept check: match the need to the structure": [
+    "data structure; selection recall"
+  ],
+  "concept check: which operation answers the question?": [
+    "set operations; concept recall"
   ],
   "conditional (if) statements": [
     "if statement"
@@ -1670,6 +1687,10 @@
   ],
   "exercise; variable tracing": [
     "variable tracing; exercises"
+  ],
+  "expected cost as a function of load": [
+    "hash table; expected cost",
+    "load factor; probe analysis"
   ],
   "explain a recommendation with evidence": [
     "algorithm selection; evidence-based recommendation"
@@ -4753,6 +4774,10 @@
   ],
   "what an adt specifies": [
     "abstract data types; specifications"
+  ],
+  "what makes a hash function good": [
+    "hash function; design principles",
+    "hash function; key distribution"
   ],
   "when insertion sort is not enough": [
     "merge sort; motivation",
