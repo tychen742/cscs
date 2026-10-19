@@ -150,3 +150,7 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 20.1 gained a side-by-side table of undirected and directed terms on the chapter's own examples and the degree list that the handshake check relies on. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA References (2026-10-19)
+
+Added **Visualize it** pointer cells after the worked examples in 20.3 (BFS; CS3 Graph Traversals, breadth-first anchor) and 20.4 (DFS; depth-first anchor), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed. Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 20: the two footnotes now point to CS3 14.3 Graph Traversals. CS3 14.4 Topological Sort is recorded in the README as the reference for the earlier gap item.

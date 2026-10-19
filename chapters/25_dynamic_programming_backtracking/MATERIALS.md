@@ -91,3 +91,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 15 mistakes beside the examples (incomplete cache keys, backward table fills, comparing counts at different n, the unguarded table[1], storing the shared list, reusing a position, pruning signed values on remaining < 0, caching r alone, not resetting used, reference sharing the search's pruning rule, zero for unreachable, largest-first packs, witness as proof of optimality, deduplicating inventory, re-enqueueing discovered amounts) and interpretation after the exercise and practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA References (2026-10-19)
+
+Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 25: the three footnotes keep the CS4104 Dynamic Programming module on the new host.

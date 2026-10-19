@@ -11,6 +11,10 @@ read from publisher or author pages on October 18, 2026 (sources at the end);
 where a page could not be fetched, the TOC is reconstructed from the
 publisher's preview and marked as such.
 
+Updated October 19, 2026: the three OpenDSA books were added to the
+comparison, and the "OpenDSA mapping" section below maps Chapters 13 to 26
+to their CS2 and CS3 sections.
+
 ## Books compared
 
 | Group | Book | Edition and role |
@@ -28,6 +32,9 @@ publisher's preview and marked as such.
 | Java CS2/algorithms | Sedgewick and Wayne, *Algorithms* | 4th ed., 6 chapters |
 | Open CS2 | Morin, *Open Data Structures* (Java) | 14 chapters |
 | C# CS2 | Jamro, *C# Data Structures and Algorithms* | 2nd ed., Packt 2024, 10 chapters (publisher page blocked; first five from preview, rest from memory) |
+| Open CS2 (Java) | OpenDSA, *CS2* (Virginia Tech) | Open, MIT license; 12 chapters with interactive visualizations and exercises; primary reference for Parts IV and V (added October 19, 2026) |
+| Open CS2/CS3 (Java) | OpenDSA, *CS3* (Virginia Tech) | Open, MIT license; 16 chapters; primary reference for Parts IV to VII (added October 19, 2026) |
+| Java CS1 (objects-first) | OpenDSA, *Introduction to Software Design* (Virginia Tech) | Open, MIT license; 15 modules; secondary reference for exercise formats only, because it is objects-first and this book's CS1 is imperative-first (added October 19, 2026) |
 
 ## Where this book already matches the field
 
@@ -205,6 +212,69 @@ teach; the rest are completeness. Every item can be added as a supporting
 reading or subsection without renumbering chapters or changing assessment
 IDs.
 
+## OpenDSA mapping
+
+OpenDSA (Virginia Tech) publishes open, MIT-licensed data structures and
+algorithms eTextbooks with Java code, interactive JSAV slideshows, and
+auto-graded exercises. For this book, [CS2](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/) and [CS3](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/) are the
+primary references for Parts IV to VII, and [Introduction to Software
+Design](https://opendsa-server.cs.vt.edu/OpenDSA/Books/IntroToSoftwareDesign/html/) is a secondary reference for exercise formats only: it is an
+objects-first Java CS1, while Parts I to III here are imperative-first. The
+table maps each chapter of Parts IV to VII to the matching OpenDSA sections
+(tables of contents fetched October 19, 2026). Link to the
+`opendsa-server.cs.vt.edu` host: `opendsa.org` serves a certificate for that
+host name and fails strict fetches.
+
+| This book | OpenDSA CS2 | OpenDSA CS3 | Notes |
+| --- | --- | --- | --- |
+| 13 Abstract Data Types (13.1 contracts, 13.2 representations and costs, 13.3 generics, 13.4 iterators) | [1.2 Abstract Data Types](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ADT.html), [3.1 A List ADT](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ListADT.html), [4.2 Comparing Algorithms](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalIntro.html), [4.5 Asymptotic Analysis and Upper Bounds](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalAsymptotic.html) | [1.2 Abstract Data Types](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ADT.html), [5.1 Chapter Introduction: Lists](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListIntro.html), [5.2 A List ADT](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListADT.html), [4.3 Comparing Algorithms](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalIntro.html), [4.6 Asymptotic Analysis and Upper Bounds](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalAsymptotic.html) | OpenDSA states the List ADT as a Java interface; this book states contracts as observable histories first. Generics and iterators have no OpenDSA section. |
+| 14 Arrays and Linked Lists | [3.2 Array-Based List Implementation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ListArray.html), [5.7 Link Nodes](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Links1.html), [10.1 Linked Lists](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ListLinked.html), [10.2 Comparison of List Implementations](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ListAnalysis.html), [10.3 Doubly Linked Lists](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/ListDouble.html) | [5.3 Array-Based List Implementation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListArray.html), [5.4 Linked Lists](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListLinked.html), [5.5 Comparison of List Implementations](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListAnalysis.html), [5.6 Doubly Linked Lists](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ListDouble.html) | CS2 Chapter 5 (Pointers) teaches Java references at length; 14.2 covers the needed subset. Freelists (10.5, 5.10) are not taught here. |
+| 15 Stacks and Queues | [6.1 Stacks](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/StackArray.html), [6.2 Linked Stacks](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/StackLinked.html), [9.1 Queues](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Queue.html), [9.2 Linked Queues](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/QueueLinked.html) | [5.8 Stacks](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/StackArray.html), [5.9 Linked Stacks](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/StackLinked.html), [5.11 Implementing Recursion](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/StackRecur.html), [5.12 Queues](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Queue.html), [5.13 Linked Queues](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/QueueLinked.html) | The ring buffer in 15.2 matches the circular queue in 9.1 and 5.12. 5.11 supports the backtracking-with-a-stack application in 15.3. |
+| 16 Searching and Basic Sorting (16.3 Merge Sort is a supporting reading) | [8.1 Chapter Introduction: Sorting](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/InSort.html), [8.2 Sorting Terminology and Notation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/SortNotation.html), [8.3 Comparing Records](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Comparison.html), [8.4 Insertion Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/InsertionSort.html) | [8.2 Sorting Terminology and Notation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SortNotation.html), [6.3 Comparing Records](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Comparison.html), [8.3 Insertion Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/InsertionSort.html), [8.9 Mergesort Concepts](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Mergesort.html), [8.10 Implementing Mergesort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/MergesortImpl.html) | Neither book has a searching chapter; the catalog module [Search in Sorted Arrays](https://opendsa-server.cs.vt.edu/OpenDSA/Books/Catalog/html/SortedSearch.html) (binary search, already cited in 16.1) is the closest match. |
+| 17 Trees and Binary Search Trees | [7.1 Introduction to Recursion](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/RecIntro.html), [7.7 Tracing Recursive Code](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Trace.html), [11.1 Binary Trees Chapter Introduction](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/BinaryTreeIntro.html), [11.2 Binary Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/BinaryTree.html), [11.3 Binary Tree Traversals](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/BinaryTreeTraversal.html), [11.4 Binary Search Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/BST.html) | [7.2 Binary Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BinaryTree.html), [7.3 Binary Tree as a Recursive Data Structure](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/RecursiveDS.html), [7.5 Binary Tree Traversals](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BinaryTreeTraversal.html), [7.6 Implementing Tree Traversals](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/WritingTraversals.html), [7.7 Information Flow in Recursive Functions](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BinaryTreeInfFlw.html), [7.11 Binary Search Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BST.html), [7.12 Dictionary Implementation Using a BST](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BSTDict.html) | CS3 7.7 and 7.13 (information flow) match the returned-value emphasis of 17.4. The Full Binary Tree Theorem (7.4) and expression trees (7.9) are not taught here. |
+| 18 Priority Queues and Heaps | No CS2 section. | [7.16 Array Implementation for Complete Binary Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/CompleteTree.html), [7.17 Heaps and Priority Queues](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Heaps.html) | [8.12 Heapsort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Heapsort.html) is a natural extension of 18.2 that this book does not teach; 18.3 uses the heap for top-k selection instead. |
+| 19 Hash Collections and Sets | No CS2 section. | [6.4 The Dictionary ADT](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Dictionary.html), [10.1 Introduction to Hashing](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashIntro.html), [10.2 Hash Function Principles](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashFunc.html), [10.3 Sample Hash Functions](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashFuncExamp.html), [10.4 Open Hashing](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/OpenHash.html), [10.6 Collision Resolution](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashCSimple.html), [10.7 Improved Collision Resolution](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashCImproved.html), [10.8 Analysis of Closed Hashing](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashAnal.html), [10.9 Hahing Deletion (sic)](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/HashDel.html) | Terminology differs: OpenDSA's open hashing is this book's separate chaining, and its closed hashing is this book's open addressing. 19.2 and 19.3 (sets, reconciliation, collection selection) have no OpenDSA counterpart. |
+| 20 Graphs and Traversal | No CS2 section. | [14.1 Graphs Chapter Introduction](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphIntro.html), [14.2 Graph Implementations](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphImpl.html), [14.3 Graph Traversals](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphTraversal.html) | [14.4 Topological Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphTopsort.html) covers gap item 8 above, with DFS-based and queue-based versions; a 20.4 subsection could cite it. |
+| 21 Algorithm Analysis | [4.1 Problems, Algorithms, and Programs](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalPrelim.html), [4.3 Best, Worst, and Average Cases](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalCases.html), [4.4 Faster Computer, or Faster Algorithm?](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalCompvsAlg.html), [4.6 Calculating Program Running Time](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/AnalProgram.html) | [3.4 Logarithms](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Logarithms.html), [3.5 Summations Introduction](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Summations.html), [3.6 An Introduction to Recurrence Relations](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/RecurrenceIntro.html), [3.7 Mathematical Proof Techniques](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Proofs.html), [4.7 Lower Bounds and Theta Notation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalLower.html), [4.8 Calculating Program Running Time](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalProgram.html), [4.9 Analyzing Problems](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalProblem.html), [4.10 Common Misunderstandings](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalMisunderstanding.html), [4.11 Multiple Parameters](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalMultiple.html), [4.12 Space Bounds](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalSpace.html), [4.13 Code Tuning and Empirical Analysis](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalTuning.html) | 21.2 Correctness and Invariants has no OpenDSA counterpart beyond 3.7 (proof techniques). 13.2 remains the CS2 analysis baseline (gap item 4). |
+| 22 Recursion and Divide and Conquer | [7.1 Introduction to Recursion](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/RecIntro.html), [7.2 Writing a recursive function](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Write.html), [7.4 Writing More Sophisticated Recursive Functions](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/HarderWrite.html), [7.7 Tracing Recursive Code](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/Trace.html) | [3.6 An Introduction to Recurrence Relations](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/RecurrenceIntro.html), [8.9 Mergesort Concepts](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Mergesort.html), [8.10 Implementing Mergesort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/MergesortImpl.html) | CS2 Chapter 7 is the model for code-completion and tracing exercise formats (gap item 2); the recursion reading 5.6 can cite it. |
+| 23 Advanced Searching and Sorting | [8.4 Insertion Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/InsertionSort.html), [8.5 Bubble Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/BubbleSort.html), [8.6 Selection Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/SelectionSort.html) | [8.3 Insertion Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/InsertionSort.html), [8.4 Bubble Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BubbleSort.html), [8.5 Selection Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SelectionSort.html), [8.6 The Cost of Exchange Sorting](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/ExchangeSort.html), [8.7 Optimizing Sort Algorithms with Code Tuning](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SortOpt.html), [8.8 Shellsort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Shellsort.html), [8.11 Quicksort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Quicksort.html), [8.15 An Empirical Comparison of Sorting Algorithms](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SortingEmpirical.html), [8.16 Lower Bounds for Sorting](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SortingLowerBound.html) | 8.16 gives the decision-tree lower bound this book mentions but does not prove. Heapsort, [Binsort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BinSort.html), and [Radix Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/RadixSort.html) (8.12 to 8.14) are not taught here. 23.1 (lower and upper bounds for duplicates) has no counterpart. |
+| 24 Greedy Choices and Graph Optimization | No CS2 section. | [13.2 Union/Find and the Parent Pointer Implementation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/UnionFind.html), [14.5 Shortest-Paths Problems](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphShortest.html), [14.6 Minimal Cost Spanning Trees](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/MCST.html), [14.7 Kruskal's Algorithm](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Kruskal.html) | 14.6 presents Prim, which this book omits in favor of Kruskal. [14.8 All-Pairs Shortest Paths](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/Floyd.html) is not taught. The exchange argument of 24.1 has no OpenDSA counterpart. |
+| 25 Dynamic Programming and Backtracking | No CS2 section. | No CS3 section. | OpenDSA covers dynamic programming only in its CS4104 (algorithms) book, which 25.1 to 25.3 already cite in their footnotes. Backtracking has no OpenDSA module. |
+| 26 Strings, Prefix Matching, and Limits | No CS2 section. | [4.7 Lower Bounds and Theta Notation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalLower.html), [4.9 Analyzing Problems](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalProblem.html) | OpenDSA has no string-matching module, so 26.1 and 26.2 (direct matching and KMP) have no counterpart. Huffman coding (7.18, 7.20) is a greedy case this book does not teach. |
+
+### CS3 topics deliberately omitted
+
+- Chapter 2 (Java and Eclipse tooling, JUnit, mutation testing): tooling
+  belongs to Appendix B, and testing is taught in C# in Chapter 6.
+- Chapter 9 File Processing (disk drives, buffer pools, external sorting):
+  Chapter 9 here teaches text files at the application level only.
+- Chapter 11 Memory Management (sequential fit, buddy method, garbage
+  collection): .NET manages memory; Chapter 11 covers references and
+  ownership at the language level.
+- Chapter 12 Indexing (linear indexing, ISAM, 2-3 trees, B-trees): database
+  internals are out of scope; the database appendix uses SQLite as a client.
+- Chapter 15 Advanced Data Structures (sparse matrix, skip lists, spatial
+  structures: PR quadtree, KD tree, bintree): beyond an IS/IT program's
+  needs.
+- Within taught chapters: freelists, the Full Binary Tree Theorem,
+  expression trees, heapsort, binsort and radix sort, Prim's algorithm,
+  Floyd's all-pairs shortest paths, and Huffman coding trees.
+
+### Earlier gap items that CS3 covers
+
+- Gap 8, topological ordering: [14.4 Topological
+  Sort](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/GraphTopsort.html) gives DFS-based and queue-based versions
+  with slideshows; a 20.4 or 24.4 subsection can point there.
+- Sorting lower bounds: [8.16 Lower Bounds for
+  Sorting](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/SortingLowerBound.html) and [4.7 Lower Bounds and Theta
+  Notation](https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/AnalLower.html) supply the decision-tree argument that 26.3
+  mentions and Chapters 21 and 23 can cite.
+- Gap 2, recursion exercises: CS2 Chapter 7 is a model for code-completion
+  and tracing exercise formats, usable from the 5.6 and 22.1 readings.
+- Gap 7, balanced trees: not covered by CS2 or CS3 either, apart from 2-3
+  trees inside the omitted indexing chapter. The concept-level reading
+  suggested above still has no OpenDSA counterpart.
+
 ## Sources
 
 - Harrington, introcs.cs.luc.edu, fetched TOC.
@@ -220,3 +290,6 @@ IDs.
 - Morin, opendatastructures.org/ods-java/, fetched.
 - Jamro 2e, packtpub.com product 9781803248271 (403 on fetch); chapters 1 to 5 from the Packt preview in search results, rest from memory.
 - Downey and Mayfield, Think Java 2e, from memory (trinket.io redirect not followed).
+- OpenDSA CS2, https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/, fetched TOC October 19, 2026.
+- OpenDSA CS3, https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/, fetched TOC October 19, 2026.
+- OpenDSA Introduction to Software Design, https://opendsa-server.cs.vt.edu/OpenDSA/Books/IntroToSoftwareDesign/html/, fetched TOC October 19, 2026.

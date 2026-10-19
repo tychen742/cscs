@@ -98,3 +98,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (expecting enumeration in priority order, checking the heap rule only at the root, the wrong parent formula, swapping with the left child without checking the right, a max-heap for top-k) and interpretation after the practice and exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA References (2026-10-19)
+
+Added **Visualize it** pointer cells after the worked examples in 18.2 (enqueue and bubble up, dequeue and sink down; CS3 Heaps and Priority Queues), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed. Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 18: the three footnotes now point to CS3 7.17 Heaps and Priority Queues.
