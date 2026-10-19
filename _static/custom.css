@@ -631,7 +631,7 @@ div.cell_output pre span {
 div.cell.docutils.container,
 div.container.cell,
 div.cell {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;   /* the theme's own spacing after a code cell */
 }
 
 div.cell.tag_exercise {
@@ -688,7 +688,7 @@ html[data-theme="dark"] div.cell.cscs-has-run pre.cscs-execution-output {
     display: flex;
     flex-wrap: wrap;
     gap: 1px;
-    margin: 4px 0 0 var(--cscs-code-inset, 1rem);
+    margin: 4px 0 6px var(--cscs-code-inset, 1rem);   /* room below when the output is collapsed */
 }
 
 .cscs-execution-controls button {
