@@ -117,7 +117,7 @@ function initializeCsharpExecution() {
         expectedToggle.className = "cscs-expected-toggle";
         expectedToggle.hidden = !storedOutput;
 
-        controls.append(editButton, inlineButton, resetButton, discardButton, runButton, stdinPanel);
+        controls.append(editButton, inlineButton, resetButton, discardButton, runButton, expectedToggle, stdinPanel);
         placeCellTail();
         let stdinRequested = false;
         let editMode = "view";
@@ -128,7 +128,7 @@ function initializeCsharpExecution() {
         let suppressChange = false;
 
         function placeCellTail() {
-            cell.append(controls, output, traceHost, ranNote, expectedToggle);
+            cell.append(controls, output, traceHost, ranNote);
             if (storedOutput) cell.appendChild(storedOutput);
         }
 

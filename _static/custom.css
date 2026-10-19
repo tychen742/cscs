@@ -855,36 +855,9 @@ div.cell > div.cell_output[hidden] {
     display: none !important;
 }
 
-.cscs-expected-toggle {
-    appearance: none;
-    background: none;
-    border: 0;
-    border-radius: 2px;
-    color: var(--pst-color-text-muted, #666666);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 0.78rem;
-    line-height: 1.2;
-    margin: 4px 0 0 var(--cscs-code-inset, 1rem);
-    padding: 2px 0;
-}
-
-.cscs-expected-toggle::before {
-    content: "\25B8\00A0";
-}
-
-.cscs-expected-toggle[aria-expanded="true"]::before {
-    content: "\25BE\00A0";
-}
-
-.cscs-expected-toggle:hover {
-    color: var(--pst-color-text-base, #27313a);
-    text-decoration: underline;
-}
-
-.cscs-expected-toggle:focus-visible {
-    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.2);
-    outline: none;
+/* The saved-output toggle sits in the controls row and takes the shared button style. */
+.cscs-expected-toggle[aria-expanded="true"] {
+    font-weight: 600;
 }
 
 .cscs-expected-toggle[hidden],
