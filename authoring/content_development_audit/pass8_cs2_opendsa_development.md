@@ -99,7 +99,7 @@ For comparison, the word-count report's Chapters 1-9 average 1,700-2,600 prose w
 
 ## Exercises added by type
 
-Counted from the new `###` headings in the content notebooks of Chapters 13-26. Every tracing exercise shows code in the task and runs it in a hide-input solution cell with stored output; every completion exercise has a starter tagged `exercise` and a hide-input solution with stored output; ordering and recall exercises answer in a dropdown; every Check Your Understanding block holds four questions with dropdown answers.
+Counted from the new `###` headings in the content notebooks of Chapters 13-26. Every tracing exercise shows code in the task and runs it in a hide-input solution cell with stored output; every completion exercise has a starter tagged `exercise` and a hide-input solution with stored output; ordering and recall exercises answer in a dropdown; every Check Your Understanding block holds four questions with dropdown answers. Section labels use the notebook file numbers (for example 25.4 is `2504_optimization_models`, the chapter's second page in reading order).
 
 | Type | Count | Sections |
 | --- | ---: | --- |
