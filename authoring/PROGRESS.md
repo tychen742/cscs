@@ -445,3 +445,19 @@ verification. Local changes, not deployed.
 ## Search, Recursion, and Merge Sort Readings (2026-10-18)
 
 From the textbook comparison in `authoring/toc_comparison/README.md`: added 7.3 Searching and Sorting Arrays as core CS1 content (search contract, linear search, library sort and binary search, hand-written half-open binary search and insertion sort, three defect-repair practices), combining a library-first draft with the hand-written draft from the outcome-gap pass and removing the latter from 7.2; 5.6 Recursive Methods as a supporting reading; 16.3 Merge Sort as a supporting reading. Updated the three landing pages, Chapter Topics, 5.5 and 17.1 cross-references, and chapter planning docs. All 26 new code cells compile and run standalone. Assessment IDs are unchanged; Chapter 7's 2D section is now 7.4.
+
+## Exercise cell tag rename (2026-10-18)
+
+Renamed the legacy `thebe-interactive` cell tag to `exercise` in all 335 tagged
+code cells across 116 chapter notebooks (260 in assignments, 75 in content
+sections) with the new `scripts/rename_cell_tag.py`; only the tag lines changed.
+`_static/custom.js` now selects `div.cell.tag_exercise` and labels each cell
+"Exercise N of M" without an emoji, with the label styled by a `.exercise-label`
+rule in `_static/custom.css`, where the `.tag_thebe-interactive` selectors are
+renamed and the commented-out Thebe counter block is removed. Current docs
+(`AGENTS.md`, `scripts/README.md`, `instructor_support/README.md`, Chapter 15
+and 17 `ORGANIZATION.md`) use the new name; dated historical notes and audit
+baselines are unchanged. The runner's `exercise-id:` comment convention is
+untouched. The shared book-authoring skill and prompts in `ai_shared` still
+describe `thebe-interactive` and need a separate update. Local changes, not
+deployed.

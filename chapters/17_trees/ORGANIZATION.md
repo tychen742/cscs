@@ -63,7 +63,7 @@ The planned lecture total is 110 minutes, including predictions, hand traces, di
 
 - Keep general-tree structure separate from BST ordering. Use unique integer IDs as the implemented set contract.
 - Keep balancing rotations outside this chapter. Explain why an unbalanced tree cannot guarantee logarithmic path costs.
-- Retain legacy `thebe-interactive` exercise metadata until the coordinated Press/UI convention migration.
+- Coding-question cells carry the `exercise` tag (renamed from the legacy `thebe-interactive` tag on 2026-10-18).
 - Slides remain pending; later Press work will provide HTML/PDF to students and restrict PPTX downloads to instructors.
 
 ## Foundation Placement (2026-10-07)

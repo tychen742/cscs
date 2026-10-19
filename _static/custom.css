@@ -600,8 +600,8 @@ p.admonition-title {
 
 .tag_hide-input .admonition,
 .tag_hide-input details.admonition,
-.tag_thebe-interactive .admonition,
-.tag_thebe-interactive details.admonition {
+.tag_exercise .admonition,
+.tag_exercise details.admonition {
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
     border-top-left-radius: 0 !important;
@@ -634,37 +634,33 @@ div.cell {
     margin-bottom: 0.5rem !important;
 }
 
-div.cell.tag_thebe-interactive {
-    /* counter-increment: exercise-counter; */
+div.cell.tag_exercise {
     margin-bottom: 0.75rem !important;
-    /* padding: 8px !important; */
-    /* border-left: 1px solid #AD2327; */
-    /* counter-increment */
     padding: 0 !important;
 }
 
+/* "Exercise N of M" label that custom.js inserts at the top of each exercise cell */
+.exercise-label {
+    display: block;
+    font-size: 0.85em;
+    color: #771212;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
 /* Tighter spacing for exercise cells */
-.tag_thebe-interactive .cell_input,
-.tag_thebe-interactive div.cell_input {
+.tag_exercise .cell_input,
+.tag_exercise div.cell_input {
     margin-bottom: 0.25rem !important;
 }
 
-.tag_thebe-interactive .cell_output,
-.tag_thebe-interactive div.cell_output {
+.tag_exercise .cell_output,
+.tag_exercise div.cell_output {
     margin-top: 3px !important;
     padding-top: 3px !important;
 }
 
-/* div.cell.tag_thebe-interactive::before {
-    content: "✏️ Interactive Exercise " counter(exercise-counter);
-    display: block;
-    font-size: 0.85em;
-    color: #66010b;
-    font-weight: bold;
-    margin-bottom: 8px;
-} */
-
-div.cell.tag_thebe-interactive {
+div.cell.tag_exercise {
     padding: 8px;
 }
 

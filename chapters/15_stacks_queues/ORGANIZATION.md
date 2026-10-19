@@ -24,7 +24,7 @@ Preview checks vocabulary and state distinctions. Lab builds one service-desk de
 
 Use count rather than element values to determine emptiness. Validate before mutation, clear unused references, update linked endpoints after singleton removal, and copy logical order when growing a wrapped ring. Qualify allocation/growth costs instead of claiming every growable operation is O(1). The local source compares both queue representations with `Queue<int>` and the array stack with `Stack<int>` over reproducible mixed operations.
 
-Lecture slide decks remain pending. Preserve the existing chapter video. The legacy `thebe-interactive` metadata remains until the shared Press UI and book-authoring tag migration is implemented.
+Lecture slide decks remain pending. Preserve the existing chapter video. Coding-question cells carry the `exercise` tag (renamed from the legacy `thebe-interactive` tag on 2026-10-18).
 
 ## Section-Boundary Review (2026-10-17)
 

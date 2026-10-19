@@ -78,7 +78,7 @@ The completed `demos/07/array_lab/` helpers are **not** the sales-lab key.
 
 ## Assignment Inventory and Remaining Gaps
 
-The inventory below counts coding-question cells (`thebe-interactive`) and
+The inventory below counts coding-question cells (tagged `exercise`) and
 hidden answer cells (`hide-input`). These are structural observations, not a
 correctness audit or a count of all questions. A page with zero hidden answers
 can have answers in another format. Preview quizzes and true/false questions
