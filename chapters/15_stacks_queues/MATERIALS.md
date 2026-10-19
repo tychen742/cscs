@@ -64,3 +64,23 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 15.1 (undo past the beginning with TryPop) and 15.3 (visit pages in arrival order), and task text with expected output above the previously code-only Exercise cells of 15.1, 15.2, and 15.3. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS2 6.1 Stacks, 6.2 Linked Stacks (with the array-versus-linked comparison), 9.1 Queues (array-based and circular queues), 9.2 Linked Queues, the Stack and Queue Summary Questions, and CS3 5.11 Implementing Recursion. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Linked stack implementation and the array-versus-linked stack comparison, including two stacks sharing one array | 6.2 | 15.1 Stack Implementation Choices (was 86 words; runnable `LinkedIntStack`, comparison table) |
+| Queue vocabulary and why restricted access is the point | 9.1 terminology | 15.2 Queue Behavior (was 89 words) |
+| Worklist loop shape and layer property | 9.1 | 15.2 Worklists and Scheduling (was 57 words) |
+| The drifting array queue and why indexes wrap | 9.1.1 Array-Based Queues | 15.2 Ring Buffers (was 94 words) |
+| Pigeonhole argument that front and back alone cannot distinguish full from empty, and the two repairs | 9.1.2 The Circular Queue | 15.2 Why Front and Back Alone Cannot Tell Full from Empty (new) |
+| Deque operation pairs and the stack/queue special cases | 9.1, 9.2 | 15.2 Deques (was 92 words) |
+| Output interpretation of the bounded ring example | 9.1.3 | 15.2 A Complete Bounded Generic Queue (new interpretation cell) |
+| Backtracking as advance, fail, resume | 6.1 applications | 15.3 Backtracking with a Stack (was 58 words) |
+| A stack replaces the call stack; recursion as a stack algorithm | CS3 5.11 Implementing Recursion | 15.3 A Stack Can Replace the Call Stack (new, bill-of-materials example) |
+| Reading the cost table as what each structure gave up | 9.2 comparison | 15.3 Comparing Costs (expanded) |
+| Exercise types: array-based dequeue practice (code completion), stack and queue tracing, summary questions | 9.1.2 Array-based Dequeue Practice, 9.2.3.1 Summary Questions | Listed below |
+
+Exercises added: code tracing (15.1 The Stack While Matching, 15.2 Ring State After Each Operation, 15.3 Undo and Redo Histories), code completion (15.2 Dequeue from a Ring), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.
