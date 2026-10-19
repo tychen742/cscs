@@ -54,8 +54,8 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/02/input/`](../../demos/02/input/README.md): Console input, parsing, and range validation.
-- [`demos/02/output/`](../../demos/02/output/README.md): Interview appointment output.
+- [`demos/02_var_data/input/`](../../demos/02_var_data/input/README.md): Console input, parsing, and range validation.
+- [`demos/02_var_data/output/`](../../demos/02_var_data/output/README.md): Interview appointment output.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
@@ -65,7 +65,7 @@ in `demos/README.md` and each project README.
 - Preview: ten core vocabulary MCQs covering variables, initialization, literals, Boolean values, expressions, arguments, return values, parsing, casts, and formatted output.
 - Lab: five connected office-supply stages, preserving the existing cells and IDs. Adds Math.Round return values, Math.Ceiling with conversion before division, and a final three-line input invoice using Trim and Parse. Monetary rounding policies and valid-input assumptions are explicit.
 - Homework: five workplace true/false cases and five standalone coding tasks. Tasks assess Math.Max with logical expressions, fractional versus integer division, string return values and Length, three parsed expenses, and Math.Round/Math.Abs in a budget report.
-- VS Code starter: `demos/02/order_invoice_starter/`, matching lab stage five. Canonical solutions remain in notebook hide-input cells with executed stdout retained.
+- VS Code starter: `demos/02_var_data/order_invoice_starter/`, matching lab stage five. Canonical solutions remain in notebook hide-input cells with executed stdout retained.
 - Instructor guidance: `instructor_support/labs/02_assessment_alignment.md`.
 
 These assessments require only sequential code and library calls. User-defined methods, classes, loops, and exception handling are not required. Existing published paths and Lab cell IDs remain unchanged. New Homework exercise IDs use the semantic `cscs-variables-types-homework-coding-*` prefix; existing notebook metadata is retained.
@@ -85,7 +85,7 @@ Verification: all 13 restored code cells compiled independently as .NET 10 conso
 
 ## CS1 Preservation Follow-up (2026-10-17)
 
-Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02/ui_helper.zip`). Setup and Git remain in appendices.
+Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02_var_data/ui_helper.zip`). Setup and Git remain in appendices.
 
 ## Section-Boundary Coverage Disposition (2026-10-17)
 
@@ -161,3 +161,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 2.2 gained a runnable example that uses an operator from each group, placed before the operator-types catalogue so students meet the symbols in a working line before the reference tables. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `02/` to `demos/02_var_data/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

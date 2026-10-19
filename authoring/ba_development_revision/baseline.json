@@ -2320,7 +2320,7 @@
      "Andrew N. Harrington and George Thiruvathukal supplied reusable input helpers in their original C# examples. This restores the earlier workflow for adding a helper source file to your own project. You call its methods as library operations here; designing such methods follows in Chapter 5.[^0203_input_output-ui-helper]\n",
      "\n",
      "1. Create a console project in your workspace using the Development Tools appendix's verified SDK/editor setup.\n",
-     "2. Download {download}`ui.cs <../../demos/02/ui_helper/ui.cs>` or open its source and copy the complete file. Save it as ui.cs **inside the same project folder as Program.cs**. Copy source text rather than a rendered GitHub page.\n",
+     "2. Download {download}`ui.cs <../../demos/02_var_data/ui_helper/ui.cs>` or open its source and copy the complete file. Save it as ui.cs **inside the same project folder as Program.cs**. Copy source text rather than a rendered GitHub page.\n",
      "3. Inspect its namespace. The original upstream file used IntroCS. For this restored example it is IntroCSCS. If you use a different namespace in your project, either change the helper's namespace to match or import IntroCSCS with a using directive. A folder name alone does not change a namespace.\n",
      "4. Replace Program.cs with the complete client below. The int variable is declared before the returned value is used.\n",
      "5. Save both files, build, and run from the project folder. Test a valid integer, a malformed line followed by a valid retry, and negative input. The helper is source code compiled into this same project, so there is no separate package-install step.\n",
@@ -2338,7 +2338,7 @@
      "}\n",
      "```\n",
      "\n",
-     "The client and helper are also available in the {download}`complete demonstration project <../../demos/02/ui_helper.zip>`. Extract it, open the folder in VS Code, and run `dotnet run`.\n",
+     "The client and helper are also available in the {download}`complete demonstration project <../../demos/02_var_data/ui_helper.zip>`. Extract it, open the folder in VS Code, and run `dotnet run`.\n",
      "\n",
      "A project can contain many .cs files. ui.cs defines helpers but does not declare Main, so adding it does not create a second entry point. Do not leave the template's top-level Console.WriteLine beside a second explicit Main. If you accidentally add two entry points, remove the unintended one rather than deleting the helper.\n",
      "\n",
@@ -10007,7 +10007,7 @@
     "source": [
      "Use one facilities theme to connect scheduling, cable planning, and delivery routing. Their objectives differ; keep graph direction, weight units, and feasibility policies explicit. Each example includes its own setup.\n",
      "\n",
-     "Download the complete implementations and independent checks: [GreedyChecks.cs](../../demos/24/GreedyChecks.cs).\n"
+     "Download the complete implementations and independent checks: [GreedyChecks.cs](../../demos/24_greedy_graph_optimization/GreedyChecks.cs).\n"
     ],
     "id": "af60a66a"
    },

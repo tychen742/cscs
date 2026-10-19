@@ -22,7 +22,7 @@
    4. [ ] Ch.8: a light performance lab timing linear vs. binary search with `Stopwatch`, to motivate Big-O in Semester 1 (today only `1903_collection_selection` in Semester 2).
    5. [ ] Ch.12/12: plan classes from a console transcript (nouns become classes, verbs become methods), using an order-entry session (Customer, Order, Product).
 7. [x] Teach string operations earlier than Ch.10: new `05_methods/0504_strings.ipynb` (2026-10-04); Ch.10 `0903_text_operations` keeps splitting, validation, and structured records.
-   1. [x] Add string-method questions to the Ch.3 preview, lab, and homework (2026-10-04; lab solution in `demos/05/`).
+   1. [x] Add string-method questions to the Ch.3 preview, lab, and homework (2026-10-04; lab solution in `demos/05_methods/`).
 8. [ ] Society, Ethics, and the Profession (CS2023 SEP): first draft of Ch.7 added 2026-10-04 (`chapters/07_society_ethics`). Still to do: a chapter video; short SEP callbacks in later chapters (privacy in Ch.11 Databases, parameterized commands in `1109_csharp_database_workflow`, sustainability in Ch.20).
 
 ## 3. Build

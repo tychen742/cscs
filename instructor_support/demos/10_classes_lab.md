@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 12/classes_lab
+# Instructor Walkthrough: 10_classes/classes_lab
 
 **Role:** Completed legacy exercise; not a current lab solution.
 
 **Supports:** [1003_class_instance](../../chapters/10_classes/1003_class_instance.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/10/classes_lab/README.md); [project file](../../demos/10/classes_lab/classes_lab.csproj).
+**Source and student run instructions:** [project README](../../demos/10_classes/classes_lab/README.md); [project file](../../demos/10_classes/classes_lab/classes_lab.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/10/classes_lab/classes_lab.csproj
+dotnet run --project demos/10_classes/classes_lab/classes_lab.csproj
 ```
 
 Verified output:

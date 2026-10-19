@@ -33,7 +33,7 @@ Preview has ten vocabulary MCQs. Lab builds a fictional reminder in five standal
 
 ## Resources and Boundaries
 
-Source demonstration: `demos/01/hello_world/`. Setup lives in `chapters/appendices/development_tools/csharp_setup.ipynb`, under Appendix B. The existing setup video moves there unchanged. Git and detailed professional practice are in Appendix C. Optional software-failure cases are in Chapter 6; optional privacy/security practice and the former ethics assessments are in Chapter 9. Their original identifiers remain unchanged.
+Source demonstration: `demos/01_context/hello_world/`. Setup lives in `chapters/appendices/development_tools/csharp_setup.ipynb`, under Appendix B. The existing setup video moves there unchanged. Git and detailed professional practice are in Appendix C. Optional software-failure cases are in Chapter 6; optional privacy/security practice and the former ethics assessments are in Chapter 9. Their original identifiers remain unchanged.
 
 A recording and slide deck for the revised Chapter 1 remain pending. The prior overview deck remains at its published URL for compatibility but is not presented as the revised chapter deck.
 

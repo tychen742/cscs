@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 13/oop_lab
+# Instructor Walkthrough: 12_oop/oop_lab
 
 **Role:** Supplementary example; not a current lab solution.
 
 **Supports:** [1302_encapsulation](../../chapters/11_object_design/1102_composition.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/12/oop_lab/README.md); [project file](../../demos/12/oop_lab/oop_lab.csproj).
+**Source and student run instructions:** [project README](../../demos/12_oop/oop_lab/README.md); [project file](../../demos/12_oop/oop_lab/oop_lab.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/12/oop_lab/oop_lab.csproj
+dotnet run --project demos/12_oop/oop_lab/oop_lab.csproj
 ```
 
 Verified output:

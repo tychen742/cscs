@@ -19,7 +19,7 @@ Expected output:
 `graph_traversal/` contains the core plain-class implementation and its checks:
 
 ```sh
-dotnet run --project demos/20/graph_traversal/GraphChecks.csproj
+dotnet run --project demos/20_graphs/graph_traversal/GraphChecks.csproj
 ```
 
 The former callback/record implementation is retained as optional material in `demos/_extras/advanced_graph_walk/`. `RouteGraph.cs` remains the representation-check program.

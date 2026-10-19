@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 12/enum_demo
+# Instructor Walkthrough: 10_classes/enum_demo
 
 **Role:** Supplementary type example.
 
 **Supports:** [1001_class_syntax](../../chapters/10_classes/1001_class_syntax.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/10/enum_demo/README.md); [project file](../../demos/10/enum_demo/enum_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/10_classes/enum_demo/README.md); [project file](../../demos/10_classes/enum_demo/enum_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/10/enum_demo/enum_demo.csproj
+dotnet run --project demos/10_classes/enum_demo/enum_demo.csproj
 ```
 
 Verified output:

@@ -100,3 +100,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Summary questions | 10.10 | Check Your Understanding on every page |
 
 Exercises added: code tracing (19.1 Linear Probing Placement, 19.3 Versioned Lazy Deletion), code completion (19.2 Count Occurrences), concept recall with dropdown answers (19.2, 19.3), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Bucket hashing (10.5) and the mid-square method remain out of scope.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `19/` to `demos/19_hash_collections/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

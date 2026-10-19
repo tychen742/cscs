@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 08/arrays_demo
+# Instructor Walkthrough: 07_arrays/arrays_demo
 
 **Role:** Concept companion with jagged-array extension.
 
 **Supports:** [0702_twodim](../../chapters/07_arrays/0702_twodim.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/07/arrays_demo/README.md); [project file](../../demos/07/arrays_demo/arrays_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/07_arrays/arrays_demo/README.md); [project file](../../demos/07_arrays/arrays_demo/arrays_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/07/arrays_demo/arrays_demo.csproj -- 1 2 3
+dotnet run --project demos/07_arrays/arrays_demo/arrays_demo.csproj -- 1 2 3
 ```
 
 Verified output:

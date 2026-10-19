@@ -45,7 +45,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - Preview: Ten multiple-choice questions.
 - Lab: Five connected purchasing-report tasks preserving invoice identity through searches and stable report sorting.
 - Homework: Five applied true/false questions and five independent coding tasks.
-- `../../demos/23/SearchSortChecks.cs`: Complete algorithms and independent reference checks.
+- `../../demos/23_searching_sorting/SearchSortChecks.cs`: Complete algorithms and independent reference checks.
 
 ## Verification and Scope
 
@@ -59,7 +59,7 @@ First-match linear search, iterative binary search, missing-target traces, and l
 
 ## Runnable Demo Projects
 
-- [`demos/23/search_sort_demo/`](../../demos/23/search_sort_demo/README.md): Linear/binary search and sort timing extensions.
+- [`demos/23_searching_sorting/search_sort_demo/`](../../demos/23_searching_sorting/search_sort_demo/README.md): Linear/binary search and sort timing extensions.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
@@ -143,3 +143,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Summary questions | 8.17 | Check Your Understanding on every page |
 
 Exercises added: code tracing (23.1, 23.2, 23.4), code completion (23.1, 23.5), cost ordering (23.3), and Check Your Understanding on all five pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Heapsort lives in 18.3; code tuning (8.7) is out of scope.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `23/` to `demos/23_searching_sorting/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

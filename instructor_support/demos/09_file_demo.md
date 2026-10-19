@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 10/file_demo
+# Instructor Walkthrough: 09_files_text/file_demo
 
 **Role:** Concept companion.
 
 **Supports:** [0901_stream_file](../../chapters/09_files_text/0901_stream_file.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/09/file_demo/README.md); [project file](../../demos/09/file_demo/file_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/09_files_text/file_demo/README.md); [project file](../../demos/09_files_text/file_demo/file_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/09/file_demo/file_demo.csproj
+dotnet run --project demos/09_files_text/file_demo/file_demo.csproj
 ```
 
 Verified output:

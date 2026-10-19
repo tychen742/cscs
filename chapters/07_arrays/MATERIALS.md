@@ -53,8 +53,8 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 ## Runnable Demo Projects
 
-- [`demos/07/array_lab/`](../../demos/07/array_lab/README.md): Completed array lab algorithms.
-- [`demos/07/arrays_demo/`](../../demos/07/arrays_demo/README.md): Command-line arrays, rectangular arrays, and jagged arrays.
+- [`demos/07_arrays/array_lab/`](../../demos/07_arrays/array_lab/README.md): Completed array lab algorithms.
+- [`demos/07_arrays/arrays_demo/`](../../demos/07_arrays/arrays_demo/README.md): Command-line arrays, rectangular arrays, and jagged arrays.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.

@@ -2,7 +2,7 @@
 
 Companion to Chapter 8 Dictionaries. Uses a short traceable input, an ignore set, a counting dictionary, and a sorted key list.
 
-Run: `dotnet run --project demos/08/word_count/word_count.csproj` from the book root.
+Run: `dotnet run --project demos/08_collections/word_count/word_count.csproj` from the book root.
 
 Expected output:
 

@@ -4,7 +4,7 @@ The standard assignments assess one class at a time. The coffee-register lab mov
 
 The lab assumes valid prices, quantities, and tax rates. Tax is rounded once per receipt with the default midpoint-to-even rule. Receipt identifiers are unique only within one run; this is not a production checkout system. Stage five should report Front at $32.04, Drive-thru at $15.28, and the store at $47.32.
 
-The downloadable `demos/10/coffee_register_starter/` matches stage five. Students complete ToString there; the preceding lab stages remain notebook exercises. The existing animal/guessing-game project in `classes_lab/` is supplementary, not the solution to this lab.
+The downloadable `demos/10_classes/coffee_register_starter/` matches stage five. Students complete ToString there; the preceding lab stages remain notebook exercises. The existing animal/guessing-game project in `classes_lab/` is supplementary, not the solution to this lab.
 
 Homework transfers the chapter skills:
 

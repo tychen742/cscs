@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 09/collections_demo
+# Instructor Walkthrough: 08_collections/collections_demo
 
 **Role:** Concept companion.
 
 **Supports:** [0802_list](../../chapters/08_collections/0802_list.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/08/collections_demo/README.md); [project file](../../demos/08/collections_demo/collections_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/08_collections/collections_demo/README.md); [project file](../../demos/08_collections/collections_demo/collections_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/08/collections_demo/collections_demo.csproj
+dotnet run --project demos/08_collections/collections_demo/collections_demo.csproj
 ```
 
 Verified output:

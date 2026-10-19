@@ -2,12 +2,12 @@
 
 **Exact assignment:** [Chapter 1 sign-up lab](../../chapters/09_files_text/assignments/privacy_lab.ipynb), Tasks 1-5 and its two reflection questions.
 
-**Combined code reference:** [privacy_pass_lab_solution.cs](../../demos/09/privacy_pass_lab_solution.cs).
+**Combined code reference:** [privacy_pass_lab_solution.cs](../../demos/09_files_text/privacy_pass_lab_solution.cs).
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/09/privacy_pass_lab_solution.csproj
+dotnet run --project demos/09_files_text/privacy_pass_lab_solution.csproj
 ```
 
 ## Explain and Assess the Tasks

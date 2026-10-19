@@ -44,7 +44,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `assignments/preview.ipynb`: Ten multiple-choice concept questions.
 - `assignments/lab.ipynb`: Five connected service-ticket tasks from insertion through lifecycle verification.
 - `assignments/homework.ipynb`: Five applied true/false questions and five independent coding tasks.
-- `../../demos/17/TicketTree.cs`: Downloadable complete implementation and verification program.
+- `../../demos/17_trees/TicketTree.cs`: Downloadable complete implementation and verification program.
 
 ## Depth Coverage
 
@@ -142,3 +142,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Summary questions | 11.3.4, CS3 7.21 | Check Your Understanding on every page |
 
 Exercises added: code tracing (17.1 Fill the Return Table, 17.4 Three Orders for a Changed Tree, 17.2 Build Then Remove), code completion (17.4 Label Each Node with Its Depth, 17.3 Same Shape), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Node implementations with separate leaf classes (CS3 7.8) and Huffman trees (7.18) remain out of scope.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `17/` to `demos/17_trees/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

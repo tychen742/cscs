@@ -12,3 +12,7 @@ Database readings are planned separately in `databases/MATERIALS.md` and `databa
 
 
 This root plan records standalone optional appendix readings; multipart appendices retain their own plans.
+
+## Demo folder rename (2026-10-19)
+
+`graph_representation_workshop.ipynb` linked the former two-digit folder `20/`; the demo folders now use the chapter folder names (`demos/20_graphs/`), and the download paths were updated. No cell content, heading, or cell id changed.

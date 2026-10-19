@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 13/oop_demo
+# Instructor Walkthrough: 12_oop/oop_demo
 
 **Role:** Concept companion across the OOP sections.
 
 **Supports:** [1304_polymorphism](../../chapters/12_oop/1202_polymorphism.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/12/oop_demo/README.md); [project file](../../demos/12/oop_demo/oop_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/12_oop/oop_demo/README.md); [project file](../../demos/12_oop/oop_demo/oop_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/12/oop_demo/oop_demo.csproj
+dotnet run --project demos/12_oop/oop_demo/oop_demo.csproj
 ```
 
 Verified output:

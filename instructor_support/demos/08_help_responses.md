@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 09/help_responses
+# Instructor Walkthrough: 08_collections/help_responses
 
 **Role:** Supplementary integrated example.
 
 **Supports:** [0803_dictionary](../../chapters/08_collections/0803_dictionary.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/08/help_responses/README.md); [project file](../../demos/08/help_responses/help_responses.csproj).
+**Source and student run instructions:** [project README](../../demos/08_collections/help_responses/README.md); [project file](../../demos/08_collections/help_responses/help_responses.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/08/help_responses/help_responses.csproj
+dotnet run --project demos/08_collections/help_responses/help_responses.csproj
 ```
 
 Verification input, one response per line:

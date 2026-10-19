@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 03/methods_demo
+# Instructor Walkthrough: 05_methods/methods_demo
 
 **Role:** Concept companion.
 
 **Supports:** [0503_parameter](../../chapters/05_methods/0503_parameter.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/05/methods_demo/README.md); [project file](../../demos/05/methods_demo/methods_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/05_methods/methods_demo/README.md); [project file](../../demos/05_methods/methods_demo/methods_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/05/methods_demo/methods_demo.csproj
+dotnet run --project demos/05_methods/methods_demo/methods_demo.csproj
 ```
 
 Verification input, one response per line:

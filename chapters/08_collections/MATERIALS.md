@@ -50,8 +50,8 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/08/collections_demo/`](../../demos/08/collections_demo/README.md): List construction and sorting.
-- [`demos/08/help_responses/`](../../demos/08/help_responses/README.md): Dictionary-based help response simulation.
+- [`demos/08_collections/collections_demo/`](../../demos/08_collections/collections_demo/README.md): List construction and sorting.
+- [`demos/08_collections/help_responses/`](../../demos/08_collections/help_responses/README.md): Dictionary-based help response simulation.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
@@ -89,7 +89,7 @@ Landing pages and opening explanations explicitly classify arrays as collections
 
 ## B-A Framework Improvement (2026-10-17)
 
-Preserved the three-section order, prior explanations, original exercise purposes, and existing lab assessment IDs. 0801 now has an explicit reading path, access-pattern visual, and guided selection reasoning. 0802 introduces the basket problem, construction/operation syntax, list-position visual and trace, integer removal variation, actual content displays, guided score filtering, and a called null-safe ReadLines example. 0803 adds key/value mapping, local syntax and update traces, guided safe lookup/update, and a runnable traced word counter alongside the original functions. Sources live in demos/08/word_count/ and are downloadable.
+Preserved the three-section order, prior explanations, original exercise purposes, and existing lab assessment IDs. 0801 now has an explicit reading path, access-pattern visual, and guided selection reasoning. 0802 introduces the basket problem, construction/operation syntax, list-position visual and trace, integer removal variation, actual content displays, guided score filtering, and a called null-safe ReadLines example. 0803 adds key/value mapping, local syntax and update traces, guided safe lookup/update, and a runnable traced word counter alongside the original functions. Sources live in demos/08_collections/word_count/ and are downloadable.
 
 All completed lesson code cells have required imports and independently verified saved output. Existing type-name printing pitfalls remain explicitly illustrated. Homework retains the original review and adds five concept checks and five transfer coding tasks; the malformed Clear/reassignment prompt is repaired as two separate reading alternatives. Preview's append question is disambiguated; the lab's five connected tasks are retained with boundary checks and collection-choice reflection. The three new SVG diagrams have alt text and prose interpretation; tables supply traces and comparison. No lecture deck was added; aligned slides remain pending. The recognition-level family scope and current organization are unchanged.
 
@@ -148,3 +148,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to 8.3 Lists (insert and remove by position). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `08/` to `demos/08_collections/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

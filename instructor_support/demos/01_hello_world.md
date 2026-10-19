@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 01/hello_world
+# Instructor Walkthrough: 01_context/hello_world
 
 **Role:** Exact first-program example.
 
 **Supports:** [0103_program_structure](../../chapters/01_context/0103_program_structure.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/01/hello_world/README.md); [project file](../../demos/01/hello_world/HelloWorld.csproj).
+**Source and student run instructions:** [project README](../../demos/01_context/hello_world/README.md); [project file](../../demos/01_context/hello_world/HelloWorld.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/01/hello_world/HelloWorld.csproj
+dotnet run --project demos/01_context/hello_world/HelloWorld.csproj
 ```
 
 Verified output:

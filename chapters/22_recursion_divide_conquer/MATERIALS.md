@@ -28,7 +28,7 @@ Each content page has one local contents directive and one final Footnotes group
 - Preview: Ten multiple-choice questions.
 - Lab: Five connected invoice-report tasks from recursive totals through merging, sorting, stability, and boundary verification.
 - Homework: Five applied true/false questions and five independent coding tasks.
-- `../../demos/22/StableSort.cs`: Complete structures, counters, and reference-model verification.
+- `../../demos/22_recursion_divide_conquer/StableSort.cs`: Complete structures, counters, and reference-model verification.
 
 ## Verification and Scope
 
@@ -116,3 +116,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Summary questions | 7.9 | Check Your Understanding on both pages |
 
 Exercises added: code tracing (22.1, two), code completion (22.1, 22.2), and Check Your Understanding on both pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Palindrome, subset-sum, and Pascal-triangle writing exercises were left for the chapter assignments.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `22/` to `demos/22_recursion_divide_conquer/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

@@ -72,7 +72,7 @@ Section 2.1 adds the original step-by-step variable state table and independentl
 
 ## CS1 Preservation Follow-up (2026-10-17)
 
-Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02/ui_helper.zip`). Setup and Git remain in appendices.
+Original mixed-expression legality, necessary/redundant casts, one-call multiline output, add3 and quotient-sentence review variations restored in Extra Practice. The UI helper source-import workflow is restored in 2.3 with namespaced client and downloadable demonstration (`demos/02_var_data/ui_helper.zip`). Setup and Git remain in appendices.
 
 ## Section-Boundary Review (2026-10-17)
 
