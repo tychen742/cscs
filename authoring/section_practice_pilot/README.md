@@ -1,6 +1,6 @@
 # Section 3.2 practice pilot
 
-One representative section, as requested. No deployment or commit has been performed for this pilot.
+One representative section, as requested. The initial pilot was deployed in commit bc6cab3e. The subsequent Predict correction below is a local revision pending review.
 
 [Built section](/Users/tcn85/workspace/cscs/_build/html/chapters/03_decision/0302_ifstatement.html) · [Readable content diff](review.html) · [Unified content diff](source.diff) · [Remaining core audit](../core_depth_reaudit/README.md)
 
@@ -26,3 +26,9 @@ CSCS_JSDOM_PATH=/tmp/cscs-practice-dom-check/node_modules/jsdom node scripts/ver
 ```
 
 The live browser runner API and visual layout have not been exercised by these automated checks. C# execution was verified locally. This pilot does not implement the other re-audit recommendations or roll tabs out to the rest of the book.
+
+## Predict correction after student-facing review
+
+The original Predict prompt mixed a score comparison with an unrelated service-table request and an undefined D code. It also provided a scratchpad without checkable predictions. The revision removes that request and replaces the scratchpad with two visible score programs and one multiple-choice output prediction per program. A Check predictions button handles missing selections and gives per-program feedback. The explanation and boundary checks remain revealable. C# spelling is corrected to else if.
+
+[Review this correction](prediction_revision.html). Both programs compile and produce the expected output. DOM checks cover unanswered, incorrect and correct predictions as well as the existing tab behaviors. Existing runnable notebook cells are unchanged. Earlier baseline and preservation files describe the initial pilot; the two Predict markdown cells and one introduction have intentionally changed in this correction. No deployment has been performed for this correction.

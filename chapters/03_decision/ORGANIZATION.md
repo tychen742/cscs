@@ -2,7 +2,7 @@
 
 ## End-of-Section Practice Pilot (2026-10-19)
 
-Section 3.2 ends with a four-question practice area before Footnotes: predict branches, explain invalid input, repair first-match ordering, then apply delivery rules. The original branch trace and repair cells retain their identities and source. Short guided checks elsewhere stay beside their concepts. Desktop-style tabs progressively enhance the four question sections; without JavaScript, every question remains readable in order. Existing Edit/Run controls and code state are retained. This is one-section pilot only; assignments and optional readings are unchanged.
+Section 3.2 ends with a four-question practice area before Footnotes: predict branches, explain invalid input, repair first-match ordering, then apply delivery rules. The repair cells retain their identities and source. The Predict tab now presents two side-by-side score examples with multiple-choice predictions and checked feedback; the unrelated service-table instruction and uncheckable trace field were removed. The branch explanation and boundary checks remain available after the choices. Short guided checks elsewhere stay beside their concepts. Desktop-style tabs progressively enhance the four question sections; without JavaScript, every question remains readable in order. Existing Edit/Run controls and code state are retained. This is one-section pilot only; assignments and optional readings are unchanged.
 
 ## Core Depth Revision (2026-10-19)
 

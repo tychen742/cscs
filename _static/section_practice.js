@@ -100,6 +100,24 @@
                 });
             });
             marker.dataset.practiceReady = "true";
+            section.querySelectorAll('[data-practice-check="branch-predictions"]').forEach(form => {
+                form.addEventListener("submit", event => {
+                    event.preventDefault();
+                    const a = form.querySelector('input[name="independent"]:checked');
+                    const b = form.querySelector('input[name="chain"]:checked');
+                    const result = form.querySelector("[data-practice-result]");
+                    if (!a || !b) {
+                        result.textContent = "Choose an output for both programs before checking.";
+                        return;
+                    }
+                    const first = a.value === "both";
+                    const second = b.value === "pass";
+                    result.textContent = (first ? "Program A: correct. Both conditions run, printing Pass then Distinction. " :
+                        "Program A: try again. Independent if statements each test their condition. ") +
+                        (second ? "Program B: correct. The first branch prints Pass; the else if is skipped." :
+                        "Program B: try again. A chain stops after its first matching branch.");
+                });
+            });
             select(selected, false);
             revealHashTarget();
         });
