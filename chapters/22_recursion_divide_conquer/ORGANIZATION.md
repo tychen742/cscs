@@ -102,3 +102,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), both pages: mistakes beside the examples (copying suffixes instead of indexing, recursion for flat reports, catching stack overflow, dropping the middle element, non-shrinking binary search, truncated merges, returning the input from the base case, advancing both merge indexes, in-place merging, re-sorting to fix ties, self-referential reference checks, reading n log n as an exact count) and interpretation after the checkpoint, verification, and practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed forward and backward flow, the digit-sum completion, and the find-the-error trace after the Progress Measures mistake in 22.1, the Towers of Hanoi subsection and the call-count trace after The Pattern, and the self-check before Halving Strategies. 22.2 gained one range-recursion completion before Compare Measured Operations and a self-check before its closing practice, since the page was already the chapter's longest. New headings are `###`; both pages stay within one class segment. See MATERIALS.md for the gap list.
