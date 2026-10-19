@@ -820,6 +820,9 @@
   "code completion: finish the boundary updates": [
     "binary search; code completion exercise"
   ],
+  "code completion: finish the partition step": [
+    "quicksort; partition; code completion exercise"
+  ],
   "code completion: insert at the front": [
     "linked list; code completion exercise",
     "insertion; front of list"
@@ -842,8 +845,14 @@
     "recursion; code completion exercise",
     "sum of digits"
   ],
+  "code completion: upper bound": [
+    "upper bound search; code completion exercise"
+  ],
   "code tracing: array stack state": [
     "array-backed stack; tracing exercise"
+  ],
+  "code tracing: both bounds on a tie block": [
+    "boundary search; tracing exercise"
   ],
   "code tracing: build, then remove": [
     "binary search tree; tracing exercise"
@@ -893,6 +902,9 @@
   "code tracing: narrow the interval": [
     "binary search; tracing exercise"
   ],
+  "code tracing: one gap pass of shell sort": [
+    "Shell sort; tracing exercise"
+  ],
   "code tracing: predict the interleaving": [
     "iterator; tracing exercise",
     "yield return; execution order"
@@ -905,6 +917,9 @@
   ],
   "code tracing: ring state after each operation": [
     "ring buffer; tracing exercise"
+  ],
+  "code tracing: selection sort pass by pass": [
+    "selection sort; tracing exercise"
   ],
   "code tracing: the prefix after each pass": [
     "insertion sort; tracing exercise"
@@ -1254,6 +1269,9 @@
   ],
   "cost ordering: rank the operations": [
     "operation cost; ordering exercise"
+  ],
+  "cost ordering: rank the sorts on each input": [
+    "sorting algorithms; cost ordering exercise"
   ],
   "cost ordering: which input costs insertion sort most?": [
     "insertion sort; cost ordering exercise"
@@ -2785,6 +2803,10 @@
   "lower and upper bounds for duplicates": [
     "binary search; duplicate boundaries"
   ],
+  "lower bounds for sorting": [
+    "sorting; lower bound",
+    "decision tree; comparison sorts"
+  ],
   "ls": [
     "shell commands; ls"
   ],
@@ -3486,6 +3508,10 @@
   "quicksort": [
     "quicksort"
   ],
+  "quicksort analysis and pivot choice": [
+    "quicksort; analysis",
+    "quicksort; pivot selection"
+  ],
   "range queries and pruning": [
     "binary search tree; range queries and pruning"
   ],
@@ -3963,6 +3989,10 @@
     "heapsort",
     "heap; sorting application"
   ],
+  "sorting without comparisons: bin sort and radix sort": [
+    "bin sort; counting sort",
+    "radix sort"
+  ],
   "source code; .net": [
     "source code; .NET execution"
   ],
@@ -4361,6 +4391,10 @@
   ],
   "the cheapest network is not a shortest-route tree": [
     "minimum spanning tree; comparison with shortest paths"
+  ],
+  "the cost of exchange sorting": [
+    "exchange sorts; cost summary",
+    "inversions; average case"
   ],
   "the default keyword": [
     "default keyword"

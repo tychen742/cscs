@@ -124,3 +124,7 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 23.4 gained the gap-3 and gap-1 subsequence table the guided trace asks for, with the array state after the gap-3 pass. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the upper-bound completion and tie-block trace after Lower and Upper Bounds for Duplicates in 23.1; the selection trace after Selection Sort and the exchange-sort cost summary after Stability Is Visible on Records in 23.2; the sorting lower bound and cost ordering after Exact Formulas and Growth Models in 23.3; bin and radix sort plus a gap-pass trace after the gap-family demonstration in 23.4; and the analysis subsection and partition completion after the Quicksort explanation in 23.5. Each page closes with Check Your Understanding before its Exercise or Footnotes. New headings are `###`; each page stays within one class segment, with 23.4 remaining a supporting reading. See MATERIALS.md for the gap list.
