@@ -150,3 +150,20 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 20.1 gained a side-by-side table of undirected and directed terms on the chapter's own examples and the degree list that the handshake check relies on. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the four sections with OpenDSA CS3 14.1 Graph Terminology and Implementation, 14.2 Graph Implementations, 14.3 Graph Traversals, and 14.4 Topological Sort (14.5-14.8 belong to Chapters 24 and 26). Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Survey of what graphs model; lists and trees as special cases; edge-count bounds and sparse versus dense | 14.1 introduction | 20.1 What Graphs Model (new table) |
+| Acyclic graphs, DAGs, free trees, forests | 14.1 terminology | 20.1 Acyclic Graphs, DAGs, and Free Trees (new) |
+| Terminology recall questions | 14.1.2 Graph Terminology Questions | 20.1 Concept Check: Classify the Graph |
+| Reading a matrix as a graph; converting between representations | 14.1.1, 14.2 | 20.2 Code Tracing: Read the Matrix as a Graph; Code Completion: Build the Matrix from the Neighbor Map |
+| BFS queue trace with neighbor order fixed | 14.3.2 | 20.3 Code Tracing: Queue Contents Layer by Layer |
+| Topological sort, queue-based, with cycle detection | 14.4.1.2 Queue-based Solution | 20.3 Order Tasks with a Topological Sort (new, runnable) and Code Completion: Release the Dependents |
+| Topological sort from DFS exit order | 14.4.1.1 Depth-first solution | 20.4 Code Tracing: Enter and Exit Events (reverse exit order checked) |
+| Summary questions | 14.9 Graph Concepts Summary | Check Your Understanding on every page |
+
+Exercises added: code tracing (20.2 Read the Matrix as a Graph, 20.3 Queue Contents Layer by Layer, 20.4 Enter and Exit Events), code completion (20.2 Build the Matrix from the Neighbor Map, 20.3 Release the Dependents), concept recall with a dropdown answer (20.1), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. The concurrent reference-and-visualization pass owns the OpenDSA reference entries on these pages; this pass added none.

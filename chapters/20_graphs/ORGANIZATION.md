@@ -161,3 +161,7 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 20.1 gained a side-by-side table of undirected and directed terms on the chapter's own examples and the degree list that the handshake check relies on. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the modeling survey after Vertices and Edges and the acyclic-shape vocabulary with its concept check after Walks, Paths, and Cycles in 20.1; the matrix trace and conversion completion after Density and Workload Costs in 20.2; the BFS queue trace after the first BFS example and topological sort, with its completion, before Recover a Path from Earlier Layers in 20.3 (the queue-based method belongs with the queue page); and the enter-and-exit trace, which also yields the DFS topological order, after the suspended-loop mistake in 20.4. Every page closes with Check Your Understanding. Topological sort was kept on the BFS page rather than the already long DFS page so that both pages stay within one class segment. See MATERIALS.md for the gap list.
