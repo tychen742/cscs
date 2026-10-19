@@ -830,6 +830,128 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-bottom: 4px;
 }
 
+/* The reader's book: expected outputs start collapsed, the page gets Run all and
+   Show all expected outputs, and a restored run carries a "You ran this on" note. */
+div.cell > div.cell_output[hidden] {
+    display: none !important;
+}
+
+.cscs-expected-toggle {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 2px;
+    color: var(--pst-color-text-muted, #666666);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    margin: 4px 0 0 var(--cscs-code-inset, 1rem);
+    padding: 2px 0;
+}
+
+.cscs-expected-toggle::before {
+    content: "\25B8\00A0";
+}
+
+.cscs-expected-toggle[aria-expanded="true"]::before {
+    content: "\25BE\00A0";
+}
+
+.cscs-expected-toggle:hover {
+    color: var(--pst-color-text-base, #27313a);
+    text-decoration: underline;
+}
+
+.cscs-expected-toggle:focus-visible {
+    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.2);
+    outline: none;
+}
+
+.cscs-expected-toggle[hidden],
+.cscs-ran-note[hidden] {
+    display: none !important;
+}
+
+.cscs-ran-note {
+    color: var(--pst-color-text-muted, #6b7780);
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin: 2px 0 0 var(--cscs-code-inset, 1rem);
+}
+
+.cscs-student-copy .cscs-ran-note {
+    margin-left: 0;
+}
+
+.cscs-execution-output.is-skipped {
+    color: #6b5b12;
+    font-style: italic;
+}
+
+.cscs-page-controls {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0.5rem 0 1.25rem;
+}
+
+.cscs-page-controls button {
+    appearance: none;
+    background: var(--pst-color-surface, #f7f7f7);
+    border: 1px solid var(--pst-color-border, #e4e7eb);
+    border-radius: 4px;
+    color: var(--pst-color-text-base, #27313a);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.2;
+    padding: 5px 12px;
+    transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.cscs-page-controls button:hover:not(:disabled) {
+    background: var(--pst-color-border, #e4e7eb);
+}
+
+.cscs-page-controls button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.cscs-page-controls button:focus-visible {
+    box-shadow: 0 0 0 2px rgba(39, 125, 161, 0.3);
+    outline: none;
+}
+
+.cscs-page-controls .cscs-run-all-button[aria-pressed="true"] {
+    background: #e8f1f8;
+    border-color: #9fc3dc;
+}
+
+.cscs-page-controls button[hidden] {
+    display: none !important;
+}
+
+.cscs-page-controls-status {
+    color: var(--pst-color-text-muted, #6b7780);
+    font-size: 0.8rem;
+}
+
+@media print {
+    div.cell > div.cell_output[hidden] {
+        display: block !important;
+    }
+
+    .cscs-page-controls,
+    .cscs-expected-toggle,
+    .cscs-execution-controls,
+    .cscs-ran-note {
+        display: none !important;
+    }
+}
+
 .cscs-account {
     border-top: 1px solid #cbd5df;
     margin-top: 0;
