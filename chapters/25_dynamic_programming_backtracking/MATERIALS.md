@@ -91,3 +91,20 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 15 mistakes beside the examples (incomplete cache keys, backward table fills, comparing counts at different n, the unguarded table[1], storing the shared list, reusing a position, pruning signed values on remaining < 0, caching r alone, not resetting used, reference sharing the search's pruning rule, zero for unreachable, largest-first packs, witness as proof of optimality, deduplicating inventory, re-enqueueing discovered amounts) and interpretation after the exercise and practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`): OpenDSA CS2 and CS3 have no dynamic programming or backtracking module (the topic lives in the CS4104 book), so this chapter borrowed exercise types and the explanation habits of the CS3 analysis and recursion chapters rather than specific sections. The two subsections the word-count report flagged under 60 words, 25.1 Memoization and Tabulation and 25.3 Backtracking and Search Spaces, were rewritten as full explanations. Gaps found and where they are now developed:
+
+| Gap | Model | Where it is now developed |
+| --- | --- | --- |
+| The state, base case, transition, order, result recipe; memoization versus tabulation compared | CS3 3.6 recurrence habits | 25.1 Memoization and Tabulation (was 53 words) |
+| Overlapping subproblems and optimal substructure as the test for applicability; contrast with divide-and-conquer and greedy | CS3 4.9 problem analysis | 25.1 Recognize a Dynamic Programming Problem (new) |
+| Memoization trace; memoized completion | CS2 7.8 tracing families | 25.1 Code Tracing: Hits and Misses for F(6); Code Completion: Count the Ways to Pay |
+| Table trace with unreachable states; witness reconstruction completion | (exercise types) | 25.2 Code Tracing: Fill a Table with Unreachable Amounts; Code Completion: Reconstruct the Witness |
+| Backtracking template, search-tree size, pruning kinds, comparison with DP and greedy | CS2 7.4 writing recursive functions | 25.3 Backtracking and Search Spaces (was 47 words) |
+| Pruning shown on an assignment search with node counts | (ours) | 25.3 Prune a Search Tree: Assign Staff to Shifts (new, runnable) |
+| State-visit trace; undo-step completion | CS2 7.8 | 25.3 Code Tracing: States Visited in Subset Sum; Code Completion: Restore the Shared State |
+| Summary questions | CS3 chapter summaries | Check Your Understanding on every page |
+
+Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.

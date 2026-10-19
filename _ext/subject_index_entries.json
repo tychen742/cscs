@@ -813,6 +813,9 @@
     "frequency count; code completion exercise",
     "dictionary; counting pattern"
   ],
+  "code completion: count the ways to pay": [
+    "memoization; code completion exercise"
+  ],
   "code completion: dequeue from a ring": [
     "ring buffer; code completion exercise",
     "dequeue; implementation"
@@ -831,11 +834,17 @@
     "tree depth; code completion exercise",
     "passing down information"
   ],
+  "code completion: reconstruct the witness": [
+    "dynamic programming; witness reconstruction; code completion exercise"
+  ],
   "code completion: relax an arc": [
     "relaxation; code completion exercise"
   ],
   "code completion: release the dependents": [
     "topological sort; code completion exercise"
+  ],
+  "code completion: restore the shared state": [
+    "backtracking; undo step; code completion exercise"
   ],
   "code completion: same shape": [
     "binary tree; code completion exercise"
@@ -877,6 +886,9 @@
   "code tracing: enter and exit events": [
     "depth-first search; tracing exercise"
   ],
+  "code tracing: fill a table with unreachable amounts": [
+    "dynamic programming; table tracing exercise"
+  ],
   "code tracing: fill the distance table": [
     "Dijkstra's algorithm; tracing exercise"
   ],
@@ -897,6 +909,9 @@
   "code tracing: follow the recursion": [
     "merge sort; tracing exercise",
     "recursion; trace"
+  ],
+  "code tracing: hits and misses for f(6)": [
+    "memoization; tracing exercise"
   ],
   "code tracing: how many calls?": [
     "recursion; call counting exercise"
@@ -932,6 +947,10 @@
   ],
   "code tracing: selection sort pass by pass": [
     "selection sort; tracing exercise"
+  ],
+  "code tracing: states visited in subset sum": [
+    "subset sum; tracing exercise",
+    "backtracking; state trace"
   ],
   "code tracing: the prefix after each pass": [
     "insertion sort; tracing exercise"
@@ -3501,6 +3520,10 @@
   "prove the combining step before hiding it in recursion": [
     "divide and conquer; combining proof"
   ],
+  "prune a search tree: assign staff to shifts": [
+    "backtracking; pruning",
+    "assignment problem; search"
+  ],
   "push": [
     "Stack<T>.Push"
   ],
@@ -3571,6 +3594,10 @@
   ],
   "reason about the unselected branches": [
     "conditional selection; unselected branches"
+  ],
+  "recognize a dynamic programming problem": [
+    "dynamic programming; when to apply",
+    "overlapping subproblems; optimal substructure"
   ],
   "recognize top-level statements": [
     "top-level statements"
