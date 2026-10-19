@@ -1,3 +1,10 @@
+// The reader's cell state (code and last run per cell) lives in the book-agnostic store
+// from cell_state.js, loaded before this file; see the record shape documented there.
+// window.cscsCellState is this book's store and the sync hook for a later Press sync.
+window.cscsCellState = window.cscsCellState
+    || (window.thinkpressCellState ? window.thinkpressCellState.create({ book: "cscs" }) : null);
+if (!window.cscsCellState) console.warn("cell_state.js did not load; this page will not remember runs.");
+
 function initializeCsharpExecution() {
     // The C# runner (execution/runner). On the site, Apache routes /cscs-exec/v1/tasks/
     // to it on the same host; locally its gateway listens on port 8081.
@@ -6,6 +13,11 @@ function initializeCsharpExecution() {
         window.CSCS_RUNNER_API ||
         (local ? "http://localhost:8081" : `${location.origin}/cscs-exec`);
     const taskId = createTaskId(window.location.pathname);
+    // Reader state is keyed by the page path alone; see the record shape in cell_state.js.
+    const pageUrl = window.location.pathname;
+    const cellState = window.cscsCellState;
+    const runnableCells = [];
+    const pageHooks = { expectedChanged() {} };
 
     const cells = Array.from(document.querySelectorAll("div.cell"));
 
@@ -22,6 +34,8 @@ function initializeCsharpExecution() {
         if (isCsharpSetupOnly(executableCode)) return;
 
         cell.dataset.cscsExecutionReady = "true";
+        const cellId = cell.dataset.cscsCellId
+            || (cell.dataset.cscsCellIndex ? `index:${cell.dataset.cscsCellIndex}` : `pos:${cellIndex}`);
         const originalCodeHtml = codeElement.innerHTML;
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
@@ -51,6 +65,13 @@ function initializeCsharpExecution() {
         resetButton.textContent = "Reset";
         resetButton.hidden = true;
 
+        const discardButton = document.createElement("button");
+        discardButton.type = "button";
+        discardButton.className = "cscs-discard-button";
+        discardButton.textContent = "Discard my version";
+        discardButton.title = "Forget your code and last run for this cell";
+        discardButton.hidden = true;
+
         const runButton = document.createElement("button");
         runButton.type = "button";
         runButton.className = "cscs-run-button";
@@ -78,17 +99,47 @@ function initializeCsharpExecution() {
         output.hidden = true;
         output.setAttribute("aria-live", "polite");
 
-        controls.append(editButton, inlineButton, resetButton, runButton, stdinPanel);
-        cell.appendChild(controls);
-        cell.appendChild(output);
+        // "You ran this on ..." under a run restored from the reader's saved state.
+        const ranNote = document.createElement("div");
+        ranNote.className = "cscs-ran-note";
+        ranNote.hidden = true;
+
+        // The notebook's saved output is the book's expected output. It starts collapsed so
+        // the reader runs the cell to see output; this disclosure reveals it on demand.
+        const storedOutput = cell.querySelector(":scope > .cell_output");
+        const expectedToggle = document.createElement("button");
+        expectedToggle.type = "button";
+        expectedToggle.className = "cscs-expected-toggle";
+        expectedToggle.hidden = !storedOutput;
+
+        controls.append(editButton, inlineButton, resetButton, discardButton, runButton, stdinPanel);
+        placeCellTail();
         let stdinRequested = false;
         let editMode = "view";
+        let expectedShown = false;
+        // Key of the stored record this cell currently shows, so store changes made elsewhere
+        // (another tab, a Press sync) can be applied without re-applying our own writes.
+        let lastApplied = null;
+        let suppressChange = false;
 
-        // The notebook's saved output stays visible until a run in place replaces it;
-        // a student copy keeps its own live output, so the original cell's saved output stays.
-        const storedOutput = cell.querySelector(":scope > .cell_output");
+        function placeCellTail() {
+            cell.append(controls, output, ranNote, expectedToggle);
+            if (storedOutput) cell.appendChild(storedOutput);
+        }
+
+        const setExpectedShown = (shown) => {
+            expectedShown = Boolean(shown) && Boolean(storedOutput);
+            if (storedOutput) storedOutput.hidden = !expectedShown;
+            expectedToggle.textContent = expectedShown ? "Hide expected output" : "Show expected output";
+            expectedToggle.setAttribute("aria-expanded", String(expectedShown));
+            pageHooks.expectedChanged();
+        };
+        setExpectedShown(false);
+        expectedToggle.addEventListener("click", () => setExpectedShown(!expectedShown));
+        // A student copy keeps its own live output; the original cell's expected output
+        // stays as the reader left it. A run in place collapses it so the live result replaces it.
         const syncStoredOutput = () => {
-            if (storedOutput) storedOutput.hidden = !output.hidden && !isStudentCopy;
+            if (!isStudentCopy && !output.hidden) setExpectedShown(false);
         };
 
         const updateStdinVisibility = () => {
@@ -104,7 +155,7 @@ function initializeCsharpExecution() {
                 const copy = controls.closest(".cscs-student-copy");
                 editor.hidden = true;
                 codeElement.closest(".cell_input").appendChild(editor);
-                cell.append(controls, output);
+                placeCellTail();
                 copy?.remove();
                 isStudentCopy = false;
                 syncStoredOutput();
@@ -118,7 +169,7 @@ function initializeCsharpExecution() {
                 copyLabel.className = "cscs-student-copy-label";
                 copyLabel.textContent = "Your version";
                 copy.appendChild(copyLabel);
-                copy.append(editor, controls, output);
+                copy.append(editor, controls, output, ranNote);
                 cell.after(copy);
                 editor.hidden = false;
                 isStudentCopy = true;
@@ -163,9 +214,14 @@ function initializeCsharpExecution() {
             editor.value = executableCode;
             output.hidden = true;
             output.textContent = "";
-            syncStoredOutput();
+            clearRecord();
             stdinRequested = false;
             updateStdinVisibility();
+        });
+
+        discardButton.addEventListener("click", () => {
+            clearRecord();
+            restoreBookState();
         });
 
         editor.addEventListener("input", () => {
@@ -196,13 +252,15 @@ function initializeCsharpExecution() {
             stdinFields.querySelector("input")?.focus();
         }
 
-        async function runCurrentCode() {
+        // Resolves to "ok", "error", or "aborted" (Run all was stopped while this cell ran).
+        async function runCurrentCode({ signal } = {}) {
             runButton.disabled = true;
             setStdinFieldsDisabled(true);
             runButton.textContent = "Running...";
             output.hidden = false;
             output.className = "cscs-execution-output is-running";
             output.textContent = "";
+            ranNote.hidden = true;
             syncStoredOutput();
 
             try {
@@ -216,7 +274,8 @@ function initializeCsharpExecution() {
                     body: JSON.stringify({
                         code: currentCode,
                         stdin: collectStdin()
-                    })
+                    }),
+                    signal
                 });
                 const result = await response.json();
                 if (!response.ok) throw new Error(result.error || "The execution request failed.");
@@ -226,15 +285,169 @@ function initializeCsharpExecution() {
                 output.className = result.exitCode === 0
                     ? "cscs-execution-output is-success"
                     : "cscs-execution-output is-error";
+                recordRun(Number.isInteger(result.exitCode) ? result.exitCode : null, output.textContent);
+                return "ok";
             } catch (error) {
+                if (error.name === "AbortError") {
+                    output.hidden = true;
+                    output.textContent = "";
+                    output.className = "cscs-execution-output";
+                    const previous = cellState?.get(pageUrl, cellId);
+                    if (previous) showRecordedOutput(previous);
+                    return "aborted";
+                }
                 output.textContent = error.message;
                 output.className = "cscs-execution-output is-error";
+                recordRun(null, output.textContent);
+                return "error";
             } finally {
                 runButton.disabled = false;
                 setStdinFieldsDisabled(false);
                 runButton.textContent = "Run";
             }
         }
+
+        // Run all skips a cell that reads input until the reader has entered it: running it
+        // with empty input would only show a parsing error in place of the program's output.
+        async function runForRunAll(signal) {
+            syncEditorFromInline();
+            if (usesConsoleInput(editor.value) && stdinPanel.hidden) {
+                stdinRequested = true;
+                renderStdinFields(consoleInputPrompts(editor.value));
+                stdinPanel.hidden = false;
+                output.hidden = false;
+                output.className = "cscs-execution-output is-skipped";
+                output.textContent = "Run all skipped this cell because it reads input. Enter the input above, then press Run.";
+                ranNote.hidden = true;
+                return "skipped";
+            }
+            return runCurrentCode({ signal });
+        }
+
+        function recordKey(record) {
+            return `${record.ranAt}\u0000${record.code}\u0000${record.output}`;
+        }
+
+        function recordRun(exitCode, text) {
+            if (!cellState) return;
+            suppressChange = true;
+            try {
+                const record = cellState.set({
+                    pageUrl,
+                    cellId,
+                    ranAt: new Date().toISOString(),
+                    exitCode,
+                    output: text,
+                    code: editor.value,
+                    edited: editor.value !== executableCode
+                });
+                lastApplied = recordKey(record);
+            } catch (_) {
+                lastApplied = null;
+            } finally {
+                suppressChange = false;
+            }
+            discardButton.hidden = false;
+        }
+
+        function clearRecord() {
+            lastApplied = null;
+            suppressChange = true;
+            try {
+                cellState?.remove(pageUrl, cellId);
+            } finally {
+                suppressChange = false;
+            }
+            discardButton.hidden = true;
+            ranNote.hidden = true;
+        }
+
+        function showRecordedOutput(record) {
+            output.hidden = false;
+            output.textContent = record.output || "";
+            output.className = record.exitCode === 0
+                ? "cscs-execution-output is-success"
+                : "cscs-execution-output is-error";
+            ranNote.textContent = `You ran this on ${formatRanAt(record.ranAt)}`;
+            ranNote.hidden = false;
+        }
+
+        function formatRanAt(ranAt) {
+            const date = new Date(ranAt);
+            return Number.isNaN(date.getTime()) ? "an earlier visit" : date.toLocaleString();
+        }
+
+        // Put a stored record on screen: the reader's code in the editor (opened the way the
+        // Edit button opens it) when they changed it, and their last output under the cell.
+        function applyRecord(record) {
+            lastApplied = recordKey(record);
+            const wantsEdit = record.edited && record.code !== executableCode;
+            if (wantsEdit) {
+                if (editMode === "inline") inlineButton.click();
+                editor.value = record.code;
+                if (!isStudentCopy && editMode !== "edit") editButton.click();
+                fitEditorToContent();
+            } else if (!isStudentCopy && editMode === "view") {
+                editor.value = executableCode;
+            }
+            stdinRequested = false;
+            updateStdinVisibility();
+            showRecordedOutput(record);
+            discardButton.hidden = false;
+        }
+
+        // Size the editor from its line count: at page load the layout is not settled enough
+        // for scrollHeight or the static code's height to be trusted.
+        function fitEditorToContent() {
+            if (editor.hidden) return;
+            const style = getComputedStyle(editor);
+            const lineHeight = parseFloat(style.lineHeight) || (parseFloat(style.fontSize) || 13) * 1.45;
+            const padding = (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0);
+            const lines = editor.value.split("\n").length + 1;
+            editor.style.height = `${Math.ceil(lines * lineHeight + padding + 4)}px`;
+        }
+
+        // Back to the book: leave any editing view, restore the book's code, and collapse output.
+        function restoreBookState() {
+            if (editMode === "inline") {
+                codeElement.innerHTML = originalCodeHtml;
+                setEditMode("view");
+            }
+            if (isStudentCopy || editMode === "edit") editButton.click();
+            editor.value = executableCode;
+            output.hidden = true;
+            output.textContent = "";
+            output.className = "cscs-execution-output";
+            ranNote.hidden = true;
+            discardButton.hidden = true;
+            setExpectedShown(false);
+            stdinRequested = false;
+            stdinPanel.hidden = true;
+            updateStdinVisibility();
+        }
+
+        const initialRecord = cellState?.get(pageUrl, cellId);
+        if (initialRecord) applyRecord(initialRecord);
+
+        cellState?.onChange((event) => {
+            if (suppressChange || event.pageUrl !== pageUrl) return;
+            if (event.cellId && event.cellId !== cellId) return;
+            const record = cellState.get(pageUrl, cellId);
+            if (record) {
+                if (recordKey(record) !== lastApplied) applyRecord(record);
+            } else if (lastApplied) {
+                lastApplied = null;
+                restoreBookState();
+            }
+        });
+
+        runnableCells.push({
+            cell,
+            run: runForRunAll,
+            hasExpected: Boolean(storedOutput),
+            isExpectedShown: () => expectedShown,
+            setExpectedShown
+        });
 
         function setEditMode(mode) {
             editMode = mode;
@@ -638,6 +851,113 @@ function initializeCsharpExecution() {
             });
         }
     });
+
+    if (runnableCells.length) installPageControls();
+
+    // "Run all" and "Show all expected outputs" at the top of the content area.
+    function installPageControls() {
+        const article = document.querySelector("article.bd-article")
+            || document.querySelector("main")
+            || document.body;
+        const bar = document.createElement("div");
+        bar.className = "cscs-page-controls";
+        bar.setAttribute("role", "group");
+        bar.setAttribute("aria-label", "Code cells on this page");
+
+        const runAllButton = document.createElement("button");
+        runAllButton.type = "button";
+        runAllButton.className = "cscs-run-all-button";
+        runAllButton.textContent = "Run all";
+
+        const showAllButton = document.createElement("button");
+        showAllButton.type = "button";
+        showAllButton.className = "cscs-show-all-button";
+
+        const status = document.createElement("span");
+        status.className = "cscs-page-controls-status";
+        status.setAttribute("aria-live", "polite");
+
+        bar.append(runAllButton, showAllButton, status);
+        const heading = article.querySelector("h1");
+        if (heading && article.contains(heading)) {
+            heading.after(bar);
+        } else {
+            article.prepend(bar);
+        }
+
+        const withExpected = () => runnableCells.filter((entry) => entry.hasExpected);
+        const allExpectedShown = () => {
+            const entries = withExpected();
+            return entries.length > 0 && entries.every((entry) => entry.isExpectedShown());
+        };
+        const refreshShowAll = () => {
+            const shown = allExpectedShown();
+            showAllButton.hidden = withExpected().length === 0;
+            showAllButton.textContent = shown ? "Hide all expected outputs" : "Show all expected outputs";
+            showAllButton.setAttribute("aria-pressed", String(shown));
+        };
+        pageHooks.expectedChanged = refreshShowAll;
+        refreshShowAll();
+        showAllButton.addEventListener("click", () => {
+            const shown = allExpectedShown();
+            withExpected().forEach((entry) => entry.setExpectedShown(!shown));
+        });
+
+        // Run all: document order, two cells at a time; a second click stops it.
+        let activeRun = null;
+        runAllButton.addEventListener("click", async () => {
+            if (activeRun) {
+                activeRun.cancelled = true;
+                activeRun.controller.abort();
+                runAllButton.textContent = "Stopping...";
+                runAllButton.disabled = true;
+                return;
+            }
+            const run = { controller: new AbortController(), cancelled: false };
+            activeRun = run;
+            const total = runnableCells.length;
+            const counts = { done: 0, ran: 0, skipped: 0, aborted: 0 };
+            let next = 0;
+            const showProgress = () => {
+                runAllButton.textContent = `Running ${counts.done}/${total}`;
+            };
+            runAllButton.setAttribute("aria-pressed", "true");
+            runAllButton.title = "Click again to stop";
+            status.textContent = "";
+            showProgress();
+
+            const worker = async () => {
+                while (!run.cancelled && next < total) {
+                    const entry = runnableCells[next];
+                    next += 1;
+                    let outcome = "error";
+                    try {
+                        outcome = await entry.run(run.controller.signal);
+                    } catch (error) {
+                        console.error(error);
+                    }
+                    counts.done += 1;
+                    if (outcome === "skipped") counts.skipped += 1;
+                    else if (outcome === "aborted") counts.aborted += 1;
+                    else counts.ran += 1;
+                    if (!run.cancelled) showProgress();
+                }
+            };
+            await Promise.all([worker(), worker()]);
+
+            activeRun = null;
+            runAllButton.disabled = false;
+            runAllButton.textContent = "Run all";
+            runAllButton.title = "";
+            runAllButton.removeAttribute("aria-pressed");
+            const parts = [];
+            parts.push(run.cancelled
+                ? `Stopped: ${counts.ran} of ${total} cells ran.`
+                : `${counts.ran} of ${total} cells ran.`);
+            if (counts.skipped) parts.push(`${counts.skipped} need input.`);
+            status.textContent = parts.join(" ");
+        });
+    }
 
     function createTaskId(pathname) {
         const slug = pathname
