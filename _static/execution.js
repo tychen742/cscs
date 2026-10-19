@@ -1,126 +1,9 @@
-/*
- * Reader cell state: "the reader's book".
- *
- * Every run of a runnable cell is recorded per reader in localStorage, one key per page:
- *     cscs:cellState:<pageUrl>   ->   { [cellId]: record }
- *
- * Record shape (the only shape this file reads or writes):
- *     {
- *       pageUrl:  string         location.pathname of the page (no query or hash)
- *       cellId:   string         data-cscs-cell-id of the cell; "index:<n>" or "pos:<n>" when absent
- *       ranAt:    string         ISO 8601 UTC time of the run
- *       exitCode: number | null  runner exit code; null when the request itself failed
- *       output:   string         stdout and stderr of the run, capped at 8 KB
- *       code:     string         the editor's code at the time of the run, capped at 16 KB
- *       edited:   boolean        code differs from the book's code for that cell
- *     }
- *
- * window.cscsCellState is the sync hook. A later Press sync follows the reading-progress
- * pattern in custom.js (localStorage first, Press when thinkpressSession says the reader is
- * signed in): read with list()/get(), write remote records back with set()/remove(), and
- * subscribe with onChange() to push local runs upstream. Cells on the page re-read their
- * record after any change, so records written by a sync show up without a reload.
- *     list(pageUrl)          -> record[]
- *     get(pageUrl, cellId)   -> record | null
- *     set(record)            -> stored record (capped, with pageUrl/cellId required)
- *     remove(pageUrl, cellId)
- *     onChange(callback)     -> unsubscribe function; callback({ type, pageUrl, cellId, record })
- *                               type is "set", "remove", or "external" (another tab changed the page)
- */
-(function installCellStateStore() {
-    if (window.cscsCellState) return;
-    const prefix = "cscs:cellState:";
-    const outputCap = 8 * 1024;
-    const codeCap = 16 * 1024;
-    const listeners = new Set();
-
-    function storageKey(pageUrl) {
-        return prefix + pageUrl;
-    }
-
-    function readPage(pageUrl) {
-        try {
-            const parsed = JSON.parse(localStorage.getItem(storageKey(pageUrl)) || "{}");
-            return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
-        } catch (_) {
-            return {};
-        }
-    }
-
-    function writePage(pageUrl, records) {
-        try {
-            if (Object.keys(records).length) {
-                localStorage.setItem(storageKey(pageUrl), JSON.stringify(records));
-            } else {
-                localStorage.removeItem(storageKey(pageUrl));
-            }
-            return true;
-        } catch (_) {
-            // Private browsing or a full quota: the page still runs, it just forgets.
-            return false;
-        }
-    }
-
-    function emit(event) {
-        listeners.forEach((listener) => {
-            try {
-                listener(event);
-            } catch (error) {
-                console.error(error);
-            }
-        });
-    }
-
-    function normalize(record) {
-        if (!record || typeof record.pageUrl !== "string" || typeof record.cellId !== "string") {
-            throw new TypeError("A cell record needs string pageUrl and cellId fields.");
-        }
-        const code = typeof record.code === "string" ? record.code : "";
-        const output = typeof record.output === "string" ? record.output : "";
-        return {
-            pageUrl: record.pageUrl,
-            cellId: record.cellId,
-            ranAt: typeof record.ranAt === "string" ? record.ranAt : new Date().toISOString(),
-            exitCode: Number.isInteger(record.exitCode) ? record.exitCode : null,
-            output: output.length > outputCap ? output.slice(0, outputCap) : output,
-            code: code.length > codeCap ? code.slice(0, codeCap) : code,
-            edited: Boolean(record.edited)
-        };
-    }
-
-    window.cscsCellState = {
-        list(pageUrl) {
-            return Object.values(readPage(pageUrl));
-        },
-        get(pageUrl, cellId) {
-            return readPage(pageUrl)[cellId] || null;
-        },
-        set(record) {
-            const stored = normalize(record);
-            const records = readPage(stored.pageUrl);
-            records[stored.cellId] = stored;
-            writePage(stored.pageUrl, records);
-            emit({ type: "set", pageUrl: stored.pageUrl, cellId: stored.cellId, record: stored });
-            return stored;
-        },
-        remove(pageUrl, cellId) {
-            const records = readPage(pageUrl);
-            if (!(cellId in records)) return;
-            delete records[cellId];
-            writePage(pageUrl, records);
-            emit({ type: "remove", pageUrl, cellId, record: null });
-        },
-        onChange(callback) {
-            listeners.add(callback);
-            return () => listeners.delete(callback);
-        }
-    };
-
-    window.addEventListener("storage", (event) => {
-        if (!event.key || !event.key.startsWith(prefix)) return;
-        emit({ type: "external", pageUrl: event.key.slice(prefix.length), cellId: null, record: null });
-    });
-})();
+// The reader's cell state (code and last run per cell) lives in the book-agnostic store
+// from cell_state.js, loaded before this file; see the record shape documented there.
+// window.cscsCellState is this book's store and the sync hook for a later Press sync.
+window.cscsCellState = window.cscsCellState
+    || (window.thinkpressCellState ? window.thinkpressCellState.create({ book: "cscs" }) : null);
+if (!window.cscsCellState) console.warn("cell_state.js did not load; this page will not remember runs.");
 
 function initializeCsharpExecution() {
     // The C# runner (execution/runner). On the site, Apache routes /cscs-exec/v1/tasks/
@@ -130,7 +13,7 @@ function initializeCsharpExecution() {
         window.CSCS_RUNNER_API ||
         (local ? "http://localhost:8081" : `${location.origin}/cscs-exec`);
     const taskId = createTaskId(window.location.pathname);
-    // Reader state is keyed by the page path alone; see the record shape at the top of this file.
+    // Reader state is keyed by the page path alone; see the record shape in cell_state.js.
     const pageUrl = window.location.pathname;
     const cellState = window.cscsCellState;
     const runnableCells = [];
@@ -409,7 +292,7 @@ function initializeCsharpExecution() {
                     output.hidden = true;
                     output.textContent = "";
                     output.className = "cscs-execution-output";
-                    const previous = cellState.get(pageUrl, cellId);
+                    const previous = cellState?.get(pageUrl, cellId);
                     if (previous) showRecordedOutput(previous);
                     return "aborted";
                 }
@@ -446,6 +329,7 @@ function initializeCsharpExecution() {
         }
 
         function recordRun(exitCode, text) {
+            if (!cellState) return;
             suppressChange = true;
             try {
                 const record = cellState.set({
@@ -470,7 +354,7 @@ function initializeCsharpExecution() {
             lastApplied = null;
             suppressChange = true;
             try {
-                cellState.remove(pageUrl, cellId);
+                cellState?.remove(pageUrl, cellId);
             } finally {
                 suppressChange = false;
             }
@@ -542,10 +426,10 @@ function initializeCsharpExecution() {
             updateStdinVisibility();
         }
 
-        const initialRecord = cellState.get(pageUrl, cellId);
+        const initialRecord = cellState?.get(pageUrl, cellId);
         if (initialRecord) applyRecord(initialRecord);
 
-        cellState.onChange((event) => {
+        cellState?.onChange((event) => {
             if (suppressChange || event.pageUrl !== pageUrl) return;
             if (event.cellId && event.cellId !== cellId) return;
             const record = cellState.get(pageUrl, cellId);
