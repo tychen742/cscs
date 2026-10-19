@@ -57,6 +57,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 - Each `##` and `###` heading must be in its own separate markdown cell with one blank line after the heading
 - Every `##` and `###` header should include a Sphinx index entry
 - Use index and label anchors liberally — they aid navigation and cross-referencing
+- Tag coding-question cells `exercise` (renamed from the legacy `thebe-interactive` tag on 2026-10-18); `_static/custom.js` labels them "Exercise N of M" and `_static/custom.css` styles `.tag_exercise`. The runner's own exercise detection (`exercise-id:` comment in the code) is separate.
 
 ### Footnotes
 

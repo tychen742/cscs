@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
     // Exercise counter labels
-    const exercises = document.querySelectorAll('div.cell.tag_thebe-interactive');
+    const exercises = document.querySelectorAll('div.cell.tag_exercise');
     const total = exercises.length;
 
     exercises.forEach((exercise, index) => {
@@ -172,14 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const counter = index + 1;
         const label = document.createElement('div');
         label.className = 'exercise-label';
-        label.innerHTML = `✏️ Interactive Exercise ${counter}/${total}`;
-        label.style.cssText = `
-            display: block;
-            font-size: 0.85em;
-            color: #771212;
-            font-weight: bold;
-            margin-bottom: 8px;
-        `;
+        label.textContent = `Exercise ${counter} of ${total}`;
         exercise.insertBefore(label, exercise.firstChild);
     });
 });
