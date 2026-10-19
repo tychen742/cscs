@@ -144,3 +144,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Caption-Only Section Development (2026-10-18)
 
 13.3 keeps its section order; every construct section now shows the pattern before the example and interprets the output after it.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. Section timing stays within one 35-40 minute segment each: the additions are roughly 500-700 prose words and two or three short cells per page. See MATERIALS.md for the gap list.

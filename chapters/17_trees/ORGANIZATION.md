@@ -129,3 +129,7 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 17.4 gained a pruning diagram marking visited and skipped nodes for the 25 to 60 range query and a step-by-step queue table for level order. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the shape vocabulary and the Full Binary Tree Theorem in 17.1 directly after the vocabulary trace, and the return-table trace before the closing recursive-summary subsection. Information flow went to 17.4, where the page already separates visits from returned results, followed by the depth completion; the changed-tree trace follows the traversal table. 17.2, the longest page, gained only the random-insertion experiment after Shape and Performance and the insert-then-remove trace before the Exercise. 17.3 gained the two-tree comparison and completion before its Exercise. Every page closes with Check Your Understanding before its Summary or Footnotes. New headings are `###`; each page stays within one class segment. See MATERIALS.md for the gap list.

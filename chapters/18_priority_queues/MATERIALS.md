@@ -102,3 +102,21 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Added **Visualize it** pointer cells after the worked examples in 18.2 (enqueue and bubble up, dequeue and sink down; CS3 Heaps and Priority Queues), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed. Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 18: the three footnotes now point to CS3 7.17 Heaps and Priority Queues.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS3 7.16 Array Implementation for Complete Binary Trees, 7.17 Heaps and Priority Queues (including Building a Heap and Removing or Updating a Priority), and 8.12 Heapsort. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Why unsorted lists, sorted lists, and BSTs fall short as priority queues; heap as a partial order versus BST total order | 7.17.1 introduction | 18.1 Why Not a Sorted List? (new comparison table) |
+| Complete-tree index arithmetic, including the internal/leaf boundary at n / 2 | 7.16 | 18.1 Heap Representation (expanded, runnable index listing) |
+| Heap validity practice on arrays | 7.17 practice | 18.1 Code Tracing: Is This Array a Heap? |
+| Bottom-up heap construction and its O(n) sum argument | 7.17.2 Building a Heap | 18.2 Build a Heap Bottom Up (new, swap counts versus repeated enqueue) |
+| Changing a priority or removing from the middle with an index map | 7.17.3 | 18.2 Change a Priority or Remove from the Middle (new) |
+| Enqueue trace; sink-down proficiency | 7.17 exercises | 18.2 Code Tracing: Enqueue Four Priorities; Code Completion: Choose the Smaller Child |
+| Heapsort in place and its cost; heap-based selection of the k largest | 8.12 Heapsort and analysis | 18.3 Sorting with a Heap (new, runnable) |
+| Cost comparison of top-k strategies | 8.12.3 | 18.3 Cost Ordering: Four Ways to Find the Top 10 |
+| Summary questions | 7.21, 8.17 | Check Your Understanding on every page |
+
+Exercises added: code tracing (18.1 Is This Array a Heap?, 18.2 Enqueue Four Priorities), code completion (18.2 Choose the Smaller Child), cost ordering with a dropdown answer (18.3), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output; the starter of the completion exercise was also run to confirm the wrong output its interpretation describes. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Huffman coding trees (CS3 7.18) remain out of scope.

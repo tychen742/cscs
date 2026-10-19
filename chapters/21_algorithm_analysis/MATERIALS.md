@@ -64,3 +64,21 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 21: the three footnotes now point to CS3 4.10 Common Misunderstandings.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS3 3.5 Summations, 3.6 Recurrence Relations, 3.7 Proof Techniques, 4.2 Problems, Algorithms, and Programs, 4.3 Growth Rates, 4.5 Faster Computer or Faster Algorithm, 4.6 Asymptotic Analysis (simplifying rules), 4.9 Analyzing Problems, 4.10 Common Misunderstandings, and 4.14 Summary Exercises. Gaps found and where they are now developed:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Simplifying rules; upper bound versus worst case confusion | 4.6.1.2, 4.10 | 21.1 Simplifying Rules for Growth Classes (new) |
+| Faster computer versus faster algorithm; problem-size gain table | 4.5 | 21.1 A Faster Computer or a Faster Algorithm? (new, computed) |
+| Growth-rate ordering; loop-body counting practice | 4.3.2, 4.8 | 21.1 Growth-Rate Ordering; Code Tracing: Count the Loop Bodies |
+| Lower bounds on problems versus algorithms | 4.9 | 21.1 Check Your Understanding |
+| Direct proof, contradiction, induction; invariants as induction | 3.7 | 21.2 Three Proof Shapes (new) |
+| Executable invariant checks; invariant table practice | 3.7 exercises | 21.2 Code Completion: Assert the Invariant; Code Tracing: Fill the Invariant Table |
+| Closed forms of common summations | 3.5 | 21.3 Summations You Will Meet (new, verified) |
+| Solving recurrences by expansion, then induction | 3.6 | 21.3 Solve a Recurrence by Expanding (new) |
+| Recurrence classification; call-count tracing | 3.9, 4.14 | 21.3 Concept Check; Code Tracing: How Many Calls? |
+
+Exercises added: code tracing (21.1, 21.2, 21.3), code completion (21.2), growth-rate ordering (21.1), concept recall (21.3), and Check Your Understanding on every page. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.

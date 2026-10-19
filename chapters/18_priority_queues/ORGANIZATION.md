@@ -103,3 +103,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (expecting enumeration in priority order, checking the heap rule only at the root, the wrong parent formula, swapping with the left child without checking the right, a max-heap for top-k) and interpretation after the practice and exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the representation comparison after Priority Queue Behavior, the index-arithmetic example and the validity trace inside Heap Representation, and the self-check before the existing practice in 18.1. In 18.2 the enqueue trace follows the bubble-up table, and bottom-up construction, priority updates, and the sink-down completion follow the complete heap's cost discussion, with the self-check before Practice: Check Every Parent. In 18.3 heapsort and the cost-ordering exercise precede the Exercise, and the self-check precedes Priority Is Different from Fairness. New headings are `###`; each page stays within one class segment (about 700-900 added prose words and three to five short cells). See MATERIALS.md for the gap list.

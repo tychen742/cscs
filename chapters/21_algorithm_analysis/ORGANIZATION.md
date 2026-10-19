@@ -65,3 +65,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: 16 mistakes beside the examples (mixed cost models, multiplying dependent bounds, merging independent sizes, reading O as Theta, reporting the best case, counting stack depth as memory, weak specifications, closed-range invariants, invariant without variant, early return without its own argument, best initialized to zero, missing base case, fractional halving, dropped combine work, odd splits, call count as stack depth) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the simplifying rules, the hardware-versus-algorithm comparison, the ordering exercise, and the loop-count trace after Bounds and Tight Growth in 21.1; the proof shapes after the termination mistake, the invariant completion after the exact-boundary subsection, and the invariant-table trace before the Exercise in 21.2; and summations, recurrence expansion, the recurrence concept check, and the call-count trace after the opening of 21.3. Each page closes with Check Your Understanding before its Exercise. New headings are `###`; each page stays within one class segment. See MATERIALS.md for the gap list.

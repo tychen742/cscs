@@ -101,3 +101,18 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Added **Visualize it** pointer cells after the worked examples in 22.2 (merge sort, after the copy-returning contract paragraph; CS3 Mergesort Concepts and Implementing Mergesort), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the two sections with OpenDSA CS2 7.1-7.9 (Introduction to Recursion, Writing a Recursive Function, Code Completion Practice, Writing More Sophisticated Recursive Functions, Tracing Recursive Code with the domino analogy and Towers of Hanoi, the tracing exercise families, and Recursion Summary Questions) and CS3 8.9-8.10 Mergesort Concepts and Implementing Mergesort. Gaps found and where they are now developed:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Forward versus backward flow (work before or after the recursive call); domino picture; decimal-to-binary as backward flow | 7.7 Tracing, 7.5 Decimal to Binary | 22.1 Forward and Backward Flow (new, runnable) |
+| Code completion family (sum of digits, largest, power) | 7.3, 7.5 | 22.1 Code Completion: Sum of the Digits |
+| Find-the-error and how-many-times tracing families | 7.8.3, 7.8.5 | 22.1 Code Tracing: Find the Error; Code Tracing: How Many Calls? |
+| Two recursive calls on a problem smaller by one; Towers of Hanoi and its 2ⁿ - 1 recurrence | 7.7.1.2 | 22.1 Two Recursive Calls: Towers of Hanoi (new, runnable) |
+| Range-based merge sort completion | CS3 8.10 | 22.2 Code Completion: Split and Recurse on a Range |
+| Summary questions | 7.9 | Check Your Understanding on both pages |
+
+Exercises added: code tracing (22.1, two), code completion (22.1, 22.2), and Check Your Understanding on both pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Palindrome, subset-sum, and Pascal-triangle writing exercises were left for the chapter assignments.

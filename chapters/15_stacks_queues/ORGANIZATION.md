@@ -67,3 +67,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 15.1 (undo past the beginning with TryPop) and 15.3 (visit pages in arrival order), and task text with expected output above the previously code-only Exercise cells of 15.1, 15.2, and 15.3. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the new material where each concept is taught: the matching trace directly after Matching Delimiters, the linked stack and comparison table inside Stack Implementation Choices, the full-versus-empty argument after Ring Buffers, the ring completion and trace after the bounded queue, the call-stack subsection after Backtracking, and the undo/redo trace before Validate Behavior Before Measuring. Each page ends its instruction with a Check Your Understanding block before the existing Exercise. New headings are `###`; the pages remain within one class segment each (roughly 600-800 added prose words and two to four short cells per page). See MATERIALS.md for the gap list.

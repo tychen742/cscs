@@ -104,3 +104,21 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Added **Visualize it** pointer cells after the worked examples in 24.2 (Kruskal; CS3 Kruskal's Algorithm and Union/Find) and 24.3 (Dijkstra; CS3 Shortest-Paths Problems, single-source anchor), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS3 13.2 Union/Find and the Parent Pointer Implementation (weighted union, path compression), 14.5 Shortest-Paths Problems (single-source Dijkstra, array-scan and priority-queue versions), 14.6 Minimal Cost Spanning Trees (Prim's algorithm and its alternative implementation), 14.7 Kruskal's Algorithm, 14.8 All-Pairs Shortest Paths, and 14.9 Graph Concepts Summary. OpenDSA has no separate greedy-method module; 24.1 borrows exercise types. Gaps found and where they are now developed:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Catalogue of greedy rules that succeed or fail, with the exchange criterion | Dijkstra, Prim, Kruskal correctness discussions | 24.1 Where Greedy Rules Succeed and Fail (new table) |
+| Greedy scheduling trace | (exercise type) | 24.1 Code Tracing: Accept or Reject |
+| Path compression | 13.2.1.4 | 24.2 Path Compression (new, runnable before and after) |
+| Prim's algorithm and the Kruskal-versus-Prim comparison | 14.6.1.1, 14.6.1.2 | 24.2 Prim's Algorithm: Grow One Tree (new, runnable) |
+| Kruskal proficiency trace with union-find state | 14.7 practice | 24.2 Code Tracing: Kruskal with Union-Find Roots |
+| Array-scan versus heap Dijkstra and their costs by density | 14.5.1.1 | 24.3 Two Ways to Pick the Next Vertex (new, runnable array scan) |
+| Dijkstra proficiency trace; relaxation completion | 14.5 practice | 24.3 Code Tracing: Fill the Distance Table; Code Completion: Relax an Arc |
+| All-pairs shortest paths as a question | 14.8 | 24.3 Check Your Understanding (positioned, not implemented) |
+| Summary questions | 14.9 | Check Your Understanding on every page |
+
+Exercises added: code tracing (24.1, 24.2, 24.3), code completion (24.3), and Check Your Understanding on all three pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Floyd's all-pairs algorithm is left to a future supporting reading.

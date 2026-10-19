@@ -125,3 +125,20 @@ From the content-development audit (`authoring/content_development_audit/`), pas
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 14.1 (append with growth; the starter throws until the growth check is added), 14.2 (count the nodes), and 14.3 (count the deletion shifts). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS2 3.1 A List ADT, 3.2 Array-Based List Implementation, 10.1 Linked Lists, 10.2 Comparison of List Implementations, 10.3 Doubly Linked Lists, and 5.7-5.11 Link Nodes practice. The chapter was already developed by passes 3 and 4, so the gap list is short:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Current-position (cursor) list design versus index-based access | 3.1 Defining the ADT | 14.1 Index-Based and Position-Based Designs (new comparison table) |
+| `List<T>` capacity as the library form of the same policy | 3.2 fixed-capacity `AList` | 14.1 Cost of Append and Indexing (expanded) |
+| Header (sentinel) node that removes the front special cases | 10.1.1 Why This Has Problems, A Better Solution | 14.2 A Header Node Removes Special Cases (new, runnable `HeaderChain<T>`) |
+| Reading the costs table as "locate plus update" | 10.2.2 Time Comparison | 14.2 Costs and Tradeoffs (was 74 words) |
+| Doubly linked removal written out with endpoint cases | 10.3 Remove | 14.2 Doubly Linked Lists (expanded) |
+| Verifying two implementations against a model before timing | 10.2 Practice Questions, CS3 testing chapters | 14.3 Worked Example: Check Both Implementations Against a Reference Model (new, runnable harness) |
+| Library classes as the practical representation choice | 10.2 rules of thumb | 14.3 Decision Guide (was 76 words) |
+| Exercise types: tracing reference assignments, code completion on link nodes, cost ordering, summary questions | 5.8, 5.10, 5.11, 10.6 | Listed below |
+
+Exercises added: code tracing (14.1 Capacity After Each Append, 14.2 Which Values Remain Reachable?), code completion (14.2 Insert at the Front), cost ordering with a dropdown answer (14.3 Rank the Operations), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. The 14.3 Lab Tasks remain as the independent application after the new worked harness.

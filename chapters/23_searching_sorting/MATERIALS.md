@@ -124,3 +124,22 @@ Pass 6 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Added **Visualize it** pointer cells after the worked examples in 23.2 (selection, insertion, and bubble sort; CS3 Selection Sort, Insertion Sort, Bubble Sort), 23.4 (Shell sort; CS3 Shellsort), and 23.5 (partition and quicksort; CS3 Quicksort), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed. Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 23: the five footnotes keep the catalog Search in Sorted Arrays module on the new host.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the five sections with OpenDSA CS3 8.3-8.5 (insertion, bubble, selection sort analyses), 8.6 The Cost of Exchange Sorting, 8.8 Shellsort, 8.11 Quicksort (partition, analysis), 8.13 Binsort, 8.14 Radix Sort, 8.15 Empirical Comparison, 8.16 Lower Bounds for Sorting, and 8.17 Sorting Summary Exercises. Gaps found and where they are now developed:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Boundary-search proficiency (completion and trace) | 8.16 and search modules | 23.1 Code Completion: Upper Bound; Code Tracing: Both Bounds on a Tie Block |
+| Cost of exchange sorting: comparisons and swaps per case; inversion-based average-case bound for adjacent-exchange sorts | 8.6 | 23.2 The Cost of Exchange Sorting (new, measured average inversions) |
+| Selection sort proficiency trace | 8.5 practice | 23.2 Code Tracing: Selection Sort Pass by Pass |
+| Lower bound for comparison sorting via decision trees | 8.16 | 23.3 Lower Bounds for Sorting (new, log₂(n!) against measured merge sort) |
+| Ranking sorts per input shape | 8.15 | 23.3 Cost Ordering: Rank the Sorts on Each Input |
+| Bin sort and radix sort as non-comparison sorts | 8.13, 8.14 | 23.4 Sorting Without Comparisons (new, runnable, supporting reading) |
+| Shellsort gap-pass trace | 8.8.3 practice | 23.4 Code Tracing: One Gap Pass of Shell Sort |
+| Quicksort analysis: best, worst, average; pivot choice; small-range cutoff; smaller-side recursion | 8.11.4 | 23.5 Quicksort Analysis and Pivot Choice (new, measured) |
+| Partition proficiency | 8.11.2 practice | 23.5 Code Completion: Finish the Partition Step |
+| Summary questions | 8.17 | Check Your Understanding on every page |
+
+Exercises added: code tracing (23.1, 23.2, 23.4), code completion (23.1, 23.5), cost ordering (23.3), and Check Your Understanding on all five pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Heapsort lives in 18.3; code tuning (8.7) is out of scope.

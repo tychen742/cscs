@@ -82,3 +82,21 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## OpenDSA References (2026-10-19)
 
 Added **Visualize it** pointer cells after the worked examples in 19.1 (separate chaining, CS3 Open Hashing; open addressing, CS3 Collision Resolution and Hashing Deletion), each noting that OpenDSA's open/closed hashing terms are reversed relative to this book's chaining/open addressing, each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed. Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 19: the three footnotes now point to CS3 10.1 Introduction to Hashing.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS3 10.1 Introduction to Hashing, 10.2 Hash Function Principles, 10.3 Sample Hash Functions, 10.4 Open Hashing, 10.6-10.7 Collision Resolution and Improved Collision Resolution, 10.8 Analysis of Closed Hashing, 10.9 Deletion, and 10.10 Summary Exercises, together with the CS3 Dictionary ADT page. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| What makes a hash function good; binning and low-bit failures; folding for strings | 10.2, 10.3 | 19.1 What Makes a Hash Function Good (new, runnable layout comparison) |
+| Expected cost as a function of load factor for chaining and linear probing | 10.8 | 19.1 Expected Cost as a Function of Load (new, computed table) |
+| Primary clustering and improved probe sequences (steps, quadratic, double hashing) | 10.6, 10.7 | 19.1 Expected Cost as a Function of Load (comparison table) |
+| Linear probing proficiency trace | 10.6 practice | 19.1 Code Tracing: Linear Probing Placement |
+| Mutated-key hazard shown rather than stated | Dictionary ADT key discussion | 19.2 Keys Must Keep Their Meaning (was 97 words; runnable demonstration) |
+| Counting pattern with one lookup | 10.1 dictionary use | 19.2 Code Completion: Count Occurrences |
+| Set-operation recall; structure-selection recall | 10.10 review | 19.2 Concept Check: Which Operation Answers the Question?; 19.3 Concept Check: Match the Need to the Structure |
+| Versioned lazy deletion trace | (ours; extends 10.9 deletion reasoning) | 19.3 Code Tracing: Versioned Lazy Deletion |
+| Summary questions | 10.10 | Check Your Understanding on every page |
+
+Exercises added: code tracing (19.1 Linear Probing Placement, 19.3 Versioned Lazy Deletion), code completion (19.2 Count Occurrences), concept recall with dropdown answers (19.2, 19.3), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Bucket hashing (10.5) and the mid-square method remain out of scope.

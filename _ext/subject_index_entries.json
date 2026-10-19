@@ -24,6 +24,14 @@
   "a complete singly linked sequence": [
     "linked list; singly linked implementation"
   ],
+  "a faster computer or a faster algorithm?": [
+    "growth rate; faster hardware",
+    "algorithm choice versus hardware"
+  ],
+  "a header node removes special cases": [
+    "linked list; header node",
+    "sentinel node"
+  ],
   "a limit on one program is not a lower bound on every algorithm": [
     "computational limits",
     "lower bounds",
@@ -55,6 +63,10 @@
   ],
   "a small schema": [
     "database; schema"
+  ],
+  "a stack can replace the call stack": [
+    "stack; replacing recursion",
+    "call stack; explicit stack"
   ],
   "a verified counterexample for a different objective": [
     "greedy algorithms; objective counterexamples"
@@ -98,6 +110,10 @@
   "acknowledgments": [],
   "acm code of ethics": [
     "ACM Code of Ethics"
+  ],
+  "acyclic graphs, dags, and free trees": [
+    "directed acyclic graph",
+    "free tree; acyclic graph"
   ],
   "add": [
     "collections; Add operations"
@@ -369,6 +385,10 @@
     "attribution",
     "software licenses"
   ],
+  "average height under random insertion": [
+    "binary search tree; average case",
+    "binary search tree; random insertion order"
+  ],
   "averager; incremental average": [
     "classes; running-average example"
   ],
@@ -398,6 +418,10 @@
   ],
   "basic try / catch / finally": [
     "exceptions; try-catch-finally"
+  ],
+  "best, worst, and average cases": [
+    "best case; worst case; average case",
+    "algorithm analysis; input cases"
   ],
   "best, worst, expected, and amortized costs": [
     "algorithm analysis; best, worst, expected, and amortized cost"
@@ -588,6 +612,10 @@
   "bubble sort and a settled suffix": [
     "bubble sort; settled suffix"
   ],
+  "build a heap bottom up": [
+    "heap; bottom-up construction",
+    "heapify"
+  ],
   "build and test example": [
     "classes; build-and-test example"
   ],
@@ -648,6 +676,10 @@
   "chaining method calls": [
     "method calls; chaining"
   ],
+  "change a priority or remove from the middle": [
+    "heap; decrease key",
+    "heap; priority update"
+  ],
   "changing data safely": [
     "SQL; safe updates"
   ],
@@ -679,6 +711,9 @@
   ],
   "check the witness as well as the number": [
     "shortest paths; witness verification"
+  ],
+  "check your understanding": [
+    "self-check questions"
   ],
   "checking for a match": [
     "regular expressions; IsMatch"
@@ -742,6 +777,10 @@
   "class; rational": [
     "classes; Rational example"
   ],
+  "classes of difficulty": [
+    "computational complexity; problem classes",
+    "NP-complete problems; intuition"
+  ],
   "cleaning text": [
     "string; cleaning text"
   ],
@@ -756,6 +795,200 @@
   ],
   "close leaf and one-child tickets": [
     "binary search tree; leaf and one-child deletion"
+  ],
+  "code completion: a generic last element": [
+    "generic method; code completion exercise"
+  ],
+  "code completion: assert the invariant": [
+    "loop invariant; code completion exercise",
+    "running balance; invariant check"
+  ],
+  "code completion: build the matrix from the neighbor map": [
+    "adjacency matrix; code completion exercise",
+    "representation conversion"
+  ],
+  "code completion: choose the smaller child": [
+    "heap; sink down; code completion exercise"
+  ],
+  "code completion: count down": [
+    "iterator; code completion exercise"
+  ],
+  "code completion: count occurrences": [
+    "frequency count; code completion exercise",
+    "dictionary; counting pattern"
+  ],
+  "code completion: count the ways to pay": [
+    "memoization; code completion exercise"
+  ],
+  "code completion: dequeue from a ring": [
+    "ring buffer; code completion exercise",
+    "dequeue; implementation"
+  ],
+  "code completion: fall back without rereading text": [
+    "KMP; fallback; code completion exercise"
+  ],
+  "code completion: finish the boundary updates": [
+    "binary search; code completion exercise"
+  ],
+  "code completion: finish the partition step": [
+    "quicksort; partition; code completion exercise"
+  ],
+  "code completion: insert at the front": [
+    "linked list; code completion exercise",
+    "insertion; front of list"
+  ],
+  "code completion: label each node with its depth": [
+    "tree depth; code completion exercise",
+    "passing down information"
+  ],
+  "code completion: reconstruct the witness": [
+    "dynamic programming; witness reconstruction; code completion exercise"
+  ],
+  "code completion: relax an arc": [
+    "relaxation; code completion exercise"
+  ],
+  "code completion: release the dependents": [
+    "topological sort; code completion exercise"
+  ],
+  "code completion: restore the shared state": [
+    "backtracking; undo step; code completion exercise"
+  ],
+  "code completion: same shape": [
+    "binary tree; code completion exercise"
+  ],
+  "code completion: split and recurse on a range": [
+    "merge sort; code completion exercise",
+    "half-open range recursion"
+  ],
+  "code completion: sum of the digits": [
+    "recursion; code completion exercise",
+    "sum of digits"
+  ],
+  "code completion: the inner comparison loop": [
+    "direct matching; code completion exercise"
+  ],
+  "code completion: upper bound": [
+    "upper bound search; code completion exercise"
+  ],
+  "code tracing: accept or reject": [
+    "greedy scheduling; tracing exercise"
+  ],
+  "code tracing: array stack state": [
+    "array-backed stack; tracing exercise"
+  ],
+  "code tracing: both bounds on a tie block": [
+    "boundary search; tracing exercise"
+  ],
+  "code tracing: build the prefix table": [
+    "prefix table; tracing exercise",
+    "KMP; border lengths"
+  ],
+  "code tracing: build, then remove": [
+    "binary search tree; tracing exercise"
+  ],
+  "code tracing: capacity after each append": [
+    "dynamic array; tracing exercise",
+    "capacity; growth trace"
+  ],
+  "code tracing: comparisons per start": [
+    "direct matching; tracing exercise"
+  ],
+  "code tracing: count the loop bodies": [
+    "loop counting; tracing exercise",
+    "nested loops; exact count"
+  ],
+  "code tracing: enqueue four priorities": [
+    "heap; enqueue trace"
+  ],
+  "code tracing: enter and exit events": [
+    "depth-first search; tracing exercise"
+  ],
+  "code tracing: fill a table with unreachable amounts": [
+    "dynamic programming; table tracing exercise"
+  ],
+  "code tracing: fill the distance table": [
+    "Dijkstra's algorithm; tracing exercise"
+  ],
+  "code tracing: fill the invariant table": [
+    "loop invariant; tracing exercise"
+  ],
+  "code tracing: fill the return table": [
+    "tree recursion; tracing exercise",
+    "return table"
+  ],
+  "code tracing: find the error": [
+    "recursion; find the error exercise"
+  ],
+  "code tracing: follow a stack history": [
+    "stack; tracing exercise",
+    "abstract data type; code tracing"
+  ],
+  "code tracing: follow the recursion": [
+    "merge sort; tracing exercise",
+    "recursion; trace"
+  ],
+  "code tracing: hits and misses for f(6)": [
+    "memoization; tracing exercise"
+  ],
+  "code tracing: how many calls?": [
+    "recursion; call counting exercise"
+  ],
+  "code tracing: is this array a heap?": [
+    "heap; tracing exercise",
+    "heap property; validation"
+  ],
+  "code tracing: kruskal with union-find roots": [
+    "Kruskal's algorithm; tracing exercise"
+  ],
+  "code tracing: linear probing placement": [
+    "linear probing; tracing exercise"
+  ],
+  "code tracing: narrow the interval": [
+    "binary search; tracing exercise"
+  ],
+  "code tracing: one gap pass of shell sort": [
+    "Shell sort; tracing exercise"
+  ],
+  "code tracing: predict the interleaving": [
+    "iterator; tracing exercise",
+    "yield return; execution order"
+  ],
+  "code tracing: queue contents layer by layer": [
+    "breadth-first search; tracing exercise"
+  ],
+  "code tracing: read the matrix as a graph": [
+    "adjacency matrix; tracing exercise"
+  ],
+  "code tracing: ring state after each operation": [
+    "ring buffer; tracing exercise"
+  ],
+  "code tracing: selection sort pass by pass": [
+    "selection sort; tracing exercise"
+  ],
+  "code tracing: states visited in subset sum": [
+    "subset sum; tracing exercise",
+    "backtracking; state trace"
+  ],
+  "code tracing: the prefix after each pass": [
+    "insertion sort; tracing exercise"
+  ],
+  "code tracing: the stack while matching": [
+    "delimiter matching; tracing exercise",
+    "stack; tracing exercise"
+  ],
+  "code tracing: three orders for a changed tree": [
+    "tree traversal; tracing exercise"
+  ],
+  "code tracing: undo and redo histories": [
+    "undo and redo; tracing exercise"
+  ],
+  "code tracing: versioned lazy deletion": [
+    "lazy deletion; tracing exercise",
+    "priority queue; stale entries"
+  ],
+  "code tracing: which values remain reachable?": [
+    "linked list; tracing exercise",
+    "reference; reachability"
   ],
   "collection examples": [
     "collections; examples"
@@ -895,6 +1128,10 @@
   "comparing costs": [
     "operation costs"
   ],
+  "comparing two trees": [
+    "binary tree; structural equality",
+    "binary tree; mirror image"
+  ],
   "comparison": [
     "comparison operators"
   ],
@@ -938,6 +1175,21 @@
   ],
   "computers, software, and data": [
     "computers; hardware, software, and data"
+  ],
+  "concept check: classify the graph": [
+    "graph vocabulary; concept recall"
+  ],
+  "concept check: match the need to the structure": [
+    "data structure; selection recall"
+  ],
+  "concept check: match the recurrence to its growth": [
+    "recurrence relations; concept recall"
+  ],
+  "concept check: place each request": [
+    "computational limits; concept recall"
+  ],
+  "concept check: which operation answers the question?": [
+    "set operations; concept recall"
   ],
   "conditional (if) statements": [
     "if statement"
@@ -1063,6 +1315,18 @@
   "cost of append and indexing": [
     "dynamic array; append and indexed-access cost"
   ],
+  "cost ordering: four ways to find the top 10": [
+    "top-k; cost ordering exercise"
+  ],
+  "cost ordering: rank the operations": [
+    "operation cost; ordering exercise"
+  ],
+  "cost ordering: rank the sorts on each input": [
+    "sorting algorithms; cost ordering exercise"
+  ],
+  "cost ordering: which input costs insertion sort most?": [
+    "insertion sort; cost ordering exercise"
+  ],
   "costs and contracts": [
     "data structures; costs and contracts"
   ],
@@ -1082,8 +1346,16 @@
     "array; counting matches",
     "array; largest element"
   ],
+  "count the comparisons of binary search": [
+    "binary search; comparison count",
+    "binary search; analysis"
+  ],
   "count the work": [
     "merge sort; comparison counts"
+  ],
+  "count the work of direct matching": [
+    "string matching; cost analysis",
+    "direct matching; best and worst case"
   ],
   "count work before timing": [
     "operation counting; before timing"
@@ -1544,6 +1816,10 @@
   "exercise; variable tracing": [
     "variable tracing; exercises"
   ],
+  "expected cost as a function of load": [
+    "hash table; expected cost",
+    "load factor; probe analysis"
+  ],
   "explain a recommendation with evidence": [
     "algorithm selection; evidence-based recommendation"
   ],
@@ -1652,11 +1928,19 @@
   "formatting tables": [
     "table formatting"
   ],
+  "forward and backward flow": [
+    "recursion; forward flow",
+    "recursion; backward flow"
+  ],
   "framework setup and test attributes": [
     "unit testing; framework setup and attributes"
   ],
   "from source code to execution": [
     "source code; compilation and execution"
+  ],
+  "full and complete binary trees": [
+    "full binary tree",
+    "complete binary tree"
   ],
   "function; definition": [
     "methods; definition"
@@ -1921,6 +2205,9 @@
   ],
   "growth models are not benchmarks": [
     "algorithm analysis; growth models versus benchmarks"
+  ],
+  "growth-rate ordering": [
+    "growth rate; ordering exercise"
   ],
   "guarantees, heuristics, and unknown answers": [
     "computational limits; guarantees and unknown results"
@@ -2215,12 +2502,20 @@
   "independent transfer: reorder report": [
     "methods; independent report exercise"
   ],
+  "index-based and position-based designs": [
+    "list ADT; current position",
+    "sequence; index versus cursor"
+  ],
   "indexed access": [
     "arrays; indexed access",
     "arrays; initialization"
   ],
   "infinite loops": [
     "infinite loops"
+  ],
+  "information flow in recursive methods": [
+    "recursion; information flow",
+    "tree recursion; passing down and returning"
   ],
   "inheritance: vehicle and car": [
     "inheritance; Vehicle and Car example"
@@ -2309,6 +2604,10 @@
   ],
   "inventory constraints and money": [
     "database; inventory constraints and money"
+  ],
+  "inversions measure how unsorted the input is": [
+    "inversions; insertion sort cost",
+    "nearly sorted input"
   ],
   "is-a is a behavioral promise": [
     "inheritance; substitutability"
@@ -2558,6 +2857,10 @@
   ],
   "lower and upper bounds for duplicates": [
     "binary search; duplicate boundaries"
+  ],
+  "lower bounds for sorting": [
+    "sorting; lower bound",
+    "decision tree; comparison sorts"
   ],
   "ls": [
     "shell commands; ls"
@@ -2886,6 +3189,10 @@
   "order by; sql": [
     "SQL; ORDER BY"
   ],
+  "order tasks with a topological sort": [
+    "topological sort",
+    "topological sort; queue-based"
+  ],
   "ordering and equality are different contracts": [
     "equality; distinction from ordering"
   ],
@@ -2949,6 +3256,10 @@
   ],
   "path class": [
     "Path; file-path operations"
+  ],
+  "path compression": [
+    "union-find; path compression",
+    "disjoint sets; find"
   ],
   "path separator": [
     "file paths; separators"
@@ -3080,6 +3391,10 @@
     "greatest common divisor; recursion preview"
   ],
   "preview; stacks and queues": [],
+  "prim's algorithm: grow one tree": [
+    "Prim's algorithm",
+    "minimum spanning tree; Prim"
+  ],
   "primary key": [
     "primary key"
   ],
@@ -3234,6 +3549,10 @@
   "prove the combining step before hiding it in recursion": [
     "divide and conquer; combining proof"
   ],
+  "prune a search tree: assign staff to shifts": [
+    "backtracking; pruning",
+    "assignment problem; search"
+  ],
   "push": [
     "Stack<T>.Push"
   ],
@@ -3260,6 +3579,10 @@
   ],
   "quicksort": [
     "quicksort"
+  ],
+  "quicksort analysis and pivot choice": [
+    "quicksort; analysis",
+    "quicksort; pivot selection"
   ],
   "range queries and pruning": [
     "binary search tree; range queries and pruning"
@@ -3301,6 +3624,10 @@
   "reason about the unselected branches": [
     "conditional selection; unselected branches"
   ],
+  "recognize a dynamic programming problem": [
+    "dynamic programming; when to apply",
+    "overlapping subproblems; optimal substructure"
+  ],
   "recognize top-level statements": [
     "top-level statements"
   ],
@@ -3309,6 +3636,10 @@
   ],
   "record structs and choosing a type": [
     "record struct; selection criteria"
+  ],
+  "records, keys, and homogeneity": [
+    "generic collection; homogeneity",
+    "key-value pair; generic records"
   ],
   "records: data and equality": [
     "records; data and equality"
@@ -3575,6 +3906,10 @@
   "select; sql": [
     "SQL; SELECT"
   ],
+  "selecting a data structure": [
+    "data structure; selection",
+    "abstract data type; choosing a representation"
+  ],
   "selecting columns": [
     "SQL; SELECT"
   ],
@@ -3698,6 +4033,10 @@
   "simple-graph contracts": [
     "graph; simple-graph contracts"
   ],
+  "simplifying rules for growth classes": [
+    "asymptotic notation; simplifying rules",
+    "Big O; arithmetic of bounds"
+  ],
   "size, membership, and safe access": [
     "collections; size, membership, and safe access"
   ],
@@ -3706,6 +4045,10 @@
   ],
   "software failures; case studies": [
     "software failures; case studies"
+  ],
+  "solve a recurrence by expanding": [
+    "recurrence relations; expansion",
+    "recurrence relations; closed form"
   ],
   "sort ranges with one buffer": [
     "merge sort; shared-buffer sorting"
@@ -3717,6 +4060,14 @@
   ],
   "sorting objects uses an ordering policy": [
     "sorting; object ordering policy"
+  ],
+  "sorting with a heap": [
+    "heapsort",
+    "heap; sorting application"
+  ],
+  "sorting without comparisons: bin sort and radix sort": [
+    "bin sort; counting sort",
+    "radix sort"
   ],
   "source code; .net": [
     "source code; .NET execution"
@@ -4031,6 +4382,10 @@
   "sum from one to n": [
     "loops; summation exercise"
   ],
+  "summations you will meet": [
+    "summations; closed forms",
+    "arithmetic and geometric series"
+  ],
   "supply collaborators through constructors": [
     "dependency injection; constructor collaborators"
   ],
@@ -4113,11 +4468,19 @@
   "the cheapest network is not a shortest-route tree": [
     "minimum spanning tree; comparison with shortest paths"
   ],
+  "the cost of exchange sorting": [
+    "exchange sorts; cost summary",
+    "inversions; average case"
+  ],
   "the default keyword": [
     "default keyword"
   ],
   "the directory class": [
     "Directory; file-system operations"
+  ],
+  "the full binary tree theorem": [
+    "full binary tree theorem",
+    "binary tree; empty subtrees"
   ],
   "the math class": [
     "Math; library methods"
@@ -4127,6 +4490,10 @@
   ],
   "the pattern": [
     "divide and conquer; pattern"
+  ],
+  "the sorting problem and its cost measures": [
+    "sorting; problem definition",
+    "sorting; cost measures"
   ],
   "the standard library and namespaces": [
     "standard library",
@@ -4155,6 +4522,10 @@
   ],
   "this object": [
     "this; current object"
+  ],
+  "three proof shapes": [
+    "proof techniques; direct, contradiction, induction",
+    "loop invariant; induction"
   ],
   "throwing exceptions intentionally": [
     "exceptions; throwing"
@@ -4363,6 +4734,14 @@
   ],
   "two computers; working between lab and home": [
     "Git; working on lab and home computers"
+  ],
+  "two recursive calls: towers of hanoi": [
+    "Towers of Hanoi",
+    "recursion; two recursive calls"
+  ],
+  "two ways to pick the next vertex": [
+    "Dijkstra's algorithm; implementation choices",
+    "Dijkstra's algorithm; array scan versus heap"
   ],
   "type constraint": [
     "type constraints"
@@ -4592,6 +4971,14 @@
   "what an adt specifies": [
     "abstract data types; specifications"
   ],
+  "what graphs model": [
+    "graph; applications",
+    "graph; modeling"
+  ],
+  "what makes a hash function good": [
+    "hash function; design principles",
+    "hash function; key distribution"
+  ],
   "when insertion sort is not enough": [
     "merge sort; motivation",
     "insertion sort; worst case"
@@ -4605,8 +4992,15 @@
   "when to use regex vs. string methods": [
     "text processing; regex versus string methods"
   ],
+  "where greedy rules succeed and fail": [
+    "greedy algorithms; when they work",
+    "exchange argument; scope"
+  ],
   "where; sql": [
     "SQL; WHERE"
+  ],
+  "which constraint does the body need?": [
+    "type constraint; choosing a constraint"
   ],
   "while examples": [
     "while statement; examples"
@@ -4623,8 +5017,16 @@
   "why foreach works": [
     "foreach statement; iteration protocol"
   ],
+  "why front and back alone cannot tell full from empty": [
+    "ring buffer; full versus empty",
+    "pigeonhole principle; queue state"
+  ],
   "why generics exist": [
     "generics; motivation"
+  ],
+  "why not a sorted list?": [
+    "priority queue; representation comparison",
+    "heap; motivation"
   ],
   "word count example": [
     "word counting"
@@ -4637,6 +5039,10 @@
   ],
   "worked example: a small dynamic array": [
     "dynamic array; worked implementation"
+  ],
+  "worked example: check both implementations against a reference model": [
+    "reference model testing",
+    "sequence; contract verification"
   ],
   "worklist order, duplicate discovery, and fairness": [
     "graph traversal; worklist order and duplicate discovery"
@@ -4661,6 +5067,10 @@
   ],
   "writing files": [
     "file handling; writing"
+  ],
+  "writing the enumerator by hand": [
+    "IEnumerator; manual implementation",
+    "iterator; position object"
   ],
   "writing to the console": [
     "console output"

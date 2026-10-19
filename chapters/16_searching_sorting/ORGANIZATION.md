@@ -100,3 +100,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to the supporting 16.3 (merge descending runs) and an expected-output sentence to the 16.2 snapshot practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the binary search analysis, trace, and completion directly after Binary Search Requires the Right Order, with the self-check before the existing practice. In 16.2 the sorting-problem definition precedes Insert into a Sorted Prefix, the inversion analysis and pass trace follow Count Work for Different Inputs, the cost-ordering exercise precedes Include Preparation and Updates, and the self-check closes the page before Footnotes. The supporting reading 16.4 gained one recursion trace and a self-check. 16.2 is the longest page of the chapter; its additions are about 700 prose words and three cells, which keeps it within one class segment with the merge sort reading left as homework reading. See MATERIALS.md for the gap list.
