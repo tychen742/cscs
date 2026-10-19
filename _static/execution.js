@@ -347,7 +347,8 @@ function initializeCsharpExecution() {
             } finally {
                 suppressChange = false;
             }
-            discardButton.hidden = false;
+            // "Discard my version" only makes sense once the reader has changed the code.
+            discardButton.hidden = editor.value === executableCode;
             cell.classList.add("cscs-has-run");
         }
 
@@ -395,7 +396,7 @@ function initializeCsharpExecution() {
             stdinRequested = false;
             updateStdinVisibility();
             showRecordedOutput(record);
-            discardButton.hidden = false;
+            discardButton.hidden = !(record.edited && record.code !== executableCode);
         }
 
         // Size the editor from its line count: at page load the layout is not settled enough
