@@ -127,3 +127,7 @@ The short code-first sections at the top of 14.1, 14.2, and 14.3 now read as exp
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added mid-page guided practices with solutions to 14.1 (append with growth; the starter throws until the growth check is added), 14.2 (count the nodes), and 14.3 (count the deletion shifts). Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 kept 14.1 near its existing length (it was already the longest page in Part IV) and added only a tracing exercise after Cost of Append, the index-versus-cursor design note after the sequence contract, and a closing self-check. 14.2 gained the header-node subsection after the head and tail invariants, a reachability trace and a front-insertion completion after the doubly linked subsection, and a self-check. 14.3 gained the reference-model harness after Test the Contract Before Comparing Speed, a cost-ordering exercise before Lab Tasks, and a self-check before Summary. All new headings are `###`; each page stays within one class segment. See MATERIALS.md for the gap list.

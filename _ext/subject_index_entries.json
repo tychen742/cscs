@@ -24,6 +24,10 @@
   "a complete singly linked sequence": [
     "linked list; singly linked implementation"
   ],
+  "a header node removes special cases": [
+    "linked list; header node",
+    "sentinel node"
+  ],
   "a limit on one program is not a lower bound on every algorithm": [
     "computational limits",
     "lower bounds",
@@ -55,6 +59,10 @@
   ],
   "a small schema": [
     "database; schema"
+  ],
+  "a stack can replace the call stack": [
+    "stack; replacing recursion",
+    "call stack; explicit stack"
   ],
   "a verified counterexample for a different objective": [
     "greedy algorithms; objective counterexamples"
@@ -770,8 +778,20 @@
   "code completion: count down": [
     "iterator; code completion exercise"
   ],
+  "code completion: dequeue from a ring": [
+    "ring buffer; code completion exercise",
+    "dequeue; implementation"
+  ],
+  "code completion: insert at the front": [
+    "linked list; code completion exercise",
+    "insertion; front of list"
+  ],
   "code tracing: array stack state": [
     "array-backed stack; tracing exercise"
+  ],
+  "code tracing: capacity after each append": [
+    "dynamic array; tracing exercise",
+    "capacity; growth trace"
   ],
   "code tracing: follow a stack history": [
     "stack; tracing exercise",
@@ -780,6 +800,20 @@
   "code tracing: predict the interleaving": [
     "iterator; tracing exercise",
     "yield return; execution order"
+  ],
+  "code tracing: ring state after each operation": [
+    "ring buffer; tracing exercise"
+  ],
+  "code tracing: the stack while matching": [
+    "delimiter matching; tracing exercise",
+    "stack; tracing exercise"
+  ],
+  "code tracing: undo and redo histories": [
+    "undo and redo; tracing exercise"
+  ],
+  "code tracing: which values remain reachable?": [
+    "linked list; tracing exercise",
+    "reference; reachability"
   ],
   "collection examples": [
     "collections; examples"
@@ -1086,6 +1120,9 @@
   ],
   "cost of append and indexing": [
     "dynamic array; append and indexed-access cost"
+  ],
+  "cost ordering: rank the operations": [
+    "operation cost; ordering exercise"
   ],
   "costs and contracts": [
     "data structures; costs and contracts"
@@ -2242,6 +2279,10 @@
   "independent design challenge": [],
   "independent transfer: reorder report": [
     "methods; independent report exercise"
+  ],
+  "index-based and position-based designs": [
+    "list ADT; current position",
+    "sequence; index versus cursor"
   ],
   "indexed access": [
     "arrays; indexed access",
@@ -4657,6 +4698,10 @@
   "why foreach works": [
     "foreach statement; iteration protocol"
   ],
+  "why front and back alone cannot tell full from empty": [
+    "ring buffer; full versus empty",
+    "pigeonhole principle; queue state"
+  ],
   "why generics exist": [
     "generics; motivation"
   ],
@@ -4671,6 +4716,10 @@
   ],
   "worked example: a small dynamic array": [
     "dynamic array; worked implementation"
+  ],
+  "worked example: check both implementations against a reference model": [
+    "reference model testing",
+    "sequence; contract verification"
   ],
   "worklist order, duplicate discovery, and fairness": [
     "graph traversal; worklist order and duplicate discovery"
