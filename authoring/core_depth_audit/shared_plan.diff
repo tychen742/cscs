@@ -1,0 +1,121 @@
+diff --git a/prompts/audit-content.md b/prompts/audit-content.md
+index 6994469..697de90 100644
+--- a/prompts/audit-content.md
++++ b/prompts/audit-content.md
+@@ -1,73 +1,50 @@
+-# Book Content Depth Audit
++# B-A Core Content Depth and Organization Audit
+ 
+-Assess whether each chapter has sufficient content depth — identifying thin chapters that need expansion before publication or semester start.
++Use this plan across all books to assess uneven instructional depth at chapter, section, and subsection levels. Apply the book-authoring skill's flexible B-A framework: conceptual framing and connections, developed explanation and worked interpretation, then guided practice. Report before editing unless a fix pass is explicitly requested.
+ 
+-## Usage
++## Scope and inventory
+ 
+-```text
+-audit content           # all chapters
+-audit content ch13      # one chapter
+-```
++Read the book's AGENTS.md, BOOK_PLAN.md, PROGRESS.md, and current TOC, then the included chapters' MATERIALS.md and ORGANIZATION.md. Follow project-specific locations and naming.
+ 
+-## Before starting
++Build an explicit inclusion/exclusion inventory from the active TOC and in-page reading labels. Count core content only. Exclude assignments, previews, labs, homework, projects, extra-practice pages, optional/supporting readings, and explicitly optional/advanced extensions within core pages. Preserve required descendants of headings that merely discuss optional relationships or optional language elements; the word "optional" alone is not a reading-status label. Use planning evidence to resolve ambiguous status, and disclose unresolved cases. Do not assume the first three notebooks are core or that every TOC page is required.
+ 
+-Read `~/ai_shared/skills/book-authoring/SKILL.md` for the authoritative standards on what constitutes a complete chapter.
++List landing pages, glossaries, front matter, part overviews, appendices, and source notes separately from instructional-body totals. Exclude them from the default core-depth comparison. Source notes within included pages may be counted separately; state the convention. Assignment analysis is a separate pass and does not supply missing explanation or practice evidence for this audit. Guided practice embedded in core lessons remains in scope.
+ 
+-## What to check
++## Reproducible hierarchy and measures
+ 
+-For each chapter in scope, examine the following. Use file sizes (via `ls -lh`) as a first-pass proxy, then read content to confirm.
++Record the source revision or hashes, counting method, scope decisions, and exclusions. Adapt heading levels to the book: normally a chapter has content-section notebooks, whose `##` headings are subsections; retain deeper headings too.
+ 
+-### Landing page (`XX00-*.ipynb`)
++For every included chapter, section, and subsection, report:
+ 
+-- [ ] ≥ 3 numbered, measurable learning goals — flag any that use "understand", "learn about", "be familiar with", or "explore"
+-- [ ] ≥ 5 terms in the glossary table
+-- [ ] Video embedded (search for `<iframe` or YouTube link)
+-- [ ] Chapter Overview Slides link present
++- Prose words, excluding code, outputs, syntax patterns, diagrams, navigation/directive markup, source-only anchors, URLs, and HTML attributes. Account for fenced and indented code and notebook-cell boundaries. Retain meaningful table text and inline code terms; state how captions and headings are treated.
++- Direct words and inclusive words. Direct words exclude descendant subsections and partition the parent total; inclusive words include descendants and must not be added to their own child totals. Reconcile all rollups.
++- Supporting indicators where useful: visible code volume, hidden solutions, local learner attempts, worked traces, diagrams, and the number of distinct conceptual transitions. Repeated standalone boilerplate and stored output are not additional instructional depth.
+ 
+-### Content notebooks (`XX01`, `XX02`, …)
++Compare chapter totals, words per core section, and within-section distribution. Use medians, ranges, and outliers to select passages for reading, not as quality scores. File size, heading count, a short introductory parent, or a missing literal "guided" label cannot establish a deficiency. Do not set equal word targets across chapters or books.
+ 
+-For each content notebook:
+-- [ ] File size — flag if < 10 KB (likely thin/stub)
+-- [ ] Number of `## ` headings — should be 3–7; flag if < 3
+-- [ ] Worked examples — at least one per `##` section (look for `### Example` or equivalent)
+-- [ ] Exercises — at least one per `##` section (look for `thebe-interactive` tag or explicit exercise heading)
++## Qualitative B-A review
+ 
+-### Depth verdict per chapter
++Read candidate passages with their ancestors, examples, and neighboring sections before judging them. Review the whole core inventory; use detailed reading to confirm every reported finding. Distinguish substantive gaps from short summaries, navigation, reference tables, conceptual material, or a brief parent whose children provide the development.
+ 
+-Based on the above, assign one of:
+-- **Full** — meets all thresholds; no significant gaps
+-- **Thin** — 1–3 deficiencies; usable but needs attention
+-- **Stub** — major gaps; not ready for student use
++For each instructional topic, assess:
+ 
+-## Output format
++1. **Conceptual framing and connections.** Is the purpose clear? Are prerequisites taught before use? Does the section explain how related concepts differ and why the distinction matters?
++2. **Subsection development.** Are definitions explained, relevant syntax scaffolded, and examples worked through? Can students interpret output or state, follow the reasoning, and recognize a meaningful variation or common mistake? Conceptual topics may use a case, diagram, comparison, or argument instead of executable code.
++3. **Local practice progression.** Can students make a bounded attempt and obtain explanatory feedback before a larger core synthesis? Do not require an exercise in every small heading or rely on excluded assignments to complete the lesson.
++4. **Organization and balance.** Identify dense introductions followed by caption-only topics, repeated introductions that obscure the learning sequence, overfull sections, inconsistent prerequisite order, unexplained jumps, and thin topics hidden inside long chapters. Distinguish legitimate spiraling from redundant reteaching.
++5. **Core learning load.** Consider novelty, abstraction, tracing, implementation, proof, and verification demands. Separate reading pages from class meetings. Compare the actual topic sequence with the stated teaching allocation; flag contradictions rather than asserting measured student times. Do not use assignment workload in this pass.
+ 
+-```text
+-## Content Audit — Ch13: Abstract Data Structures
++Existing verification/build records can inform the audit, but distinguish them from fresh checks. For read-only depth audits, rerunning every cell or rebuilding the book is unnecessary unless a finding depends on execution or rendering. Report stale or unavailable evidence as a limitation.
+ 
+-### Landing page
+-✗ Learning goals — only 2 goals; goal 1 uses "understand"
+-✓ Glossary — 7 terms
+-✗ Video — absent
+-✓ Slides link — present
++## Findings and revision plan
+ 
+-### Content notebooks
+-| Notebook              | Size   | ## count | Examples | Exercises | Flag         |
+-|-----------------------|--------|----------|----------|-----------|--------------|
+-| 1301-adt-basics       | 5.6 KB | 3        | 1        | 0         | no exercises |
+-| 1302-stacks-queues    | 8.0 KB | 4        | 2        | 1         |              |
+-| 1303-trees-graphs     | 7.6 KB | 3        | 1        | 0         | no exercises |
++For each confirmed finding, record the chapter, section, subsection, source path and stable cell ID or anchor; what is already adequate; the specific gap or organization problem; learner impact; priority; and proposed disposition:
+ 
+-### Verdict: THIN
+-Justification: two notebooks lack exercises; landing page missing video and has weak learning goals.
++- **Expand:** name the missing explanation, worked reasoning, variation, visual, or local learner attempt.
++- **Reorganize:** name the source, destination, prerequisite order, and material to preserve. Separate framing from synthesis when appropriate.
++- **Retain:** explain why concise or lengthy treatment is justified.
++- **Clarify scope:** identify reference or extension material whose required status is unclear. Reclassification requires checking later core dependencies; do not silently make prerequisite instruction optional.
+ 
+----
++Prioritize essential gaps and prerequisite problems, then local imbalances, then presentation. Preserve distinct explanations, verified examples, exercise variants, anchors, assessment identities, and published URLs. Prefer relocating or clarifying material to deleting substantive instruction. Do not recommend expansion simply to reach a word target or trimming simply to fit a meeting quota.
+ 
+-## Summary — All Chapters (ranked thinnest → fullest)
+-
+-| Chapter | Verdict | Key gaps                        |
+-|---------|---------|---------------------------------|
+-| ch13    | Thin    | no exercises in 1301, 1303      |
+-| ch11    | Thin    | landing page missing video      |
+-| ch07    | Full    |                                 |
+-...
+-```
++Deliver a core-only chapter summary, section/subsection detail, explicit exclusion list, prioritized evidence-backed findings, and a proposed sequence of small repair passes. Keep assignment and optional-reading revision deferred unless separately requested. Make no teaching-source, TOC, or assignment changes during a report-only audit.
+diff --git a/skills/book-authoring/SKILL.md b/skills/book-authoring/SKILL.md
+index e8ad53c..1c7d1cb 100644
+--- a/skills/book-authoring/SKILL.md
++++ b/skills/book-authoring/SKILL.md
+@@ -1003,6 +1003,8 @@ sphinx:
+ 
+ Use a book audit when the user asks whether a book, part, chapter sequence, or set of assignments is coherent, complete, or ready for revision. An audit should separate observation from editing: inspect first, report findings clearly, and only make changes when the user asks for an implementation pass or when the requested task already includes fixing the findings.
+ 
++For a B-A audit of uneven core depth and organization, use [the shared core-content audit plan](../../prompts/audit-content.md). Compare chapter, section, and subsection depth with assignments and optional/supporting readings excluded; keep landing/reference material separate. Quantitative outliers guide qualitative reading and do not set word quotas. Review conceptual framing, developed subsections, and local practice, then report expansion, reorganization, retention, and scope decisions before editing. Assignment revision remains a separate pass.
++
+ Start with the book-level context:
+ 
+ - Read the project `AGENTS.md`, `authoring/BOOK_PLAN.md`, `authoring/PROGRESS.md`, and `_toc.yml` before judging structure.

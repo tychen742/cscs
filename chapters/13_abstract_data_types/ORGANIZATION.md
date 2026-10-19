@@ -4,6 +4,20 @@ orphan: true
 
 # Chapter Organization — ADTs
 
+## Core Depth Revision (2026-10-19)
+
+C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
+### Current Three-Meeting Map
+
+- Meeting one, 35 minutes: ADT client contracts, representation independence and one concrete cost trace, drawing selected passages from 13.1 and 13.2.
+- Meeting two, 40 minutes: the generic method/class contract, required constraints and ordering/equality distinctions in 13.3. The compact syntax bridge is recognition and a worked comparison, not a second language unit.
+- Meeting three, 35 minutes: foreach/iterator state, yield, deferred enumeration and verification in 13.4, returning to the earlier ADT contract. Compare the complete hand-written enumerator as a reference model after the yield path.
+
+Total: 110 minutes. Four readings support three meetings; the full reading/examples remain available, and this allocation does not claim to read or execute every cell live. No core reading is reclassified as optional.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
@@ -147,4 +161,4 @@ Keep the original five-question coding tracks and smaller historical variations.
 
 ## OpenDSA-Modeled Development (2026-10-19)
 
-Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. Section timing stays within one 35-40 minute segment each: the additions are roughly 500-700 prose words and two or three short cells per page. See MATERIALS.md for the gap list.
+Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. The earlier per-reading timing estimate is superseded by the current three-meeting map at the top of this file. Reading count and added words do not establish actual lecture duration. See MATERIALS.md for the gap list.

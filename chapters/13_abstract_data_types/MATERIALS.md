@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Materials — ADTs
 
+## Core Depth Revision (2026-10-19)
+
+C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

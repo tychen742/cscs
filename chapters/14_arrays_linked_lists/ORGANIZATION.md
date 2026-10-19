@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Organization: Linear Lists
 
+## Core Depth Revision (2026-10-19)
+
+C13: introduce reference/cursor interpretation before traversal and connect the lost-link trace to the first insertion. Complete the original singly linked representation before comparing the preserved sentinel variant. Keep deletion, invariants, complete implementations, exercises and anchors.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Learning Objectives
 
 Implement the same sequence contract with array-backed and singly linked representations; trace changing storage/references; preserve representation invariants; derive amortized append cost; test boundary behavior; justify a representation using a workload and API assumptions.

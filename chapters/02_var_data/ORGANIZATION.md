@@ -1,5 +1,11 @@
 # Chapter Organization — Variables and Data Types
 
+## Core Depth Revision (2026-10-19)
+
+C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |

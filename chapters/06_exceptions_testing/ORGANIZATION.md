@@ -1,5 +1,11 @@
 # Chapter Organization: Testing, Debugging, and Error Handling
 
+## Core Depth Revision (2026-10-19)
+
+C05: place the familiar Credits debugger investigation before the workflow reference and retained array/CSV transfers. The current chapter needs only scalar loops and methods; arrays are a later transfer after Chapter 7. Correct the array-loop comment to i < scores.Length; retain the intentional bug and all expected-output evidence.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

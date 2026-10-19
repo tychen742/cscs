@@ -1,5 +1,11 @@
 # Organization: Inheritance, Interfaces, and Polymorphism
 
+## Core Depth Revision (2026-10-19)
+
+C11: add a learner prediction and declared-type/actual-object/override/base-call/result trace beside the existing policy example. Preserve current interface/test-double progression and the optional OOP examples.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Objectives and Prerequisites
 
 Build on Chapters 10-11: class construction, validated state, references, composition, and model tests. Explain inheritance and substitution, virtual dispatch, abstract classes, interfaces, and constructor-supplied collaborators.

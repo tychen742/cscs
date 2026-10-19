@@ -4,6 +4,12 @@ orphan: true
 
 # Materials: Graphs and Traversal
 
+## Core Depth Revision (2026-10-19)
+
+C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

@@ -1,0 +1,114 @@
+[
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "0911aac5",
+    "kind": "heading nesting",
+    "before": "```{index} Assignment\n```\n\n### Assignment\n\n",
+    "after": "```{index} Assignment\n```\n\n#### Assignment\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "66d12086",
+    "kind": "heading nesting",
+    "before": "```{index} Arithmetic\n```\n\n### Arithmetic\n\n",
+    "after": "```{index} Arithmetic\n```\n\n#### Arithmetic\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "21cc99a7",
+    "kind": "heading nesting",
+    "before": "```{index} Division\n```\n\n(division-and-remainders)=\n\n### Division\n\n",
+    "after": "```{index} Division\n```\n\n(division-and-remainders)=\n\n#### Division\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "58785191",
+    "kind": "heading nesting",
+    "before": "```{index} Remainders\n```\n\n### Remainders\n\n",
+    "after": "```{index} Remainders\n```\n\n#### Remainders\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "e53c5cb9",
+    "kind": "heading nesting",
+    "before": "```{index} Comparison\n```\n\n### Comparison\n\n",
+    "after": "```{index} Comparison\n```\n\n#### Comparison\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "43a474bc",
+    "kind": "heading nesting",
+    "before": "```{index} Logical\n```\n\n### Logical\n\n",
+    "after": "```{index} Logical\n```\n\n#### Logical\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "58144b6f",
+    "kind": "heading nesting",
+    "before": "```{index} Bitwise\n```\n\n### Bitwise\n\n",
+    "after": "```{index} Bitwise\n```\n\n#### Bitwise\n\n"
+  },
+  {
+    "path": "chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+    "cell_id": "p4_e66fcee4b9",
+    "kind": "heading nesting",
+    "before": "```{index} Guided Practice: Split a Bill\n```\n\n### Guided Practice: Split a Bill\n",
+    "after": "```{index} Guided Practice: Split a Bill\n```\n\n## Guided Practice: Split a Bill\n"
+  },
+  {
+    "path": "chapters/05_methods/0501_intro_methods.ipynb",
+    "cell_id": "fc6bc11b",
+    "kind": "factual or relative-position correction",
+    "before": "\nOne method you encountered in the explicit class-based C# program form is Main, in which *Main* is\nthe name that you can refer to this set of statements. A Main method is special\nbecause it is designated as the only entry point of a C# application and its selected entry point begins the console program [^0502_signature_call-1].\n\nNote that the **Main method** is contained in a **class** (Program), which is a\nstandard arrangement for OOP languages.\nYou define a method by writing the method’s **header** and **body**. The **header** is the complete declaration line. For C# overload identity, the **signature** identifies the name, generic arity when present, and parameter types/passing modes; it does not include the return type or parameter names. [^0502_signature_call-2] When defining methods, you follow a recipe\n(standard syntax) for the **method definition**. The\nclass-member definition pattern is as follows: [^0502_signature_call-3]\n\n``` none\n[AccessModifier] static ReturnTypeOrVoid MethodName(ParameterList)\n{\n   // Method Body: a set of statements enclosed in curly braces { }\n}\n```\n\nThe complete header and body have the following parts:\n\n| Header component | Description |\n| --- | --- |\n| Access Level | Optional. This determines visibility of methods between classes, It does not determine whether code can instantiate objects. For a local helper, omit access modifiers. For a class-member helper, choose visibility appropriate to its callers. |\n| Static modifier | In the form taught here, define the method as a static member method of the class. When not defined as static, it is an instance member. |\n| Return Type | If the method is returning a value, this indicates what data type it will be. Not all methods return values. Methods that do not return a value have a return type of `void`. |\n| Method Name | The method’s `identifier`; class-member overloads may share a name with different signatures. This is what you use to call your method. |\n| Parameter List | A parameter is a placeholder for specific data that the method will act upon. Parameters are optional. In these cases, the `()` are still part of the method call, but remain empty. |\n| Method Body | This is where you code your method. Note it is contained between `{}`. |\n\nWith method signatures, you can design methods specifically to your needs. But for now, let us analyze the two methods in class TryMethods below to apply our understanding of headers and calls:",
+    "after": "\nOne method you encountered in the explicit class-based C# program form is Main, in which *Main* is\nthe name that you can refer to this set of statements. A Main method is special\nbecause it is designated as the only entry point of a C# application and its selected entry point begins the console program [^0502_signature_call-1].\n\nNote that the **Main method** is contained in a **class** (Program), which is a\nstandard arrangement for OOP languages.\nYou define a method by writing the method’s **header** and **body**. The **header** is the complete declaration line. For C# overload identity, the **signature** identifies the name, generic arity when present, and parameter types/passing modes; it does not include the return type or parameter names. [^0502_signature_call-2] When defining methods, you follow a recipe\n(standard syntax) for the **method definition**. The\nclass-member definition pattern is as follows: [^0502_signature_call-3]\n\n``` none\n[AccessModifier] static ReturnTypeOrVoid MethodName(ParameterList)\n{\n   // Method Body: a set of statements enclosed in curly braces { }\n}\n```\n\nThe complete header and body have the following parts:\n\n| Header component | Description |\n| --- | --- |\n| Access Level | Optional. This determines visibility of methods between classes, It does not determine whether code can instantiate objects. For a local helper, omit access modifiers. For a class-member helper, choose visibility appropriate to its callers. |\n| Static modifier | In the form taught here, define the method as a static member method of the class. When not defined as static, it is an instance member. |\n| Return Type | If the method is returning a value, this indicates what data type it will be. Not all methods return values. Methods that do not return a value have a return type of `void`. |\n| Method Name | The method’s `identifier`; class-member overloads may share a name with different signatures. This is what you use to call your method. |\n| Parameter List | A parameter is a placeholder for specific data that the method will act upon. Parameters are optional. In these cases, the `()` are still part of the method call, but remain empty. |\n| Method Body | This is where you code your method. Note it is contained between `{}`. |\n\nWith method signatures, you can design methods specifically to your needs. Apply those header and call distinctions to `MyMethod` in the next top-level cell. Its complete class-based counterpart is retained in the project-form comparison at the end of this reading. The helper has the same observable job in either arrangement:"
+  },
+  {
+    "path": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "cell_id": "9b215d33",
+    "kind": "factual or relative-position correction",
+    "before": "// Buggy: skips the last element\nint[] scores = { 85, 92, 78, 90, 88 };\nint total = 0;\n\nfor (int i = 0; i < scores.Length - 1; i++)  // BUG: should be <= or just <\n    total += scores[i];\n\nConsole.WriteLine($\"Total: {total}\");    // prints 345 instead of 433\nConsole.WriteLine($\"Count: {scores.Length}\");",
+    "after": "// Buggy: skips the last element\nint[] scores = { 85, 92, 78, 90, 88 };\nint total = 0;\n\nfor (int i = 0; i < scores.Length - 1; i++)  // BUG: use i < scores.Length to include every valid index\n    total += scores[i];\n\nConsole.WriteLine($\"Total: {total}\");    // prints 345 instead of 433\nConsole.WriteLine($\"Count: {scores.Length}\");"
+  },
+  {
+    "path": "chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+    "cell_id": "ba_26ba7b7ad9c881b771",
+    "kind": "factual or relative-position correction",
+    "before": "Before the retained array and CSV applications, use a calculation that needs only methods, decisions, and loops. A shop awards one credit for each of the first `days` days. With three days, the expected credits are 1 + 2 + 3 = 6. This expectation comes from the problem, not from running the implementation.\n\nThe following complete cell deliberately contains a logic defect. It compiles, but the loop stops too soon. A compiler cannot infer that the business rule requires the last day.\n",
+    "after": "Use a calculation that needs only methods, decisions, and loops. A shop awards one credit for each of the first `days` days. With three days, the expected credits are 1 + 2 + 3 = 6. This expectation comes from the problem, not from running the implementation.\n\nThe following complete cell deliberately contains a logic defect. It compiles, but the loop stops too soon. A compiler cannot infer that the business rule requires the last day.\n"
+  },
+  {
+    "path": "chapters/08_collections/0804_collection_operations.ipynb",
+    "cell_id": "collection-namespaces-heading",
+    "kind": "heading nesting",
+    "before": "```{index} The Standard Library and Namespaces\n```\n\n### The Standard Library and Namespaces\n\n",
+    "after": "```{index} The Standard Library and Namespaces\n```\n\n## The Standard Library and Namespaces\n\n"
+  },
+  {
+    "path": "chapters/09_files_text/0903_text_operations.ipynb",
+    "cell_id": "p3_9c35dc0dfc",
+    "kind": "factual or relative-position correction",
+    "before": "The output is `'Ada'`, `'98'`, and `'CS'`, with the quotes showing that the surrounding spaces are gone. `Split` keeps whitespace inside each field, so `\" 98 \"` would fail `int.TryParse` until it is trimmed; trimming every field once, right after the split, is cheaper than remembering to do it at every use.\n",
+    "after": "The output is `'Ada'`, `'98'`, and `'CS'`, with the quotes showing that the surrounding spaces are gone. `Split` keeps whitespace inside each field. The ordinary `int.TryParse` call accepts surrounding whitespace, so `\" 98 \"` parses as 98 even without `Trim`. Trimming is still useful for normalizing text fields such as names and codes; it is not what makes this integer parse succeed. Normalize according to the field contract rather than assuming every conversion rejects spaces.\n"
+  },
+  {
+    "path": "chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb",
+    "cell_id": "p8_8e0120fb",
+    "kind": "factual or relative-position correction",
+    "before": "The first line shows `[WO-10, WO-20, WO-30]`: two inserts after the header each pushed a value to the front, and the third insert went after the first real node. The removals then use the same `RemoveAfter(Header)` call three times, with no branch asking whether the list is about to become empty, and the final call on an empty list returns `false` because the header's `Next` is `null`. Compare this with `WorkOrderChain<T>` below, whose `RemoveAt(0)` and `Insert(0, value)` each need an `if` for the head. The header buys that simplicity for one node of memory. The traversal in `Print` starts at `Header.Next`, not at `Header`; starting at the header itself is the one new mistake this design introduces, and it shows up as a phantom default value at the front of every printout.",
+    "after": "The first line shows `[WO-10, WO-20, WO-30]`: two inserts after the header each pushed a value to the front, and the third insert went after the first real node. The removals then use the same `RemoveAfter(Header)` call three times, with no branch asking whether the list is about to become empty, and the final call on an empty list returns `false` because the header's `Next` is `null`. Compare this with `WorkOrderChain<T>` above, whose `RemoveAt(0)` and `Insert(0, value)` each need an `if` for the head. The header buys that simplicity for one node of memory. The traversal in `Print` starts at `Header.Next`, not at `Header`; starting at the header itself is the one new mistake this design introduces, and it shows up as a phantom default value at the front of every printout."
+  },
+  {
+    "path": "chapters/20_graphs/2004_depth_first_components.ipynb",
+    "cell_id": "d60adbf69cae",
+    "kind": "heading nesting",
+    "before": "```{index} Connected Components and Direction\n```\n\n### Connected Components and Direction\n\n",
+    "after": "```{index} Connected Components and Direction\n```\n\n#### Connected Components and Direction\n\n"
+  },
+  {
+    "path": "chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+    "cell_id": "p8_19013efd",
+    "kind": "factual or relative-position correction",
+    "before": "The settle order is HQ, Shop, Lab, Depot and the distances match the heap version exactly; the stale `Lab (6)` entry that the heap had to skip never exists here, because the array simply holds Lab's improved distance of 5 when the scan reaches it. The loop ends after four rounds when no unsettled vertex has a finite distance, which is how an array-scan Dijkstra detects that Remote is unreachable. Five vertices make the scan trivial; with 10,000 intersections and 30,000 roads the scan would do 100 million steps where the heap does a few hundred thousand.",
+    "after": "The settle order is HQ, Shop, Lab, Depot; compare these same distances with the priority-queue version below; the stale `Lab (6)` entry that the heap had to skip never exists here, because the array simply holds Lab's improved distance of 5 when the scan reaches it. The loop ends after four rounds when no unsettled vertex has a finite distance, which is how an array-scan Dijkstra detects that Remote is unreachable. Five vertices make the scan trivial; with 10,000 intersections and 30,000 roads the scan would do 100 million steps where the heap does a few hundred thousand."
+  }
+]

@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Materials — Data Collections
 
+## Core Depth Revision (2026-10-19)
+
+C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

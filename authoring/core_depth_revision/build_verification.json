@@ -1,0 +1,12 @@
+{
+  "full_build_succeeded": true,
+  "preexisting_lexer_warnings": [
+    "/Users/tcn85/workspace/cscs/chapters/02_var_data/0204_types_conversion.ipynb:380002: WARNING: Lexing literal_block \"char letter  = 'A';\\nchar digit   = '7';\\nchar newline = '\\\\n';\\nchar unicode = '\\\\u00E9';       // é — U+00E9 LATIN SMALL LETTER E WITH ACUTE\\n\\n// char ↔ int\\nint  code = letter;            // 65 — implicit cast to int\\nchar back = (char)(code + 1);  // 'B' — explicit cast back\\n\\nConsole.WriteLine(letter);\\nConsole.WriteLine(code);\\nConsole.WriteLine(back);\\nConsole.WriteLine(unicode);\" as \"csharp\" resulted in an error at token: \"'\". Retrying in relaxed mode.",
+    "/Users/tcn85/workspace/cscs/chapters/10_classes/1001_class_syntax.ipynb:140046: WARNING: Lexing literal_block 'object.method( … )\\n' as \"csharp\" resulted in an error at token: '…'. Retrying in relaxed mode.",
+    "/Users/tcn85/workspace/cscs/chapters/appendices/databases/csharp_sqlite.ipynb:60004: WARNING: Lexing literal_block 'using Microsoft.Data.Sqlite;\\n\\nusing var connection = new SqliteConnection(\"Data Source=:memory:\");\\nconnection.Open();\\nusing (var setup = connection.CreateCommand())\\n{\\n    setup.CommandText = \"\"\"\\n        CREATE TABLE Books (BookId INTEGER PRIMARY KEY, Title TEXT NOT NULL);\\n        INSERT INTO Books VALUES (1, \\'C# for Business\\');\\n        \"\"\";\\n    setup.ExecuteNonQuery();\\n}\\nusing var query = connection.CreateCommand();\\nquery.CommandText = \"SELECT Title FROM Books WHERE BookId = @id;\";\\nquery.Parameters.AddWithValue(\"@id\", 1);\\nusing var reader = query.ExecuteReader();\\nwhile (reader.Read())\\n    Console.WriteLine(reader.GetString(0));\\n' as \"csharp\" resulted in an error at token: \"'\". Retrying in relaxed mode."
+  ],
+  "new_cross_reference_warnings_repaired": true,
+  "final_incremental_build_succeeded": true,
+  "final_incremental_warnings": [],
+  "notebook_schemas_valid": 17
+}

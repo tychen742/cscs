@@ -1,5 +1,11 @@
 # Chapter Organization — Decision Structures
 
+## Core Depth Revision (2026-10-19)
+
+C03: retain the service-code problem as framing, develop if/else-if/nesting/switch first, then return to the preserved cross-form comparison. Add a standalone, top-level branch-order repair and an inclusive-boundary/invalid-case trace. No methods or loops are prerequisites.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |

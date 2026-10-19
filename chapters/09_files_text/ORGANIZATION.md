@@ -1,5 +1,11 @@
 # Chapter Organization — Files and Text
 
+## Core Depth Revision (2026-10-19)
+
+C08: correct the claim that int.TryParse rejects surrounding whitespace. Preserve the valid-record demonstration and later TryParseStudent parser. Add a complete accepted/rejected record matrix and standalone shape/parse/domain check, explaining why parsing and business validity differ.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |

@@ -1,5 +1,11 @@
 # Organization: Classes and Objects
 
+## Core Depth Revision (2026-10-19)
+
+C09: preserve tuple creation/return/deconstruction/collection examples and the existing guided shipment-summary attempt. Add output interpretation, name-to-component mapping, and an explicit non-null/nonempty SalesRange input contract; no optional reading or assignment changes.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |

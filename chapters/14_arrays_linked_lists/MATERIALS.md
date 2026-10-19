@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Materials: Linear Lists
 
+## Core Depth Revision (2026-10-19)
+
+C13: introduce reference/cursor interpretation before traversal and connect the lost-link trace to the first insertion. Complete the original singly linked representation before comparing the preserved sentinel variant. Keep deletion, invariants, complete implementations, exercises and anchors.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Active Notebooks
 
 - `1400_arrays_linked_lists.ipynb`: orientation, objectives, flow, video, and glossary.

@@ -1,5 +1,11 @@
 # Materials: Inheritance, Interfaces, and Polymorphism
 
+## Core Depth Revision (2026-10-19)
+
+C11: add a learner prediction and declared-type/actual-object/override/base-call/result trace beside the existing policy example. Preserve current interface/test-double progression and the optional OOP examples.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 Active sections: `1201_inheritance`, `1202_polymorphism`, and `1203_interfaces`. Examples use discount policies, checkout components, employees, and payments. Each runnable cell is complete.
 
 Preview, Lab, and Homework accompany the three sections. Runnable source and checks: `demos/12_oop/policy_design/`. Older companion examples remain in `demos/12_oop/oop_demo/` and `oop_lab/`.

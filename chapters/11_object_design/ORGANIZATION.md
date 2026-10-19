@@ -1,5 +1,11 @@
 # Organization: Object Design and Composition
 
+## Core Depth Revision (2026-10-19)
+
+C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

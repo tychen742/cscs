@@ -1,0 +1,22 @@
+[
+  {
+    "id": "core19_token_checks",
+    "source": "using System;\nstring[] records = { \"Ada, 98 ,CS\", \"Ada,CS\", \"Ada,98,CS,extra\", \"Ada,abc,CS\", \"Ada,101,CS\" };\nforeach (string record in records)\n{\n    string[] fields = record.Split(',');\n    string outcome;\n    if (fields.Length != 3) outcome = \"reject shape\";\n    else if (!int.TryParse(fields[1], out int score)) outcome = \"reject number\";\n    else if (score < 0 || score > 100) outcome = \"reject range\";\n    else outcome = $\"accept {fields[0].Trim()}: {score}\";\n    Console.WriteLine($\"{record} -> {outcome}\");\n}\n",
+    "expected_stdout": "Ada, 98 ,CS -> accept Ada: 98\nAda,CS -> reject shape\nAda,98,CS,extra -> reject shape\nAda,abc,CS -> reject number\nAda,101,CS -> reject range\n"
+  },
+  {
+    "id": "core19_query_equivalence",
+    "source": "using System;\nusing System.Collections.Generic;\nusing System.Linq;\nint[] values = { 3, -1, 2, 0 };\nvar loopResult = new List<int>();\nforeach (int value in values)\n    if (value > 0) loopResult.Add(value * 10);\nloopResult.Sort();\nvar query = values.Where(x => x > 0).Select(x => x * 10).OrderBy(x => x);\nint[] snapshot = query.ToArray();\nConsole.WriteLine(\"Loop: \" + string.Join(\",\", loopResult));\nConsole.WriteLine(\"Snapshot: \" + string.Join(\",\", snapshot));\nvalues[0] = 4;\nConsole.WriteLine(\"Query after edit: \" + string.Join(\",\", query));\nConsole.WriteLine(\"Snapshot after edit: \" + string.Join(\",\", snapshot));\n",
+    "expected_stdout": "Loop: 20,30\nSnapshot: 20,30\nQuery after edit: 20,40\nSnapshot after edit: 20,30\n"
+  },
+  {
+    "id": "core19_choice_starter",
+    "source": "// Exercise: repair one exclusive category\n// exercise-id: cscs-core19-exclusive-score\nusing System;\nint score = 95;\nstring category = \"No pass\";\n// Intentional logic defect: this order hides the distinction category.\n// Your code starts here.\nif (score >= 60) category = \"Pass\";\nelse if (score >= 90) category = \"Distinction\";\n// Your code ends here.\nConsole.WriteLine(category);\n",
+    "expected_stdout": "Pass\n"
+  },
+  {
+    "id": "core19_choice_solution",
+    "source": "// Solution: test the narrower category first\nusing System;\nint score = 95;\nstring category = \"No pass\";\nif (score >= 90) category = \"Distinction\";\nelse if (score >= 60) category = \"Pass\";\nConsole.WriteLine(category);\n",
+    "expected_stdout": "Distinction\n"
+  }
+]

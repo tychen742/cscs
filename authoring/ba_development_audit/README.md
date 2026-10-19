@@ -1,5 +1,7 @@
 # B-A development audit — all content readings
 
+For the current core-only depth and organization follow-up, see [the 2026-10-19 audit](../core_depth_audit/README.md). It excludes assignments and optional/supporting readings, confirms findings against current sources, and supersedes earlier word-count-only recommendations. The reusable cross-book procedure is in [the shared B-A audit plan](/Users/tcn85/ai_shared/prompts/audit-content.md).
+
 Audit date: 2026-10-17. Report only; no teaching-source or planning changes.
 
 Reviewed 95 chapter content readings across Chapters 1–26 and nine explanatory appendix readings. Landing pages, assignment specifications, curriculum mappings and retired drafts are excluded from this content-development pass. The inventory records every included reading. Current TOC order includes Recursive Methods, Searching and Sorting Arrays, and Merge Sort.

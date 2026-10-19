@@ -1,5 +1,11 @@
 # Chapter Materials — Arrays
 
+## Core Depth Revision (2026-10-19)
+
+C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

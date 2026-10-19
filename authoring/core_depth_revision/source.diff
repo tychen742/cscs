@@ -1,0 +1,4472 @@
+--- before/chapters/02_var_data/0201_variables_types.ipynb
++++ after/chapters/02_var_data/0201_variables_types.ipynb
+@@ -123,6 +123,10 @@
+ 
+ ## The `var` Keyword
+ 
++
++
++<!-- cell core19_var_exposure -->
++This is an early exposure to syntax you will see repeatedly. Read `var quantity = 12;` as “let the compiler infer the declared type from this initializer.” Here `quantity` is an `int`; later assigning `15` changes its value, not its type. An initializer such as `12.5` would instead infer `double`. Recognizing the pattern is enough for now; the examples do not add a separate type-system lesson or mastery requirement.
+ 
+ 
+ <!-- cell 4e516774 -->
+
+--- before/chapters/02_var_data/0202_operators_built_in_methods.ipynb
++++ after/chapters/02_var_data/0202_operators_built_in_methods.ipynb
+@@ -75,6 +75,10 @@
+ 
+ ## C# Operator Types
+ 
++
++
++<!-- cell core19_operator_exposure -->
++**Early exposure, not a syntax mastery checklist.** The category map and reference table let you recognize symbols before they appear inside larger tasks. Concentrate on the arithmetic, assignment, and library calls used in this chapter's sequential calculations. Logical conditions receive their full treatment in Chapter 3; loop control is developed in Chapter 4. Bitwise examples are a first look, not a requirement to implement bit-level algorithms here. Return to a table when a later lesson needs its syntax, rather than memorizing it now.
+ 
+ 
+ <!-- cell p6_0aa16ced8f -->
+@@ -125,6 +129,20 @@
+ :::
+ 
+ 
++<!-- cell 5c31f907 -->
++```{index} Operation Examples
++```
++
++
++
++<!-- cell feec1021 -->
++```{index} Operation Examples
++```
++
++## Operation Examples
++
++
++
+ <!-- cell 3160ccf5 -->
+ ```{index} assignment operator; compound assignment
+ ```
+@@ -154,151 +172,6 @@
+ ```
+ 
+ 
+-<!-- cell c118bfea -->
+-```{index} arithmetic operator
+-```
+-
+-
+-
+-<!-- cell 5249ac2a -->
+-```{index} Arithmetic Operators
+-```
+-
+-### Arithmetic Operators
+-
+-
+-
+-<!-- cell 823cc2ef -->
+-
+-**Arithmetic operators** perform standard mathematical operations. An important
+-subtlety in C# is **integer division**: when both operands are `int`, the `/`
+-operator truncates toward zero and discards any remainder. To get a decimal
+-result, at least one operand must be a `double` (or another floating-point
+-type):
+-
+-```csharp
+-10 / 3;     // → 3  (integer division, remainder discarded)
+-10.0 / 3;   // → 3.333...  (double division)
+-10 % 3;     // → 1  (remainder)
+-```
+-
+-
+-<!-- cell 5d30ca8a -->
+-```{index} comparison operator; relational operator
+-```
+-
+-
+-
+-<!-- cell 022dd3ca -->
+-```{index} Comparison Operators
+-```
+-
+-### Comparison Operators
+-
+-
+-
+-<!-- cell 61e156da -->
+-
+-**Comparison operators** (also called *relational operators*) compare two
+-values and always return a `bool` — either `true` or `false`. They are the
+-primary building blocks of conditions in `if` statements and loops:
+-
+-```csharp
+-int a = 5, b = 3;
+-a == b;   // false — equality (note: two equals signs, not one)
+-a != b;   // true  — not equal
+-a > b;    // true  — greater than
+-```
+-
+-A very common bug is writing `=` (assignment) instead of `==` (equality test)
+-inside a condition. C# will often catch this as a compile-time error.
+-
+-
+-<!-- cell efeadde9 -->
+-```{index} logical operator; short-circuit evaluation
+-```
+-
+-
+-
+-<!-- cell 49af1c5d -->
+-```{index} Logical Operators
+-```
+-
+-### Logical Operators
+-
+-
+-
+-<!-- cell 7457a12a -->
+-
+-**Logical operators** combine `bool` expressions to build compound conditions.
+-C# evaluates them using *short-circuit* rules: for `&&`, if the left side is
+-`false`, the right side is skipped; for `||`, if the left side is `true`, the
+-right side is skipped. This matters when the right side has side-effects or
+-could throw an exception.
+-
+-Precedence: `!` binds tightest, then `&&`, then `||`. Use parentheses for
+-clarity when mixing them:
+-
+-```csharp
+-bool x = true, y = false;
+-x && y;   // false — both must be true
+-x || y;   // true  — at least one must be true
+-!x;       // false — inverts x
+-```
+-
+-
+-<!-- cell f3987b65 -->
+-```{index} bitwise operator; bit manipulation
+-```
+-
+-
+-
+-<!-- cell acf00a75 -->
+-```{index} Bitwise Operators
+-```
+-
+-### Bitwise Operators
+-
+-
+-
+-<!-- cell 2860eaba -->
+-
+-**Bitwise operators** work on the individual bits of integer values. They are
+-used in low-level programming, flags, masks, and performance-sensitive code.
+-Each bit in the result is computed independently from the corresponding bits of
+-the operands:
+-
+-```text
+-  5 in binary  →  0101
+-  3 in binary  →  0011
+-  5 & 3        →  0001  (AND: 1 only where both are 1)
+-  5 | 3        →  0111  (OR:  1 where either is 1)
+-  5 ^ 3        →  0110  (XOR: 1 where exactly one is 1)
+-```
+-
+-Shift operators (`<<`, `>>`) move bits left or right, which is equivalent to
+-multiplying or dividing by powers of 2:
+-
+-```csharp
+-5 << 1;   // → 10  (5 × 2)
+-5 >> 1;   // → 2   (5 ÷ 2, integer)
+-```
+-
+-
+-<!-- cell 5c31f907 -->
+-```{index} Operation Examples
+-```
+-
+-
+-
+-<!-- cell feec1021 -->
+-```{index} Operation Examples
+-```
+-
+-## Operation Examples
+-
+-
+-
+ <!-- cell bd10f31d -->
+ ```{index} Assignment
+ ```
+@@ -309,7 +182,7 @@
+ ```{index} Assignment
+ ```
+ 
+-### Assignment
++#### Assignment
+ 
+ 
+ 
+@@ -327,6 +200,35 @@
+ Console.WriteLine(x);
+ ```
+ 
++<!-- cell c118bfea -->
++```{index} arithmetic operator
++```
++
++
++
++<!-- cell 5249ac2a -->
++```{index} Arithmetic Operators
++```
++
++### Arithmetic Operators
++
++
++
++<!-- cell 823cc2ef -->
++
++**Arithmetic operators** perform standard mathematical operations. An important
++subtlety in C# is **integer division**: when both operands are `int`, the `/`
++operator truncates toward zero and discards any remainder. To get a decimal
++result, at least one operand must be a `double` (or another floating-point
++type):
++
++```csharp
++10 / 3;     // → 3  (integer division, remainder discarded)
++10.0 / 3;   // → 3.333...  (double division)
++10 % 3;     // → 1  (remainder)
++```
++
++
+ <!-- cell 73b1ecdf -->
+ ```{index} Arithmetic
+ ```
+@@ -337,7 +239,7 @@
+ ```{index} Arithmetic
+ ```
+ 
+-### Arithmetic
++#### Arithmetic
+ 
+ 
+ 
+@@ -355,6 +257,10 @@
+ Console.WriteLine(a % b);  // 1  — remainder
+ ```
+ 
++<!-- cell core19_operator_031dc42c -->
++Read the results beside their operands: `10 / 3` is `3` because both operands are integers, whereas `10 % 3` is the remaining `1`. The next examples separate division from display and conversion; this cell is the first look at those symbols.
++
++
+ <!-- cell 70bf620a -->
+ ```{index} operator; division and remainder
+ ```
+@@ -371,7 +277,7 @@
+ 
+ (division-and-remainders)=
+ 
+-### Division
++#### Division
+ 
+ 
+ 
+@@ -423,7 +329,7 @@
+ ```{index} Remainders
+ ```
+ 
+-### Remainders
++#### Remainders
+ 
+ 
+ 
+@@ -453,6 +359,37 @@
+ higher than addition and subtraction, `+` and `-`.
+ 
+ 
++<!-- cell 5d30ca8a -->
++```{index} comparison operator; relational operator
++```
++
++
++
++<!-- cell 022dd3ca -->
++```{index} Comparison Operators
++```
++
++### Comparison Operators
++
++
++
++<!-- cell 61e156da -->
++
++**Comparison operators** (also called *relational operators*) compare two
++values and always return a `bool` — either `true` or `false`. They are the
++primary building blocks of conditions in `if` statements and loops:
++
++```csharp
++int a = 5, b = 3;
++a == b;   // false — equality (note: two equals signs, not one)
++a != b;   // true  — not equal
++a > b;    // true  — greater than
++```
++
++A very common bug is writing `=` (assignment) instead of `==` (equality test)
++inside a condition. C# will often catch this as a compile-time error.
++
++
+ <!-- cell dc268d8f -->
+ ```{index} Comparison
+ ```
+@@ -463,7 +400,7 @@
+ ```{index} Comparison
+ ```
+ 
+-### Comparison
++#### Comparison
+ 
+ 
+ 
+@@ -479,6 +416,43 @@
+ Console.WriteLine(x <= y);
+ ```
+ 
++<!-- cell core19_operator_6e7238c5 -->
++The results are `False`, `True`, and `True`. With `x = 1` and `y = 2`, equality fails while both order comparisons succeed. The comparison produces a Boolean value; it does not update either operand. This is recognition practice before Chapter 3 develops decisions.
++
++
++<!-- cell efeadde9 -->
++```{index} logical operator; short-circuit evaluation
++```
++
++
++
++<!-- cell 49af1c5d -->
++```{index} Logical Operators
++```
++
++### Logical Operators
++
++
++
++<!-- cell 7457a12a -->
++
++**Logical operators** combine `bool` expressions to build compound conditions.
++C# evaluates them using *short-circuit* rules: for `&&`, if the left side is
++`false`, the right side is skipped; for `||`, if the left side is `true`, the
++right side is skipped. This matters when the right side has side-effects or
++could throw an exception.
++
++Precedence: `!` binds tightest, then `&&`, then `||`. Use parentheses for
++clarity when mixing them:
++
++```csharp
++bool x = true, y = false;
++x && y;   // false — both must be true
++x || y;   // true  — at least one must be true
++!x;       // false — inverts x
++```
++
++
+ <!-- cell 31335145 -->
+ ```{index} Logical
+ ```
+@@ -489,7 +463,7 @@
+ ```{index} Logical
+ ```
+ 
+-### Logical
++#### Logical
+ 
+ 
+ 
+@@ -505,6 +479,48 @@
+ Console.WriteLine(!(x < 5 && x < 10));
+ ```
+ 
++<!-- cell core19_operator_931b17c6 -->
++The results are `True`, `True`, and `False`. Both comparisons happen to be true at `x = 2`, so this input does not distinguish `&&` from `||`. At `x = 7`, predict `False`, `True`, and `True`. Chapter 3 uses such contrasting inputs to reason about decisions.
++
++
++<!-- cell f3987b65 -->
++```{index} bitwise operator; bit manipulation
++```
++
++
++
++<!-- cell acf00a75 -->
++```{index} Bitwise Operators
++```
++
++### Bitwise Operators
++
++
++
++<!-- cell 2860eaba -->
++
++**Bitwise operators** work on the individual bits of integer values. They are
++used in low-level programming, flags, masks, and performance-sensitive code.
++Each bit in the result is computed independently from the corresponding bits of
++the operands:
++
++```text
++  5 in binary  →  0101
++  3 in binary  →  0011
++  5 & 3        →  0001  (AND: 1 only where both are 1)
++  5 | 3        →  0111  (OR:  1 where either is 1)
++  5 ^ 3        →  0110  (XOR: 1 where exactly one is 1)
++```
++
++Shift operators (`<<`, `>>`) move bits left or right, which is equivalent to
++multiplying or dividing by powers of 2:
++
++```csharp
++5 << 1;   // → 10  (5 × 2)
++5 >> 1;   // → 2   (5 ÷ 2, integer)
++```
++
++
+ <!-- cell 8148bfdb -->
+ ```{index} Bitwise
+ ```
+@@ -515,7 +531,7 @@
+ ```{index} Bitwise
+ ```
+ 
+-### Bitwise
++#### Bitwise
+ 
+ 
+ 
+@@ -538,7 +554,7 @@
+ ```{index} Guided Practice: Split a Bill
+ ```
+ 
+-### Guided Practice: Split a Bill
++## Guided Practice: Split a Bill
+ 
+ 
+ <!-- cell p4_76636a0e23 -->
+
+--- before/chapters/03_decision/0302_ifstatement.ipynb
++++ after/chapters/03_decision/0302_ifstatement.ipynb
+@@ -11,82 +11,8 @@
+ ```
+ 
+ 
+-<!-- cell 4f93977a -->
+-```{index} Compare Ways to Express the Same Decision
+-```
+-
+-
+-
+-<!-- cell 4a5faf67 -->
+-```{index} Compare Ways to Express the Same Decision
+-```
+-
+-## Compare Ways to Express the Same Decision
+-
+-
+-
+-<!-- cell 1c8ec441 -->
+-An order desk charges 8 for express service, 3 for standard service, and 0 for pickup. This is one rule with mutually exclusive alternatives. An if/else-if chain asks conditions in order and chooses the first true branch. A switch statement selects a matching case. The two forms can implement the same mapping, but choosing a form is not a reason to change the rule.
+-
+-Start with a decision table before writing either version. Include a value outside the allowed set; otherwise an incomplete program may appear correct merely because all supplied examples happen to name a case.
+-
+-| Service code | Intended charge | Why |
+-| --- | --- | --- |
+-| E | 8 | Express |
+-| S | 3 | Standard |
+-| P | 0 | Pickup |
+-| Anything else | Reject or report an invalid code | No service was selected |
+-
+-The general statement form is `switch (expression) { case value: statements; break; default: statements; break; }`. This is a syntax pattern, not a complete program. The switch expression is evaluated and matching follows the case rules; `break` leaves the switch. It is not a request to end the application. Modern C# also supports patterns and switch expressions, but those forms are not prerequisites for the basic constant-case statement here.
+-
+-An if chain is particularly direct when conditions are ranges, such as a quantity below ten or an age above a boundary. A simple constant-case switch reads naturally when one value selects among named alternatives. Do not use three independent if statements when the intended result is exactly one category unless you have established that their tests cannot overlap. An else-if chain communicates that exclusivity directly.
+-
+-For related explanation, see the further reading below.[^development-reading]
+-
+-
+-<!-- cell 47b6f1a3 -->
+-```{index} Reason About the Unselected Branches
+-```
+-
+-
+-
+-<!-- cell a4d69562 -->
+-```{index} Reason About the Unselected Branches
+-```
+-
+-## Reason About the Unselected Branches
+-
+-
+-
+-<!-- cell 75c6d922 -->
+-On code S, the express test fails and the standard branch supplies 3. The pickup and invalid alternatives do not execute. Trace statements that actually run, not every statement printed on the page. If you initialize the charge to zero and omit invalid handling, an unknown code may accidentally receive the pickup charge. A plausible value is not evidence that a category was recognized.
+-
+-Guided variation: add code D for digital delivery at a charge of 1. Update the decision table, predict D and an unknown code, then update both selection forms. Explain why the unknown code must still be distinguishable from pickup.
+-
+-```{dropdown} Reasoning checkpoint
+-D becomes another supported alternative. The invalid case remains necessary because expanding the set of valid codes does not make every string valid. Keep either a separate success flag or an explicit invalid branch instead of treating the initial charge as proof of successful classification.
+-```
+-
+-
+-```csharp  // cell b5dd8f04 tags=
+-using System;
+-string service = "S";
+-int charge;
+-switch (service)
+-{
+-    case "E": charge = 8; break;
+-    case "S": charge = 3; break;
+-    case "P": charge = 0; break;
+-    default: Console.WriteLine("Unknown service"); return;
+-}
+-Console.WriteLine($"Service {service}: {charge}");
+-```
+-
+-<!-- cell 422d3d66 -->
+-```{index} Conditional (if) Statements
+-```
+-
+-<span id="conditional-if-statements"></span>
++<!-- cell core19_decision_frame -->
++An order desk needs one charge for each service code: express `E` costs 8, standard `S` costs 3, and pickup `P` costs 0. An unknown code must be reported as invalid. Keep this rule in mind while learning the selection forms below. After `if`, `else-if`, nesting, and `switch`, the final comparison returns to the same rule and tests whether different forms preserve it.
+ 
+ 
+ <!-- cell e9863703 -->
+@@ -862,6 +788,122 @@
+ Use braces around decision bodies to make their boundaries clear. A semicolon immediately after `if (condition)` creates an empty statement and can make following code execute unconditionally. The {ref}`dangerous-semicolon` example explains that pitfall.
+ 
+ 
++<!-- cell 4f93977a -->
++```{index} Compare Ways to Express the Same Decision
++```
++
++
++
++<!-- cell 4a5faf67 -->
++```{index} Compare Ways to Express the Same Decision
++```
++
++## Compare Ways to Express the Same Decision
++
++
++
++<!-- cell 1c8ec441 -->
++An order desk charges 8 for express service, 3 for standard service, and 0 for pickup. This is one rule with mutually exclusive alternatives. An if/else-if chain asks conditions in order and chooses the first true branch. A switch statement selects a matching case. The two forms can implement the same mapping, but choosing a form is not a reason to change the rule.
++
++Start with a decision table before writing either version. Include a value outside the allowed set; otherwise an incomplete program may appear correct merely because all supplied examples happen to name a case.
++
++| Service code | Intended charge | Why |
++| --- | --- | --- |
++| E | 8 | Express |
++| S | 3 | Standard |
++| P | 0 | Pickup |
++| Anything else | Reject or report an invalid code | No service was selected |
++
++The general statement form is `switch (expression) { case value: statements; break; default: statements; break; }`. This is a syntax pattern, not a complete program. The switch expression is evaluated and matching follows the case rules; `break` leaves the switch. It is not a request to end the application. Modern C# also supports patterns and switch expressions, but those forms are not prerequisites for the basic constant-case statement here.
++
++An if chain is particularly direct when conditions are ranges, such as a quantity below ten or an age above a boundary. A simple constant-case switch reads naturally when one value selects among named alternatives. Do not use three independent if statements when the intended result is exactly one category unless you have established that their tests cannot overlap. An else-if chain communicates that exclusivity directly.
++
++For related explanation, see the further reading below.[^development-reading]
++
++
++<!-- cell 47b6f1a3 -->
++```{index} Reason About the Unselected Branches
++```
++
++
++
++<!-- cell a4d69562 -->
++```{index} Reason About the Unselected Branches
++```
++
++## Reason About the Unselected Branches
++
++
++
++<!-- cell 75c6d922 -->
++On code S, the express test fails and the standard branch supplies 3. The pickup and invalid alternatives do not execute. Trace statements that actually run, not every statement printed on the page. If you initialize the charge to zero and omit invalid handling, an unknown code may accidentally receive the pickup charge. A plausible value is not evidence that a category was recognized.
++
++Guided variation: add code D for digital delivery at a charge of 1. Update the decision table, predict D and an unknown code, then update both selection forms. Explain why the unknown code must still be distinguishable from pickup.
++
++```{dropdown} Reasoning checkpoint
++D becomes another supported alternative. The invalid case remains necessary because expanding the set of valid codes does not make every string valid. Keep either a separate success flag or an explicit invalid branch instead of treating the initial charge as proof of successful classification.
++```
++
++
++```csharp  // cell b5dd8f04 tags=
++using System;
++string service = "S";
++int charge;
++switch (service)
++{
++    case "E": charge = 8; break;
++    case "S": charge = 3; break;
++    case "P": charge = 0; break;
++    default: Console.WriteLine("Unknown service"); return;
++}
++Console.WriteLine($"Service {service}: {charge}");
++```
++
++<!-- cell core19_decision_trace -->
++For a score of 95, compare two independent conditions `score >= 60` and `score >= 90` with an `if`/`else-if` chain in the same order. Predict how many messages each form prints. Then decide which order a chain needs if exactly one of “Pass” and “Distinction” is intended.
++
++```{dropdown} Trace and boundary check
++The independent `if` statements print both messages because both tests are true. The chain with `>= 60` first prints only “Pass”; it never tests its second condition. Put `>= 90` first when distinction takes priority. Check 59, 60, 89, 90, and 95: the intended categories are no pass, pass, pass, distinction, and distinction. A final `else` handles the no-pass case; a separate domain check handles invalid scores such as -1 or 101. These are different requirements.
++```
++
++Complete the service table for `E`, `S`, `P`, `D` and an unknown code before modifying either implementation. State which branch runs and which branches are skipped. The existing service-code variation is the learner attempt; the table and branch trace provide the feedback structure.
++
++
++<!-- cell core19_choice_task -->
++Repair the intentionally misordered chain so that 95 prints `Distinction`. Then replace the score with 59, 60, 89, and 90 in separate runs and compare with the table above. Use top-level statements; no loops or user-defined methods are needed. The supplied starter compiles and prints `Pass`, exposing the rule-order defect.
++
++
++```csharp  // cell core19_choice_starter tags=exercise
++// Exercise: repair one exclusive category
++// exercise-id: cscs-core19-exclusive-score
++using System;
++int score = 95;
++string category = "No pass";
++// Intentional logic defect: this order hides the distinction category.
++// Your code starts here.
++if (score >= 60) category = "Pass";
++else if (score >= 90) category = "Distinction";
++// Your code ends here.
++Console.WriteLine(category);
++```
++
++```csharp  // cell core19_choice_solution tags=hide-input
++// Solution: test the narrower category first
++using System;
++int score = 95;
++string category = "No pass";
++if (score >= 90) category = "Distinction";
++else if (score >= 60) category = "Pass";
++Console.WriteLine(category);
++```
++
++<!-- cell 422d3d66 -->
++```{index} Conditional (if) Statements
++```
++
++<span id="conditional-if-statements"></span>
++
++
+ <!-- cell e124e11b -->
+ ```{rubric} Footnotes
+ ```
+
+--- before/chapters/05_methods/0501_intro_methods.ipynb
++++ after/chapters/05_methods/0501_intro_methods.ipynb
+@@ -151,6 +151,335 @@
+ | What information must cross the call boundary? | 5.2 parameter binding and scope |
+ | What library operations can do part of the work? | 5.4 strings as reusable methods |
+ | How will we know the result is correct? | Independently derived expected values and boundaries |
++
++
++<!-- cell core19_helper_heading -->
++## Define, Call, and Follow One Helper
++
++```{index} method; definition and call
++```
++
++
++<!-- cell core19_helper_path -->
++Use the top-level `PrintHeader` program above as the main path. First locate its definition, then the two call sites, then follow control into the body and back to the next caller statement. `static void PrintHeader()` names a helper with no arguments and no returned result. The next worked return-value example adds a parameter and a result without changing this call-and-return model. Complete that path before comparing explicit `Main` and class-member project forms at the end.
++
++
++<!-- cell 45c3706d -->
++```{index} Method definition
++```
++
++
++
++<!-- cell 5c2905c8 -->
++```{index} Method definition
++```
++
++### Method definition
++
++
++
++<!-- cell 33bf43b1 -->
++
++The general syntax for defining a static method is:
++
++```csharp
++static returnTypeOrVoid MethodName ( parameter_list )
++{
++   // statements in the method body...
++}
++```
++
++Things to know about defining a method in C#:
++
++1. **Parameters**: The *parameter list* can be empty or contain one or more comma separated parameter entries. Each parameter entry has the form 
++   > type parameterName
++
++2. **Modifier**: For class-member methods, accessibility determines which callers are permitted. `public static` allows access through the type where that type is accessible; other access levels have other rules. Local helpers beside top-level statements do not take an access modifier.
++
++3. **Return Type**: If **returnTypeOrVoid** in the heading is not `void`, each normally completing path must produce a compatible result; the mere presence of one return statement is insufficient. A return statement has the form
++
++   > `return` *expression* `;`
++
++   where the expression should be of the same type as in **returnTypeOrVoid**.
++   Execution of the method terminates immediately when a return statement
++   is reached.
++
++4. In the traditional class-based style, execution starts at a method with a heading including
++
++   > `static void Main`
++
++   In modern C#, programs may also use *top-level statements* without an explicit `Main` method.
++
++
++<!-- cell 51f658da -->
++```{index} Method Signature
++```
++
++
++
++<!-- cell dab45af7 -->
++```{index} Method Signature
++```
++
++### Method Signature
++
++
++
++<!-- cell core19_signature_scope -->
++The following header table also recognizes the explicit class-member form retained from earlier projects. For the current top-level helpers, omit the access modifier and focus on the return type, name, parameters, and body. The full wrapper comparisons appear after the local practice; they describe another arrangement of the same calls.
++
++
++<!-- cell fc6bc11b -->
++
++One method you encountered in the explicit class-based C# program form is Main, in which *Main* is
++the name that you can refer to this set of statements. A Main method is special
++because it is designated as the only entry point of a C# application and its selected entry point begins the console program [^0502_signature_call-1].
++
++Note that the **Main method** is contained in a **class** (Program), which is a
++standard arrangement for OOP languages.
++You define a method by writing the method’s **header** and **body**. The **header** is the complete declaration line. For C# overload identity, the **signature** identifies the name, generic arity when present, and parameter types/passing modes; it does not include the return type or parameter names. [^0502_signature_call-2] When defining methods, you follow a recipe
++(standard syntax) for the **method definition**. The
++class-member definition pattern is as follows: [^0502_signature_call-3]
++
++``` none
++[AccessModifier] static ReturnTypeOrVoid MethodName(ParameterList)
++{
++   // Method Body: a set of statements enclosed in curly braces { }
++}
++```
++
++The complete header and body have the following parts:
++
++| Header component | Description |
++| --- | --- |
++| Access Level | Optional. This determines visibility of methods between classes, It does not determine whether code can instantiate objects. For a local helper, omit access modifiers. For a class-member helper, choose visibility appropriate to its callers. |
++| Static modifier | In the form taught here, define the method as a static member method of the class. When not defined as static, it is an instance member. |
++| Return Type | If the method is returning a value, this indicates what data type it will be. Not all methods return values. Methods that do not return a value have a return type of `void`. |
++| Method Name | The method’s `identifier`; class-member overloads may share a name with different signatures. This is what you use to call your method. |
++| Parameter List | A parameter is a placeholder for specific data that the method will act upon. Parameters are optional. In these cases, the `()` are still part of the method call, but remain empty. |
++| Method Body | This is where you code your method. Note it is contained between `{}`. |
++
++With method signatures, you can design methods specifically to your needs. Apply those header and call distinctions to `MyMethod` in the next top-level cell. Its complete class-based counterpart is retained in the project-form comparison at the end of this reading. The helper has the same observable job in either arrangement:
++
++
++```csharp  // cell 3acb2614 tags=
++using System;
++MyMethod();
++static void MyMethod()
++{
++    Console.WriteLine("IST 1551");
++    Console.WriteLine("T.Y. Chen");
++}
++```
++
++<!-- cell aabc1201 -->
++```{index} method; summary of syntax
++```
++
++
++
++<!-- cell fb260642 -->
++```{index} Static Methods
++```
++
++(static-method-summary)=
++
++### Static Methods
++
++
++
++<!-- cell 7ebea962 -->
++This chapter has introduced static methods: those used in procedural programming as opposed to {ref}`instance-methods` used to implement object-oriented programming.
++
++
++<!-- cell 7cca85ec -->
++```{index} Method Calls & Returns
++```
++
++
++
++<!-- cell 23b2fc18 -->
++```{index} Method Calls & Returns
++```
++
++### Method Calls & Returns
++
++
++
++<!-- cell 8a9368a2 -->
++
++The runnable cell calls MyMethod from top-level statements. The retained class-based version makes the same call inside Main. The call is MyMethod(), not a call to Main.
++
++When making a method call, you use the method **name** followed by
++**parentheses**. The method header `static void MyMethod()` indicates the return type is `void` and there are no formal parameters, which means you can call it simply by writing `MyMethod();`.
++
++An important feature of functions/methods is that they can **return** values to their
++**callers**. In the example below, `SquareTheNumber(int num)` is defined with a return type of `int`
++and is called directly from the top-level code, passing a parameter.
++
++
++```csharp  // cell df1bc6ee-7109-4572-b3da-abe31a69c185 tags=
++using System;
++int digit = 4;
++int squaredNum = SquareTheNumber(digit);
++int squaredAndSummed = squaredNum + SquareTheNumber(digit);
++Console.WriteLine(squaredNum);
++Console.WriteLine(squaredAndSummed);
++Console.WriteLine(SquareTheNumber(5));
++static int SquareTheNumber(int num)
++{
++    return num * num;
++}
++```
++
++<!-- cell 462609ac-4ab1-465f-9726-dcae6ebf67a7 -->
++In this example:
++
++- `return num * num;` computes the value that replaces this call in the caller.
++- `digit` starts at 4. Passing it binds the value 4 to `num`.
++- `squaredNum` is a variable, not a method; it stores the returned 16.
++- The addition uses `squaredNum` plus a second call with digit still equal to 4: 16 + 16 = 32.
++- The final call uses 5 and returns 25. The three printed values are 16, 32, and 25.
++
++The return type must agree with the returned expression through an allowed conversion. `void` means no returned value; it does not mean the method cannot print or have another effect.
++
++
++<!-- cell fbc6312a -->
++```{index} Method Calls
++```
++
++
++
++<!-- cell c03ef2a8 -->
++```{index} Method Calls
++```
++
++#### Method Calls
++
++
++
++<!-- cell d05ce42a -->
++
++1. A method call takes the form
++
++   **MethodName** `(` actual parameter list `)`
++
++   A method call makes the method definition be *executed*.
++
++2. The actual parameter list is a comma separated list of the *same*
++   length as the parameter list. Each entry is an expression.
++   The entries in an actual parameter list do *not* include type declarations.
++
++   Effectively, the method execution starts by assigning to each
++   parameter variable the corresponding value from
++   evaluating the actual parameter expression.
++   In particular, that means the actual parameter values must be allowed
++   in an assignment statement for a variable of the parameter's type!
++
++3. If the method has return type `void`, it can only be used syntactically
++   as an entire statement (with a semicolon added). After the method
++   call completes, execution continues with the next statement.
++
++4. If there is a non-void return type, then the method call is syntactically
++   an expression in the statement where it appears.
++   The execution of such a method must reach a return statement. The value
++   of the method-call expression is the value of the expression in this
++   return statement.
++
++5. A method with a return value can also legally be used as a whole statement.
++   In this case the return value is lost. Though legal, this is often an error!
++
++
++
++<!-- cell eca3a48d -->
++```{index} Flow of execution
++```
++
++
++
++<!-- cell 1dfe09a4 -->
++```{index} Flow of execution
++```
++
++#### Flow of execution
++
++
++
++<!-- cell e1826fa5 -->
++
++In terms of the construct of **sequential processing**, functions/methods
++alter code execution order in several ways: by statements not
++being executed as the definition is first read, and then when the
++method is called during execution, jumping to the method code,
++and back at the end of the method execution. [^0502_signature_call-5]
++
++A class can contain multiple methods. It can be tempting to think the
++methods are executed in the order they appear in the class, but this is
++not the case. In an explicit class-based console program, ordinary execution begins in the selected Main method; a top-level program begins with its first statement. Each statement in the main is executed sequentially, one at a
++time, until you reach a method call. A method call causes the program
++execution to jump to the first line of the called method.
++Each statement in the called method is then executed in order.
++When the called method finishes, execution returns to the point in its caller that was waiting for the result. The caller may itself be another helper. [^0502_signature_call-6]
++
++In other words, the order in which the method definition code blocks does
++not matter to C#. It is a human choice. One good practice is to show
++`Main` first. This means a human reading in order gets an overview
++of what is happening by looking at Main, but does not know the details
++until reading the definitions of other methods.
++
++
++<!-- cell 559c839d -->
++```{index} Guided Practice: Reuse a Notice
++```
++
++
++
++<!-- cell 2450ef59 -->
++```{index} Guided Practice: Reuse a Notice
++```
++
++## Guided Practice: Reuse a Notice
++
++
++
++<!-- cell 652b02c3 -->
++
++```{index} Guided Practice: Reuse a Notice
++```
++
++
++<!-- cell 545d614e -->
++Define a no-argument helper that prints `Returns accepted within 30 days.` Call it twice. Then change the message once and confirm both calls change. Keep this printing method void.
++
++
++```csharp  // cell m5-a68bc782 tags=exercise
++// Exercise: Guided Practice: Reuse a Notice
++// exercise-id: cscs-methods-guided-m5-a68bc782
++using System;
++PrintNotice();
++PrintNotice();
++static void PrintNotice()
++{
++    // Your code starts here.
++
++    // Your code ends here.
++}
++```
++
++```csharp  // cell m5-cb575fc5 tags=hide-input
++// Solution: Guided Practice: Reuse a Notice
++using System;
++
++PrintNotice();
++PrintNotice();
++static void PrintNotice()
++{
++    Console.WriteLine("Returns accepted within 30 days.");
++}
++```
++
++<!-- cell core19_forms_bridge -->
++After the learner attempt, compare the retained project forms below. Treat their wrapper and terminology details as a reference comparison within this core reading: the method's observable job and call order remain the same. Each complete program is a separate project or notebook cell, never an extra `Main` pasted into the preceding one.
+ 
+ 
+ <!-- cell ea55850c -->
+@@ -276,109 +605,9 @@
+ ```
+ 
+ 
+-<!-- cell 45c3706d -->
+-```{index} Method definition
+-```
+-
+-
+-
+-<!-- cell 5c2905c8 -->
+-```{index} Method definition
+-```
+-
+-### Method definition
+-
+-
+-
+-<!-- cell 33bf43b1 -->
+-
+-The general syntax for defining a static method is:
+-
+-```csharp
+-static returnTypeOrVoid MethodName ( parameter_list )
+-{
+-   // statements in the method body...
+-}
+-```
+-
+-Things to know about defining a method in C#:
+-
+-1. **Parameters**: The *parameter list* can be empty or contain one or more comma separated parameter entries. Each parameter entry has the form 
+-   > type parameterName
+-
+-2. **Modifier**: For class-member methods, accessibility determines which callers are permitted. `public static` allows access through the type where that type is accessible; other access levels have other rules. Local helpers beside top-level statements do not take an access modifier.
+-
+-3. **Return Type**: If **returnTypeOrVoid** in the heading is not `void`, each normally completing path must produce a compatible result; the mere presence of one return statement is insufficient. A return statement has the form
+-
+-   > `return` *expression* `;`
+-
+-   where the expression should be of the same type as in **returnTypeOrVoid**.
+-   Execution of the method terminates immediately when a return statement
+-   is reached.
+-
+-4. In the traditional class-based style, execution starts at a method with a heading including
+-
+-   > `static void Main`
+-
+-   In modern C#, programs may also use *top-level statements* without an explicit `Main` method.
+-
+-
+-<!-- cell 51f658da -->
+-```{index} Method Signature
+-```
+-
+-
+-
+-<!-- cell dab45af7 -->
+-```{index} Method Signature
+-```
+-
+-### Method Signature
+-
+-
+-
+-<!-- cell fc6bc11b -->
+-
+-One method you encountered in the explicit class-based C# program form is Main, in which *Main* is
+-the name that you can refer to this set of statements. A Main method is special
+-because it is designated as the only entry point of a C# application and its selected entry point begins the console program [^0502_signature_call-1].
+-
+-Note that the **Main method** is contained in a **class** (Program), which is a
+-standard arrangement for OOP languages.
+-You define a method by writing the method’s **header** and **body**. The **header** is the complete declaration line. For C# overload identity, the **signature** identifies the name, generic arity when present, and parameter types/passing modes; it does not include the return type or parameter names. [^0502_signature_call-2] When defining methods, you follow a recipe
+-(standard syntax) for the **method definition**. The
+-class-member definition pattern is as follows: [^0502_signature_call-3]
+-
+-``` none
+-[AccessModifier] static ReturnTypeOrVoid MethodName(ParameterList)
+-{
+-   // Method Body: a set of statements enclosed in curly braces { }
+-}
+-```
+-
+-The complete header and body have the following parts:
+-
+-| Header component | Description |
+-| --- | --- |
+-| Access Level | Optional. This determines visibility of methods between classes, It does not determine whether code can instantiate objects. For a local helper, omit access modifiers. For a class-member helper, choose visibility appropriate to its callers. |
+-| Static modifier | In the form taught here, define the method as a static member method of the class. When not defined as static, it is an instance member. |
+-| Return Type | If the method is returning a value, this indicates what data type it will be. Not all methods return values. Methods that do not return a value have a return type of `void`. |
+-| Method Name | The method’s `identifier`; class-member overloads may share a name with different signatures. This is what you use to call your method. |
+-| Parameter List | A parameter is a placeholder for specific data that the method will act upon. Parameters are optional. In these cases, the `()` are still part of the method call, but remain empty. |
+-| Method Body | This is where you code your method. Note it is contained between `{}`. |
+-
+-With method signatures, you can design methods specifically to your needs. But for now, let us analyze the two methods in class TryMethods below to apply our understanding of headers and calls:
+-
+-
+-```csharp  // cell 3acb2614 tags=
+-using System;
+-MyMethod();
+-static void MyMethod()
+-{
+-    Console.WriteLine("IST 1551");
+-    Console.WriteLine("T.Y. Chen");
+-}
+-```
++<!-- cell core19_method_project_reminder -->
++The next retained project versions correspond to `MyMethod` and `SquareTheNumber` from the earlier top-level examples. Read each as an alternative complete file, followed by its project-use notes. They do not add new steps to the learner practice above.
++
+ 
+ <!-- cell af659e27 -->
+ ::::{dropdown} Class-based console-project version
+@@ -419,66 +648,6 @@
+ the project in VS Code and click on Program.cs to edit the source code.
+ 
+ 
+-<!-- cell aabc1201 -->
+-```{index} method; summary of syntax
+-```
+-
+-
+-
+-<!-- cell fb260642 -->
+-```{index} Static Methods
+-```
+-
+-(static-method-summary)=
+-
+-### Static Methods
+-
+-
+-
+-<!-- cell 7ebea962 -->
+-This chapter has introduced static methods: those used in procedural programming as opposed to {ref}`instance-methods` used to implement object-oriented programming.
+-
+-
+-<!-- cell 7cca85ec -->
+-```{index} Method Calls & Returns
+-```
+-
+-
+-
+-<!-- cell 23b2fc18 -->
+-```{index} Method Calls & Returns
+-```
+-
+-### Method Calls & Returns
+-
+-
+-
+-<!-- cell 8a9368a2 -->
+-
+-The runnable cell calls MyMethod from top-level statements. The retained class-based version makes the same call inside Main. The call is MyMethod(), not a call to Main.
+-
+-When making a method call, you use the method **name** followed by
+-**parentheses**. The method header `static void MyMethod()` indicates the return type is `void` and there are no formal parameters, which means you can call it simply by writing `MyMethod();`.
+-
+-An important feature of functions/methods is that they can **return** values to their
+-**callers**. In the example below, `SquareTheNumber(int num)` is defined with a return type of `int`
+-and is called directly from the top-level code, passing a parameter.
+-
+-
+-```csharp  // cell df1bc6ee-7109-4572-b3da-abe31a69c185 tags=
+-using System;
+-int digit = 4;
+-int squaredNum = SquareTheNumber(digit);
+-int squaredAndSummed = squaredNum + SquareTheNumber(digit);
+-Console.WriteLine(squaredNum);
+-Console.WriteLine(squaredAndSummed);
+-Console.WriteLine(SquareTheNumber(5));
+-static int SquareTheNumber(int num)
+-{
+-    return num * num;
+-}
+-```
+-
+ <!-- cell 6012cf70 -->
+ ::::{dropdown} Class-based console-project version
+ The top-level example above is the version to run as a standalone notebook cell. This complete project version retains the explicit `Main` structure. Save it as the only program in a separate console project; do not paste it after top-level statements in the same file.
+@@ -506,152 +675,6 @@
+ ::::
+ 
+ 
+-<!-- cell 462609ac-4ab1-465f-9726-dcae6ebf67a7 -->
+-In this example:
+-
+-- `return num * num;` computes the value that replaces this call in the caller.
+-- `digit` starts at 4. Passing it binds the value 4 to `num`.
+-- `squaredNum` is a variable, not a method; it stores the returned 16.
+-- The addition uses `squaredNum` plus a second call with digit still equal to 4: 16 + 16 = 32.
+-- The final call uses 5 and returns 25. The three printed values are 16, 32, and 25.
+-
+-The return type must agree with the returned expression through an allowed conversion. `void` means no returned value; it does not mean the method cannot print or have another effect.
+-
+-
+-<!-- cell fbc6312a -->
+-```{index} Method Calls
+-```
+-
+-
+-
+-<!-- cell c03ef2a8 -->
+-```{index} Method Calls
+-```
+-
+-#### Method Calls
+-
+-
+-
+-<!-- cell d05ce42a -->
+-
+-1. A method call takes the form
+-
+-   **MethodName** `(` actual parameter list `)`
+-
+-   A method call makes the method definition be *executed*.
+-
+-2. The actual parameter list is a comma separated list of the *same*
+-   length as the parameter list. Each entry is an expression.
+-   The entries in an actual parameter list do *not* include type declarations.
+-
+-   Effectively, the method execution starts by assigning to each
+-   parameter variable the corresponding value from
+-   evaluating the actual parameter expression.
+-   In particular, that means the actual parameter values must be allowed
+-   in an assignment statement for a variable of the parameter's type!
+-
+-3. If the method has return type `void`, it can only be used syntactically
+-   as an entire statement (with a semicolon added). After the method
+-   call completes, execution continues with the next statement.
+-
+-4. If there is a non-void return type, then the method call is syntactically
+-   an expression in the statement where it appears.
+-   The execution of such a method must reach a return statement. The value
+-   of the method-call expression is the value of the expression in this
+-   return statement.
+-
+-5. A method with a return value can also legally be used as a whole statement.
+-   In this case the return value is lost. Though legal, this is often an error!
+-
+-
+-
+-<!-- cell eca3a48d -->
+-```{index} Flow of execution
+-```
+-
+-
+-
+-<!-- cell 1dfe09a4 -->
+-```{index} Flow of execution
+-```
+-
+-#### Flow of execution
+-
+-
+-
+-<!-- cell e1826fa5 -->
+-
+-In terms of the construct of **sequential processing**, functions/methods
+-alter code execution order in several ways: by statements not
+-being executed as the definition is first read, and then when the
+-method is called during execution, jumping to the method code,
+-and back at the end of the method execution. [^0502_signature_call-5]
+-
+-A class can contain multiple methods. It can be tempting to think the
+-methods are executed in the order they appear in the class, but this is
+-not the case. In an explicit class-based console program, ordinary execution begins in the selected Main method; a top-level program begins with its first statement. Each statement in the main is executed sequentially, one at a
+-time, until you reach a method call. A method call causes the program
+-execution to jump to the first line of the called method.
+-Each statement in the called method is then executed in order.
+-When the called method finishes, execution returns to the point in its caller that was waiting for the result. The caller may itself be another helper. [^0502_signature_call-6]
+-
+-In other words, the order in which the method definition code blocks does
+-not matter to C#. It is a human choice. One good practice is to show
+-`Main` first. This means a human reading in order gets an overview
+-of what is happening by looking at Main, but does not know the details
+-until reading the definitions of other methods.
+-
+-
+-<!-- cell 559c839d -->
+-```{index} Guided Practice: Reuse a Notice
+-```
+-
+-
+-
+-<!-- cell 2450ef59 -->
+-```{index} Guided Practice: Reuse a Notice
+-```
+-
+-## Guided Practice: Reuse a Notice
+-
+-
+-
+-<!-- cell 652b02c3 -->
+-
+-```{index} Guided Practice: Reuse a Notice
+-```
+-
+-
+-<!-- cell 545d614e -->
+-Define a no-argument helper that prints `Returns accepted within 30 days.` Call it twice. Then change the message once and confirm both calls change. Keep this printing method void.
+-
+-
+-```csharp  // cell m5-a68bc782 tags=exercise
+-// Exercise: Guided Practice: Reuse a Notice
+-// exercise-id: cscs-methods-guided-m5-a68bc782
+-using System;
+-PrintNotice();
+-PrintNotice();
+-static void PrintNotice()
+-{
+-    // Your code starts here.
+-
+-    // Your code ends here.
+-}
+-```
+-
+-```csharp  // cell m5-cb575fc5 tags=hide-input
+-// Solution: Guided Practice: Reuse a Notice
+-using System;
+-
+-PrintNotice();
+-PrintNotice();
+-static void PrintNotice()
+-{
+-    Console.WriteLine("Returns accepted within 30 days.");
+-}
+-```
+-
+ <!-- cell 591f73ea -->
+ ```{rubric} Footnotes
+ ```
+
+--- before/chapters/06_exceptions_testing/0602_debugging_workflow.ipynb
++++ after/chapters/06_exceptions_testing/0602_debugging_workflow.ipynb
+@@ -26,269 +26,6 @@
+ For related explanation, see the further reading below.[^development-reading]
+ 
+ 
+-<!-- cell e0fbf7fc -->
+-```{index} The Workflow
+-```
+-
+-
+-
+-<!-- cell 70312484 -->
+-```{index} The Workflow
+-```
+-
+-## The Workflow
+-
+-
+-
+-<!-- cell 5ef586f8a997 -->
+-The steps below develop this workflow. Form and challenge hypotheses while inspecting state; use typical bug patterns as candidates for a small repair, then retain the regression evidence. The complete worked investigation follows the reference steps.
+-
+-
+-<!-- cell 0e6eb0d9 -->
+-
+-Use this sequence every time:
+-
+-1. Reproduce reliably
+-2. Minimize the failing case
+-3. Observe state with tools
+-4. Form a specific hypothesis
+-5. Patch one thing
+-6. Re-test and check for regressions
+-
+-
+-<!-- cell 45abc8b8 -->
+-```{index} Step 1: Reproduce Reliably
+-```
+-
+-
+-
+-<!-- cell ae3a292f -->
+-```{index} Step 1: Reproduce Reliably
+-```
+-
+-### Step 1: Reproduce Reliably
+-
+-
+-
+-<!-- cell 45be8996 -->
+-
+-Capture:
+-- exact input
+-- exact command
+-- expected behavior
+-- actual behavior
+-
+-Without reproducibility, debugging quality collapses.
+-
+-
+-<!-- cell bec8219a -->
+-```{index} Step 2: Minimize the Failing Case
+-```
+-
+-
+-
+-<!-- cell b1224fc3 -->
+-```{index} Step 2: Minimize the Failing Case
+-```
+-
+-### Step 2: Minimize the Failing Case
+-
+-
+-
+-<!-- cell 3462123c -->
+-
+-Start with a *buggy* example — an off-by-one error in a sum loop:
+-
+-
+-```csharp  // cell 9b215d33 tags=
+-// Buggy: skips the last element
+-int[] scores = { 85, 92, 78, 90, 88 };
+-int total = 0;
+-
+-for (int i = 0; i < scores.Length - 1; i++)  // BUG: should be <= or just <
+-    total += scores[i];
+-
+-Console.WriteLine($"Total: {total}");    // prints 345 instead of 433
+-Console.WriteLine($"Count: {scores.Length}");
+-```
+-
+-<!-- cell fc94fdb6 -->
+-Fix: change the loop condition to `i < scores.Length`:
+-
+-
+-```csharp  // cell 7d7a62f4 tags=
+-int[] scores = { 85, 92, 78, 90, 88 };
+-int total = 0;
+-
+-for (int i = 0; i < scores.Length; i++)
+-    total += scores[i];
+-
+-Console.WriteLine($"Total: {total}");   // 433
+-Console.WriteLine($"Average: {total / (double)scores.Length:F1}");  // 86.6
+-```
+-
+-<!-- cell 644d3973 -->
+-```{index} Step 3: Breakpoints and Stepping in VS Code
+-```
+-
+-
+-
+-<!-- cell f43a3ede -->
+-```{index} Step 3: Breakpoints and Stepping in VS Code
+-```
+-
+-### Step 3: Breakpoints and Stepping in VS Code
+-
+-
+-
+-<!-- cell d0b8e13a -->
+-
+-- Set a breakpoint **before** the suspected line
+-- **Step Over** (`F10`) — execute one line, staying in current method
+-- **Step Into** (`F11`) — follow execution into a called method
+-- **Step Out** (`Shift+F11`) — exit the current method
+-
+-Set the breakpoint on the `total += scores[i]` line and watch `total` after each iteration.
+-
+-
+-<!-- cell cf60d8ba -->
+-```{index} Step 4: Watch and Call Stack
+-```
+-
+-
+-
+-<!-- cell cf165e24 -->
+-```{index} Step 4: Watch and Call Stack
+-```
+-
+-### Step 4: Watch and Call Stack
+-
+-
+-
+-<!-- cell b6389411 -->
+-
+-Inspect:
+-- key variables before and after transformations
+-- the call stack to confirm control flow assumptions
+-- branch conditions at decision points (`if`, loop bounds)
+-
+-Add a **Watch** expression for `scores[i]` and `total` to see each step.
+-
+-
+-<!-- cell d8a4bed4 -->
+-```{index} Test a Hypothesis Against Execution
+-```
+-
+-
+-
+-<!-- cell 08bb3463 -->
+-```{index} Test a Hypothesis Against Execution
+-```
+-
+-#### Test a Hypothesis Against Execution
+-
+-
+-
+-<!-- cell 44059c3f -->
+-State a hypothesis before stepping: perhaps the loop visits only two entries. Put a breakpoint before the loop, not after the incorrect report has already been produced. Observe index, the current input, and the accumulated total. Step over the update, then watch the loop condition. In VS Code, a breakpoint pauses execution when the running program reaches that source location; it does not itself execute or repair the line. Step Into follows a call, while Step Over completes that call without opening its internal steps.
+-
+-| Observation point | Index being processed | Total after the update |
+-| --- | --- | --- |
+-| First iteration | 0 | 12 |
+-| Second iteration | 1 | 20 |
+-| Expected third iteration | 2 | 25 |
+-
+-If execution never reaches the third row, the evidence supports an iteration-boundary defect. If all three updates occur but the final result is still 20, investigate later reassignment or output instead. A useful observation distinguishes competing explanations. Repeatedly pressing Step without a question can produce many observations without improving understanding.
+-
+-The call stack tells you how execution reached the paused method. Local variables belong to the current call; selecting another frame can show another call's values. A watch expression is a view of a value, not proof that the value satisfies a business rule. Prefer observations that do not alter program state. A debugging expression that invokes a mutating method can itself change the behavior you are trying to understand.
+-
+-
+-
+-
+-<!-- cell c85d226f -->
+-```{index} Step 5: Typical Bug Patterns
+-```
+-
+-
+-
+-<!-- cell 07f62745 -->
+-```{index} Step 5: Typical Bug Patterns
+-```
+-
+-### Step 5: Typical Bug Patterns
+-
+-
+-
+-<!-- cell 4544a4e0 -->
+-
+-| Pattern | Example |
+-|---------|--------|
+-| Off-by-one | `i < Length - 1` instead of `i < Length` |
+-| Stale loop state | reusing a variable without resetting it |
+-| Null/empty assumption | skipping `IsNullOrWhiteSpace` check |
+-| Parsing without validation | `int.Parse` on unvalidated input |
+-
+-
+-<!-- cell 6399fc71 -->
+-```{index} Step 6: Validate the Fix
+-```
+-
+-
+-
+-<!-- cell 55dc9a29 -->
+-```{index} Step 6: Validate the Fix
+-```
+-
+-### Step 6: Validate the Fix
+-
+-
+-
+-<!-- cell 0f524aae -->
+-
+-After patching:
+-1. Re-run the **original** failing input
+-2. Run edge cases (empty array, single element, max values)
+-3. Run unit tests if they exist
+-
+-
+-```csharp  // cell 91f02fe0 tags=
+-// Edge case: single element
+-int[] single = { 42 };
+-int t = 0;
+-for (int i = 0; i < single.Length; i++) t += single[i];
+-Console.WriteLine(t);  // 42
+-
+-// Edge case: empty array
+-int[] empty = {};
+-int t2 = 0;
+-for (int i = 0; i < empty.Length; i++) t2 += empty[i];
+-Console.WriteLine(t2);  // 0
+-```
+-
+-<!-- cell f3f5e9cb -->
+-```{index} Keep Evidence After the Repair
+-```
+-
+-
+-
+-<!-- cell 2888eab5 -->
+-```{index} Keep Evidence After the Repair
+-```
+-
+-#### Keep Evidence After the Repair
+-
+-
+-
+-<!-- cell cbf5028a -->
+-After changing the boundary, rerun the exact 12/8/5 case and record expected 25 versus actual 25. Then check no entries, one entry, and a final entry whose omission would be obvious. These checks do not prove every possible input correct, but they defend against the diagnosed class of defect. Keep the failing case as a regression check rather than replacing it with a new convenient example.
+-
+-Guided variation: the original failing report contains only one expense of 7 and prints zero. Predict what this says about the loop boundary. Then consider a report that prints 14 instead. The first observation suggests a skipped iteration; the second suggests duplicated processing or a different arithmetic/state problem. The workflow should follow the evidence rather than treating every wrong total as the same bug.
+-
+-
+-<!-- cell 38a9d7b8 -->
+-Debugging is a repeatable process, not guesswork.
+-
+-
+ <!-- cell 2cc843dc -->
+ ```{index} Turn a Symptom into a Reproducible Question
+ ```
+@@ -303,7 +40,7 @@
+ 
+ 
+ <!-- cell ba_26ba7b7ad9c881b771 -->
+-Before the retained array and CSV applications, use a calculation that needs only methods, decisions, and loops. A shop awards one credit for each of the first `days` days. With three days, the expected credits are 1 + 2 + 3 = 6. This expectation comes from the problem, not from running the implementation.
++Use a calculation that needs only methods, decisions, and loops. A shop awards one credit for each of the first `days` days. With three days, the expected credits are 1 + 2 + 3 = 6. This expectation comes from the problem, not from running the implementation.
+ 
+ The following complete cell deliberately contains a logic defect. It compiles, but the loop stops too soon. A compiler cannot infer that the business rule requires the last day.
+ 
+@@ -375,6 +112,273 @@
+ Use the existing array example after Chapter 7 to transfer this workflow to indexed input. Use the CSV exercise after Chapter 9 to investigate field selection and normalization. Their original tasks remain available; they are later applications rather than assumed knowledge for this first debugger investigation.
+ 
+ 
++<!-- cell e0fbf7fc -->
++```{index} The Workflow
++```
++
++
++
++<!-- cell 70312484 -->
++```{index} The Workflow
++```
++
++## The Workflow
++
++
++
++<!-- cell core19_debug_transfer_scope -->
++Use the credits investigation above as the model for these steps: reproduce three days, compare expected six with actual three, pause before addition, inspect the loop condition, and retain zero/one/many-day checks. The array example under minimization is a transfer to return to after Chapter 7. You can learn and apply every workflow step with the familiar scalar loop first; the array notation is not a prerequisite.
++
++
++<!-- cell 5ef586f8a997 -->
++The steps below develop this workflow. Form and challenge hypotheses while inspecting state; use typical bug patterns as candidates for a small repair, then retain the regression evidence. The complete worked investigation follows the reference steps.
++
++
++<!-- cell 0e6eb0d9 -->
++
++Use this sequence every time:
++
++1. Reproduce reliably
++2. Minimize the failing case
++3. Observe state with tools
++4. Form a specific hypothesis
++5. Patch one thing
++6. Re-test and check for regressions
++
++
++<!-- cell 45abc8b8 -->
++```{index} Step 1: Reproduce Reliably
++```
++
++
++
++<!-- cell ae3a292f -->
++```{index} Step 1: Reproduce Reliably
++```
++
++### Step 1: Reproduce Reliably
++
++
++
++<!-- cell 45be8996 -->
++
++Capture:
++- exact input
++- exact command
++- expected behavior
++- actual behavior
++
++Without reproducibility, debugging quality collapses.
++
++
++<!-- cell bec8219a -->
++```{index} Step 2: Minimize the Failing Case
++```
++
++
++
++<!-- cell b1224fc3 -->
++```{index} Step 2: Minimize the Failing Case
++```
++
++### Step 2: Minimize the Failing Case
++
++
++
++<!-- cell 3462123c -->
++
++Start with a *buggy* example — an off-by-one error in a sum loop:
++
++
++```csharp  // cell 9b215d33 tags=
++// Buggy: skips the last element
++int[] scores = { 85, 92, 78, 90, 88 };
++int total = 0;
++
++for (int i = 0; i < scores.Length - 1; i++)  // BUG: use i < scores.Length to include every valid index
++    total += scores[i];
++
++Console.WriteLine($"Total: {total}");    // prints 345 instead of 433
++Console.WriteLine($"Count: {scores.Length}");
++```
++
++<!-- cell fc94fdb6 -->
++Fix: change the loop condition to `i < scores.Length`:
++
++
++```csharp  // cell 7d7a62f4 tags=
++int[] scores = { 85, 92, 78, 90, 88 };
++int total = 0;
++
++for (int i = 0; i < scores.Length; i++)
++    total += scores[i];
++
++Console.WriteLine($"Total: {total}");   // 433
++Console.WriteLine($"Average: {total / (double)scores.Length:F1}");  // 86.6
++```
++
++<!-- cell 644d3973 -->
++```{index} Step 3: Breakpoints and Stepping in VS Code
++```
++
++
++
++<!-- cell f43a3ede -->
++```{index} Step 3: Breakpoints and Stepping in VS Code
++```
++
++### Step 3: Breakpoints and Stepping in VS Code
++
++
++
++<!-- cell d0b8e13a -->
++
++- Set a breakpoint **before** the suspected line
++- **Step Over** (`F10`) — execute one line, staying in current method
++- **Step Into** (`F11`) — follow execution into a called method
++- **Step Out** (`Shift+F11`) — exit the current method
++
++Set the breakpoint on the `total += scores[i]` line and watch `total` after each iteration.
++
++
++<!-- cell cf60d8ba -->
++```{index} Step 4: Watch and Call Stack
++```
++
++
++
++<!-- cell cf165e24 -->
++```{index} Step 4: Watch and Call Stack
++```
++
++### Step 4: Watch and Call Stack
++
++
++
++<!-- cell b6389411 -->
++
++Inspect:
++- key variables before and after transformations
++- the call stack to confirm control flow assumptions
++- branch conditions at decision points (`if`, loop bounds)
++
++Add a **Watch** expression for `scores[i]` and `total` to see each step.
++
++
++<!-- cell d8a4bed4 -->
++```{index} Test a Hypothesis Against Execution
++```
++
++
++
++<!-- cell 08bb3463 -->
++```{index} Test a Hypothesis Against Execution
++```
++
++#### Test a Hypothesis Against Execution
++
++
++
++<!-- cell 44059c3f -->
++State a hypothesis before stepping: perhaps the loop visits only two entries. Put a breakpoint before the loop, not after the incorrect report has already been produced. Observe index, the current input, and the accumulated total. Step over the update, then watch the loop condition. In VS Code, a breakpoint pauses execution when the running program reaches that source location; it does not itself execute or repair the line. Step Into follows a call, while Step Over completes that call without opening its internal steps.
++
++| Observation point | Index being processed | Total after the update |
++| --- | --- | --- |
++| First iteration | 0 | 12 |
++| Second iteration | 1 | 20 |
++| Expected third iteration | 2 | 25 |
++
++If execution never reaches the third row, the evidence supports an iteration-boundary defect. If all three updates occur but the final result is still 20, investigate later reassignment or output instead. A useful observation distinguishes competing explanations. Repeatedly pressing Step without a question can produce many observations without improving understanding.
++
++The call stack tells you how execution reached the paused method. Local variables belong to the current call; selecting another frame can show another call's values. A watch expression is a view of a value, not proof that the value satisfies a business rule. Prefer observations that do not alter program state. A debugging expression that invokes a mutating method can itself change the behavior you are trying to understand.
++
++
++
++
++<!-- cell c85d226f -->
++```{index} Step 5: Typical Bug Patterns
++```
++
++
++
++<!-- cell 07f62745 -->
++```{index} Step 5: Typical Bug Patterns
++```
++
++### Step 5: Typical Bug Patterns
++
++
++
++<!-- cell 4544a4e0 -->
++
++| Pattern | Example |
++|---------|--------|
++| Off-by-one | `i < Length - 1` instead of `i < Length` |
++| Stale loop state | reusing a variable without resetting it |
++| Null/empty assumption | skipping `IsNullOrWhiteSpace` check |
++| Parsing without validation | `int.Parse` on unvalidated input |
++
++
++<!-- cell 6399fc71 -->
++```{index} Step 6: Validate the Fix
++```
++
++
++
++<!-- cell 55dc9a29 -->
++```{index} Step 6: Validate the Fix
++```
++
++### Step 6: Validate the Fix
++
++
++
++<!-- cell 0f524aae -->
++
++After patching:
++1. Re-run the **original** failing input
++2. Run edge cases (empty array, single element, max values)
++3. Run unit tests if they exist
++
++
++```csharp  // cell 91f02fe0 tags=
++// Edge case: single element
++int[] single = { 42 };
++int t = 0;
++for (int i = 0; i < single.Length; i++) t += single[i];
++Console.WriteLine(t);  // 42
++
++// Edge case: empty array
++int[] empty = {};
++int t2 = 0;
++for (int i = 0; i < empty.Length; i++) t2 += empty[i];
++Console.WriteLine(t2);  // 0
++```
++
++<!-- cell f3f5e9cb -->
++```{index} Keep Evidence After the Repair
++```
++
++
++
++<!-- cell 2888eab5 -->
++```{index} Keep Evidence After the Repair
++```
++
++#### Keep Evidence After the Repair
++
++
++
++<!-- cell cbf5028a -->
++After changing the boundary, rerun the exact 12/8/5 case and record expected 25 versus actual 25. Then check no entries, one entry, and a final entry whose omission would be obvious. These checks do not prove every possible input correct, but they defend against the diagnosed class of defect. Keep the failing case as a regression check rather than replacing it with a new convenient example.
++
++Guided variation: the original failing report contains only one expense of 7 and prints zero. Predict what this says about the loop boundary. Then consider a report that prints 14 instead. The first observation suggests a skipped iteration; the second suggests duplicated processing or a different arithmetic/state problem. The workflow should follow the evidence rather than treating every wrong total as the same bug.
++
++
++<!-- cell 38a9d7b8 -->
++Debugging is a repeatable process, not guesswork.
++
++
+ <!-- cell 644e282d -->
+ ```{index} Practice
+ ```
+
+--- before/chapters/07_arrays/0703_array_processing.ipynb
++++ after/chapters/07_arrays/0703_array_processing.ipynb
+@@ -81,328 +81,6 @@
+     return result;
+ }
+ ```
+-
+-<!-- cell 59fcd1c0 -->
+-```{index} command line; parameter
+-```
+-
+-
+-```{index} Parameters to Main
+-```
+-
+-
+-
+-<!-- cell 807480fa -->
+-```{index} Parameters to Main
+-```
+-
+-(command-line-param)=
+-
+-## Parameters to Main
+-
+-
+-
+-<!-- cell c0ecab1a -->
+-
+-The `Main` method may take an array of strings as parameter, as in this example:
+-
+-```csharp
+-/// Demonstrate the use of command line parameters.
+-static void Main(string[] args)
+-{
+-   Console.WriteLine("There are {0} command line parameters.", args.Length);
+-   foreach(string s in args) {
+-      Console.WriteLine(s);
+-   }
+-
+-}
+-```
+-
+-By convention, the formal parameter for `Main` is called `args`,
+-short for arguments.
+-
+-Compile (`dotnet build`) and run (`dotnet run`) the program from the command line.
+-Run it with some things at the end of the line in `macOS` like:
+-
+-``` none
+-[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
+-```
+-
+-or in `Windows` like:
+-
+-``` none
+-PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
+-```
+-
+-and it should print for you:
+-
+-``` none
+-There are 3 command line parameters.
+-hi
+-there
+-123
+-```
+-
+-See what quoted strings do. Use command line parameters (with the quotes)
+-`"hi there" 123`. This should print for you:
+-
+-    There are 2 command line parameters.
+-    hi there
+-    123
+-
+-
+-<!-- cell p2_afdff49676 -->
+-A browser cell has no command line, so the runnable version supplies the array that `dotnet run hi there 123` would build. Everything after that line is the same as in `Main`.
+-
+-
+-```csharp  // cell p2_d5cf2010a8 tags=
+-using System;
+-
+-string[] arguments = { "hi", "there", "123" };   // what dotnet run hi there 123 passes to Main
+-Console.WriteLine($"There are {arguments.Length} command line parameters.");
+-foreach (string s in arguments)
+-{
+-    Console.WriteLine(s);
+-}
+-```
+-
+-<!-- cell p2_6b48abaf48 -->
+-The array holds strings even when a parameter looks like a number: `"123"` is text until the program converts it, which the adder below does with `int.Parse`.
+-
+-
+-<!-- cell b0ca1d4b -->
+-
+-```{index} Command Line Adder
+-```
+-
+-
+-
+-<!-- cell 006b809a -->
+-```{index} Command Line Adder
+-```
+-
+-(command-line-adder-exercise)=
+-
+-### Command Line Adder
+-
+-
+-
+-<!-- cell ee4c4d6d -->
+-
+-A code block in the Main method of your project that calculates and prints
+-the sum of three command line parameters taken from user input:
+-
+-    2 5 22
+-
+-then the program prints 29.
+-
+-The code could look like this:
+-
+-```csharp
+-////////// args array from command line.
+-int sum = 0;
+-for (int i = 0; i < args.Length; i++)
+-{
+-      sum = sum + int.Parse(args[i]);
+-}
+-Console.WriteLine(sum);
+-```
+-
+-Here we are using the `arg` array directly just like the preceding section.
+-
+-To run the code this time, go down to your project’s bin/Debug/net8.0 directory
+-from the command line, and run `ls`. You will find the executables (the `.dll` or `.exe`
+-files) that you can execute. In `Windows`, it should look like:
+-
+-``` none
+-PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> Ch08Arrays.exe 2 5 22
+-```
+-
+-and you will see the output. You can also run the project by issuing:
+-
+-``` none
+-PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
+-```
+-
+-as before to see the same output. In earlier version of `macOS`, you run this
+-with `dotnet run` in your project folder at command line with the arguments:
+-
+-``` none
+-[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
+-```
+-
+-or in more current versions of `macOS`:
+-
+-``` none
+-[username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
+-```
+-
+-and you will see the output of the sum of the integers.
+-
+-Just like the preceding section, this shows that the `string[] args` in the Main method is a `string array` taking its
+-elements from the command line when the project is executed in the command line with arguments provided.
+-
+-Also, this code execution shows us the location of the executable files in the project.
+-
+-```{index} string; Split Split method for strings
+-```
+-
+-(split)=
+-
+-% String Method Split
+-
+-% ———————
+-
+-% A string method producing an array:
+-
+-% `string[] Split(char` **separator** `)`
+-
+-% Returns an array of substrings from *this* string. They are the pieces left
+-
+-% after chopping out the separator character from the string.
+-
+-% A piece may be the empty string.
+-
+-% Example:
+-
+-% .. code-block:: none
+-
+-% \> var fruitString = “apple pear banana”;
+-
+-% \> string\[\] fruit = fruitString.Split(’ ’);
+-
+-% \> fruit;
+-
+-% { “apple”, “pear”, “banana” }
+-
+-% \> fruit\[1\];
+-
+-% “pear”
+-
+-% \> var s = ” extra spaces “;
+-
+-% \> s.Split(’ ’);
+-
+-% { ““,”“,”extra”, ““,”“,”spaces”, “” }
+-
+-% Note: The response with the list in braces is a purely *csharprepl* convention for displaying
+-
+-% sequences for the user. There is no corresponding string displayed by C# Write commands.
+-
+-% Also see that the string is split at *each* `separator`,
+-
+-% even if that produces empty strings.
+-
+-% .. index:: IntsFromString1
+-
+-% index; parallel arrays
+-
+-% .. \_ints_from_string1:
+-
+-% `Split` is useful for parsing a line with several parts. You might get a group of
+-
+-% integers on a line of text, for instance from::
+-
+-% string input = UI.PromptLine(
+-
+-% “Please enter some integers, separated by single spaces:”);
+-
+-% To extract the numbers, you want to the separate the entries in the string
+-
+-% with `Split`, *and* you probably want further processing:
+-
+-% If you want them as integers, not strings, you must convert each one separately.
+-
+-% It is useful to put this idea in a function.
+-
+-% See the type returned. It is an array `int[]` for the int results::
+-
+-% /// Return ints taken from space separated integers in a string.
+-
+-% public static int\[\] IntsFromString1(string input)
+-
+-% {
+-
+-% string\[\] integers = input.Split(’ ’);
+-
+-% int\[\] data = new int\[integers.Length\];
+-
+-% for (int i=0; i \< data.Length; i++)
+-
+-% data\[i\] = int.Parse(integers\[i\]);
+-
+-% return data;
+-
+-% }
+-
+-% In a call to `IntsFromString1("2 5 22")`, `integers` would be
+-
+-% an array containing strings `"2"`, `"5"`, and `"22"`.
+-
+-% We need the conversions to `int` to go in a new array that we call `data`.
+-
+-% We must set its length, which will clearly be the same as for `integers`,
+-
+-% `integers.Length`.
+-
+-% To assign elements into `data` we need a loop providing indices,
+-
+-% like the `for` loop provided. Then for each index, we parse a
+-
+-% string in `integers` into an `int`,
+-
+-% and place the `int` in the corresponding location in `data`. We need to return
+-
+-% `data` at the end to make it accessible to the caller.
+-
+-% Again we use the basic pattern for returning an array.
+-
+-% Dealing with arrays is hard for many students for several reasons:
+-
+-% \* You have new array declaration and creation syntax.
+-
+-% \* Array are compound objects, so there is a lot to think about.
+-
+-% \* Loops are hard for many people, and you almost always deal with loops.
+-
+-% \* You usually must deal with index variables, and there are many
+-
+-% patterns.
+-
+-% The last point is significant,
+-
+-% so it is important to note the special pattern in the example above:
+-
+-% .. note::
+-
+-% The use of the same index variable for more than one array is
+-
+-% a standard way to have
+-
+-% *related* entries in *corresponding* positions in the arrays.
+-
+-% We will introduce a refinement of this function in the
+-
+-% :ref:`intsfromstring_exercise`. It will rely on a more complicated
+-
+-% index-handling pattern.
+-
+-
+-```csharp  // cell p2_0723b2e47f tags=
+-using System;
+-
+-string[] arguments = { "2", "5", "22" };   // what dotnet run 2 5 22 passes to Main
+-int sum = 0;
+-for (int i = 0; i < arguments.Length; i++)
+-{
+-    sum = sum + int.Parse(arguments[i]);
+-}
+-Console.WriteLine(sum);
+-```
+-
+-<!-- cell p2_fd329cec15 -->
+-The output is `29`. If one of the parameters were `hi`, `int.Parse` would throw `FormatException`; Chapter 6's `TryParse` is the way to reject such input politely in a real command-line tool.
+-
+ 
+ <!-- cell 18a73707 -->
+ ```{index} alias
+@@ -535,6 +213,332 @@
+ The output is `ints: b1 = 5, d1 = 99`, then `b: 1, 55, -10` and `d: 1, 55, -10`, then `Same array object: True`, then `nums after Scale: 10, 20, 5`. The assignment through `d` is visible through `b` because there is only one array. The common mistake is expecting `Scale` to work on a private copy; if the caller needs its original values afterwards, it must pass a clone, `Scale((int[])nums.Clone(), 5)`, or `Scale` must build and return a new array instead of assigning into its parameter.
+ 
+ 
++<!-- cell 59fcd1c0 -->
++```{index} command line; parameter
++```
++
++
++```{index} Parameters to Main
++```
++
++
++
++<!-- cell core19_main_transition -->
++The traversal and sharing model is now complete: a parameter receives a reference, an alias shares the same array, and replacing a reference differs from changing an element. The command-line application below applies that model to the `string[]` supplied to `Main`; it introduces a new source of array values, not different array semantics.
++
++
++<!-- cell 807480fa -->
++```{index} Parameters to Main
++```
++
++(command-line-param)=
++
++## Parameters to Main
++
++
++
++<!-- cell c0ecab1a -->
++
++The `Main` method may take an array of strings as parameter, as in this example:
++
++```csharp
++/// Demonstrate the use of command line parameters.
++static void Main(string[] args)
++{
++   Console.WriteLine("There are {0} command line parameters.", args.Length);
++   foreach(string s in args) {
++      Console.WriteLine(s);
++   }
++
++}
++```
++
++By convention, the formal parameter for `Main` is called `args`,
++short for arguments.
++
++Compile (`dotnet build`) and run (`dotnet run`) the program from the command line.
++Run it with some things at the end of the line in `macOS` like:
++
++``` none
++[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run hi there 123
++```
++
++or in `Windows` like:
++
++``` none
++PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run hi there 123
++```
++
++and it should print for you:
++
++``` none
++There are 3 command line parameters.
++hi
++there
++123
++```
++
++See what quoted strings do. Use command line parameters (with the quotes)
++`"hi there" 123`. This should print for you:
++
++    There are 2 command line parameters.
++    hi there
++    123
++
++
++<!-- cell p2_afdff49676 -->
++A browser cell has no command line, so the runnable version supplies the array that `dotnet run hi there 123` would build. Everything after that line is the same as in `Main`.
++
++
++```csharp  // cell p2_d5cf2010a8 tags=
++using System;
++
++string[] arguments = { "hi", "there", "123" };   // what dotnet run hi there 123 passes to Main
++Console.WriteLine($"There are {arguments.Length} command line parameters.");
++foreach (string s in arguments)
++{
++    Console.WriteLine(s);
++}
++```
++
++<!-- cell p2_6b48abaf48 -->
++The array holds strings even when a parameter looks like a number: `"123"` is text until the program converts it, which the adder below does with `int.Parse`.
++
++
++<!-- cell b0ca1d4b -->
++
++```{index} Command Line Adder
++```
++
++
++
++<!-- cell 006b809a -->
++```{index} Command Line Adder
++```
++
++(command-line-adder-exercise)=
++
++### Command Line Adder
++
++
++
++<!-- cell ee4c4d6d -->
++
++A code block in the Main method of your project that calculates and prints
++the sum of three command line parameters taken from user input:
++
++    2 5 22
++
++then the program prints 29.
++
++The code could look like this:
++
++```csharp
++////////// args array from command line.
++int sum = 0;
++for (int i = 0; i < args.Length; i++)
++{
++      sum = sum + int.Parse(args[i]);
++}
++Console.WriteLine(sum);
++```
++
++Here we are using the `arg` array directly just like the preceding section.
++
++To run the code this time, go down to your project’s bin/Debug/net8.0 directory
++from the command line, and run `ls`. You will find the executables (the `.dll` or `.exe`
++files) that you can execute. In `Windows`, it should look like:
++
++``` none
++PS C:\Users\[username]\workspace\introcscs\Ch08Arrays\bin\Debug\net8.0> Ch08Arrays.exe 2 5 22
++```
++
++and you will see the output. You can also run the project by issuing:
++
++``` none
++PS C:\Users\[username]\workspace\introcscs\Ch08Arrays> dotnet run 2 5 22
++```
++
++as before to see the same output. In earlier version of `macOS`, you run this
++with `dotnet run` in your project folder at command line with the arguments:
++
++``` none
++[username]@[computer]:~/workspace/introcscs/Ch08Arrays$ dotnet run 2 5 22
++```
++
++or in more current versions of `macOS`:
++
++``` none
++[username]@[computer]:~/workspace/introcscs/Ch08Arrays/bin/Debug/net8.0$ dotnet Ch08Arrays.dll 2 5 22
++```
++
++and you will see the output of the sum of the integers.
++
++Just like the preceding section, this shows that the `string[] args` in the Main method is a `string array` taking its
++elements from the command line when the project is executed in the command line with arguments provided.
++
++Also, this code execution shows us the location of the executable files in the project.
++
++```{index} string; Split Split method for strings
++```
++
++(split)=
++
++% String Method Split
++
++% ———————
++
++% A string method producing an array:
++
++% `string[] Split(char` **separator** `)`
++
++% Returns an array of substrings from *this* string. They are the pieces left
++
++% after chopping out the separator character from the string.
++
++% A piece may be the empty string.
++
++% Example:
++
++% .. code-block:: none
++
++% \> var fruitString = “apple pear banana”;
++
++% \> string\[\] fruit = fruitString.Split(’ ’);
++
++% \> fruit;
++
++% { “apple”, “pear”, “banana” }
++
++% \> fruit\[1\];
++
++% “pear”
++
++% \> var s = ” extra spaces “;
++
++% \> s.Split(’ ’);
++
++% { ““,”“,”extra”, ““,”“,”spaces”, “” }
++
++% Note: The response with the list in braces is a purely *csharprepl* convention for displaying
++
++% sequences for the user. There is no corresponding string displayed by C# Write commands.
++
++% Also see that the string is split at *each* `separator`,
++
++% even if that produces empty strings.
++
++% .. index:: IntsFromString1
++
++% index; parallel arrays
++
++% .. \_ints_from_string1:
++
++% `Split` is useful for parsing a line with several parts. You might get a group of
++
++% integers on a line of text, for instance from::
++
++% string input = UI.PromptLine(
++
++% “Please enter some integers, separated by single spaces:”);
++
++% To extract the numbers, you want to the separate the entries in the string
++
++% with `Split`, *and* you probably want further processing:
++
++% If you want them as integers, not strings, you must convert each one separately.
++
++% It is useful to put this idea in a function.
++
++% See the type returned. It is an array `int[]` for the int results::
++
++% /// Return ints taken from space separated integers in a string.
++
++% public static int\[\] IntsFromString1(string input)
++
++% {
++
++% string\[\] integers = input.Split(’ ’);
++
++% int\[\] data = new int\[integers.Length\];
++
++% for (int i=0; i \< data.Length; i++)
++
++% data\[i\] = int.Parse(integers\[i\]);
++
++% return data;
++
++% }
++
++% In a call to `IntsFromString1("2 5 22")`, `integers` would be
++
++% an array containing strings `"2"`, `"5"`, and `"22"`.
++
++% We need the conversions to `int` to go in a new array that we call `data`.
++
++% We must set its length, which will clearly be the same as for `integers`,
++
++% `integers.Length`.
++
++% To assign elements into `data` we need a loop providing indices,
++
++% like the `for` loop provided. Then for each index, we parse a
++
++% string in `integers` into an `int`,
++
++% and place the `int` in the corresponding location in `data`. We need to return
++
++% `data` at the end to make it accessible to the caller.
++
++% Again we use the basic pattern for returning an array.
++
++% Dealing with arrays is hard for many students for several reasons:
++
++% \* You have new array declaration and creation syntax.
++
++% \* Array are compound objects, so there is a lot to think about.
++
++% \* Loops are hard for many people, and you almost always deal with loops.
++
++% \* You usually must deal with index variables, and there are many
++
++% patterns.
++
++% The last point is significant,
++
++% so it is important to note the special pattern in the example above:
++
++% .. note::
++
++% The use of the same index variable for more than one array is
++
++% a standard way to have
++
++% *related* entries in *corresponding* positions in the arrays.
++
++% We will introduce a refinement of this function in the
++
++% :ref:`intsfromstring_exercise`. It will rely on a more complicated
++
++% index-handling pattern.
++
++
++```csharp  // cell p2_0723b2e47f tags=
++using System;
++
++string[] arguments = { "2", "5", "22" };   // what dotnet run 2 5 22 passes to Main
++int sum = 0;
++for (int i = 0; i < arguments.Length; i++)
++{
++    sum = sum + int.Parse(arguments[i]);
++}
++Console.WriteLine(sum);
++```
++
++<!-- cell p2_fd329cec15 -->
++The output is `29`. If one of the parameters were `hi`, `int.Parse` would throw `FormatException`; Chapter 6's `TryParse` is the way to reject such input politely in a real command-line tool.
++
++
+ <!-- cell e0ad2546 -->
+ ```{rubric} Footnotes
+ ```
+
+--- before/chapters/08_collections/0804_collection_operations.ipynb
++++ after/chapters/08_collections/0804_collection_operations.ipynb
+@@ -52,6 +52,10 @@
+ 
+ 
+ 
++<!-- cell core19_collection_path -->
++Start with the concrete list and dictionary comparison next: a list selects a position, while a dictionary selects a key. Read each operation as a state change plus a result. Then use the shared tables to recognize the corresponding rules in other families. Their detailed implementations are developed in later chapters; the current examples give an early exposure to those policies.
++
++
+ <!-- cell 7e967e1b -->
+ 
+ ```{index} generic type; type parameter; type argument; type safety
+@@ -73,36 +77,132 @@
+ Generic collections provide **type safety**: the compiler checks whether supplied values can be used as the declared types. A `List<int>` accepts integers; it will not accept the string `"twelve"`. This catches a mismatch before the program runs. It does not establish that every integer is appropriate: a negative stock quantity is still an integer, so business validation remains your responsibility.
+ 
+ 
+-<!-- cell collection-namespaces-heading -->
+-```{index} The Standard Library and Namespaces
+-```
+-
+-### The Standard Library and Namespaces
+-
+-
+-
+-<!-- cell eb242104 -->
+-
+-```{index} namespace; standard library; System.Collections.Generic
+-```
+-
+-
+-<!-- cell 71454983 -->
+-A **namespace** groups related type names. Most collection classes demonstrated here belong to `System.Collections.Generic`. The `using System.Collections.Generic;` directive lets you write `List<string>` instead of the full name `System.Collections.Generic.List<string>`. It makes names available; it does not create a collection or download a package.
+-
+-Creating a collection requires constructing an object, as in `new List<string>()`. The parentheses call a **constructor**, which initializes the new object. You will study constructors and your own class definitions in Chapter 10. For now, you are using classes already supplied by the library, just as earlier examples used library methods.
+-
+-Some modern C# projects import common namespaces automatically. Every runnable example here includes the imports it needs so you can run it independently. The following diagram shows three collection namespaces you may encounter, rather than a complete inventory of .NET collections.
+-
+-:::{figure} ../../figures/collection_namespaces.svg
+-:width: 700
+-
+-Selected .NET collection namespaces: generic collections, older non-generic collections, and concurrent collections.
+-:::
+-
+-Prefer the generic collection classes for new code like the examples in this chapter. Older non-generic types, such as `ArrayList` and `Hashtable`, commonly store values through `object` and do not provide the same element-type checking. Recognizing their names can help you read older programs; learning them is not a separate requirement here.
+-
+-Other library collections address additional needs. Sorted dictionaries and sorted sets maintain ordering by key or element, rather than merely remembering positions. Concurrent collections support coordinated access from multiple threads. Immutable collections produce updated versions without changing the original collection. These are additional dimensions of collection design, not extra families that you must master in this lesson.
++<!-- cell collection-examples-heading -->
++```{index} Collection Examples
++```
++
++## Collection Examples
++
++
++
++<!-- cell 3388079d -->
++
++```{index} collections; examples
++```
++
++
++<!-- cell collection-examples-intro -->
++You now have the family map, the idea of a collection contract, and a way to explain a choice. The following examples make those ideas concrete. For each one, identify what is stored and predict how the collection retrieves it before running the code. The detailed list and dictionary lessons follow in Sections 8.3 and 8.4.
++
++
++<!-- cell generic-example-intro -->
++The next example retains the explicit type names so you can see both choices. It stores employee names in a list and associates names with training scores in a dictionary. The commented line illustrates a type mismatch; leave it commented when running the demonstration.
++
++
++```csharp  // cell 0801_collections_06 tags=
++using System;
++using System.Collections.Generic;
++
++List<string> names = new List<string> { "Ana", "Bo" };
++Dictionary<string, int> scores = new Dictionary<string, int>
++{
++    ["Ana"] = 92,
++    ["Bo"] = 85
++};
++
++Console.WriteLine(names[0]);
++Console.WriteLine(scores["Bo"]);
++// scores["Ana"] = "ninety-two"; // Expected compile error if uncommented: string is not int.
++```
++
++<!-- cell indexed-sequences-heading -->
++```{index} Arrays and Lists
++```
++
++### Arrays and Lists
++
++
++
++<!-- cell 801a17ba -->
++
++```{index} array; list; index; sequence
++```
++
++
++<!-- cell indexed-sequences-body -->
++A **sequence** gives its elements positions. In the arrays and lists used here, positions are indexed from zero. Both can contain repeated values. Their order is the order of the sequence, which is not necessarily sorted order.
++
++An array's length remains fixed after creation, but its elements can change. Fixed length does not mean read-only data. A list manages storage as elements are added or removed. Its `Count` reports the number of elements currently in the list; an array uses `Length`.
++
++Read this example as a comparison of behavior. The weekly array still has five positions after a correction. The basket grows when a second item is added, and it retains the order of those additions.
++
++
++```csharp  // cell family-array-list-demo tags=
++using System;
++using System.Collections.Generic;
++
++int[] dailySales = { 12, 9, 15, 8, 11 };
++dailySales[1] = 10;
++
++List<string> basket = new List<string> { "NOTEBOOK" };
++basket.Add("PEN");
++
++Console.WriteLine($"Business days: {dailySales.Length}");
++Console.WriteLine($"Tuesday sales: {dailySales[1]}");
++Console.WriteLine($"Basket items: {basket.Count}");
++Console.WriteLine($"First item: {basket[0]}");
++```
++
++<!-- cell indexed-sequences-followup -->
++Use an array when a fixed number of indexed positions expresses the task clearly. Use a list when the sequence changes size during normal work. A list is not automatically the best choice simply because it is more flexible: the fixed five-day structure can make the meaning of the array clear. Likewise, repeatedly replacing arrays just to add another basket item makes ordinary work harder than it needs to be.
++
++**Check Your Understanding:** Does changing Tuesday's quantity require a list? What change to the task would make a list more useful?
++
++```{dropdown} Suggested Answer
++No. Replacing an existing array element does not change the array's length. A list becomes more useful if you are collecting an unknown or changing number of daily records, rather than maintaining exactly five positions.
++```
++
++
++<!-- cell dictionary-family-heading -->
++```{index} Dictionaries
++```
++
++### Dictionaries
++
++
++
++<!-- cell 6109c677 -->
++
++```{index} dictionary; key; value; key-value pair
++```
++
++
++<!-- cell dictionary-family-body -->
++A **dictionary** associates a **key**, which identifies an entry, with a **value**, which is the information stored for that key. A stock lookup might use a product code as the key and an integer quantity as the value. Unlike a list index, the code expresses identity rather than position.
++
++Keys are unique within a dictionary: one key cannot identify two separate entries. Values do not have to be unique. Two products may have the same stock quantity without being the same product. Here both codes initially map to `12`, and the program retrieves a quantity by code.
++
++
++```csharp  // cell family-dictionary-demo tags=
++using System;
++using System.Collections.Generic;
++
++Dictionary<string, int> stock = new Dictionary<string, int>
++{
++    ["NOTEBOOK"] = 12,
++    ["PEN"] = 12
++};
++
++Console.WriteLine($"Product codes: {stock.Count}");
++Console.WriteLine($"Notebook stock: {stock["NOTEBOOK"]}");
++```
++
++<!-- cell dictionary-family-followup -->
++The expression `stock["NOTEBOOK"]` asks for a value associated with a key. It does not ask for the first, second, or alphabetically earliest entry. A dictionary is not an alphabetically sorted list, and you should not make a report depend on its enumeration order. You also need a policy for unknown codes; Section 8.4 teaches safe lookup and the difference between adding an entry and updating one.
++
++
++<!-- cell core19_collection_table_bridge -->
++You have now seen a growing sequence and a keyed lookup. Match each of their calls to a row in the following tables, then use those rows to interpret the linked-list, set, and processing-order demonstrations. Keep the table available as a reference instead of trying to memorize eight APIs at once.
+ 
+ 
+ <!-- cell 4306eac8 -->
+@@ -223,92 +323,6 @@
+ **Make the connections:** A basket needs to add and remove a chosen item; an undo history needs to remove the most recent action; a service line needs to remove the earliest arrival. Explain why these related needs lead to `Add`/`Remove`, `Push`/`Pop`, and `Enqueue`/`Dequeue`. Then identify which operations change size and which only inspect data. Use the following examples to check your predictions.
+ 
+ 
+-<!-- cell collection-examples-heading -->
+-```{index} Collection Examples
+-```
+-
+-## Collection Examples
+-
+-
+-
+-<!-- cell 3388079d -->
+-
+-```{index} collections; examples
+-```
+-
+-
+-<!-- cell collection-examples-intro -->
+-You now have the family map, the idea of a collection contract, and a way to explain a choice. The following examples make those ideas concrete. For each one, identify what is stored and predict how the collection retrieves it before running the code. The detailed list and dictionary lessons follow in Sections 8.3 and 8.4.
+-
+-
+-<!-- cell generic-example-intro -->
+-The next example retains the explicit type names so you can see both choices. It stores employee names in a list and associates names with training scores in a dictionary. The commented line illustrates a type mismatch; leave it commented when running the demonstration.
+-
+-
+-```csharp  // cell 0801_collections_06 tags=
+-using System;
+-using System.Collections.Generic;
+-
+-List<string> names = new List<string> { "Ana", "Bo" };
+-Dictionary<string, int> scores = new Dictionary<string, int>
+-{
+-    ["Ana"] = 92,
+-    ["Bo"] = 85
+-};
+-
+-Console.WriteLine(names[0]);
+-Console.WriteLine(scores["Bo"]);
+-// scores["Ana"] = "ninety-two"; // Expected compile error if uncommented: string is not int.
+-```
+-
+-<!-- cell indexed-sequences-heading -->
+-```{index} Arrays and Lists
+-```
+-
+-### Arrays and Lists
+-
+-
+-
+-<!-- cell 801a17ba -->
+-
+-```{index} array; list; index; sequence
+-```
+-
+-
+-<!-- cell indexed-sequences-body -->
+-A **sequence** gives its elements positions. In the arrays and lists used here, positions are indexed from zero. Both can contain repeated values. Their order is the order of the sequence, which is not necessarily sorted order.
+-
+-An array's length remains fixed after creation, but its elements can change. Fixed length does not mean read-only data. A list manages storage as elements are added or removed. Its `Count` reports the number of elements currently in the list; an array uses `Length`.
+-
+-Read this example as a comparison of behavior. The weekly array still has five positions after a correction. The basket grows when a second item is added, and it retains the order of those additions.
+-
+-
+-```csharp  // cell family-array-list-demo tags=
+-using System;
+-using System.Collections.Generic;
+-
+-int[] dailySales = { 12, 9, 15, 8, 11 };
+-dailySales[1] = 10;
+-
+-List<string> basket = new List<string> { "NOTEBOOK" };
+-basket.Add("PEN");
+-
+-Console.WriteLine($"Business days: {dailySales.Length}");
+-Console.WriteLine($"Tuesday sales: {dailySales[1]}");
+-Console.WriteLine($"Basket items: {basket.Count}");
+-Console.WriteLine($"First item: {basket[0]}");
+-```
+-
+-<!-- cell indexed-sequences-followup -->
+-Use an array when a fixed number of indexed positions expresses the task clearly. Use a list when the sequence changes size during normal work. A list is not automatically the best choice simply because it is more flexible: the fixed five-day structure can make the meaning of the array clear. Likewise, repeatedly replacing arrays just to add another basket item makes ordinary work harder than it needs to be.
+-
+-**Check Your Understanding:** Does changing Tuesday's quantity require a list? What change to the task would make a list more useful?
+-
+-```{dropdown} Suggested Answer
+-No. Replacing an existing array element does not change the array's length. A list becomes more useful if you are collecting an unknown or changing number of daily records, rather than maintaining exactly five positions.
+-```
+-
+-
+ <!-- cell linked-sequences-heading -->
+ ```{index} Linked Lists
+ ```
+@@ -346,44 +360,6 @@
+ 
+ <!-- cell linked-sequences-followup -->
+ The result is still an ordered sequence, but it has different access operations from an indexed list. Inserting beside a node you already hold avoids shifting later elements. Finding that node can still require a search, and nodes have storage overhead. A linked list is therefore not a universal replacement for `List<T>`. Chapter 14 develops these tradeoffs and their implementations.
+-
+-
+-<!-- cell dictionary-family-heading -->
+-```{index} Dictionaries
+-```
+-
+-### Dictionaries
+-
+-
+-
+-<!-- cell 6109c677 -->
+-
+-```{index} dictionary; key; value; key-value pair
+-```
+-
+-
+-<!-- cell dictionary-family-body -->
+-A **dictionary** associates a **key**, which identifies an entry, with a **value**, which is the information stored for that key. A stock lookup might use a product code as the key and an integer quantity as the value. Unlike a list index, the code expresses identity rather than position.
+-
+-Keys are unique within a dictionary: one key cannot identify two separate entries. Values do not have to be unique. Two products may have the same stock quantity without being the same product. Here both codes initially map to `12`, and the program retrieves a quantity by code.
+-
+-
+-```csharp  // cell family-dictionary-demo tags=
+-using System;
+-using System.Collections.Generic;
+-
+-Dictionary<string, int> stock = new Dictionary<string, int>
+-{
+-    ["NOTEBOOK"] = 12,
+-    ["PEN"] = 12
+-};
+-
+-Console.WriteLine($"Product codes: {stock.Count}");
+-Console.WriteLine($"Notebook stock: {stock["NOTEBOOK"]}");
+-```
+-
+-<!-- cell dictionary-family-followup -->
+-The expression `stock["NOTEBOOK"]` asks for a value associated with a key. It does not ask for the first, second, or alphabetically earliest entry. A dictionary is not an alphabetically sorted list, and you should not make a report depend on its enumeration order. You also need a policy for unknown codes; Section 8.4 teaches safe lookup and the difference between adding an entry and updating one.
+ 
+ 
+ <!-- cell set-family-heading -->
+@@ -654,6 +630,38 @@
+ The list stores a sequence of quantities, including any repeated quantities. The dictionary associates an order's identity with its total. With an empty list, the entry count and calculated total are both zero. The dictionary still has one entry because the program saves that zero total under `ORD-101`; no line items is different from no saved summary.
+ 
+ 
++<!-- cell collection-namespaces-heading -->
++```{index} The Standard Library and Namespaces
++```
++
++## The Standard Library and Namespaces
++
++
++
++<!-- cell eb242104 -->
++
++```{index} namespace; standard library; System.Collections.Generic
++```
++
++
++<!-- cell 71454983 -->
++A **namespace** groups related type names. Most collection classes demonstrated here belong to `System.Collections.Generic`. The `using System.Collections.Generic;` directive lets you write `List<string>` instead of the full name `System.Collections.Generic.List<string>`. It makes names available; it does not create a collection or download a package.
++
++Creating a collection requires constructing an object, as in `new List<string>()`. The parentheses call a **constructor**, which initializes the new object. You will study constructors and your own class definitions in Chapter 10. For now, you are using classes already supplied by the library, just as earlier examples used library methods.
++
++Some modern C# projects import common namespaces automatically. Every runnable example here includes the imports it needs so you can run it independently. The following diagram shows three collection namespaces you may encounter, rather than a complete inventory of .NET collections.
++
++:::{figure} ../../figures/collection_namespaces.svg
++:width: 700
++
++Selected .NET collection namespaces: generic collections, older non-generic collections, and concurrent collections.
++:::
++
++Prefer the generic collection classes for new code like the examples in this chapter. Older non-generic types, such as `ArrayList` and `Hashtable`, commonly store values through `object` and do not provide the same element-type checking. Recognizing their names can help you read older programs; learning them is not a separate requirement here.
++
++Other library collections address additional needs. Sorted dictionaries and sorted sets maintain ordering by key or element, rather than merely remembering positions. Concurrent collections support coordinated access from multiple threads. Immutable collections produce updated versions without changing the original collection. These are additional dimensions of collection design, not extra families that you must master in this lesson.
++
++
+ <!-- cell 0801_collections_07 -->
+ ```{index} Summary
+ ```
+
+--- before/chapters/09_files_text/0903_text_operations.ipynb
++++ after/chapters/09_files_text/0903_text_operations.ipynb
+@@ -108,7 +108,7 @@
+ ```
+ 
+ <!-- cell p3_9c35dc0dfc -->
+-The output is `'Ada'`, `'98'`, and `'CS'`, with the quotes showing that the surrounding spaces are gone. `Split` keeps whitespace inside each field, so `" 98 "` would fail `int.TryParse` until it is trimmed; trimming every field once, right after the split, is cheaper than remembering to do it at every use.
++The output is `'Ada'`, `'98'`, and `'CS'`, with the quotes showing that the surrounding spaces are gone. `Split` keeps whitespace inside each field. The ordinary `int.TryParse` call accepts surrounding whitespace, so `" 98 "` parses as 98 even without `Trim`. Trimming is still useful for normalizing text fields such as names and codes; it is not what makes this integer parse succeed. Normalize according to the field contract rather than assuming every conversion rejects spaces.
+ 
+ 
+ <!-- cell bef45014 -->
+@@ -158,6 +158,41 @@
+     Console.WriteLine($"Name: {parts[0].Trim()}, Score: {parts[1].Trim()}, Major: {parts[2].Trim()}");
+ }
+ ```
++
++<!-- cell core19_token_matrix -->
++The retained valid example checks only field count. Three fields do not establish that a score is numeric or that a name is present. Keep four questions separate: is the shape right, can the score be parsed, does it satisfy the allowed range, and which text fields should be normalized?
++
++| Record | Field count | Numeric score? | Domain result for 0-100 |
++| --- | --- | --- | --- |
++| `Ada, 98 ,CS` | Three | Yes, even before trimming | Accept |
++| `Ada,CS` | Two | Not attempted | Reject shape |
++| `Ada,98,CS,extra` | Four | Not attempted | Reject shape |
++| `Ada,abc,CS` | Three | No | Reject number |
++| `Ada,101,CS` | Three | Yes | Reject range |
++
++Predict which check stops each row before running the standalone comparison.
++
++
++```csharp  // cell core19_token_checks tags=
++using System;
++string[] records = { "Ada, 98 ,CS", "Ada,CS", "Ada,98,CS,extra", "Ada,abc,CS", "Ada,101,CS" };
++foreach (string record in records)
++{
++    string[] fields = record.Split(',');
++    string outcome;
++    if (fields.Length != 3) outcome = "reject shape";
++    else if (!int.TryParse(fields[1], out int score)) outcome = "reject number";
++    else if (score < 0 || score > 100) outcome = "reject range";
++    else outcome = $"accept {fields[0].Trim()}: {score}";
++    Console.WriteLine($"{record} -> {outcome}");
++}
++```
++
++<!-- cell core19_token_interpretation -->
++The missing/extra-field records stop before indexing the score. `abc` has the right position but the wrong numeric syntax; `101` parses successfully but violates this example's range. This worked policy checks the score range; it still does not require a nonempty name or an approved major. The later `TryParseStudent` helper deliberately checks shape and numeric syntax without imposing this particular range. Change the matrix to match the consuming application's contract rather than assuming every parser enforces all business rules.
++
++**Local check:** replace `abc` with an empty score while preserving the commas. Predict “reject number,” then run again. Do not remove empty fields: doing so would change the meaning of later positions.
++
+ 
+ <!-- cell 6f4e1f40 -->
+ ---
+
+--- before/chapters/10_classes/1001_class_syntax.ipynb
++++ after/chapters/10_classes/1001_class_syntax.ipynb
+@@ -630,6 +630,10 @@
+ Console.WriteLine($"{product.Sku} costs ${product.Price:F2}");
+ ```
+ 
++<!-- cell core19_tuple_create_read -->
++Both output lines show `SKU-1042 costs $19.99`. `Item1` and `Sku` select corresponding first fields, while `Item2` and `Price` select their decimal second fields. Names improve how a caller reads a value; they do not create a new product class or add validation behavior.
++
++
+ <!-- cell 73806cd9 -->
+ ```{index} tuple; returning multiple values
+ ```
+@@ -646,6 +650,10 @@
+ 
+ <!-- cell 892af1bd -->
+ A method returns one value. Before tuples, returning two results required `out` parameters or a small class written just for that purpose. A tuple return type lets one method report both the lowest and the highest sales day:
++
++
++<!-- cell core19_tuple_nonempty -->
++**Input contract:** `dailySales` must be non-null and contain at least one value. The first element supplies both initial extrema; an empty array has no first element, so this implementation does not define an empty-case result. A caller must check that contract or use a separately specified failure policy. The following example keeps that assumption rather than returning invented zero extrema.
+ 
+ 
+ ```csharp  // cell c6f37c18 tags=
+@@ -667,6 +675,10 @@
+ Console.WriteLine($"Lowest day: ${range.Low:F2}, highest day: ${range.High:F2}");
+ ```
+ 
++<!-- cell core19_tuple_return_read -->
++The returned value is one tuple: `(980.50m, 1610.25m)`. The declaration names its fields `Low` and `High`, so the caller reads `range.Low` and `range.High`. The loop updates its local candidates; `return (low, high)` packages their final values. The printed line is `Lowest day: $980.50, highest day: $1610.25`. A return type with two fields still returns one value.
++
++
+ <!-- cell ae1e16eb -->
+ ```{index} tuple; destructuring, discard
+ ```
+@@ -707,6 +719,10 @@
+ var (sku, _) = ("SKU-1042", 19.99m);
+ Console.WriteLine(sku);
+ ```
++
++<!-- cell core19_tuple_deconstruct_read -->
++`var (low, high) = ...` assigns the two returned components to two local variables. The first line prints `Range: $980.50 to $1610.25`. In `(sku, _)`, `_` discards the price, so the second line prints only `SKU-1042`. Deconstruction does not call the method twice or change the source array. Use the existing shipment-summary variation below to complete the same mapping for a new pair of results.
++
+ 
+ <!-- cell 001e03ad -->
+ ```{index} tuple; in collections
+@@ -745,6 +761,10 @@
+ }
+ Console.WriteLine($"Top rep: {top.Rep} (${top.Sales:F2})");
+ ```
++
++<!-- cell core19_tuple_list_read -->
++Each `foreach` iteration deconstructs one list element into `rep` and `sales`. The running `top` remains an entire pair, preserving the representative associated with its amount. The final line is `Top rep: Jordan ($22410.50)`. Predict the winner after changing Avery's amount to `25000m`; the winner should change without altering the loop. Ties retain the first encountered pair because the comparison is strict `>`.
++
+ 
+ <!-- cell c22c445a -->
+ ```{index} tuple; versus class
+
+--- before/chapters/11_object_design/1101_objects_references.ipynb
++++ after/chapters/11_object_design/1101_objects_references.ipynb
+@@ -233,12 +233,42 @@
+ Use mutability when changes are part of the object's job, such as adding lines to an order. Prefer fixed value objects when sharing should be harmless, such as a product description used by several order lines. Immutability is a design choice, not a requirement that every class avoid setters.
+ 
+ 
++<!-- cell core19_copy_depth_anchor -->
++(core-copy-depth)=
++
++
+ <!-- cell f7152d161384 -->
+ ```{index} Copies Need a Depth Policy
+ ```
+ 
+ ## Copies Need a Depth Policy
+ 
++
++
++<!-- cell core19_copy_depth_graph -->
++The same outer-copy policy can produce different observations depending on which inner objects are shared. Read the following as an object diagram, not runnable C#:
++
++```text
++orderA -> [lines A] -> [line A] --product--> [product P: price 10]
++orderB -> [lines B] -> [line B] --product---^
++```
++
++The two orders own different line collections and line objects, but their lines refer to the same product P. Changing the quantity on line A affects only order A. If P were mutable, changing P's price would be visible through both orders. If P is immutable, a price change instead requires a new product object and a deliberate replacement policy.
++
++| Action, considered independently | Order A observes | Order B observes | Why |
++| --- | --- | --- | --- |
++| Add a line to collection A | Another line | Same line count | Outer collections differ. |
++| Change quantity on line A | New quantity | Same quantity on line B | Line objects differ. |
++| Change shared mutable P's price to 12 | Price 12 | Price 12 | Both product references reach P. |
++| Shallow-copy order A while retaining its line-collection reference, then add through the copy | Another line | Same line count | The copy and A share collection A, not collection B. |
++
++**Predict before revealing:** does copying only collection A also duplicate line A and product P?
++
++```{dropdown} Follow the references
++No. A new outer collection can still contain a reference to the same line A, which in turn still refers to P. Copying the collection, copying each line, and copying products are three different decisions. Name the mutations that must be independent, then copy the objects needed to enforce that policy. Sharing an immutable product can be intentional.
++```
++
++The diagram makes the later composition rule concrete: owning a collection is not automatically owning independent copies of every object reachable from its elements.
+ 
+ 
+ <!-- cell 3e6b39ff -->
+
+--- before/chapters/12_oop/1202_polymorphism.ipynb
++++ after/chapters/12_oop/1202_polymorphism.ipynb
+@@ -116,6 +116,22 @@
+ }
+ ```
+ 
++<!-- cell core19_dispatch_trace -->
++Before opening the trace, follow the three calls at subtotal 100. Every loop variable has declared type `DiscountPolicy`; name the object it currently refers to and the implementation reached by the virtual call.
++
++```{dropdown} Dispatch trace
++| Declared reference type | Actual object | Selected implementation | Explicit base call inside it | Result |
++| --- | --- | --- | --- | ---: |
++| `DiscountPolicy` | `DiscountPolicy` | `DiscountPolicy.Apply` | None | 100.00 |
++| `DiscountPolicy` | `PercentageDiscount` at 10% | `PercentageDiscount.Apply` | `base.Apply(100m)` validates and returns 100 | 90.00 |
++| `DiscountPolicy` | `FixedDiscount` of 5 | `FixedDiscount.Apply` | `base.Apply(100m)` validates and returns 100 | 95.00 |
++
++The declared type makes `Apply` available at the call site. The runtime object selects its override. Inside an override, `base.Apply` explicitly calls the base implementation; it does not dispatch back into the override. Each row refers to one object, not a base object plus a separate derived object.
++```
++
++**Change one fact:** use subtotal 3 with the fixed reduction of 5. Predict which implementation runs, whether validation succeeds, and why the result is zero. The actual object and selected method stay the same; only the arithmetic result changes. Then use subtotal -1: base validation throws before the override can return a discount.
++
++
+ <!-- cell ae3d7942ea79 -->
+ The output is 100.00, 90.00, and 95.00. If a fourth policy preserves the same contract, this loop does not need another branch. That is the useful extension point: clients depend on the behavior available through the general type.
+ 
+
+--- before/chapters/13_abstract_data_types/1303_generics.ipynb
++++ after/chapters/13_abstract_data_types/1303_generics.ipynb
+@@ -580,6 +580,43 @@
+ 
+ 
+ 
++<!-- cell core19_query_bridge -->
++This bridge is an early exposure to compact syntax used by later examples, not a requirement to learn a second programming model. Read `x => x > 0` as “given x, return whether x is positive.” Recognize the pipeline's operations through the explicit loop you already know; return to the reminder when a later example uses that spelling.
++
++| Step on `3, -1, 2, 0` | Values now described |
++| --- | --- |
++| `Where(x => x > 0)` | `3, 2` |
++| `Select(x => x * 10)` | `30, 20` |
++| `OrderBy(x => x)` | `20, 30` |
++| `ToArray()` | A separate array containing `20, 30` |
++
++Only `ToArray` stores the pipeline's result here. Defining a query and enumerating it are separate events.
++
++
++```csharp  // cell core19_query_equivalence tags=
++using System;
++using System.Collections.Generic;
++using System.Linq;
++int[] values = { 3, -1, 2, 0 };
++var loopResult = new List<int>();
++foreach (int value in values)
++    if (value > 0) loopResult.Add(value * 10);
++loopResult.Sort();
++var query = values.Where(x => x > 0).Select(x => x * 10).OrderBy(x => x);
++int[] snapshot = query.ToArray();
++Console.WriteLine("Loop: " + string.Join(",", loopResult));
++Console.WriteLine("Snapshot: " + string.Join(",", snapshot));
++values[0] = 4;
++Console.WriteLine("Query after edit: " + string.Join(",", query));
++Console.WriteLine("Snapshot after edit: " + string.Join(",", snapshot));
++```
++
++<!-- cell core19_query_explanation -->
++The loop and first materialized query agree. Changing `values[0]` changes what a later enumeration of `query` reads, so the third line ends in `20,40`. The already-created snapshot stays `20,30`. A lambda supplies the small operation; `Where`/`Select`/`OrderBy` describe when and how to apply it. The next iterator reading develops suspended and deferred work more fully.
++
++**Prediction:** move the edit before `ToArray`. Both the new snapshot and later query enumeration would then contain `20,40`. Keep compact syntax as a recognition aid; use the explicit loop when learning or debugging the algorithm itself.
++
++
+ <!-- cell 2cb62634 -->
+ 
+ ```{index} Reading Short Expressions and Queries
+
+--- before/chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb
++++ after/chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb
+@@ -75,6 +75,33 @@
+ The output is `10` and then `20`. `first.Next.Next.Next` is `null`, so `first.Next.Next.Next.Value` would throw `NullReferenceException`; every walk along `Next` references has to stop at `null`, which is what the traversal loop in the next section does. Notice that there is no array anywhere: the three nodes can sit anywhere in memory, and only the references connect them.
+ 
+ 
++<!-- cell 2a3ca5c6 -->
++```{index} alias; linked list; reference
++```
++
++
++
++<!-- cell d32ee8a9 -->
++```{index} References Are Paths, Not Copies
++```
++
++## References Are Paths, Not Copies
++
++
++
++<!-- cell d6c2de55 -->
++Work orders may also be represented by separate node objects. A node's `Next` is a reference to another node, not an embedded copy of the remaining list. Assigning `current = head` copies a reference: both variables initially identify the same object. Changing `current` to `current.Next` moves a cursor without moving `head`.
++
++```text
++head ----> [WO-10 | next] ---> [WO-30 | null]
++current --^
++```
++
++If you traverse by repeatedly assigning to `head`, you lose your entry point to the sequence. A separate cursor preserves the list. Also distinguish changing a reference from changing an object: setting `current = current.Next` moves the cursor; setting `current.Next = ...` changes a link in the sequence.
++
++**Trace (basic):** Draw both arrows before and after one cursor advance. Which variable still reaches the first work order?
++
++
+ <!-- cell traversal-heading -->
+ ```{index} traversal; linked list
+ ```
+@@ -195,174 +222,6 @@
+ 
+ <!-- cell p4_53102c9e73 -->
+ The loop handles the empty list for free: `current` starts as `null`, the condition fails at once, and `count` stays 0. A list keeps no stored count unless its class maintains one, which is why Chapter 14's complete sequence class tracks `Count` on every insert and delete.
+-
+-
+-<!-- cell insert-heading -->
+-```{index} insertion; linked list
+-```
+-
+-
+-
+-<!-- cell 074273d6 -->
+-```{index} Insertion After a Node
+-```
+-
+-## Insertion After a Node
+-
+-
+-
+-<!-- cell insert-body -->
+-If you already have a reference to a node, inserting after it is local. Create a new node, point it to the old next node, then point the current node to the new node.
+-
+-```text
+-before: [A] -> [C]
+-after:  [A] -> [B] -> [C]
+-```
+-
+-The order of the two assignments is the whole technique. Point the new node at the old successor first; only then redirect the current node. Reversing them loses the rest of the list, because the only reference to `C` was `node.Next`, and overwriting it first leaves nothing to copy.
+-
+-
+-```csharp  // cell insert-code tags=
+-static void InsertAfter<T>(InsertNode<T> node, T value)
+-{
+-    InsertNode<T> inserted = new InsertNode<T>(value);
+-    inserted.Next = node.Next;
+-    node.Next = inserted;
+-}
+-
+-InsertNode<string> head = new InsertNode<string>("A");
+-head.Next = new InsertNode<string>("C");
+-InsertAfter(head, "B");
+-
+-for (InsertNode<string>? current = head; current is not null; current = current.Next)
+-{
+-    Console.WriteLine(current.Value);
+-}
+-
+-public class InsertNode<T>
+-{
+-    public T Value { get; }
+-    public InsertNode<T>? Next { get; set; }
+-    public InsertNode(T value) => Value = value;
+-}
+-```
+-
+-<!-- cell p3_8c156b4ec5 -->
+-The output is `A`, `B`, `C`. No node moved: `A` still sits where it was, and `C` is reached through `B` now. Trace the reversed order to see the defect: `node.Next = inserted` first makes `A` point at `B`, and then `inserted.Next = node.Next` sets `B.Next` to `B` itself, a loop that drops `C` and never ends when traversed.
+-
+-
+-<!-- cell delete-heading -->
+-```{index} deletion; linked list
+-```
+-
+-
+-
+-<!-- cell a54a2703 -->
+-```{index} Deletion After a Node
+-```
+-
+-## Deletion After a Node
+-
+-
+-
+-<!-- cell delete-body -->
+-Deleting after a known node is also local. Skip over the next node by changing one reference.
+-
+-```text
+-before: [A] -> [B] -> [C]
+-after:  [A] --------> [C]
+-```
+-
+-The method returns `false` when there is nothing after the given node, so the caller can tell "nothing removed" from "removed". Removing the *first* node is different, because no node precedes the head; the Removal, Head, and Tail Invariants section below handles that case.
+-
+-
+-```csharp  // cell delete-code tags=
+-static bool DeleteAfter<T>(DeleteNode<T> node)
+-{
+-    if (node.Next is null) return false;
+-    node.Next = node.Next.Next;
+-    return true;
+-}
+-
+-DeleteNode<string> head = new DeleteNode<string>("A");
+-head.Next = new DeleteNode<string>("B");
+-head.Next.Next = new DeleteNode<string>("C");
+-
+-DeleteAfter(head);
+-
+-for (DeleteNode<string>? current = head; current is not null; current = current.Next)
+-{
+-    Console.WriteLine(current.Value);
+-}
+-
+-public class DeleteNode<T>
+-{
+-    public T Value { get; }
+-    public DeleteNode<T>? Next { get; set; }
+-    public DeleteNode(T value) => Value = value;
+-}
+-```
+-
+-<!-- cell p3_1507ca50ba -->
+-The output is `A`, `C`. Node `B` still exists for a moment, still pointing at `C`, but nothing points at `B` any more, so it is unreachable and the runtime reclaims it. The only reference that changed is `A.Next`. Contrast this with an array, where removing the middle element means shifting every later element one slot to the left.
+-
+-
+-<!-- cell cost-heading -->
+-```{index} Costs and Tradeoffs
+-```
+-
+-
+-
+-<!-- cell 5baee189 -->
+-```{index} Costs and Tradeoffs
+-```
+-
+-## Costs and Tradeoffs
+-
+-
+-
+-<!-- cell cost-body -->
+-Linked lists make some updates cheap only after the position is known.
+-
+-| Operation | Singly linked list cost |
+-| --- | --- |
+-| Read first item | O(1) |
+-| Traverse all items | O(n) |
+-| Find by value | O(n) |
+-| Insert after known node | O(1) |
+-| Delete after known node | O(1) |
+-| Read by index | O(n) |
+-
+-The phrase "known node" matters. If the program must search for the node first, that search is part of the total cost.
+-
+-Compare the two columns of the costs table with the array's: an array reads by index in O(1) and inserts or deletes in the middle in O(n) because of shifting; the chain reverses both, reading by index in O(n) and updating in O(1) once the node is in hand. Neither side wins the search row: an unsorted sequence must be scanned in either representation. The honest way to read any linked-list claim of "constant-time insertion" is to ask how the program obtained the node reference. If it searched by value or walked to an index, that traversal belongs in the cost. If it kept the reference from an earlier operation, for example the node of the work order it just processed, the constant-time claim stands. Every linked structure later in the book, from queues to graphs, relies on exactly that habit of keeping references rather than recomputing positions.
+-
+-
+-<!-- cell 2a3ca5c6 -->
+-```{index} alias; linked list; reference
+-```
+-
+-
+-
+-<!-- cell d32ee8a9 -->
+-```{index} References Are Paths, Not Copies
+-```
+-
+-## References Are Paths, Not Copies
+-
+-
+-
+-<!-- cell d6c2de55 -->
+-Work orders may also be represented by separate node objects. A node's `Next` is a reference to another node, not an embedded copy of the remaining list. Assigning `current = head` copies a reference: both variables initially identify the same object. Changing `current` to `current.Next` moves a cursor without moving `head`.
+-
+-```text
+-head ----> [WO-10 | next] ---> [WO-30 | null]
+-current --^
+-```
+-
+-If you traverse by repeatedly assigning to `head`, you lose your entry point to the sequence. A separate cursor preserves the list. Also distinguish changing a reference from changing an object: setting `current = current.Next` moves the cursor; setting `current.Next = ...` changes a link in the sequence.
+-
+-**Trace (basic):** Draw both arrows before and after one cursor advance. Which variable still reaches the first work order?
+ 
+ 
+ <!-- cell c7bfa0cb -->
+@@ -395,6 +254,116 @@
+ **Debug (applied):** Explain the reversed-assignment bug using named nodes A, B, and C. Do not run an unbounded traversal of the broken chain.
+ 
+ 
++<!-- cell insert-heading -->
++```{index} insertion; linked list
++```
++
++
++
++<!-- cell 074273d6 -->
++```{index} Insertion After a Node
++```
++
++## Insertion After a Node
++
++
++
++<!-- cell insert-body -->
++If you already have a reference to a node, inserting after it is local. Create a new node, point it to the old next node, then point the current node to the new node.
++
++```text
++before: [A] -> [C]
++after:  [A] -> [B] -> [C]
++```
++
++The order of the two assignments is the whole technique. Point the new node at the old successor first; only then redirect the current node. Reversing them loses the rest of the list, because the only reference to `C` was `node.Next`, and overwriting it first leaves nothing to copy.
++
++
++```csharp  // cell insert-code tags=
++static void InsertAfter<T>(InsertNode<T> node, T value)
++{
++    InsertNode<T> inserted = new InsertNode<T>(value);
++    inserted.Next = node.Next;
++    node.Next = inserted;
++}
++
++InsertNode<string> head = new InsertNode<string>("A");
++head.Next = new InsertNode<string>("C");
++InsertAfter(head, "B");
++
++for (InsertNode<string>? current = head; current is not null; current = current.Next)
++{
++    Console.WriteLine(current.Value);
++}
++
++public class InsertNode<T>
++{
++    public T Value { get; }
++    public InsertNode<T>? Next { get; set; }
++    public InsertNode(T value) => Value = value;
++}
++```
++
++<!-- cell p3_8c156b4ec5 -->
++The output is `A`, `B`, `C`. No node moved: `A` still sits where it was, and `C` is reached through `B` now. Trace the reversed order to see the defect: `node.Next = inserted` first makes `A` point at `B`, and then `inserted.Next = node.Next` sets `B.Next` to `B` itself, a loop that drops `C` and never ends when traversed.
++
++
++<!-- cell delete-heading -->
++```{index} deletion; linked list
++```
++
++
++
++<!-- cell a54a2703 -->
++```{index} Deletion After a Node
++```
++
++## Deletion After a Node
++
++
++
++<!-- cell delete-body -->
++Deleting after a known node is also local. Skip over the next node by changing one reference.
++
++```text
++before: [A] -> [B] -> [C]
++after:  [A] --------> [C]
++```
++
++The method returns `false` when there is nothing after the given node, so the caller can tell "nothing removed" from "removed". Removing the *first* node is different, because no node precedes the head; the Removal, Head, and Tail Invariants section below handles that case.
++
++
++```csharp  // cell delete-code tags=
++static bool DeleteAfter<T>(DeleteNode<T> node)
++{
++    if (node.Next is null) return false;
++    node.Next = node.Next.Next;
++    return true;
++}
++
++DeleteNode<string> head = new DeleteNode<string>("A");
++head.Next = new DeleteNode<string>("B");
++head.Next.Next = new DeleteNode<string>("C");
++
++DeleteAfter(head);
++
++for (DeleteNode<string>? current = head; current is not null; current = current.Next)
++{
++    Console.WriteLine(current.Value);
++}
++
++public class DeleteNode<T>
++{
++    public T Value { get; }
++    public DeleteNode<T>? Next { get; set; }
++    public DeleteNode(T value) => Value = value;
++}
++```
++
++<!-- cell p3_1507ca50ba -->
++The output is `A`, `C`. Node `B` still exists for a moment, still pointing at `C`, but nothing points at `B` any more, so it is unreachable and the runtime reclaims it. The only reference that changed is `A.Next`. Contrast this with an array, where removing the middle element means shifting every later element one slot to the left.
++
++
+ <!-- cell 2791baa0 -->
+ ```{index} linked list; removal; head; tail
+ ```
+@@ -421,78 +390,6 @@
+ Removing the only node must clear both endpoints. Removing the last node of a longer chain must move tail to the predecessor. A tail reference makes append constant-time but does not make removal of the last node constant-time: a singly linked list still has to find that predecessor.
+ 
+ **Predict (applied):** A one-node list is emptied and then appended to. What goes wrong if removal leaves tail pointing to the old node?
+-
+-
+-<!-- cell p8_d2ad053a -->
+-```{index} A Header Node Removes Special Cases
+-```
+-
+-### A Header Node Removes Special Cases
+-
+-
+-<!-- cell p8_29a30c78 -->
+-Every operation above had a special case for the first node: inserting at the front replaces `head`, removing the first node replaces `head`, and an empty list has no node to point at. Each special case is another branch to write and test. A common simplification is a **header node**, also called a sentinel: a node that is allocated when the list is created, never stores a real value, and always sits in front of the first element. With a header, every real node has a predecessor, so insertion and removal become one case each.
+-
+-```text
+-empty:     header -> null
+-one item:  header -> [WO-10] -> null
+-```
+-
+-Insertion before the first element is now "insert after the header," and removal of the first element is "remove after the header." The cost is one extra node of memory per list and the discipline of never counting or printing the header. The example below is a list that offers only two operations, insert after a node and remove after a node, and uses them for every update, including the ones at the front.
+-
+-
+-```csharp  // cell p8_595b3120 tags=
+-using System;
+-
+-var orders = new HeaderChain<string>();
+-orders.InsertAfter(orders.Header, "WO-30");      // front insertion is "after the header"
+-orders.InsertAfter(orders.Header, "WO-10");
+-orders.InsertAfter(orders.Header.Next!, "WO-20");
+-orders.Print("after three inserts");
+-
+-orders.RemoveAfter(orders.Header);               // front removal is also one case
+-orders.Print("after removing the first");
+-orders.RemoveAfter(orders.Header);
+-orders.RemoveAfter(orders.Header);
+-orders.Print("after emptying");
+-Console.WriteLine($"RemoveAfter on empty returns {orders.RemoveAfter(orders.Header)}");
+-
+-public class HeaderChain<T>
+-{
+-    public sealed class Node
+-    {
+-        public T Value = default!;
+-        public Node? Next;
+-    }
+-    public Node Header { get; } = new Node();   // allocated once; never holds a real value
+-    public int Count { get; private set; }
+-
+-    public void InsertAfter(Node node, T value)
+-    {
+-        node.Next = new Node { Value = value, Next = node.Next };
+-        Count++;
+-    }
+-
+-    public bool RemoveAfter(Node node)
+-    {
+-        if (node.Next is null) return false;    // the only check: is there a successor?
+-        node.Next = node.Next.Next;
+-        Count--;
+-        return true;
+-    }
+-
+-    public void Print(string label)
+-    {
+-        var values = new System.Collections.Generic.List<string>();
+-        for (Node? current = Header.Next; current is not null; current = current.Next)
+-            values.Add($"{current.Value}");
+-        Console.WriteLine($"{label}: [{string.Join(", ", values)}] count={Count}");
+-    }
+-}
+-```
+-
+-<!-- cell p8_8e0120fb -->
+-The first line shows `[WO-10, WO-20, WO-30]`: two inserts after the header each pushed a value to the front, and the third insert went after the first real node. The removals then use the same `RemoveAfter(Header)` call three times, with no branch asking whether the list is about to become empty, and the final call on an empty list returns `false` because the header's `Next` is `null`. Compare this with `WorkOrderChain<T>` below, whose `RemoveAt(0)` and `Insert(0, value)` each need an `if` for the head. The header buys that simplicity for one node of memory. The traversal in `Print` starts at `Header.Next`, not at `Header`; starting at the header itself is the one new mistake this design introduces, and it shows up as a phantom default value at the front of every printout.
+ 
+ 
+ <!-- cell 7297e30b -->
+@@ -602,6 +499,109 @@
+ **Extend (challenge):** Add an iterator using chapter 14's `yield return`. Compare a single traversal with repeated indexer reads. Explain what should happen if clients modify the list during iteration; production collections define such behavior explicitly.
+ 
+ 
++<!-- cell p8_d2ad053a -->
++```{index} A Header Node Removes Special Cases
++```
++
++### A Header Node Removes Special Cases
++
++
++<!-- cell p8_29a30c78 -->
++Every operation above had a special case for the first node: inserting at the front replaces `head`, removing the first node replaces `head`, and an empty list has no node to point at. Each special case is another branch to write and test. A common simplification is a **header node**, also called a sentinel: a node that is allocated when the list is created, never stores a real value, and always sits in front of the first element. With a header, every real node has a predecessor, so insertion and removal become one case each.
++
++```text
++empty:     header -> null
++one item:  header -> [WO-10] -> null
++```
++
++Insertion before the first element is now "insert after the header," and removal of the first element is "remove after the header." The cost is one extra node of memory per list and the discipline of never counting or printing the header. The example below is a list that offers only two operations, insert after a node and remove after a node, and uses them for every update, including the ones at the front.
++
++
++```csharp  // cell p8_595b3120 tags=
++using System;
++
++var orders = new HeaderChain<string>();
++orders.InsertAfter(orders.Header, "WO-30");      // front insertion is "after the header"
++orders.InsertAfter(orders.Header, "WO-10");
++orders.InsertAfter(orders.Header.Next!, "WO-20");
++orders.Print("after three inserts");
++
++orders.RemoveAfter(orders.Header);               // front removal is also one case
++orders.Print("after removing the first");
++orders.RemoveAfter(orders.Header);
++orders.RemoveAfter(orders.Header);
++orders.Print("after emptying");
++Console.WriteLine($"RemoveAfter on empty returns {orders.RemoveAfter(orders.Header)}");
++
++public class HeaderChain<T>
++{
++    public sealed class Node
++    {
++        public T Value = default!;
++        public Node? Next;
++    }
++    public Node Header { get; } = new Node();   // allocated once; never holds a real value
++    public int Count { get; private set; }
++
++    public void InsertAfter(Node node, T value)
++    {
++        node.Next = new Node { Value = value, Next = node.Next };
++        Count++;
++    }
++
++    public bool RemoveAfter(Node node)
++    {
++        if (node.Next is null) return false;    // the only check: is there a successor?
++        node.Next = node.Next.Next;
++        Count--;
++        return true;
++    }
++
++    public void Print(string label)
++    {
++        var values = new System.Collections.Generic.List<string>();
++        for (Node? current = Header.Next; current is not null; current = current.Next)
++            values.Add($"{current.Value}");
++        Console.WriteLine($"{label}: [{string.Join(", ", values)}] count={Count}");
++    }
++}
++```
++
++<!-- cell p8_8e0120fb -->
++The first line shows `[WO-10, WO-20, WO-30]`: two inserts after the header each pushed a value to the front, and the third insert went after the first real node. The removals then use the same `RemoveAfter(Header)` call three times, with no branch asking whether the list is about to become empty, and the final call on an empty list returns `false` because the header's `Next` is `null`. Compare this with `WorkOrderChain<T>` above, whose `RemoveAt(0)` and `Insert(0, value)` each need an `if` for the head. The header buys that simplicity for one node of memory. The traversal in `Print` starts at `Header.Next`, not at `Header`; starting at the header itself is the one new mistake this design introduces, and it shows up as a phantom default value at the front of every printout.
++
++
++<!-- cell cost-heading -->
++```{index} Costs and Tradeoffs
++```
++
++
++
++<!-- cell 5baee189 -->
++```{index} Costs and Tradeoffs
++```
++
++## Costs and Tradeoffs
++
++
++
++<!-- cell cost-body -->
++Linked lists make some updates cheap only after the position is known.
++
++| Operation | Singly linked list cost |
++| --- | --- |
++| Read first item | O(1) |
++| Traverse all items | O(n) |
++| Find by value | O(n) |
++| Insert after known node | O(1) |
++| Delete after known node | O(1) |
++| Read by index | O(n) |
++
++The phrase "known node" matters. If the program must search for the node first, that search is part of the total cost.
++
++Compare the two columns of the costs table with the array's: an array reads by index in O(1) and inserts or deletes in the middle in O(n) because of shifting; the chain reverses both, reading by index in O(n) and updating in O(1) once the node is in hand. Neither side wins the search row: an unsorted sequence must be scanned in either representation. The honest way to read any linked-list claim of "constant-time insertion" is to ask how the program obtained the node reference. If it searched by value or walked to an index, that traversal belongs in the cost. If it kept the reference from an earlier operation, for example the node of the work order it just processed, the constant-time claim stands. Every linked structure later in the book, from queues to graphs, relies on exactly that habit of keeping references rather than recomputing positions.
++
++
+ <!-- cell 3e563f29 -->
+ ```{index} doubly linked list; predecessor; memory overhead
+ ```
+
+--- before/chapters/20_graphs/2004_depth_first_components.ipynb
++++ after/chapters/20_graphs/2004_depth_first_components.ipynb
+@@ -307,6 +307,10 @@
+ 
+ 
+ 
++<!-- cell core19_component_path -->
++Use the direction comparison below before extending the traversal into a component report. One-way reachability is a source-dependent result; an undirected component is a mutually reachable group under symmetric edges. The two retained explanations now form one comparison, followed by its implementation and the existing verification synthesis.
++
++
+ <!-- cell 7b2f0381 -->
+ For a symmetric undirected adjacency model, repeated traversals from undiscovered vertices partition the graph into connected components. Every vertex belongs to exactly one such component, and an isolated vertex forms a component by itself. Directed reachability is not symmetric: A may reach B even when B cannot reach A. Repeating ordinary forward searches in arbitrary order does not automatically compute strongly connected components.
+ 
+@@ -315,55 +319,29 @@
+ Guided comparison: draw a graph where A connects directly to D but also begins a long chain that eventually reaches D. Process the chain neighbor first. Predict a DFS route and a BFS route. Then reverse one edge in the chain and identify which reachability claims must be reconsidered. Explain the observed difference using the frontier policy and edge directions rather than the generic phrase graph search.
+ 
+ 
+-<!-- cell ba_13cae13d53b5db86d9 -->
+-```{index} Extend Reachability into a Component Report
+-```
+-
+-### Extend Reachability into a Component Report
+-
+-
+-<!-- cell ba_e35c477100d4ad821a -->
+-For an undirected graph, a component is the maximal group reachable from any of its members. Keep the discovered set across searches, then start another search from each undiscovered vertex. Starting a new traversal from a vertex that is already discovered would split or duplicate a component.
+-
+-Guided task: after searching from A, which source starts another component? What is the answer for an empty graph? Then predict the report after adding isolated F. The following standalone example makes the labels visible without the full graph class.
+-
+-
+-```csharp  // cell ba_bfb6b140924d8d2a0c tags=
+-using System;
+-using System.Collections.Generic;
+-var neighbors = new Dictionary<string, string[]>
+-{
+-    ["A"] = new[] { "B", "C" }, ["B"] = new[] { "A", "D" },
+-    ["C"] = new[] { "A", "D" }, ["D"] = new[] { "B", "C" }, ["E"] = Array.Empty<string>()
+-};
+-var component = new Dictionary<string, int>();
+-void Label(string room, int id)
+-{
+-    component[room] = id;
+-    foreach (string next in neighbors[room])
+-        if (!component.ContainsKey(next)) Label(next, id);
+-}
+-int count = 0;
+-foreach (string room in new[] { "A", "B", "C", "D", "E" })
+-    if (!component.ContainsKey(room)) Label(room, ++count);
+-foreach (string room in new[] { "A", "B", "C", "D", "E" })
+-    Console.WriteLine($"{room}: component {component[room]}");
+-Console.WriteLine($"Components: {count}");
+-```
+-
+-<!-- cell ba_a9f2014603d46e90b4 -->
+-E starts component two. An empty graph starts none; adding isolated F produces three. Component numbers depend on the declared start order, but membership equivalence does not: A and D must share a component and E must remain separate. Before independent practice, explain why these symmetric edges support undirected components while an arbitrary directed reachability report does not compute strongly connected components. The full implementations below retain their stronger input validation and source/path exercises.
+-
+-
+-<!-- cell p5_720a9c1631 -->
+-**Common mistake.** Calling `Components` on a directed graph and reading the result as strongly connected components. A forward search from Approve reaches Pay, but not the reverse, so the two are not mutually reachable; the method refuses directed graphs for that reason.
++<!-- cell 3615022f -->
++```{index} Components and Direction
++```
++
++### Components and Direction
++
++
++
++<!-- cell 82515936 -->
++
++```{index} connected components; directed graph
++```
++
++
++<!-- cell 79390291 -->
++The component method in Chapter 20 requires symmetric adjacency. A directed reachability search does not compute strongly connected components. Choose the mathematical contract before selecting an implementation. Use the Chapter 26 lab to connect traversal evidence with network coverage and the limits of heuristic routing.
+ 
+ 
+ <!-- cell d60adbf69cae -->
+ ```{index} Connected Components and Direction
+ ```
+ 
+-### Connected Components and Direction
++#### Connected Components and Direction
+ 
+ 
+ 
+@@ -507,22 +485,48 @@
+ The output is `Lobby, Hall, Lab, Office`, then `Remote`, then `True`. The undirected graph has two components, the second being the isolated room. In the directed pair, Approve reaches Pay but the BFS from Pay reports Approve as unreachable, which is why forward reachability is not the same thing as a component.
+ 
+ 
+-<!-- cell 3615022f -->
+-```{index} Components and Direction
+-```
+-
+-### Components and Direction
+-
+-
+-
+-<!-- cell 82515936 -->
+-
+-```{index} connected components; directed graph
+-```
+-
+-
+-<!-- cell 79390291 -->
+-The component method in Chapter 20 requires symmetric adjacency. A directed reachability search does not compute strongly connected components. Choose the mathematical contract before selecting an implementation. Use the Chapter 26 lab to connect traversal evidence with network coverage and the limits of heuristic routing.
++<!-- cell ba_13cae13d53b5db86d9 -->
++```{index} Extend Reachability into a Component Report
++```
++
++### Extend Reachability into a Component Report
++
++
++<!-- cell ba_e35c477100d4ad821a -->
++For an undirected graph, a component is the maximal group reachable from any of its members. Keep the discovered set across searches, then start another search from each undiscovered vertex. Starting a new traversal from a vertex that is already discovered would split or duplicate a component.
++
++Guided task: after searching from A, which source starts another component? What is the answer for an empty graph? Then predict the report after adding isolated F. The following standalone example makes the labels visible without the full graph class.
++
++
++```csharp  // cell ba_bfb6b140924d8d2a0c tags=
++using System;
++using System.Collections.Generic;
++var neighbors = new Dictionary<string, string[]>
++{
++    ["A"] = new[] { "B", "C" }, ["B"] = new[] { "A", "D" },
++    ["C"] = new[] { "A", "D" }, ["D"] = new[] { "B", "C" }, ["E"] = Array.Empty<string>()
++};
++var component = new Dictionary<string, int>();
++void Label(string room, int id)
++{
++    component[room] = id;
++    foreach (string next in neighbors[room])
++        if (!component.ContainsKey(next)) Label(next, id);
++}
++int count = 0;
++foreach (string room in new[] { "A", "B", "C", "D", "E" })
++    if (!component.ContainsKey(room)) Label(room, ++count);
++foreach (string room in new[] { "A", "B", "C", "D", "E" })
++    Console.WriteLine($"{room}: component {component[room]}");
++Console.WriteLine($"Components: {count}");
++```
++
++<!-- cell ba_a9f2014603d46e90b4 -->
++E starts component two. An empty graph starts none; adding isolated F produces three. Component numbers depend on the declared start order, but membership equivalence does not: A and D must share a component and E must remain separate. Before independent practice, explain why these symmetric edges support undirected components while an arbitrary directed reachability report does not compute strongly connected components. The full implementations below retain their stronger input validation and source/path exercises.
++
++
++<!-- cell p5_720a9c1631 -->
++**Common mistake.** Calling `Components` on a directed graph and reading the result as strongly connected components. A forward search from Approve reaches Pay, but not the reverse, so the two are not mutually reachable; the method refuses directed graphs for that reason.
+ 
+ 
+ <!-- cell 3526fe2c9435 -->
+
+--- before/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
++++ after/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb
+@@ -79,7 +79,49 @@
+ Dijkstra minimizes path cost from one known source. Directed arcs here specify allowed travel direction; supply both directions when modeling two-way roads. Validate every arc, including unreachable ones, before running: weights must be nonnegative, endpoints known, and loops excluded by this teaching interface. Zero weights are valid. Nullable long distances represent infinity without confusing a valid int.MaxValue path with absence.
+ 
+ 
+-```csharp  // cell 6da0ca4e tags=
++<!-- cell core19_dijkstra_path -->
++**Reading path:** first trace the small, complete settle-and-relax program below. It uses a scan to choose the next vertex so that queue infrastructure does not hide the invariant. Then compare the complete priority-queue implementation, stale-entry trace, path reconstruction and verification reference. Every runnable cell includes its own setup; later examples never depend on running this cell first.
++
++
++```csharp  // cell p8_d05bac9b tags=
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++string[] v = { "HQ", "Lab", "Shop", "Depot", "Remote" };
++var arcs = new[] { ("HQ", "Shop", 2), ("HQ", "Lab", 6), ("Shop", "Lab", 3), ("Lab", "Depot", 4), ("Shop", "Depot", 5) };
++int n = v.Length;
++int Index(string name) => Array.IndexOf(v, name);
++long?[] distance = new long?[n];
++bool[] settled = new bool[n];
++distance[Index("HQ")] = 0;
++
++for (int round = 0; round < n; round++)
++{
++    int next = -1;                                                       // scan for the nearest unsettled vertex
++    for (int i = 0; i < n; i++)
++        if (!settled[i] && distance[i] is not null && (next < 0 || distance[i] < distance[next])) next = i;
++    if (next < 0) break;                                                 // everything reachable is settled
++    settled[next] = true;
++    Console.WriteLine($"settle {v[next]} ({distance[next]})");
++    foreach (var (from, to, cost) in arcs.Where(a => a.Item1 == v[next]))
++    {
++        int t = Index(to);
++        if (distance[t] is null || distance[next] + cost < distance[t]) { distance[t] = distance[next] + cost; Console.WriteLine($"  relax {from}->{to}: {distance[t]}"); }
++    }
++}
++Console.WriteLine(string.Join(", ", v.Select((name, i) => $"{name}={(distance[i]?.ToString() ?? "unreachable")}")));
++```
++
++<!-- cell p8_19013efd -->
++The settle order is HQ, Shop, Lab, Depot; compare these same distances with the priority-queue version below; the stale `Lab (6)` entry that the heap had to skip never exists here, because the array simply holds Lab's improved distance of 5 when the scan reaches it. The loop ends after four rounds when no unsettled vertex has a finite distance, which is how an array-scan Dijkstra detects that Remote is unreachable. Five vertices make the scan trivial; with 10,000 intersections and 30,000 roads the scan would do 100 million steps where the heap does a few hundred thousand.
++
++
++<!-- cell core19_reveal_6da0ca4e -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell 6da0ca4e tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -214,7 +256,11 @@
+ Improving a distance enqueues a new entry; the old entry remains in the library queue. Compare its stored priority with the current best distance and skip stale entries. Strict improvement also avoids endless equal-distance updates around zero-weight cycles.
+ 
+ 
+-```csharp  // cell ffd24fc8 tags=
++<!-- cell core19_reveal_ffd24fc8 -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell ffd24fc8 tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -334,6 +380,10 @@
+ ### Two Ways to Pick the Next Vertex
+ 
+ 
++<!-- cell core19_dijkstra_scan_reference -->
++The focused scan-based program earlier in this reading supplied the concrete version. Compare that selection step with the priority-queue examples surrounding this note; both choose a smallest unsettled tentative distance under the same nonnegative-weight contract. The code and its output interpretation remain together in the first demonstration.
++
++
+ <!-- cell p8_55dff688 -->
+ Dijkstra's algorithm repeatedly needs the unsettled vertex with the smallest tentative distance. The priority-queue version above finds it in O(log V) per pop but must tolerate stale entries. The older alternative keeps the tentative distances in an array and scans it for the minimum each time: O(V) per selection, V selections, so O(V²) in total, with no queue and no stale entries at all. Which is faster depends on the graph's density.
+ 
+@@ -348,40 +398,6 @@
+ For a road network, where each intersection touches a handful of roads, the heap version is far faster; for a complete graph of pairwise transfer costs, the array scan does less work and is simpler. The example implements the array-scan version on the five-site graph and shows that it settles the vertices in the same order and reaches the same distances as the heap version above.
+ 
+ 
+-```csharp  // cell p8_d05bac9b tags=
+-using System;
+-using System.Collections.Generic;
+-using System.Linq;
+-
+-string[] v = { "HQ", "Lab", "Shop", "Depot", "Remote" };
+-var arcs = new[] { ("HQ", "Shop", 2), ("HQ", "Lab", 6), ("Shop", "Lab", 3), ("Lab", "Depot", 4), ("Shop", "Depot", 5) };
+-int n = v.Length;
+-int Index(string name) => Array.IndexOf(v, name);
+-long?[] distance = new long?[n];
+-bool[] settled = new bool[n];
+-distance[Index("HQ")] = 0;
+-
+-for (int round = 0; round < n; round++)
+-{
+-    int next = -1;                                                       // scan for the nearest unsettled vertex
+-    for (int i = 0; i < n; i++)
+-        if (!settled[i] && distance[i] is not null && (next < 0 || distance[i] < distance[next])) next = i;
+-    if (next < 0) break;                                                 // everything reachable is settled
+-    settled[next] = true;
+-    Console.WriteLine($"settle {v[next]} ({distance[next]})");
+-    foreach (var (from, to, cost) in arcs.Where(a => a.Item1 == v[next]))
+-    {
+-        int t = Index(to);
+-        if (distance[t] is null || distance[next] + cost < distance[t]) { distance[t] = distance[next] + cost; Console.WriteLine($"  relax {from}->{to}: {distance[t]}"); }
+-    }
+-}
+-Console.WriteLine(string.Join(", ", v.Select((name, i) => $"{name}={(distance[i]?.ToString() ?? "unreachable")}")));
+-```
+-
+-<!-- cell p8_19013efd -->
+-The settle order is HQ, Shop, Lab, Depot and the distances match the heap version exactly; the stale `Lab (6)` entry that the heap had to skip never exists here, because the array simply holds Lab's improved distance of 5 when the scan reaches it. The loop ends after four rounds when no unsettled vertex has a finite distance, which is how an array-scan Dijkstra detects that Remote is unreachable. Five vertices make the scan trivial; with 10,000 intersections and 30,000 roads the scan would do 100 million steps where the heap does a few hundred thousand.
+-
+-
+ <!-- cell bd69ca25 -->
+ ```{index} Reconstruct Only Reachable Routes
+ ```
+@@ -400,7 +416,11 @@
+ A predecessor records the previous vertex on a strict improving route. Follow predecessors backward and reverse with a stack. Return an empty path for a known unreachable vertex, a singleton for the source, and reject an unknown target. Distance/predecessor maps are read-only views; do not fabricate a one-vertex route for an unreachable destination.
+ 
+ 
+-```csharp  // cell aac0f03d tags=
++<!-- cell core19_reveal_aac0f03d -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell aac0f03d tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -672,7 +692,11 @@
+ Suppose HQ→Client has one edge costing 100, while HQ→Helpdesk→Client costs 1+1. BFS chooses one hop; a nonnegative weighted shortest-path algorithm chooses cost two. Chapter 24 provides the complete guarded Dijkstra implementation. Negative weights require another algorithm, and a reachable negative cycle on a route to the target can mean no finite minimum exists.
+ 
+ 
+-```csharp  // cell 512276a8 tags=
++<!-- cell core19_reveal_512276a8 -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell 512276a8 tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -809,7 +833,11 @@
+ On an undirected triangle, A–B=2, B–C=2, A–C=3. The MST has total cost four, but its A-to-C route costs four; the direct road costs three. Thus minimal network total does not imply minimal source routes.
+ 
+ 
+-```csharp  // cell 6efaef75 tags=
++<!-- cell core19_reveal_6efaef75 -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell 6efaef75 tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -1164,6 +1192,10 @@
+ The output is `C=2147483648, route=A->B->C, remote path length=0` and `unreachable negative arc rejected`. The distance exceeds `int.MaxValue` by one and is correct because distances are `long`; the unreachable vertex gets an empty path; and the negative arc is rejected by validation even though no route would ever use it.
+ 
+ 
++<!-- cell core19_dijkstra_reference -->
++The rest of the reading is the complete implementation and verification reference. Expand a model when checking a path witness, wide distance or invalid input. The source and saved examples are preserved in full. Use the earlier distance table and relaxation completion to explain the algorithm; use these larger programs to inspect the surrounding contracts and independent checks.
++
++
+ <!-- cell c1eb7282 -->
+ ```{index} Verify Delivery Routes Independently
+ ```
+@@ -1182,7 +1214,11 @@
+ Supply directed travel arcs and check each reconstructed path’s cost against the reported distance. Check source, unreachable, and reachable targets. A reachable path must not be accepted merely because its endpoint matches.
+ 
+ 
+-```csharp  // cell 311d6d4f tags=
++<!-- cell core19_reveal_311d6d4f -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell 311d6d4f tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+@@ -1322,7 +1358,11 @@
+ Exercise empty forests, singleton/isolate routes, zero weights, signed MST edges, and invalid inputs. MST negative costs are valid; Dijkstra negative costs are not. Distinguish invalid inputs from valid but disconnected data.
+ 
+ 
+-```csharp  // cell dcb91b96 tags=
++<!-- cell core19_reveal_dcb91b96 -->
++**Complete standalone program:** expand the code below to inspect the full supporting model. Its declarations are retained in this cell so it runs independently; the surrounding explanation identifies the operation or check to focus on.
++
++
++```csharp  // cell dcb91b96 tags=hide-input
+ using System;
+ using System.Linq;
+ using System.Collections.Generic;
+
+--- before/chapters/11_object_design/1105_value_record_types.ipynb
++++ after/chapters/11_object_design/1105_value_record_types.ipynb
+@@ -107,6 +107,10 @@
+ 
+ 
+ 
++<!-- cell core19_record_copy_link -->
++Reuse the {ref}`shared-product copy diagram <core-copy-depth>` when reading `with`: a new outer record does not by itself duplicate objects referenced by its members. Decide which observations should change before treating a record copy as independent.
++
++
+ <!-- cell cde03997 -->
+ 
+ ```{index} Records: Data and Equality
+
+--- before/chapters/11_object_design/1102_composition.ipynb
++++ after/chapters/11_object_design/1102_composition.ipynb
+@@ -7,6 +7,10 @@
+ :local:
+ :depth: 2
+ ```
++
++
++<!-- cell core19_composition_copy_link -->
++The {ref}`copy-depth diagram <core-copy-depth>` distinguishes separate order collections, separate line objects, and a deliberately shared product. Use that distinction while checking which objects this order owns and which it shares.
+ 
+ 
+ <!-- cell c79f24b3 -->
+
+--- before/chapters/02_var_data/MATERIALS.md
++++ after/chapters/02_var_data/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Variables and Data Types
++
++## Core Depth Revision (2026-10-19)
++
++C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/02_var_data/ORGANIZATION.md
++++ after/chapters/02_var_data/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization — Variables and Data Types
++
++## Core Depth Revision (2026-10-19)
++
++C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/03_decision/MATERIALS.md
++++ after/chapters/03_decision/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Decision Structures
++
++## Core Depth Revision (2026-10-19)
++
++C03: retain the service-code problem as framing, develop if/else-if/nesting/switch first, then return to the preserved cross-form comparison. Add a standalone, top-level branch-order repair and an inclusive-boundary/invalid-case trace. No methods or loops are prerequisites.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/03_decision/ORGANIZATION.md
++++ after/chapters/03_decision/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization — Decision Structures
++
++## Core Depth Revision (2026-10-19)
++
++C03: retain the service-code problem as framing, develop if/else-if/nesting/switch first, then return to the preserved cross-form comparison. Add a standalone, top-level branch-order repair and an inclusive-boundary/invalid-case trace. No methods or loops are prerequisites.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/05_methods/MATERIALS.md
++++ after/chapters/05_methods/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Methods
++
++## Core Depth Revision (2026-10-19)
++
++C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/05_methods/ORGANIZATION.md
++++ after/chapters/05_methods/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization — Methods
++
++## Core Depth Revision (2026-10-19)
++
++C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/06_exceptions_testing/MATERIALS.md
++++ after/chapters/06_exceptions_testing/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Testing, Debugging, and Error Handling
++
++## Core Depth Revision (2026-10-19)
++
++C05: place the familiar Credits debugger investigation before the workflow reference and retained array/CSV transfers. The current chapter needs only scalar loops and methods; arrays are a later transfer after Chapter 7. Correct the array-loop comment to i < scores.Length; retain the intentional bug and all expected-output evidence.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/06_exceptions_testing/ORGANIZATION.md
++++ after/chapters/06_exceptions_testing/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization: Testing, Debugging, and Error Handling
++
++## Core Depth Revision (2026-10-19)
++
++C05: place the familiar Credits debugger investigation before the workflow reference and retained array/CSV transfers. The current chapter needs only scalar loops and methods; arrays are a later transfer after Chapter 7. Correct the array-loop comment to i < scores.Length; retain the intentional bug and all expected-output evidence.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/07_arrays/MATERIALS.md
++++ after/chapters/07_arrays/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Arrays
++
++## Core Depth Revision (2026-10-19)
++
++C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/07_arrays/ORGANIZATION.md
++++ after/chapters/07_arrays/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization — Arrays
++
++## Core Depth Revision (2026-10-19)
++
++C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/08_collections/MATERIALS.md
++++ after/chapters/08_collections/MATERIALS.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Materials — Data Collections
++
++## Core Depth Revision (2026-10-19)
++
++C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/08_collections/ORGANIZATION.md
++++ after/chapters/08_collections/ORGANIZATION.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Organization — Data Collections
++
++## Core Depth Revision (2026-10-19)
++
++C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/09_files_text/MATERIALS.md
++++ after/chapters/09_files_text/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials — Files and Text
++
++## Core Depth Revision (2026-10-19)
++
++C08: correct the claim that int.TryParse rejects surrounding whitespace. Preserve the valid-record demonstration and later TryParseStudent parser. Add a complete accepted/rejected record matrix and standalone shape/parse/domain check, explaining why parsing and business validity differ.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/09_files_text/ORGANIZATION.md
++++ after/chapters/09_files_text/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Chapter Organization — Files and Text
++
++## Core Depth Revision (2026-10-19)
++
++C08: correct the claim that int.TryParse rejects surrounding whitespace. Preserve the valid-record demonstration and later TryParseStudent parser. Add a complete accepted/rejected record matrix and standalone shape/parse/domain check, explaining why parsing and business validity differ.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/10_classes/MATERIALS.md
++++ after/chapters/10_classes/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Chapter Materials: Classes and Objects
++
++## Core Depth Revision (2026-10-19)
++
++C09: preserve tuple creation/return/deconstruction/collection examples and the existing guided shipment-summary attempt. Add output interpretation, name-to-component mapping, and an explicit non-null/nonempty SalesRange input contract; no optional reading or assignment changes.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/10_classes/ORGANIZATION.md
++++ after/chapters/10_classes/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Organization: Classes and Objects
++
++## Core Depth Revision (2026-10-19)
++
++C09: preserve tuple creation/return/deconstruction/collection examples and the existing guided shipment-summary attempt. Add output interpretation, name-to-component mapping, and an explicit non-null/nonempty SalesRange input contract; no optional reading or assignment changes.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/11_object_design/MATERIALS.md
++++ after/chapters/11_object_design/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Materials: Object Design and Composition
++
++## Core Depth Revision (2026-10-19)
++
++C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/11_object_design/ORGANIZATION.md
++++ after/chapters/11_object_design/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Organization: Object Design and Composition
++
++## Core Depth Revision (2026-10-19)
++
++C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/12_oop/MATERIALS.md
++++ after/chapters/12_oop/MATERIALS.md
+@@ -1,4 +1,10 @@
+ # Materials: Inheritance, Interfaces, and Polymorphism
++
++## Core Depth Revision (2026-10-19)
++
++C11: add a learner prediction and declared-type/actual-object/override/base-call/result trace beside the existing policy example. Preserve current interface/test-double progression and the optional OOP examples.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ Active sections: `1201_inheritance`, `1202_polymorphism`, and `1203_interfaces`. Examples use discount policies, checkout components, employees, and payments. Each runnable cell is complete.
+ 
+
+--- before/chapters/12_oop/ORGANIZATION.md
++++ after/chapters/12_oop/ORGANIZATION.md
+@@ -1,4 +1,10 @@
+ # Organization: Inheritance, Interfaces, and Polymorphism
++
++## Core Depth Revision (2026-10-19)
++
++C11: add a learner prediction and declared-type/actual-object/override/base-call/result trace beside the existing policy example. Preserve current interface/test-double progression and the optional OOP examples.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Objectives and Prerequisites
+ 
+
+--- before/chapters/13_abstract_data_types/MATERIALS.md
++++ after/chapters/13_abstract_data_types/MATERIALS.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Materials — ADTs
++
++## Core Depth Revision (2026-10-19)
++
++C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/13_abstract_data_types/ORGANIZATION.md
++++ after/chapters/13_abstract_data_types/ORGANIZATION.md
+@@ -3,6 +3,20 @@
+ ---
+ 
+ # Chapter Organization — ADTs
++
++## Core Depth Revision (2026-10-19)
++
++C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
++
++### Current Three-Meeting Map
++
++- Meeting one, 35 minutes: ADT client contracts, representation independence and one concrete cost trace, drawing selected passages from 13.1 and 13.2.
++- Meeting two, 40 minutes: the generic method/class contract, required constraints and ordering/equality distinctions in 13.3. The compact syntax bridge is recognition and a worked comparison, not a second language unit.
++- Meeting three, 35 minutes: foreach/iterator state, yield, deferred enumeration and verification in 13.4, returning to the earlier ADT contract. Compare the complete hand-written enumerator as a reference model after the yield path.
++
++Total: 110 minutes. Four readings support three meetings; the full reading/examples remain available, and this allocation does not claim to read or execute every cell live. No core reading is reclassified as optional.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+@@ -147,4 +161,4 @@
+ 
+ ## OpenDSA-Modeled Development (2026-10-19)
+ 
+-Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. Section timing stays within one 35-40 minute segment each: the additions are roughly 500-700 prose words and two or three short cells per page. See MATERIALS.md for the gap list.
++Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. The earlier per-reading timing estimate is superseded by the current three-meeting map at the top of this file. Reading count and added words do not establish actual lecture duration. See MATERIALS.md for the gap list.
+
+--- before/chapters/14_arrays_linked_lists/MATERIALS.md
++++ after/chapters/14_arrays_linked_lists/MATERIALS.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Materials: Linear Lists
++
++## Core Depth Revision (2026-10-19)
++
++C13: introduce reference/cursor interpretation before traversal and connect the lost-link trace to the first insertion. Complete the original singly linked representation before comparing the preserved sentinel variant. Keep deletion, invariants, complete implementations, exercises and anchors.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Active Notebooks
+ 
+
+--- before/chapters/14_arrays_linked_lists/ORGANIZATION.md
++++ after/chapters/14_arrays_linked_lists/ORGANIZATION.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Organization: Linear Lists
++
++## Core Depth Revision (2026-10-19)
++
++C13: introduce reference/cursor interpretation before traversal and connect the lost-link trace to the first insertion. Complete the original singly linked representation before comparing the preserved sentinel variant. Keep deletion, invariants, complete implementations, exercises and anchors.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Learning Objectives
+ 
+
+--- before/chapters/20_graphs/MATERIALS.md
++++ after/chapters/20_graphs/MATERIALS.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Materials: Graphs and Traversal
++
++## Core Depth Revision (2026-10-19)
++
++C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/20_graphs/ORGANIZATION.md
++++ after/chapters/20_graphs/ORGANIZATION.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Organization: Graphs and Traversal
++
++## Core Depth Revision (2026-10-19)
++
++C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+
+--- before/chapters/24_greedy_graph_optimization/MATERIALS.md
++++ after/chapters/24_greedy_graph_optimization/MATERIALS.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Materials — Greedy Algorithms
++
++## Core Depth Revision (2026-10-19)
++
++C15: begin the Dijkstra reading with its retained small complete scan-based program and interpretation, then compare the priority-queue implementation and path verification. Label/collapse repeated large complete demonstration programs without removing their setup. Visible exercise starters, all boundary cases and every complete implementation remain available.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+--- before/chapters/24_greedy_graph_optimization/ORGANIZATION.md
++++ after/chapters/24_greedy_graph_optimization/ORGANIZATION.md
+@@ -3,6 +3,12 @@
+ ---
+ 
+ # Chapter Organization — Greedy Algorithms
++
++## Core Depth Revision (2026-10-19)
++
++C15: begin the Dijkstra reading with its retained small complete scan-based program and interpretation, then compare the priority-queue implementation and path verification. Label/collapse repeated large complete demonstration programs without removing their setup. Visible exercise starters, all boundary cases and every complete implementation remain available.
++
++This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+ 
+ ## B-A Development Follow-up (2026-10-18)
+ 
+
+
+--- before/_ext/subject_index_entries.json
++++ after/_ext/subject_index_entries.json
+@@ -5080,5 +5080,9 @@
+   ],
+   "yield return": [
+     "yield return"
++  ],
++  "method; definition and call": [
++    "methods; definition",
++    "methods; calls"
+   ]
+ }

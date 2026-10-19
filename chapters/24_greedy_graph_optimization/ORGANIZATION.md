@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Organization — Greedy Algorithms
 
+## Core Depth Revision (2026-10-19)
+
+C15: begin the Dijkstra reading with its retained small complete scan-based program and interpretation, then compare the priority-queue implementation and path verification. Label/collapse repeated large complete demonstration programs without removing their setup. Visible exercise starters, all boundary cases and every complete implementation remain available.
+
+This current arrangement supersedes conflicting historical outlines below. Assignments and optional/supporting readings are unchanged. Existing explanations, examples, exercise identities and published paths are preserved. Verification and cell-preservation evidence are recorded in `authoring/core_depth_revision/`.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |
