@@ -99,6 +99,11 @@ function initializeCsharpExecution() {
         output.hidden = true;
         output.setAttribute("aria-live", "polite");
 
+        // Where trace_viewer.js renders the stepper for an output holding @@trace lines.
+        const traceHost = document.createElement("div");
+        traceHost.className = "cscs-trace-host";
+        traceHost.hidden = true;
+
         // "You ran this on ..." under a run restored from the reader's saved state.
         const ranNote = document.createElement("div");
         ranNote.className = "cscs-ran-note";
@@ -123,7 +128,7 @@ function initializeCsharpExecution() {
         let suppressChange = false;
 
         function placeCellTail() {
-            cell.append(controls, output, ranNote, expectedToggle);
+            cell.append(controls, output, traceHost, ranNote, expectedToggle);
             if (storedOutput) cell.appendChild(storedOutput);
         }
 
@@ -169,7 +174,7 @@ function initializeCsharpExecution() {
                 copyLabel.className = "cscs-student-copy-label";
                 copyLabel.textContent = "Your version";
                 copy.appendChild(copyLabel);
-                copy.append(editor, controls, output, ranNote);
+                copy.append(editor, controls, output, traceHost, ranNote);
                 cell.after(copy);
                 editor.hidden = false;
                 isStudentCopy = true;
@@ -214,6 +219,7 @@ function initializeCsharpExecution() {
             editor.value = executableCode;
             output.hidden = true;
             output.textContent = "";
+            notifyOutput();
             clearRecord();
             stdinRequested = false;
             updateStdinVisibility();
@@ -286,6 +292,7 @@ function initializeCsharpExecution() {
                     ? "cscs-execution-output is-success"
                     : "cscs-execution-output is-error";
                 recordRun(Number.isInteger(result.exitCode) ? result.exitCode : null, output.textContent);
+                notifyOutput();
                 return "ok";
             } catch (error) {
                 if (error.name === "AbortError") {
@@ -294,11 +301,13 @@ function initializeCsharpExecution() {
                     output.className = "cscs-execution-output";
                     const previous = cellState?.get(pageUrl, cellId);
                     if (previous) showRecordedOutput(previous);
+                    else notifyOutput();
                     return "aborted";
                 }
                 output.textContent = error.message;
                 output.className = "cscs-execution-output is-error";
                 recordRun(null, output.textContent);
+                notifyOutput();
                 return "error";
             } finally {
                 runButton.disabled = false;
@@ -319,6 +328,7 @@ function initializeCsharpExecution() {
                 output.className = "cscs-execution-output is-skipped";
                 output.textContent = "Run all skipped this cell because it reads input. Enter the input above, then press Run.";
                 ranNote.hidden = true;
+                notifyOutput();
                 return "skipped";
             }
             return runCurrentCode({ signal });
@@ -373,6 +383,16 @@ function initializeCsharpExecution() {
             ranNote.textContent = `You ran this on ${formatRanAt(record.ranAt)}`;
             ranNote.hidden = false;
             cell.classList.add("cscs-has-run");
+            notifyOutput();
+        }
+
+        // Tell trace_viewer.js (when loaded) that this cell's live output changed. The
+        // event carries the full text; the viewer strips trace lines from the element.
+        function notifyOutput() {
+            cell.dispatchEvent(new CustomEvent("cscs:output", {
+                bubbles: true,
+                detail: { cell, cellId, output, host: traceHost, text: output.textContent }
+            }));
         }
 
         function formatRanAt(ranAt) {
@@ -421,6 +441,7 @@ function initializeCsharpExecution() {
             output.hidden = true;
             output.textContent = "";
             output.className = "cscs-execution-output";
+            notifyOutput();
             ranNote.hidden = true;
             discardButton.hidden = true;
             cell.classList.remove("cscs-has-run");

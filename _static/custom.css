@@ -3077,3 +3077,224 @@ nav.bd-links .caption-text a.part-overview-link:focus-visible {
 .chapter-flow a:focus-visible {
     text-decoration: none;
 }
+
+/* Trace viewer (_static/trace_viewer.js): the stepper rendered under an output whose
+   program printed @@trace lines. Theme colors come from the pydata variables, so the
+   same rules serve light and dark; the accent is the book's inline-code color. */
+.cscs-trace-host[hidden] {
+    display: none !important;
+}
+
+.cscs-trace-host {
+    margin: 6px 0 4px var(--cscs-code-inset, 1rem);
+    max-width: calc(100% - var(--cscs-code-inset, 1rem));
+}
+
+.cscs-student-copy .cscs-trace-host,
+div.cell_output .cscs-trace-host {
+    margin-left: 0;
+    max-width: 100%;
+}
+
+pre.cscs-trace-empty,
+div.cell_output pre.cscs-trace-empty {
+    display: none !important;
+}
+
+.cscs-trace {
+    --cscs-trace-accent: var(--pst-color-inline-code, #912583);
+    background: var(--pst-color-surface, #f3f4f5);
+    border: 1px solid var(--pst-color-border, #e4e7eb);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: var(--pst-color-text-base, #27313a);
+    font-size: 0.85rem;
+    padding: 10px 12px 12px;
+}
+
+.cscs-trace:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--cscs-trace-accent) 35%, transparent);
+    outline: none;
+}
+
+.cscs-trace-header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.cscs-trace-title {
+    font-weight: 600;
+}
+
+.cscs-trace-counter {
+    color: var(--pst-color-text-muted, #666666);
+    font-variant-numeric: tabular-nums;
+}
+
+.cscs-trace-array-wrapper {
+    overflow-x: auto;
+    padding: 2px 0 4px;
+}
+
+.cscs-trace-array {
+    display: grid;
+    gap: 3px 4px;
+    grid-auto-flow: row dense;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(var(--cscs-trace-columns, 1), minmax(2.6rem, max-content));
+    width: max-content;
+}
+
+.cscs-trace-slot {
+    align-items: center;
+    background: var(--pst-color-on-background, #ffffff);
+    border: 1.5px solid var(--pst-color-border, #c9ced3);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.95rem;
+    grid-row: 1;
+    justify-content: center;
+    min-height: 2.4rem;
+    padding: 4px 6px;
+    transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease;
+}
+
+.cscs-trace-slot.is-highlight {
+    background: color-mix(in srgb, var(--cscs-trace-accent) 16%, var(--pst-color-on-background, #ffffff));
+    border-color: var(--cscs-trace-accent);
+    box-shadow: 0 0 0 1px var(--cscs-trace-accent);
+    font-weight: 700;
+}
+
+.cscs-trace-slot.is-out {
+    opacity: 0.35;
+}
+
+.cscs-trace-slot.is-end {
+    background: transparent;
+    border-style: dashed;
+    color: var(--pst-color-text-muted, #666666);
+    font-size: 0.75rem;
+}
+
+.cscs-trace-index {
+    color: var(--pst-color-text-muted, #666666);
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.72rem;
+    grid-row: 2;
+    text-align: center;
+}
+
+.cscs-trace-mark {
+    border-top: 2px solid var(--cscs-trace-accent);
+    color: var(--cscs-trace-accent);
+    font-size: 0.72rem;
+    line-height: 1.2;
+    padding-top: 2px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cscs-trace-mark.is-span,
+.cscs-trace-mark-sorted {
+    border-top-color: var(--pst-color-success, #00843f);
+    color: var(--pst-color-success, #00843f);
+}
+
+.cscs-trace-mark-low,
+.cscs-trace-mark-high {
+    border-top-color: var(--pst-color-text-muted, #666666);
+    color: var(--pst-color-text-muted, #666666);
+}
+
+/* The theme's paragraph and definition-list margins are set with !important. */
+.cscs-trace p.cscs-trace-message {
+    margin: 8px 0 0 !important;
+    min-height: 1.3em;
+}
+
+.cscs-trace dl.cscs-trace-vars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 4px 0 0 !important;
+}
+
+.cscs-trace-vars[hidden] {
+    display: none !important;
+}
+
+.cscs-trace-var {
+    display: flex;
+    gap: 6px;
+}
+
+.cscs-trace-var dt {
+    color: var(--pst-color-text-muted, #666666);
+    float: none;
+    font-weight: 400;
+    margin: 0 !important;
+    width: auto;
+}
+
+.cscs-trace-var dt::after {
+    content: " =";
+}
+
+.cscs-trace-var dd {
+    font-family: var(--pst-font-family-monospace);
+    margin: 0 !important;
+}
+
+.cscs-trace-controls {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.cscs-trace-controls button {
+    appearance: none;
+    background: var(--pst-color-on-background, #ffffff);
+    border: 1px solid var(--pst-color-border, #e4e7eb);
+    border-radius: 4px;
+    color: var(--pst-color-text-base, #27313a);
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    padding: 4px 10px;
+}
+
+.cscs-trace-controls button:hover:not(:disabled) {
+    border-color: var(--cscs-trace-accent);
+    color: var(--cscs-trace-accent);
+}
+
+.cscs-trace-controls button:disabled {
+    cursor: default;
+    opacity: 0.45;
+}
+
+.cscs-trace-controls button:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--cscs-trace-accent) 35%, transparent);
+    outline: none;
+}
+
+.cscs-trace-slider {
+    accent-color: var(--cscs-trace-accent);
+    flex: 1 1 auto;
+    margin: 0;
+    min-width: 6rem;
+}
+
+@media print {
+    .cscs-trace-controls {
+        display: none;
+    }
+}
