@@ -664,6 +664,25 @@ div.cell.tag_exercise {
     padding: 8px;
 }
 
+/* Cells the reader has run carry a light wash of the book's accent (the inline-code
+   purple), in the code box, the editor, and the live output, so a page shows at a
+   glance which examples they have already tried. Dark theme uses a deeper mix. */
+div.cell.cscs-has-run div.cell_input pre,
+div.cell.cscs-has-run div.cell_input .highlight pre,
+div.cell.cscs-has-run div.cell_input .highlight,
+div.cell.cscs-has-run .cscs-code-editor,
+div.cell.cscs-has-run pre.cscs-execution-output {
+    background-color: color-mix(in srgb, var(--pst-color-inline-code, #912583) 7%, var(--pst-color-surface, #f3f4f5)) !important;
+}
+
+html[data-theme="dark"] div.cell.cscs-has-run div.cell_input pre,
+html[data-theme="dark"] div.cell.cscs-has-run div.cell_input .highlight pre,
+html[data-theme="dark"] div.cell.cscs-has-run div.cell_input .highlight,
+html[data-theme="dark"] div.cell.cscs-has-run .cscs-code-editor,
+html[data-theme="dark"] div.cell.cscs-has-run pre.cscs-execution-output {
+    background-color: color-mix(in srgb, var(--pst-color-inline-code, #c586c0) 16%, var(--pst-color-surface, #1f2430)) !important;
+}
+
 .cscs-execution-controls {
     align-items: flex-start;
     display: flex;

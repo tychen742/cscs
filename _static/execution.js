@@ -348,6 +348,7 @@ function initializeCsharpExecution() {
                 suppressChange = false;
             }
             discardButton.hidden = false;
+            cell.classList.add("cscs-has-run");
         }
 
         function clearRecord() {
@@ -370,6 +371,7 @@ function initializeCsharpExecution() {
                 : "cscs-execution-output is-error";
             ranNote.textContent = `You ran this on ${formatRanAt(record.ranAt)}`;
             ranNote.hidden = false;
+            cell.classList.add("cscs-has-run");
         }
 
         function formatRanAt(ranAt) {
@@ -420,6 +422,7 @@ function initializeCsharpExecution() {
             output.className = "cscs-execution-output";
             ranNote.hidden = true;
             discardButton.hidden = true;
+            cell.classList.remove("cscs-has-run");
             setExpectedShown(false);
             stdinRequested = false;
             stdinPanel.hidden = true;
