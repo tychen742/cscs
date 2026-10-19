@@ -98,3 +98,17 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (skipping overlapping matches, int shifts for 2^40, feasible read as optimal, timing before validating, improper borders, resetting q after a match, the off-by-one fallback index, moving the text backward, scan counts without preparation) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`): OpenDSA CS2 and CS3 contain no string-matching or computational-limits module (both live in the CS4104 book), so this chapter borrowed exercise types and the CS3 analysis habits (best and worst case inputs, problem versus algorithm bounds from 4.9 Analyzing Problems and 8.16 Lower Bounds) rather than specific sections. Gaps found and where they are now developed:
+
+| Gap | Model | Where it is now developed |
+| --- | --- | --- |
+| Which inputs reach the O(nm) worst case and how typical text behaves | CS3 4.4 Best, Worst, and Average Cases | 26.1 Count the Work of Direct Matching (new, measured on three text kinds) |
+| Per-start comparison trace; inner-loop completion | CS2 7.8 tracing families | 26.1 Code Tracing: Comparisons per Start; Code Completion: The Inner Comparison Loop |
+| Prefix-table construction trace with fallbacks; fallback completion | (exercise types) | 26.2 Code Tracing: Build the Prefix Table; Code Completion: Fall Back Without Rereading Text |
+| Tractable, NP-complete, and undecidable problems as classes; quick verification; pseudo-polynomial tables | CS3 4.9 problem bounds, 8.16 lower bounds | 26.3 Classes of Difficulty (new table) and Concept Check: Place Each Request |
+| Summary questions | CS3 chapter summaries | Check Your Understanding on every page |
+
+Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.

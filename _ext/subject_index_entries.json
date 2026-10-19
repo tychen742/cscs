@@ -777,6 +777,10 @@
   "class; rational": [
     "classes; Rational example"
   ],
+  "classes of difficulty": [
+    "computational complexity; problem classes",
+    "NP-complete problems; intuition"
+  ],
   "cleaning text": [
     "string; cleaning text"
   ],
@@ -820,6 +824,9 @@
     "ring buffer; code completion exercise",
     "dequeue; implementation"
   ],
+  "code completion: fall back without rereading text": [
+    "KMP; fallback; code completion exercise"
+  ],
   "code completion: finish the boundary updates": [
     "binary search; code completion exercise"
   ],
@@ -857,6 +864,9 @@
     "recursion; code completion exercise",
     "sum of digits"
   ],
+  "code completion: the inner comparison loop": [
+    "direct matching; code completion exercise"
+  ],
   "code completion: upper bound": [
     "upper bound search; code completion exercise"
   ],
@@ -869,12 +879,19 @@
   "code tracing: both bounds on a tie block": [
     "boundary search; tracing exercise"
   ],
+  "code tracing: build the prefix table": [
+    "prefix table; tracing exercise",
+    "KMP; border lengths"
+  ],
   "code tracing: build, then remove": [
     "binary search tree; tracing exercise"
   ],
   "code tracing: capacity after each append": [
     "dynamic array; tracing exercise",
     "capacity; growth trace"
+  ],
+  "code tracing: comparisons per start": [
+    "direct matching; tracing exercise"
   ],
   "code tracing: count the loop bodies": [
     "loop counting; tracing exercise",
@@ -1168,6 +1185,9 @@
   "concept check: match the recurrence to its growth": [
     "recurrence relations; concept recall"
   ],
+  "concept check: place each request": [
+    "computational limits; concept recall"
+  ],
   "concept check: which operation answers the question?": [
     "set operations; concept recall"
   ],
@@ -1332,6 +1352,10 @@
   ],
   "count the work": [
     "merge sort; comparison counts"
+  ],
+  "count the work of direct matching": [
+    "string matching; cost analysis",
+    "direct matching; best and worst case"
   ],
   "count work before timing": [
     "operation counting; before timing"

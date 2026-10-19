@@ -103,3 +103,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (skipping overlapping matches, int shifts for 2^40, feasible read as optimal, timing before validating, improper borders, resetting q after a match, the off-by-one fallback index, moving the text backward, scan counts without preparation) and interpretation after the exercise solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA-Modeled Development (2026-10-19)
+
+Pass 8 placed the work analysis, per-start trace, and inner-loop completion after Direct Matching with an Explicit Contract in 26.1; the prefix-table trace and fallback completion after Proper Prefixes Survive a Mismatch in 26.2; and the difficulty-class table with its concept check after Exact Search and a Concrete Heuristic in 26.3. Each page closes with Check Your Understanding before its Exercise or Footnotes. New headings are `###`; each page stays within one class segment. See MATERIALS.md for the gap list.
