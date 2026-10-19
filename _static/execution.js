@@ -26,7 +26,7 @@ function initializeCsharpExecution() {
         if (!codeElement || cell.dataset.cscsExecutionReady === "true") return;
         // Notebook-only cells (e.g. Polyglot .Display() charts) cannot run in the console runner.
         if (cell.classList.contains("tag_no-run")) return;
-        // Hidden answer cells show saved expected output and revealable source,
+        // Hidden answer cells show their saved output and revealable source,
         // rather than a second editable workspace for the exercise.
         if (cell.classList.contains("tag_hide-input")) return;
 
@@ -104,7 +104,7 @@ function initializeCsharpExecution() {
         ranNote.className = "cscs-ran-note";
         ranNote.hidden = true;
 
-        // The notebook's saved output is the book's expected output. It starts collapsed so
+        // The notebook's saved output starts collapsed so
         // the reader runs the cell to see output; this disclosure reveals it on demand.
         const storedOutput = cell.querySelector(":scope > .cell_output");
         const expectedToggle = document.createElement("button");
@@ -130,13 +130,13 @@ function initializeCsharpExecution() {
         const setExpectedShown = (shown) => {
             expectedShown = Boolean(shown) && Boolean(storedOutput);
             if (storedOutput) storedOutput.hidden = !expectedShown;
-            expectedToggle.textContent = expectedShown ? "Hide expected output" : "Show expected output";
+            expectedToggle.textContent = expectedShown ? "Hide saved output" : "Show saved output";
             expectedToggle.setAttribute("aria-expanded", String(expectedShown));
             pageHooks.expectedChanged();
         };
         setExpectedShown(false);
         expectedToggle.addEventListener("click", () => setExpectedShown(!expectedShown));
-        // A student copy keeps its own live output; the original cell's expected output
+        // A student copy keeps its own live output; the original cell's saved output
         // stays as the reader left it. A run in place collapses it so the live result replaces it.
         const syncStoredOutput = () => {
             if (!isStudentCopy && !output.hidden) setExpectedShown(false);
@@ -857,7 +857,7 @@ function initializeCsharpExecution() {
 
     if (runnableCells.length) installPageControls();
 
-    // "Run all" and "Show all expected outputs" at the top of the content area.
+    // "Run all" and "Show all saved outputs" at the top of the content area.
     function installPageControls() {
         const article = document.querySelector("article.bd-article")
             || document.querySelector("main")
@@ -896,7 +896,7 @@ function initializeCsharpExecution() {
         const refreshShowAll = () => {
             const shown = allExpectedShown();
             showAllButton.hidden = withExpected().length === 0;
-            showAllButton.textContent = shown ? "Hide all expected outputs" : "Show all expected outputs";
+            showAllButton.textContent = shown ? "Hide all saved outputs" : "Show all saved outputs";
             showAllButton.setAttribute("aria-pressed", String(shown));
         };
         pageHooks.expectedChanged = refreshShowAll;

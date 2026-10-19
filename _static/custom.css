@@ -845,8 +845,8 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-bottom: 4px;
 }
 
-/* The reader's book: expected outputs start collapsed, the page gets Run all and
-   Show all expected outputs, and a restored run carries a "You ran this on" note. */
+/* The reader's book: saved outputs start collapsed, the page gets Run all and
+   Show all saved outputs, and a restored run carries a "You ran this on" note. */
 div.cell > div.cell_output[hidden] {
     display: none !important;
 }
