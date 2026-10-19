@@ -97,3 +97,7 @@ Treat syntax, examples, and meaningful variations as children of their conceptua
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), both pages: mistakes beside the examples (copying suffixes instead of indexing, recursion for flat reports, catching stack overflow, dropping the middle element, non-shrinking binary search, truncated merges, returning the input from the base case, advancing both merge indexes, in-place merging, re-sorting to fix ties, self-referential reference checks, reading n log n as an exact count) and interpretation after the checkpoint, verification, and practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA References (2026-10-19)
+
+Added **Visualize it** pointer cells after the worked examples in 22.2 (merge sort, after the copy-returning contract paragraph; CS3 Mergesort Concepts and Implementing Mergesort), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed.

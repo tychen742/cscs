@@ -100,3 +100,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 ## Mistakes and Interpretation Pass (2026-10-18)
 
 Pass 5 of the content-development audit (`authoring/content_development_audit/`), all three pages: mistakes beside the examples (sorting by start or duration, treating back-to-back as a conflict, keeping earliest-finish for weighted values, exhaustive checks at scale, reading parent links as cables, V-1 as the success test, forest cost as travel cost, one arc per two-way road, relaxing with <=, fabricated one-vertex routes, Kruskal for routing, endpoint-only path checks, rejecting negative weights everywhere) and interpretation after the forest trace, the boundary cells, and the practice solutions. Every demonstration cell on these pages was rerun and the interpretations quote the actual output. No code cell, heading, cell ID, or exercise ID changed.
+
+## OpenDSA References (2026-10-19)
+
+Added **Visualize it** pointer cells after the worked examples in 24.2 (Kruskal; CS3 Kruskal's Algorithm and Union/Find) and 24.3 (Dijkstra; CS3 Shortest-Paths Problems, single-source anchor), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed.

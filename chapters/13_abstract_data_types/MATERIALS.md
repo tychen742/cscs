@@ -129,3 +129,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Caption-Only Section Development (2026-10-18)
 
 Pass 3 of the content-development audit. Generic Methods and Generic Classes in 13.3, previously bare code cells, gained the generic-method and generic-class declaration patterns, explanations of type inference and explicit type arguments, output interpretation, and the mistakes of mixed-type calls and omitting the class type argument; Type Constraints gained interpretation of why the `where` clause is required; Generic Interfaces gained a runnable `ArrayStack<T> : IStack<T>` example (compiles and runs standalone, .NET 10).
+
+## OpenDSA References (2026-10-19)
+
+Re-hosted the existing OpenDSA "Further reading" footnote links to `opendsa-server.cs.vt.edu` CS2/CS3 pages, because `opendsa.org`, `opendsa.cs.vt.edu`, and `opendsax.cs.vt.edu` either fail strict fetches or are not the host this book links to. The roles of the OpenDSA books are recorded in `authoring/toc_comparison/README.md` (OpenDSA mapping) and Appendix A. Chapter 13: the four section footnotes now point to CS3 5.1 Chapter Introduction: Lists.

@@ -153,3 +153,7 @@ The book-wide standalone compile-and-run check (authoring/content_development_au
 found one defect in this chapter: the jagged-array example in 7.2 (cell `c9f57b8a`) was missing
 semicolons after the three `table2[i] = new int[...] {...}` row initializers. Fixed; the cell now runs
 and prints the output documented in its comments. All other Chapter 7 demonstration cells passed.
+
+## OpenDSA References (2026-10-19)
+
+Added **Visualize it** pointer cells after the worked examples in 7.3 (insertion sort, after the trace paragraph; OpenDSA CS2 Insertion Sort), each one sentence linking the matching OpenDSA JSAV slideshow on the `opendsa-server.cs.vt.edu` host (every URL checked with curl, HTTP 200, 2026-10-19). No OpenDSA text or code is copied; no existing cell, heading, cell ID, or exercise ID changed.

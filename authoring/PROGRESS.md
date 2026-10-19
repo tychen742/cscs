@@ -461,3 +461,18 @@ baselines are unchanged. The runner's `exercise-id:` comment convention is
 untouched. The shared book-authoring skill and prompts in `ai_shared` still
 describe `thebe-interactive` and need a separate update. Local changes, not
 deployed.
+
+## OpenDSA References (2026-10-19)
+
+Adopted OpenDSA (Virginia Tech, MIT license, Java) as a reference: CS2 and CS3
+are primary references for Parts IV to VII and Introduction to Software Design
+is a secondary reference for exercise formats only. `authoring/toc_comparison/README.md`
+adds the three books to the comparison and an "OpenDSA mapping" section from
+Chapters 13 to 26 to the matching CS2 and CS3 sections, with the CS3 topics this
+book omits and the earlier gap items CS3 covers. Appendix A gains an OpenDSA
+entry with the most useful visualizations. Twenty-one one-sentence **Visualize
+it** pointers follow worked examples in 7.3, 16.2, 16.3, 17.2, 17.3, 18.2, 19.1,
+20.3, 20.4, 22.2, 23.2, 23.4, 23.5, 24.2, and 24.3; the 28 existing OpenDSA
+footnotes now use the `opendsa-server.cs.vt.edu` host. Every link returned HTTP
+200 on 2026-10-19. Huffman coding is not taught, so it has no pointer. Local
+changes on a worktree branch, not deployed.
