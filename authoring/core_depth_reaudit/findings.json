@@ -1,0 +1,676 @@
+{
+  "source_revision": "e3fc679dbf6ea0747585db7a1cdeb94d3043f18b",
+  "core_notebooks": 84,
+  "scope": "Core only. Assignments and optional/supporting readings excluded. Chapter 2 syntax previews are early exposure and are not deficiencies for lacking a full lesson or mastery exercise. Inventory captured before the separate one-section practice pilot.",
+  "source_hashes": {
+    "/Users/tcn85/workspace/cscs/chapters/01_context/0101_cs_ideas.ipynb": "5753a694924d0394e4bd7ca42ae08bdf157e1c0096f6bbc7c161a00dad344abe",
+    "/Users/tcn85/workspace/cscs/chapters/01_context/0102_computing_responsibility.ipynb": "612618fe336c08d4eddb0c8176b4f6d15543ed17f6c025d07d83266b57b8d8f6",
+    "/Users/tcn85/workspace/cscs/chapters/01_context/0103_program_structure.ipynb": "c492ab6e2d6f7ae79d417726373c1542e1eecc0136ba16e91012d2da77477a6e",
+    "/Users/tcn85/workspace/cscs/chapters/02_var_data/0201_variables_types.ipynb": "9bd997fa98e5c0f772e68df9bbfeed16c5dda068fd0b3852368fa4b46491e465",
+    "/Users/tcn85/workspace/cscs/chapters/02_var_data/0204_types_conversion.ipynb": "453f211e0807e56614d19425f9d7589e5adbcd7e4601b7d79b1f658d9eaba509",
+    "/Users/tcn85/workspace/cscs/chapters/02_var_data/0202_operators_built_in_methods.ipynb": "d151c40eeb54c84820961fe6b537cef68c0a03f0b2e5ab11439012d7e4152a17",
+    "/Users/tcn85/workspace/cscs/chapters/02_var_data/0203_input_output.ipynb": "cf28fbe76b5ede128573904a12c216673b1914d606b4f25f899877ef07a16600",
+    "/Users/tcn85/workspace/cscs/chapters/03_decision/0301_intro_decision.ipynb": "846dcd3e648cc63b45d32d95f8a8ad53e0c99cf4d47a3c52ea2b7d4bf7047429",
+    "/Users/tcn85/workspace/cscs/chapters/03_decision/0302_ifstatement.ipynb": "32c19211ac2dc9427d4ff7d6e71d698b4b7f815bd5a2b47aff47aac5a4bf2ac2",
+    "/Users/tcn85/workspace/cscs/chapters/04_iteration/0401_iteration.ipynb": "28824d8de9930285dfc457b6746166492b346600c9e0d7d9d775228c8803ee66",
+    "/Users/tcn85/workspace/cscs/chapters/04_iteration/0402_for_statements.ipynb": "355ad74b7d8abea24adbd9d9a5ac2b67f7a132c01c54c9b635f5b5b0ee3b91f2",
+    "/Users/tcn85/workspace/cscs/chapters/04_iteration/0403_while_statement.ipynb": "18bfaf40ad3cabd021d739c0bc195c2f46cf39c3a9a92444892473c868a645b1",
+    "/Users/tcn85/workspace/cscs/chapters/05_methods/0501_intro_methods.ipynb": "97e530258590bbb69d1b5b6232ca69e2331236a1fb7da8c6fc2beeabc4656811",
+    "/Users/tcn85/workspace/cscs/chapters/05_methods/0503_parameter.ipynb": "57051ca7840b47d2910535dd7bd42a63b61892d49ece8f4aee32e488ecbb1123",
+    "/Users/tcn85/workspace/cscs/chapters/05_methods/0502_signature_call.ipynb": "08aeb1102ad2595fafc4796d2e9bc0d89b03f547fba30ff92d2ef64fe22cf7a8",
+    "/Users/tcn85/workspace/cscs/chapters/05_methods/0504_strings.ipynb": "9f013c505faf3b0077973f37a02dc913e6f3f527f791478b730050d08d063e49",
+    "/Users/tcn85/workspace/cscs/chapters/05_methods/0505_summary.ipynb": "e6dccb2a7267d26e529d2dfe3507a49889461c29c3534323a3585950e5501d22",
+    "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0601_error_handling.ipynb": "7c64b3a61c630a4d0275b93f6b0e0a017275640ed9dec649af1643bfea384a0d",
+    "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0602_debugging_workflow.ipynb": "e9102b01a26dd2eaeb55db0dcef2408b5af199eede8bcccb6e0c70922a168e37",
+    "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0603_testing.ipynb": "4e630773c106d7b5e03c5f8780ef0899cbe77c4a7ee192da793da8529a86f157",
+    "/Users/tcn85/workspace/cscs/chapters/07_arrays/0701_onedim.ipynb": "11a91807adfb541c8f491652a167efdcc39163fd3b2ebb176e92e11bcf0c77c1",
+    "/Users/tcn85/workspace/cscs/chapters/07_arrays/0703_array_processing.ipynb": "de7ea58d34c10a256a7f52ee81a924b103e744da602057094a54ca31c4364318",
+    "/Users/tcn85/workspace/cscs/chapters/07_arrays/0704_searching_sorting_arrays.ipynb": "cd4b1103d99193ca174005eeb508e86b6a209065ff61d45e6306ada3f4b741db",
+    "/Users/tcn85/workspace/cscs/chapters/07_arrays/0702_twodim.ipynb": "87da3099ec962b93e0b247ed2a58498132f61674b11e352df847b39e14d681fe",
+    "/Users/tcn85/workspace/cscs/chapters/08_collections/0801_collections.ipynb": "d7f5c7f4ba4e91884b7b07e979043f42ab4313c3201ea613ba0f27b708e743a5",
+    "/Users/tcn85/workspace/cscs/chapters/08_collections/0804_collection_operations.ipynb": "8faaa7e0cc58897b5fc46f822e886021bd1724a64170d4591602ee2c9e61295d",
+    "/Users/tcn85/workspace/cscs/chapters/08_collections/0802_list.ipynb": "cb3292e291125b48eda23683b7853911932c64e364b60738e59670d811559da0",
+    "/Users/tcn85/workspace/cscs/chapters/08_collections/0803_dictionary.ipynb": "87a22e86c7d7321ec9bf7275d5741a341be54a44355e2a9866feb168f4aa41cd",
+    "/Users/tcn85/workspace/cscs/chapters/09_files_text/0901_stream_file.ipynb": "24d8bb5664c824608cfc1e0a60068b1d93933627c378913b3948f663302ef5c6",
+    "/Users/tcn85/workspace/cscs/chapters/09_files_text/0902_file_operations.ipynb": "b803ce8f4f6f836925bc70bef35f3f679c750f4a1611970e92b7d61d3089b98b",
+    "/Users/tcn85/workspace/cscs/chapters/09_files_text/0903_text_operations.ipynb": "e01eece82f377b906edb38e90a775dca7a623924ac2c9be4bfb29b87b23b233a",
+    "/Users/tcn85/workspace/cscs/chapters/10_classes/1001_class_syntax.ipynb": "3ad8c1d2139c3d499809a8a73113d18dc63e23bbe688d2c3ad09739c6da9584f",
+    "/Users/tcn85/workspace/cscs/chapters/10_classes/1002_properties.ipynb": "2f84c9cde9046fedfb0f26a4d75075d2242c00d849d75a8f36f0f7f8fa710d66",
+    "/Users/tcn85/workspace/cscs/chapters/10_classes/1003_class_instance.ipynb": "666122c65e1e5955f669fe73d89957b675d6eecc68c3f88c04e692626fb93f2d",
+    "/Users/tcn85/workspace/cscs/chapters/11_object_design/1101_objects_references.ipynb": "214b71ffcf9ed8b5cc052fb2d22f5c82d9dbc9d2f5b26c5fc77974723c67d8d6",
+    "/Users/tcn85/workspace/cscs/chapters/11_object_design/1105_value_record_types.ipynb": "033cb4f7ae1b9c10b5b33a208525953acf57172b7e6f0ae67dceb459dd32354c",
+    "/Users/tcn85/workspace/cscs/chapters/11_object_design/1102_composition.ipynb": "fe2960a72b5c3986af704b18116e3baf6f7baed28331b6873ef83f291e15f346",
+    "/Users/tcn85/workspace/cscs/chapters/11_object_design/1103_testing_collaboration.ipynb": "d83f08360ffbecbe67fc3a62d4fd08c277b49086b727215012b4dda348d5a824",
+    "/Users/tcn85/workspace/cscs/chapters/12_oop/1201_inheritance.ipynb": "a9649d852ca29db09e205c91cc15ba39a9a7d9f1006e239b31a491e74b3b88e5",
+    "/Users/tcn85/workspace/cscs/chapters/12_oop/1202_polymorphism.ipynb": "5c16299ea8abcfbce79e5fde3cf14b98e64b194adbcfee198e07f5e9594abb02",
+    "/Users/tcn85/workspace/cscs/chapters/12_oop/1203_interfaces.ipynb": "a60aa02df6c6610aaf6a1ab4ca012edd95a69a0583e7bea9bb16b4b352a09c3b",
+    "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1301_adt_contracts.ipynb": "671368c7a1eb980ab86259d7c29b3e83336bc3f72d224b1907398c4c910caba3",
+    "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1302_representations_costs.ipynb": "2d337640300769ca61bb3d8e67e96c3421b6ebc6cb48105e29aa13a8496865f6",
+    "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1303_generics.ipynb": "8090ee5703b9ff0ffdabf9b85865309f092d093a3e35102b8bbfd57b7c25a4e5",
+    "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1304_iterators.ipynb": "68385d0603844bfa467f608e64fd6167d0495e2f6a94ae3fecf4f5d83934be7d",
+    "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1401_dynamic_arrays.ipynb": "081bb6c0795353366a95630be8e6133fb510929728612e4edcad1d1496846751",
+    "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb": "41290fb2c3ec758569606e3e19ed7bf70f47d9e3e285c6a7af5caf19068b787b",
+    "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb": "867c3b3904d1a5f28b04e7d524fe6148fa33e6b423d3d079d3a1d4e7d0afd0d1",
+    "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1501_stack.ipynb": "8dd6b0232548c9b22808db5486eb643b7628c86f8f620af6d93b8747e306f975",
+    "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1502_queue_deque.ipynb": "6b71616ab285a432ea30a52622c5068953204b75eaf5a45e519f9059a8427252",
+    "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1503_applications_lab.ipynb": "124075bd78e51236e14e9c7a4dfffc19623bd432f0356c0814177c01da46b7e6",
+    "/Users/tcn85/workspace/cscs/chapters/16_searching_sorting/1601_searching.ipynb": "5e107345a9d9a785ecbfe965100944d4b3ee04558cee70e579a58424acff332c",
+    "/Users/tcn85/workspace/cscs/chapters/16_searching_sorting/1602_basic_sorting.ipynb": "55ca74754d86f06370d34ae86beb8448354c1f8ad910b5dd75830b3bf4c6bab8",
+    "/Users/tcn85/workspace/cscs/chapters/17_trees/1701_tree_structure.ipynb": "dd7575ecf1b66bcfc0041fb516db59fc8ecf94ad2b9d9122cdfc83ade7a582d4",
+    "/Users/tcn85/workspace/cscs/chapters/17_trees/1704_tree_traversal.ipynb": "a98acb9b422b834ec331dda781edd3d78d068d3d390f10c5954983a8ff7f63a4",
+    "/Users/tcn85/workspace/cscs/chapters/17_trees/1702_binary_search_trees.ipynb": "a69a519beb7f9a100bae4018ea4ca9499fff62b5130b6f2681c3c4c2201918aa",
+    "/Users/tcn85/workspace/cscs/chapters/17_trees/1703_tree_lab.ipynb": "38214832ed370aec366524ec11fa4bae82eec947d8e88ab70e9be1cb6fd686f9",
+    "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1801_priority_queues.ipynb": "a4c844904d412049fef68234fcdda945e213aca4d2cda460ce790dc9ac355a42",
+    "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1802_heap_implementation.ipynb": "66b17ee293c6eeac237fa82dd497cf569a02656572b67937f65c7f57016ff47d",
+    "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1803_priority_applications.ipynb": "e13912c49ffd19698ddd2aaf90af3e7fe67be0888cdebd0edaa306a422fe84fb",
+    "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1901_hashing.ipynb": "1ff48220d9b2bb1794db23f7f4d1d17ad4dd424da8ccf985afb9646df90d6fe1",
+    "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1902_dictionaries_sets.ipynb": "d85a6734eb29bb798827e79234c9923aaeef5b59e6546493cee329760cf6b41a",
+    "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1903_collection_selection.ipynb": "4b9600b4203e8b8f25a51cbc68bb588f80e92434cc1599b33beb60554df79ffa",
+    "/Users/tcn85/workspace/cscs/chapters/20_graphs/2001_graph_vocabulary.ipynb": "61e7c0e9dc9fdd0d83283d98a7025add254409940528a3bcb81514ae3aac3bc9",
+    "/Users/tcn85/workspace/cscs/chapters/20_graphs/2002_adjacency_representations.ipynb": "f85b28790082d723ab02ae2ed671e81ab82e8693a1e2588ba0a45ad15e4186ce",
+    "/Users/tcn85/workspace/cscs/chapters/20_graphs/2003_graph_traversal.ipynb": "487e311b339f50b4a9e808879d1dfa06e25ffc31811b6fdb7ef6441780e19be7",
+    "/Users/tcn85/workspace/cscs/chapters/20_graphs/2004_depth_first_components.ipynb": "a3309fbc94726e0301c17cde652964be8f22ee5a34623eb012da70ae2b05a0a3",
+    "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2101_big_o.ipynb": "b740891b74bee3c0e8ba51bb5a5734a0156c7814741bf3f7ee57433566be5dec",
+    "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2102_correctness.ipynb": "4d7bbf2891a8b6b9735c71bd00c52a22a81ce90a680182238cac2e3f1c587dbb",
+    "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2103_recurrences.ipynb": "790da164e089cd2d3433d88f1a2a236bb0afd762057d53e29ccbc190aa05f465",
+    "/Users/tcn85/workspace/cscs/chapters/22_recursion_divide_conquer/2201_recursion.ipynb": "324e71e9c887c4645217667f3a60103c65fc21f9ea17601f4a61c559e9c4ec2a",
+    "/Users/tcn85/workspace/cscs/chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb": "59891c8315ff9b4fd6aafe447a95e192ca0b537b22306481830b15b80f295178",
+    "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2301_searching.ipynb": "52fcc6d0ecd58710a531b51db3c616a0f1bc7757da1199a04e35d56aa7c3b311",
+    "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2302_sorting.ipynb": "1c476c0c9396f80d7569f39f296839e001ed0d915ecb57508483472939a5fc26",
+    "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2303_comparison_lab.ipynb": "654850750c24eca7e3ab1b1abb4c970954f278af04ebedd44fc617fc58b03cf6",
+    "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb": "11212279c595c52f9bb49bd33e8b791654b3f35fb5b70fd9e432d18227331b5d",
+    "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.ipynb": "5d0bf7f64596327d89c3cf2add08d95f1bde525e4584a16a637ad123fefe6fe0",
+    "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb": "05c6ff1d1b9a33792f6604745c5ffa635e7d2c2a6ccc73d8d1261585da801560",
+    "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb": "d6bc43ed14d0b19097f515e91b1551662808de1a2d39b7ac826818d1da9f6e47",
+    "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2504_optimization_models.ipynb": "caa0b69d4d25c3fa4578a2cd8dc7fa1a071ccb5e875c5560c10de7cf1d1ac99c",
+    "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2502_backtracking.ipynb": "d06adadbd826ed5a2134b5a135d74bdc303147d46e10b71e4a0f73aa0fe337be",
+    "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.ipynb": "b3c0d30e3628674b912c2bbe791510d15f419d1817911dd93cdac17c5d1267e1",
+    "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb": "7e23f1beef637b0fa25be26f2faa8e4404b932096b4e228ea12b853fd94406d8",
+    "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2603_limits_project.ipynb": "0ad117edc32d4f14c039e61a44c5ce3ebd833941168b5efc8d591c9734489748"
+  },
+  "findings": [
+    {
+      "id": "R01",
+      "priority": "High",
+      "action": "Clarify conceptual distinction",
+      "path": "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+      "cell_id": "78f38d60",
+      "topic": "Validation vs. Exceptions",
+      "already_adequate": "The developed opening already distinguishes failure policy and expected bad input.",
+      "remaining_issue": "The later summary says exceptions handle unexpected failures and catch is for what cannot be predicted, while the same lesson intentionally throws for invalid arguments. Expectedness is not the criterion that defines exception-based API failure.",
+      "recommendation": "Explain routine validation versus a called operation reporting failure through an exception. Retain TryParse as the routine-input pattern; distinguish predictable failure from a guarantee that a precheck prevents it."
+    },
+    {
+      "id": "R02",
+      "priority": "High",
+      "action": "Clarify conceptual distinction",
+      "path": "chapters/06_exceptions_testing/0603_testing.ipynb",
+      "cell_id": "fd072853",
+      "topic": "The Unit Testing Process",
+      "already_adequate": "The repeatable expected-result checks and full framework walkthrough are substantial.",
+      "remaining_issue": "The subsection describes following TDD as a fundamental principle of adopting unit testing, blurring a test technique with one development workflow.",
+      "recommendation": "Define unit testing independently, then present red/green/refactor as one workflow. Explain tests can also characterize existing code; preserve the TDD diagram and intentional defect."
+    },
+    {
+      "id": "R03",
+      "priority": "Medium",
+      "action": "Correct conceptual framing",
+      "path": "chapters/05_methods/0501_intro_methods.ipynb",
+      "cell_id": "fb260642",
+      "topic": "Static Methods",
+      "already_adequate": "The program-form comparison and top-level versus class-member distinction are now explicit.",
+      "remaining_issue": "The retained short summary associates static methods with procedural programming as opposed to object-oriented instance methods. Static methods also belong to classes and can participate in object-oriented programs; the contrast is receiver/instance dependence.",
+      "recommendation": "Clarify static/class access versus an instance receiver and per-object state. Keep the early program-form reference concise rather than adding an OOP unit here."
+    },
+    {
+      "id": "R04",
+      "priority": "Medium",
+      "action": "Stage attempt and feedback",
+      "path": "chapters/18_priority_queues/1801_priority_queues.ipynb",
+      "cell_id": "nearby-15",
+      "topic": "Practice: Service the Minimum Priority",
+      "already_adequate": "The queue priority contract and swap-priority variation are clear.",
+      "remaining_issue": "The task says to complete an operation, but the starter already calls Dequeue; the answer and its reasoning are printed immediately before it. It is useful demonstration/prediction material, not a completion task as labeled.",
+      "recommendation": "Retain the example. Make the requested response explicit, let learners record a prediction before revealing reasoning, or provide an actual bounded missing operation. Expected output may remain visible for coding tasks; full reasoning need not precede the attempt."
+    },
+    {
+      "id": "R05",
+      "priority": "Medium",
+      "action": "Broaden end-of-section question depth",
+      "path": "chapters/12_oop/1203_interfaces.ipynb",
+      "cell_id": "553275b42096",
+      "topic": "Practice: Replace a Component Without Changing Its Client",
+      "already_adequate": "The lesson includes interfaces, composition and a test double; the existing one-line completion is a valid guided check.",
+      "remaining_issue": "The final practice changes return 0m to return subtotal in a complete supplied model. By itself it does not test whether students can design a different conforming component or explain a client dependency.",
+      "recommendation": "Keep this as the guided repair tab, then add a less-scaffolded policy/component task plus ordinary/boundary cases. Do not turn every guided task into a full project or borrow excluded assignments as missing lesson practice."
+    },
+    {
+      "id": "R06",
+      "priority": "Medium",
+      "action": "Make final practice the true synthesis",
+      "path": "chapters/06_exceptions_testing/0601_error_handling.ipynb",
+      "cell_id": "78f38d60",
+      "topic": "End-of-section organization",
+      "already_adequate": "Inline checkpoints and complete reference comparisons serve real teaching roles.",
+      "remaining_issue": "Several pages continue instruction after a Practice heading: 5.1 continues into project forms, 6.1 into rethrow behavior, and 16.2 into whole-workload reporting. A practice-labelled block is therefore not consistently the final consolidation.",
+      "recommendation": "For the tabbed pattern, place the final question set after the taught material and before Footnotes. Keep brief inline checks beside their concepts, and cover the final concepts too. Do not move every mid-lesson guided check to the end."
+    },
+    {
+      "id": "R07",
+      "priority": "Low",
+      "action": "Simplify duplicate outline labels",
+      "path": "chapters/20_graphs/2004_depth_first_components.ipynb",
+      "cell_id": "3615022f",
+      "topic": "Components and Direction / Connected Components and Direction",
+      "already_adequate": "The direction explanations are now grouped before the component application and all examples are retained.",
+      "remaining_issue": "The grouped outline still has two nearly identical nested labels for the same distinction. This is navigation fragmentation rather than absent depth.",
+      "recommendation": "Use one visible teaching heading and retain the older anchors and all distinct paragraphs/counterexamples. Do not expand the short parent merely because it has few direct words."
+    }
+  ],
+  "inventory": [
+    {
+      "number": "1.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/01_context/0101_cs_ideas.ipynb",
+      "title": "Computing and Problem Solving",
+      "h2_subsections": 7
+    },
+    {
+      "number": "1.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/01_context/0102_computing_responsibility.ipynb",
+      "title": "Computing and Professional Responsibility",
+      "h2_subsections": 6
+    },
+    {
+      "number": "1.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/01_context/0103_program_structure.ipynb",
+      "title": "Your First C# Program and Basic Syntax",
+      "h2_subsections": 10
+    },
+    {
+      "number": "2.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/02_var_data/0201_variables_types.ipynb",
+      "title": "Variables, Assignment, and State",
+      "h2_subsections": 5
+    },
+    {
+      "number": "2.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/02_var_data/0204_types_conversion.ipynb",
+      "title": "Types and Conversion",
+      "h2_subsections": 3
+    },
+    {
+      "number": "2.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/02_var_data/0202_operators_built_in_methods.ipynb",
+      "title": "Operators and Built-In Methods",
+      "h2_subsections": 6
+    },
+    {
+      "number": "2.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/02_var_data/0203_input_output.ipynb",
+      "title": "Input and Output",
+      "h2_subsections": 6
+    },
+    {
+      "number": "3.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/03_decision/0301_intro_decision.ipynb",
+      "title": "Boolean Expressions & Logical Operators",
+      "h2_subsections": 4
+    },
+    {
+      "number": "3.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/03_decision/0302_ifstatement.ipynb",
+      "title": "Conditional Selection with if and switch",
+      "h2_subsections": 7
+    },
+    {
+      "number": "4.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/04_iteration/0401_iteration.ipynb",
+      "title": "Iteration",
+      "h2_subsections": 4
+    },
+    {
+      "number": "4.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/04_iteration/0402_for_statements.ipynb",
+      "title": "The `for` Statement",
+      "h2_subsections": 7
+    },
+    {
+      "number": "4.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/04_iteration/0403_while_statement.ipynb",
+      "title": "While-Statements",
+      "h2_subsections": 4
+    },
+    {
+      "number": "5.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/05_methods/0501_intro_methods.ipynb",
+      "title": "Designing and Calling Methods",
+      "h2_subsections": 5
+    },
+    {
+      "number": "5.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/05_methods/0503_parameter.ipynb",
+      "title": "Method Parameters",
+      "h2_subsections": 8
+    },
+    {
+      "number": "5.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/05_methods/0502_signature_call.ipynb",
+      "title": "Returned Results and Method Contracts",
+      "h2_subsections": 7
+    },
+    {
+      "number": "5.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/05_methods/0504_strings.ipynb",
+      "title": "Strings and Their Methods",
+      "h2_subsections": 10
+    },
+    {
+      "number": "5.5",
+      "path": "/Users/tcn85/workspace/cscs/chapters/05_methods/0505_summary.ipynb",
+      "title": "Composition, Refactoring, and Method Checks",
+      "h2_subsections": 4
+    },
+    {
+      "number": "6.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0601_error_handling.ipynb",
+      "title": "Error Handling and Validation",
+      "h2_subsections": 13
+    },
+    {
+      "number": "6.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0602_debugging_workflow.ipynb",
+      "title": "Debugging Workflow",
+      "h2_subsections": 4
+    },
+    {
+      "number": "6.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/06_exceptions_testing/0603_testing.ipynb",
+      "title": "Unit Testing",
+      "h2_subsections": 6
+    },
+    {
+      "number": "7.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/07_arrays/0701_onedim.ipynb",
+      "title": "Creating and Accessing Arrays",
+      "h2_subsections": 6
+    },
+    {
+      "number": "7.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/07_arrays/0703_array_processing.ipynb",
+      "title": "Processing and Sharing Arrays",
+      "h2_subsections": 4
+    },
+    {
+      "number": "7.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/07_arrays/0704_searching_sorting_arrays.ipynb",
+      "title": "Searching and Sorting Arrays",
+      "h2_subsections": 12
+    },
+    {
+      "number": "7.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/07_arrays/0702_twodim.ipynb",
+      "title": "2D & ND Arrays",
+      "h2_subsections": 2
+    },
+    {
+      "number": "8.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/08_collections/0801_collections.ipynb",
+      "title": "Collection Families and Selection",
+      "h2_subsections": 3
+    },
+    {
+      "number": "8.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/08_collections/0804_collection_operations.ipynb",
+      "title": "Collection Operations and Behavior",
+      "h2_subsections": 7
+    },
+    {
+      "number": "8.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/08_collections/0802_list.ipynb",
+      "title": "Lists",
+      "h2_subsections": 6
+    },
+    {
+      "number": "8.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/08_collections/0803_dictionary.ipynb",
+      "title": "Dictionaries",
+      "h2_subsections": 6
+    },
+    {
+      "number": "9.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/09_files_text/0901_stream_file.ipynb",
+      "title": "File Foundations: Reading and Writing",
+      "h2_subsections": 4
+    },
+    {
+      "number": "9.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/09_files_text/0902_file_operations.ipynb",
+      "title": "File Workflows, Paths, and Resources",
+      "h2_subsections": 4
+    },
+    {
+      "number": "9.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/09_files_text/0903_text_operations.ipynb",
+      "title": "Text Operations",
+      "h2_subsections": 6
+    },
+    {
+      "number": "10.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/10_classes/1001_class_syntax.ipynb",
+      "title": "Class Syntax",
+      "h2_subsections": 7
+    },
+    {
+      "number": "10.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/10_classes/1002_properties.ipynb",
+      "title": "Properties",
+      "h2_subsections": 2
+    },
+    {
+      "number": "10.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/10_classes/1003_class_instance.ipynb",
+      "title": "Instances, State, and Useful Behavior",
+      "h2_subsections": 7
+    },
+    {
+      "number": "11.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/11_object_design/1101_objects_references.ipynb",
+      "title": "References, Identity, and Copying",
+      "h2_subsections": 7
+    },
+    {
+      "number": "11.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/11_object_design/1105_value_record_types.ipynb",
+      "title": "Structs, Records, and Data Models",
+      "h2_subsections": 4
+    },
+    {
+      "number": "11.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/11_object_design/1102_composition.ipynb",
+      "title": "Composition and Object Responsibilities",
+      "h2_subsections": 6
+    },
+    {
+      "number": "11.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/11_object_design/1103_testing_collaboration.ipynb",
+      "title": "Testing and Refactoring Collaborating Objects",
+      "h2_subsections": 7
+    },
+    {
+      "number": "12.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/12_oop/1201_inheritance.ipynb",
+      "title": "Inheritance and Substitution",
+      "h2_subsections": 6
+    },
+    {
+      "number": "12.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/12_oop/1202_polymorphism.ipynb",
+      "title": "Runtime Polymorphism and Abstract Classes",
+      "h2_subsections": 6
+    },
+    {
+      "number": "12.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/12_oop/1203_interfaces.ipynb",
+      "title": "Interfaces and Interchangeable Components",
+      "h2_subsections": 6
+    },
+    {
+      "number": "13.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1301_adt_contracts.ipynb",
+      "title": "ADT Contracts",
+      "h2_subsections": 8
+    },
+    {
+      "number": "13.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1302_representations_costs.ipynb",
+      "title": "Representations and Costs",
+      "h2_subsections": 9
+    },
+    {
+      "number": "13.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1303_generics.ipynb",
+      "title": "Generics for Reusable ADTs",
+      "h2_subsections": 10
+    },
+    {
+      "number": "13.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/13_abstract_data_types/1304_iterators.ipynb",
+      "title": "Iterators",
+      "h2_subsections": 7
+    },
+    {
+      "number": "14.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1401_dynamic_arrays.ipynb",
+      "title": "Dynamic Arrays",
+      "h2_subsections": 11
+    },
+    {
+      "number": "14.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1402_linked_nodes.ipynb",
+      "title": "Linked Nodes",
+      "h2_subsections": 12
+    },
+    {
+      "number": "14.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/14_arrays_linked_lists/1403_comparison_lab.ipynb",
+      "title": "Representation Tradeoffs and Verification",
+      "h2_subsections": 10
+    },
+    {
+      "number": "15.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1501_stack.ipynb",
+      "title": "Stacks",
+      "h2_subsections": 9
+    },
+    {
+      "number": "15.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1502_queue_deque.ipynb",
+      "title": "Queues and Deques",
+      "h2_subsections": 11
+    },
+    {
+      "number": "15.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/15_stacks_queues/1503_applications_lab.ipynb",
+      "title": "Access Policies and Applications",
+      "h2_subsections": 9
+    },
+    {
+      "number": "16.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/16_searching_sorting/1601_searching.ipynb",
+      "title": "Search Contracts and Repeated Queries",
+      "h2_subsections": 7
+    },
+    {
+      "number": "16.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/16_searching_sorting/1602_basic_sorting.ipynb",
+      "title": "Sorting and Safe Reporting Workloads",
+      "h2_subsections": 13
+    },
+    {
+      "number": "17.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/17_trees/1701_tree_structure.ipynb",
+      "title": "Tree Structure and Recursive Models",
+      "h2_subsections": 5
+    },
+    {
+      "number": "17.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/17_trees/1704_tree_traversal.ipynb",
+      "title": "Tree Traversal, Returned Values, and Costs",
+      "h2_subsections": 6
+    },
+    {
+      "number": "17.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/17_trees/1702_binary_search_trees.ipynb",
+      "title": "Binary Search Trees",
+      "h2_subsections": 8
+    },
+    {
+      "number": "17.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/17_trees/1703_tree_lab.ipynb",
+      "title": "Tree Queries and Verification",
+      "h2_subsections": 6
+    },
+    {
+      "number": "18.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1801_priority_queues.ipynb",
+      "title": "Priority Queue Contracts and Heap Shape",
+      "h2_subsections": 4
+    },
+    {
+      "number": "18.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1802_heap_implementation.ipynb",
+      "title": "Implementing and Checking a Binary Heap",
+      "h2_subsections": 4
+    },
+    {
+      "number": "18.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/18_priority_queues/1803_priority_applications.ipynb",
+      "title": "Priority Workloads and Top-K Selection",
+      "h2_subsections": 5
+    },
+    {
+      "number": "19.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1901_hashing.ipynb",
+      "title": "Hash Tables, Equality, and Collisions",
+      "h2_subsections": 7
+    },
+    {
+      "number": "19.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1902_dictionaries_sets.ipynb",
+      "title": "Dictionaries, Sets, and Reconciliation",
+      "h2_subsections": 7
+    },
+    {
+      "number": "19.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/19_hash_collections/1903_collection_selection.ipynb",
+      "title": "Choosing and Coordinating Collections",
+      "h2_subsections": 6
+    },
+    {
+      "number": "20.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/20_graphs/2001_graph_vocabulary.ipynb",
+      "title": "Graph Vocabulary and Models",
+      "h2_subsections": 7
+    },
+    {
+      "number": "20.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/20_graphs/2002_adjacency_representations.ipynb",
+      "title": "Adjacency Representations",
+      "h2_subsections": 7
+    },
+    {
+      "number": "20.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/20_graphs/2003_graph_traversal.ipynb",
+      "title": "Breadth-First Search and Paths",
+      "h2_subsections": 2
+    },
+    {
+      "number": "20.4",
+      "path": "/Users/tcn85/workspace/cscs/chapters/20_graphs/2004_depth_first_components.ipynb",
+      "title": "Depth-First Search and Components",
+      "h2_subsections": 4
+    },
+    {
+      "number": "21.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2101_big_o.ipynb",
+      "title": "Big-O and Complexity",
+      "h2_subsections": 9
+    },
+    {
+      "number": "21.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2102_correctness.ipynb",
+      "title": "Correctness and Invariants",
+      "h2_subsections": 8
+    },
+    {
+      "number": "21.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/21_algorithm_analysis/2103_recurrences.ipynb",
+      "title": "Recurrences and Recursive Cost",
+      "h2_subsections": 8
+    },
+    {
+      "number": "22.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/22_recursion_divide_conquer/2201_recursion.ipynb",
+      "title": "Recursive Contracts and Divide-and-Conquer",
+      "h2_subsections": 7
+    },
+    {
+      "number": "22.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/22_recursion_divide_conquer/2203_merge_sort_lab.ipynb",
+      "title": "Stable Merge Sort and Verification",
+      "h2_subsections": 11
+    },
+    {
+      "number": "23.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2301_searching.ipynb",
+      "title": "Searching",
+      "h2_subsections": 6
+    },
+    {
+      "number": "23.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2302_sorting.ipynb",
+      "title": "Sorting",
+      "h2_subsections": 7
+    },
+    {
+      "number": "23.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/23_searching_sorting/2303_comparison_lab.ipynb",
+      "title": "Comparing Complete Search and Sort Workloads",
+      "h2_subsections": 8
+    },
+    {
+      "number": "24.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2401_greedy_choice.ipynb",
+      "title": "Greedy Choices and Exchange Reasoning",
+      "h2_subsections": 8
+    },
+    {
+      "number": "24.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths.ipynb",
+      "title": "Minimum Spanning Forests and Kruskal",
+      "h2_subsections": 6
+    },
+    {
+      "number": "24.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/24_greedy_graph_optimization/2404_shortest_paths.ipynb",
+      "title": "Shortest Paths and Dijkstra",
+      "h2_subsections": 12
+    },
+    {
+      "number": "25.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation.ipynb",
+      "title": "Memoization, Tabulation, and Repeated Work",
+      "h2_subsections": 7
+    },
+    {
+      "number": "25.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2504_optimization_models.ipynb",
+      "title": "Optimization States and Reconstructed Solutions",
+      "h2_subsections": 10
+    },
+    {
+      "number": "25.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/25_dynamic_programming_backtracking/2502_backtracking.ipynb",
+      "title": "Backtracking, Pruning, and Search States",
+      "h2_subsections": 11
+    },
+    {
+      "number": "26.1",
+      "path": "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings.ipynb",
+      "title": "Direct String Matching and Result Contracts",
+      "h2_subsections": 4
+    },
+    {
+      "number": "26.2",
+      "path": "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2604_prefix_matching.ipynb",
+      "title": "Prefix Reuse and KMP",
+      "h2_subsections": 8
+    },
+    {
+      "number": "26.3",
+      "path": "/Users/tcn85/workspace/cscs/chapters/26_advanced_graphs_strings_limits/2603_limits_project.ipynb",
+      "title": "Algorithms and Computational Limits",
+      "h2_subsections": 7
+    }
+  ]
+}

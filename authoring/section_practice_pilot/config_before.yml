@@ -1,0 +1,111 @@
+# Book settings
+title: Computer Science in C#
+author: Tsangyao Chen, Ph.D.
+logo: figures/logo.svg
+only_build_toc_files: true
+
+# Force re-execution of notebooks on each build
+execute:
+  execute_notebooks: "off"   # set to "auto" to run C# notebooks on build
+  stderr_output: show
+  output_cache: false     ### what's this?
+
+# MyST substitutions (available in .ipynb and .md files)
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - substitution
+  myst_substitutions:
+    if_else: "`if`-`else`"
+    if_else_if: "`if`-`else`-`if`"
+    do_while: "`do`-`while`"
+    vscode: "Visual Studio Code"
+    vscode_toggle: "View > Appearance > Panel"
+    vscode_terminal: "Terminal"
+    repsrc: "https://github.com/tychen742/cscs/tree/main/examples"
+    # repsrc: "examples"  # local copy of repo examples
+
+# Only build files listed in _toc.yml
+# only_build_toc_files: true ### ===> in up 1st section
+
+# Exclude virtualenv and other non-book content
+exclude_patterns:
+  - authoring/**
+  - .venv/**
+  - _build/**
+  - "**/.DS_Store"
+  - README.md
+  - cscs/
+  - .claude/**   # Claude Code worktrees are full checkouts of this repo
+
+# HTML-specific settings
+html:
+  use_issues_button: false
+  use_repository_button: true
+  use_edit_page_button: true
+  # use_multitoc_numbering: true
+  use_numbered_headings: true
+  number_toc_depth: 4
+
+# # Repository info (optional)
+repository:
+  url: https://github.com/tychen742/cscs
+  branch: main
+  path_to_book: .
+
+# Sphinx settings (carried over from your existing conf.py)
+sphinx:
+  recursive_update: true
+  local_extensions:
+    lexer_alias: _ext
+    subject_index: _ext
+    notebook_cell_metadata: _ext
+    appendix_numbering: _ext
+    chapter_redirects: _ext
+  extra_extensions:
+    - sphinx.ext.todo
+    - sphinx.ext.mathjax
+    - sphinxcontrib.youtube
+  config:
+    html_theme_options:
+      show_toc_level: 2
+    html_static_path:
+      - _static
+    html_favicon: _static/favicon.png
+    html_css_files:
+      - front_matter_sidebar.css
+      - custom.css
+      - landing_glossary.css
+      - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
+    html_js_files:
+      - section_anchor_redirects.js
+      - front_matter_sidebar.js
+      - thinkpress-config.js
+      - custom.js
+      - part_overview_links.js
+      - sidebar_labels.js
+      - cell_state.js
+      - execution.js
+      - trace_viewer.js
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    todo_include_todos: true
+    numfig: true
+    highlight_language: csharp
+    highlight_options:
+      default: { linenos: false }
+      # csharp: { linenos: true }
+    nb_number_source_lines: true
+    nb_remove_code_outputs: false
+    copyright: "Tsangyao Chen, Ph.D."
+    html_show_copyright: false
+
+    rst_prolog: |
+      .. role:: repsrc
+    rst_epilog: |
+      .. |if-else| replace:: ``if``\ -``else``
+
+      .. |if-else-if| replace:: ``if``\ -``else``\ -``if``
+
+      .. |do-while| replace:: ``do``\ -``while``
+
+      .. |repsrc| replace:: https://github.com/tychen742/cscs/tree/main/examples

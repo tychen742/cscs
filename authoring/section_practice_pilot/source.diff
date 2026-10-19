@@ -1,0 +1,158 @@
+--- before/0302_ifstatement
++++ after/0302_ifstatement
+@@ -854,6 +854,33 @@
+ Console.WriteLine($"Service {service}: {charge}");
+ 
+ 
++[markdown cell 422d3d66]
++```{index} Conditional (if) Statements
++```
++
++<span id="conditional-if-statements"></span>
++
++
++[markdown cell tabs19_practice_heading]
++## Practice What You Learned
++
++```{index} Practice
++```
++
++
++[markdown cell tabs19_intro]
++Work through these four questions after the reading. First predict and explain; then repair and apply. Each tab keeps one question together with its hint and feedback. You can revisit any question without losing your work. Notes can be kept here while you practice; keep any work you need to submit through your course's usual process.
++
++<div data-section-practice="decision-selection" data-practice-labels="Predict|Explain|Repair|Apply"></div>
++
++
++[markdown cell tabs19_q1_heading]
++### Predict the Branches
++
++```{index} Practice
++```
++
++
+ [markdown cell core19_decision_trace]
+ For a score of 95, compare two independent conditions `score >= 60` and `score >= 90` with an `if`/`else-if` chain in the same order. Predict how many messages each form prints. Then decide which order a chain needs if exactly one of “Pass” and “Distinction” is intended.
+ 
+@@ -862,6 +889,42 @@
+ ```
+ 
+ Complete the service table for `E`, `S`, `P`, `D` and an unknown code before modifying either implementation. State which branch runs and which branches are skipped. The existing service-code variation is the learner attempt; the table and branch trace provide the feedback structure.
++
++
++[markdown cell tabs19_q1_notes]
++<label for="practice-branch-trace">Your branch trace</label>
++<textarea id="practice-branch-trace" data-practice-draft="branch-trace" rows="4" placeholder="Write which conditions are tested and which branch executes."></textarea>
++
++
++[markdown cell tabs19_q2_heading]
++### Explain an Invalid Code
++
++```{index} Practice
++```
++
++
++[markdown cell tabs19_q2_task]
++A clerk initializes `charge` to zero, then assigns 8 for express and 3 for standard. Pickup also costs zero. The program leaves an unknown code unchanged and prints “Free pickup.”
++
++Explain why a plausible numeric result is not evidence that the code was recognized. Describe what the program must track or report before treating zero as a valid free service.
++
++<label for="practice-invalid-code">Your explanation</label>
++<textarea id="practice-invalid-code" data-practice-draft="invalid-code" rows="4" placeholder="Distinguish a valid zero charge from an unrecognized service."></textarea>
++
++```{dropdown} Hint
++Compare input `P` with input `X`. Both leave the same number in `charge`, but they do not describe the same service.
++```
++
++```{dropdown} Explanation
++Zero is a valid amount, not a recognition flag. An unknown code needs an explicit invalid branch, or a separate Boolean recording whether any supported case matched. Only a recognized code may produce the corresponding service report. A `switch` default can reject the code before printing a charge; an `if` chain can use a final invalid branch. Neither repair needs a loop or a user-defined method.
++```
++
++
++[markdown cell tabs19_q3_heading]
++### Repair the First-Match Rule
++
++```{index} Practice
++```
+ 
+ 
+ [markdown cell core19_choice_task]
+@@ -892,11 +955,73 @@
+ Console.WriteLine(category);
+ 
+ 
+-[markdown cell 422d3d66]
+-```{index} Conditional (if) Statements
+-```
+-
+-<span id="conditional-if-statements"></span>
++[markdown cell tabs19_q3_feedback]
++The repair tests the narrower distinction category before the broader pass category. Check 59, 60, 89, 90, and 95 without changing the expected categories to suit the implementation. The hidden answer preserves the original completed example; use it after attempting the repair.
++
++
++[markdown cell tabs19_q4_heading]
++### Apply the Delivery Rules
++
++```{index} Practice
++```
++
++
++[markdown cell tabs19_q4_task]
++Prepare one delivery quote. The recognized services are express `E` at 8, standard `S` at 3, and pickup `P` at zero. Standard delivery is free when `orderTotal >= 50m`; the waiver does not apply to express. An unknown code must print `Unknown service`.
++
++Complete the marked area using the selection forms taught in this reading. Use top-level statements; no loop or method is required. The starter compiles and prints `Not implemented` until you supply the rule.
++
++| Service | Order total | Required report |
++| --- | ---: | --- |
++| E | 25.00 | `Service E: 8` |
++| S | 49.99 | `Service S: 3` |
++| S | 50.00 | `Service S: 0` |
++| P | 25.00 | `Service P: 0` |
++| X | 50.00 | `Unknown service` |
++
++Change the two supplied input values and run each row separately.
++
++```{dropdown} Hint
++Recognize the service first. Apply the threshold waiver only to standard delivery. Keep recognition separate from the numeric charge so that pickup and invalid input cannot be confused.
++```
++
++
++[code cell tabs19_quote_starter]
++// Exercise: apply delivery rules
++// exercise-id: cscs-decision-practice-delivery-tabs
++using System;
++string service = "S";
++decimal orderTotal = 50m;
++string report = "Not implemented";
++// Your code starts here.
++// TODO: recognize the service, apply the standard-delivery waiver, and set report.
++// Your code ends here.
++Console.WriteLine(report);
++
++
++[code cell tabs19_quote_solution]
++// Solution: apply delivery rules
++using System;
++string service = "S";
++decimal orderTotal = 50m;
++string report = "Not implemented";
++int charge = 0;
++bool recognized = true;
++switch (service)
++{
++    case "E": charge = 8; break;
++    case "S": charge = 3; break;
++    case "P": charge = 0; break;
++    default: recognized = false; break;
++}
++if (recognized && service == "S" && orderTotal >= 50m) charge = 0;
++if (recognized) report = $"Service {service}: {charge}";
++else report = "Unknown service";
++Console.WriteLine(report);
++
++
++[markdown cell tabs19_q4_feedback]
++The initial S/50 input prints `Service S: 0`. The code first answers “was the service recognized?” and then applies the waiver, so X/50 is still rejected. Test just below and exactly at 50 to check the inclusive boundary; test E/50 as well to ensure a standard-only policy has not spread to every service.
+ 
+ 
+ [markdown cell e124e11b]

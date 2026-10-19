@@ -76,6 +76,7 @@ sphinx:
       - front_matter_sidebar.css
       - custom.css
       - landing_glossary.css
+      - section_practice.css
       - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
     html_js_files:
       - section_anchor_redirects.js
@@ -87,6 +88,7 @@ sphinx:
       - cell_state.js
       - execution.js
       - trace_viewer.js
+      - section_practice.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     todo_include_todos: true
     numfig: true

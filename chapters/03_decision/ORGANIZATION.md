@@ -1,5 +1,9 @@
 # Chapter Organization — Decision Structures
 
+## End-of-Section Practice Pilot (2026-10-19)
+
+Section 3.2 ends with a four-question practice area before Footnotes: predict branches, explain invalid input, repair first-match ordering, then apply delivery rules. The original branch trace and repair cells retain their identities and source. Short guided checks elsewhere stay beside their concepts. Desktop-style tabs progressively enhance the four question sections; without JavaScript, every question remains readable in order. Existing Edit/Run controls and code state are retained. This is one-section pilot only; assignments and optional readings are unchanged.
+
 ## Core Depth Revision (2026-10-19)
 
 C03: retain the service-code problem as framing, develop if/else-if/nesting/switch first, then return to the preserved cross-form comparison. Add a standalone, top-level branch-order repair and an inclusive-boundary/invalid-case trace. No methods or loops are prerequisites.
