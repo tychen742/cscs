@@ -377,6 +377,10 @@
     "attribution",
     "software licenses"
   ],
+  "average height under random insertion": [
+    "binary search tree; average case",
+    "binary search tree; random insertion order"
+  ],
   "averager; incremental average": [
     "classes; running-average example"
   ],
@@ -600,6 +604,10 @@
   "bubble sort and a settled suffix": [
     "bubble sort; settled suffix"
   ],
+  "build a heap bottom up": [
+    "heap; bottom-up construction",
+    "heapify"
+  ],
   "build and test example": [
     "classes; build-and-test example"
   ],
@@ -659,6 +667,10 @@
   ],
   "chaining method calls": [
     "method calls; chaining"
+  ],
+  "change a priority or remove from the middle": [
+    "heap; decrease key",
+    "heap; priority update"
   ],
   "changing data safely": [
     "SQL; safe updates"
@@ -775,6 +787,9 @@
   "code completion: a generic last element": [
     "generic method; code completion exercise"
   ],
+  "code completion: choose the smaller child": [
+    "heap; sink down; code completion exercise"
+  ],
   "code completion: count down": [
     "iterator; code completion exercise"
   ],
@@ -789,12 +804,29 @@
     "linked list; code completion exercise",
     "insertion; front of list"
   ],
+  "code completion: label each node with its depth": [
+    "tree depth; code completion exercise",
+    "passing down information"
+  ],
+  "code completion: same shape": [
+    "binary tree; code completion exercise"
+  ],
   "code tracing: array stack state": [
     "array-backed stack; tracing exercise"
+  ],
+  "code tracing: build, then remove": [
+    "binary search tree; tracing exercise"
   ],
   "code tracing: capacity after each append": [
     "dynamic array; tracing exercise",
     "capacity; growth trace"
+  ],
+  "code tracing: enqueue four priorities": [
+    "heap; enqueue trace"
+  ],
+  "code tracing: fill the return table": [
+    "tree recursion; tracing exercise",
+    "return table"
   ],
   "code tracing: follow a stack history": [
     "stack; tracing exercise",
@@ -803,6 +835,10 @@
   "code tracing: follow the recursion": [
     "merge sort; tracing exercise",
     "recursion; trace"
+  ],
+  "code tracing: is this array a heap?": [
+    "heap; tracing exercise",
+    "heap property; validation"
   ],
   "code tracing: narrow the interval": [
     "binary search; tracing exercise"
@@ -820,6 +856,9 @@
   "code tracing: the stack while matching": [
     "delimiter matching; tracing exercise",
     "stack; tracing exercise"
+  ],
+  "code tracing: three orders for a changed tree": [
+    "tree traversal; tracing exercise"
   ],
   "code tracing: undo and redo histories": [
     "undo and redo; tracing exercise"
@@ -965,6 +1004,10 @@
   ],
   "comparing costs": [
     "operation costs"
+  ],
+  "comparing two trees": [
+    "binary tree; structural equality",
+    "binary tree; mirror image"
   ],
   "comparison": [
     "comparison operators"
@@ -1133,6 +1176,9 @@
   ],
   "cost of append and indexing": [
     "dynamic array; append and indexed-access cost"
+  ],
+  "cost ordering: four ways to find the top 10": [
+    "top-k; cost ordering exercise"
   ],
   "cost ordering: rank the operations": [
     "operation cost; ordering exercise"
@@ -1739,6 +1785,10 @@
   "from source code to execution": [
     "source code; compilation and execution"
   ],
+  "full and complete binary trees": [
+    "full binary tree",
+    "complete binary tree"
+  ],
   "function; definition": [
     "methods; definition"
   ],
@@ -2310,6 +2360,10 @@
   ],
   "infinite loops": [
     "infinite loops"
+  ],
+  "information flow in recursive methods": [
+    "recursion; information flow",
+    "tree recursion; passing down and returning"
   ],
   "inheritance: vehicle and car": [
     "inheritance; Vehicle and Car example"
@@ -3814,6 +3868,10 @@
   "sorting objects uses an ordering policy": [
     "sorting; object ordering policy"
   ],
+  "sorting with a heap": [
+    "heapsort",
+    "heap; sorting application"
+  ],
   "source code; .net": [
     "source code; .NET execution"
   ],
@@ -4214,6 +4272,10 @@
   ],
   "the directory class": [
     "Directory; file-system operations"
+  ],
+  "the full binary tree theorem": [
+    "full binary tree theorem",
+    "binary tree; empty subtrees"
   ],
   "the math class": [
     "Math; library methods"
@@ -4732,6 +4794,10 @@
   ],
   "why generics exist": [
     "generics; motivation"
+  ],
+  "why not a sorted list?": [
+    "priority queue; representation comparison",
+    "heap; motivation"
   ],
   "word count example": [
     "word counting"

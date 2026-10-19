@@ -118,3 +118,23 @@ Pass 5 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 17.4 gained a pruning diagram marking visited and skipped nodes for the 25 to 60 range query and a step-by-step queue table for level order. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the four sections with OpenDSA CS2 11.2 Binary Trees (definitions and properties), 11.3 Traversals, 11.4 Binary Search Trees, and CS3 7.3 Binary Tree as a Recursive Data Structure, 7.4 The Full Binary Tree Theorem, 7.6 Implementing Tree Traversals, 7.7 Information Flow in Recursive Functions, 7.10 Space Requirements, 7.11.4 BST Analysis, 7.13 Guided Information Flow, and 7.14 Multiple Binary Trees. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Path, ancestor, descendant, level, internal node; left child versus right child as distinct structures | 11.2.1 Definitions | 17.1 Tree Vocabulary (expanded) |
+| Full and complete binary trees | 11.2.1 | 17.1 Full and Complete Binary Trees (new, with diagrams) |
+| Full Binary Tree Theorem and the count of empty subtrees; consequence for node space | CS3 7.4, 7.10 | 17.1 The Full Binary Tree Theorem (new, edge-counting argument, runnable verification) |
+| Return-table reasoning for several summaries at once | CS3 7.6, 7.13 | 17.1 Code Tracing: Fill the Return Table |
+| Information flow: local, passing down, collect-and-return, combined | CS3 7.7 | 17.4 Information Flow in Recursive Methods (new, three-method example) |
+| Set-depth exercise (passing down) | CS3 7.7.2 | 17.4 Code Completion: Label Each Node with Its Depth |
+| Traversal practice on a changed tree | 11.3.2-11.3.3 | 17.4 Code Tracing: Three Orders for a Changed Tree |
+| BST average-case analysis under random insertion | 11.4.4 BST Analysis | 17.2 Average Height Under Random Insertion (new, runnable experiment) |
+| BST insert-then-remove trace | 11.4 practice | 17.2 Code Tracing: Build, Then Remove |
+| Comparing two trees: same tree, same shape, mirror image | CS3 7.14 Multiple Binary Trees | 17.3 Comparing Two Trees (new) and Code Completion: Same Shape |
+| Summary questions | 11.3.4, CS3 7.21 | Check Your Understanding on every page |
+
+Exercises added: code tracing (17.1 Fill the Return Table, 17.4 Three Orders for a Changed Tree, 17.2 Build Then Remove), code completion (17.4 Label Each Node with Its Depth, 17.3 Same Shape), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Node implementations with separate leaf classes (CS3 7.8) and Huffman trees (7.18) remain out of scope.
