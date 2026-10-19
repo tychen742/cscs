@@ -476,3 +476,10 @@ it** pointers follow worked examples in 7.3, 16.2, 16.3, 17.2, 17.3, 18.2, 19.1,
 footnotes now use the `opendsa-server.cs.vt.edu` host. Every link returned HTTP
 200 on 2026-10-19. Huffman coding is not taught, so it has no pointer. Local
 changes on a worktree branch, not deployed.
+
+## CS2 Development on the OpenDSA Model, Stepper Prototype (2026-10-19)
+
+- OpenDSA CS2 and CS3 (Virginia Tech, MIT-licensed, Java) are adopted as primary references for Parts IV-VII; the chapter-to-section map is in `authoring/toc_comparison/README.md`, Appendix A has an entry, and 21 "Visualize it" pointers link construct sections to OpenDSA visualizations.
+- Pass 8 developed Chapters 13-26 on the OpenDSA model (explanations, worked examples with stored outputs, comparison tables, and borrowed exercise types: 37 code-tracing, 22 code-completion, 6 ordering, 6 concept checks, 46 Check Your Understanding blocks). Part IV-VII section prose grew from 64,674 to 102,959 words. Summary: `authoring/content_development_audit/pass8_cs2_opendsa_development.md`.
+- A trace-driven stepper prototype (`_static/trace_viewer.js`, `execution/runner-template/Trace.cs`) animates array algorithms from the reader's own run; two 7.3 cells are instrumented. The live Press runner compiles the Trace helper (Press commit 3f04337).
+- Reader's book: saved outputs start collapsed, pages have Run all and Show all saved outputs, runs are remembered per reader (`_static/cell_state.js`) and run cells are tinted; the legacy `thebe-interactive` tag is renamed `exercise`.
