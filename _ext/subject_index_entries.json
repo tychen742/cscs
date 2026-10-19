@@ -782,6 +782,9 @@
     "ring buffer; code completion exercise",
     "dequeue; implementation"
   ],
+  "code completion: finish the boundary updates": [
+    "binary search; code completion exercise"
+  ],
   "code completion: insert at the front": [
     "linked list; code completion exercise",
     "insertion; front of list"
@@ -797,12 +800,22 @@
     "stack; tracing exercise",
     "abstract data type; code tracing"
   ],
+  "code tracing: follow the recursion": [
+    "merge sort; tracing exercise",
+    "recursion; trace"
+  ],
+  "code tracing: narrow the interval": [
+    "binary search; tracing exercise"
+  ],
   "code tracing: predict the interleaving": [
     "iterator; tracing exercise",
     "yield return; execution order"
   ],
   "code tracing: ring state after each operation": [
     "ring buffer; tracing exercise"
+  ],
+  "code tracing: the prefix after each pass": [
+    "insertion sort; tracing exercise"
   ],
   "code tracing: the stack while matching": [
     "delimiter matching; tracing exercise",
@@ -1124,6 +1137,9 @@
   "cost ordering: rank the operations": [
     "operation cost; ordering exercise"
   ],
+  "cost ordering: which input costs insertion sort most?": [
+    "insertion sort; cost ordering exercise"
+  ],
   "costs and contracts": [
     "data structures; costs and contracts"
   ],
@@ -1142,6 +1158,10 @@
   "count matches and find the largest": [
     "array; counting matches",
     "array; largest element"
+  ],
+  "count the comparisons of binary search": [
+    "binary search; comparison count",
+    "binary search; analysis"
   ],
   "count the work": [
     "merge sort; comparison counts"
@@ -2378,6 +2398,10 @@
   ],
   "inventory constraints and money": [
     "database; inventory constraints and money"
+  ],
+  "inversions measure how unsorted the input is": [
+    "inversions; insertion sort cost",
+    "nearly sorted input"
   ],
   "is-a is a behavioral promise": [
     "inheritance; substitutability"
@@ -4199,6 +4223,10 @@
   ],
   "the pattern": [
     "divide and conquer; pattern"
+  ],
+  "the sorting problem and its cost measures": [
+    "sorting; problem definition",
+    "sorting; cost measures"
   ],
   "the standard library and namespaces": [
     "standard library",

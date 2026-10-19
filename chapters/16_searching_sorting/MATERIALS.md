@@ -96,3 +96,20 @@ Added `1604_merge_sort.ipynb` as supporting reading 16.3, following the textbook
 ## Guided Practice Pass (2026-10-18)
 
 Pass 4 of the content-development audit (`authoring/content_development_audit/`): added a mid-page guided practice with solution to the supporting 16.3 (merge descending runs) and an expected-output sentence to the 16.2 snapshot practice. Every new starter and solution compiles and runs standalone (.NET 10); starters that are meant to fail say so in their task text. No existing cell, heading, or exercise ID was removed.
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the three sections with OpenDSA CS2 4.6 Calculating Program Running Time (two search algorithms, analyzing binary search), 8.2 Sorting Terminology and Notation, 8.3 Comparing Records, 8.4 Insertion Sort and its analysis, and CS3 8.9-8.10 Mergesort. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Why binary search costs floor(log2 n) + 1 comparisons; growth under doubling; best versus missing-key cases | 4.6.1.3 Analyzing Binary Search | 16.1 Count the Comparisons of Binary Search (new, runnable counts against the bound) |
+| Binary search practice (interval trace, boundary updates) | 4.6.1.2 Binary Search Practice Exercise | 16.1 Code Tracing: Narrow the Interval; Code Completion: Finish the Boundary Updates |
+| The sorting problem defined over records and keys; comparisons versus moves versus memory as cost measures; limits of empirical timing | 8.2 | 16.2 The Sorting Problem and Its Cost Measures (new) |
+| Comparer consistency rules and two-key comparers | 8.3 Comparing Records | 16.2 Sorting Objects Uses an Ordering Policy (was 93 words) |
+| Inversions as the exact cost of insertion sort; nearly sorted input | 8.4.2 Insertion Sort Analysis | 16.2 Inversions Measure How Unsorted the Input Is (new, runnable inversion and shift counts) |
+| Reading the comparison counter output; verification as a reusable check; workload questions | 8.4, 8.2 | 16.2 Count Work for Different Inputs, Verify Order and Preservation, Compare Reporting and Query Workloads (each under 100 words before) |
+| Recursion tree of merge sort shown in program order | CS3 8.9 Mergesort Concepts | 16.4 Code Tracing: Follow the Recursion |
+| Exercise types: insertion sort proficiency trace, cost ordering, summary questions | 8.4 practice, 8.17 summary | Listed below |
+
+Exercises added: code tracing (16.1 Narrow the Interval, 16.2 The Prefix After Each Pass, 16.4 Follow the Recursion), code completion (16.1 Finish the Boundary Updates), cost ordering with a dropdown answer (16.2 Which Input Costs Insertion Sort Most?), and a Check Your Understanding block of four questions on each page, including the supporting reading. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Lower bounds for sorting (CS3 8.16) are left for Chapter 23, where the comparison-sort model is developed.
