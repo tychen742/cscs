@@ -1,5 +1,9 @@
 # Chapter Organization — Decision Structures
 
+## Tab 2 Repair and Evidence Revision (2026-10-19)
+
+Tab 2 shows a deliberately faulty standalone service program, asks students to complete its missing default branch, and provides explicit P/X expected-output tests. The hidden verified answer rejects all unsupported services with a diagnostic and return; it does not add an X case or assign an invalid service a charge. A checked multiple-choice explanation distinguishes numeric price from recognition evidence and connects the different zero-price policy in Tab 4. Existing executable cells and other tabs are preserved. Assignments and optional readings are unchanged.
+
 ## End-of-Section Practice Pilot (2026-10-19)
 
 Section 3.2 ends with a four-question practice area before Footnotes: predict branches, explain invalid input, repair first-match ordering, then apply delivery rules. The repair cells retain their identities and source. The Predict tab now presents two side-by-side score examples with multiple-choice predictions and checked feedback; the unrelated service-table instruction and uncheckable trace field were removed. The branch explanation and boundary checks remain available after the choices. Short guided checks elsewhere stay beside their concepts. Desktop-style tabs progressively enhance the four question sections; without JavaScript, every question remains readable in order. Existing Edit/Run controls and code state are retained. This is one-section pilot only; assignments and optional readings are unchanged.

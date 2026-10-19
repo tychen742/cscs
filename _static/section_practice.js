@@ -100,6 +100,16 @@
                 });
             });
             marker.dataset.practiceReady = "true";
+            section.querySelectorAll('[data-practice-check="zero-evidence"]').forEach(form => {
+                form.addEventListener("submit", event => {
+                    event.preventDefault();
+                    const answer = form.querySelector('input[name="zero-evidence"]:checked');
+                    form.querySelector("[data-practice-result]").textContent = !answer ?
+                        "Choose an explanation before checking." : answer.value === "shared" ?
+                        "Correct. P assigns zero; an unmatched X retains the initial zero. The amount alone does not identify the selected service." :
+                        "Try again. Trace P and X in the faulty program: which assignment, if any, changes charge?";
+                });
+            });
             section.querySelectorAll('[data-practice-check="branch-predictions"]').forEach(form => {
                 form.addEventListener("submit", event => {
                     event.preventDefault();
