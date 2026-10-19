@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 06/math_lab/math_app_test
+# Instructor Walkthrough: 06_exceptions_testing/math_lab/math_app_test
 
 **Role:** Supplementary test suite; not a current lab solution.
 
 **Supports:** [0603_testing](../../chapters/06_exceptions_testing/0603_testing.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/06/math_lab/math_app_test/README.md); [project file](../../demos/06/math_lab/math_app_test/math_app_test.csproj).
+**Source and student run instructions:** [project README](../../demos/06_exceptions_testing/math_lab/math_app_test/README.md); [project file](../../demos/06_exceptions_testing/math_lab/math_app_test/math_app_test.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet test demos/06/math_lab/math_app_test/math_app_test.csproj
+dotnet test demos/06_exceptions_testing/math_lab/math_app_test/math_app_test.csproj
 ```
 
 This resource is a test. It is verified by the build/test commands in the materials README, rather than a console-output transcript.

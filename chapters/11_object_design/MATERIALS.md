@@ -34,7 +34,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 Active notebooks: `1100_object_design`, `1101_objects_references`, `1102_composition`, and `1103_testing_collaboration`.
 
-Assignments: `assignments/index.ipynb`, `preview.ipynb`, `lab.ipynb`, and `homework.ipynb`. The lab builds one order model; homework transfers the ideas to other business models. Source and runnable checks live in `demos/11/object_design/`. All code cells provide their own imports, setup, and complete type definitions.
+Assignments: `assignments/index.ipynb`, `preview.ipynb`, `lab.ipynb`, and `homework.ipynb`. The lab builds one order model; homework transfers the ideas to other business models. Source and runnable checks live in `demos/11_object_design/object_design/`. All code cells provide their own imports, setup, and complete type definitions.
 
 No database, inheritance, interfaces, LINQ, or custom equality operators are prerequisites. Lecture slides and a chapter video are pending.
 
@@ -113,3 +113,7 @@ Pass 3 of the content-development audit: in 11.5 Nullability the nullable value,
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 11.1 gained the reference diagrams its prose asks students to draw (alias versus independent objects, before and after the assignment) and a summary table. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `11/` to `demos/11_object_design/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

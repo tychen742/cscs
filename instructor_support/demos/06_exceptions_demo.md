@@ -1,24 +1,24 @@
-# Instructor Walkthrough: 06/exceptions_demo
+# Instructor Walkthrough: 06_exceptions_testing/exceptions_demo
 
 **Role:** Concept companion.
 
 **Supports:** [0601_error_handling](../../chapters/06_exceptions_testing/0601_error_handling.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/06/exceptions_demo/README.md); [project file](../../demos/06/exceptions_demo/exceptions_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/06_exceptions_testing/exceptions_demo/README.md); [project file](../../demos/06_exceptions_testing/exceptions_demo/exceptions_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/06/exceptions_demo/exceptions_demo.csproj
+dotnet run --project demos/06_exceptions_testing/exceptions_demo/exceptions_demo.csproj
 ```
 
 Verified output:
 
 ```text
 System.ArithmeticException: Access denied: you must be at least 18 years old to play this game.
-   at Excepts.Except1.checkAge(Int32 age) in /Users/tychen/workspace/cscs/demos/06/exceptions_demo/exceptions.cs:line 11
+   at Excepts.Except1.checkAge(Int32 age) in /Users/tychen/workspace/cscs/demos/06_exceptions_testing/exceptions_demo/exceptions.cs:line 11
 ```
 
 ## Explain the Code

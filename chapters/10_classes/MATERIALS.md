@@ -54,9 +54,9 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/10/classes_demo/`](../../demos/10/classes_demo/README.md): Class instances and methods.
-- [`demos/10/classes_lab/`](../../demos/10/classes_lab/README.md): Animal/employee objects and instance versus static guessing games.
-- [`demos/10/enum_demo/`](../../demos/10/enum_demo/README.md): Enum values and their integer representation.
+- [`demos/10_classes/classes_demo/`](../../demos/10_classes/classes_demo/README.md): Class instances and methods.
+- [`demos/10_classes/classes_lab/`](../../demos/10_classes/classes_lab/README.md): Animal/employee objects and instance versus static guessing games.
+- [`demos/10_classes/enum_demo/`](../../demos/10_classes/enum_demo/README.md): Enum values and their integer representation.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
@@ -72,7 +72,7 @@ Preview now has ten vocabulary multiple-choice questions with radio controls and
 
 Homework has five workplace true/false cases (three true, two false) and five standalone coding tasks: supplier construction, stock withdrawal guards, calculated invoices, shared ticket numbering, and independent purchase-order reports. Existing Homework exercise IDs and assignment ID are preserved. Hidden coding answers retain verified output.
 
-The stage-five VS Code starter lives in `demos/10/coffee_register_starter/`. Canonical lab and homework solutions remain in the notebook answer cells. See `instructor_support/labs/10_classes_assignments.md` for checks and teaching guidance. The legacy Book List page remains optional practice after Chapter 11; its full solution is outside this revision.
+The stage-five VS Code starter lives in `demos/10_classes/coffee_register_starter/`. Canonical lab and homework solutions remain in the notebook answer cells. See `instructor_support/labs/10_classes_assignments.md` for checks and teaching guidance. The legacy Book List page remains optional practice after Chapter 11; its full solution is outside this revision.
 
 ## Restored CS1 Material (2026-10-17)
 
@@ -173,3 +173,7 @@ Pass 3 of the content-development audit: the three CashRegister sections of 10.3
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 10.2 gained a property-forms table (who may read and write each form, and its typical use); 10.3 gained an object diagram of the two registers and a state table over the three `Add` calls; 10.4 gained an Averager state table over the demonstration. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `10/` to `demos/10_classes/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

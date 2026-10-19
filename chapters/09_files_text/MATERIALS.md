@@ -70,14 +70,14 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 ## Runnable Demo Projects
 
-- [`demos/09/file_demo/`](../../demos/09/file_demo/README.md): Read a bundled file of integers.
+- [`demos/09_files_text/file_demo/`](../../demos/09_files_text/file_demo/README.md): Read a bundled file of integers.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.
 
 ## Integrated Responsibility Practice (2026-10-15)
 
-Optional `0905_privacy_security.ipynb` extends personal-data masking, validation, and safe logging. Retained `assignments/privacy_index.ipynb`, `privacy_preview.ipynb`, `privacy_lab.ipynb`, and `privacy_homework.ipynb` preserve former ethics assessments and IDs. Source reference: `demos/09/privacy_pass_lab_solution.cs`. SQL injection demonstration now lives in the database appendix.
+Optional `0905_privacy_security.ipynb` extends personal-data masking, validation, and safe logging. Retained `assignments/privacy_index.ipynb`, `privacy_preview.ipynb`, `privacy_lab.ipynb`, and `privacy_homework.ipynb` preserve former ethics assessments and IDs. Source reference: `demos/09_files_text/privacy_pass_lab_solution.cs`. SQL injection demonstration now lives in the database appendix.
 
 ## AI Literacy Integration (2026-10-15)
 
@@ -88,7 +88,7 @@ The text-processing lesson adds a prepared AI-review activity for a synthetic st
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 - `assignments/help_responses.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 
-The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09/help_responses_lab.zip`.
+The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09_files_text/help_responses_lab.zip`.
 
 ## Section-Boundary Coverage Disposition (2026-10-17)
 
@@ -197,3 +197,7 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 9.5 gained a table mapping the collect-less, show-less, keep-less habits to the code on the page. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `09/` to `demos/09_files_text/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

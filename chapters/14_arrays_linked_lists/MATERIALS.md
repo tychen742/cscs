@@ -17,8 +17,8 @@ orphan: true
 
 ## Runnable Materials
 
-- `demos/14/WorkOrderLists.cs`: standalone generic implementations with matching contract checks, reference-model comparisons, and copy-cost checks.
-- `demos/14/README.md`: local console-project instructions and expected verification output.
+- `demos/14_arrays_linked_lists/WorkOrderLists.cs`: standalone generic implementations with matching contract checks, reference-model comparisons, and copy-cost checks.
+- `demos/14_arrays_linked_lists/README.md`: local console-project instructions and expected verification output.
 
 ## Coverage Boundary
 

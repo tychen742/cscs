@@ -53,7 +53,7 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/03/conditional_demo/`](../../demos/03/conditional_demo/README.md): Conditional statements.
+- [`demos/03_decision/conditional_demo/`](../../demos/03_decision/conditional_demo/README.md): Conditional statements.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.

@@ -16,8 +16,8 @@ orphan: true
 
 ## Runnable Materials
 
-- `demos/15/ServiceDeskStructures.cs`: implementations and 600 seeded reference-model operation checks, with boundary/reuse tests.
-- `demos/15/README.md`: local console-project instructions and expected output.
+- `demos/15_stacks_queues/ServiceDeskStructures.cs`: implementations and 600 seeded reference-model operation checks, with boundary/reuse tests.
+- `demos/15_stacks_queues/README.md`: local console-project instructions and expected output.
 
 ## Verification and Remaining Work
 
@@ -88,3 +88,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Exercise types: array-based dequeue practice (code completion), stack and queue tracing, summary questions | 9.1.2 Array-based Dequeue Practice, 9.2.3.1 Summary Questions | Listed below |
 
 Exercises added: code tracing (15.1 The Stack While Matching, 15.2 Ring State After Each Operation, 15.3 Undo and Redo Histories), code completion (15.2 Dequeue from a Ring), and a Check Your Understanding block of four questions on each page. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output. No existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `15/` to `demos/15_stacks_queues/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

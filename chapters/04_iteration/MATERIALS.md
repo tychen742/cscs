@@ -51,8 +51,8 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/04/for_loop_demo/`](../../demos/04/for_loop_demo/README.md): For loops and string helpers.
-- [`demos/04/while_loop_demo/`](../../demos/04/while_loop_demo/README.md): While loops and a number guessing game.
+- [`demos/04_iteration/for_loop_demo/`](../../demos/04_iteration/for_loop_demo/README.md): For loops and string helpers.
+- [`demos/04_iteration/while_loop_demo/`](../../demos/04_iteration/while_loop_demo/README.md): While loops and a number guessing game.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.

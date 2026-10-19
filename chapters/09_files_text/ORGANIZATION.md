@@ -70,7 +70,7 @@ Keep prerequisite explanations in these content sections. Labs apply the explain
 
 ## Integrated Responsibility Practice (2026-10-15)
 
-Optional `0905_privacy_security.ipynb` extends personal-data masking, validation, and safe logging. Retained `assignments/privacy_index.ipynb`, `privacy_preview.ipynb`, `privacy_lab.ipynb`, and `privacy_homework.ipynb` preserve former ethics assessments and IDs. Source reference: `demos/09/privacy_pass_lab_solution.cs`. SQL injection demonstration now lives in the database appendix.
+Optional `0905_privacy_security.ipynb` extends personal-data masking, validation, and safe logging. Retained `assignments/privacy_index.ipynb`, `privacy_preview.ipynb`, `privacy_lab.ipynb`, and `privacy_homework.ipynb` preserve former ethics assessments and IDs. Source reference: `demos/09_files_text/privacy_pass_lab_solution.cs`. SQL injection demonstration now lives in the database appendix.
 
 ## AI Literacy Integration (2026-10-15)
 
@@ -85,7 +85,7 @@ Revisit Chapter 6 with missing files, malformed records, specific recoverable ex
 - `assignments/additional_practice.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 - `assignments/help_responses.ipynb`: restored explanations and exercises; retains current lessons and assignment IDs.
 
-The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09/help_responses_lab.zip`.
+The file-driven collections lab follows Files; Chapter 8 links forward to it. Downloadable starter: `demos/09_files_text/help_responses_lab.zip`.
 
 ## Section-Boundary Review (2026-10-17)
 

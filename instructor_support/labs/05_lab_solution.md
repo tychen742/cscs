@@ -2,12 +2,12 @@
 
 **Exact assignment:** the Product Code Report task in [Chapter 5 lab](../../chapters/05_methods/assignments/lab.ipynb).
 
-**Completed method reference:** [sku_report_lab_solution.cs](../../demos/05/sku_report_lab_solution.cs).
+**Completed method reference:** [sku_report_lab_solution.cs](../../demos/05_methods/sku_report_lab_solution.cs).
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/05/sku_report_lab_solution.csproj
+dotnet run --project demos/05_methods/sku_report_lab_solution.csproj
 ```
 
 ## Explain the Four Methods

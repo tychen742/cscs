@@ -51,7 +51,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `2402_spanning_trees_shortest_paths.ipynb`: explicit graph contracts, balanced union-find and Kruskal forests, cut exchange argument, Dijkstra settling and stale priorities, nullable wide distances, and guarded path reconstruction.
 - `2403_optimization_lab.ipynb`: exhaustive scheduling reference, forest invariants, independently checked path costs, boundary cases, and objective selection.
 - Assignments: ten-question preview; five connected facilities lab tasks; five applied true/false and five transfer coding homework tasks. Coding questions have independent starter cells and hidden runnable solutions with verified stdout.
-- `demos/24/GreedyChecks.cs`: downloadable complete implementations and independent reference checks; accompanying README gives console commands.
+- `demos/24_greedy_graph_optimization/GreedyChecks.cs`: downloadable complete implementations and independent reference checks; accompanying README gives console commands.
 
 ## Contracts and Scope
 
@@ -122,3 +122,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) 
 | Summary questions | 14.9 | Check Your Understanding on every page |
 
 Exercises added: code tracing (24.1, 24.2, 24.3), code completion (24.3), and Check Your Understanding on all three pages. Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied. Floyd's all-pairs algorithm is left to a future supporting reading.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `24/` to `demos/24_greedy_graph_optimization/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

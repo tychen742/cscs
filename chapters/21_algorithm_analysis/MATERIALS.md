@@ -15,7 +15,7 @@ orphan: true
 
 ## Verification and Scope
 
-All 29 completed code cells and hidden answers compile/run independently, with saved answer stdout. The reference program in `../../demos/21/AnalysisChecks.cs` passed 600 count/contract cases and 128 recurrence cases plus boundaries. The full-book build passed with five pre-existing warnings outside this chapter. Six representative examples/answers passed browser Run, including exact counts, bound inequalities, branching work, Fibonacci calls, wide sums, and the final lab task.
+All 29 completed code cells and hidden answers compile/run independently, with saved answer stdout. The reference program in `../../demos/21_algorithm_analysis/AnalysisChecks.cs` passed 600 count/contract cases and 128 recurrence cases plus boundaries. The full-book build passed with five pre-existing warnings outside this chapter. Six representative examples/answers passed browser Run, including exact counts, bound inequalities, branching work, Fibonacci calls, wide sums, and the final lab task.
 
 Recursive programming is developed in Chapter 22, searching/sorting in Chapter 23, and memoization in Chapter 25. Slides remain deferred to Press: student HTML/PDF and instructor-only PPTX. Keep legacy exercise tags until coordinated UI migration.
 

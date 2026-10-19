@@ -4,7 +4,7 @@
 
 **Canonical answers:** the five `hide-input` cells in that notebook. Each answer
 was compiled and run independently with .NET 10. The older
-[`demos/07/array_lab/`](../../demos/07/array_lab/README.md) is a
+[`demos/07_arrays/array_lab/`](../../demos/07_arrays/array_lab/README.md) is a
 supplementary completed exercise and is not this lab's answer key.
 
 To reproduce an answer in VS Code, create a temporary console project, replace

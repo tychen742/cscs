@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 02/input
+# Instructor Walkthrough: 02_var_data/input
 
 **Role:** Concept companion.
 
 **Supports:** [0203_input_output](../../chapters/02_var_data/0203_input_output.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/02/input/README.md); [project file](../../demos/02/input/input.csproj).
+**Source and student run instructions:** [project README](../../demos/02_var_data/input/README.md); [project file](../../demos/02_var_data/input/input.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/02/input/input.csproj
+dotnet run --project demos/02_var_data/input/input.csproj
 ```
 
 Verification input, one response per line:

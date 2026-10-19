@@ -2233,7 +2233,7 @@
     "source": [
      "A finance team sorts invoices by amount while retaining the arrival order of equal amounts. Build correctness checks before comparing counts. Every code cell includes its own setup and implementation.\n",
      "\n",
-     "Download {download}`the complete stable merge-sort source and reference checks <../../demos/22/StableSort.cs>` for a console project.\n"
+     "Download {download}`the complete stable merge-sort source and reference checks <../../demos/22_recursion_divide_conquer/StableSort.cs>` for a console project.\n"
     ],
     "id": "17fac272"
    },
@@ -4006,7 +4006,7 @@
      "\n",
      "These bounds assume fixed-cost comparison and hashing. They describe operations, not measured milliseconds. A tiny list can still be a practical choice when there are few records and little repeated lookup.\n",
      "\n",
-     "Download {download}`the complete heap and chained-map source with verification <../../demos/19/HeapHashStructures.cs>` to use in a console project."
+     "Download {download}`the complete heap and chained-map source with verification <../../demos/19_hash_collections/HeapHashStructures.cs>` to use in a console project."
     ],
     "id": "7873c54fd85d"
    },
@@ -8043,7 +8043,7 @@
     "cell_type": "markdown",
     "metadata": {},
     "source": [
-     "Use a purchasing workflow to compare unlimited pack quantities with one-use invoice adjustments. Verify objective values and witnesses independently. Download the complete implementations and reference checks: [PlanningChecks.cs](../../demos/25/PlanningChecks.cs)."
+     "Use a purchasing workflow to compare unlimited pack quantities with one-use invoice adjustments. Verify objective values and witnesses independently. Download the complete implementations and reference checks: [PlanningChecks.cs](../../demos/25_dynamic_programming_backtracking/PlanningChecks.cs)."
     ],
     "id": "8de0ec42"
    },
@@ -17849,7 +17849,7 @@
     "source": [
      "Use one facilities theme to connect scheduling, cable planning, and delivery routing. Their objectives differ; keep graph direction, weight units, and feasibility policies explicit. Each example includes its own setup.\n",
      "\n",
-     "Download the complete implementations and independent checks: [GreedyChecks.cs](../../demos/24/GreedyChecks.cs).\n"
+     "Download the complete implementations and independent checks: [GreedyChecks.cs](../../demos/24_greedy_graph_optimization/GreedyChecks.cs).\n"
     ],
     "id": "af60a66a"
    },
@@ -19879,7 +19879,7 @@
     "source": [
      "Use operation counts to support a purchasing report recommendation. Verify equivalent results before comparing costs. Clone input for each in-place sort and state whether counters include preparation or queries.\n",
      "\n",
-     "Download {download}`the complete search/sort implementations and reference checks <../../demos/23/SearchSortChecks.cs>` for a console project.\n"
+     "Download {download}`the complete search/sort implementations and reference checks <../../demos/23_searching_sorting/SearchSortChecks.cs>` for a console project.\n"
     ],
     "id": "8045633a"
    },
@@ -24568,7 +24568,7 @@
      "\n",
      "**Extend:** Add `TryPeek` with the same success rule. Test empty, singleton, duplicate, and zero-valued stacks without changing count.\n",
      "\n",
-     "For local VS Code practice, download {download}`the complete implementations and verification program <../../demos/15/ServiceDeskStructures.cs>` and use it as `Program.cs` in a console project. The program compares stack/queue behavior with standard library collections and checks boundary cases.\n"
+     "For local VS Code practice, download {download}`the complete implementations and verification program <../../demos/15_stacks_queues/ServiceDeskStructures.cs>` and use it as `Program.cs` in a console project. The program compares stack/queue behavior with standard library collections and checks boundary cases.\n"
     ],
     "id": "efd96cd0"
    },
@@ -26370,7 +26370,7 @@
     "source": [
      "A service desk assigns unique integer IDs to active tickets. Staff need to locate an ID, list active IDs in order, find the smallest active ID, and remove closed tickets. The BST is an index over IDs; it does not imply that the smallest ID is the most urgent ticket. A queue preserves arrival order, while this tree preserves key order.\n",
      "\n",
-     "The `TicketTree` class from the previous section supplies the basic operations. Each example below includes its own class and setup so you can run it independently. Download {download}`the complete source and verification program <../../demos/17/TicketTree.cs>` for use in a console project.\n",
+     "The `TicketTree` class from the previous section supplies the basic operations. Each example below includes its own class and setup so you can run it independently. Download {download}`the complete source and verification program <../../demos/17_trees/TicketTree.cs>` for use in a console project.\n",
      "\n",
      "Before adding more operations, write down the contract: no duplicate IDs; keys strictly increase in inorder traversal; Count equals the number of reachable nodes; unsuccessful updates preserve membership. Empty minimum lookup reports false rather than inventing an ID."
     ],
@@ -35527,7 +35527,7 @@
      "\n",
      "**Variations:** Predict results for an empty input, a passage containing only ignored words, mixed-case repeated words, and a minimum count of 2. Explain the distinction between filtering the printed report and removing entries from the dictionary. A multiword expression or an apostrophe also exposes the limits of the current splitting policy.\n",
      "\n",
-     "The complete companion project is available as {download}`Program.cs <../../demos/08/word_count/Program.cs>`, {download}`word_count.csproj <../../demos/08/word_count/word_count.csproj>`, and {download}`run instructions <../../demos/08/word_count/README.md>`. Save the source and project file together, then run `dotnet run --project word_count.csproj`.\n"
+     "The complete companion project is available as {download}`Program.cs <../../demos/08_collections/word_count/Program.cs>`, {download}`word_count.csproj <../../demos/08_collections/word_count/word_count.csproj>`, and {download}`run instructions <../../demos/08_collections/word_count/README.md>`. Save the source and project file together, then run `dotnet run --project word_count.csproj`.\n"
     ]
    },
    {
@@ -39964,7 +39964,7 @@
      "Andrew N. Harrington and George Thiruvathukal supplied reusable input helpers in their original C# examples. This restores the earlier workflow for adding a helper source file to your own project. You call its methods as library operations here; designing such methods follows in Chapter 5.[^ui-helper]\n",
      "\n",
      "1. Create a console project in your workspace using the Development Tools appendix's verified SDK/editor setup.\n",
-     "2. Download {download}`ui.cs <../../demos/02/ui_helper/ui.cs>` or open its source and copy the complete file. Save it as ui.cs **inside the same project folder as Program.cs**. Copy source text rather than a rendered GitHub page.\n",
+     "2. Download {download}`ui.cs <../../demos/02_var_data/ui_helper/ui.cs>` or open its source and copy the complete file. Save it as ui.cs **inside the same project folder as Program.cs**. Copy source text rather than a rendered GitHub page.\n",
      "3. Inspect its namespace. The original upstream file used IntroCS. For this restored example it is IntroCSCS. If you use a different namespace in your project, either change the helper's namespace to match or import IntroCSCS with a using directive. A folder name alone does not change a namespace.\n",
      "4. Replace Program.cs with the complete client below. The int variable is declared before the returned value is used.\n",
      "5. Save both files, build, and run from the project folder. Test a valid integer, a malformed line followed by a valid retry, and negative input. The helper is source code compiled into this same project, so there is no separate package-install step.\n",
@@ -39982,7 +39982,7 @@
      "}\n",
      "```\n",
      "\n",
-     "The client and helper are also available in the {download}`complete demonstration project <../../demos/02/ui_helper.zip>`. Extract it, open the folder in VS Code, and run `dotnet run`.\n",
+     "The client and helper are also available in the {download}`complete demonstration project <../../demos/02_var_data/ui_helper.zip>`. Extract it, open the folder in VS Code, and run `dotnet run`.\n",
      "\n",
      "A project can contain many .cs files. ui.cs defines helpers but does not declare Main, so adding it does not create a second entry point. Do not leave the template's top-level Console.WriteLine beside a second explicit Main. If you accidentally add two entry points, remove the unintended one rather than deleting the helper.\n",
      "\n",
@@ -42461,7 +42461,7 @@
     "cell_type": "markdown",
     "metadata": {},
     "source": [
-     "Finish the course by linking contracts, correctness, cost, and requirements. A large search space motivates better algorithms and narrower requirements, but does not itself prove that every exact algorithm must enumerate that space. Download complete implementations and checks: [AdvancedChecks.cs](../../demos/26/AdvancedChecks.cs)."
+     "Finish the course by linking contracts, correctness, cost, and requirements. A large search space motivates better algorithms and narrower requirements, but does not itself prove that every exact algorithm must enumerate that space. Download complete implementations and checks: [AdvancedChecks.cs](../../demos/26_advanced_graphs_strings_limits/AdvancedChecks.cs)."
     ],
     "id": "f9161371"
    },
@@ -43984,7 +43984,7 @@
    {
     "cell_type": "markdown",
     "metadata": {},
-    "source": "Use the reference project in `demos/11/object_design/` to inspect a saved application. Its default run prints an order summary; `--check` runs boundary checks. The same model works without the interactive console because its methods receive ordinary values.\n\n```sh\ndotnet run --project demos/11/object_design\ndotnet run --project demos/11/object_design -- --check\n```\n\nFor your own project, use `Product.cs`, `OrderLine.cs`, `Order.cs`, and `Program.cs`, or an equally clear organization. Write a README that states identifier equality, duplicate-line behavior, price history, invalid-input handling, and how to run the checks. These are design decisions a teammate must be able to discover.\n\nAfter these foundations, Chapter 12 introduces interfaces and inheritance for situations in which clients must work with several kinds of implementation. Keep ordinary composition when one concrete class already fits the problem.\n",
+    "source": "Use the reference project in `demos/11_object_design/object_design/` to inspect a saved application. Its default run prints an order summary; `--check` runs boundary checks. The same model works without the interactive console because its methods receive ordinary values.\n\n```sh\ndotnet run --project demos/11_object_design/object_design\ndotnet run --project demos/11_object_design/object_design -- --check\n```\n\nFor your own project, use `Product.cs`, `OrderLine.cs`, `Order.cs`, and `Program.cs`, or an equally clear organization. Write a README that states identifier equality, duplicate-line behavior, price history, invalid-input handling, and how to run the checks. These are design decisions a teammate must be able to discover.\n\nAfter these foundations, Chapter 12 introduces interfaces and inheritance for situations in which clients must work with several kinds of implementation. Keep ordinary composition when one concrete class already fits the problem.\n",
     "id": "ae27fe457a48"
    },
    {
@@ -50760,7 +50760,7 @@
      "\n",
      "Run all five stages and submit through the course assignment panel. Compare your output with the saved answers, then check the additional quantities and price given above.\n",
      "\n",
-     "For local practice, download {download}`Program.cs <../../../demos/02/order_invoice_starter/Program.cs>` and {download}`order_invoice_starter.csproj <../../../demos/02/order_invoice_starter/order_invoice_starter.csproj>` into one folder. Open it in VS Code and run:\n",
+     "For local practice, download {download}`Program.cs <../../../demos/02_var_data/order_invoice_starter/Program.cs>` and {download}`order_invoice_starter.csproj <../../../demos/02_var_data/order_invoice_starter/order_invoice_starter.csproj>` into one folder. Open it in VS Code and run:\n",
      "\n",
      "```console\n",
      "dotnet run --project order_invoice_starter.csproj\n",
@@ -72300,7 +72300,7 @@
     "source": [
      "Start with a working responder that builds a list of fallback paragraphs and a dictionary of keyword/response pairs using Add calls. If a word matches a dictionary key, return its response. Otherwise choose a fallback randomly. Compare that version with one that reads the same paragraphs from text files. The visible responses can be the same while the second design permits editing data without rebuilding source.\n",
      "\n",
-     "Download the {download}`starter project <../../../demos/09/help_responses_lab.zip>`, extract it, and open its folder in VS Code. Run `dotnet run` from that folder. Study the complete `fake_help_verbose.cs` first; then set the startup object in the project to `IntroCS.FakeHelp` and implement the three stubs in `file_util.cs`. Keep the supplied namespace and one selected entry point.\n",
+     "Download the {download}`starter project <../../../demos/09_files_text/help_responses_lab.zip>`, extract it, and open its folder in VS Code. Run `dotnet run` from that folder. Study the complete `fake_help_verbose.cs` first; then set the startup object in the project to `IntroCS.FakeHelp` and implement the three stubs in `file_util.cs`. Keep the supplied namespace and one selected entry point.\n",
      "\n",
      "The defaults file starts with a welcome paragraph, then a goodbye paragraph, then fallback paragraphs. A blank line separates paragraphs. The responses file contains a keyword line followed by its response paragraph. Inspect both before coding. Use the supplied deliberately synthetic data; do not add real support tickets or personal information."
     ]
@@ -78469,7 +78469,7 @@
      "\n",
      "Run all five stages and submit through the course assignment panel. Check that the two registers keep separate totals, a rejected cashier name leaves the previous name intact, and receipt numbers advance across both registers.\n",
      "\n",
-     "For local practice, download {download}`Program.cs <../../../demos/10/coffee_register_starter/Program.cs>` and {download}`coffee_register_starter.csproj <../../../demos/10/coffee_register_starter/coffee_register_starter.csproj>` into one folder. Open that folder in VS Code and run:\n",
+     "For local practice, download {download}`Program.cs <../../../demos/10_classes/coffee_register_starter/Program.cs>` and {download}`coffee_register_starter.csproj <../../../demos/10_classes/coffee_register_starter/coffee_register_starter.csproj>` into one folder. Open that folder in VS Code and run:\n",
      "\n",
      "```console\n",
      "dotnet run --project coffee_register_starter.csproj\n",

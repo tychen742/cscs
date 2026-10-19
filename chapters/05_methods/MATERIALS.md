@@ -44,7 +44,7 @@ Each content page has one local contents directive and one final Footnotes group
 
 ## Runnable Demo Projects
 
-- [`demos/05/methods_demo/`](../../demos/05/methods_demo/README.md): Method calls, parameters, and return values.
+- [`demos/05_methods/methods_demo/`](../../demos/05_methods/methods_demo/README.md): Method calls, parameters, and return values.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.

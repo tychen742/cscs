@@ -42,7 +42,7 @@ Total: 110 minutes including examples, traces, and practice. Preview, connected 
 
 ## Boundaries
 
-Object collaboration, copy depth, and composition move into Chapter 11. Inheritance, interfaces, and polymorphism follow in Chapter 12. Operator overloading is an optional appendix extension, not a required fourth section. Existing demonstrations stay in `demos/10/`.
+Object collaboration, copy depth, and composition move into Chapter 11. Inheritance, interfaces, and polymorphism follow in Chapter 12. Operator overloading is an optional appendix extension, not a required fourth section. Existing demonstrations stay in `demos/10_classes/`.
 
 
 ## Instance Lesson Refresh

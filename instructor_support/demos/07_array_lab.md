@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 08/array_lab
+# Instructor Walkthrough: 07_arrays/array_lab
 
 **Role:** Completed legacy exercise; not a current lab solution.
 
 **Supports:** [0701_onedim](../../chapters/07_arrays/0701_onedim.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/07/array_lab/README.md); [project file](../../demos/07/array_lab/array_lab.csproj).
+**Source and student run instructions:** [project README](../../demos/07_arrays/array_lab/README.md); [project file](../../demos/07_arrays/array_lab/array_lab.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/07/array_lab/array_lab.csproj
+dotnet run --project demos/07_arrays/array_lab/array_lab.csproj
 ```
 
 Verified output:

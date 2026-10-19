@@ -483,3 +483,21 @@ changes on a worktree branch, not deployed.
 - Pass 8 developed Chapters 13-26 on the OpenDSA model (explanations, worked examples with stored outputs, comparison tables, and borrowed exercise types: 37 code-tracing, 22 code-completion, 6 ordering, 6 concept checks, 46 Check Your Understanding blocks). Part IV-VII section prose grew from 64,674 to 102,959 words. Summary: `authoring/content_development_audit/pass8_cs2_opendsa_development.md`.
 - A trace-driven stepper prototype (`_static/trace_viewer.js`, `execution/runner-template/Trace.cs`) animates array algorithms from the reader's own run; two 7.3 cells are instrumented. The live Press runner compiles the Trace helper (Press commit 3f04337).
 - Reader's book: saved outputs start collapsed, pages have Run all and Show all saved outputs, runs are remembered per reader (`_static/cell_state.js`) and run cells are tinted; the legacy `thebe-interactive` tag is renamed `exercise`.
+
+## Demo Folder Rename (2026-10-19)
+
+Every `demos/NN/` folder is now `demos/NN_chapter_name/`, using the exact folder
+name of `chapters/NN_*`, so students who clone the repository and open it in VS
+Code see the same names as the book (Chapter 13 has no demo folder, so 25
+folders moved with `git mv`). `_extras/`, `_archived/`, `demos/README.md`, and
+`demos/demo_projects.json` stay in place. Updated references: the 22 notebook
+download and link paths in Chapters 2, 8, 9, 10, 11, 15, 17, 19, 22-26, and the
+graph representation workshop appendix; MATERIALS and ORGANIZATION notes;
+`demos/README.md` (new Open in VS Code paragraph, build examples, and a Demo
+Projects table whose labels now match their link paths); `demo_projects.json`
+project paths; `scripts/verify_demos.py` and `scripts/verify_lab_solutions.py`;
+`demos/_extras/demo_checks/demo_checks.csproj` relative source includes;
+`.gitignore` ZIP exceptions; `instructor_support/`; `AGENTS.md`; and the
+historical audit snapshots under `authoring/` (mechanical path replacement so no
+old path remains). `materials/stale_chapters/` history is untouched. Local
+changes on a worktree branch, not deployed.

@@ -30,51 +30,51 @@ do not by themselves imply a relationship to a current lab.
 
 | Resource | Role | Instructor walkthrough |
 | --- | --- | --- |
-| [`01/hello_world/HelloWorld.csproj`](../demos/01/hello_world/HelloWorld.csproj) | Supporting project | See the project source |
-| [`02/input/input.csproj`](../demos/02/input/input.csproj) | Supporting project | See the project source |
-| [`02/output/output.csproj`](../demos/02/output/output.csproj) | Supporting project | See the project source |
-| [`05/methods_demo/methods_demo.csproj`](../demos/05/methods_demo/methods_demo.csproj) | Supporting project | See the project source |
-| [`03/conditional_demo/conditional_demo.csproj`](../demos/03/conditional_demo/conditional_demo.csproj) | Supporting project | See the project source |
-| [`04/for_loop_demo/for_loop_demo.csproj`](../demos/04/for_loop_demo/for_loop_demo.csproj) | Supporting project | See the project source |
-| [`04/while_loop_demo/while_loop_demo.csproj`](../demos/04/while_loop_demo/while_loop_demo.csproj) | Supporting project | See the project source |
-| [`09/file_demo/file_demo.csproj`](../demos/09/file_demo/file_demo.csproj) | Supporting project | See the project source |
-| [`07/arrays_demo/arrays_demo.csproj`](../demos/07/arrays_demo/arrays_demo.csproj) | Supporting project | See the project source |
-| [`07/array_lab/array_lab.csproj`](../demos/07/array_lab/array_lab.csproj) | Supporting project | See the project source |
-| [`08/collections_demo/collections_demo.csproj`](../demos/08/collections_demo/collections_demo.csproj) | Supporting project | See the project source |
-| [`08/help_responses/help_responses.csproj`](../demos/08/help_responses/help_responses.csproj) | Supporting project | See the project source |
-| [`10/classes_demo/classes_demo.csproj`](../demos/10/classes_demo/classes_demo.csproj) | Supporting project | See the project source |
-| [`10/classes_lab/classes_lab.csproj`](../demos/10/classes_lab/classes_lab.csproj) | Supporting project | See the project source |
-| [`12/oop_demo/oop_demo.csproj`](../demos/12/oop_demo/oop_demo.csproj) | Supporting project | See the project source |
-| [`12/oop_lab/oop_lab.csproj`](../demos/12/oop_lab/oop_lab.csproj) | Supporting project | See the project source |
-| [`23/search_sort_demo/search_sort_demo.csproj`](../demos/23/search_sort_demo/search_sort_demo.csproj) | Supporting project | See the project source |
-| [`10/enum_demo/enum_demo.csproj`](../demos/10/enum_demo/enum_demo.csproj) | Supporting project | See the project source |
-| [`06/exceptions_demo/exceptions_demo.csproj`](../demos/06/exceptions_demo/exceptions_demo.csproj) | Supporting project | See the project source |
-| [`06/math_tests/math_app/math_app.csproj`](../demos/06/math_tests/math_app/math_app.csproj) | Supporting project | See the project source |
-| [`06/math_tests/math_app_test/math_app_test.csproj`](../demos/06/math_tests/math_app_test/math_app_test.csproj) | Supporting project | See the project source |
-| [`06/math_lab/math_app/math_app.csproj`](../demos/06/math_lab/math_app/math_app.csproj) | Supporting project | See the project source |
-| [`06/math_lab/math_app_test/math_app_test.csproj`](../demos/06/math_lab/math_app_test/math_app_test.csproj) | Supporting project | See the project source |
+| [`01_context/hello_world/HelloWorld.csproj`](../demos/01_context/hello_world/HelloWorld.csproj) | Supporting project | See the project source |
+| [`02_var_data/input/input.csproj`](../demos/02_var_data/input/input.csproj) | Supporting project | See the project source |
+| [`02_var_data/output/output.csproj`](../demos/02_var_data/output/output.csproj) | Supporting project | See the project source |
+| [`05_methods/methods_demo/methods_demo.csproj`](../demos/05_methods/methods_demo/methods_demo.csproj) | Supporting project | See the project source |
+| [`03_decision/conditional_demo/conditional_demo.csproj`](../demos/03_decision/conditional_demo/conditional_demo.csproj) | Supporting project | See the project source |
+| [`04_iteration/for_loop_demo/for_loop_demo.csproj`](../demos/04_iteration/for_loop_demo/for_loop_demo.csproj) | Supporting project | See the project source |
+| [`04_iteration/while_loop_demo/while_loop_demo.csproj`](../demos/04_iteration/while_loop_demo/while_loop_demo.csproj) | Supporting project | See the project source |
+| [`09_files_text/file_demo/file_demo.csproj`](../demos/09_files_text/file_demo/file_demo.csproj) | Supporting project | See the project source |
+| [`07_arrays/arrays_demo/arrays_demo.csproj`](../demos/07_arrays/arrays_demo/arrays_demo.csproj) | Supporting project | See the project source |
+| [`07_arrays/array_lab/array_lab.csproj`](../demos/07_arrays/array_lab/array_lab.csproj) | Supporting project | See the project source |
+| [`08_collections/collections_demo/collections_demo.csproj`](../demos/08_collections/collections_demo/collections_demo.csproj) | Supporting project | See the project source |
+| [`08_collections/help_responses/help_responses.csproj`](../demos/08_collections/help_responses/help_responses.csproj) | Supporting project | See the project source |
+| [`10_classes/classes_demo/classes_demo.csproj`](../demos/10_classes/classes_demo/classes_demo.csproj) | Supporting project | See the project source |
+| [`10_classes/classes_lab/classes_lab.csproj`](../demos/10_classes/classes_lab/classes_lab.csproj) | Supporting project | See the project source |
+| [`12_oop/oop_demo/oop_demo.csproj`](../demos/12_oop/oop_demo/oop_demo.csproj) | Supporting project | See the project source |
+| [`12_oop/oop_lab/oop_lab.csproj`](../demos/12_oop/oop_lab/oop_lab.csproj) | Supporting project | See the project source |
+| [`23_searching_sorting/search_sort_demo/search_sort_demo.csproj`](../demos/23_searching_sorting/search_sort_demo/search_sort_demo.csproj) | Supporting project | See the project source |
+| [`10_classes/enum_demo/enum_demo.csproj`](../demos/10_classes/enum_demo/enum_demo.csproj) | Supporting project | See the project source |
+| [`06_exceptions_testing/exceptions_demo/exceptions_demo.csproj`](../demos/06_exceptions_testing/exceptions_demo/exceptions_demo.csproj) | Supporting project | See the project source |
+| [`06_exceptions_testing/math_tests/math_app/math_app.csproj`](../demos/06_exceptions_testing/math_tests/math_app/math_app.csproj) | Supporting project | See the project source |
+| [`06_exceptions_testing/math_tests/math_app_test/math_app_test.csproj`](../demos/06_exceptions_testing/math_tests/math_app_test/math_app_test.csproj) | Supporting project | See the project source |
+| [`06_exceptions_testing/math_lab/math_app/math_app.csproj`](../demos/06_exceptions_testing/math_lab/math_app/math_app.csproj) | Supporting project | See the project source |
+| [`06_exceptions_testing/math_lab/math_app_test/math_app_test.csproj`](../demos/06_exceptions_testing/math_lab/math_app_test/math_app_test.csproj) | Supporting project | See the project source |
 | [`_extras/one_hour_of_code/one_hour_of_code.csproj`](../demos/_extras/one_hour_of_code/one_hour_of_code.csproj) | Supporting project | See the project source |
 | [`_extras/contact_demo/contact_demo.csproj`](../demos/_extras/contact_demo/contact_demo.csproj) | Supporting project | See the project source |
 | [`_extras/console_input_introcs/console_input_introcs.csproj`](../demos/_extras/console_input_introcs/console_input_introcs.csproj) | Supporting project | See the project source |
 | [`_extras/console_input_intro_cscs/console_input_intro_cscs.csproj`](../demos/_extras/console_input_intro_cscs/console_input_intro_cscs.csproj) | Supporting project | See the project source |
-| [`11/object_design/ObjectDesign.csproj`](../demos/11/object_design/ObjectDesign.csproj) | Supporting project | See the project source |
-| [`12/policy_design/PolicyDesign.csproj`](../demos/12/policy_design/PolicyDesign.csproj) | Supporting project | See the project source |
-| [`16/search_sort/BasicSearchSort.csproj`](../demos/16/search_sort/BasicSearchSort.csproj) | Searching and insertion-sort reference checks | [Guide](adoption_routes.md) |
-| [`18/priority_queue/HeapChecks.csproj`](../demos/18/priority_queue/HeapChecks.csproj) | Generic heap reference checks | [Guide](adoption_routes.md) |
-| [`19/hash_collections/HashChecks.csproj`](../demos/19/hash_collections/HashChecks.csproj) | Chained map and set reference checks | [Guide](adoption_routes.md) |
-| [`20/graph_traversal/GraphChecks.csproj`](../demos/20/graph_traversal/GraphChecks.csproj) | Core BFS DFS path and component checks | [Guide](adoption_routes.md) |
+| [`11_object_design/object_design/ObjectDesign.csproj`](../demos/11_object_design/object_design/ObjectDesign.csproj) | Supporting project | See the project source |
+| [`12_oop/policy_design/PolicyDesign.csproj`](../demos/12_oop/policy_design/PolicyDesign.csproj) | Supporting project | See the project source |
+| [`16_searching_sorting/search_sort/BasicSearchSort.csproj`](../demos/16_searching_sorting/search_sort/BasicSearchSort.csproj) | Searching and insertion-sort reference checks | [Guide](adoption_routes.md) |
+| [`18_priority_queues/priority_queue/HeapChecks.csproj`](../demos/18_priority_queues/priority_queue/HeapChecks.csproj) | Generic heap reference checks | [Guide](adoption_routes.md) |
+| [`19_hash_collections/hash_collections/HashChecks.csproj`](../demos/19_hash_collections/hash_collections/HashChecks.csproj) | Chained map and set reference checks | [Guide](adoption_routes.md) |
+| [`20_graphs/graph_traversal/GraphChecks.csproj`](../demos/20_graphs/graph_traversal/GraphChecks.csproj) | Core BFS DFS path and component checks | [Guide](adoption_routes.md) |
 
 ## Current Assignment Solution Guides
 
 | Assignment | Canonical code | Instructor guide |
 | --- | --- | --- |
-| Chapter 5: Product Code Report task | `demos/05/sku_report_lab_solution.cs` | [Method reasoning, expected output, and assessment checkpoints](labs/05_lab_solution.md) |
-| Chapter 1: Privacy Pass, Tasks 1-5 | `demos/09/privacy_pass_lab_solution.cs` | [Task walkthroughs and reflection guidance](labs/09_privacy_lab_solution.md) |
+| Chapter 5: Product Code Report task | `demos/05_methods/sku_report_lab_solution.cs` | [Method reasoning, expected output, and assessment checkpoints](labs/05_lab_solution.md) |
+| Chapter 1: Privacy Pass, Tasks 1-5 | `demos/09_files_text/privacy_pass_lab_solution.cs` | [Task walkthroughs and reflection guidance](labs/09_privacy_lab_solution.md) |
 | Chapter 7: Sales lab, Tasks 1-5 | Five hidden answer cells in the current lab notebook | [Verified outputs and grading guidance](labs/07_sales_lab.md) |
 
 The Chapter 5 reference does not cover all of Lab 03. Students must also add
 their own example, explanation, and the requested submission evidence.
-The completed `demos/07/array_lab/` helpers are **not** the sales-lab key.
+The completed `demos/07_arrays/array_lab/` helpers are **not** the sales-lab key.
 
 ## Assignment Inventory and Remaining Gaps
 
@@ -191,18 +191,18 @@ assignment solutions.
 
 | Source | Existing instructions |
 | --- | --- |
-| [demos/14/WorkOrderLists.cs](../demos/14/WorkOrderLists.cs) | [README](../demos/14/README.md) |
-| [demos/15/ServiceDeskStructures.cs](../demos/15/ServiceDeskStructures.cs) | [README](../demos/15/README.md) |
-| [demos/17/TicketTree.cs](../demos/17/TicketTree.cs) | [README](../demos/17/README.md) |
-| [demos/19/HeapHashStructures.cs](../demos/19/HeapHashStructures.cs) | [README](../demos/19/README.md) |
-| [Core graph traversal](../demos/20/graph_traversal/Model.cs) | [README](../demos/20/README.md) |
-| [demos/20/RouteGraph.cs](../demos/20/RouteGraph.cs) | [README](../demos/20/README.md) |
-| [demos/21/AnalysisChecks.cs](../demos/21/AnalysisChecks.cs) | [README](../demos/21/README.md) |
-| [demos/22/StableSort.cs](../demos/22/StableSort.cs) | [README](../demos/22/README.md) |
-| [demos/23/SearchSortChecks.cs](../demos/23/SearchSortChecks.cs) | [README](../demos/23/README.md) |
-| [demos/24/GreedyChecks.cs](../demos/24/GreedyChecks.cs) | [README](../demos/24/README.md) |
-| [demos/25/PlanningChecks.cs](../demos/25/PlanningChecks.cs) | [README](../demos/25/README.md) |
-| [demos/26/AdvancedChecks.cs](../demos/26/AdvancedChecks.cs) | [README](../demos/26/README.md) |
+| [demos/14_arrays_linked_lists/WorkOrderLists.cs](../demos/14_arrays_linked_lists/WorkOrderLists.cs) | [README](../demos/14_arrays_linked_lists/README.md) |
+| [demos/15_stacks_queues/ServiceDeskStructures.cs](../demos/15_stacks_queues/ServiceDeskStructures.cs) | [README](../demos/15_stacks_queues/README.md) |
+| [demos/17_trees/TicketTree.cs](../demos/17_trees/TicketTree.cs) | [README](../demos/17_trees/README.md) |
+| [demos/19_hash_collections/HeapHashStructures.cs](../demos/19_hash_collections/HeapHashStructures.cs) | [README](../demos/19_hash_collections/README.md) |
+| [Core graph traversal](../demos/20_graphs/graph_traversal/Model.cs) | [README](../demos/20_graphs/README.md) |
+| [demos/20_graphs/RouteGraph.cs](../demos/20_graphs/RouteGraph.cs) | [README](../demos/20_graphs/README.md) |
+| [demos/21_algorithm_analysis/AnalysisChecks.cs](../demos/21_algorithm_analysis/AnalysisChecks.cs) | [README](../demos/21_algorithm_analysis/README.md) |
+| [demos/22_recursion_divide_conquer/StableSort.cs](../demos/22_recursion_divide_conquer/StableSort.cs) | [README](../demos/22_recursion_divide_conquer/README.md) |
+| [demos/23_searching_sorting/SearchSortChecks.cs](../demos/23_searching_sorting/SearchSortChecks.cs) | [README](../demos/23_searching_sorting/README.md) |
+| [demos/24_greedy_graph_optimization/GreedyChecks.cs](../demos/24_greedy_graph_optimization/GreedyChecks.cs) | [README](../demos/24_greedy_graph_optimization/README.md) |
+| [demos/25_dynamic_programming_backtracking/PlanningChecks.cs](../demos/25_dynamic_programming_backtracking/PlanningChecks.cs) | [README](../demos/25_dynamic_programming_backtracking/README.md) |
+| [demos/26_advanced_graphs_strings_limits/AdvancedChecks.cs](../demos/26_advanced_graphs_strings_limits/AdvancedChecks.cs) | [README](../demos/26_advanced_graphs_strings_limits/README.md) |
 
 ## Recheck Current Lab References
 
@@ -225,7 +225,7 @@ it into a second independently edited solution file.
 
 Optional database appendix: [bookstore inventory lab guidance](labs/bookstore_inventory.md), with a dedicated starter, reference application, and isolated verification modes.
 
-Part III references: [object design](../demos/11/object_design/README.md) and [policy design](../demos/12/policy_design/README.md). The lesson/assignment sources include executed solution output; see [Part III guidance](labs/part_03_oop.md).
+Part III references: [object design](../demos/11_object_design/object_design/README.md) and [policy design](../demos/12_oop/policy_design/README.md). The lesson/assignment sources include executed solution output; see [Part III guidance](labs/part_03_oop.md).
 
 
 See [Course Adoption Routes](adoption_routes.md) for standalone CS1 and flexible CS2 use.

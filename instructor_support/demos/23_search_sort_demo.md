@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 22/search_sort_demo
+# Instructor Walkthrough: 23_searching_sorting/search_sort_demo
 
 **Role:** Concept companion with timing extensions.
 
 **Supports:** [2303_comparison_lab](../../chapters/23_searching_sorting/2303_comparison_lab.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/23/search_sort_demo/README.md); [project file](../../demos/23/search_sort_demo/search_sort_demo.csproj).
+**Source and student run instructions:** [project README](../../demos/23_searching_sorting/search_sort_demo/README.md); [project file](../../demos/23_searching_sorting/search_sort_demo/search_sort_demo.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/23/search_sort_demo/search_sort_demo.csproj
+dotnet run --project demos/23_searching_sorting/search_sort_demo/search_sort_demo.csproj
 ```
 
 Verification input, one response per line:

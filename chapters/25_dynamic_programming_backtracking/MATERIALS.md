@@ -42,7 +42,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `2502_backtracking.ipynb`: include/exclude completeness, undo and snapshots, signed one-use subset witnesses, safe suffix bounds, failed-state memoization, resource limits, and positional permutations with duplicate labels.
 - `2503_optimization_lab.ipynb`: purchasing quantities versus one-use invoices; independent amount-level and exhaustive-position references; validated witnesses; boundary contracts and evidence-based method selection.
 - Assignments: ten-question preview; five connected purchasing/reconciliation lab tasks; five applied true/false and five transfer coding homework tasks. Coding starters and hidden solutions are independent; solutions retain verified stdout.
-- `demos/25/PlanningChecks.cs` and README: complete implementations with independent executable reference checks.
+- `demos/25_dynamic_programming_backtracking/PlanningChecks.cs` and README: complete implementations with independent executable reference checks.
 
 ## Contracts and Scope
 
@@ -112,3 +112,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`):
 | Summary questions | CS3 chapter summaries | Check Your Understanding on every page |
 
 Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `25/` to `demos/25_dynamic_programming_backtracking/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

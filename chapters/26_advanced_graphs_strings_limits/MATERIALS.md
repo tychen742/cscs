@@ -42,7 +42,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `2602_shortest_paths_strings.ipynb`: hop/cost counterexample, complete ordinal direct and KMP matching, overlapping/empty patterns, proper-border proof, reusable owned prefix tables, actual comparison counts, UTF-16 offsets, and complete workload costs.
 - `2603_limits_project.ipynb`: exact BigInteger growth models, verified greedy-cover counterexample and exhaustive optimum, feasibility versus quality guarantees, safe count pruning, boundary witnesses, and final comparison guidance using the existing capstone track.
 - Assignments: ten-question preview; five connected service-network/message/coverage lab tasks; five applied true/false and five transfer coding homework tasks. Starters and hidden solutions are independent; solutions retain verified stdout.
-- `demos/26/AdvancedChecks.cs` and README: complete implementations and independent reference checks.
+- `demos/26_advanced_graphs_strings_limits/AdvancedChecks.cs` and README: complete implementations and independent reference checks.
 
 ## Contracts and Scope
 
@@ -112,3 +112,7 @@ Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`):
 | Summary questions | CS3 chapter summaries | Check Your Understanding on every page |
 
 Every new cell compiled and ran under .NET 10 with stored output; no existing cell, heading, exercise ID, or footnote was removed; no OpenDSA text, code, or figure was copied.
+
+## Demo folder rename (2026-10-19)
+
+The chapter's demo source moved from the former two-digit folder `26/` to `demos/26_advanced_graphs_strings_limits/`, the same folder name as this chapter, so a cloned repository opened in VS Code shows the book's chapter names. The notebook download and link paths in this chapter were updated to the new folder; no cell content, heading, cell id, or exercise ID changed.

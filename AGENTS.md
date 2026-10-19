@@ -34,7 +34,7 @@ Read `~/workspace/ai_shared/memory/MEMORY.md` for persistent context about this 
 
 - Notebooks use the `csharp` kernel; named `XXYY_slug.ipynb` (`XX00` = landing, `XX01`–`XX03` = content sections)
 - Preferred 3 content section notebooks per chapter (one per class meeting)
-- Source `.cs` files and projects live in `demos/NN/` at project root — not in `chapters/`
+- Source `.cs` files and projects live in `demos/NN_chapter_name/` at project root (same folder names as `chapters/NN_chapter_name/`, renamed from `demos/NN/` on 2026-10-19) — not in `chapters/`
 - Each chapter has an `assignments/` subfolder. The standard student-facing
   assignments are `index`, `preview`, `lab`, and `homework`; projects are added
   when the chapter needs a durable VS Code deliverable.
@@ -133,7 +133,7 @@ Each part in `_toc.yml` begins with an unnumbered overview page in `chapters/par
 
 ## Resource Directory Override (2026-10-10)
 
-At the user's request, CSCS uses root `demos/NN/` for C# examples and supporting
+At the user's request, CSCS uses root `demos/NN_chapter_name/` for C# examples and supporting
 source, root `instructor_support/` for teaching guides and solution guidance,
 and root `scripts/` for active Python utilities. This overrides the shared
 book-authoring `materials/NN/` directory name for this book. Root `materials/` holds

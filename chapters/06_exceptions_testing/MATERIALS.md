@@ -58,11 +58,11 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 ## Runnable Demo Projects
 
-- [`demos/06/exceptions_demo/`](../../demos/06/exceptions_demo/README.md): Caught exception demonstration.
-- [`demos/06/math_lab/math_app/`](../../demos/06/math_lab/math_app/README.md): Arithmetic console demonstration.
-- [`demos/06/math_lab/math_app_test/`](../../demos/06/math_lab/math_app_test/README.md): Unit tests for the arithmetic lab.
-- [`demos/06/math_tests/math_app/`](../../demos/06/math_tests/math_app/README.md): Basic arithmetic library.
-- [`demos/06/math_tests/math_app_test/`](../../demos/06/math_tests/math_app_test/README.md): Unit tests for the arithmetic library.
+- [`demos/06_exceptions_testing/exceptions_demo/`](../../demos/06_exceptions_testing/exceptions_demo/README.md): Caught exception demonstration.
+- [`demos/06_exceptions_testing/math_lab/math_app/`](../../demos/06_exceptions_testing/math_lab/math_app/README.md): Arithmetic console demonstration.
+- [`demos/06_exceptions_testing/math_lab/math_app_test/`](../../demos/06_exceptions_testing/math_lab/math_app_test/README.md): Unit tests for the arithmetic lab.
+- [`demos/06_exceptions_testing/math_tests/math_app/`](../../demos/06_exceptions_testing/math_tests/math_app/README.md): Basic arithmetic library.
+- [`demos/06_exceptions_testing/math_tests/math_app_test/`](../../demos/06_exceptions_testing/math_tests/math_app_test/README.md): Unit tests for the arithmetic library.
 
 All demo projects target .NET 10. Run commands and verification are documented
 in `demos/README.md` and each project README.

@@ -11,7 +11,7 @@ The comparison baseline is the independently restored CS1 edition in `thinkcscs-
 | Original complete multi-project unit-testing lab workflow and source listings | Testing: linked Unit Testing Walkthrough. |
 | ReadInts, destination versus new-array addition, ascending subsequences/runs, and dot product | Arrays: Extra Practice. |
 | PromptFile cancellation and uppercase file copy | Files: Extra Practice. |
-| Hard-coded versus file-driven responder; ReadParagraph/GetParagraphs/GetDictionary; random fallback | Files: File-Driven Responses, linked forward from Collections; downloadable .NET starter under `demos/09/`. |
+| Hard-coded versus file-driven responder; ReadParagraph/GetParagraphs/GetDictionary; random fallback | Files: File-Driven Responses, linked forward from Collections; downloadable .NET starter under `demos/09_files_text/`. |
 | Statistics, constructor experiment, alternate internal state, GuessGame instances, and Animal/TestAnimal | Classes: class-instance explanations plus Extra Practice. |
 | Shell sort/gap experiments, Quicksort/partition explanation, and four-representation empirical search lab | Advanced Searching and Sorting: supporting lesson and assignment. |
 

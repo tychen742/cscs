@@ -24,8 +24,9 @@ def compare(actual, expected_file):
 
 
 def main():
-    for number, stem in [('05', 'sku_report_lab_solution'), ('09', 'privacy_pass_lab_solution')]:
-        compare(run(ROOT / 'demos' / number / (stem + '.csproj')),
+    for number, folder, stem in [('05', '05_methods', 'sku_report_lab_solution'),
+                                 ('09', '09_files_text', 'privacy_pass_lab_solution')]:
+        compare(run(ROOT / 'demos' / folder / (stem + '.csproj')),
                 OUTPUTS / (('09_privacy' if number == '09' else number) + '_reference_output.txt'))
         print(f'Chapter {number} reference passed.', flush=True)
     notebook = json.loads((ROOT / 'chapters/07_arrays/assignments/lab.ipynb').read_text())

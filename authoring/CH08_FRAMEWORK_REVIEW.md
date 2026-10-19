@@ -12,7 +12,7 @@ Completed locally on October 17, 2026, against baseline `c27d793a`. The three-se
 | Completed exercise presented as starter | Original score solution is retained as a hidden answer, with a new guided starter and boundary variations. Stable exercise ID remains on the question. |
 | ReadLines not invoked | Added caller, expected transcript, null/end-of-input handling, and input boundaries. |
 | Dictionary guided practice absent | Added safe stock lookup/update question and executed hidden answer. |
-| Word-count jump and missing source | Retained original functions; added small-input trace, complete runnable companion, actual output, policies and variations; downloadable source/project in demos/08/word_count. |
+| Word-count jump and missing source | Retained original functions; added small-input trace, complete runnable companion, actual output, policies and variations; downloadable source/project in demos/08_collections/word_count. |
 | Overstated namespace/key/performance claims | Corrected implicit-import assumptions, stable hash/equality requirements, and expected lookup-cost wording. |
 | Malformed homework aliasing question | Restored list setup and semicolon; alternatives are labeled reading fragments, with reasoning feedback. |
 | Preview has two possible answers | Specified append-to-end, so Add is uniquely appropriate. |

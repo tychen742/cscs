@@ -1,17 +1,17 @@
-# Instructor Walkthrough: 06/math_lab/math_app
+# Instructor Walkthrough: 06_exceptions_testing/math_lab/math_app
 
 **Role:** Supplementary console/test example; not a current lab solution.
 
 **Supports:** [0603_testing](../../chapters/06_exceptions_testing/0603_testing.ipynb). This relationship does not imply the code is an answer to an assignment.
 
-**Source and student run instructions:** [project README](../../demos/06/math_lab/math_app/README.md); [project file](../../demos/06/math_lab/math_app/math_app.csproj).
+**Source and student run instructions:** [project README](../../demos/06_exceptions_testing/math_lab/math_app/README.md); [project file](../../demos/06_exceptions_testing/math_lab/math_app/math_app.csproj).
 
 ## Run Before Class
 
 From the repository root:
 
 ```bash
-dotnet run --project demos/06/math_lab/math_app/math_app.csproj
+dotnet run --project demos/06_exceptions_testing/math_lab/math_app/math_app.csproj
 ```
 
 Verified output:
