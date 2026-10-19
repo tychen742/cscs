@@ -129,3 +129,25 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Caption-Only Section Development (2026-10-18)
 
 Pass 3 of the content-development audit. Generic Methods and Generic Classes in 13.3, previously bare code cells, gained the generic-method and generic-class declaration patterns, explanations of type inference and explicit type arguments, output interpretation, and the mistakes of mixed-type calls and omitting the class type argument; Type Constraints gained interpretation of why the `where` clause is required; Generic Interfaces gained a runnable `ArrayStack<T> : IStack<T>` example (compiles and runs standalone, .NET 10).
+
+## OpenDSA Gap List and Development (2026-10-19)
+
+Pass 8 (`authoring/content_development_audit/pass8_cs2_opendsa_development.md`) compared the four sections with OpenDSA CS2 1.1 Data Structures and Algorithms, 1.2 Abstract Data Types, 3.1 A List ADT, 4.3 Best, Worst, and Average Cases, 10.2 Comparison of List Implementations, and the CS3 Comparing Records and List Element Implementations pages. Concepts, explanations, and exercise types OpenDSA has that this chapter lacked or treated in under 100 words:
+
+| Gap | OpenDSA treatment | Where it is now developed |
+| --- | --- | --- |
+| Type, data item, data type, ADT, data structure as a vocabulary chain; "array" as both type and implementation | 1.2 definitions | 13.1 What an ADT Specifies (table and dictionary example) |
+| ADT versus implementation with a dictionary example (sorted array, hash table, BST behind one contract) | 1.2 Example 1.2.2 | 13.1 What an ADT Specifies |
+| Interface syntax as a pattern; output interpretation of the interface example | 3.1 List interface | 13.1 Interfaces as Contracts (was 28 words) |
+| Client code against two implementations | 3.1, 3.2 | 13.1 Client Code Depends on Behavior (runnable `CountUndoable`) |
+| Precondition, postcondition, invariant distinction | 1.2 "behavior determined by inputs and outputs" | 13.1 Contracts Include Rules (table) |
+| Selecting a data structure: operations, resource constraints, choice; the three workload questions | 1.1.3 | 13.1 Selecting a Data Structure (new) |
+| Array-backed and linked representations explained before the code, with output read | 6.1, 6.2 stacks | 13.2 Array-Backed Stack (was 38 words), Linked Nodes and References (was 54 words) |
+| Best, worst, and average cases with linear search | 4.3 | 13.2 Best, Worst, and Average Cases (new, runnable comparison counts) |
+| Space comparison and break-even point between array and linked storage | 10.2.1 | 13.2 Operation Costs (formula and runnable table) |
+| Runtime versus compile-time failure of untyped storage | CS3 List Element Implementations | 13.3 Why Generics Exist (was 53 words, runnable) |
+| Records found by key; homogeneity; key-value pairs | CS3 Comparing Records, List Element Implementations | 13.3 Records, Keys, and Homogeneity (new, `KeyedList<TKey, TValue>`) |
+| Enumerator as a position object; laziness shown with output | 3.1 iterator design note | 13.4 Writing the Enumerator by Hand (new), Iterators Are Lazy (runnable) |
+| Exercise types: code tracing, code completion, growth-rate ordering, concept recall, summary questions | 1.2.2, 4.2.2, 7.3, 7.8, review questions | Listed below |
+
+Exercises added, in our own words and C#: code tracing (13.1 Follow a Stack History, 13.2 Array Stack State, 13.4 Predict the Interleaving), code completion (13.3 A Generic Last Element, 13.4 Count Down), growth-rate ordering (13.2), concept recall with dropdown answers (13.1 ADT or data structure, 13.3 Which Constraint Does the Body Need?), and a Check Your Understanding block of four questions with dropdown answers at the end of every section. Every new code cell was compiled and run standalone under .NET 10 and carries its stored output; starters are tagged `exercise`, solutions `hide-input`. No existing cell, heading, exercise ID, or footnote was removed. No OpenDSA text, code, or figure was copied.
