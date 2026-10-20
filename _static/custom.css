@@ -641,37 +641,39 @@ div.cell.tag_exercise {
 }
 
 /* Cell states from Press's shared code-cells.css: thinkpress-cell-ran tints the
-   line-number gutter, thinkpress-cell-edited the code area. This book draws the code box
-   as a gradient on the <pre> (a transparent 2.1rem gutter, then #f7f7f7), so the shared
-   background-color rules would tint the gutter instead of the code. These rules keep the
-   <pre> and its wrapper transparent and recolor the gradient's two parts. */
-div.cell.thinkpress-cell-ran div.cell_input .highlight:has(span.linenos),
+   line-number gutter, thinkpress-cell-edited the code area, each as a translucent
+   background-image overlay. With line numbers this book paints the code box on the <pre>
+   (a gradient: transparent 2.1rem gutter, then #f7f7f7) over a transparent .highlight,
+   so the shared .highlight wash would show only in the gutter and the per-line linenos
+   wash would leave gaps between lines. Those two are switched off here and the overlays
+   are layered onto the <pre>'s own gradient instead, so nothing stacks. */
 div.cell.thinkpress-cell-edited div.cell_input .highlight:has(span.linenos),
-div.cell.thinkpress-cell-ran div.cell_input .highlight span.linenos,
-div.cell.thinkpress-cell-edited div.cell_input .highlight span.linenos {
-    background: transparent !important;
-}
-
-div.cell.thinkpress-cell-ran div.cell_input .highlight pre:has(span.linenos),
-div.cell.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
-    background-color: transparent !important;
+div.cell.thinkpress-cell-ran div.cell_input .highlight span.linenos {
+    background-image: none !important;
 }
 
 div.cell.thinkpress-cell-ran div.cell_input .highlight pre:has(span.linenos) {
-    background-image: linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, #f7f7f7 2.1rem);
+    background-image:
+        linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, transparent 2.1rem),
+        linear-gradient(to right, transparent 2.1rem, #f7f7f7 2.1rem);
 }
 
 div.cell.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
-    background-image: linear-gradient(to right, transparent 2.1rem, var(--thinkpress-edited-code) 2.1rem);
+    background-image:
+        linear-gradient(to right, transparent 2.1rem, var(--thinkpress-edited-code) 2.1rem),
+        linear-gradient(to right, transparent 2.1rem, #f7f7f7 2.1rem);
 }
 
 div.cell.thinkpress-cell-ran.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
-    background-image: linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, var(--thinkpress-edited-code) 2.1rem);
+    background-image:
+        linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, var(--thinkpress-edited-code) 2.1rem),
+        linear-gradient(to right, transparent 2.1rem, #f7f7f7 2.1rem);
 }
 
-/* The code box stays light in the dark theme, so its edited tint does too. */
-html[data-theme="dark"] div.cell {
-    --thinkpress-edited-code: color-mix(in srgb, var(--thinkpress-edited-color, #d4a72c) 12%, #f7f7f7);
+/* Without line numbers the <pre>'s opaque background hides the shared .highlight wash,
+   so the <pre> carries it (the .highlight one stays underneath, unseen). */
+div.cell.thinkpress-cell-edited div.cell_input .highlight pre:not(:has(span.linenos)) {
+    background-image: linear-gradient(var(--thinkpress-edited-code), var(--thinkpress-edited-code));
 }
 
 /* The shared row style drops this book's inset and centers the stdin panel. */
