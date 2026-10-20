@@ -281,39 +281,15 @@ div.cell:hover div.cell_output pre {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 }
 
+/* Every runnable cell is edited in place (execution.js); the frame marks the cell
+   being typed in. */
 div.cell_input pre.cscs-inline-editing {
-    border-color: #5b9be8 !important;
-    border-left-color: #2563eb !important;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14), 0 6px 18px rgba(37, 99, 235, 0.08) !important;
     cursor: text;
 }
 
-div.cell_input pre.cscs-inline-editing:focus {
-    border-color: #4f8edc !important;
-    border-left-color: #2563eb !important;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 8px 22px rgba(37, 99, 235, 0.10) !important;
+div.cell_input pre.cscs-inline-editing:focus-within {
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18), 0 6px 18px rgba(37, 99, 235, 0.08) !important;
     outline: none;
-}
-
-div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input {
-    position: relative;
-}
-
-div.cell.cscs-is-editing[data-cscs-edit-mode="inline"] div.cell_input::after {
-    background: rgba(239, 246, 255, 0.95);
-    border: 1px solid rgba(37, 99, 235, 0.28);
-    border-radius: 999px;
-    color: #2563eb;
-    content: "Editing";
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1;
-    padding: 2px 6px;
-    position: absolute;
-    right: 10px;
-    text-transform: none;
-    top: 9px;
 }
 
 div.cell_input pre .cscs-code-line {
@@ -664,27 +640,48 @@ div.cell.tag_exercise {
     padding: 8px;
 }
 
-/* Cells the reader has run keep a light wash of the book's accent (the inline-code
-   purple) across the code box with its line-number gutter, the editor, the live output,
-   and the saved output, so a returning reader sees at a glance which examples are
-   theirs. The class comes from the reader's stored record, so it persists across
-   visits. Dark theme uses a deeper mix. */
-div.cell.cscs-has-run div.cell_input pre,
-div.cell.cscs-has-run div.cell_input .highlight pre,
-div.cell.cscs-has-run div.cell_input .highlight,
-div.cell.cscs-has-run .cscs-code-editor,
-div.cell.cscs-has-run pre.cscs-execution-output,
-div.cell.cscs-has-run div.cell_output pre {
-    background-color: color-mix(in srgb, var(--pst-color-inline-code, #912583) 7%, var(--pst-color-surface, #f3f4f5)) !important;
+/* Cell states from Press's shared code-cells.css: thinkpress-cell-ran tints the
+   line-number gutter, thinkpress-cell-edited the code area. This book draws the code box
+   as a gradient on the <pre> (a transparent 2.1rem gutter, then #f7f7f7), so the shared
+   background-color rules would tint the gutter instead of the code. These rules keep the
+   <pre> and its wrapper transparent and recolor the gradient's two parts. */
+div.cell.thinkpress-cell-ran div.cell_input .highlight:has(span.linenos),
+div.cell.thinkpress-cell-edited div.cell_input .highlight:has(span.linenos),
+div.cell.thinkpress-cell-ran div.cell_input .highlight span.linenos,
+div.cell.thinkpress-cell-edited div.cell_input .highlight span.linenos {
+    background: transparent !important;
 }
 
-html[data-theme="dark"] div.cell.cscs-has-run div.cell_input pre,
-html[data-theme="dark"] div.cell.cscs-has-run div.cell_input .highlight pre,
-html[data-theme="dark"] div.cell.cscs-has-run div.cell_input .highlight,
-html[data-theme="dark"] div.cell.cscs-has-run .cscs-code-editor,
-html[data-theme="dark"] div.cell.cscs-has-run pre.cscs-execution-output,
-html[data-theme="dark"] div.cell.cscs-has-run div.cell_output pre {
-    background-color: color-mix(in srgb, var(--pst-color-inline-code, #c586c0) 16%, var(--pst-color-surface, #1f2430)) !important;
+div.cell.thinkpress-cell-ran div.cell_input .highlight pre:has(span.linenos),
+div.cell.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
+    background-color: transparent !important;
+}
+
+div.cell.thinkpress-cell-ran div.cell_input .highlight pre:has(span.linenos) {
+    background-image: linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, #f7f7f7 2.1rem);
+}
+
+div.cell.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
+    background-image: linear-gradient(to right, transparent 2.1rem, var(--thinkpress-edited-code) 2.1rem);
+}
+
+div.cell.thinkpress-cell-ran.thinkpress-cell-edited div.cell_input .highlight pre:has(span.linenos) {
+    background-image: linear-gradient(to right, var(--thinkpress-ran-gutter) 2.1rem, var(--thinkpress-edited-code) 2.1rem);
+}
+
+/* The code box stays light in the dark theme, so its edited tint does too. */
+html[data-theme="dark"] div.cell {
+    --thinkpress-edited-code: color-mix(in srgb, var(--thinkpress-edited-color, #d4a72c) 12%, #f7f7f7);
+}
+
+/* The shared row style drops this book's inset and centers the stdin panel. */
+.cscs-execution-controls.thinkpress-cell-controls {
+    align-items: flex-start;
+    margin-left: var(--cscs-code-inset, 1rem);
+}
+
+.cscs-execution-controls .thinkpress-ran-mark {
+    align-self: center;
 }
 
 .cscs-execution-controls {
@@ -849,8 +846,8 @@ div.cell.cscs-is-editing[data-cscs-edit-mode="edit"] .cscs-code-editor:not([hidd
     margin-bottom: 4px;
 }
 
-/* The reader's book: saved outputs start collapsed, the page gets Run all and
-   Show all saved outputs, and a restored run carries a "You ran this on" note. */
+/* The reader's book: saved outputs start collapsed, and the page gets Run all and
+   Show all saved outputs. */
 div.cell > div.cell_output[hidden] {
     display: none !important;
 }
@@ -860,20 +857,8 @@ div.cell > div.cell_output[hidden] {
     font-weight: 600;
 }
 
-.cscs-expected-toggle[hidden],
-.cscs-ran-note[hidden] {
+.cscs-expected-toggle[hidden] {
     display: none !important;
-}
-
-.cscs-ran-note {
-    color: var(--pst-color-text-muted, #6b7780);
-    font-size: 0.75rem;
-    line-height: 1.3;
-    margin: 2px 0 0 var(--cscs-code-inset, 1rem);
-}
-
-.cscs-student-copy .cscs-ran-note {
-    margin-left: 0;
 }
 
 .cscs-execution-output.is-skipped {
@@ -938,8 +923,7 @@ div.cell > div.cell_output[hidden] {
 
     .cscs-page-controls,
     .cscs-expected-toggle,
-    .cscs-execution-controls,
-    .cscs-ran-note {
+    .cscs-execution-controls {
         display: none !important;
     }
 }

@@ -14,11 +14,15 @@
  *       book:     string         book slug, e.g. "cscs"
  *       pageUrl:  string         location.pathname of the page (no query or hash)
  *       cellId:   string         the cell's stable id within the page
- *       ranAt:    string         ISO 8601 UTC time of the run
+ *       ranAt:    string         ISO 8601 UTC time of the run (or of a later Reset, which
+ *                                keeps the record but forgets its code and output)
  *       exitCode: number | null  runner exit code; null when the request itself failed
  *       output:   string         stdout and stderr of the run, capped at 8 KB
  *       code:     string         the editor's code at the time of the run, capped at 16 KB
  *       edited:   boolean        code differs from the book's code for that cell
+ *       ownRanAt: string | null  ISO 8601 UTC time the reader last ran the cell on its own
+ *                                (its Run button); null when it only ran in a Run all.
+ *                                Drives the "ran" mark; Run all keeps the earlier value.
  *     }
  *
  * window.thinkpressCellState.create({ book }) returns a store:
@@ -34,6 +38,8 @@
  * reader is signed in): read with list()/get(), write remote records back with set()/
  * remove(), and subscribe with onChange() to push local runs upstream. Page scripts
  * re-read their records after any change, so synced records show up without a reload.
+ * The C# book's execution.js does this with Press's /api/cell-output/cscs: it posts each
+ * run and, on load, set()s any saved output newer than the local record.
  */
 (function installThinkpressCellState() {
     if (window.thinkpressCellState) return;
@@ -104,7 +110,8 @@
                 exitCode: Number.isInteger(record.exitCode) ? record.exitCode : null,
                 output: output.length > OUTPUT_CAP ? output.slice(0, OUTPUT_CAP) : output,
                 code: code.length > CODE_CAP ? code.slice(0, CODE_CAP) : code,
-                edited: Boolean(record.edited)
+                edited: Boolean(record.edited),
+                ownRanAt: typeof record.ownRanAt === "string" ? record.ownRanAt : null
             };
         }
 

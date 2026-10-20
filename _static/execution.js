@@ -18,6 +18,7 @@ function initializeCsharpExecution() {
     const cellState = window.cscsCellState;
     const runnableCells = [];
     const pageHooks = { expectedChanged() {} };
+    const press = createPressSync();
 
     async function executeCode(code, stdin = "", signal) {
         const passHeader = window.cscsPress ? await window.cscsPress.authHeader("run") : {};
@@ -48,12 +49,17 @@ function initializeCsharpExecution() {
         cell.dataset.cscsExecutionReady = "true";
         const cellId = cell.dataset.cscsCellId
             || (cell.dataset.cscsCellIndex ? `index:${cell.dataset.cscsCellIndex}` : `pos:${cellIndex}`);
+        // Press's key for this cell (progress and saved output): its place among the page's
+        // runnable cells and a fingerprint of the book's code, as in Press's thebe-runner.js.
+        const key = `cell:${runnableCells.length}:${fingerprint(executableCode)}`;
         const originalCodeHtml = codeElement.innerHTML;
+        // The code to run. Readers edit the code in place (inline mode, kept in sync with this
+        // textarea); the textarea itself is shown only by author mode's Edit (custom.js).
         const editor = document.createElement("textarea");
         editor.className = "cscs-code-editor";
         editor.value = executableCode;
         // Bounded section checks use the current editor without modifying its state.
-        cell.cscsPractice = { getCode: () => editor.value, execute: executeCode };
+        cell.cscsPractice = { getCode: () => currentCode(), execute: executeCode };
         editor.spellcheck = false;
         editor.hidden = true;
         codeElement.closest(".cell_input").appendChild(editor);
@@ -61,35 +67,33 @@ function initializeCsharpExecution() {
         let isStudentCopy = false;
 
         const controls = document.createElement("div");
-        controls.className = "cscs-execution-controls";
+        controls.className = "cscs-execution-controls thinkpress-cell-controls";
 
+        // Author mode only: custom.js's Author and Done buttons click this hidden button to
+        // open and close the textarea editor (a "Your version" copy, or in place for exercises).
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.className = "cscs-edit-button";
         editButton.textContent = "Edit";
-
-        const inlineButton = document.createElement("button");
-        inlineButton.type = "button";
-        inlineButton.className = "cscs-inline-button";
-        inlineButton.textContent = "Inline";
-
-        const resetButton = document.createElement("button");
-        resetButton.type = "button";
-        resetButton.className = "cscs-reset-button";
-        resetButton.textContent = "Reset";
-        resetButton.hidden = true;
-
-        const discardButton = document.createElement("button");
-        discardButton.type = "button";
-        discardButton.className = "cscs-discard-button";
-        discardButton.textContent = "Discard my version";
-        discardButton.title = "Forget your code and last run for this cell";
-        discardButton.hidden = true;
+        editButton.hidden = true;
 
         const runButton = document.createElement("button");
         runButton.type = "button";
         runButton.className = "cscs-run-button";
         runButton.textContent = "Run";
+
+        const resetButton = document.createElement("button");
+        resetButton.type = "button";
+        resetButton.className = "cscs-reset-button";
+        resetButton.textContent = "Reset";
+        resetButton.title = "Put back the book's code and forget your version";
+        resetButton.hidden = true;
+
+        // "✓ ran" once the reader ran this cell with its own Run button (not Run all).
+        const ranMark = document.createElement("span");
+        ranMark.className = "thinkpress-ran-mark";
+        ranMark.textContent = "✓ ran";
+        ranMark.hidden = true;
 
         const stdinPanel = document.createElement("div");
         stdinPanel.className = "cscs-stdin-panel";
@@ -118,11 +122,6 @@ function initializeCsharpExecution() {
         traceHost.className = "cscs-trace-host";
         traceHost.hidden = true;
 
-        // "You ran this on ..." under a run restored from the reader's saved state.
-        const ranNote = document.createElement("div");
-        ranNote.className = "cscs-ran-note";
-        ranNote.hidden = true;
-
         // The notebook's saved output starts collapsed so
         // the reader runs the cell to see output; this disclosure reveals it on demand.
         const storedOutput = cell.querySelector(":scope > .cell_output");
@@ -131,18 +130,21 @@ function initializeCsharpExecution() {
         expectedToggle.className = "cscs-expected-toggle";
         expectedToggle.hidden = !storedOutput;
 
-        controls.append(editButton, inlineButton, resetButton, discardButton, runButton, expectedToggle, stdinPanel);
+        controls.append(runButton, resetButton, expectedToggle, ranMark, editButton, stdinPanel);
         placeCellTail();
         let stdinRequested = false;
         let editMode = "view";
         let expectedShown = false;
+        // When the reader last ran this cell on its own (an ISO string), from the stored
+        // record or from Press; Run all keeps it.
+        let ownRanAt = null;
         // Key of the stored record this cell currently shows, so store changes made elsewhere
         // (another tab, a Press sync) can be applied without re-applying our own writes.
         let lastApplied = null;
         let suppressChange = false;
 
         function placeCellTail() {
-            cell.append(controls, output, traceHost, ranNote);
+            cell.append(controls, output, traceHost);
             if (storedOutput) cell.appendChild(storedOutput);
         }
 
@@ -169,6 +171,7 @@ function initializeCsharpExecution() {
         };
         updateStdinVisibility();
 
+        // Author mode's textarea editor. Closing it returns to editing in place.
         editButton.addEventListener("click", () => {
             if (isStudentCopy) {
                 const copy = controls.closest(".cscs-student-copy");
@@ -178,75 +181,54 @@ function initializeCsharpExecution() {
                 copy?.remove();
                 isStudentCopy = false;
                 syncStoredOutput();
-                setEditMode("view");
+                editInPlace();
                 return;
             }
-            if (!isExercise && editor.hidden) {
+            if (editMode === "edit") {
+                editor.hidden = true;
+                codeElement.closest(".highlight-csharp").hidden = false;
+                editInPlace();
+                return;
+            }
+            syncEditorFromInline();
+            const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
+            if (!isExercise) {
                 const copy = document.createElement("div");
                 copy.className = "cscs-student-copy";
                 const copyLabel = document.createElement("div");
                 copyLabel.className = "cscs-student-copy-label";
                 copyLabel.textContent = "Your version";
                 copy.appendChild(copyLabel);
-                copy.append(editor, controls, output, traceHost, ranNote);
+                copy.append(editor, controls, output, traceHost);
                 cell.after(copy);
-                editor.hidden = false;
                 isStudentCopy = true;
                 syncStoredOutput();
-                codeElement.closest(".highlight-csharp").hidden = false;
-                setEditMode("edit");
-                const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
-                editor.style.height = `${staticCodeHeight + 32}px`;
-                return;
+            } else {
+                codeElement.closest(".highlight-csharp").hidden = true;
             }
-            const editing = editor.hidden;
-            if (editing) {
-                const staticCodeHeight = codeElement.closest(".cell_input")?.offsetHeight || codeElement.offsetHeight;
-                editor.style.height = `${staticCodeHeight + 32}px`;
-            }
-            editor.hidden = !editing;
-            codeElement.closest(".highlight-csharp").hidden = editing;
-            setEditMode(editing ? "edit" : "view");
+            editor.hidden = false;
+            editor.style.height = `${staticCodeHeight + 32}px`;
+            setEditMode("edit");
         });
 
-        inlineButton.addEventListener("click", () => {
-            const opening = editMode !== "inline";
-
-            if (opening) {
-                editor.hidden = true;
-                codeElement.closest(".highlight-csharp").hidden = false;
-                setEditMode("inline");
-                activateInlineCodeEditor();
-                return;
-            }
-
-            syncEditorFromInline();
-            setEditMode("view");
-        });
-
+        // Reset: the book's code back in the cell, and the reader's version forgotten.
         resetButton.addEventListener("click", () => {
-            editor.value = normalizeCode(getExecutableCodeText(codeElement));
-            if (editMode === "inline") {
-                codeElement.innerHTML = originalCodeHtml;
-                activateInlineCodeEditor();
-            }
             editor.value = executableCode;
+            if (editMode === "inline") showCodeInPlace(null);
             output.hidden = true;
             output.textContent = "";
+            output.className = "cscs-execution-output";
             notifyOutput();
-            clearRecord();
+            forgetEditedCode();
             stdinRequested = false;
             updateStdinVisibility();
-        });
-
-        discardButton.addEventListener("click", () => {
-            clearRecord();
-            restoreBookState();
+            refreshEdited();
         });
 
         editor.addEventListener("input", () => {
             stdinRequested = false;
             updateStdinVisibility();
+            refreshEdited();
         });
 
         codeElement.addEventListener("input", () => {
@@ -273,18 +255,18 @@ function initializeCsharpExecution() {
         }
 
         // Resolves to "ok", "error", or "aborted" (Run all was stopped while this cell ran).
-        async function runCurrentCode({ signal } = {}) {
+        // bulk marks a run started by Run all: it fills the output but is not the reader's own run.
+        async function runCurrentCode({ signal, bulk = false } = {}) {
             runButton.disabled = true;
             setStdinFieldsDisabled(true);
             runButton.textContent = "Running...";
             output.hidden = false;
             output.className = "cscs-execution-output is-running";
             output.textContent = "";
-            ranNote.hidden = true;
             syncStoredOutput();
 
+            const currentCode = editor.value;
             try {
-                const currentCode = editor.value;
                 // A Press run pass gives signed-in readers priority and a longer timeout;
                 // without one (signed out, or Press unreachable) the run is a guest run.
                 const result = await executeCode(currentCode, collectStdin(), signal);
@@ -294,7 +276,7 @@ function initializeCsharpExecution() {
                 output.className = result.exitCode === 0
                     ? "cscs-execution-output is-success"
                     : "cscs-execution-output is-error";
-                recordRun(Number.isInteger(result.exitCode) ? result.exitCode : null, output.textContent);
+                recordRun(currentCode, Number.isInteger(result.exitCode) ? result.exitCode : null, output.textContent, bulk);
                 notifyOutput();
                 return "ok";
             } catch (error) {
@@ -303,13 +285,13 @@ function initializeCsharpExecution() {
                     output.textContent = "";
                     output.className = "cscs-execution-output";
                     const previous = cellState?.get(pageUrl, cellId);
-                    if (previous) showRecordedOutput(previous);
+                    if (previous && hasOutput(previous)) showRecordedOutput(previous);
                     else notifyOutput();
                     return "aborted";
                 }
                 output.textContent = error.message;
                 output.className = "cscs-execution-output is-error";
-                recordRun(null, output.textContent);
+                recordRun(currentCode, null, output.textContent, bulk);
                 notifyOutput();
                 return "error";
             } finally {
@@ -330,51 +312,72 @@ function initializeCsharpExecution() {
                 output.hidden = false;
                 output.className = "cscs-execution-output is-skipped";
                 output.textContent = "Run all skipped this cell because it reads input. Enter the input above, then press Run.";
-                ranNote.hidden = true;
                 notifyOutput();
                 return "skipped";
             }
-            return runCurrentCode({ signal });
+            return runCurrentCode({ signal, bulk: true });
         }
 
         function recordKey(record) {
-            return `${record.ranAt}\u0000${record.code}\u0000${record.output}`;
+            return `${record.ranAt}\u0000${record.code}\u0000${record.output}\u0000${record.ownRanAt}`;
         }
 
-        function recordRun(exitCode, text) {
+        // A record whose output was forgotten by Reset keeps only the "ran" state.
+        function hasOutput(record) {
+            return Boolean(record.output) || record.exitCode !== null;
+        }
+
+        function writeRecord(record) {
             if (!cellState) return;
             suppressChange = true;
             try {
-                const record = cellState.set({
-                    pageUrl,
-                    cellId,
-                    ranAt: new Date().toISOString(),
-                    exitCode,
-                    output: text,
-                    code: editor.value,
-                    edited: editor.value !== executableCode
-                });
-                lastApplied = recordKey(record);
+                lastApplied = recordKey(cellState.set({ pageUrl, cellId, ...record }));
             } catch (_) {
                 lastApplied = null;
             } finally {
                 suppressChange = false;
             }
-            // "Discard my version" only makes sense once the reader has changed the code.
-            discardButton.hidden = editor.value === executableCode;
-            cell.classList.add("cscs-has-run");
         }
 
-        function clearRecord() {
+        function recordRun(code, exitCode, text, bulk) {
+            const ranAt = new Date().toISOString();
+            if (!bulk) showRan(ranAt);
+            writeRecord({ ranAt, exitCode, output: text, code, edited: !sameCode(code, executableCode), ownRanAt });
+            press.reportRun({ key, code, text, exitCode, bulk });
+        }
+
+        // Reset forgets the reader's code and output but not that they ran the cell; a record
+        // that only came from Run all is removed. ranAt moves to now so an older Press copy of
+        // the edited run does not come back on the next visit.
+        function forgetEditedCode() {
+            const record = cellState?.get(pageUrl, cellId);
+            if (!record) return;
+            if (record.ownRanAt) {
+                writeRecord({ ranAt: new Date().toISOString(), exitCode: null, output: "", code: executableCode, edited: false, ownRanAt: record.ownRanAt });
+                return;
+            }
             lastApplied = null;
             suppressChange = true;
             try {
-                cellState?.remove(pageUrl, cellId);
+                cellState.remove(pageUrl, cellId);
             } finally {
                 suppressChange = false;
             }
-            discardButton.hidden = true;
-            ranNote.hidden = true;
+        }
+
+        function showRan(at) {
+            if (!at) return;
+            if (!ownRanAt || Date.parse(at) > Date.parse(ownRanAt)) ownRanAt = at;
+            ranMark.hidden = false;
+            ranMark.title = `You ran this cell (last ${formatRanAt(ownRanAt)}).`;
+            cell.classList.add("thinkpress-cell-ran");
+        }
+
+        // thinkpress-cell-edited and the Reset button follow whether the code is the book's.
+        function refreshEdited() {
+            const edited = !sameCode(editor.value, executableCode);
+            cell.classList.toggle("thinkpress-cell-edited", edited);
+            resetButton.hidden = !edited;
         }
 
         function showRecordedOutput(record) {
@@ -383,9 +386,6 @@ function initializeCsharpExecution() {
             output.className = record.exitCode === 0
                 ? "cscs-execution-output is-success"
                 : "cscs-execution-output is-error";
-            ranNote.textContent = `You ran this on ${formatRanAt(record.ranAt)}`;
-            ranNote.hidden = false;
-            cell.classList.add("cscs-has-run");
             notifyOutput();
         }
 
@@ -403,23 +403,23 @@ function initializeCsharpExecution() {
             return Number.isNaN(date.getTime()) ? "an earlier visit" : date.toLocaleString();
         }
 
-        // Put a stored record on screen: the reader's code in the editor (opened the way the
-        // Edit button opens it) when they changed it, and their last output under the cell.
+        // Put a stored record on screen: the reader's code in the cell when they changed it,
+        // their last output under the cell, and the "ran" mark when they ran it on its own.
         function applyRecord(record) {
             lastApplied = recordKey(record);
-            const wantsEdit = record.edited && record.code !== executableCode;
-            if (wantsEdit) {
-                if (editMode === "inline") inlineButton.click();
-                editor.value = record.code;
-                if (!isStudentCopy && editMode !== "edit") editButton.click();
+            const code = record.edited && !sameCode(record.code, executableCode) ? record.code : null;
+            if (isStudentCopy || editMode === "edit") {
+                if (code !== null) editor.value = code;
                 fitEditorToContent();
-            } else if (!isStudentCopy && editMode === "view") {
-                editor.value = executableCode;
+            } else {
+                editor.value = code ?? executableCode;
+                showCodeInPlace(code);
             }
+            refreshEdited();
             stdinRequested = false;
             updateStdinVisibility();
-            showRecordedOutput(record);
-            discardButton.hidden = !(record.edited && record.code !== executableCode);
+            if (hasOutput(record)) showRecordedOutput(record);
+            showRan(record.ownRanAt);
         }
 
         // Size the editor from its line count: at page load the layout is not settled enough
@@ -433,26 +433,24 @@ function initializeCsharpExecution() {
             editor.style.height = `${Math.ceil(lines * lineHeight + padding + 4)}px`;
         }
 
-        // Back to the book: leave any editing view, restore the book's code, and collapse output.
+        // Back to the book (the record was removed elsewhere): the book's code and no output.
         function restoreBookState() {
-            if (editMode === "inline") {
-                codeElement.innerHTML = originalCodeHtml;
-                setEditMode("view");
-            }
             if (isStudentCopy || editMode === "edit") editButton.click();
             editor.value = executableCode;
+            showCodeInPlace(null);
             output.hidden = true;
             output.textContent = "";
             output.className = "cscs-execution-output";
             notifyOutput();
-            ranNote.hidden = true;
-            discardButton.hidden = true;
-            cell.classList.remove("cscs-has-run");
+            refreshEdited();
             setExpectedShown(false);
             stdinRequested = false;
             stdinPanel.hidden = true;
             updateStdinVisibility();
         }
+
+        // Every runnable cell is edited in place from the start.
+        editInPlace({ focus: false });
 
         const initialRecord = cellState?.get(pageUrl, cellId);
         if (initialRecord) applyRecord(initialRecord);
@@ -471,11 +469,50 @@ function initializeCsharpExecution() {
 
         runnableCells.push({
             cell,
+            key,
             run: runForRunAll,
             hasExpected: Boolean(storedOutput),
             isExpectedShown: () => expectedShown,
-            setExpectedShown
+            setExpectedShown,
+            showRan,
+            // A Press copy of the cell's last run, kept when it is newer than this browser's.
+            applySavedOutput(saved, pressRanAt) {
+                if (!cellState || !saved || typeof saved.code !== "string") return;
+                const local = cellState.get(pageUrl, cellId);
+                if (local && !(Date.parse(saved.ran_at) > Date.parse(local.ranAt))) return;
+                const result = saved.output || {};
+                cellState.set({
+                    pageUrl,
+                    cellId,
+                    ranAt: saved.ran_at,
+                    exitCode: Number.isInteger(result.exit_code) ? result.exit_code : null,
+                    output: [result.output, result.error].filter(Boolean).join("\n"),
+                    code: saved.code,
+                    edited: !sameCode(saved.code, executableCode),
+                    ownRanAt: local?.ownRanAt || pressRanAt || ownRanAt
+                });
+            }
         });
+
+        function currentCode() {
+            syncEditorFromInline();
+            return editor.value;
+        }
+
+        function editInPlace({ focus = true } = {}) {
+            const changed = !sameCode(editor.value, executableCode);
+            setEditMode("inline");
+            showCodeInPlace(changed ? editor.value : null, { focus });
+            refreshEdited();
+        }
+
+        // Show code in the in-place editor: null for the book's (highlighted) code, else the
+        // reader's code as plain text.
+        function showCodeInPlace(code, { focus = false } = {}) {
+            if (code === null) codeElement.innerHTML = originalCodeHtml;
+            else codeElement.textContent = code;
+            if (editMode === "inline") activateInlineCodeEditor({ focus });
+        }
 
         function setEditMode(mode) {
             editMode = mode;
@@ -483,12 +520,6 @@ function initializeCsharpExecution() {
 
             cell.classList.toggle("cscs-is-editing", isEditing);
             cell.dataset.cscsEditMode = mode;
-            editButton.hidden = mode === "inline";
-            inlineButton.hidden = mode === "edit";
-            resetButton.hidden = !isEditing;
-
-            editButton.textContent = mode === "edit" ? "Done" : "Edit";
-            inlineButton.textContent = mode === "inline" ? "Done" : "Inline";
             editor.dataset.inlineOpen = String(mode === "inline");
             editor.classList.toggle("is-inline", mode === "inline");
 
@@ -501,17 +532,19 @@ function initializeCsharpExecution() {
             }
         }
 
+        // Copy the in-place code into the editor. Code that matches the editor's apart from
+        // trailing whitespace is left alone, so an unedited cell keeps the book's exact text.
         function syncEditorFromInline() {
             if (editMode !== "inline") return;
             const lineContents = Array.from(codeElement.querySelectorAll(".cscs-code-line-content"));
-            if (lineContents.length) {
-                editor.value = lineContents.map((line) => line.textContent || "").join("\n");
-                return;
-            }
-            editor.value = normalizeCode(getExecutableCodeText(codeElement));
+            const code = lineContents.length
+                ? lineContents.map((line) => line.textContent || "").join("\n")
+                : normalizeCode(getExecutableCodeText(codeElement));
+            if (!sameCode(code, editor.value)) editor.value = code;
+            refreshEdited();
         }
 
-        function activateInlineCodeEditor() {
+        function activateInlineCodeEditor({ focus = true } = {}) {
             if (!codeElement.querySelector(".cscs-code-line-content")) {
                 structureCodeLines();
             }
@@ -523,7 +556,7 @@ function initializeCsharpExecution() {
             codeElement.querySelectorAll(".cscs-code-line-content").forEach((line) => {
                 prepareInlineEditableContent(line);
             });
-            (codeElement.querySelector(".cscs-code-line-content") || codeElement).focus();
+            if (focus) (codeElement.querySelector(".cscs-code-line-content") || codeElement).focus();
         }
 
         function structureCodeLines() {
@@ -601,7 +634,9 @@ function initializeCsharpExecution() {
                 lines[lines.length - 1].push(node.cloneNode(true));
             });
 
-            return lines.length ? lines : [[]];
+            // The final newline of the highlighted code would otherwise add an empty last line.
+            if (lines.length > 1 && !lines[lines.length - 1].length) lines.pop();
+            return lines;
         }
 
         function handleInlineLineKeydown(event) {
@@ -643,6 +678,12 @@ function initializeCsharpExecution() {
                 event.preventDefault();
                 mergeInlineLineWithNext(event.currentTarget);
                 syncEditorFromInline();
+                return;
+            }
+
+            if (event.key === "Enter" && event.shiftKey) {
+                event.preventDefault();
+                runButton.click();
                 return;
             }
 
@@ -880,15 +921,19 @@ function initializeCsharpExecution() {
         }
     });
 
-    if (runnableCells.length) installPageControls();
+    if (runnableCells.length) {
+        installPageControls();
+        press.start();
+    }
 
-    // "Run all" and "Show all saved outputs" at the top of the content area.
+    // "Run all", "Show all saved outputs", and (signed in, chapter pages) the progress line
+    // at the top of the content area.
     function installPageControls() {
         const article = document.querySelector("article.bd-article")
             || document.querySelector("main")
             || document.body;
         const bar = document.createElement("div");
-        bar.className = "cscs-page-controls";
+        bar.className = "cscs-page-controls thinkpress-page-controls";
         bar.setAttribute("role", "group");
         bar.setAttribute("aria-label", "Code cells on this page");
 
@@ -906,6 +951,7 @@ function initializeCsharpExecution() {
         status.setAttribute("aria-live", "polite");
 
         bar.append(runAllButton, showAllButton, status);
+        press.progressHost = bar;
         const heading = article.querySelector("h1");
         if (heading && article.contains(heading)) {
             heading.after(bar);
@@ -945,6 +991,7 @@ function initializeCsharpExecution() {
             activeRun = run;
             const total = runnableCells.length;
             const counts = { done: 0, ran: 0, skipped: 0, aborted: 0 };
+            const ranKeys = [];
             let next = 0;
             const showProgress = () => {
                 runAllButton.textContent = `Running ${counts.done}/${total}`;
@@ -967,11 +1014,15 @@ function initializeCsharpExecution() {
                     counts.done += 1;
                     if (outcome === "skipped") counts.skipped += 1;
                     else if (outcome === "aborted") counts.aborted += 1;
-                    else counts.ran += 1;
+                    else {
+                        counts.ran += 1;
+                        ranKeys.push(entry.key);
+                    }
                     if (!run.cancelled) showProgress();
                 }
             };
             await Promise.all([worker(), worker()]);
+            press.finishRunAll(ranKeys);
 
             activeRun = null;
             runAllButton.disabled = false;
@@ -985,6 +1036,168 @@ function initializeCsharpExecution() {
             if (counts.skipped) parts.push(`${counts.skipped} need input.`);
             status.textContent = parts.join(" ");
         });
+    }
+
+    // Press integration for signed-in readers (press/docs/UI.md, Code Cell Controls).
+    // Chapter pages report their cells and each run to /api/cell-progress/cscs, which
+    // restores the "ran" marks and the progress line; every page saves each cell's last
+    // output to /api/cell-output/cscs, restored into the cell-state store on load. Run all
+    // is reported as bulk: it saves outputs but does not count as running the cells.
+    // Signed-out readers keep the browser-only cell state.
+    function createPressSync() {
+        const page = location.pathname.replace(/^\/+/, "").replace(/\.html$/, "").toLowerCase().slice(0, 255);
+        const validPage = /^[a-z0-9][a-z0-9/_.-]{0,254}$/.test(page);
+        const chapterPage = /^chapters\/[^/]+\//.test(page) && !page.includes("/assignments/");
+        const OUTPUT_BATCH = 60;
+        const TEXT_MAX = 20000;
+        const CODE_MAX = 50000;
+        const ran = new Map();
+        const pendingOutputs = [];
+        let signedIn = false;
+        let activeMs = 0;
+        let line = null;
+
+        const backend = () => window.cscsPress?.backend ?? "";
+
+        async function post(path, body) {
+            try {
+                const response = await fetch(`${backend()}${path}`, {
+                    method: "POST",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json", "X-CSRFToken": await window.cscsPress.csrfToken() },
+                    body: JSON.stringify({ page, ...body })
+                });
+                if (!response.ok) console.warn(`Press did not accept ${path} (${response.status}).`);
+            } catch (_) {
+                // Press unreachable: the browser copy still has the run.
+            }
+        }
+
+        async function getJson(path) {
+            const response = await fetch(`${backend()}${path}?page=${encodeURIComponent(page)}`, {
+                credentials: "include",
+                cache: "no-store"
+            });
+            return response.ok ? response.json() : null;
+        }
+
+        function postOutputs(items) {
+            for (let start = 0; start < items.length; start += OUTPUT_BATCH) {
+                post("/api/cell-output/cscs", { outputs: items.slice(start, start + OUTPUT_BATCH) });
+            }
+        }
+
+        function minutesText(ms) {
+            const minutes = ms / 60000;
+            return minutes < 10 ? `${minutes.toFixed(1)} min` : `${Math.round(minutes)} min`;
+        }
+
+        function renderProgress() {
+            const host = sync.progressHost;
+            if (!signedIn || !chapterPage || !host) return;
+            if (!line) {
+                line = document.createElement("span");
+                line.className = "thinkpress-progress";
+                line.setAttribute("aria-live", "polite");
+                host.appendChild(line);
+            }
+            const total = runnableCells.length;
+            const count = runnableCells.filter((entry) => ran.has(entry.key)).length;
+            const percent = total ? Math.round((100 * count) / total) : 0;
+            const time = activeMs >= 6000 ? ` \u00b7 ${minutesText(activeMs)} active on this page` : "";
+            const link = document.createElement("a");
+            link.href = `${backend()}/accounts/dashboard/progress/?return=${encodeURIComponent(location.href)}`;
+            link.textContent = "My progress";
+            line.replaceChildren(`Code cells run: ${count} of ${total} (${percent}%)${time} \u00b7 `, link);
+        }
+
+        async function connect() {
+            if (signedIn || !validPage || !window.cscsPress) return;
+            signedIn = true;
+            if (chapterPage) {
+                const title = document.title.split(" \u2014 ")[0].trim();
+                post("/api/cell-progress/cscs", { title, cells: runnableCells.map((entry) => entry.key).slice(0, 400) });
+                try {
+                    const saved = await getJson("/api/cell-progress/cscs");
+                    if (saved) {
+                        activeMs = saved.active_ms || 0;
+                        runnableCells.forEach((entry) => {
+                            const at = saved.ran?.[entry.key];
+                            if (!at) return;
+                            ran.set(entry.key, at);
+                            entry.showRan(at);
+                        });
+                    }
+                } catch (_) {
+                    // Progress unavailable: marks appear as the reader runs cells.
+                }
+                renderProgress();
+            }
+            try {
+                const saved = await getJson("/api/cell-output/cscs");
+                runnableCells.forEach((entry) => {
+                    const output = saved?.outputs?.[entry.key];
+                    if (output) entry.applySavedOutput(output, ran.get(entry.key));
+                });
+            } catch (_) {
+                // Saved output unavailable: the browser copy stands.
+            }
+        }
+
+        function disconnect() {
+            signedIn = false;
+            line?.remove();
+            line = null;
+        }
+
+        const sync = {
+            progressHost: null,
+            start() {
+                const onSession = (session) => {
+                    if (session?.authenticated) connect();
+                    else if (session) disconnect();
+                };
+                document.addEventListener("thinkpress:session", (event) => onSession(event.detail));
+                if (window.thinkpressSession) onSession(window.thinkpressSession);
+            },
+            // After every run: its output, and for a cell's own run the progress report.
+            reportRun({ key, code, text, exitCode, bulk }) {
+                if (!signedIn || !validPage) return;
+                if (code.length <= CODE_MAX) {
+                    const item = { key, code, output: { output: text.slice(0, TEXT_MAX), exit_code: exitCode } };
+                    if (bulk) pendingOutputs.push(item);
+                    else postOutputs([item]);
+                }
+                if (bulk || !chapterPage) return;
+                ran.set(key, new Date().toISOString());
+                post("/api/cell-progress/cscs", { ran: [key] });
+                renderProgress();
+            },
+            // After Run all: its outputs in batches, and its runs as bulk (not counted).
+            finishRunAll(keys) {
+                const items = pendingOutputs.splice(0);
+                if (!signedIn) return;
+                if (items.length) postOutputs(items);
+                if (chapterPage && keys.length) post("/api/cell-progress/cscs", { ran: keys.slice(0, 400), bulk: true });
+            }
+        };
+        return sync;
+    }
+
+    // FNV-1a, as in Press's thebe-runner.js: ties a cell's Press key to the book's code.
+    function fingerprint(text) {
+        let hash = 0x811c9dc5;
+        for (let i = 0; i < text.length; i += 1) {
+            hash ^= text.charCodeAt(i);
+            hash = Math.imul(hash, 0x01000193) >>> 0;
+        }
+        return hash.toString(16).padStart(8, "0");
+    }
+
+    // Code is the same when it differs only in trailing whitespace (the in-place editor
+    // drops the highlighted code's final newline).
+    function sameCode(a, b) {
+        return String(a).replace(/\s+$/, "") === String(b).replace(/\s+$/, "");
     }
 
     function createTaskId(pathname) {

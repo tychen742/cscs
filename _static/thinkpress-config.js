@@ -1,7 +1,8 @@
 // Press integration for the CSCS book. Loaded before custom.js and execution.js.
 //
 // Accounts live in Press (press/docs/RUN_PASSES.md). This file tells Press's shared
-// account script where Press is for this site, loads that script and its styles, and
+// account script where Press is for this site, loads that script, its styles, and the
+// shared code cell styles, and
 // fetches short-lived Press-signed passes: run passes for the C# runner and author
 // passes for browser authoring.
 (function () {
@@ -19,10 +20,14 @@
     const backend = setting('CSCS_PRESS_API') ?? (local ? 'http://localhost:8001' : '');
     window.THINKPRESS_BACKEND = backend;
 
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = `${backend}/static/thinkpress/auth.css`;
-    document.head.appendChild(stylesheet);
+    // auth.css for the account menu; code-cells.css for the code cell controls shared with
+    // the other ThinkPress books (press/docs/UI.md, Code Cell Controls).
+    ['auth.css', 'code-cells.css'].forEach(name => {
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = `${backend}/static/thinkpress/${name}`;
+        document.head.appendChild(stylesheet);
+    });
     const accountScript = document.createElement('script');
     accountScript.src = `${backend}/static/thinkpress/auth.js`;
     accountScript.defer = true;
