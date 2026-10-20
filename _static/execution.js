@@ -220,6 +220,7 @@ function initializeCsharpExecution() {
             output.className = "cscs-execution-output";
             notifyOutput();
             forgetEditedCode();
+            press.forgetOutput(key);
             stdinRequested = false;
             updateStdinVisibility();
             refreshEdited();
@@ -348,7 +349,8 @@ function initializeCsharpExecution() {
 
         // Reset forgets the reader's code and output but not that they ran the cell; a record
         // that only came from Run all is removed. ranAt moves to now so an older Press copy of
-        // the edited run does not come back on the next visit.
+        // the edited run does not come back on the next visit; Reset also deletes the Press
+        // copy (press.forgetOutput) so other devices do not restore it.
         function forgetEditedCode() {
             const record = cellState?.get(pageUrl, cellId);
             if (!record) return;
@@ -1042,7 +1044,8 @@ function initializeCsharpExecution() {
     // Chapter pages report their cells and each run to /api/cell-progress/cscs, which
     // restores the "ran" marks and the progress line; every page saves each cell's last
     // output to /api/cell-output/cscs, restored into the cell-state store on load. Run all
-    // is reported as bulk: it saves outputs but does not count as running the cells.
+    // is reported as bulk: it saves outputs but does not count as running the cells. Reset
+    // deletes the cell's saved output ({key, output: null}).
     // Signed-out readers keep the browser-only cell state.
     function createPressSync() {
         const page = location.pathname.replace(/^\/+/, "").replace(/\.html$/, "").toLowerCase().slice(0, 255);
@@ -1172,6 +1175,10 @@ function initializeCsharpExecution() {
                 ran.set(key, new Date().toISOString());
                 post("/api/cell-progress/cscs", { ran: [key] });
                 renderProgress();
+            },
+            // After Reset: delete the saved run so another device does not restore its code.
+            forgetOutput(key) {
+                if (signedIn && validPage) postOutputs([{ key, output: null }]);
             },
             // After Run all: its outputs in batches, and its runs as bulk (not counted).
             finishRunAll(keys) {
