@@ -1,5 +1,7 @@
 # GraphChecks
 
+**Inventory role:** Demo. Core BFS DFS path and component checks
+
 Part IV reference project. Requires .NET 10, with no package dependencies.
 
 ```sh

@@ -17,3 +17,7 @@ Expected output:
 Directed traversal checks compare BFS distances with an all-pairs relaxation reference, validate paths and discovery counts, and compare DFS frame entry/exit with a recursive reference. Component checks compare membership with independently merged labels. Matching checks use ordinal library occurrences and brute-force border lengths, including empty patterns, overlap, embedded nulls, and surrogate code units; they verify linear comparison bounds and owned prefix snapshots. Coverage checks compare exact enumeration with independent coverage-state DP, verify witnesses, and establish the greedy three-versus-two counterexample.
 
 Graphs declare all endpoints, preserve neighbor order, normalize duplicates, and accept loops/cycles. Components require symmetric adjacency. Matching offsets are UTF-16 code units, with no case folding, culture rules, or normalization. Empty patterns match every boundary. Team masks allow up to 20 requirements and exact enumeration up to 20 teams; exceeding a teaching limit does not establish infeasibility.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

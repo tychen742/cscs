@@ -1,5 +1,7 @@
 # Encapsulation, inheritance, overloading, shapes, and interfaces
 
+**Inventory role:** Demo. Inheritance, polymorphism, overloads, interfaces, and shape behavior.
+
 **Teaching role:** Concept companion across the OOP sections. See the [instructor walkthrough](../../../instructor_support/demos/12_oop_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

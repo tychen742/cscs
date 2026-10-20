@@ -501,3 +501,29 @@ project paths; `scripts/verify_demos.py` and `scripts/verify_lab_solutions.py`;
 historical audit snapshots under `authoring/` (mechanical path replacement so no
 old path remains). `materials/stale_chapters/` history is untouched. Local
 changes on a worktree branch, not deployed.
+
+## Demo Verification Coverage (2026-10-20)
+
+Repaired the enum and search/sort instructor-walkthrough links. The complete
+`demos/README.md` inventory and local project READMEs distinguish concept demos,
+legacy supplementary practice, student starters, lab references, libraries,
+test suites, and verification harnesses. No chapter organization or teaching
+source changed.
+
+`python3 scripts/verify_demos.py` now covers all 44 active projects and 12
+standalone programs, including the optional graph reference. Standalone files
+are copied unchanged into temporary .NET 10 projects. Checks include preserved
+lab-reference output, both database-reference modes, intentional starter
+behavior, both MSTest suites, the existing independent behavior checks, and
+all standalone expected outputs. The invoice starter permits only its existing
+unused-variable warning (`CS0219`); other build warnings remain errors. Archive
+code and distribution ZIPs are outside the active source inventory.
+
+Verification passed with `--no-restore` after initial dependency restoration;
+44 project runs (including extra modes), two four-test MSTest suites, and all
+12 standalone programs passed. Six verifier regression tests passed with
+`python3 scripts/test_verify_demos.py`. Inventory checks reject unlisted active
+projects/sources and broken local README links. The already edited collections
+demo remains intact; its check now expects the current 1-through-5 output.
+All 151 existing C# source/project files match their hashes at the start of this
+fix pass. No notebooks, assessments, or published paths changed.

@@ -1,5 +1,7 @@
 # Policy design
 
+**Inventory role:** Demo. Interface/override discount policies with 13 checks.
+
 Reference project for Part III. Requires .NET 10; no package dependency or database.
 
 ```sh

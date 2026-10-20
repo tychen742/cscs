@@ -1,5 +1,7 @@
 # Completed array lab algorithms
 
+**Inventory role:** Supplementary completed practice. Completed array drills; supplementary, not the current sales-lab answer.
+
 **Teaching role:** Completed legacy exercise; not a current lab solution. See the [instructor walkthrough](../../../instructor_support/demos/07_array_lab.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

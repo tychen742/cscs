@@ -1,5 +1,7 @@
 # Bookstore inventory starter
 
+**Inventory role:** Student starter. Optional database appendix unfinished lab; expected NotImplementedException.
+
 Optional database appendix project. Requires the .NET 10 SDK; the first restore needs NuGet access. No database server is needed.
 
 ```sh

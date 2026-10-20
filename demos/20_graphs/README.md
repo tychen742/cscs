@@ -23,3 +23,7 @@ dotnet run --project demos/20_graphs/graph_traversal/GraphChecks.csproj
 ```
 
 The former callback/record implementation is retained as optional material in `demos/_extras/advanced_graph_walk/`. `RouteGraph.cs` remains the representation-check program.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

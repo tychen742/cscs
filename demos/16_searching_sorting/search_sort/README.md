@@ -1,5 +1,7 @@
 # BasicSearchSort
 
+**Inventory role:** Demo. Searching and insertion-sort reference checks
+
 Part IV reference project. Requires .NET 10, with no package dependencies.
 
 ```sh

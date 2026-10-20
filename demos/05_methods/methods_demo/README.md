@@ -1,5 +1,7 @@
 # Method calls, parameters, and return values
 
+**Inventory role:** Demo. Method declarations, arguments, return values, and repeated calls.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/05_methods_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

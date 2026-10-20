@@ -1,0 +1,101 @@
+[
+  {
+    "source": "14_arrays_linked_lists/WorkOrderLists.cs",
+    "category": "reference_checks",
+    "purpose": "Linear-list verification",
+    "verification": {
+      "stdout": "All linear-list checks passed.\n"
+    }
+  },
+  {
+    "source": "15_stacks_queues/ServiceDeskStructures.cs",
+    "category": "reference_checks",
+    "purpose": "Stack and queue verification",
+    "verification": {
+      "stdout": "All stack and queue checks passed.\n"
+    }
+  },
+  {
+    "source": "17_trees/TicketTree.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 17: Trees",
+    "verification": {
+      "stdout": "600 mixed operations and explicit tree boundary checks passed.\n"
+    }
+  },
+  {
+    "source": "19_hash_collections/HeapHashStructures.cs",
+    "category": "reference_checks",
+    "purpose": "Combined heap/map reference with boundary checks; retained under Chapter 19.",
+    "verification": {
+      "stdout": "600 heap operations and 600 map operations plus boundary checks passed.\n"
+    }
+  },
+  {
+    "source": "20_graphs/RouteGraph.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 20: Graph representations",
+    "verification": {
+      "stdout": "600 graph updates and explicit boundary/snapshot checks passed.\n"
+    }
+  },
+  {
+    "source": "21_algorithm_analysis/AnalysisChecks.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 21: Analysis checks",
+    "verification": {
+      "stdout": "600 count/contract cases and 128 recurrence cases plus boundaries passed.\n"
+    }
+  },
+  {
+    "source": "22_recursion_divide_conquer/StableSort.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 22: Stable merge sort",
+    "verification": {
+      "stdout": "600 stable sort cases, 600 merge cases, and count/copy boundaries passed.\n"
+    }
+  },
+  {
+    "source": "23_searching_sorting/SearchSortChecks.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 23: Search and sort checks",
+    "verification": {
+      "stdout": "1800 elementary sorts, 3000 search targets, and stable/count boundaries passed.\n"
+    }
+  },
+  {
+    "source": "24_greedy_graph_optimization/GreedyChecks.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 24: Greedy optimization checks",
+    "verification": {
+      "stdout": "300 exhaustive schedules, 300 exhaustive forests, 300 distance/path references, and boundaries passed.\n"
+    }
+  },
+  {
+    "source": "25_dynamic_programming_backtracking/PlanningChecks.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 25: Planning checks",
+    "verification": {
+      "stdout": "600 coin references, 600 signed subset references, 93 Fibonacci states, enumeration checks, and boundaries passed.\n"
+    }
+  },
+  {
+    "source": "26_advanced_graphs_strings_limits/AdvancedChecks.cs",
+    "category": "reference_checks",
+    "purpose": "Chapter 26: Advanced algorithm checks",
+    "verification": {
+      "stdout": "500 directed traversals, 500 component graphs, 2000 ordinal matches, 500 cover optima, and boundaries passed.\n"
+    }
+  },
+  {
+    "source": "_extras/advanced_graph_walk/GraphWalk.cs",
+    "category": "supplementary_demo",
+    "purpose": "Advanced graph traversal reference",
+    "verification": {
+      "contains": [
+        "order=HQ,Warehouse,Helpdesk,Depot,Client",
+        "Client layer=2, Remote unreachable=True, arcs examined=6"
+      ]
+    }
+  }
+]

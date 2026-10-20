@@ -1,5 +1,7 @@
 # Class instances and methods
 
+**Inventory role:** Demo. Object construction, identity, and shared/static state.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/10_classes_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

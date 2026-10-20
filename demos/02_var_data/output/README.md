@@ -1,5 +1,7 @@
 # Interview appointment output
 
+**Inventory role:** Demo. Formatted console output and interview-time input.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/02_output.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

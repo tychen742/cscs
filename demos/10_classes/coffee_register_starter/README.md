@@ -1,5 +1,7 @@
 # Coffee Register Starter
 
+**Inventory role:** Student starter. Coffee-register lab with unfinished ToString; totals already work.
+
 This .NET 10 console project matches Chapter 10 Lab stage five. Complete ToString in Program.cs. Download both source files into one folder and open it in VS Code.
 
 ```console

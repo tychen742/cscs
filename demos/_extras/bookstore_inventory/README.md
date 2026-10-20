@@ -1,5 +1,7 @@
 # Bookstore inventory reference
 
+**Inventory role:** Lab solution/reference. Optional database appendix completed reference; in-memory checks.
+
 Optional database appendix project. Requires the .NET 10 SDK; the first restore needs NuGet access. No database server is needed.
 
 ```sh

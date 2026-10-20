@@ -17,3 +17,7 @@ Expected output:
 ```
 
 The checks compare with `SortedSet<int>` after each seeded operation and cover empty/singleton reuse, duplicate and missing updates, root replacement, a successor with a right child, both integer extremes, draining, and chain height. The tree is intentionally unbalanced. Recursive updates can exhaust the call stack on sufficiently long chains.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

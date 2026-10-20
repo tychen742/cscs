@@ -15,3 +15,7 @@ Expected output:
 ```
 
 Merge requires both inputs to be sorted under the same consistent comparison. Sort uses a copied result and one shared buffer, taking linear auxiliary space and logarithmic active stack depth. Counted writes exclude the initial clone and buffer allocation.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

@@ -1,5 +1,7 @@
 # Order Invoice Starter
 
+**Inventory role:** Student starter. Unfinished office-supply invoice lab; expected to print nothing.
+
 This .NET 10 console project matches Chapter 2 Lab stage five. Complete Program.cs with three input prompts, parsed and trimmed values, rounded monetary calculations, and an aligned invoice.
 
 ```console

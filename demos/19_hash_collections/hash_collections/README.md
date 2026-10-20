@@ -1,5 +1,7 @@
 # HashChecks
 
+**Inventory role:** Demo. Chained map and set reference checks
+
 Part IV reference project. Requires .NET 10, with no package dependencies.
 
 ```sh

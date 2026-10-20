@@ -1,5 +1,7 @@
 # HeapChecks
 
+**Inventory role:** Demo. Generic heap reference checks
+
 Part IV reference project. Requires .NET 10, with no package dependencies.
 
 ```sh

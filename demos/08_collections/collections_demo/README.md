@@ -1,5 +1,7 @@
 # List construction and sorting
 
+**Inventory role:** Demo. Array traversal baseline with commented list examples for teaching variations.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/08_collections_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

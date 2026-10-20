@@ -1,5 +1,7 @@
 # Calling an instance method
 
+**Inventory role:** Demo. Supplementary contact-object construction and display.
+
 **Teaching role:** Supplementary instance-method example. See the [instructor walkthrough](../../../instructor_support/demos/_extras_contact_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

@@ -2,177 +2,363 @@
   {
     "project": "01_context/hello_world/HelloWorld.csproj",
     "legacy_folder": "demos/Ch01Intro/HelloWorld",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "First C# console program and printed greeting."
   },
   {
     "project": "02_var_data/input/input.csproj",
     "legacy_folder": "demos/Ch02DataVariable/Input",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Console input, parsing, arithmetic, and range validation."
+  },
+  {
+    "project": "02_var_data/order_invoice_starter/order_invoice_starter.csproj",
+    "kind": "console",
+    "category": "starter",
+    "purpose": "Unfinished office-supply invoice lab; expected to print nothing.",
+    "verification": {
+      "stdout": "",
+      "stdin": "  Riverside Dental  \n12\n38.50\n"
+    },
+    "allowed_warnings": [
+      "CS0219"
+    ]
   },
   {
     "project": "02_var_data/output/output.csproj",
     "legacy_folder": "demos/Ch02DataVariable/Ouput",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Formatted console output and interview-time input."
   },
   {
-    "project": "05_methods/methods_demo/methods_demo.csproj",
-    "legacy_folder": "demos/Ch03Method",
-    "kind": "console"
+    "project": "02_var_data/ui_helper/ui_helper.csproj",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Namespace/helper-file import and validated integer input.",
+    "verification": {
+      "stdin": "oops\n7\n",
+      "contains": [
+        "Leg: 7"
+      ]
+    }
   },
   {
     "project": "03_decision/conditional_demo/conditional_demo.csproj",
     "legacy_folder": "demos/Ch04Conditional",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Top-level decisions and temperature-input validation."
   },
   {
     "project": "04_iteration/for_loop_demo/for_loop_demo.csproj",
     "legacy_folder": "demos/Ch05ForLoop",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Counted loops, character traversal, and accumulators."
   },
   {
     "project": "04_iteration/while_loop_demo/while_loop_demo.csproj",
     "legacy_folder": "demos/Ch06WhileLoop",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Guessing-game repetition and input validation."
   },
   {
-    "project": "09_files_text/file_demo/file_demo.csproj",
-    "legacy_folder": "demos/Ch07File",
-    "kind": "console"
+    "project": "05_methods/loop_methods_demo/loop_methods_demo.csproj",
+    "legacy_folder": "supplementary_methods_after_control_flow",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Method-based loop examples after Chapter 5; supplementary to top-level loops."
   },
   {
-    "project": "07_arrays/arrays_demo/arrays_demo.csproj",
-    "legacy_folder": "demos/Ch08Arrays",
-    "kind": "console"
+    "project": "05_methods/methods_demo/methods_demo.csproj",
+    "legacy_folder": "demos/Ch03Method",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Method declarations, arguments, return values, and repeated calls."
   },
   {
-    "project": "07_arrays/array_lab/array_lab.csproj",
-    "legacy_folder": "demos/Ch08ArraysLab",
-    "kind": "console"
-  },
-  {
-    "project": "08_collections/collections_demo/collections_demo.csproj",
-    "legacy_folder": "demos/Ch09Collections",
-    "kind": "console"
-  },
-  {
-    "project": "08_collections/help_responses/help_responses.csproj",
-    "legacy_folder": "demos/Ch09CollectionsLab",
-    "kind": "console"
-  },
-  {
-    "project": "10_classes/classes_demo/classes_demo.csproj",
-    "legacy_folder": "demos/Ch10Classes",
-    "kind": "console"
-  },
-  {
-    "project": "10_classes/classes_lab/classes_lab.csproj",
-    "legacy_folder": "demos/Ch10ClassesLab",
-    "kind": "console"
-  },
-  {
-    "project": "12_oop/oop_demo/oop_demo.csproj",
-    "legacy_folder": "demos/Ch11OOP",
-    "kind": "console"
-  },
-  {
-    "project": "12_oop/oop_lab/oop_lab.csproj",
-    "legacy_folder": "demos/Ch11OOPLab",
-    "kind": "console"
-  },
-  {
-    "project": "23_searching_sorting/search_sort_demo/search_sort_demo.csproj",
-    "legacy_folder": "demos/Ch12DataStructure",
-    "kind": "console"
-  },
-  {
-    "project": "10_classes/enum_demo/enum_demo.csproj",
-    "legacy_folder": "demos/Ch13Enum",
-    "kind": "console"
+    "project": "05_methods/sku_report_lab_solution.csproj",
+    "kind": "console",
+    "category": "lab_solution",
+    "purpose": "Completed SKU report lab reference.",
+    "verification": {
+      "expected_file": "instructor_support/labs/05_reference_output.txt"
+    }
   },
   {
     "project": "06_exceptions_testing/exceptions_demo/exceptions_demo.csproj",
     "legacy_folder": "demos/Ch13SelectedTopics/Exceptions",
-    "kind": "console"
-  },
-  {
-    "project": "06_exceptions_testing/math_tests/math_app/math_app.csproj",
-    "legacy_folder": "demos/Ch13SelectedTopics/UnitTestProject1",
-    "kind": "library"
-  },
-  {
-    "project": "06_exceptions_testing/math_tests/math_app_test/math_app_test.csproj",
-    "legacy_folder": "demos/Ch13SelectedTopics/UnitTestProject1",
-    "kind": "test"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Exception handling and access-error reporting."
   },
   {
     "project": "06_exceptions_testing/math_lab/math_app/math_app.csproj",
     "legacy_folder": "demos/Ch13SelectedTopicsLab/UnitTestProject1",
-    "kind": "console"
+    "kind": "console",
+    "category": "supplementary_practice",
+    "purpose": "Completed arithmetic console practice used with the paired test suite."
   },
   {
     "project": "06_exceptions_testing/math_lab/math_app_test/math_app_test.csproj",
     "legacy_folder": "demos/Ch13SelectedTopicsLab/UnitTestProject1",
-    "kind": "test"
+    "kind": "test",
+    "category": "test_suite",
+    "purpose": "Four MSTest arithmetic checks for the console-practice variant."
   },
   {
-    "project": "_extras/one_hour_of_code/one_hour_of_code.csproj",
-    "legacy_folder": "demos/OneHourOfCode",
-    "kind": "console"
+    "project": "06_exceptions_testing/math_tests/math_app/math_app.csproj",
+    "legacy_folder": "demos/Ch13SelectedTopics/UnitTestProject1",
+    "kind": "library",
+    "category": "helper_library",
+    "purpose": "Arithmetic library used by the paired test suite."
   },
   {
-    "project": "_extras/contact_demo/contact_demo.csproj",
-    "legacy_folder": "demos/final",
-    "kind": "console"
+    "project": "06_exceptions_testing/math_tests/math_app_test/math_app_test.csproj",
+    "legacy_folder": "demos/Ch13SelectedTopics/UnitTestProject1",
+    "kind": "test",
+    "category": "test_suite",
+    "purpose": "Four MSTest arithmetic checks for the library variant."
   },
   {
-    "project": "_extras/console_input_introcs/console_input_introcs.csproj",
-    "legacy_folder": "demos/ui",
-    "kind": "library"
+    "project": "07_arrays/array_lab/array_lab.csproj",
+    "legacy_folder": "demos/Ch08ArraysLab",
+    "kind": "console",
+    "category": "supplementary_practice",
+    "purpose": "Completed array drills; supplementary, not the current sales-lab answer."
   },
   {
-    "project": "_extras/console_input_intro_cscs/console_input_intro_cscs.csproj",
-    "legacy_folder": "demos/ui.cs",
-    "kind": "library"
+    "project": "07_arrays/arrays_demo/arrays_demo.csproj",
+    "legacy_folder": "demos/Ch08Arrays",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Array arguments, traversal, and numeric-array operations."
+  },
+  {
+    "project": "08_collections/collections_demo/collections_demo.csproj",
+    "legacy_folder": "demos/Ch09Collections",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Array traversal baseline with commented list examples for teaching variations."
+  },
+  {
+    "project": "08_collections/help_responses/help_responses.csproj",
+    "legacy_folder": "demos/Ch09CollectionsLab",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Completed dictionary-based response simulation; supplementary integrated example."
+  },
+  {
+    "project": "08_collections/word_count/word_count.csproj",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Dictionary word counts with an ignore set and sorted reporting.",
+    "verification": {
+      "stdout": "book: 1\npen: 2\nDistinct counted words: 2\n"
+    }
+  },
+  {
+    "project": "09_files_text/file_demo/file_demo.csproj",
+    "legacy_folder": "demos/Ch07File",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "File reading, writing, and executable-relative sample data."
+  },
+  {
+    "project": "09_files_text/help_responses_lab/help_responses_lab.csproj",
+    "kind": "console",
+    "category": "starter",
+    "purpose": "File-response exercise starter; default hard-coded mode only.",
+    "verification": {
+      "stdin": "crash\nbye\n",
+      "contains": [
+        "Well, it never crashes on our system.",
+        "thanks you for your patronage."
+      ]
+    }
+  },
+  {
+    "project": "09_files_text/privacy_pass_lab_solution.csproj",
+    "kind": "console",
+    "category": "lab_solution",
+    "purpose": "Completed optional privacy-pass file-processing lab.",
+    "verification": {
+      "expected_file": "instructor_support/labs/09_privacy_reference_output.txt"
+    }
+  },
+  {
+    "project": "10_classes/classes_demo/classes_demo.csproj",
+    "legacy_folder": "demos/Ch10Classes",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Object construction, identity, and shared/static state."
+  },
+  {
+    "project": "10_classes/classes_lab/classes_lab.csproj",
+    "legacy_folder": "demos/Ch10ClassesLab",
+    "kind": "console",
+    "category": "supplementary_practice",
+    "purpose": "Completed animal/employee and guessing-game exercises; not a current lab solution."
+  },
+  {
+    "project": "10_classes/coffee_register_starter/coffee_register_starter.csproj",
+    "kind": "console",
+    "category": "starter",
+    "purpose": "Coffee-register lab with unfinished ToString; totals already work.",
+    "verification": {
+      "contains": [
+        "Store total: $47.32",
+        "Shift report\n\n\nStore total: $47.32"
+      ],
+      "absent": [
+        "Front $32.04",
+        "Drive-thru $15.28"
+      ]
+    }
+  },
+  {
+    "project": "10_classes/enum_demo/enum_demo.csproj",
+    "legacy_folder": "demos/Ch13Enum",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Named enum values and their underlying integer values."
   },
   {
     "project": "11_object_design/object_design/ObjectDesign.csproj",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Order collaboration model with 21 object-design checks."
+  },
+  {
+    "project": "12_oop/oop_demo/oop_demo.csproj",
+    "legacy_folder": "demos/Ch11OOP",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Inheritance, polymorphism, overloads, interfaces, and shape behavior."
+  },
+  {
+    "project": "12_oop/oop_lab/oop_lab.csproj",
+    "legacy_folder": "demos/Ch11OOPLab",
+    "kind": "console",
+    "category": "supplementary_practice",
+    "purpose": "Completed bank-account encapsulation example; not a current lab solution."
   },
   {
     "project": "12_oop/policy_design/PolicyDesign.csproj",
-    "kind": "console"
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Interface/override discount policies with 13 checks."
   },
   {
     "project": "16_searching_sorting/search_sort/BasicSearchSort.csproj",
     "kind": "console",
     "lesson": "chapters/16_searching_sorting/1602_basic_sorting.ipynb",
     "role": "Searching and insertion-sort reference checks",
-    "instructor_guide": "instructor_support/adoption_routes.md"
+    "instructor_guide": "instructor_support/adoption_routes.md",
+    "category": "demo",
+    "purpose": "Searching and insertion-sort reference checks"
   },
   {
     "project": "18_priority_queues/priority_queue/HeapChecks.csproj",
     "kind": "console",
     "lesson": "chapters/18_priority_queues/1802_heap_implementation.ipynb",
     "role": "Generic heap reference checks",
-    "instructor_guide": "instructor_support/adoption_routes.md"
+    "instructor_guide": "instructor_support/adoption_routes.md",
+    "category": "demo",
+    "purpose": "Generic heap reference checks"
   },
   {
     "project": "19_hash_collections/hash_collections/HashChecks.csproj",
     "kind": "console",
     "lesson": "chapters/19_hash_collections/1901_hashing.ipynb",
     "role": "Chained map and set reference checks",
-    "instructor_guide": "instructor_support/adoption_routes.md"
+    "instructor_guide": "instructor_support/adoption_routes.md",
+    "category": "demo",
+    "purpose": "Chained map and set reference checks"
   },
   {
     "project": "20_graphs/graph_traversal/GraphChecks.csproj",
     "kind": "console",
     "lesson": "chapters/20_graphs/2003_graph_traversal.ipynb",
     "role": "Core BFS DFS path and component checks",
-    "instructor_guide": "instructor_support/adoption_routes.md"
+    "instructor_guide": "instructor_support/adoption_routes.md",
+    "category": "demo",
+    "purpose": "Core BFS DFS path and component checks"
   },
   {
-    "project": "05_methods/loop_methods_demo/loop_methods_demo.csproj",
-    "legacy_folder": "supplementary_methods_after_control_flow",
-    "kind": "console"
+    "project": "23_searching_sorting/search_sort_demo/search_sort_demo.csproj",
+    "legacy_folder": "demos/Ch12DataStructure",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Interactive search and six sorting demonstrations with optional timing."
+  },
+  {
+    "project": "_extras/bookstore_inventory/BookstoreInventory.csproj",
+    "kind": "console",
+    "category": "lab_solution",
+    "purpose": "Optional database appendix completed reference; in-memory checks.",
+    "verification": {
+      "args": [
+        "--check"
+      ],
+      "contains": [
+        "inventory checks passed."
+      ]
+    }
+  },
+  {
+    "project": "_extras/bookstore_inventory_starter/BookstoreInventory.csproj",
+    "kind": "console",
+    "category": "starter",
+    "purpose": "Optional database appendix unfinished lab; expected NotImplementedException.",
+    "verification": {
+      "args": [
+        "--check-core"
+      ],
+      "expected_failure": "System.NotImplementedException: Task 1: list inventory"
+    }
+  },
+  {
+    "project": "_extras/console_input_intro_cscs/console_input_intro_cscs.csproj",
+    "legacy_folder": "demos/ui.cs",
+    "kind": "library",
+    "category": "helper_library",
+    "purpose": "Reusable IntroCSCS console-input helper library."
+  },
+  {
+    "project": "_extras/console_input_introcs/console_input_introcs.csproj",
+    "legacy_folder": "demos/ui",
+    "kind": "library",
+    "category": "helper_library",
+    "purpose": "Reusable IntroCS console-input helper library."
+  },
+  {
+    "project": "_extras/contact_demo/contact_demo.csproj",
+    "legacy_folder": "demos/final",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Supplementary contact-object construction and display."
+  },
+  {
+    "project": "_extras/demo_checks/demo_checks.csproj",
+    "kind": "console",
+    "category": "verification_harness",
+    "purpose": "Independent regression checks for demo algorithms and helpers.",
+    "verification": {
+      "contains": [
+        "Passed 3073 demo behavior checks."
+      ]
+    }
+  },
+  {
+    "project": "_extras/one_hour_of_code/one_hour_of_code.csproj",
+    "legacy_folder": "demos/OneHourOfCode",
+    "kind": "console",
+    "category": "demo",
+    "purpose": "Short business-order introduction with input and shipping decisions."
   }
 ]

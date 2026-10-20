@@ -15,3 +15,7 @@ Expected output:
 ```
 
 Checks compare sorted permutations and bounds against independent references, verify exact selection counts and inversion-based moves, and verify stable insertion/bubble order on labeled records. Explicit cases include empty/singleton, sorted adaptive behavior, extreme integers, and string equality policies. Binary search and bounds require an array sorted under the same consistent comparer; they do not scan to validate this precondition.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

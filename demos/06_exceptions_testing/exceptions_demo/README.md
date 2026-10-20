@@ -1,5 +1,7 @@
 # Caught exception demonstration
 
+**Inventory role:** Demo. Exception handling and access-error reporting.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/06_exceptions_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

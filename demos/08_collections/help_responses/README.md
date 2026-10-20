@@ -1,5 +1,7 @@
 # Dictionary-based help response simulation
 
+**Inventory role:** Demo. Completed dictionary-based response simulation; supplementary integrated example.
+
 **Teaching role:** Supplementary integrated example. See the [instructor walkthrough](../../../instructor_support/demos/08_help_responses.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

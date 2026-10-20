@@ -1,5 +1,7 @@
 # Demo Behavior Checks
 
+**Inventory role:** Verification harness. Independent regression checks for demo algorithms and helpers.
+
 Requires the .NET 10 SDK. From this folder:
 
 ```bash

@@ -1,5 +1,7 @@
 # Bank-account encapsulation demonstration
 
+**Inventory role:** Supplementary completed practice. Completed bank-account encapsulation example; not a current lab solution.
+
 **Teaching role:** Supplementary example; not a current lab solution. See the [instructor walkthrough](../../../instructor_support/demos/12_oop_lab.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

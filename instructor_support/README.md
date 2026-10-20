@@ -17,8 +17,10 @@ through the book's existing reveal controls.
 4. Ask students to predict a change, run it, and explain the result.
 5. For an assignment, use its exact solution guide and stated contracts; do not substitute a similarly named older project.
 
-All mapped demo projects target .NET 10. `python3 scripts/verify_demos.py`
-checks builds, console behavior, unit tests, and algorithm checks. Walkthrough
+All active projects target .NET 10. `python3 scripts/verify_demos.py`
+checks all 44 projects and 12 standalone programs, including starter baselines,
+saved lab-reference output, unit tests, and algorithm checks. See the complete
+[role and verification inventory](../demos/README.md). Walkthrough
 output captures were rerun during preparation; trailing spaces are omitted for readability. Random/timing values and
 exception stack paths can vary.
 

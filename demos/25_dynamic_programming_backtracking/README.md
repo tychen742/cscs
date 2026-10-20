@@ -17,3 +17,7 @@ Expected output:
 Coin checks use independent breadth-first amount exploration and validate all table entries and witnesses. Subset checks enumerate bit masks independently and compare unpruned, bound-pruned, and memoized variants, validating returned positions and long sums. Fibonacci methods are checked against arbitrary-precision reference values with exact call/cache counts. Enumeration checks validate cardinality, unique positions, independent snapshots, and empty inputs.
 
 Fibonacci accepts 0..92 (naive capped at 25). Minimum coins requires positive denominations and targets 0..1,000,000. Subset search accepts up to 128 signed positions; its default million-call limit throws with feasibility unknown if exhausted. Materialized subsets/permutations are limited to 16/eight positions. These are explicit teaching resource policies; complexity discussions still account for state ranges, recursion, and output volume.
+
+## Automated Verification
+
+From the repository root, run `python3 scripts/verify_demos.py`. The verifier copies this source unchanged into a temporary .NET 10 project and checks its output. The manual commands above remain available for exploration.

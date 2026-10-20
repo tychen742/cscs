@@ -1,5 +1,7 @@
 # Object design
 
+**Inventory role:** Demo. Order collaboration model with 21 object-design checks.
+
 Reference project for Part III. Requires .NET 10; no package dependency or database.
 
 ```sh

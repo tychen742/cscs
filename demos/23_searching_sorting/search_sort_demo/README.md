@@ -1,6 +1,8 @@
 # Linear/binary search and sort timing extensions
 
-**Teaching role:** Concept companion with timing extensions. See the [instructor walkthrough](../../../instructor_support/demos/22_search_sort_demo.md).
+**Inventory role:** Demo. Interactive search and six sorting demonstrations with optional timing.
+
+**Teaching role:** Concept companion with timing extensions. See the [instructor walkthrough](../../../instructor_support/demos/23_search_sort_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.
 

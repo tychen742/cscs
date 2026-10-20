@@ -1,5 +1,7 @@
 # Arithmetic console demonstration
 
+**Inventory role:** Supplementary completed practice. Completed arithmetic console practice used with the paired test suite.
+
 **Teaching role:** Supplementary console/test example; not a current lab solution. See the [instructor walkthrough](../../../../instructor_support/demos/06_math_lab_math_app.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

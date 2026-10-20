@@ -1,5 +1,7 @@
 # Unit tests for the arithmetic library
 
+**Inventory role:** Test suite. Four MSTest arithmetic checks for the library variant.
+
 **Teaching role:** Concept companion test suite. See the [instructor walkthrough](../../../../instructor_support/demos/06_math_tests_math_app_test.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

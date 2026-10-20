@@ -1,5 +1,7 @@
 # Command-line arrays, rectangular arrays, and jagged arrays
 
+**Inventory role:** Demo. Array arguments, traversal, and numeric-array operations.
+
 **Teaching role:** Concept companion with jagged-array extension. See the [instructor walkthrough](../../../instructor_support/demos/07_arrays_demo.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

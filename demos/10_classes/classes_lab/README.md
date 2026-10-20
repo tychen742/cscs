@@ -1,5 +1,7 @@
 # Animal/employee objects and instance versus static guessing games
 
+**Inventory role:** Supplementary completed practice. Completed animal/employee and guessing-game exercises; not a current lab solution.
+
 **Teaching role:** Completed legacy exercise; not a current lab solution. See the [instructor walkthrough](../../../instructor_support/demos/10_classes_lab.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.

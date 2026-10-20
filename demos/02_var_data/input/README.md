@@ -1,5 +1,7 @@
 # Console input, parsing, and range validation
 
+**Inventory role:** Demo. Console input, parsing, arithmetic, and range validation.
+
 **Teaching role:** Concept companion. See the [instructor walkthrough](../../../instructor_support/demos/02_input.md).
 
 Requires the .NET 10 SDK. Open this folder in VS Code.
