@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Linear Lists
 
+## Assignment Alignment Revision (2026-10-21)
+
+The existing Foundation Check is explicitly optional, ungraded practice after the ten scored Preview questions. Its cell IDs and index location are retained; required concepts and assignments are unchanged.
+
 ## Core Depth Revision (2026-10-19)
 
 C13: introduce reference/cursor interpretation before traversal and connect the lost-link trace to the first insertion. Complete the original singly linked representation before comparing the preserved sentinel variant. Keep deletion, invariants, complete implementations, exercises and anchors.

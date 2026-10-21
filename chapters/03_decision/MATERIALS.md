@@ -1,5 +1,11 @@
 # Chapter Materials — Decision Structures
 
+## Assignment Alignment Repair (2026-10-21)
+
+Standard Homework now has five applied true/false checks and five standalone top-level coding tasks assessing compound approval, fee boundaries, ordered classification, switch/default including a valid free service, and a discount-boundary repair. The legacy Boolean/branch review remains explicitly ungraded reference. The preview no longer claims arbitrary nested branches can always be flattened; the supplemental Boolean prediction starter now shows the actual sequence before reveal.
+
+All existing notebook cell IDs, assessment/exercise IDs, radio names/values, and chapter order are preserved. New practice uses distinct semantic identities. Slides remain deferred. Completed new or changed solutions are compiled and executed independently under .NET 10; verification evidence is consolidated in the assignment-revision report.
+
 ## Tabs 3 and 4 Output Checks (2026-10-19)
 
 Tab 3 supplies its own five-row score/output table; Tab 4 lists seven delivery cases, including express at 50 and a second unknown code. Explicit input scope and temporary declaration substitution keep the checks bounded. Check-all controls execute the reader's current editor code through the existing C# runner transport, compare successful stdout to fixed expected output, and show each actual result. They preserve editor state and distinguish runner/compile failures from incorrect output. Starter saved outputs are labeled historical, not targets. Explanations are revealable. Existing exercise IDs, code cells and outputs remain unchanged. Assignments and optional readings are unchanged.

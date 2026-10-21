@@ -4,6 +4,14 @@ orphan: true
 
 # Chapter Organization: Priority Queues and Heaps
 
+## Assignment Alignment Revision (2026-10-21)
+
+Repeated Preview concepts are replaced in the same radio groups with distinct contract questions; existing canonical values and identities remain. Homework True/False items are concrete applied cases with misconception-specific explanations instead of generic feedback. Existing independent coding assessments remain; reference checklists make their separate trace/test evidence explicit.
+
+## Independent Assessment Feedback (2026-10-21)
+
+The existing independent homework implementation and its exercise identity are retained. Added reference feedback distinguishes the completed code core from the full requested trace, boundary, policy, and representation evidence; students still submit all parts of the original prompt.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

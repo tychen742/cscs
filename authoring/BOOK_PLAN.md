@@ -74,6 +74,12 @@ The relocated nullability notebook is supporting reading within Chapter 11's thr
 
 Keep all 26 chapters in their existing order. Parts IV and V divide the CS2 foundation into linear structures and trees/hashing/graphs. Parts VI and VII divide selectable depth into analysis/design and optimization/limits. Chapter 13 still introduces practical cost analysis before operation comparisons; Chapter 17 still introduces recursive cases and call-stack traces before tree algorithms. Neither foundation requires the later algorithms parts.
 
+## Assignment Alignment (2026-10-21)
+
+Assignments follow the current chapter objectives and prerequisite order. The standard homework route for the repaired early chapters has five applied True/False cases and five independent coding tasks; retained historical review is explicitly optional/ungraded. Do not require optional regex, recursion, LINQ, or extension project features in the core assignment set. The supplemental checked-arithmetic/exception sequence is after Chapter 6. Preserve existing assessment identities when revising content or adding missing response controls.
+
+The individual collection-based milestone follows Chapter 7 (Chapter 8 for lists). The group final follows the core through Chapter 12 and supplies source, project files, tests, synthetic data, file-persistence evidence, and actual build/run/test/reset commands through GitHub commit submission. Static quiz choices and self-check feedback do not constitute a recorded course attempt; the existing course submission workflow remains authoritative.
+
 ## Selected Course Routes (2026-10-21)
 
 - **Applied CS1:** Chapters 1-12 culminate in a tested console application using collections and files. Chapter 8's query reading is an optional applied extension, not an assessment prerequisite.

@@ -1,0 +1,307 @@
+{
+  "cases": [
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-1",
+      "case": "approval-invalid-endpoints-and-manager",
+      "original_source_sha256": "52ccb520aa7e096369d93bd132628571c9b9af33e3820ee4c1027df87e8ba095",
+      "substitutions": [
+        {
+          "from": "int quantity = 20;\nbool managerApproved = true;",
+          "to": "int quantity = test.Quantity;\nbool managerApproved = test.Manager;"
+        }
+      ],
+      "wrapper_prefix": "foreach (var test in new (int Quantity, bool Manager)[] { (0,true), (1,true), (50,true), (51,true), (20,false) })\n{\n",
+      "wrapper_suffix": "}\n",
+      "variant_source": "using System;\nforeach (var test in new (int Quantity, bool Manager)[] { (0,true), (1,true), (50,true), (51,true), (20,false) })\n{\n\nint quantity = test.Quantity;\nbool managerApproved = test.Manager;\nbool approved = quantity >= 1 && quantity <= 50 && managerApproved;\nif (approved) Console.WriteLine(\"Approved\");\nelse Console.WriteLine(\"Rejected\");\n}\n",
+      "expected_stdout": "Rejected\nApproved\nApproved\nRejected\nRejected\n",
+      "stdin": "",
+      "stdout": "Rejected\nApproved\nApproved\nRejected\nRejected\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "4447d030e79ed803b1eb773723bdf21e05a7761a95af98f191f931db5a996322"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-2",
+      "case": "fee-below-free-threshold",
+      "original_source_sha256": "d0c1b7e0b56172d53c21b586493ce479910dfc8a1f36e82620fa8b12bb4d880b",
+      "substitutions": [
+        {
+          "from": "decimal subtotal = 100m;",
+          "to": "decimal subtotal = 99.99m;"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\ndecimal subtotal = 99.99m;\ndecimal fee;\nif (subtotal >= 100m) fee = 0m;\nelse fee = 8m;\nConsole.WriteLine($\"Fee: {fee:F2}\");\nConsole.WriteLine($\"Total: {subtotal + fee:F2}\");\n",
+      "expected_stdout": "Fee: 8.00\nTotal: 107.99\n",
+      "stdin": "",
+      "stdout": "Fee: 8.00\nTotal: 107.99\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "9f45d00b3ee85dd0a9368edf0fa98c143f01c40725ff62137102e29e22645252"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-3",
+      "case": "stock-invalid-empty-ready-endpoint",
+      "original_source_sha256": "627f6aa8d1c86866a964c79e77633fe2cdc35b1a2147fd0a72cba2ca8bfde3ac",
+      "substitutions": [
+        {
+          "from": "int stock = 9;",
+          "to": "int stock = testStock;"
+        }
+      ],
+      "wrapper_prefix": "foreach (int testStock in new[] { -1, 0, 10 })\n{\n",
+      "wrapper_suffix": "}\n",
+      "variant_source": "using System;\nforeach (int testStock in new[] { -1, 0, 10 })\n{\n\nint stock = testStock;\nif (stock < 0) Console.WriteLine(\"Invalid\");\nelse if (stock == 0) Console.WriteLine(\"Empty\");\nelse if (stock < 10) Console.WriteLine(\"Low\");\nelse Console.WriteLine(\"Ready\");\n}\n",
+      "expected_stdout": "Invalid\nEmpty\nReady\n",
+      "stdin": "",
+      "stdout": "Invalid\nEmpty\nReady\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "022e55f5fd87f759db14cf3b217e97d0f1c2da359b683603712dc2bc7c5a183e"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-4",
+      "case": "delivery-service",
+      "original_source_sha256": "ed841a30186e87921799f3e441e146d09a3264d9447f9f0a9755645b0b79189b",
+      "substitutions": [
+        {
+          "from": "string service = \"P\";",
+          "to": "string service = \"D\";"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nstring service = \"D\";\nbool known = true;\nstring label = \"\";\ndecimal charge = 0m;\nswitch (service)\n{\n    case \"P\": label = \"Pickup\"; charge = 0m; break;\n    case \"D\": label = \"Delivery\"; charge = 12m; break;\n    default: known = false; break;\n}\nif (known)\n{\n    Console.WriteLine(label);\n    Console.WriteLine($\"Charge: {charge:F2}\");\n}\nelse Console.WriteLine(\"Unknown service\");\n",
+      "expected_stdout": "Delivery\nCharge: 12.00\n",
+      "stdin": "",
+      "stdout": "Delivery\nCharge: 12.00\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "ad0d917fbe69ec1b69c4cd0673015ce1ae83f1ddbf16c72ff4858488369c573d"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-4",
+      "case": "unknown-service",
+      "original_source_sha256": "ed841a30186e87921799f3e441e146d09a3264d9447f9f0a9755645b0b79189b",
+      "substitutions": [
+        {
+          "from": "string service = \"P\";",
+          "to": "string service = \"X\";"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nstring service = \"X\";\nbool known = true;\nstring label = \"\";\ndecimal charge = 0m;\nswitch (service)\n{\n    case \"P\": label = \"Pickup\"; charge = 0m; break;\n    case \"D\": label = \"Delivery\"; charge = 12m; break;\n    default: known = false; break;\n}\nif (known)\n{\n    Console.WriteLine(label);\n    Console.WriteLine($\"Charge: {charge:F2}\");\n}\nelse Console.WriteLine(\"Unknown service\");\n",
+      "expected_stdout": "Unknown service\n",
+      "stdin": "",
+      "stdout": "Unknown service\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "ed97be7a4efbd81d840a8abda5a22edfdb439f9676cf1b490f633e4331a873a2"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-5",
+      "case": "discount-below-quantity-threshold",
+      "original_source_sha256": "eefa56549e1ef3e60b56ee31787b0d8fc5faa00c56b3000de5158724ada24cd8",
+      "substitutions": [
+        {
+          "from": "int quantity = 20;",
+          "to": "int quantity = 19;"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nint quantity = 19;\ndecimal subtotal = 200m;\n// Faulty rule to repair: if (quantity > 20) apply the discount.\ndecimal discount = 0m;\nif (quantity >= 20) discount = subtotal * 0.10m;\nConsole.WriteLine($\"Discount: {discount:F2}\");\nConsole.WriteLine($\"Amount due: {subtotal - discount:F2}\");\n",
+      "expected_stdout": "Discount: 0.00\nAmount due: 200.00\n",
+      "stdin": "",
+      "stdout": "Discount: 0.00\nAmount due: 200.00\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "e1bb922bb867f5bd204a08b72ea97c1414f38dc6b312b164cbec3dabc4e8d1de"
+    },
+    {
+      "file": "chapters/03_decision/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch03-answer-5",
+      "case": "discount-at-quantity-threshold",
+      "original_source_sha256": "eefa56549e1ef3e60b56ee31787b0d8fc5faa00c56b3000de5158724ada24cd8",
+      "substitutions": [],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nint quantity = 20;\ndecimal subtotal = 200m;\n// Faulty rule to repair: if (quantity > 20) apply the discount.\ndecimal discount = 0m;\nif (quantity >= 20) discount = subtotal * 0.10m;\nConsole.WriteLine($\"Discount: {discount:F2}\");\nConsole.WriteLine($\"Amount due: {subtotal - discount:F2}\");\n",
+      "expected_stdout": "Discount: 20.00\nAmount due: 180.00\n",
+      "stdin": "",
+      "stdout": "Discount: 20.00\nAmount due: 180.00\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "eefa56549e1ef3e60b56ee31787b0d8fc5faa00c56b3000de5158724ada24cd8"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-1",
+      "case": "zero-days",
+      "original_source_sha256": "c766504de5efbbba5f711edd0f45525f26abf477ff4926997182307577168863",
+      "substitutions": [
+        {
+          "from": "int days = 4;",
+          "to": "int days = 0;"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nint days = 0;\nint total = 0;\nfor (int day = 1; day <= days; day++) total += 3;\nConsole.WriteLine($\"Days: {days}\");\nConsole.WriteLine($\"Fees: {total}\");\n",
+      "expected_stdout": "Days: 0\nFees: 0\n",
+      "stdin": "",
+      "stdout": "Days: 0\nFees: 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "d47fff6486f4d2f00929afefa8436f4a2ded2f8026e83269f2ec98aaba5eb2a9"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-1",
+      "case": "one-day",
+      "original_source_sha256": "c766504de5efbbba5f711edd0f45525f26abf477ff4926997182307577168863",
+      "substitutions": [
+        {
+          "from": "int days = 4;",
+          "to": "int days = 1;"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nint days = 1;\nint total = 0;\nfor (int day = 1; day <= days; day++) total += 3;\nConsole.WriteLine($\"Days: {days}\");\nConsole.WriteLine($\"Fees: {total}\");\n",
+      "expected_stdout": "Days: 1\nFees: 3\n",
+      "stdin": "",
+      "stdout": "Days: 1\nFees: 3\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "d1f584b7d25404551bba7a05c4b4199e7313737b156417771e2a6465dfebc82b"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-2",
+      "case": "empty-marks",
+      "original_source_sha256": "6354de63e4b5940e8e4c9c252a3cc1d5b0a02c324a0c36d8f603c03d1c61cb3f",
+      "substitutions": [
+        {
+          "from": "string marks = \"Yyn?Y\";",
+          "to": "string marks = \"\";"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nstring marks = \"\";\nint upper = 0, lower = 0, other = 0;\nforeach (char mark in marks)\n{\n    if (mark == 'Y') upper++;\n    else if (mark == 'y') lower++;\n    else other++;\n}\nConsole.WriteLine($\"Upper Y: {upper}\");\nConsole.WriteLine($\"Lower y: {lower}\");\nConsole.WriteLine($\"Other: {other}\");\n",
+      "expected_stdout": "Upper Y: 0\nLower y: 0\nOther: 0\n",
+      "stdin": "",
+      "stdout": "Upper Y: 0\nLower y: 0\nOther: 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "8fb5f34628df85d8011e2fd10cece8fd251d42bd6d3ee6d8e140e4f15292df05"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-3",
+      "case": "initial-zero-balance",
+      "original_source_sha256": "461d7372c981d08df59ca78288de48fe5d554dec77067a7d7cbcb463904718a8",
+      "substitutions": [
+        {
+          "from": "int balance = 11;",
+          "to": "int balance = 0;"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nint balance = 0;\nint payment = 4;\nint count = 0;\nwhile (balance > 0)\n{\n    int actual = Math.Min(payment, balance);\n    balance -= actual;\n    count++;\n    Console.WriteLine($\"Payment: {actual}\");\n}\nConsole.WriteLine($\"Balance: {balance}\");\nConsole.WriteLine($\"Payments: {count}\");\n",
+      "expected_stdout": "Balance: 0\nPayments: 0\n",
+      "stdin": "",
+      "stdout": "Balance: 0\nPayments: 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "0778e8bb7506d8ba8ab6eef4df672eb8d0719a1fca4758d1b4fe827d3e4a11d2"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-4",
+      "case": "end-of-input",
+      "original_source_sha256": "2f3ddd84e9abdcc5eadaf86dac475202d004da556f7eb71a36848e5dab3024eb",
+      "substitutions": [],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\n// Sample input lines: bad | 0 | 5\nint quantity = 0;\nstring? text;\nbool valid;\ndo\n{\n    Console.WriteLine(\"Quantity (1-5):\");\n    text = Console.ReadLine();\n    if (text == null) break;\n    valid = int.TryParse(text, out quantity) && quantity >= 1 && quantity <= 5;\n    if (!valid) Console.WriteLine(\"Retry\");\n} while (!valid);\nif (text == null) Console.WriteLine(\"No more input\");\nelse Console.WriteLine($\"Accepted: {quantity}\");\n",
+      "expected_stdout": "Quantity (1-5):\nNo more input\n",
+      "stdin": "",
+      "stdout": "Quantity (1-5):\nNo more input\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "2f3ddd84e9abdcc5eadaf86dac475202d004da556f7eb71a36848e5dab3024eb"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-4",
+      "case": "bad-zero-then-valid-retry",
+      "original_source_sha256": "2f3ddd84e9abdcc5eadaf86dac475202d004da556f7eb71a36848e5dab3024eb",
+      "substitutions": [],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\n// Sample input lines: bad | 0 | 5\nint quantity = 0;\nstring? text;\nbool valid;\ndo\n{\n    Console.WriteLine(\"Quantity (1-5):\");\n    text = Console.ReadLine();\n    if (text == null) break;\n    valid = int.TryParse(text, out quantity) && quantity >= 1 && quantity <= 5;\n    if (!valid) Console.WriteLine(\"Retry\");\n} while (!valid);\nif (text == null) Console.WriteLine(\"No more input\");\nelse Console.WriteLine($\"Accepted: {quantity}\");\n",
+      "expected_stdout": "Quantity (1-5):\nRetry\nQuantity (1-5):\nRetry\nQuantity (1-5):\nAccepted: 5\n",
+      "stdin": "bad\n0\n5\n",
+      "stdout": "Quantity (1-5):\nRetry\nQuantity (1-5):\nRetry\nQuantity (1-5):\nAccepted: 5\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "2f3ddd84e9abdcc5eadaf86dac475202d004da556f7eb71a36848e5dab3024eb"
+    },
+    {
+      "file": "chapters/04_iteration/assignments/homework.ipynb",
+      "cell_id": "assignment-fix-ch04-answer-5",
+      "case": "stop-marker-first",
+      "original_source_sha256": "988e90189b660195022b219b5259ca32bbade77c9f6f70512caa6ee0ed111e8e",
+      "substitutions": [
+        {
+          "from": "string marks = \"A B#C\";",
+          "to": "string marks = \"#AB\";"
+        }
+      ],
+      "wrapper_prefix": "",
+      "wrapper_suffix": "",
+      "variant_source": "using System;\n\nstring marks = \"#AB\";\nint processed = 0;\nforeach (char mark in marks)\n{\n    if (mark == '#') break;\n    if (mark == ' ') continue;\n    Console.WriteLine(mark);\n    processed++;\n}\nConsole.WriteLine($\"Processed: {processed}\");\n",
+      "expected_stdout": "Processed: 0\n",
+      "stdin": "",
+      "stdout": "Processed: 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "passed": true,
+      "variant_source_sha256": "08280dcb78148edf97944b08ec8903e7998a653584a3d88a5dd19f83ae80f12a"
+    }
+  ],
+  "count": 14,
+  "all_passed": true,
+  "source_files_not_edited": true,
+  "source_files_sha256": {
+    "chapters/03_decision/assignments/homework.ipynb": "0dee27ec48a618beefa026f535861fcc9dd9b295e966d5a5b4184d10f68fe85b",
+    "chapters/04_iteration/assignments/homework.ipynb": "fc1abd12ec319ac1a7a1f5146e57418db94ae170a9d05301deca04153e6c4a6d"
+  },
+  "fixture": "/tmp/cscs_assignment_revision/early_boundary_fixture",
+  "target_framework": "net10.0",
+  "warnings_as_errors": true
+}

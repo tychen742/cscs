@@ -4,6 +4,14 @@ orphan: true
 
 # Chapter Organization: Search and Sort
 
+## Assignment Alignment Follow-up (2026-10-21)
+
+The empirical search-performance assignment and the main lab handoff are explicitly optional supporting work. The standard lab/homework scope is unchanged; all existing paths and assessment identities are retained.
+
+## Assignment Alignment Revision (2026-10-21)
+
+Preview retains the ten numbered question slots and original cells, adds native radio response controls and specific answer explanations, varies option display order while keeping canonical a-d values, and replaces calculation/tracing preparation with glossary recognition where needed. Homework True/False questions now have native controls, hidden explanatory answers, and visible course-submission guidance. Chapters24-25 include balanced applied cases. Static page choices do not claim to record course attempts; authenticated submission remains the existing course workflow.
+
 ## Course Route Clarification (2026-10-21)
 
 Chapter 23 retains its title and core role: duplicate-aware search, sort invariants, exact counts, and equivalent-workload analysis. Recommend 23.5 Quicksort alongside Chapter 22 for the algorithms route. Shell sort remains a separate supporting selection; standard assessment IDs and question sets are unchanged.

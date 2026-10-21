@@ -1,5 +1,19 @@
 # Chapter Organization — Arrays
 
+## Standard Homework Scoring (2026-10-21)
+
+Standard Homework now has five applied true/false questions and five independent coding questions for ten points. The existing last-match, half-open binary-search, descending insertion-sort, and sorted-clone library-contract tasks remain core with their existing identities. A standalone rectangular branch/day summary adds direct 7.4 evidence, including zero rows, one row, and one column. The original twenty-question review follows Submit as explicitly optional, ungraded reference. New completed solutions retain independently verified .NET 10 output. Existing cells, metadata identities, and radio names/values remain; slides stay deferred.
+
+## Assignment Alignment Revision (2026-10-21)
+
+Preview now samples insertion-sort preservation and the binary-search sorted-order precondition alongside array basics. All original cell IDs remain in place; chapter order and assessment identities are unchanged.
+
+## Assignment Alignment Repair (2026-10-21)
+
+The existing independent binary-search question/reference now uses the same half-open [low, high) convention as core 7.3 and its objective. A new independent library-contract exercise sorts a clone with an ordinal comparer, searches with the same policy, distinguishes negative encodings from a universal -1 assumption, and checks original order, empty, and singleton inputs. Existing handwritten algorithms and assessment IDs remain.
+
+All existing notebook cell IDs, assessment/exercise IDs, radio names/values, and chapter order are preserved. New practice uses distinct semantic identities. Slides remain deferred. Completed new or changed solutions are compiled and executed independently under .NET 10; verification evidence is consolidated in the assignment-revision report.
+
 ## Current Teaching Allocation (2026-10-21)
 
 This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.

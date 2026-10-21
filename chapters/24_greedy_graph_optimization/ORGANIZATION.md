@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization — Greedy Algorithms
 
+## Assignment Alignment Revision (2026-10-21)
+
+Preview retains the ten numbered question slots and original cells, adds native radio response controls and specific answer explanations, varies option display order while keeping canonical a-d values, and replaces calculation/tracing preparation with glossary recognition where needed. Homework True/False questions now have native controls, hidden explanatory answers, and visible course-submission guidance. Chapters24-25 include balanced applied cases. Static page choices do not claim to record course attempts; authenticated submission remains the existing course workflow.
+
 ## Core Depth Revision (2026-10-19)
 
 C15: begin the Dijkstra reading with its retained small complete scan-based program and interpretation, then compare the priority-queue implementation and path verification. Label/collapse repeated large complete demonstration programs without removing their setup. Visible exercise starters, all boundary cases and every complete implementation remain available.

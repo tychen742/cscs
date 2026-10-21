@@ -1,5 +1,10 @@
 # Chapter Organization — Files and Text
 
+## Assignment Alignment Repair (2026-10-21)
+
+The standard Preview replaces its two supporting-regex questions in the same original cells/slots with core path-construction and append-policy questions. The connected sales/import Lab now uses scoped disposal and fresh owned temporary workspaces while retaining its original five exercises and outputs. The old-file case is deliberately absent in that owned workspace, rather than depending on the working directory. Standard Homework contains five applied true/false cases and five standalone coding tasks for append, explicit path/location, shape/parse/domain validation, missing-versus-empty input, and disposal under a processing failure. Earlier discussion cells and the intentionally faulty diagnostic fragment remain clearly optional/ungraded, with all original cell IDs and metadata retained. The standard route requires only the three core sections, not regex or privacy reading. New solution outputs and boundary checks are verified independently under .NET 10. Existing assignment and exercise identities are preserved; new cells use unique files-hw IDs. Slides and TOC order are unchanged.
+
+
 ## Core Depth Revision (2026-10-19)
 
 C08: correct the claim that int.TryParse rejects surrounding whitespace. Preserve the valid-record demonstration and later TryParseStudent parser. Add a complete accepted/rejected record matrix and standalone shape/parse/domain check, explaining why parsing and business validity differ.

@@ -1,0 +1,37 @@
+[
+  {
+    "command": "dotnet restore -p:NuGetAudit=false --ignore-failed-sources",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "  Determining projects to restore...\n  Restored /private/tmp/cscs_assignment_revision/ch06_workflow/MathApp/MathApp.csproj (in 77 ms).\n  Restored /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/MathAppTest.csproj (in 132 ms).\n",
+    "stderr": ""
+  },
+  {
+    "command": "dotnet build --no-restore",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "  MathApp -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathApp/bin/Debug/net10.0/MathApp.dll\nCSC : warning MSTEST0001: Explicitly enable or disable tests parallelization (https://learn.microsoft.com/dotnet/core/testing/mstest-analyzers/mstest0001) [/private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/MathAppTest.csproj]\n  MathAppTest -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll\n\nBuild succeeded.\n\nCSC : warning MSTEST0001: Explicitly enable or disable tests parallelization (https://learn.microsoft.com/dotnet/core/testing/mstest-analyzers/mstest0001) [/private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/MathAppTest.csproj]\n    1 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:04.33\n",
+    "stderr": ""
+  },
+  {
+    "command": "dotnet test --no-build --no-restore",
+    "exit_code": 1,
+    "expected_exit_code": 1,
+    "stdout": "Test run for /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.2 (arm64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed Test_MultiplyMethod [13 ms]\n  Error Message:\n   Assert.AreEqual failed. Expected:<100>. Actual:<20>. 'expected' expression: '100.0', 'actual' expression: 'result'.\n  Stack Trace:\n     at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.ThrowAssertAreEqualFailed(Object expected, Object actual, String userMessage) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 665\n   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, IEqualityComparer`1 comparer, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 492\n   at Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message, String expectedExpression, String actualExpression) in /_/src/TestFramework/TestFramework/Assertions/Assert.AreEqual.cs:line 405\n   at MathAppTest.UnitTest1.Test_MultiplyMethod() in /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/UnitTest1.cs:line 33\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\nFailed!  - Failed:     1, Passed:     3, Skipped:     0, Total:     4, Duration: 32 ms - MathAppTest.dll (net10.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": "dotnet test --no-restore",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "  MathApp -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathApp/bin/Debug/net10.0/MathApp.dll\n  MathAppTest -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll\nTest run for /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.2 (arm64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 17 ms - MathAppTest.dll (net10.0)\n",
+    "stderr": ""
+  },
+  {
+    "command": "dotnet test --no-restore",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "  MathApp -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathApp/bin/Debug/net10.0/MathApp.dll\nCSC : warning MSTEST0001: Explicitly enable or disable tests parallelization (https://learn.microsoft.com/dotnet/core/testing/mstest-analyzers/mstest0001) [/private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/MathAppTest.csproj]\n  MathAppTest -> /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll\nTest run for /private/tmp/cscs_assignment_revision/ch06_workflow/MathAppTest/bin/Debug/net10.0/MathAppTest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.2 (arm64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 18 ms - MathAppTest.dll (net10.0)\n",
+    "stderr": ""
+  }
+]

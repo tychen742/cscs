@@ -1,5 +1,15 @@
 # Chapter Organization — Iteration
 
+## Assignment Alignment Revision (2026-10-21)
+
+Preview replaces loop execution/count predictions with glossary recognition and qualifies equivalent loop forms. All original cell IDs remain in place; chapter order and assessment identities are unchanged.
+
+## Assignment Alignment Repair (2026-10-21)
+
+Standard Homework now has five applied true/false checks and five standalone top-level programs for counted accumulation, string traversal, decreasing-state while repetition, TryParse/retry/end-of-input, and break/continue scanning. No user-defined methods, arrays, or exception handling are required. The original 20-question review remains explicitly ungraded reference; Grade Calculation is retained as a separate existing track.
+
+All existing notebook cell IDs, assessment/exercise IDs, radio names/values, and chapter order are preserved. New practice uses distinct semantic identities. Slides remain deferred. Completed new or changed solutions are compiled and executed independently under .NET 10; verification evidence is consolidated in the assignment-revision report.
+
 ## B-A Development Follow-up (2026-10-18)
 
 | Reading | Audit findings | Developed coverage |

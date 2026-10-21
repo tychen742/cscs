@@ -1,5 +1,19 @@
 # Chapter Organization — Methods
 
+## Standard Homework Scoring (2026-10-21)
+
+Standard Homework now has five applied true/false questions and five independent coding questions for ten points. The existing cscs-gap-05-9 packing/refactoring task remains core with its identity intact; new Initials, DomainOf, returned Boolean approval, and net-amount composition tasks add standalone method/string/result evidence without arrays, collections, or exceptions. The original fourteen-question review follows Submit as explicitly optional, ungraded reference. New completed solutions retain independently verified .NET 10 output. Existing cells, metadata identities, and radio names/values remain; slides stay deferred.
+
+## Assignment Alignment Revision (2026-10-21)
+
+Preview specifies ten scored core slots; the extra sixth item and string self-checks are explicitly optional/ungraded. Core slots no longer require supporting recursion/overloading and include returned Boolean results, arguments, local scope, and string immutability. All original cell IDs remain in place; chapter order and assessment identities are unchanged.
+
+## Assignment Alignment Repair (2026-10-21)
+
+The standard Lab is five connected service-desk stages: normalization, pure service-cost calculation, ticket extraction, helper composition, and a void display/refactoring boundary with independent expected results. Every stage has standalone setup, a tagged question, a hidden solution with verified output, and a common Submit area. The six legacy walkthrough activities remain ungraded reference. Checked arithmetic and exception-based Strange Sequence work is explicitly an extension after Chapter 6; small positive-input method practice remains available now.
+
+All existing notebook cell IDs, assessment/exercise IDs, radio names/values, and chapter order are preserved. New practice uses distinct semantic identities. Slides remain deferred. Completed new or changed solutions are compiled and executed independently under .NET 10; verification evidence is consolidated in the assignment-revision report.
+
 ## Current Teaching Allocation (2026-10-21)
 
 This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.

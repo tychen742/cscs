@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization — ADTs
 
+## Assignment Alignment Revision (2026-10-21)
+
+The existing Foundation Check is explicitly optional, ungraded practice after the ten scored Preview questions. Its cell IDs and index location are retained; required concepts and assignments are unchanged.
+
 ## Query Reading Connection (2026-10-21)
 
 Chapter 8 now offers optional query practice at `../08_collections/0805_querying_collections.ipynb`. Section 13.3 still supplies its own delegate/lambda prerequisites and develops policies; the earlier reading is not required.

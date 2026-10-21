@@ -4,6 +4,11 @@ orphan: true
 
 # Chapter Organization: Searching and Basic Sorting
 
+## Assignment Alignment Repair (2026-10-21)
+
+Lab Question 5 now verifies the entire original arrival sequence, every adjacent sorted pair, lengths, and per-value occurrence counts using explicit loops. The independent expected input is supplied outside the array under test. The completed reference rejects corrupt middle report values and changed middle arrivals; duplicates, empty input, and singleton variants are checked. The original question, starter, and solution cell IDs and metadata are retained. Existing homework's independent stability/workload task remains in place. No supporting merge-sort prerequisite, assessment-identity change, slide edit, or TOC change is introduced.
+
+
 ## Course Route Clarification (2026-10-21)
 
 Recommended CS2 adds 5.6 Recursive Methods before 16.3 Merge Sort, with selected tracing and order/preservation/stability checks. The lighter applied route and standard assessments retain their current scope.

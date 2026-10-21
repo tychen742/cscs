@@ -1,0 +1,999 @@
+[
+  {
+    "file": "chapters/03_decision/assignments/additional_practice.ipynb",
+    "cell_id": "5c8b17d0",
+    "source_sha256": "72bd84459d91f577ee64286194be32cd4ebc387a612fa635be1623d1a580958d",
+    "expected_stdout": "5\nTrue\nFalse\n5\nTrue\nTrue\nFalse\n6\nTrue\nFalse\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.65\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/5c8b17d0/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "5\nTrue\nFalse\n5\nTrue\nTrue\nFalse\n6\nTrue\nFalse\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/03_decision/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch03-answer-1",
+    "source_sha256": "52ccb520aa7e096369d93bd132628571c9b9af33e3820ee4c1027df87e8ba095",
+    "expected_stdout": "Approved\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.21\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch03-answer-1/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Approved\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/03_decision/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch03-answer-2",
+    "source_sha256": "d0c1b7e0b56172d53c21b586493ce479910dfc8a1f36e82620fa8b12bb4d880b",
+    "expected_stdout": "Fee: 0.00\nTotal: 100.00\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.68\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch03-answer-2/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Fee: 0.00\nTotal: 100.00\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/03_decision/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch03-answer-3",
+    "source_sha256": "627f6aa8d1c86866a964c79e77633fe2cdc35b1a2147fd0a72cba2ca8bfde3ac",
+    "expected_stdout": "Low\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.09\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch03-answer-3/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Low\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/03_decision/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch03-answer-4",
+    "source_sha256": "ed841a30186e87921799f3e441e146d09a3264d9447f9f0a9755645b0b79189b",
+    "expected_stdout": "Pickup\nCharge: 0.00\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.46\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch03-answer-4/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Pickup\nCharge: 0.00\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/03_decision/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch03-answer-5",
+    "source_sha256": "eefa56549e1ef3e60b56ee31787b0d8fc5faa00c56b3000de5158724ada24cd8",
+    "expected_stdout": "Discount: 20.00\nAmount due: 180.00\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:01.93\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch03-answer-5/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Discount: 20.00\nAmount due: 180.00\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/04_iteration/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch04-answer-1",
+    "source_sha256": "c766504de5efbbba5f711edd0f45525f26abf477ff4926997182307577168863",
+    "expected_stdout": "Days: 4\nFees: 12\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:01.85\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch04-answer-1/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Days: 4\nFees: 12\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/04_iteration/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch04-answer-2",
+    "source_sha256": "6354de63e4b5940e8e4c9c252a3cc1d5b0a02c324a0c36d8f603c03d1c61cb3f",
+    "expected_stdout": "Upper Y: 2\nLower y: 1\nOther: 2\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:01.95\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch04-answer-2/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Upper Y: 2\nLower y: 1\nOther: 2\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/04_iteration/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch04-answer-3",
+    "source_sha256": "461d7372c981d08df59ca78288de48fe5d554dec77067a7d7cbcb463904718a8",
+    "expected_stdout": "Payment: 4\nPayment: 4\nPayment: 3\nBalance: 0\nPayments: 3\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.47\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch04-answer-3/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Payment: 4\nPayment: 4\nPayment: 3\nBalance: 0\nPayments: 3\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/04_iteration/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch04-answer-4",
+    "source_sha256": "2f3ddd84e9abdcc5eadaf86dac475202d004da556f7eb71a36848e5dab3024eb",
+    "expected_stdout": "Quantity (1-5):\nRetry\nQuantity (1-5):\nRetry\nQuantity (1-5):\nAccepted: 5\n",
+    "stdin": "bad\n0\n5\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.12\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch04-answer-4/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Quantity (1-5):\nRetry\nQuantity (1-5):\nRetry\nQuantity (1-5):\nAccepted: 5\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/04_iteration/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch04-answer-5",
+    "source_sha256": "988e90189b660195022b219b5259ca32bbade77c9f6f70512caa6ee0ed111e8e",
+    "expected_stdout": "A\nB\nProcessed: 2\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.30\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch04-answer-5/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "A\nB\nProcessed: 2\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/lab.ipynb",
+    "cell_id": "assignment-fix-ch05-lab-answer-1",
+    "source_sha256": "8d92653ea8b485309adc48f8ba87fd640d2cff5039082d2eda58f25364f0998a",
+    "expected_stdout": "Code: [DESK-1042]\nRaw: [  desk-1042  ]\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.65\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch05-lab-answer-1/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Code: [DESK-1042]\nRaw: [  desk-1042  ]\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/lab.ipynb",
+    "cell_id": "assignment-fix-ch05-lab-answer-2",
+    "source_sha256": "2c5ac41d0c01f448c349e4ad6a3caf177001a59ef5998c45d76137c590a8d899",
+    "expected_stdout": "0\n9\n17\n21\n25\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.62\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch05-lab-answer-2/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "0\n9\n17\n21\n25\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/lab.ipynb",
+    "cell_id": "assignment-fix-ch05-lab-answer-3",
+    "source_sha256": "702ff6f5c8787fd1f374bbd40995c6b89066839e6b58763ed3cc65bcf1f862e1",
+    "expected_stdout": "1042\n0007\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.66\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch05-lab-answer-3/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "1042\n0007\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/lab.ipynb",
+    "cell_id": "assignment-fix-ch05-lab-answer-4",
+    "source_sha256": "3be35560aaea89ee2bf032d198f538cced80727ac31c47e625bfc468b591981e",
+    "expected_stdout": "DESK-1042: ticket 1042, cost 21\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.67\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch05-lab-answer-4/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "DESK-1042: ticket 1042, cost 21\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/lab.ipynb",
+    "cell_id": "assignment-fix-ch05-lab-answer-5",
+    "source_sha256": "761a962e9bff4916b9996db44b1e7afec6f77fa17347dbcf358c594492b89ede",
+    "expected_stdout": "True\nTrue\nTrue\nDESK-1042: ticket 1042, cost 21\nSHIP-0007: ticket 0007, cost 9\nTrue\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.69\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch05-lab-answer-5/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "True\nTrue\nTrue\nDESK-1042: ticket 1042, cost 21\nSHIP-0007: ticket 0007, cost 9\nTrue\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/07_arrays/assignments/homework.ipynb",
+    "cell_id": "03cbb113401d",
+    "source_sha256": "b4a7678e535d8af2170c7b0b5630855eef10e17f2139b6fd4bd4dc23a91aeeb4",
+    "expected_stdout": "True\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.13\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/03cbb113401d/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "True\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/07_arrays/assignments/homework.ipynb",
+    "cell_id": "assignment-fix-ch07-library-answer",
+    "source_sha256": "aa53551e86fb723fdbb59e8a8ad83cbd92e6434515e9bd5837365d2a54e7e4e2",
+    "expected_stdout": "Original: PEN, BAG, BOOK\nSorted: BAG, BOOK, PEN\nFound: BOOK\nMissing CARD: True\nMissing result is -1: False\nArrival preserved: True\nEmpty missing: True\nSingleton found: True\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.20\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_verify/assignment-fix-ch07-library-answer/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Original: PEN, BAG, BOOK\nSorted: BAG, BOOK, PEN\nFound: BOOK\nMissing CARD: True\nMissing result is -1: False\nArrival preserved: True\nEmpty missing: True\nSingleton found: True\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/homework.ipynb",
+    "cell_id": "assignment-finish-ch05-solution-2",
+    "source_sha256": "87debc4d886cf005736ce47a82f76e9a54b842629a54a908091975a89a08de82",
+    "expected_stdout": "A. D.\nL. N.\nB. W.\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.41\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_homework_finish_verify/assignment-finish-ch05-solution-2/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "A. D.\nL. N.\nB. W.\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/homework.ipynb",
+    "cell_id": "assignment-finish-ch05-solution-3",
+    "source_sha256": "4c893fe86be1bd2f8f49e23ace0e48fdcc2075f1be9a51b893a3da87bcd756b4",
+    "expected_stdout": "example.com\nx\nAna.Diaz@Example.COM\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.43\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_homework_finish_verify/assignment-finish-ch05-solution-3/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "example.com\nx\nAna.Diaz@Example.COM\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/homework.ipynb",
+    "cell_id": "assignment-finish-ch05-solution-4",
+    "source_sha256": "6cf45ab6be69cbe5d9de4b491b41280f95a695635117050788b5eb5d5bf00d13",
+    "expected_stdout": "True\nTrue\nFalse\nFalse\nApproved\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.41\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_homework_finish_verify/assignment-finish-ch05-solution-4/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "True\nTrue\nFalse\nFalse\nApproved\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/05_methods/assignments/homework.ipynb",
+    "cell_id": "assignment-finish-ch05-solution-5",
+    "source_sha256": "b925e958608389506207e562096d61de39137aaa2d89a0ecc683f3c7ce60c478",
+    "expected_stdout": "True\nTrue\nTrue\nAmount due: 88.00\nSubtotal unchanged: 100.00\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.68\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_homework_finish_verify/assignment-finish-ch05-solution-5/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "True\nTrue\nTrue\nAmount due: 88.00\nSubtotal unchanged: 100.00\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/07_arrays/assignments/homework.ipynb",
+    "cell_id": "assignment-finish-ch07-solution-5",
+    "source_sha256": "640a879a2281a6f879de4d30c147cbed1b51ceda6d1c72aa54b39afb70435ab4",
+    "expected_stdout": "Two branches:\nBranch 0: 5\nBranch 1: 5\nDay 0: 3\nDay 1: 4\nDay 2: 3\nGrand: 10\nNo branches:\nDay 0: 0\nDay 1: 0\nDay 2: 0\nGrand: 0\nOne branch:\nBranch 0: 5\nDay 0: 2\nDay 1: 3\nGrand: 5\nOne day:\nBranch 0: 2\nBranch 1: 3\nDay 0: 5\nGrand: 5\n",
+    "build_command": "dotnet build --nologo -v:q --configfile NuGet.Config",
+    "build_exit_code": 0,
+    "build_output": "\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:02.19\nCSSM_ModuleLoad(): One or more parameters passed to a function were not valid.\n",
+    "run_command": "dotnet /tmp/cscs_assignment_revision/early_homework_finish_verify/assignment-finish-ch07-solution-5/bin/Debug/net10.0/Check.dll",
+    "run_exit_code": 0,
+    "stdout": "Two branches:\nBranch 0: 5\nBranch 1: 5\nDay 0: 3\nDay 1: 4\nDay 2: 3\nGrand: 10\nNo branches:\nDay 0: 0\nDay 1: 0\nDay 2: 0\nGrand: 0\nOne branch:\nBranch 0: 5\nDay 0: 2\nDay 1: 3\nGrand: 5\nOne day:\nBranch 0: 2\nBranch 1: 3\nDay 0: 5\nGrand: 5\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/lab.ipynb",
+    "cell_id": "lab_003",
+    "case": "base",
+    "source_sha256": "9b8b354ae570253964a109b558e50cde0ed8926f02003923f74ace601edc6df1",
+    "stdout": "120\n85\n42\n230\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/lab_003-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/lab.ipynb",
+    "cell_id": "lab_006",
+    "case": "base",
+    "source_sha256": "2fe3abe8a07c151042b9752053f0ae7c2445843a4d16f8406d3193d58a14c6d1",
+    "stdout": "Total sales: $477\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/lab_006-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/lab.ipynb",
+    "cell_id": "lab_009",
+    "case": "base",
+    "source_sha256": "2f02710d75d056c4948d239ae0fd8d3e7ff639e895aa341da127f4823c76640e",
+    "stdout": "sales.txt: total $477, skipped 2 bad line(s)\nsales_old.txt: file not found\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/lab_009-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/lab.ipynb",
+    "cell_id": "lab_012",
+    "case": "base",
+    "source_sha256": "647fab4b88835874a3797efd06729c42a307cff06f9f1bf61e9ad7c83e3ce2d3",
+    "stdout": "Latte: 3 x $5 = $15\nMuffin: 2 x $3 = $6\nSkipped: Espresso,two,4\nSkipped: Bagel,4\nMocha: 1 x $6 = $6\nRevenue: $27\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/lab_012-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/lab.ipynb",
+    "cell_id": "lab_015",
+    "case": "base",
+    "source_sha256": "9d80dd21f734318514b5615feeabf8b01e03cd8de67fdc8a3389dc574d0bf6fa",
+    "stdout": "LATTE,3,15\nMUFFIN,2,6\nMOCHA,1,6\nTOTAL,,27\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/lab_015-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q6-solution",
+    "case": "base",
+    "source_sha256": "34be481286607a293d3726287881304770b1822453deee64ce5340b63137d1a4",
+    "stdout": "20|30|45\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q6-solution-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q7-solution",
+    "case": "base",
+    "source_sha256": "71552f421d094cdfb93c948c09eb7950f2dbe83d6b865978e34031309b87b13a",
+    "stdout": "Invoice 41\ninside requested directory=True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q7-solution-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q8-solution",
+    "case": "base",
+    "source_sha256": "9d13a8d3cd699123a66800dedeeee594c0d08924ed667a9e36fb00189f358077",
+    "stdout": "True: Pen|2|3\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nTrue: Sample|1|0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q8-solution-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q9-solution",
+    "case": "base",
+    "source_sha256": "08c980be1d7f8bb17632a3aa545310a8594414cf3087b06be22b862edced5a0a",
+    "stdout": "missing.txt: False, total=0\nempty.txt: True, total=0\nsales.txt: True, total=30\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q9-solution-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q10-solution",
+    "case": "base",
+    "source_sha256": "07b67ab1b2cb609bde72cd0e7304f69738de44f29a09e50de823d0e66fc36e2a",
+    "stdout": "Import stopped.\nReport: 120|85\nReopened exclusively: True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q10-solution-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "base",
+    "source_sha256": "4bc108b079abe40194eebd536b368c50fb43d956ad77f3a2cfa1e80efda7774f",
+    "stdout": "Arrival order preserved; report sorted.\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-base/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": true
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "corrupt_middle",
+    "source_sha256": "12d425c65055f9098136883893229048ba2e11c2e65b430017f91d66dcb66ae4",
+    "stdout": "",
+    "stderr": "Unhandled exception. System.Exception: Report is not sorted.\n   at Program.<Main>$(String[] args) in /private/tmp/cscs_assignment_revision/middle/4d30850e9d3b-corrupt_middle/Program.cs:line 14\n",
+    "exit_code": -6,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-corrupt_middle/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": true,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "source_mutation",
+    "source_sha256": "bfe3536b16cf9e525e671ff57c01a903bee8061398668b29537c57da93ea3eba",
+    "stdout": "",
+    "stderr": "Unhandled exception. System.Exception: Arrival order changed.\n   at Program.<Main>$(String[] args) in /private/tmp/cscs_assignment_revision/middle/4d30850e9d3b-source_mutation/Program.cs:line 12\n",
+    "exit_code": -6,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-source_mutation/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": true,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "sorted_occurrence_loss",
+    "source_sha256": "ff258479630e2939396c09314bd5f20dd5cf03b061debf10f607707984a69fc8",
+    "stdout": "",
+    "stderr": "Unhandled exception. System.Exception: Occurrences changed.\n   at Program.<Main>$(String[] args) in /private/tmp/cscs_assignment_revision/middle/4d30850e9d3b-sorted_occurrence_loss/Program.cs:line 20\n",
+    "exit_code": -6,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-sorted_occurrence_loss/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": true,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "duplicates",
+    "source_sha256": "5727a6c09b17296eecd27e5df8301fbe3ea4e0e2f248ad7c19f49b68399173c8",
+    "stdout": "Arrival order preserved; report sorted.\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-duplicates/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "empty",
+    "source_sha256": "bc5c6ce85d9fa93c6962bc4048c5613a5fe2fb0e26510da7e730df616d6e5d4d",
+    "stdout": "Arrival order preserved; report sorted.\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-empty/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/16_searching_sorting/assignments/lab.ipynb",
+    "cell_id": "4d30850e9d3b",
+    "case": "singleton",
+    "source_sha256": "f65299d2f0d96db097481cf75ac38fd3302276792680eadff11b737226df3a20",
+    "stdout": "Arrival order preserved; report sorted.\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/4d30850e9d3b-singleton/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q6-solution",
+    "case": "empty_seed",
+    "source_sha256": "2e65c0c89a2be2b9661da4224a44c2763c0c14a911f0375909e7cd1bee700f97",
+    "stdout": "45\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q6-solution-empty_seed/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q8-solution",
+    "case": "empty_extra_field_quantity_one",
+    "source_sha256": "d2c0dd63f4e409ff2c9c6d024b69974e67220e85ae77f18ad02510e960cff063",
+    "stdout": "True: Pen|2|3\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nFalse: |0|0\nTrue: Sample|1|0\nFalse: |0|0\nFalse: |0|0\nTrue: One|1|1\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q8-solution-empty_extra_field_quantity_one/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q9-solution",
+    "case": "malformed_propagates",
+    "source_sha256": "51d99163992925e7056b7d9663dd8892abf03f2421ce91a2d1b47a89791f876a",
+    "stdout": "missing.txt: False, total=0\nempty.txt: True, total=0\n",
+    "stderr": "Unhandled exception. System.FormatException: The input string 'bad' was not in a correct format.\n   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)\n   at System.Int32.Parse(String s)\n   at Program.<<Main>$>g__TryReadTotal|0_0(String path, Int32& total) in /private/tmp/cscs_assignment_revision/middle/files-hw-q9-solution-malformed_propagates/Program.cs:line 32\n   at Program.<Main>$(String[] args) in /private/tmp/cscs_assignment_revision/middle/files-hw-q9-solution-malformed_propagates/Program.cs:line 12\n",
+    "exit_code": -6,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q9-solution-malformed_propagates/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": true,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q10-solution",
+    "case": "first_failure",
+    "source_sha256": "8021118e50845c2712d9fc222b4f5454a5bef6bcbac498f1bcedf805014a405f",
+    "stdout": "Import stopped.\nReport: \nReopened exclusively: True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q10-solution-first_failure/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/09_files_text/assignments/homework.ipynb",
+    "cell_id": "files-hw-q10-solution",
+    "case": "all_valid",
+    "source_sha256": "aafba2342716ac1fc1b434dc5afca599dc0c3a43ad01268d5355641a41d7e9b5",
+    "stdout": "Report: 120|85|20|42\nReopened exclusively: True\n",
+    "stderr": "",
+    "exit_code": 0,
+    "commands": [
+      [
+        "dotnet",
+        "build",
+        "--nologo",
+        "-v:q",
+        "--configfile",
+        "NuGet.Config"
+      ],
+      [
+        "dotnet",
+        "/tmp/cscs_assignment_revision/middle/files-hw-q10-solution-all_valid/bin/Debug/net10.0/Check.dll"
+      ]
+    ],
+    "expected_failure": false,
+    "passed": true,
+    "stored": false
+  },
+  {
+    "file": "chapters/19_hash_collections/assignments/homework.ipynb",
+    "cell_id": "c99cb3fdf3a3",
+    "source_sha256": "556baf9b8caaff56412557329ac17e79ab520703975bc1c50f07e38b2d877dfa",
+    "stdout": "put 1, Count=1, comparisons=0: 0=[] | 1=[1:V1] | 2=[] | 3=[]\nput 5, Count=2, comparisons=1: 0=[] | 1=[1:V1,5:V5] | 2=[] | 3=[]\nput 9, Count=3, comparisons=2: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nbefore rehash: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nafter rehash: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5] | 6=[] | 7=[]\nput 13, Count=4, comparisons=3: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5,13:V13] | 6=[] | 7=[]\nput 5, Count=4, comparisons=1: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nremove 9, Count=3, comparisons=2: 0=[] | 1=[1:V1] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nlookup 5: found=True, comparisons=1\nlookup 9: found=False, comparisons=1\nchaining total key comparisons=11\nprobe slots before delete: 0:empty,1:1,2:8,3:15,4:empty,5:empty,6:empty\nprobe slots after delete: 0:empty,1:1,2:deleted,3:15,4:empty,5:empty,6:empty\nprobe 15: 1:1 -> 2:deleted -> 3:15, found=True, comparisons=2\nprobe 22: 1:1 -> 2:deleted -> 3:15 -> 4:empty, found=False, comparisons=2\nFIFO: duplicate/reissue rejected; cancelled IDs skipped; cancel-all and empty pass\nskip cancelled/served 30\nskip superseded 10: queued=1, current=5\nskip superseded 10: queued=4, current=5\nserve 20:Second, urgency=1, arrival=1\nserve 10:Current, urgency=2, arrival=0\nserve 60:First equal, urgency=3, arrival=3\nserve 70:Second equal, urgency=3, arrival=4\nskip cancelled/served 40\nskip cancelled/served 50\npriority: superseded/cancelled skipped; arrival ties, at-most-once, duplicate/reissue, cancel-all, and empty pass\nExpected dictionary lookup O(1); heap enqueue/dequeue O(log q); stale entries add removals, so bound complete workload by all queued versions.\n",
+    "compiled": true,
+    "passed": true,
+    "boundary_cases": [
+      "replacement does not grow map",
+      "rehash before load exceeds 0.75",
+      "successful and absent lookups",
+      "tombstone continues probing",
+      "cancel-first and cancel-all",
+      "duplicate/reissued ID rejection",
+      "two superseded priority versions",
+      "equal-urgency arrival order",
+      "at-most-once dispatch",
+      "empty dispatch",
+      "absent update rejection"
+    ]
+  },
+  {
+    "file": "chapters/19_hash_collections/assignments/homework.ipynb",
+    "cell_id": "c99cb3fdf3a3",
+    "case": "removed-version-check",
+    "detected": true,
+    "stdout": "put 1, Count=1, comparisons=0: 0=[] | 1=[1:V1] | 2=[] | 3=[]\nput 5, Count=2, comparisons=1: 0=[] | 1=[1:V1,5:V5] | 2=[] | 3=[]\nput 9, Count=3, comparisons=2: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nbefore rehash: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nafter rehash: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5] | 6=[] | 7=[]\nput 13, Count=4, comparisons=3: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5,13:V13] | 6=[] | 7=[]\nput 5, Count=4, comparisons=1: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nremove 9, Count=3, comparisons=2: 0=[] | 1=[1:V1] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nlookup 5: found=True, comparisons=1\nlookup 9: found=False, comparisons=1\nchaining total key comparisons=11\nprobe slots before delete: 0:empty,1:1,2:8,3:15,4:empty,5:empty,6:empty\nprobe slots after delete: 0:empty,1:1,2:deleted,3:15,4:empty,5:empty,6:empty\nprobe 15: 1:1 -> 2:deleted -> 3:15, found=True, comparisons=2\nprobe 22: 1:1 -> 2:deleted -> 3:15 -> 4:empty, found=False, comparisons=2\nFIFO: duplicate/reissue rejected; cancelled IDs skipped; cancel-all and empty pass\nskip cancelled/served 30\nserve 10:Current, urgency=2, arrival=0\n",
+    "error": "Unhandled exception. System.Exception: Superseded priority served before a more urgent current ticket."
+  },
+  {
+    "file": "chapters/19_hash_collections/assignments/homework.ipynb",
+    "cell_id": "c99cb3fdf3a3",
+    "case": "deleted-slot-emptied",
+    "detected": true,
+    "stdout": "put 1, Count=1, comparisons=0: 0=[] | 1=[1:V1] | 2=[] | 3=[]\nput 5, Count=2, comparisons=1: 0=[] | 1=[1:V1,5:V5] | 2=[] | 3=[]\nput 9, Count=3, comparisons=2: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nbefore rehash: 0=[] | 1=[1:V1,5:V5,9:V9] | 2=[] | 3=[]\nafter rehash: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5] | 6=[] | 7=[]\nput 13, Count=4, comparisons=3: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:V5,13:V13] | 6=[] | 7=[]\nput 5, Count=4, comparisons=1: 0=[] | 1=[1:V1,9:V9] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nremove 9, Count=3, comparisons=2: 0=[] | 1=[1:V1] | 2=[] | 3=[] | 4=[] | 5=[5:updated,13:V13] | 6=[] | 7=[]\nlookup 5: found=True, comparisons=1\nlookup 9: found=False, comparisons=1\nchaining total key comparisons=11\nprobe slots before delete: 0:empty,1:1,2:8,3:15,4:empty,5:empty,6:empty\nprobe slots after delete: 0:empty,1:1,2:empty,3:15,4:empty,5:empty,6:empty\nprobe 15: 1:1 -> 2:empty, found=False, comparisons=1\n",
+    "error": "Unhandled exception. System.Exception: Tombstone contract failed."
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/lab.ipynb",
+    "cell_id": "0a8ceca8",
+    "source_sha256": "ec8dc64c135e75f81732a0971146bd9044395c4b024632011db7f7be14090410",
+    "stdout": "",
+    "compiled": true,
+    "passed": true,
+    "role": "visible standalone graph client starter"
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/lab.ipynb",
+    "cell_id": "0c452cf3",
+    "source_sha256": "ec8dc64c135e75f81732a0971146bd9044395c4b024632011db7f7be14090410",
+    "stdout": "",
+    "compiled": true,
+    "passed": true,
+    "role": "visible standalone graph client starter"
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/homework.ipynb",
+    "cell_id": "be0c3533",
+    "source_sha256": "58604008f62a4cf5d3e9b86c29be5812f8775944c55d6a93aecf4c7137ead212",
+    "stdout": "",
+    "compiled": true,
+    "passed": true,
+    "role": "visible standalone graph client starter"
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/homework.ipynb",
+    "cell_id": "d5f3ab34",
+    "source_sha256": "707710d444d9e31c0a561d310ce22f666764b02e8d51928c26d9a74262f7e83f",
+    "stdout": "",
+    "compiled": true,
+    "passed": true,
+    "role": "visible standalone graph client starter"
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/homework.ipynb",
+    "cell_id": "50b14deb",
+    "source_sha256": "da0838624f06cc2d90ccb4f0505db302d58c79fcf54d5d815a1d6ee8ab9e49ae",
+    "stdout": "BFS=A,B, DFS=A,B, source path=A, arcs=3\nunknown source rejected\n",
+    "compiled": true,
+    "passed": true,
+    "role": "existing standalone graph boundary reference reverified against visible starter support",
+    "boundary_cases": [
+      "cycles and isolates",
+      "caller adjacency ownership",
+      "source/unreachable paths",
+      "unknown-source rejection"
+    ]
+  },
+  {
+    "file": "chapters/26_advanced_graphs_strings_limits/assignments/homework.ipynb",
+    "cell_id": "a0bd6ded",
+    "source_sha256": "2b808112e1d4c51898b56dcc1b8ce51817f83ba13b7949d3f2270204bac2c0ff",
+    "stdout": "components=3, vertices=5, empty=0\ndirected asymmetry rejected\n",
+    "compiled": true,
+    "passed": true,
+    "role": "existing standalone graph boundary reference reverified against visible starter support",
+    "boundary_cases": [
+      "two undirected pairs and isolate",
+      "empty graph",
+      "asymmetric component rejection"
+    ]
+  }
+]

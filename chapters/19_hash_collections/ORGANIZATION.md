@@ -4,6 +4,14 @@ orphan: true
 
 # Chapter Organization: Hash Collections and Sets
 
+## Assignment Alignment Revision (2026-10-21)
+
+Repeated Preview concepts are replaced in the same radio groups with distinct contract questions; existing canonical values and identities remain. Homework True/False items are concrete applied cases with misconception-specific explanations instead of generic feedback. Existing independent coding assessments remain; reference checklists make their separate trace/test evidence explicit.
+
+## Assignment Alignment Follow-up (2026-10-21)
+
+The existing independent homework `cscs-gap-19-16` retains chaining/rehash/tombstone traces and the never-reused-ID FIFO queue. It now additionally assesses versioned priority dispatch, two successive updates, cancelled/obsolete entries, equal-urgency arrival order, at-most-once service, and empty/duplicate boundaries, matching landing objective seven. Its complete standalone answer prints representation traces and tests both queue contracts. A separate feedback checklist distinguishes physical stale entries from logical active records.
+
 ## Class Meetings
 
 1. **Hashing and Collisions, 35 minutes.** Predict a result, trace a small example, inspect the runnable model, and complete a nearby exercise.

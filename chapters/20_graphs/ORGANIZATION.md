@@ -4,6 +4,14 @@ orphan: true
 
 # Chapter Organization: Graphs and Traversal
 
+## Assignment Alignment Revision (2026-10-21)
+
+Repeated Preview concepts are replaced in the same radio groups with distinct contract questions; existing canonical values and identities remain. Homework True/False items are concrete applied cases with misconception-specific explanations instead of generic feedback. Existing independent coding assessments remain; reference checklists make their separate trace/test evidence explicit.
+
+## Independent Assessment Feedback (2026-10-21)
+
+The existing independent homework implementation and its exercise identity are retained. Added reference feedback distinguishes the completed code core from the full requested trace, boundary, policy, and representation evidence; students still submit all parts of the original prompt.
+
 ## Current Teaching Allocation (2026-10-21)
 
 This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.

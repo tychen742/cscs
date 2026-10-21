@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Analysis
 
+## Assignment Alignment Revision (2026-10-21)
+
+Preview retains the ten numbered question slots and original cells, adds native radio response controls and specific answer explanations, varies option display order while keeping canonical a-d values, and replaces calculation/tracing preparation with glossary recognition where needed. Homework True/False questions now have native controls, hidden explanatory answers, and visible course-submission guidance. Chapters24-25 include balanced applied cases. Static page choices do not claim to record course attempts; authenticated submission remains the existing course workflow.
+
 ## Class Meetings
 
 1. **Cost models and growth, 40 minutes.** Choose input sizes and counted operations; derive sequential, dependent-loop, and halving counts; establish tight bounds with inequalities; distinguish worst/expected/amortized claims and auxiliary storage.

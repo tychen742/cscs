@@ -6,6 +6,14 @@ This file tracks the active book sequence in `_toc.yml`. Retired or staging
 folders may still exist in `chapters/`, but they are not part of the student
 book unless they are listed in the TOC.
 
+## Assignment Alignment Revision (2026-10-21)
+
+Repaired the audited assignments without changing chapter order or existing assessment/cell identities. Corrected the Chapter 6 solution-directory workflow and Chapter 16 full-array verification; established five applied True/False plus five coding tasks in Chapters 3, 4, 5, 7, and 9, retaining earlier review as explicitly optional/ungraded. Methods Lab now follows one connected service-desk contract.
+
+Required previews no longer depend on optional regex; supplemental checked/exception work is explicitly after Chapter 6. Arrays uses the half-open binary-search convention and independently assesses library search/sort and rectangular summaries. Chapter 19's existing independent task now tests superseded priority versions. Chapter 26 names graph synthesis and exposes the support class needed by its clients. Empirical timing is explicitly optional. Later quizzes have response controls and specific feedback; extra checks are distinguished from the ten scored Preview questions. Group-project instructions now match the console/GitHub/test/file workflow.
+
+Slides remain deferred and unchanged. See `authoring/assignment_revision/` for preservation evidence, solution checks, boundary/mutation tests, build checks, and readable diffs. Changes remain uncommitted for author review.
+
 ## Structure Audit Follow-up (2026-10-21)
 
 Preserved the 26-chapter order, existing notebook/cell identities, and assessment scope. Reconciled CS1/project outcomes around tested console applications using collections and files; GUI, database, and AI work remain optional. Added explicit preparation/class/reference allocations for the expanded Chapters 2, 5, 7, 8, 11, 13, 17, and 20, with student-facing three-meeting summaries.

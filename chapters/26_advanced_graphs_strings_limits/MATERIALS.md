@@ -4,6 +4,14 @@ orphan: true
 
 # Chapter Materials — Advanced Algorithms
 
+## Assignment Alignment Revision (2026-10-21)
+
+Preview now has native radio controls, hints, specific explanations, and varied display positions under unchanged numbered slots/cell IDs. Homework True/False choices have native controls and a balanced applied character-policy case. Visible submission guidance distinguishes page choices from a recorded course submission.
+
+## Assignment Alignment Follow-up (2026-10-21)
+
+The landing adds an explicit prior-graph synthesis objective and identifies Chapter 20 BFS/path and DFS/component review readings for the service-network assignments. Graph client-check starters now include visible GraphWalk support, with no dependence on a hidden answer. Preview questions one through five now sample direct matching, ordinal text units, prepared-prefix reuse, witness validity, and unknown resource-limited results; existing cell/question positions remain. The new matching/limits core remains three readings, with graph work explicitly identified as prerequisite synthesis.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

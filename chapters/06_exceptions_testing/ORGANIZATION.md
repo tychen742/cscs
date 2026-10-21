@@ -1,5 +1,15 @@
 # Chapter Organization: Testing, Debugging, and Error Handling
 
+## Assignment Alignment Revision (2026-10-21)
+
+Preview now samples independent expected results, regression tests, and debugger hypotheses as well as exception basics. The added framework/TDD bank is clearly optional ungraded practice after the ten scored questions. All original cell IDs remain in place; chapter order and assessment identities are unchanged.
+
+## Assignment Alignment Repair (2026-10-21)
+
+The local test-project lab now uses Ch06ReliabilityLab and explicit -o output folders, then runs all solution/reference commands from UnitTestProject1 with complete csproj paths. It points to the complete application/test listings in the content lesson so the entry point and public BasicMath contract are retained. A Submit area requests projects, solution, failure/repair transcripts, and the added method/test; no assessment identity changes.
+
+All existing notebook cell IDs, assessment/exercise IDs, radio names/values, and chapter order are preserved. New practice uses distinct semantic identities. Slides remain deferred. Completed new or changed solutions are compiled and executed independently under .NET 10; verification evidence is consolidated in the assignment-revision report.
+
 ## Core Depth Revision (2026-10-19)
 
 C05: place the familiar Credits debugger investigation before the workflow reference and retained array/CSV transfers. The current chapter needs only scalar loops and methods; arrays are a later transfer after Chapter 7. Correct the array-loop comment to i < scores.Length; retain the intentional bug and all expected-output evidence.

@@ -1,0 +1,54 @@
+{
+  "offline_scaffolding_note": "--no-restore isolates directory/solution/reference mechanics; package restore and framework execution are separate checks.",
+  "commands": [
+    {
+      "command": "dotnet new sln -n UnitTestProject1",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "The template \"Solution File\" was created successfully.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet new console -o MathApp --no-restore",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "The template \"Console App\" was created successfully.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet new mstest -o MathAppTest --no-restore",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "The template \"MSTest Test Project\" was created successfully.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet sln add MathApp/MathApp.csproj",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "Project `MathApp/MathApp.csproj` added to the solution.\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet sln add MathAppTest/MathAppTest.csproj",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "Project `MathAppTest/MathAppTest.csproj` added to the solution.\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet add MathAppTest/MathAppTest.csproj reference MathApp/MathApp.csproj",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "Reference `..\\MathApp\\MathApp.csproj` added to the project.\n",
+      "stderr": ""
+    },
+    {
+      "command": "dotnet sln list",
+      "cwd": "/tmp/cscs_assignment_revision/ch06_workflow",
+      "exit_code": 0,
+      "stdout": "Project(s)\n----------\nMathApp/MathApp.csproj\nMathAppTest/MathAppTest.csproj\n",
+      "stderr": ""
+    }
+  ]
+}

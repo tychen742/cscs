@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Trees
 
+## Assignment Alignment Revision (2026-10-21)
+
+The existing Foundation Check is explicitly optional, ungraded practice after the ten scored Preview questions. Its cell IDs and index location are retained; required concepts and assignments are unchanged.
+
 ## Current Teaching Allocation (2026-10-21)
 
 This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.

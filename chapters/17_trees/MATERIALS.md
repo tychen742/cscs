@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Materials: Trees
 
+## Assignment Alignment Revision (2026-10-21)
+
+The existing Foundation Check is explicitly optional, ungraded practice after the ten scored Preview questions. Its cell IDs and index location are retained; required concepts and assignments are unchanged.
+
 ## Current Teaching Allocation (2026-10-21)
 
 The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
