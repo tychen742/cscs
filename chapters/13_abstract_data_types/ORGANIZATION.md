@@ -4,6 +4,24 @@ orphan: true
 
 # Chapter Organization — ADTs
 
+## Query Reading Connection (2026-10-21)
+
+Chapter 8 now offers optional query practice at `../08_collections/0805_querying_collections.ipynb`. Section 13.3 still supplies its own delegate/lambda prerequisites and develops policies; the earlier reading is not required.
+
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 13.1 and 13.2. | State a stack contract, compare two representations, and count operations under an explicit cost model. |
+| 2 | 40 | 13.3. | Write a generic contract, justify required constraints, and compare a named policy with a delegate/lambda. |
+| 3 | 35 | 13.4. | Trace independent iterator positions, yield, and deferred enumeration, then check behavior against the ADT contract. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Use the hand-written enumerator as a reference comparison after the yield example. Compact query syntax is a policy-reading bridge; 8.5 offers optional earlier practice. Full implementation variants and additional cost traces remain available for practice.
+
 ## Core Depth Revision (2026-10-19)
 
 C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.

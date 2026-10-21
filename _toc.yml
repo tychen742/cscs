@@ -153,6 +153,8 @@ parts:
     - file: chapters/08_collections/0802_collection_operations
     - file: chapters/08_collections/0803_list
     - file: chapters/08_collections/0804_dictionary
+    - file: chapters/08_collections/0805_querying_collections
+      title: Querying Collections with Lambdas and LINQ (Optional Reading)
     - file: chapters/08_collections/assignments/index
       title: Assignments
       sections:
@@ -517,6 +519,10 @@ parts:
   - file: chapters/appendices/operator_overloading
     title: Operator Overloading (Optional)
   - file: chapters/appendices/cs2023_alignment
+- caption: Bibliography
+  numbered: false
+  chapters:
+  - file: chapters/bibliography
 - caption: Index
   numbered: false
   chapters:

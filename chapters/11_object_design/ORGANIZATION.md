@@ -1,5 +1,19 @@
 # Organization: Object Design and Composition
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 11.1 and 11.2. | Draw shared-reference and copy diagrams, then choose class, struct, record, or enum semantics for one model. |
+| 2 | 40 | 11.3. | Assign responsibilities to products, lines, and orders; check required and optional relationships and safe snapshots. |
+| 3 | 35 | 11.4. | Test collaboration, rejected changes, independent orders, and missing optional data using explicit expected results. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Use one shared order/product model across the meetings. Detailed record variants and the full Nullability (11.5) treatment remain reference/supporting reading; select only the required-versus-optional guard example when needed for the core model.
+
 ## Core Depth Revision (2026-10-19)
 
 C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.

@@ -4,6 +4,12 @@ orphan: true
 
 # Materials: Graphs and Traversal
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Keep complete representation/update implementations, alternate topological-order traces, and additional directed-graph cases as reference examples. Choose one small network for the three live traces; students use the remaining examples for preparation and practice.
+
 ## Core Depth Revision (2026-10-19)
 
 C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.

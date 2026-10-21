@@ -15,6 +15,25 @@ Updated October 19, 2026: the three OpenDSA books were added to the
 comparison, and the "OpenDSA mapping" section below maps Chapters 13 to 26
 to their CS2 and CS3 sections.
 
+## Current Disposition (October 21, 2026)
+
+The gap analysis below records the October 18 baseline, not the current book. Use this disposition for revision decisions; earlier suggestions remain as historical rationale. The 26 numbered chapters retain their order and assessment identities. Slides are explicitly deferred.
+
+| Earlier finding | Current evidence and disposition |
+| --- | --- |
+| 1. No CS1 search/sort | Resolved by 7.3: linear search, library sorting/searching, half-open binary search, insertion sort, and defect-repair practice. |
+| 2. No early recursion | Resolved by 5.6 Recursive Methods, with Chapter 17's self-contained recursive-tree preparation retained. |
+| 3. No efficient sort in the CS2 foundation | 16.3 now implements merge sort. The Preface, Part IV overview, Chapter 16 landing, and BOOK_PLAN recommend 5.6 followed by 16.3 for CS2; a lighter applied route remains explicit. |
+| 4. Thin early analysis | 13.2 now develops counted costs, growth classes, tight versus upper bounds, input cases, amortized append, and auxiliary space; Chapter 21 retains formal depth. |
+| 5. LINQ/lambdas/delegates absent | Resolved by delegate/policy and query explanations in 13.3. Optional 8.5 now makes filtering, projection, ordering, and materialization available to CS1-only readers. |
+| 6. Enums, Random, StringBuilder | Enums are in 11.2; repeated random trials are in 4.2. StringBuilder remains a possible text-processing extension, not a required-course gap. |
+| 7. Balanced trees | 17.3 explains height, poor shapes, and balanced library selection. Rotation implementation remains deliberately outside the applied foundation. |
+| 8. Topological ordering | Resolved by the dependency-order implementation and practice in 20.3 and its DFS connection in 20.4. |
+| 9. Stack applications | Delimiter matching and undo/redo remain valid core applications. Postfix expression evaluation remains an optional future example. |
+| 10. Naming/scope | Existing titles and published paths retained. Chapter 23's landing and Part VI specify its contract/invariant/workload role and recommend quicksort for the algorithms route. Console applications are the core project outcome; GUI, database, and AI work are extensions. |
+
+The structural follow-up also adds student-facing three-meeting allocations for Chapters 2, 5, 7, 8, 11, 13, 17, and 20, reconciles the Preface/project promises, and introduces a generated selected bibliography. Reading counts are independent of meetings. Existing content, assessments, exercise IDs, and slide files are preserved; the optional query reading has a new distinct exercise ID.
+
 ## Books compared
 
 | Group | Book | Edition and role |
@@ -57,7 +76,7 @@ to their CS2 and CS3 sections.
 - **Appendices.** The optional database capstone matches Gaddis 13, Deitel
   20, and Doyle; Git and tooling appendices match Harrington's.
 
-## Gaps and differences that matter
+## Historical gaps and differences (October 18 baseline)
 
 ### 1. CS1 adopters get no search or sort algorithm (high)
 
@@ -195,7 +214,7 @@ evaluation is a classic that also motivates recursion. Optional addition to
 - Do not add GUI, networking, threads, or web chapters; they are out of
   scope by design and would dilute the console-plus-tests workflow.
 
-## Suggested priority
+## Historical suggested priority (superseded by Current Disposition)
 
 1. Linear search, library sort, and binary search precondition in Chapter 7
    (gap 1), with Chapter 14's landing page corrected at the same time.

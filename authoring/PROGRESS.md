@@ -6,6 +6,14 @@ This file tracks the active book sequence in `_toc.yml`. Retired or staging
 folders may still exist in `chapters/`, but they are not part of the student
 book unless they are listed in the TOC.
 
+## Structure Audit Follow-up (2026-10-21)
+
+Preserved the 26-chapter order, existing notebook/cell identities, and assessment scope. Reconciled CS1/project outcomes around tested console applications using collections and files; GUI, database, and AI work remain optional. Added explicit preparation/class/reference allocations for the expanded Chapters 2, 5, 7, 8, 11, 13, 17, and 20, with student-facing three-meeting summaries.
+
+Recommended CS2 now selects 5.6 before 16.3; the algorithms route selects 23.5 alongside Chapter 22. Chapter 23 retains its title and clarifies its contract/invariant/workload role. Added optional 8.5 Querying Collections with Lambdas and LINQ, with standalone verified examples and a new distinct exercise ID, plus a generated selected bibliography after the appendices. The comparison's current-disposition table distinguishes repaired gaps from historical recommendations.
+
+Slides remain deferred and unchanged. Verification and a readable before/after diff are recorded in `authoring/structure_revision/`.
+
 ## Press snake_case migration (2026-10-11)
 
 Renamed 124 chapter, front-matter, appendix, and `_html_extra` folders and

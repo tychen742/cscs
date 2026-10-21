@@ -4,6 +4,20 @@ orphan: true
 
 # Chapter Organization: Graphs and Traversal
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 20.1 and 20.2. | State direction/weight assumptions, draw adjacency representations, and compare their storage and update costs. |
+| 2 | 40 | 20.3. | Trace BFS discovery and parent paths; connect in-degree updates to one dependency-order example. |
+| 3 | 35 | 20.4. | Trace DFS suspended neighbor loops, distinguish directed reachability from components, and verify a traversal. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Keep complete representation/update implementations, alternate topological-order traces, and additional directed-graph cases as reference examples. Choose one small network for the three live traces; students use the remaining examples for preparation and practice.
+
 ## Core Depth Revision (2026-10-19)
 
 C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.

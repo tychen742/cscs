@@ -1,0 +1,47 @@
+[
+  {
+    "cell": "query-method-lambda",
+    "compiled": true,
+    "stdout": "45, 30\n45, 30\n"
+  },
+  {
+    "cell": "query-report",
+    "compiled": true,
+    "stdout": "Loop: 35, 50\nQuery: 35, 50\nSource: 45, 10, 30, 20\nCount: 2; total: 85\n"
+  },
+  {
+    "cell": "query-deferred",
+    "compiled": true,
+    "stdout": "Query now: 30\nStored report: 45, 30\nSource now: 15, 10, 30\n"
+  },
+  {
+    "cell": "query-practice",
+    "compiled": true,
+    "stdout": ""
+  },
+  {
+    "cell": "query-practice-solution",
+    "compiled": true,
+    "stdout": "15, 30, 30, 45\nCount: 4; total: 120\nSource: 25, -1, 40, 25, 10\n"
+  },
+  {
+    "case": "empty",
+    "passed": true,
+    "stdout": "\nCount: 0; total: 0\nSource: \n"
+  },
+  {
+    "case": "all_invalid",
+    "passed": true,
+    "stdout": "\nCount: 0; total: 0\nSource: -1, -2\n"
+  },
+  {
+    "case": "zero",
+    "passed": true,
+    "stdout": "5\nCount: 1; total: 5\nSource: 0\n"
+  },
+  {
+    "case": "duplicate_boundary",
+    "passed": true,
+    "stdout": "5, 5\nCount: 2; total: 10\nSource: 0, 0, -1\n"
+  }
+]

@@ -74,6 +74,15 @@ The relocated nullability notebook is supporting reading within Chapter 11's thr
 
 Keep all 26 chapters in their existing order. Parts IV and V divide the CS2 foundation into linear structures and trees/hashing/graphs. Parts VI and VII divide selectable depth into analysis/design and optimization/limits. Chapter 13 still introduces practical cost analysis before operation comparisons; Chapter 17 still introduces recursive cases and call-stack traces before tree algorithms. Neither foundation requires the later algorithms parts.
 
+## Selected Course Routes (2026-10-21)
+
+- **Applied CS1:** Chapters 1-12 culminate in a tested console application using collections and files. Chapter 8's query reading is an optional applied extension, not an assessment prerequisite.
+- **Applied data structures:** Chapters 13-20 teach contracts, cost models, representations, search, insertion sort, library sorting, and recursive trees. State this scope when omitting the supporting merge-sort reading.
+- **Recommended CS2:** add 5.6 Recursive Methods before 16.3 Merge Sort. Together they supply recursion preparation and implementation of an efficient comparison sort. Keep the two readings marked supporting so the lighter route remains available. Allocate selected practice within the course schedule; standard assignment IDs and required question sets are unchanged.
+- **Algorithms:** select Chapters 21-23 and include 23.5 Quicksort and Partitioning alongside Chapter 22's merge-sort analysis. Chapter 23's core role is duplicate-aware search, invariants, correctness, and complete workload analysis. Shell/radix/bin-sort reading and Chapters 24-26 remain selections according to course goals.
+
+The search/sort spiral has distinct outcomes: Chapter 7 teaches basic array algorithms; Chapter 16 compares contracts, ordering, mutation, and reporting costs; Chapter 22 develops divide-and-conquer verification; Chapter 23 deepens duplicate boundaries, proofs/counts, and equivalent-workload comparisons. Do not reteach the full introductory algorithm at each stage.
+
 ## Chapter 1 and Development Tools
 
 Chapter 1 is Computing, Programs, and Responsibility: 1.1 Computing and Problem Solving (30 minutes), 1.2 Computing and Professional Responsibility (35 minutes), and 1.3 Your First C# Program and Basic Syntax (45 minutes). Its 110-minute progression uses an appointment-reminder example for responsibility and an order-desk message for syntax. Keep editor/compiler/runtime roles and the first edit/build/run workflow in the chapter.
@@ -113,6 +122,8 @@ the week's progression visible: orientation and objectives, content sections,
 worked examples, practice, and assignments. Reviews, exams, and project
 demonstrations can occupy the appropriate chapter's assignment area without
 requiring a separate top-level chapter.
+
+Reading pages are independent of meetings. Chapters with four or five core readings still use three guided meetings totaling 100-120 minutes, with preparation and reference examples identified in their ORGANIZATION.md files. Do not require every example to be presented live. Student-facing landing pages show a concise allocation for expanded chapters.
 
 ## Out of Scope
 
@@ -212,10 +223,8 @@ Assignments should support two coordinated workflows:
 	 and submit the project through GitHub or the course LMS. This is the durable
 	 workflow for multi-file assignments and project-based learning.
 
-The semester projects (an individual midterm project and a group final project) should give students a path to build a desktop application.
-Windows and macOS are acceptable target operating systems for that app, even
-though students may use Linux for other course work. Before project work begins,
-identify the supported operating systems and required build tools. In
+The semester projects develop tested console applications. The individual midterm milestone uses concepts already taught by its due date; the group final integrates collections, files, and collaborating classes. A desktop or graphical interface is an optional extension after the core behavior works. Database persistence and AI features are also optional post-OOP extensions. The core project does not require any of these extensions.
+The console core supports the book's Windows, macOS, and Linux workflows. For a selected desktop extension, identify the supported operating systems and required build tools before the extension begins. In
 particular, .NET MAUI supports Windows and macOS desktop targets but does not
 officially support Linux desktop apps. If MAUI is selected, the student-facing
 project instructions must state this clearly and provide Linux students an

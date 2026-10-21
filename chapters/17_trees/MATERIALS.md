@@ -4,6 +4,12 @@ orphan: true
 
 # Chapter Materials: Trees
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Keep complete recursive/removal implementation variants, detailed height derivations, and additional tree queries as reference examples after the selected trace. Chapter 17 supplies its own recursion preparation; 5.6 is useful review, not a hidden prerequisite.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

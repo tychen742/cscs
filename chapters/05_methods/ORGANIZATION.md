@@ -1,5 +1,19 @@
 # Chapter Organization — Methods
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 5.1 and argument mapping in 5.2. | Define and call one helper; trace arguments, parameters, and local state. |
+| 2 | 40 | Return values in 5.2 and contracts in 5.3. | Separate printing from returning, trace return paths, and check ordinary and boundary results. |
+| 3 | 35 | 5.4 and 5.5. | Clean a department code, compose returned values, and refactor a checkout calculation while retaining its checks. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Use one top-level helper path in class. Complete class-based program forms, exhaustive string-method variants, and out/ref/static-state comparisons remain reading/reference examples. Recursive Methods (5.6) stays supporting reading; select it explicitly for the recommended CS2 route.
+
 ## Core Depth Revision (2026-10-19)
 
 C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.

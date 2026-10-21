@@ -1,5 +1,19 @@
 # Chapter Organization — Variables and Data Types
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 2.1 and the type overview in 2.2. | Declare variables, trace reassignment, choose a type, and distinguish a stored value from its display. |
+| 2 | 40 | Conversions in 2.2 and basic operators/calls in 2.3. | Trace integer division and conversions, then calculate and check one invoice line. |
+| 3 | 35 | 2.4. | Read and display a value, use interpolation, and compare expected and actual invoice output. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Keep the full operator tables, numeric type ranges, escaped identifiers, and alternate input/formatting APIs as lookup material after the selected examples.
+
 ## Core Depth Revision (2026-10-19)
 
 C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.

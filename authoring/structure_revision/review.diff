@@ -1,0 +1,1167 @@
+--- before/chapters/07_arrays/0700_arrays.ipynb
++++ after/chapters/07_arrays/0700_arrays.ipynb
+@@ -46,6 +46,16 @@
+ - {doc}`7.4. 2D & ND Arrays <0704_twodim>`
+ ```
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | creation, traversal, empty positions, and aliases. |
++| 2 | 40 | search intervals, insertion-sort trace, and defect repair. |
++| 3 | 35 | parameter behavior and rectangular-table summaries. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/front_matter/preface.ipynb
++++ after/chapters/front_matter/preface.ipynb
+@@ -5,7 +5,7 @@
+ 
+ # Preface
+ 
+-This book teaches you to think like a computer scientist while you write real C# programs. It assumes no programming experience. The first course develops the skills to build a small multi-class information system that stores its data in a database. Further study introduces data structures and the algorithmic foundations needed to choose and use them. An optional algorithms sequence develops deeper analysis and problem-solving techniques.
++This book teaches you to think like a computer scientist while you write real C# programs. It assumes no programming experience. The first course develops the skills to build a tested console application that organizes data with collections and files. After object-oriented programming, you may add database persistence, a graphical interface, or an AI feature as an optional project extension. Further study introduces data structures and the algorithmic foundations needed to choose and use them. An optional algorithms sequence develops deeper analysis and problem-solving techniques.
+ 
+ 
+ The book is about computer science and information technology, not only C# syntax. Each chapter pairs a programming skill with the idea behind it: why a program is split into methods, why a dictionary finds a key faster than a list, why one algorithm finishes in a second while another would run for years. The examples come from business and management settings such as sales, inventory, payroll, scheduling, and delivery routes, so the problems look like the ones organizations actually solve with software.
+@@ -38,7 +38,7 @@
+ | VI. Algorithm Analysis and Design | 21-23 | Develop deeper cost/correctness reasoning, recursive design, divide and conquer, and advanced searching and sorting. |
+ | VII. Optimization and Computational Limits | 24-26 | Explore greedy methods, dynamic programming, backtracking, advanced graph/string applications, and computational limits. |
+ 
+-The {doc}`Contents <contents>` lists the chapters and sections, and {doc}`Chapter Topics <chapter_topics>` provides a more detailed overview. The appendices supply resources, command-line and GitHub guidance, the group project, and instructor-facing curriculum alignment.
++The {doc}`Contents <contents>` lists the chapters and sections, and {doc}`Chapter Topics <chapter_topics>` provides a more detailed overview. The appendices supply resources, command-line and GitHub guidance, project specifications, and instructor-facing curriculum alignment. The {doc}`Bibliography <../bibliography>` collects principal references, while section footnotes retain local attributions.
+ 
+ 
+ ```{index} course pathways; College of Business
+@@ -54,6 +54,8 @@
+ 
+ **CS1 can use Parts I-III; CS2 can use Parts IV-V with selected Parts VI-VII chapters.** Chapters 1-12 provide the applied foundation, and instructors select Parts IV-V depth to fit their course goals. Parts IV-V include basic Big-O, linear and binary search, library sorting, recursion for tree operations, and breadth-first and depth-first graph traversal. Students can study these foundations without taking Parts VI-VII. Instructors may use the optional algorithms chapters for a technical specialization or further study.
+ 
++**Recommended CS2 sorting route:** include {doc}`Recursive Methods <../05_methods/0506_recursive_methods>` before {doc}`Merge Sort <../16_searching_sorting/1603_merge_sort>`. These supporting readings supply the call-stack preparation and a complete efficient comparison sort without requiring Parts VI-VII. A lighter applied route may retain the core search, insertion-sort, and library-workload treatment; it should state that narrower outcome. For an algorithms route, select Chapters 21-23 and include {doc}`Quicksort and Partitioning <../23_searching_sorting/2305_quicksort>` alongside Chapter 22's merge-sort analysis. Instructors allocate practice and assessment time for selected extensions explicitly; the standard assignment scope is unchanged.
++
+ A chapter is a weekly organizing unit, with roughly 100-120 minutes of planned lecture and additional practice. Course schedules also need time for review, assessment, and project integration; instructors can adjust the depth and pace rather than assign every topic in the volume.
+ 
+ The {ref}`Curriculum Alignment appendix <cs2023_alignment>` documents the book's contributions to both Information Systems (IS2020) and Computer Science (CS2023) curriculum guidance. The mappings help instructors identify relevant material and coverage boundaries; neither represents complete degree-program coverage.
+@@ -64,7 +66,7 @@
+ 
+ ## How Each Chapter Works
+ 
+-Each chapter is one week of work. A chapter opens with a landing page that lists its sections, followed by content sections, usually three, each sized for one class meeting. The first section introduces the chapter's main ideas, and the later sections each take one focused topic. Every section includes code you can run and modify.
++Each chapter is a weekly organizing unit. Its landing page lists the readings, objectives, and vocabulary. Reading pages and class meetings are separate units: a chapter may have two to five core readings supporting three meetings and about 100-120 minutes of guided teaching. Read before class, work through selected examples and checks in class, and use the remaining examples for practice or reference. Supporting readings add depth when your course selects them; they do not automatically add a meeting. Every content section includes code you can run and modify.
+ 
+ The assignments follow the content:
+ 
+@@ -73,7 +75,7 @@
+ - **Homework**: true/false questions and coding problems that reinforce the chapter after class.
+ - **Project** (some chapters): a deliverable built in VS Code and submitted through GitHub, connecting the chapter to a larger application.
+ 
+-To get the most out of a chapter, read a section before class, run every example, then change it: use different input, break it on purpose, and read the error message. The labs and homework assume you have done this.
++To prepare, read the assigned explanations and predict the selected core examples before class. Run those examples, change their inputs, and compare actual behavior with your prediction. Use the additional worked examples and API tables when practicing or looking up a detail. Labs and homework apply the core concepts; optional readings become part of your course only when selected.
+ 
+ ```{index} C#; why C#
+ ```
+@@ -84,7 +86,7 @@
+ 
+ - **Types are visible.** Every variable has a declared type that the compiler checks before the program runs. Beginners see how data is represented, and many mistakes are caught as compile errors instead of surprising results.
+ - **It is used where business software is built.** C# and .NET power enterprise web services, internal business applications, cloud back ends, and database-driven systems, the same kind of information systems this book builds toward.
+-- **It is free and runs everywhere.** The .NET SDK and VS Code run on Windows, macOS, and Linux, so the tools you install in Chapter 1 are the tools professionals use.
++- **It is free and runs everywhere.** The .NET SDK and VS Code run on Windows, macOS, and Linux, so the tools you prepare with Appendix B and use for the first program in Chapter 1 are the tools professionals use.
+ - **The ideas transfer.** Classes, interfaces, generics, collections, and exceptions in C# map closely to Java, TypeScript, and other modern languages. The data structures and algorithms in Parts IV-VII apply in any language.
+ 
+ C# is widely used beyond business systems: the Unity game engine, ASP.NET web applications, and desktop and mobile apps are written in it. C# also holds a steady place among the most used languages. The chart below shows the ten most used languages in the Stack Overflow Developer Survey[^stack-overflow-survey].
+--- before/chapters/front_matter/contents.ipynb
++++ after/chapters/front_matter/contents.ipynb
+@@ -84,3 +84,8 @@
+ - {doc}`Databases and Bookstore Inventory <../appendices/databases/index>`
+ - {doc}`Operator Overloading (Optional) <../appendices/operator_overloading>`
+ - {doc}`Curriculum Alignment (IS2020 and CS2023) <../appendices/cs2023_alignment>`
++
++
++<h2>Bibliography and Index</h2>
++
++The {doc}`Bibliography <../bibliography>` collects the principal textbook and technical references. Section footnotes give local attributions. Use the [Index](https://cscs.thinkpress.org/genindex.html) to find subjects and API names.
+--- before/chapters/front_matter/chapter_topics.ipynb
++++ after/chapters/front_matter/chapter_topics.ipynb
+@@ -60,7 +60,7 @@
+ | 5 | Designing and Calling Methods; Method Parameters; Returned Results and Method Contracts; Strings and Their Methods; Composition, Refactoring, and Method Checks; Recursive Methods (supporting) |
+ | 6 | Error Handling and Validation; Debugging Workflow; Unit Testing; Computing and Society |
+ | 7 | Creating and Accessing Arrays; Processing and Sharing Arrays; Searching and Sorting Arrays; 2D & ND Arrays |
+-| 8 | Collection Families and Selection; Collection Operations and Behavior; Lists; Dictionaries |
++| 8 | Collection Families and Selection; Collection Operations and Behavior; Lists; Dictionaries; Querying Collections with Lambdas and LINQ (optional) |
+ | 9 | File Foundations: Reading and Writing; File Workflows, Paths, and Resources; Text Operations; Regular Expressions (supporting); Privacy and Security in Code (optional) |
+ | 10 | Class Syntax; Properties; Instances, State, and Useful Behavior; Averager and Mutable State |
+ | 11 | References, Identity, and Copying; Structs, Records, and Data Models; Composition and Object Responsibilities; Testing and Refactoring Collaborating Objects; Nullability and Missing Data |
+--- before/chapters/13_abstract_data_types/1303_generics.ipynb
++++ after/chapters/13_abstract_data_types/1303_generics.ipynb
+@@ -1,4 +1,6 @@
+ # Generics for Reusable ADTs
++
++For optional earlier query practice, see {doc}`Querying Collections with Lambdas and LINQ <../08_collections/0805_querying_collections>`. This lesson supplies the delegate and policy explanation even if you skipped that reading.
+ 
+ You have been using generics since Chapter 8: `List<T>` and `Dictionary<TKey, TValue>`. In an ADT, generics let one contract and one implementation work with many element types while preserving compile-time type checking.
+ 
+--- before/chapters/13_abstract_data_types/1300_abstract_data_types.ipynb
++++ after/chapters/13_abstract_data_types/1300_abstract_data_types.ipynb
+@@ -47,6 +47,16 @@
+ - {doc}`13.4. Iterators <1304_iterators>`
+ ```
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | contracts, representation independence, and counted costs. |
++| 2 | 40 | generic contracts, constraints, and policy arguments. |
++| 3 | 35 | iterator positions, yield, and deferred enumeration. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/16_searching_sorting/1600_searching_sorting.ipynb
++++ after/chapters/16_searching_sorting/1600_searching_sorting.ipynb
+@@ -48,6 +48,8 @@
+ 
+ {doc}`Assignments <assignments/index>` contains the preview, connected lab, and homework.
+ 
++**Recommended CS2 route:** include {doc}`Merge Sort <1603_merge_sort>` after reviewing {doc}`Recursive Methods <../05_methods/0506_recursive_methods>`. Trace a merge, implement the divide/sort/merge steps, and check order, preservation, and stability. The lighter applied route may omit this supporting reading; the standard assignments retain their existing scope.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/23_searching_sorting/2300_searching_sorting.ipynb
++++ after/chapters/23_searching_sorting/2300_searching_sorting.ipynb
+@@ -45,6 +45,8 @@
+ - {doc}`23.5. Quicksort and Partitioning (Supporting reading) <2305_quicksort>`
+ ```
+ 
++**Algorithms route:** include {doc}`Quicksort and Partitioning <2305_quicksort>` alongside Chapter 22's merge-sort analysis. The core readings below deepen result contracts, invariants, and workload analysis rather than repeating Chapter 7's introductory mechanics. Shell sort remains a separate supporting selection. Selected extensions require instructor-allocated practice; the standard assessment questions are unchanged.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/appendices/project.ipynb
++++ after/chapters/appendices/project.ipynb
+@@ -24,6 +24,6 @@
+ 
+ ## Platform Compatibility
+ 
+-The course project is intended to give you a path to build a desktop application. Project instructions will identify the framework, supported operating systems, and required tools before you begin. Not every framework supports every desktop operating system.
++The core project track uses tested console applications. The individual midterm milestone uses the concepts taught by its due date; the final application brings together collections, files, and collaborating classes. Build and run the program with the .NET SDK, and keep its source and verification evidence in your submitted project. A desktop or graphical interface is an optional extension after the core behavior works. If your course selects that extension, the project instructions must identify the framework, supported operating systems, and required tools before you begin. Not every framework supports every desktop operating system.
+ 
+ For example, .NET MAUI supports Windows and macOS desktop targets, but Microsoft does not officially support Linux desktop apps with MAUI ([supported platforms](https://learn.microsoft.com/en-us/dotnet/maui/supported-platforms?view=net-maui-10.0)). If you use Linux as your primary computer, do not assume a MAUI project will build or run locally. Contact your instructor before committing to an app idea so you can arrange an approved alternative or access to a supported environment. This limitation does not affect the book's regular C# exercises and console projects.
+--- before/chapters/17_trees/1700_trees_bst.ipynb
++++ after/chapters/17_trees/1700_trees_bst.ipynb
+@@ -47,6 +47,16 @@
+ - {doc}`17.4. Tree Queries and Verification <1704_tree_lab>`
+ ```
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | recursive cases, traversal, and returned values. |
++| 2 | 40 | BST search, updates, and the ordering invariant. |
++| 3 | 35 | height, pruned queries, and verification. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/parts/part_06_algorithm_analysis_design.ipynb
++++ after/chapters/parts/part_06_algorithm_analysis_design.ipynb
+@@ -19,3 +19,5 @@
+ <h2>Course Routes</h2>
+ 
+ Parts I-III (Chapters 1-12) form a complete CS1 route. Parts IV-V (Chapters 13-20) supply the CS2 data-structures foundation. Parts VI-VII (Chapters 21-26) provide selectable algorithmic depth according to course goals and available time.
++
++Chapter 23 advances the earlier searching/sorting work through duplicate boundaries, invariants, and complete workload analysis. For the algorithms route, include {doc}`Quicksort and Partitioning <../23_searching_sorting/2305_quicksort>` alongside Chapter 22's merge-sort analysis. Shell sort remains a separate supporting selection.
+--- before/chapters/parts/part_04_data_structures.ipynb
++++ after/chapters/parts/part_04_data_structures.ipynb
+@@ -21,3 +21,5 @@
+ <h2>Course Routes</h2>
+ 
+ Parts I-III (Chapters 1-12) form a complete CS1 route. Parts IV-V (Chapters 13-20) supply the CS2 data-structures foundation. Parts VI-VII (Chapters 21-26) provide selectable algorithmic depth according to course goals and available time.
++
++For the recommended CS2 route, read {doc}`Recursive Methods <../05_methods/0506_recursive_methods>` before {doc}`Merge Sort <../16_searching_sorting/1603_merge_sort>`. This adds a complete efficient comparison sort to the foundation. A lighter applied route may use the core insertion-sort and library-workload treatment; the standard assessments do not require the supporting readings.
+--- before/chapters/05_methods/0500_methods.ipynb
++++ after/chapters/05_methods/0500_methods.ipynb
+@@ -45,6 +45,16 @@
+ - {doc}`5.6. Recursive Methods (Supporting Reading) <0506_recursive_methods>`
+ ```
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | helper calls, arguments, and local state. |
++| 2 | 40 | return values, contracts, and boundary checks. |
++| 3 | 35 | string operations, composition, and refactoring. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/08_collections/0803_list.ipynb
++++ after/chapters/08_collections/0803_list.ipynb
+@@ -377,7 +377,7 @@
+     Console.WriteLine($"Error: {ex.Message}");
+ }
+ 
+-Loop over the indices backwards instead, so removing an element does not disturb the indices you still need to visit. (`List<T>` also has a `RemoveAll` method that removes every matching element in one call — it is explained once you have seen the lambda syntax it takes, in a later chapter.)
++Loop over the indices backwards instead, so removing an element does not disturb the indices you still need to visit. (`List<T>` also has a `RemoveAll` method that removes every matching element in one call — the optional {doc}`query reading <0805_querying_collections>` introduces lambda syntax, and Chapter 13 develops delegate policies.)
+ 
+ using System;
+ using System.Collections.Generic;
+--- before/chapters/08_collections/0800_data_collections.ipynb
++++ after/chapters/08_collections/0800_data_collections.ipynb
+@@ -42,7 +42,18 @@
+ - {doc}`8.2. Collection Operations and Behavior <0802_collection_operations>`
+ - {doc}`8.3. Lists <0803_list>`
+ - {doc}`8.4. Dictionaries <0804_dictionary>`
++- {doc}`8.5. Querying Collections with Lambdas and LINQ (Optional Reading) <0805_querying_collections>`
+ ```
++
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | family selection and shared operations. |
++| 2 | 40 | lists, references, capacity, and traversal. |
++| 3 | 35 | keyed stock updates and missing-data checks. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
+ 
+ 
+ <h2>Glossary</h2>
+--- before/chapters/20_graphs/2000_graphs.ipynb
++++ after/chapters/20_graphs/2000_graphs.ipynb
+@@ -48,6 +48,16 @@
+ ```
+ 
+ {doc}`Assignments <assignments/index>` contains the preview, connected lab, and homework.
++
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | graph assumptions and adjacency representations. |
++| 2 | 40 | BFS paths and dependency ordering. |
++| 3 | 35 | DFS, components, and traversal checks. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
+ 
+ 
+ <h2>Glossary</h2>
+--- before/chapters/02_var_data/0200_variables_types.ipynb
++++ after/chapters/02_var_data/0200_variables_types.ipynb
+@@ -45,6 +45,16 @@
+ 
+ {doc}`Tracing and Expression Practice <assignments/additional_practice>` — the original prediction, division, formatting, Mad Lib, and time exercises alongside the current lab.
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | declarations, assignment, and type choice. |
++| 2 | 40 | conversions, operators, and one invoice calculation. |
++| 3 | 35 | input, formatting, and expected-output checks. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- before/chapters/11_object_design/1100_object_design.ipynb
++++ after/chapters/11_object_design/1100_object_design.ipynb
+@@ -46,6 +46,16 @@
+ - {doc}`11.5. Nullability and Missing Data (Supporting reading) <1105_nullability>`
+ ```
+ 
++**Suggested three-meeting pace (110 minutes):** read the relevant explanations and predict the selected example before class.
++
++| Meeting | Minutes | Guided focus |
++| --- | ---: | --- |
++| 1 | 35 | reference/copy diagrams and model-type choices. |
++| 2 | 40 | object responsibilities, relationships, and snapshots. |
++| 3 | 35 | collaboration tests and rejected changes. |
++
++Class uses selected traces, runs, and checks. Use the remaining worked examples and detailed API tables for practice and reference. Supporting readings are selected separately; lab and homework follow the core lessons.
++
+ 
+ <h2>Glossary</h2>
+ 
+--- /dev/null
++++ after/chapters/08_collections/0805_querying_collections.ipynb
+@@ -0,0 +1,175 @@
++(querying-collections)=
++
++# Querying Collections with Lambdas and LINQ
++
++This optional applied reading follows Lists and Dictionaries. You need loops, method calls, returned values, and `List<T>`; you do not need custom classes or a database. The standard Chapter 8 preview, lab, and homework do not require this reading.
++
++Language-Integrated Query (LINQ) provides library operations for asking questions about collections. A dispatch desk might keep all recorded delivery amounts but report only the large ones in ascending order. Start by stating that result: retain amounts at least 30, order them, and leave the source list unchanged. A loop and a query can implement the same rule. LINQ is useful when the sequence of operations communicates the rule clearly; a loop is useful when intermediate state or control flow needs attention.[^linq-introduction]
++
++```{contents}
++:local:
++:depth: 2
++```
++
++
++```{index} lambda expression
++```
++
++## Read a Lambda
++
++
++
++A **lambda expression** writes a short operation where a method expects one. Its parameter appears before `=>`, and the returned expression appears after it:
++
++```csharp
++amount => amount >= 30m
++```
++
++Read this as “given an amount, return whether it is at least 30.” The name `amount` is local to that expression. It receives each candidate value; it does not refer to an undeclared variable from an earlier cell. C# infers its type from the collection and library method. The `m` suffix makes 30 a decimal literal.
++
++Compare the familiar named method with the lambda below. Both answer the same yes/no question. `Where` calls the supplied test for each amount and keeps values for which it returns `true`; the final `ToList` collects those values in a new list. `using System.Linq;` makes these query methods available.
++
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++var amounts = new List<decimal> { 45m, 10m, 30m, 20m };
++static bool IsLarge(decimal amount) { return amount >= 30m; }
++
++var byMethod = amounts.Where(IsLarge).ToList();
++var byLambda = amounts.Where(amount => amount >= 30m).ToList();
++Console.WriteLine(string.Join(", ", byMethod));
++Console.WriteLine(string.Join(", ", byLambda));
++
++
++Both lines are `45, 30`: filtering preserves the retained values' relative order. The method name is passed without parentheses because `Where` needs the operation to call later, not a Boolean result calculated now. Chapter 13 explains the delegate types behind such policy arguments. Here, recognize the input and returned expression before using the compact form.
++
++
++```{index} LINQ
++```
++
++## Filter, Transform, and Order
++
++
++
++Use method calls in a chain when each result is the input to the next operation:
++
++```text
++source.Where(test).OrderBy(key).Select(transform).ToList()
++```
++
++| Operation | Meaning in the report |
++| --- | --- |
++| `Where(amount => amount >= 30m)` | Retain qualifying amounts. |
++| `OrderBy(amount => amount)` | Order by each amount's own value, ascending. |
++| `Select(amount => amount + 5m)` | Produce a new amount with a delivery charge added. |
++| `ToList()` | Execute the sequence and store its results in a new list. |
++
++`Select` returns transformed values; it does not assign those values back into the source list. Compare a loop-based report with the query:
++
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++var amounts = new List<decimal> { 45m, 10m, 30m, 20m };
++var byLoop = new List<decimal>();
++foreach (decimal amount in amounts)
++{
++    if (amount >= 30m) byLoop.Add(amount + 5m);
++}
++byLoop.Sort();
++
++var byQuery = amounts.Where(amount => amount >= 30m)
++                     .OrderBy(amount => amount)
++                     .Select(amount => amount + 5m)
++                     .ToList();
++Console.WriteLine("Loop: " + string.Join(", ", byLoop));
++Console.WriteLine("Query: " + string.Join(", ", byQuery));
++Console.WriteLine("Source: " + string.Join(", ", amounts));
++Console.WriteLine($"Count: {byQuery.Count}; total: {byQuery.Sum()}");
++
++
++The qualifying amounts are 45 and 30. Sorting gives 30 and 45; adding five gives 35 and 50. Both implementations produce that report and preserve the source. The loop adds the same constant before sorting, which preserves numeric order for these values. Do not move an arbitrary transformation across a sort without checking whether it changes the ordering.
++
++**Predict:** change the cutoff to 50. Both reports become empty, their count is zero, and their sum is zero. If you use `Average` instead of `Sum`, define an empty-report policy first: the non-nullable decimal overload of `Average` cannot average an empty sequence.
++
++
++```{index} deferred execution; materialization
++```
++
++## Choose When to Materialize
++
++
++
++A query variable usually describes work, rather than storing its answer. **Deferred execution** means that operations such as `Where` read the source when the result is traversed. **Materialization** executes the query and stores the resulting values, for example with `ToList` or `ToArray`. A later traversal of the original query may therefore see changed source values.[^linq-introduction]
++
++Predict the three output lines before running this standalone example:
++
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++var amounts = new List<decimal> { 45m, 10m, 30m };
++var query = amounts.Where(amount => amount >= 30m);
++var snapshot = query.ToList();
++amounts[0] = 15m;
++Console.WriteLine("Query now: " + string.Join(", ", query));
++Console.WriteLine("Stored report: " + string.Join(", ", snapshot));
++Console.WriteLine("Source now: " + string.Join(", ", amounts));
++
++
++The snapshot stores 45 and 30 before the edit. The later query traversal sees 15 at the first position and excludes it, so it returns only 30. Moving the edit before `ToList` would make the stored report contain only 30 too.
++
++Choose a stored report when later source changes must not alter its recorded values. Here the values are decimals, so copying them is sufficient. A new list of mutable objects would still contain references to those objects; Chapter 11 develops that distinction. Keep lambda tests free of source mutations: changing a list while traversing it can invalidate its enumerator.
++
++Not every query operation waits. `Sum`, `Count()`, and `Average` calculate a result immediately; `OrderBy` is deferred but must gather and order its input before producing the first result. Chapter 13 revisits enumeration and deferred work in more detail.
++
++
++```{index} LINQ
++```
++
++## Practice: Prepare a Dispatch Report
++
++
++
++A dispatch desk records amounts `25, -1, 40, 25, 10`. Negative values are invalid records for this report. Produce a new ascending list containing valid amounts, with a charge of five added to each. Keep duplicates and leave the source unchanged. Before running, predict the report count and sum. Then check empty input, all-invalid input, and a value of zero.
++
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++// exercise-id: cscs-collections-linq-dispatch
++var amounts = new List<decimal> { 25m, -1m, 40m, 25m, 10m };
++// Your code starts here
++// Build a separate report, then print the report, count, and total.
++// Your code ends here
++
++
++using System;
++using System.Collections.Generic;
++using System.Linq;
++
++var amounts = new List<decimal> { 25m, -1m, 40m, 25m, 10m };
++var report = amounts.Where(amount => amount >= 0m)
++                    .OrderBy(amount => amount)
++                    .Select(amount => amount + 5m)
++                    .ToList();
++Console.WriteLine(string.Join(", ", report));
++Console.WriteLine($"Count: {report.Count}; total: {report.Sum()}");
++Console.WriteLine("Source: " + string.Join(", ", amounts));
++
++
++The report is `15, 30, 30, 45`, with count four and sum 120. The duplicate 25 amounts remain two separate entries. Empty or all-invalid input gives an empty report and sum zero. A zero amount is valid and becomes five; changing the test to `> 0m` would incorrectly discard it.
++
++Choose the loop version when it helps you inspect intermediate state or express a more complex rule. Choose the query version when filtering, ordering, and transformation make the report's contract easier to read. Verify either version against independently predicted results.
++
++
++```{rubric} Footnotes
++```
++
++[^linq-introduction]: Microsoft Learn, [Introduction to LINQ Queries](https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/introduction-to-linq-queries), consulted October 21, 2026. The examples and dispatch-report exercise here are original. The reference distinguishes query construction, execution, and stored results.
++
+diff --git a/_config.yml b/_config.yml
+index 5df3b71c..54725df7 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -3,6 +3,8 @@ title: Computer Science in C#
+ author: Tsangyao Chen, Ph.D.
+ logo: figures/logo.svg
+ only_build_toc_files: true
++bibtex_bibfiles:
++  - references.bib
+ 
+ # Force re-execution of notebooks on each build
+ execute:
+diff --git a/_ext/subject_index_entries.json b/_ext/subject_index_entries.json
+index c4f01726..6c8f1c5d 100644
+--- a/_ext/subject_index_entries.json
++++ b/_ext/subject_index_entries.json
+@@ -5100,5 +5100,15 @@
+   ],
+   "passing a method: delegates": [
+     "delegates; passing a method"
++  ],
++  "lambda expression": [
++    "lambda expressions"
++  ],
++  "linq": [
++    "LINQ"
++  ],
++  "deferred execution; materialization": [
++    "deferred execution",
++    "materialization"
+   ]
+ }
+diff --git a/_static/sidebar_labels.js b/_static/sidebar_labels.js
+index a0d4da7a..d1c1857d 100644
+--- a/_static/sidebar_labels.js
++++ b/_static/sidebar_labels.js
+@@ -1,6 +1,7 @@
+ // Concise primary-navigation labels; full page headings remain unchanged.
+ (function () {
+     const labels = {
++    "chapters/08_collections/0805_querying_collections.html": "LINQ (Optional)",
+     "chapters/02_var_data/0200_variables_types.html": "Variables & Types",
+     "chapters/03_decision/0300_conditionals.html": "Decisions",
+     "chapters/13_abstract_data_types/1300_abstract_data_types.html": "ADTs",
+diff --git a/_toc.yml b/_toc.yml
+index 2f6a93d7..91a83a56 100644
+--- a/_toc.yml
++++ b/_toc.yml
+@@ -153,6 +153,8 @@ parts:
+     - file: chapters/08_collections/0802_collection_operations
+     - file: chapters/08_collections/0803_list
+     - file: chapters/08_collections/0804_dictionary
++    - file: chapters/08_collections/0805_querying_collections
++      title: Querying Collections with Lambdas and LINQ (Optional Reading)
+     - file: chapters/08_collections/assignments/index
+       title: Assignments
+       sections:
+@@ -517,6 +519,10 @@ parts:
+   - file: chapters/appendices/operator_overloading
+     title: Operator Overloading (Optional)
+   - file: chapters/appendices/cs2023_alignment
++- caption: Bibliography
++  numbered: false
++  chapters:
++  - file: chapters/bibliography
+ - caption: Index
+   numbered: false
+   chapters:
+diff --git a/authoring/BOOK_PLAN.md b/authoring/BOOK_PLAN.md
+index 798273a0..19825020 100644
+--- a/authoring/BOOK_PLAN.md
++++ b/authoring/BOOK_PLAN.md
+@@ -74,6 +74,15 @@ The relocated nullability notebook is supporting reading within Chapter 11's thr
+ 
+ Keep all 26 chapters in their existing order. Parts IV and V divide the CS2 foundation into linear structures and trees/hashing/graphs. Parts VI and VII divide selectable depth into analysis/design and optimization/limits. Chapter 13 still introduces practical cost analysis before operation comparisons; Chapter 17 still introduces recursive cases and call-stack traces before tree algorithms. Neither foundation requires the later algorithms parts.
+ 
++## Selected Course Routes (2026-10-21)
++
++- **Applied CS1:** Chapters 1-12 culminate in a tested console application using collections and files. Chapter 8's query reading is an optional applied extension, not an assessment prerequisite.
++- **Applied data structures:** Chapters 13-20 teach contracts, cost models, representations, search, insertion sort, library sorting, and recursive trees. State this scope when omitting the supporting merge-sort reading.
++- **Recommended CS2:** add 5.6 Recursive Methods before 16.3 Merge Sort. Together they supply recursion preparation and implementation of an efficient comparison sort. Keep the two readings marked supporting so the lighter route remains available. Allocate selected practice within the course schedule; standard assignment IDs and required question sets are unchanged.
++- **Algorithms:** select Chapters 21-23 and include 23.5 Quicksort and Partitioning alongside Chapter 22's merge-sort analysis. Chapter 23's core role is duplicate-aware search, invariants, correctness, and complete workload analysis. Shell/radix/bin-sort reading and Chapters 24-26 remain selections according to course goals.
++
++The search/sort spiral has distinct outcomes: Chapter 7 teaches basic array algorithms; Chapter 16 compares contracts, ordering, mutation, and reporting costs; Chapter 22 develops divide-and-conquer verification; Chapter 23 deepens duplicate boundaries, proofs/counts, and equivalent-workload comparisons. Do not reteach the full introductory algorithm at each stage.
++
+ ## Chapter 1 and Development Tools
+ 
+ Chapter 1 is Computing, Programs, and Responsibility: 1.1 Computing and Problem Solving (30 minutes), 1.2 Computing and Professional Responsibility (35 minutes), and 1.3 Your First C# Program and Basic Syntax (45 minutes). Its 110-minute progression uses an appointment-reminder example for responsibility and an order-desk message for syntax. Keep editor/compiler/runtime roles and the first edit/build/run workflow in the chapter.
+@@ -114,6 +123,8 @@ worked examples, practice, and assignments. Reviews, exams, and project
+ demonstrations can occupy the appropriate chapter's assignment area without
+ requiring a separate top-level chapter.
+ 
++Reading pages are independent of meetings. Chapters with four or five core readings still use three guided meetings totaling 100-120 minutes, with preparation and reference examples identified in their ORGANIZATION.md files. Do not require every example to be presented live. Student-facing landing pages show a concise allocation for expanded chapters.
++
+ ## Out of Scope
+ 
+ - Web or mobile development (aspirational future direction)
+@@ -212,10 +223,8 @@ Assignments should support two coordinated workflows:
+ 	 and submit the project through GitHub or the course LMS. This is the durable
+ 	 workflow for multi-file assignments and project-based learning.
+ 
+-The semester projects (an individual midterm project and a group final project) should give students a path to build a desktop application.
+-Windows and macOS are acceptable target operating systems for that app, even
+-though students may use Linux for other course work. Before project work begins,
+-identify the supported operating systems and required build tools. In
++The semester projects develop tested console applications. The individual midterm milestone uses concepts already taught by its due date; the group final integrates collections, files, and collaborating classes. A desktop or graphical interface is an optional extension after the core behavior works. Database persistence and AI features are also optional post-OOP extensions. The core project does not require any of these extensions.
++The console core supports the book's Windows, macOS, and Linux workflows. For a selected desktop extension, identify the supported operating systems and required build tools before the extension begins. In
+ particular, .NET MAUI supports Windows and macOS desktop targets but does not
+ officially support Linux desktop apps. If MAUI is selected, the student-facing
+ project instructions must state this clearly and provide Linux students an
+diff --git a/authoring/PROGRESS.md b/authoring/PROGRESS.md
+index e6320ded..3219763f 100644
+--- a/authoring/PROGRESS.md
++++ b/authoring/PROGRESS.md
+@@ -6,6 +6,14 @@ This file tracks the active book sequence in `_toc.yml`. Retired or staging
+ folders may still exist in `chapters/`, but they are not part of the student
+ book unless they are listed in the TOC.
+ 
++## Structure Audit Follow-up (2026-10-21)
++
++Preserved the 26-chapter order, existing notebook/cell identities, and assessment scope. Reconciled CS1/project outcomes around tested console applications using collections and files; GUI, database, and AI work remain optional. Added explicit preparation/class/reference allocations for the expanded Chapters 2, 5, 7, 8, 11, 13, 17, and 20, with student-facing three-meeting summaries.
++
++Recommended CS2 now selects 5.6 before 16.3; the algorithms route selects 23.5 alongside Chapter 22. Chapter 23 retains its title and clarifies its contract/invariant/workload role. Added optional 8.5 Querying Collections with Lambdas and LINQ, with standalone verified examples and a new distinct exercise ID, plus a generated selected bibliography after the appendices. The comparison's current-disposition table distinguishes repaired gaps from historical recommendations.
++
++Slides remain deferred and unchanged. Verification and a readable before/after diff are recorded in `authoring/structure_revision/`.
++
+ ## Press snake_case migration (2026-10-11)
+ 
+ Renamed 124 chapter, front-matter, appendix, and `_html_extra` folders and
+diff --git a/authoring/toc_comparison/README.md b/authoring/toc_comparison/README.md
+index 70465f47..78768dea 100644
+--- a/authoring/toc_comparison/README.md
++++ b/authoring/toc_comparison/README.md
+@@ -15,6 +15,25 @@ Updated October 19, 2026: the three OpenDSA books were added to the
+ comparison, and the "OpenDSA mapping" section below maps Chapters 13 to 26
+ to their CS2 and CS3 sections.
+ 
++## Current Disposition (October 21, 2026)
++
++The gap analysis below records the October 18 baseline, not the current book. Use this disposition for revision decisions; earlier suggestions remain as historical rationale. The 26 numbered chapters retain their order and assessment identities. Slides are explicitly deferred.
++
++| Earlier finding | Current evidence and disposition |
++| --- | --- |
++| 1. No CS1 search/sort | Resolved by 7.3: linear search, library sorting/searching, half-open binary search, insertion sort, and defect-repair practice. |
++| 2. No early recursion | Resolved by 5.6 Recursive Methods, with Chapter 17's self-contained recursive-tree preparation retained. |
++| 3. No efficient sort in the CS2 foundation | 16.3 now implements merge sort. The Preface, Part IV overview, Chapter 16 landing, and BOOK_PLAN recommend 5.6 followed by 16.3 for CS2; a lighter applied route remains explicit. |
++| 4. Thin early analysis | 13.2 now develops counted costs, growth classes, tight versus upper bounds, input cases, amortized append, and auxiliary space; Chapter 21 retains formal depth. |
++| 5. LINQ/lambdas/delegates absent | Resolved by delegate/policy and query explanations in 13.3. Optional 8.5 now makes filtering, projection, ordering, and materialization available to CS1-only readers. |
++| 6. Enums, Random, StringBuilder | Enums are in 11.2; repeated random trials are in 4.2. StringBuilder remains a possible text-processing extension, not a required-course gap. |
++| 7. Balanced trees | 17.3 explains height, poor shapes, and balanced library selection. Rotation implementation remains deliberately outside the applied foundation. |
++| 8. Topological ordering | Resolved by the dependency-order implementation and practice in 20.3 and its DFS connection in 20.4. |
++| 9. Stack applications | Delimiter matching and undo/redo remain valid core applications. Postfix expression evaluation remains an optional future example. |
++| 10. Naming/scope | Existing titles and published paths retained. Chapter 23's landing and Part VI specify its contract/invariant/workload role and recommend quicksort for the algorithms route. Console applications are the core project outcome; GUI, database, and AI work are extensions. |
++
++The structural follow-up also adds student-facing three-meeting allocations for Chapters 2, 5, 7, 8, 11, 13, 17, and 20, reconciles the Preface/project promises, and introduces a generated selected bibliography. Reading counts are independent of meetings. Existing content, assessments, exercise IDs, and slide files are preserved; the optional query reading has a new distinct exercise ID.
++
+ ## Books compared
+ 
+ | Group | Book | Edition and role |
+@@ -57,7 +76,7 @@ to their CS2 and CS3 sections.
+ - **Appendices.** The optional database capstone matches Gaddis 13, Deitel
+   20, and Doyle; Git and tooling appendices match Harrington's.
+ 
+-## Gaps and differences that matter
++## Historical gaps and differences (October 18 baseline)
+ 
+ ### 1. CS1 adopters get no search or sort algorithm (high)
+ 
+@@ -195,7 +214,7 @@ evaluation is a classic that also motivates recursion. Optional addition to
+ - Do not add GUI, networking, threads, or web chapters; they are out of
+   scope by design and would dilute the console-plus-tests workflow.
+ 
+-## Suggested priority
++## Historical suggested priority (superseded by Current Disposition)
+ 
+ 1. Linear search, library sort, and binary search precondition in Chapter 7
+    (gap 1), with Chapter 14's landing page corrected at the same time.
+diff --git a/chapters/02_var_data/MATERIALS.md b/chapters/02_var_data/MATERIALS.md
+index e448bdc6..88e451bf 100644
+--- a/chapters/02_var_data/MATERIALS.md
++++ b/chapters/02_var_data/MATERIALS.md
+@@ -1,5 +1,11 @@
+ # Chapter Materials — Variables and Data Types
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Keep the full operator tables, numeric type ranges, escaped identifiers, and alternate input/formatting APIs as lookup material after the selected examples.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
+diff --git a/chapters/02_var_data/ORGANIZATION.md b/chapters/02_var_data/ORGANIZATION.md
+index 72951668..93eaab54 100644
+--- a/chapters/02_var_data/ORGANIZATION.md
++++ b/chapters/02_var_data/ORGANIZATION.md
+@@ -1,5 +1,19 @@
+ # Chapter Organization — Variables and Data Types
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 2.1 and the type overview in 2.2. | Declare variables, trace reassignment, choose a type, and distinguish a stored value from its display. |
++| 2 | 40 | Conversions in 2.2 and basic operators/calls in 2.3. | Trace integer division and conversions, then calculate and check one invoice line. |
++| 3 | 35 | 2.4. | Read and display a value, use interpolation, and compare expected and actual invoice output. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Keep the full operator tables, numeric type ranges, escaped identifiers, and alternate input/formatting APIs as lookup material after the selected examples.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
+diff --git a/chapters/05_methods/MATERIALS.md b/chapters/05_methods/MATERIALS.md
+index 3255d337..0baea31b 100644
+--- a/chapters/05_methods/MATERIALS.md
++++ b/chapters/05_methods/MATERIALS.md
+@@ -1,5 +1,11 @@
+ # Chapter Materials — Methods
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Use one top-level helper path in class. Complete class-based program forms, exhaustive string-method variants, and out/ref/static-state comparisons remain reading/reference examples. Recursive Methods (5.6) stays supporting reading; select it explicitly for the recommended CS2 route.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.
+diff --git a/chapters/05_methods/ORGANIZATION.md b/chapters/05_methods/ORGANIZATION.md
+index ce4345ab..82cf09c2 100644
+--- a/chapters/05_methods/ORGANIZATION.md
++++ b/chapters/05_methods/ORGANIZATION.md
+@@ -1,5 +1,19 @@
+ # Chapter Organization — Methods
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 5.1 and argument mapping in 5.2. | Define and call one helper; trace arguments, parameters, and local state. |
++| 2 | 40 | Return values in 5.2 and contracts in 5.3. | Separate printing from returning, trace return paths, and check ordinary and boundary results. |
++| 3 | 35 | 5.4 and 5.5. | Clean a department code, compose returned values, and refactor a checkout calculation while retaining its checks. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Use one top-level helper path in class. Complete class-based program forms, exhaustive string-method variants, and out/ref/static-state comparisons remain reading/reference examples. Recursive Methods (5.6) stays supporting reading; select it explicitly for the recommended CS2 route.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.
+diff --git a/chapters/07_arrays/MATERIALS.md b/chapters/07_arrays/MATERIALS.md
+index f3fc880d..bba2d1db 100644
+--- a/chapters/07_arrays/MATERIALS.md
++++ b/chapters/07_arrays/MATERIALS.md
+@@ -1,5 +1,11 @@
+ # Chapter Materials — Arrays
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Keep command-line argument programs and jagged/ND-array variants as reference examples. Students read all core sections, but class selects traces and one repair rather than running every sorting example live.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.
+diff --git a/chapters/07_arrays/ORGANIZATION.md b/chapters/07_arrays/ORGANIZATION.md
+index 42fcbe92..3524395c 100644
+--- a/chapters/07_arrays/ORGANIZATION.md
++++ b/chapters/07_arrays/ORGANIZATION.md
+@@ -1,5 +1,19 @@
+ # Chapter Organization — Arrays
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 7.1 and the traversal opening of 7.2. | Create an array, check empty/last positions, and trace a processing loop and an alias. |
++| 2 | 40 | 7.3. | Trace linear and half-open binary search, then one insertion-sort pass; repair one boundary or saved-item defect. |
++| 3 | 35 | 7.4 and parameter behavior in 7.2. | Summarize rows and columns, check rectangular dimensions, and distinguish shared elements from copied references. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Keep command-line argument programs and jagged/ND-array variants as reference examples. Students read all core sections, but class selects traces and one repair rather than running every sorting example live.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.
+diff --git a/chapters/08_collections/MATERIALS.md b/chapters/08_collections/MATERIALS.md
+index e3c37aca..98c12000 100644
+--- a/chapters/08_collections/MATERIALS.md
++++ b/chapters/08_collections/MATERIALS.md
+@@ -4,6 +4,16 @@ orphan: true
+ 
+ # Chapter Materials — Collections
+ 
++## Optional Query Reading (2026-10-21)
++
++`0805_querying_collections.ipynb` introduces named predicates, lambdas, Where/OrderBy/Select, materialization, and deferred source reads using primitive decimal lists. It requires no custom classes or database. Original standalone demonstrations and a dispatch-report exercise follow prediction, execution, and boundary checks. No standard assessment or required meeting changes. Chapter 13 retains the delegate/generic-policy treatment.
++
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++The full collection-family/API tables and namespaces are reference material. Later-family implementations remain in their own chapters. Querying Collections with Lambdas and LINQ (8.5) is optional applied reading and adds no required meeting or assessment prerequisite.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
+@@ -20,6 +30,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
+ | `0802_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
+ | `0803_list.ipynb` | Lists | Core content |
+ | `0804_dictionary.ipynb` | Dictionaries | Core content |
++| `0805_querying_collections.ipynb` | Querying Collections with Lambdas and LINQ | Optional applied reading |
+ 
+ Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+ 
+@@ -35,8 +46,10 @@ Each content page has one local contents directive and one final Footnotes group
+ ## Section Notebooks
+ 
+ - `0801_collections.ipynb` — Collection contracts, access patterns, eight families, generic types, traversal, references, and collection selection; independently runnable demonstrations and a list/dictionary summary exercise.
++- `0802_collection_operations.ipynb` — Shared operations, traversal, references, and namespace reference.
+ - `0803_list.ipynb` — Lists (`List<T>`)
+ - `0804_dictionary.ipynb` — Dictionaries (`Dictionary<TKey,TValue>`)
++- `0805_querying_collections.ipynb` — Optional LINQ reading; named/lambda predicates, report pipelines, and deferred/materialized results.
+ 
+ ## Non-TOC Source Material
+ 
+diff --git a/chapters/08_collections/ORGANIZATION.md b/chapters/08_collections/ORGANIZATION.md
+index e0bba231..1080e7ed 100644
+--- a/chapters/08_collections/ORGANIZATION.md
++++ b/chapters/08_collections/ORGANIZATION.md
+@@ -4,6 +4,24 @@ orphan: true
+ 
+ # Chapter Organization — Collections
+ 
++## Optional Query Reading (2026-10-21)
++
++`0805_querying_collections.ipynb` introduces named predicates, lambdas, Where/OrderBy/Select, materialization, and deferred source reads using primitive decimal lists. It requires no custom classes or database. Original standalone demonstrations and a dispatch-report exercise follow prediction, execution, and boundary checks. No standard assessment or required meeting changes. Chapter 13 retains the delegate/generic-policy treatment.
++
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 8.1 and shared operation syntax in 8.2. | Choose positions or keys for a business task and trace creation, lookup, and update behavior. |
++| 2 | 40 | 8.3 and traversal/reference passages in 8.2. | Build and update a list, distinguish Count from capacity, and repair mutation during traversal. |
++| 3 | 35 | 8.4. | Update stock with a dictionary, handle a missing key, and compare a scan with keyed lookup. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++The full collection-family/API tables and namespaces are reference material. Later-family implementations remain in their own chapters. Querying Collections with Lambdas and LINQ (8.5) is optional applied reading and adds no required meeting or assessment prerequisite.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
+@@ -20,6 +38,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
+ | `0802_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
+ | `0803_list.ipynb` | Lists | Core content |
+ | `0804_dictionary.ipynb` | Dictionaries | Core content |
++| `0805_querying_collections.ipynb` | Querying Collections with Lambdas and LINQ | Optional applied reading |
+ 
+ Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
+ 
+diff --git a/chapters/11_object_design/MATERIALS.md b/chapters/11_object_design/MATERIALS.md
+index 08c2bddf..764c94cb 100644
+--- a/chapters/11_object_design/MATERIALS.md
++++ b/chapters/11_object_design/MATERIALS.md
+@@ -1,5 +1,11 @@
+ # Materials: Object Design and Composition
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Use one shared order/product model across the meetings. Detailed record variants and the full Nullability (11.5) treatment remain reference/supporting reading; select only the required-versus-optional guard example when needed for the core model.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.
+diff --git a/chapters/11_object_design/ORGANIZATION.md b/chapters/11_object_design/ORGANIZATION.md
+index 1966b134..11b55721 100644
+--- a/chapters/11_object_design/ORGANIZATION.md
++++ b/chapters/11_object_design/ORGANIZATION.md
+@@ -1,5 +1,19 @@
+ # Organization: Object Design and Composition
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 11.1 and 11.2. | Draw shared-reference and copy diagrams, then choose class, struct, record, or enum semantics for one model. |
++| 2 | 40 | 11.3. | Assign responsibilities to products, lines, and orders; check required and optional relationships and safe snapshots. |
++| 3 | 35 | 11.4. | Test collaboration, rejected changes, independent orders, and missing optional data using explicit expected results. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Use one shared order/product model across the meetings. Detailed record variants and the full Nullability (11.5) treatment remain reference/supporting reading; select only the required-versus-optional guard example when needed for the core model.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.
+diff --git a/chapters/13_abstract_data_types/MATERIALS.md b/chapters/13_abstract_data_types/MATERIALS.md
+index 8c364276..b3688fea 100644
+--- a/chapters/13_abstract_data_types/MATERIALS.md
++++ b/chapters/13_abstract_data_types/MATERIALS.md
+@@ -4,6 +4,16 @@ orphan: true
+ 
+ # Chapter Materials — ADTs
+ 
++## Query Reading Connection (2026-10-21)
++
++Chapter 8 now offers optional query practice at `../08_collections/0805_querying_collections.ipynb`. Section 13.3 still supplies its own delegate/lambda prerequisites and develops policies; the earlier reading is not required.
++
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Use the hand-written enumerator as a reference comparison after the yield example. Compact query syntax is a policy-reading bridge; 8.5 offers optional earlier practice. Full implementation variants and additional cost traces remain available for practice.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
+diff --git a/chapters/13_abstract_data_types/ORGANIZATION.md b/chapters/13_abstract_data_types/ORGANIZATION.md
+index 08e13c91..0feec6bc 100644
+--- a/chapters/13_abstract_data_types/ORGANIZATION.md
++++ b/chapters/13_abstract_data_types/ORGANIZATION.md
+@@ -4,6 +4,24 @@ orphan: true
+ 
+ # Chapter Organization — ADTs
+ 
++## Query Reading Connection (2026-10-21)
++
++Chapter 8 now offers optional query practice at `../08_collections/0805_querying_collections.ipynb`. Section 13.3 still supplies its own delegate/lambda prerequisites and develops policies; the earlier reading is not required.
++
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 13.1 and 13.2. | State a stack contract, compare two representations, and count operations under an explicit cost model. |
++| 2 | 40 | 13.3. | Write a generic contract, justify required constraints, and compare a named policy with a delegate/lambda. |
++| 3 | 35 | 13.4. | Trace independent iterator positions, yield, and deferred enumeration, then check behavior against the ADT contract. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Use the hand-written enumerator as a reference comparison after the yield example. Compact query syntax is a policy-reading bridge; 8.5 offers optional earlier practice. Full implementation variants and additional cost traces remain available for practice.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.
+diff --git a/chapters/16_searching_sorting/MATERIALS.md b/chapters/16_searching_sorting/MATERIALS.md
+index f70acde0..c2e08ce1 100644
+--- a/chapters/16_searching_sorting/MATERIALS.md
++++ b/chapters/16_searching_sorting/MATERIALS.md
+@@ -4,6 +4,10 @@ orphan: true
+ 
+ # Materials: Searching and Basic Sorting
+ 
++## Course Route Clarification (2026-10-21)
++
++Recommended CS2 adds 5.6 Recursive Methods before 16.3 Merge Sort, with selected tracing and order/preservation/stability checks. The lighter applied route and standard assessments retain their current scope.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+@@ -12,6 +16,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
+ | --- | --- | --- |
+ | `1601_searching.ipynb` | Search Contracts and Repeated Queries | Core content |
+ | `1602_basic_sorting.ipynb` | Sorting and Safe Reporting Workloads | Core content |
++| `1603_merge_sort.ipynb` | Merge Sort for Reporting Workloads | Supporting reading; recommended CS2 |
+ 
+ Two core readings remain. 1601 develops search contracts and repeated queries, with a short preparation bridge. 1602 first teaches sorting, then retains the entire reporting snapshot, preparation/update-cost and workload comparison material. All sort-a-copy code and exercises now follow sorting instruction. Legacy workload URLs/fragments point to the retained destinations.
+ 
+diff --git a/chapters/16_searching_sorting/ORGANIZATION.md b/chapters/16_searching_sorting/ORGANIZATION.md
+index b9bc9f14..35969b6f 100644
+--- a/chapters/16_searching_sorting/ORGANIZATION.md
++++ b/chapters/16_searching_sorting/ORGANIZATION.md
+@@ -4,6 +4,10 @@ orphan: true
+ 
+ # Chapter Organization: Searching and Basic Sorting
+ 
++## Course Route Clarification (2026-10-21)
++
++Recommended CS2 adds 5.6 Recursive Methods before 16.3 Merge Sort, with selected tracing and order/preservation/stability checks. The lighter applied route and standard assessments retain their current scope.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+@@ -12,6 +16,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
+ | --- | --- | --- |
+ | `1601_searching.ipynb` | Search Contracts and Repeated Queries | Core content |
+ | `1602_basic_sorting.ipynb` | Sorting and Safe Reporting Workloads | Core content |
++| `1603_merge_sort.ipynb` | Merge Sort for Reporting Workloads | Supporting reading; recommended CS2 |
+ 
+ Two core readings remain. 1601 develops search contracts and repeated queries, with a short preparation bridge. 1602 first teaches sorting, then retains the entire reporting snapshot, preparation/update-cost and workload comparison material. All sort-a-copy code and exercises now follow sorting instruction. Legacy workload URLs/fragments point to the retained destinations.
+ 
+diff --git a/chapters/17_trees/MATERIALS.md b/chapters/17_trees/MATERIALS.md
+index bc671b99..d7ff7907 100644
+--- a/chapters/17_trees/MATERIALS.md
++++ b/chapters/17_trees/MATERIALS.md
+@@ -4,6 +4,12 @@ orphan: true
+ 
+ # Chapter Materials: Trees
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Keep complete recursive/removal implementation variants, detailed height derivations, and additional tree queries as reference examples after the selected trace. Chapter 17 supplies its own recursion preparation; 5.6 is useful review, not a hidden prerequisite.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+diff --git a/chapters/17_trees/ORGANIZATION.md b/chapters/17_trees/ORGANIZATION.md
+index 2c23e63e..668d9c5b 100644
+--- a/chapters/17_trees/ORGANIZATION.md
++++ b/chapters/17_trees/ORGANIZATION.md
+@@ -4,6 +4,20 @@ orphan: true
+ 
+ # Chapter Organization: Trees
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 17.1 and traversal orders in 17.2. | Recall base/progress cases, trace recursive calls and returned values, and distinguish visits from results. |
++| 2 | 40 | 17.3. | Trace BST lookup and insertion, preserve the ordering invariant, and inspect a removal/subtree replacement. |
++| 3 | 35 | Cost passages in 17.2 and query examples in 17.4. | Prune a range query, compare height and node counts, and verify updates against a small reference model. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Keep complete recursive/removal implementation variants, detailed height derivations, and additional tree queries as reference examples after the selected trace. Chapter 17 supplies its own recursion preparation; 5.6 is useful review, not a hidden prerequisite.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+diff --git a/chapters/20_graphs/MATERIALS.md b/chapters/20_graphs/MATERIALS.md
+index bcba3290..313b39d9 100644
+--- a/chapters/20_graphs/MATERIALS.md
++++ b/chapters/20_graphs/MATERIALS.md
+@@ -4,6 +4,12 @@ orphan: true
+ 
+ # Materials: Graphs and Traversal
+ 
++## Current Teaching Allocation (2026-10-21)
++
++The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
++
++Keep complete representation/update implementations, alternate topological-order traces, and additional directed-graph cases as reference examples. Choose one small network for the three live traces; students use the remaining examples for preparation and practice.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.
+diff --git a/chapters/20_graphs/ORGANIZATION.md b/chapters/20_graphs/ORGANIZATION.md
+index 9a59e103..6f64ef81 100644
+--- a/chapters/20_graphs/ORGANIZATION.md
++++ b/chapters/20_graphs/ORGANIZATION.md
+@@ -4,6 +4,20 @@ orphan: true
+ 
+ # Chapter Organization: Graphs and Traversal
+ 
++## Current Teaching Allocation (2026-10-21)
++
++This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
++
++| Meeting | Minutes | Preparation | Guided class work |
++| --- | ---: | --- | --- |
++| 1 | 35 | 20.1 and 20.2. | State direction/weight assumptions, draw adjacency representations, and compare their storage and update costs. |
++| 2 | 40 | 20.3. | Trace BFS discovery and parent paths; connect in-degree updates to one dependency-order example. |
++| 3 | 35 | 20.4. | Trace DFS suspended neighbor loops, distinguish directed reachability from components, and verify a traversal. |
++
++Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
++
++Keep complete representation/update implementations, alternate topological-order traces, and additional directed-graph cases as reference examples. Choose one small network for the three live traces; students use the remaining examples for preparation and practice.
++
+ ## Core Depth Revision (2026-10-19)
+ 
+ C14: group the preserved directed/undirected explanations as one component comparison before the component-report application. Keep DFS frames first and verification last; retain all original paragraphs, counterexamples, code and heading text/anchors.
+diff --git a/chapters/23_searching_sorting/MATERIALS.md b/chapters/23_searching_sorting/MATERIALS.md
+index f46919ec..3bff5d9e 100644
+--- a/chapters/23_searching_sorting/MATERIALS.md
++++ b/chapters/23_searching_sorting/MATERIALS.md
+@@ -4,6 +4,10 @@ orphan: true
+ 
+ # Chapter Materials: Search and Sort
+ 
++## Course Route Clarification (2026-10-21)
++
++Chapter 23 retains its title and core role: duplicate-aware search, sort invariants, exact counts, and equivalent-workload analysis. Recommend 23.5 Quicksort alongside Chapter 22 for the algorithms route. Shell sort remains a separate supporting selection; standard assessment IDs and question sets are unchanged.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+diff --git a/chapters/23_searching_sorting/ORGANIZATION.md b/chapters/23_searching_sorting/ORGANIZATION.md
+index 6ddb8fe0..3683221e 100644
+--- a/chapters/23_searching_sorting/ORGANIZATION.md
++++ b/chapters/23_searching_sorting/ORGANIZATION.md
+@@ -4,6 +4,10 @@ orphan: true
+ 
+ # Chapter Organization: Search and Sort
+ 
++## Course Route Clarification (2026-10-21)
++
++Chapter 23 retains its title and core role: duplicate-aware search, sort invariants, exact counts, and equivalent-workload analysis. Recommend 23.5 Quicksort alongside Chapter 22 for the algorithms route. Shell sort remains a separate supporting selection; standard assessment IDs and question sets are unchanged.
++
+ ## Current Integrated Arrangement (2026-10-17)
+ 
+ This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.
+--- /dev/null
++++ after/chapters/bibliography.md
+@@ -0,0 +1,10 @@
++(book-bibliography)=
++
++# Bibliography
++
++These principal textbook and technical references support the book's organization and explanations. Loyola provides the original C# foundation; Nakov and Princeton offer comparative introductory sequences; OpenDSA CS2 and CS3 provide the main data-structures and algorithms references. Microsoft Learn supplies language and library documentation. Section footnotes retain the specific sources, adaptations, datasets, and media credits used at each teaching passage; this selected bibliography does not replace those local attributions.
++
++```{bibliography}
++:all:
++:style: plain
++```
+--- /dev/null
++++ after/references.bib
+@@ -0,0 +1,48 @@
++@misc{harrington_csharp,
++  author = {Andrew N. Harrington and George K. Thiruvathukal},
++  title = {Introduction to Computer Science in {C\#}},
++  url = {https://introcs.cs.luc.edu/},
++  note = {Open textbook; consulted October 21, 2026}
++}
++
++@misc{nakov_csharp,
++  author = {Svetlin Nakov and others},
++  title = {Fundamentals of Computer Programming with {C\#}},
++  url = {https://introprogramming.info/english-intro-csharp-book/},
++  note = {Open textbook; consulted October 21, 2026}
++}
++
++@misc{sedgewick_wayne_intro,
++  author = {Robert Sedgewick and Kevin Wayne},
++  title = {Introduction to Programming in Java and Computer Science},
++  url = {https://introcs.cs.princeton.edu/java/home/},
++  note = {Companion site for the introductory textbooks; consulted October 21, 2026}
++}
++
++@misc{opendsa_cs2,
++  author = {{OpenDSA Project}},
++  title = {{CS2} Software Design and Data Structures},
++  url = {https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS2/html/},
++  note = {Virginia Tech; open interactive textbook; consulted October 21, 2026}
++}
++
++@misc{opendsa_cs3,
++  author = {{OpenDSA Project}},
++  title = {{CS3} Data Structures and Algorithms},
++  url = {https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/},
++  note = {Virginia Tech; open interactive textbook; consulted October 21, 2026}
++}
++
++@misc{microsoft_linq,
++  author = {{Microsoft}},
++  title = {Introduction to {LINQ} Queries in {C\#}},
++  url = {https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/introduction-to-linq-queries},
++  note = {Microsoft Learn; consulted October 21, 2026}
++}
++
++@misc{microsoft_collections,
++  author = {{Microsoft}},
++  title = {Collections and Data Structures},
++  url = {https://learn.microsoft.com/en-us/dotnet/standard/collections/},
++  note = {Microsoft Learn; language and library reference}
++}

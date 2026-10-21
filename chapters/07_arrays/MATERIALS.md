@@ -1,5 +1,11 @@
 # Chapter Materials — Arrays
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Keep command-line argument programs and jagged/ND-array variants as reference examples. Students read all core sections, but class selects traces and one repair rather than running every sorting example live.
+
 ## Core Depth Revision (2026-10-19)
 
 C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.

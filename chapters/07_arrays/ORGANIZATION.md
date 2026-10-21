@@ -1,5 +1,19 @@
 # Chapter Organization — Arrays
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 7.1 and the traversal opening of 7.2. | Create an array, check empty/last positions, and trace a processing loop and an alias. |
+| 2 | 40 | 7.3. | Trace linear and half-open binary search, then one insertion-sort pass; repair one boundary or saved-item defect. |
+| 3 | 35 | 7.4 and parameter behavior in 7.2. | Summarize rows and columns, check rectangular dimensions, and distinguish shared elements from copied references. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Keep command-line argument programs and jagged/ND-array variants as reference examples. Students read all core sections, but class selects traces and one repair rather than running every sorting example live.
+
 ## Core Depth Revision (2026-10-19)
 
 C06: teach array parameter/reference behavior and aliases together, followed by the preserved Main/Command Line Adder application. The command-line application reuses the same array semantics rather than interrupting their explanation.

@@ -4,6 +4,20 @@ orphan: true
 
 # Chapter Organization: Trees
 
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 17.1 and traversal orders in 17.2. | Recall base/progress cases, trace recursive calls and returned values, and distinguish visits from results. |
+| 2 | 40 | 17.3. | Trace BST lookup and insertion, preserve the ordering invariant, and inspect a removal/subtree replacement. |
+| 3 | 35 | Cost passages in 17.2 and query examples in 17.4. | Prune a range query, compare height and node counts, and verify updates against a small reference model. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+Keep complete recursive/removal implementation variants, detailed height derivations, and additional tree queries as reference examples after the selected trace. Chapter 17 supplies its own recursion preparation; 5.6 is useful review, not a hidden prerequisite.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

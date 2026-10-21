@@ -1,5 +1,11 @@
 # Chapter Materials — Methods
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Use one top-level helper path in class. Complete class-based program forms, exhaustive string-method variants, and out/ref/static-state comparisons remain reading/reference examples. Recursive Methods (5.6) stays supporting reading; select it explicitly for the recommended CS2 route.
+
 ## Core Depth Revision (2026-10-19)
 
 C04: follow definition, call, and execution using the top-level helper path before the complete class-based project comparisons. Preserve all former prose, project listings, method traces, guided practice and anchors; add explicit transitions between the learner path and retained program-form references.

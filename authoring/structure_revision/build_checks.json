@@ -1,0 +1,14 @@
+{
+  "command": ".venv/bin/jupyter-book build . --builder html --path-output /tmp/cscs_structure_revision_20261021",
+  "full_build_exit_code": 0,
+  "full_build_warnings": [
+    "Existing Chapter 2 character-literal C# lexing warning",
+    "Existing Chapter 10 schematic ellipsis C# lexing warning",
+    "Existing SQLite raw-string C# lexing warning"
+  ],
+  "final_incremental_exit_code": 0,
+  "final_incremental_warnings": 0,
+  "subject_index_gate": "passed",
+  "sidebar_javascript_syntax": "passed",
+  "git_diff_check": "passed"
+}

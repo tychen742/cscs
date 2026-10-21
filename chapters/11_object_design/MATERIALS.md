@@ -1,5 +1,11 @@
 # Materials: Object Design and Composition
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Use one shared order/product model across the meetings. Detailed record variants and the full Nullability (11.5) treatment remain reference/supporting reading; select only the required-versus-optional guard example when needed for the core model.
+
 ## Core Depth Revision (2026-10-19)
 
 C10: add one order/line/shared-product graph and a before/after table for outer copies, nested mutation and deliberate immutable sharing. Reuse that graph from the core records and composition lessons. Preserve every existing example and the optional nullability reading.

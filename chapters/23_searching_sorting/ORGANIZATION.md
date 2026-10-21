@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Search and Sort
 
+## Course Route Clarification (2026-10-21)
+
+Chapter 23 retains its title and core role: duplicate-aware search, sort invariants, exact counts, and equivalent-workload analysis. Recommend 23.5 Quicksort alongside Chapter 22 for the algorithms route. Shell sort remains a separate supporting selection; standard assessment IDs and question sets are unchanged.
+
 ## Current Integrated Arrangement (2026-10-17)
 
 This is the current reading order and coverage. Earlier arrangement/count records below remain historical where they conflict.

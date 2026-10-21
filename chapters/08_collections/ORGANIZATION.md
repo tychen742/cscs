@@ -4,6 +4,24 @@ orphan: true
 
 # Chapter Organization — Collections
 
+## Optional Query Reading (2026-10-21)
+
+`0805_querying_collections.ipynb` introduces named predicates, lambdas, Where/OrderBy/Select, materialization, and deferred source reads using primitive decimal lists. It requires no custom classes or database. Original standalone demonstrations and a dispatch-report exercise follow prediction, execution, and boundary checks. No standard assessment or required meeting changes. Chapter 13 retains the delegate/generic-policy treatment.
+
+## Current Teaching Allocation (2026-10-21)
+
+This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.
+
+| Meeting | Minutes | Preparation | Guided class work |
+| --- | ---: | --- | --- |
+| 1 | 35 | 8.1 and shared operation syntax in 8.2. | Choose positions or keys for a business task and trace creation, lookup, and update behavior. |
+| 2 | 40 | 8.3 and traversal/reference passages in 8.2. | Build and update a list, distinguish Count from capacity, and repair mutation during traversal. |
+| 3 | 35 | 8.4. | Update stock with a dictionary, handle a missing key, and compare a scan with keyed lookup. |
+
+Total: 110 minutes including predictions, selected code runs, and nearby checks. Lab and homework provide subsequent guided and independent transfer. No additional assessment questions are introduced by this allocation.
+
+The full collection-family/API tables and namespaces are reference material. Later-family implementations remain in their own chapters. Querying Collections with Lambdas and LINQ (8.5) is optional applied reading and adds no required meeting or assessment prerequisite.
+
 ## Core Depth Revision (2026-10-19)
 
 C07: follow the compact operation model and generic-type exposure with concrete array/list and dictionary examples, then connect the full retained operation tables to the other family examples. Namespace reference follows the behavior it supports. Later-family examples remain early policy recognition, not new implementation requirements.
@@ -20,6 +38,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | `0802_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
 | `0803_list.ipynb` | Lists | Core content |
 | `0804_dictionary.ipynb` | Dictionaries | Core content |
+| `0805_querying_collections.ipynb` | Querying Collections with Lambdas and LINQ | Optional applied reading |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 

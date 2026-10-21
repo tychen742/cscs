@@ -1,6 +1,7 @@
 // Concise primary-navigation labels; full page headings remain unchanged.
 (function () {
     const labels = {
+    "chapters/08_collections/0805_querying_collections.html": "LINQ (Optional)",
     "chapters/02_var_data/0200_variables_types.html": "Variables & Types",
     "chapters/03_decision/0300_conditionals.html": "Decisions",
     "chapters/13_abstract_data_types/1300_abstract_data_types.html": "ADTs",

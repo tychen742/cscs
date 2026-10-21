@@ -4,6 +4,16 @@ orphan: true
 
 # Chapter Materials — ADTs
 
+## Query Reading Connection (2026-10-21)
+
+Chapter 8 now offers optional query practice at `../08_collections/0805_querying_collections.ipynb`. Section 13.3 still supplies its own delegate/lambda prerequisites and develops policies; the earlier reading is not required.
+
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Use the hand-written enumerator as a reference comparison after the yield example. Compact query syntax is a policy-reading bridge; 8.5 offers optional earlier practice. Full implementation variants and additional cost traces remain available for practice.
+
 ## Core Depth Revision (2026-10-19)
 
 C12: retain generics/iterator content and give the compact-syntax exposure bridge one explicit loop-to-pipeline comparison with intermediate values and deferred/materialized output. Recognition and reminders support later algorithms without turning all compact forms into a separate instructional unit.

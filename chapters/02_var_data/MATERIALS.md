@@ -1,5 +1,11 @@
 # Chapter Materials — Variables and Data Types
 
+## Current Teaching Allocation (2026-10-21)
+
+The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.
+
+Keep the full operator tables, numeric type ranges, escaped identifiers, and alternate input/formatting APIs as lookup material after the selected examples.
+
 ## Core Depth Revision (2026-10-19)
 
 C01/C02: distinguish Chapter 2 recognition-level early exposure from full instruction. Pair retained operator categories with their existing examples, retain every reference row, and explain selected results without adding a mastery checklist. The brief var note explains inference without creating a new type-system unit.
