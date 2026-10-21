@@ -411,3 +411,7 @@ explanations and exercise variants remain, with new worked reasoning and
 guided development in thin lessons. Current paths/order are in `_toc.yml`;
 preservation, online comparisons and verification are in
 `authoring/section_revision/`. Setup and Git remain in the appendices.
+
+## Aligned Lecture Resources (2026-10-21)
+
+Each of the existing 26 chapters now has a chapter lecture source, student HTML deck, and editable instructor PowerPoint. Parts preserve the current reading sequence and existing weekly time allocation. Supporting readings have clearly marked reference parts; they do not become new required meetings or assessments. Preview remains preparation, Lab remains connected guided practice, and Homework remains independent reinforcement. The chapter title notes map part starting slides and meeting allocations. Sources and student HTML use snake_case names such as `0100_slides.md` and `0100_slides.html`; instructor outputs remain under `assignments/slides/`. The original Chapter 1 overview URL remains available. Assessment identities and TOC order are preserved.

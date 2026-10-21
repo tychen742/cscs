@@ -1,5 +1,9 @@
 # Organization: Classes and Objects
 
+## Aligned Lecture Deck (2026-10-21)
+
+Source: `_html_extra/chapters/10_classes/1000_slides.md`, using the shared thinkpress-lecture theme. One part follows each current core content notebook with explicit goals, business examples, state traces, two quick checks, an existing exercise, verification cases, and a recap. Supporting/optional readings have short labeled reference parts and add no required meetings. The chapter title notes list one-based part start slides and the existing 110-minute allocation. Every slide has instructor notes with answers; student HTML excludes them. Code examples are standalone and listed in `authoring/slide_revision/code_09_17.json` for central execution verification. Existing assessment IDs, chapter order, and lesson content are unchanged. The landing page links one student deck; instructor PPTX is generated outside published assets.
+
 ## Core Depth Revision (2026-10-19)
 
 C09: preserve tuple creation/return/deconstruction/collection examples and the existing guided shipment-summary attempt. Add output interpretation, name-to-component mapping, and an explicit non-null/nonempty SalesRange input contract; no optional reading or assignment changes.

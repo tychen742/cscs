@@ -1,5 +1,9 @@
 # Materials: Object Design and Composition
 
+## Aligned Lecture Deck (2026-10-21)
+
+Source: `_html_extra/chapters/11_object_design/1100_slides.md`, using the shared thinkpress-lecture theme. One part follows each current core content notebook with explicit goals, business examples, state traces, two quick checks, an existing exercise, verification cases, and a recap. Supporting/optional readings have short labeled reference parts and add no required meetings. The chapter title notes list one-based part start slides and the existing 110-minute allocation. Every slide has instructor notes with answers; student HTML excludes them. Code examples are standalone and listed in `authoring/slide_revision/code_09_17.json` for central execution verification. Existing assessment IDs, chapter order, and lesson content are unchanged. The landing page links one student deck; instructor PPTX is generated outside published assets.
+
 ## Current Teaching Allocation (2026-10-21)
 
 The current three-meeting, 110-minute preparation/class/reference allocation is recorded at the start of [ORGANIZATION.md](ORGANIZATION.md). It supersedes conflicting earlier estimates without removing readings, examples, or assessment identities.

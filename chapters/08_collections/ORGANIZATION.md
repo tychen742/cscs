@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization — Collections
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/08_collections/0800_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: 8.1 and shared operation syntax in 8.2, 35 minutes; meeting 2: lists in 8.3 and shared references in 8.2, 40 minutes; meeting 3: dictionaries in 8.4, 35 minutes. Total 110 minutes. Query reading 8.5 is optional. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Optional Query Reading (2026-10-21)
 
 `0805_querying_collections.ipynb` introduces named predicates, lambdas, Where/OrderBy/Select, materialization, and deferred source reads using primitive decimal lists. It requires no custom classes or database. Original standalone demonstrations and a dispatch-report exercise follow prediction, execution, and boundary checks. No standard assessment or required meeting changes. Chapter 13 retains the delegate/generic-policy treatment.

@@ -1,0 +1,290 @@
+[
+  {
+    "chapter": 1,
+    "section": "1.1",
+    "source": "using System;\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Appointment Tuesday at 10:00.\");\n        Console.WriteLine(\"Contact the office to make a change.\");\n    }\n}\n",
+    "expected_stdout": "Appointment Tuesday at 10:00.\nContact the office to make a change.\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/01_context/0100_slides.md"
+  },
+  {
+    "chapter": 1,
+    "section": "1.3",
+    "source": "using System;\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Northwind Store\");\n        Console.WriteLine($\"Items ready: {2 + 2}\");\n        Console.WriteLine(\"Collect at the order desk.\");\n    }\n}\n",
+    "expected_stdout": "Northwind Store\nItems ready: 4\nCollect at the order desk.\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/01_context/0100_slides.md"
+  },
+  {
+    "chapter": 2,
+    "section": "2.1",
+    "source": "using System;\nint stock = 12;\nint reserved = stock - 8;\nstock = stock - reserved;\nreserved = reserved + 1;\nConsole.WriteLine($\"stock={stock}, reserved={reserved}\");\n",
+    "expected_stdout": "stock=8, reserved=5\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/02_var_data/0200_slides.md"
+  },
+  {
+    "chapter": 2,
+    "section": "2.2",
+    "source": "using System;\nConsole.WriteLine(10 / 4);\nConsole.WriteLine((double)(10 / 4) == 2);\nConsole.WriteLine((double)10 / 4 == 2.5);\nConsole.WriteLine(10m / 4 == 2.5m);\n",
+    "expected_stdout": "2\nTrue\nTrue\nTrue\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/02_var_data/0200_slides.md"
+  },
+  {
+    "chapter": 2,
+    "section": "2.3",
+    "source": "using System;\nint bill = 47, people = 4;\nint each = bill / people;\nint left = bill % people;\nConsole.WriteLine($\"each pays {each}, {left} left over\");\nConsole.WriteLine(people * each + left == bill);\n",
+    "expected_stdout": "each pays 11, 3 left over\nTrue\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/02_var_data/0200_slides.md"
+  },
+  {
+    "chapter": 2,
+    "section": "2.4",
+    "source": "using System;\nusing System.Globalization;\nConsole.WriteLine(\"Quantity?\");\nint quantity = int.Parse(Console.ReadLine()!);\ndecimal amount = quantity * 3.25m;\nConsole.WriteLine(\"Folders: \" + amount.ToString(\"F2\", CultureInfo.InvariantCulture));\n",
+    "expected_stdout": "Quantity?\nFolders: 6.50\n",
+    "stdin": "2\n",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/02_var_data/0200_slides.md"
+  },
+  {
+    "chapter": 3,
+    "section": "3.1",
+    "source": "using System;\nint total = 50;\nbool international = false;\nbool freeShipping = total >= 50 && !international;\nConsole.WriteLine(freeShipping);\ninternational = true;\nConsole.WriteLine(total >= 50 && !international);\n",
+    "expected_stdout": "True\nFalse\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/03_decision/0300_slides.md"
+  },
+  {
+    "chapter": 3,
+    "section": "3.2",
+    "source": "using System;\nstring service = \"X\";\nint charge;\nswitch (service)\n{\n    case \"P\": charge = 0; break;\n    case \"S\": charge = 8; break;\n    default: Console.WriteLine(\"Unknown service\"); return;\n}\nConsole.WriteLine($\"Charge: {charge}\");\n",
+    "expected_stdout": "Unknown service\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/03_decision/0300_slides.md"
+  },
+  {
+    "chapter": 4,
+    "section": "4.1",
+    "source": "using System;\nfor (int minutes = 6; minutes >= 2; minutes -= 2)\n{\n    Console.WriteLine(minutes);\n}\n",
+    "expected_stdout": "6\n4\n2\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/04_iteration/0400_slides.md"
+  },
+  {
+    "chapter": 4,
+    "section": "4.2",
+    "source": "using System;\nfor (int branch = 1; branch <= 2; branch++)\n{\n    for (int day = 1; day <= 3; day++)\n        Console.Write($\"{branch}{day} \");\n    Console.WriteLine();\n}\n",
+    "expected_stdout": "11 12 13 \n21 22 23 \n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/04_iteration/0400_slides.md"
+  },
+  {
+    "chapter": 4,
+    "section": "4.3",
+    "source": "using System;\nint balance = 20, weeks = 0;\nwhile (balance < 40)\n{\n    balance += 5;\n    weeks++;\n}\nConsole.WriteLine($\"weeks={weeks}, balance={balance}\");\n",
+    "expected_stdout": "weeks=4, balance=40\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/04_iteration/0400_slides.md"
+  },
+  {
+    "chapter": 4,
+    "section": "4.4",
+    "source": "using System;\nint a = 48, b = 18;\nwhile (b != 0)\n{\n    int remainder = a % b;\n    a = b;\n    b = remainder;\n}\nConsole.WriteLine(a);\n",
+    "expected_stdout": "6\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/04_iteration/0400_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.1",
+    "source": "using System;\nNotice();\nNotice();\nvoid Notice()\n{\n    Console.WriteLine(\"Returns accepted within 30 days.\");\n}\n",
+    "expected_stdout": "Returns accepted within 30 days.\nReturns accepted within 30 days.\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.2",
+    "source": "using System;\nint amount = 12, charge = 3;\nint delivered = AddDelivery(amount, charge);\nConsole.WriteLine($\"original={amount}, delivered={delivered}\");\nConsole.WriteLine(AddDelivery(0, 3));\nint AddDelivery(int amount, int charge)\n{\n    return amount + charge;\n}\n",
+    "expected_stdout": "original=12, delivered=15\n3\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.3",
+    "source": "using System;\nConsole.WriteLine(CanApprove(100, true));\nConsole.WriteLine(CanApprove(101, true));\nConsole.WriteLine(CanApprove(50, false));\nbool CanApprove(int amount, bool managerApproved)\n{\n    return amount <= 100 && managerApproved;\n}\n",
+    "expected_stdout": "True\nFalse\nFalse\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.4",
+    "source": "using System;\nConsole.WriteLine(Department(\"  hr  \"));\nConsole.WriteLine(Department(\"   \"));\nstring Department(string raw)\n{\n    string cleaned = raw.Trim().ToUpperInvariant();\n    return cleaned.Length == 0 ? \"Unknown\" : cleaned;\n}\n",
+    "expected_stdout": "HR\nUnknown\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.5",
+    "source": "using System;\nConsole.WriteLine(LineDescription(\"PEN\", 3, 7));\nConsole.WriteLine(LineTotal(0, 7) == 0);\nint LineTotal(int quantity, int price) => quantity * price;\nstring LineDescription(string code, int quantity, int price)\n{\n    return $\"{code}: {LineTotal(quantity, price)}\";\n}\n",
+    "expected_stdout": "PEN: 21\nTrue\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 5,
+    "section": "5.6",
+    "source": "using System;\nConsole.WriteLine(SumTo(3));\nConsole.WriteLine(SumTo(0));\nint SumTo(int n)\n{\n    if (n == 0) return 0;\n    return n + SumTo(n - 1);\n}\n",
+    "expected_stdout": "6\n0\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/05_methods/0500_slides.md"
+  },
+  {
+    "chapter": 6,
+    "section": "6.1",
+    "source": "using System;\ntry\n{\n    int value = int.Parse(\"two\");\n    Console.WriteLine(value);\n}\ncatch (FormatException) { Console.WriteLine(\"Enter a whole number.\"); }\nfinally { Console.WriteLine(\"Attempt complete.\"); }\n",
+    "expected_stdout": "Enter a whole number.\nAttempt complete.\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/06_exceptions_testing/0600_slides.md"
+  },
+  {
+    "chapter": 6,
+    "section": "6.2",
+    "source": "using System;\nConsole.WriteLine(Credits(0));\nConsole.WriteLine(Credits(1));\nConsole.WriteLine(Credits(3));\nint Credits(int days)\n{\n    int total = 0;\n    for (int day = 1; day <= days; day++) total += day;\n    return total;\n}\n",
+    "expected_stdout": "0\n1\n6\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/06_exceptions_testing/0600_slides.md"
+  },
+  {
+    "chapter": 6,
+    "section": "6.3",
+    "source": "using System;\nConsole.WriteLine(ShippingFee(3) == 5);\nConsole.WriteLine(ShippingFee(10) == 0);\ntry { ShippingFee(0); Console.WriteLine(\"FAIL\"); }\ncatch (ArgumentOutOfRangeException) { Console.WriteLine(\"PASS rejected zero\"); }\nint ShippingFee(int units)\n{\n    if (units <= 0) throw new ArgumentOutOfRangeException(nameof(units));\n    return units >= 10 ? 0 : 5;\n}\n",
+    "expected_stdout": "True\nTrue\nPASS rejected zero\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/06_exceptions_testing/0600_slides.md"
+  },
+  {
+    "chapter": 6,
+    "section": "6.4",
+    "source": "using System;\nConsole.WriteLine(Rate(99) == 0);\nConsole.WriteLine(Rate(100) == 10);\nConsole.WriteLine(Rate(101) == 10);\nint Rate(int total) => total >= 100 ? 10 : 0;\n",
+    "expected_stdout": "True\nTrue\nTrue\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/06_exceptions_testing/0600_slides.md"
+  },
+  {
+    "chapter": 7,
+    "section": "7.1",
+    "source": "using System;\nint[] quantities = { 7, 5, 9, 6 };\nquantities[2] = 4 * quantities[1] - quantities[3];\nConsole.WriteLine(string.Join(\", \", quantities));\nConsole.WriteLine($\"Length={quantities.Length}, last={quantities[quantities.Length - 1]}\");\n",
+    "expected_stdout": "7, 5, 14, 6\nLength=4, last=6\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/07_arrays/0700_slides.md"
+  },
+  {
+    "chapter": 7,
+    "section": "7.2",
+    "source": "using System;\nint[] quantities = { 4, 0, 7 };\nAdjust(quantities);\nConsole.WriteLine(string.Join(\", \", quantities));\nvoid Adjust(int[] values)\n{\n    values[0] = 9;\n    values = new int[] { 100 };\n}\n",
+    "expected_stdout": "9, 0, 7\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/07_arrays/0700_slides.md"
+  },
+  {
+    "chapter": 7,
+    "section": "7.3",
+    "source": "using System;\nConsole.WriteLine(Find(new[] { 8, 17, 42, 42, 60 }, 60));\nConsole.WriteLine(Find(Array.Empty<int>(), 42));\nint Find(int[] a, int target) {\n    int low = 0, high = a.Length;\n    while (low < high) {\n        int middle = low + (high - low) / 2;\n        if (a[middle] == target) return middle;\n        if (a[middle] < target) low = middle + 1; else high = middle;\n    } return -1;\n}\n",
+    "expected_stdout": "4\n-1\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/07_arrays/0700_slides.md"
+  },
+  {
+    "chapter": 7,
+    "section": "7.3",
+    "source": "using System;\nint[] arrivals = { 60, 17, 42, 8, 42 };\nint[] sorted = (int[])arrivals.Clone();\nArray.Sort(sorted);\nConsole.WriteLine(string.Join(\", \", arrivals));\nConsole.WriteLine(string.Join(\", \", sorted));\nConsole.WriteLine(Array.BinarySearch(sorted, 17) >= 0);\nConsole.WriteLine(Array.BinarySearch(sorted, 20) >= 0);\n",
+    "expected_stdout": "60, 17, 42, 8, 42\n8, 17, 42, 42, 60\nTrue\nFalse\n",
+    "stdin": "",
+    "slide_title": "Library workflow: preserve arrivals, sort a copy",
+    "deck": "_html_extra/chapters/07_arrays/0700_slides.md"
+  },
+  {
+    "chapter": 7,
+    "section": "7.4",
+    "source": "using System;\nint[,] orders = { { 2, 5, 1 }, { 4, 1, 3 } };\nint grand = 0;\nfor (int r = 0; r < orders.GetLength(0); r++) {\n    int rowTotal = 0;\n    for (int c = 0; c < orders.GetLength(1); c++) rowTotal += orders[r, c];\n    grand += rowTotal;\n    Console.WriteLine($\"Row {r}: {rowTotal}\");\n}\nConsole.WriteLine($\"Grand: {grand}\");\n",
+    "expected_stdout": "Row 0: 8\nRow 1: 8\nGrand: 16\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/07_arrays/0700_slides.md"
+  },
+  {
+    "chapter": 8,
+    "section": "8.1",
+    "source": "using System;\nusing System.Collections.Generic;\nvar basket = new List<string> { \"PEN\", \"PEN\" };\nvar stock = new Dictionary<string, int> { [\"PEN\"] = 12 };\nConsole.WriteLine($\"Basket entries: {basket.Count}\");\nConsole.WriteLine($\"Product codes: {stock.Count}\");\nConsole.WriteLine($\"PEN stock: {stock[\"PEN\"]}\");\n",
+    "expected_stdout": "Basket entries: 2\nProduct codes: 1\nPEN stock: 12\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/08_collections/0800_slides.md"
+  },
+  {
+    "chapter": 8,
+    "section": "8.2",
+    "source": "using System;\nusing System.Collections.Generic;\nvar quantities = new List<int> { 2, 1, 3 };\nint total = 0;\nforeach (int quantity in quantities) total += quantity;\nvar saved = new Dictionary<string, int>();\nsaved[\"ORD-101\"] = total;\nConsole.WriteLine($\"Line items: {quantities.Count}\");\nConsole.WriteLine($\"Saved total: {saved[\"ORD-101\"]}\");\n",
+    "expected_stdout": "Line items: 3\nSaved total: 6\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/08_collections/0800_slides.md"
+  },
+  {
+    "chapter": 8,
+    "section": "8.3",
+    "source": "using System;\nusing System.Collections.Generic;\nvar byValue = new List<int> { 2, 7, 2, 9 };\nvar byPosition = new List<int>(byValue);\nConsole.WriteLine(byValue.Remove(2));\nbyPosition.RemoveAt(2);\nConsole.WriteLine(string.Join(\", \", byValue));\nConsole.WriteLine(string.Join(\", \", byPosition));\n",
+    "expected_stdout": "True\n7, 2, 9\n2, 7, 9\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/08_collections/0800_slides.md"
+  },
+  {
+    "chapter": 8,
+    "section": "8.4",
+    "source": "using System;\nusing System.Collections.Generic;\nvar stock = new Dictionary<string, int> { [\"PEN\"] = 12, [\"BOOK\"] = 0 };\nConsole.WriteLine(stock.TryGetValue(\"BOOK\", out int known));\nConsole.WriteLine(known);\nConsole.WriteLine(stock.TryGetValue(\"BAG\", out int missing));\nConsole.WriteLine(missing);\n",
+    "expected_stdout": "True\n0\nFalse\n0\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/08_collections/0800_slides.md"
+  },
+  {
+    "chapter": 8,
+    "section": "8.5",
+    "source": "using System;\nusing System.Collections.Generic;\nusing System.Linq;\nvar amounts = new List<int> { 45, 10, 30 };\nvar query = amounts.Where(amount => amount >= 30);\nvar snapshot = query.ToList();\namounts[0] = 15;\nConsole.WriteLine(string.Join(\", \", query));\nConsole.WriteLine(string.Join(\", \", snapshot));\n",
+    "expected_stdout": "30\n45, 30\n",
+    "stdin": "",
+    "slide_title": "Run the complete example",
+    "deck": "_html_extra/chapters/08_collections/0800_slides.md"
+  }
+]

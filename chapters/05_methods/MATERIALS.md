@@ -1,5 +1,9 @@
 # Chapter Materials — Methods
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/05_methods/0500_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: 5.1 and argument mapping in 5.2, 35 minutes; meeting 2: returned values in 5.2 and contracts in 5.3, 40 minutes; meeting 3: strings in 5.4 and synthesis in 5.5, 35 minutes. Total 110 minutes. Part 5.5 is a short core recap; 5.6 is optional supporting preparation. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Standard Homework Scoring (2026-10-21)
 
 Standard Homework now has five applied true/false questions and five independent coding questions for ten points. The existing cscs-gap-05-9 packing/refactoring task remains core with its identity intact; new Initials, DomainOf, returned Boolean approval, and net-amount composition tasks add standalone method/string/result evidence without arrays, collections, or exceptions. The original fourteen-question review follows Submit as explicitly optional, ungraded reference. New completed solutions retain independently verified .NET 10 output. Existing cells, metadata identities, and radio names/values remain; slides stay deferred.

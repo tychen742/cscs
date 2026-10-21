@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization — Dynamic Programming
 
+## Aligned Lecture Deck (2026-10-21)
+
+One chapter source at `_html_extra/chapters/25_dynamic_programming_backtracking/2500_slides.md` contains 46 slides, with one complete part per current core reading. Chapter-title speaker notes list part starts and the existing 110-minute meeting allocation; reading parts do not add meetings. Every slide has instructor notes, with check/practice answers confined to notes. Existing chapter order, assessments, and their identities are unchanged. Student HTML and instructor-only editable PowerPoint are generated centrally; complete standalone C# examples are verified from `authoring/slide_revision/code_18_26.json`.
+
 ## Assignment Alignment Revision (2026-10-21)
 
 Preview retains the ten numbered question slots and original cells, adds native radio response controls and specific answer explanations, varies option display order while keeping canonical a-d values, and replaces calculation/tracing preparation with glossary recognition where needed. Homework True/False questions now have native controls, hidden explanatory answers, and visible course-submission guidance. Chapters24-25 include balanced applied cases. Static page choices do not claim to record course attempts; authenticated submission remains the existing course workflow.

@@ -1,5 +1,9 @@
 # Chapter Organization — Iteration
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/04_iteration/0400_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: loop plans in 4.1, 35 minutes; meeting 2: counted traversal in 4.2, 40 minutes; meeting 3: state-controlled loops in 4.3, 35 minutes. Total 110 minutes. GCD is supporting reading, not a fourth meeting. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Assignment Alignment Revision (2026-10-21)
 
 Preview replaces loop execution/count predictions with glossary recognition and qualifies equivalent loop forms. All original cell IDs remain in place; chapter order and assessment identities are unchanged.

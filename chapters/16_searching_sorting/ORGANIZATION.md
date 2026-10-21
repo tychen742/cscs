@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Searching and Basic Sorting
 
+## Aligned Lecture Deck (2026-10-21)
+
+Source: `_html_extra/chapters/16_searching_sorting/1600_slides.md`, using the shared thinkpress-lecture theme. One part follows each current core content notebook with explicit goals, business examples, state traces, two quick checks, an existing exercise, verification cases, and a recap. Supporting/optional readings have short labeled reference parts and add no required meetings. The chapter title notes list one-based part start slides and the existing 110-minute allocation. Every slide has instructor notes with answers; student HTML excludes them. Code examples are standalone and listed in `authoring/slide_revision/code_09_17.json` for central execution verification. Existing assessment IDs, chapter order, and lesson content are unchanged. The landing page links one student deck; instructor PPTX is generated outside published assets.
+
 ## Assignment Alignment Repair (2026-10-21)
 
 Lab Question 5 now verifies the entire original arrival sequence, every adjacent sorted pair, lengths, and per-value occurrence counts using explicit loops. The independent expected input is supplied outside the array under test. The completed reference rejects corrupt middle report values and changed middle arrivals; duplicates, empty input, and singleton variants are checked. The original question, starter, and solution cell IDs and metadata are retained. Existing homework's independent stability/workload task remains in place. No supporting merge-sort prerequisite, assessment-identity change, slide edit, or TOC change is introduced.

@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Materials: Search and Sort
 
+## Aligned Lecture Deck (2026-10-21)
+
+One chapter source at `_html_extra/chapters/23_searching_sorting/2300_slides.md` contains 66 slides, with one complete part per current core reading. The Shell/quicksort parts remain optional and add no required meeting. Chapter-title speaker notes list part starts and the existing 110-minute meeting allocation; reading parts do not add meetings. Every slide has instructor notes, with check/practice answers confined to notes. Existing chapter order, assessments, and their identities are unchanged. Student HTML and instructor-only editable PowerPoint are generated centrally; complete standalone C# examples are verified from `authoring/slide_revision/code_18_26.json`.
+
 ## Assignment Alignment Follow-up (2026-10-21)
 
 The empirical search-performance assignment and the main lab handoff are explicitly optional supporting work. The standard lab/homework scope is unchanged; all existing paths and assessment identities are retained.

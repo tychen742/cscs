@@ -1,5 +1,9 @@
 # Chapter Materials — Decision Structures
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/03_decision/0300_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: Boolean rules in 3.1, 35 minutes; meeting 2: if/else and ordered tiers in 3.2, 40 minutes; meeting 3: switch/default and transfer practice in 3.2, 35 minutes. Total 110 minutes. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Assignment Alignment Repair (2026-10-21)
 
 Standard Homework now has five applied true/false checks and five standalone top-level coding tasks assessing compound approval, fee boundaries, ordered classification, switch/default including a valid free service, and a discount-boundary repair. The legacy Boolean/branch review remains explicitly ungraded reference. The preview no longer claims arbitrary nested branches can always be flattened; the supplemental Boolean prediction starter now shows the actual sequence before reveal.

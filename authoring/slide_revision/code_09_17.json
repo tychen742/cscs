@@ -1,0 +1,242 @@
+[
+  {
+    "chapter": 9,
+    "section": "9.1",
+    "source": "using System;\nusing System.IO;\nstring path = Path.GetTempFileName();\ntry {\n    using (var writer = new StreamWriter(path)) writer.WriteLine(\"Invoice 41\");\n    Console.Write(File.ReadAllText(path));\n}\nfinally { File.Delete(path); }\n",
+    "expected_stdout": "Invoice 41\n",
+    "stdin": "",
+    "slide_title": "Worked example 9.1"
+  },
+  {
+    "chapter": 9,
+    "section": "9.2",
+    "source": "using System;\nusing System.IO;\nstring path = Path.GetTempFileName();\ntry {\n    File.WriteAllText(path, \"20\\n\");\n    using (var writer = new StreamWriter(path, append: true)) writer.WriteLine(30);\n    Console.WriteLine(string.Join(\"|\", File.ReadAllLines(path)));\n}\nfinally { File.Delete(path); }\n",
+    "expected_stdout": "20|30\n",
+    "stdin": "",
+    "slide_title": "Worked example 9.2"
+  },
+  {
+    "chapter": 9,
+    "section": "9.3",
+    "source": "using System;\nforeach (string line in new[] { \"PEN,4\", \"BOOK,-2\", \"PEN\" }) {\n    string[] fields = line.Split(',');\n    bool ok = fields.Length == 2 && fields[0].Trim().Length > 0\n        && int.TryParse(fields[1], out int count) && count >= 0;\n    Console.WriteLine(ok);\n}\n",
+    "expected_stdout": "True\nFalse\nFalse\n",
+    "stdin": "",
+    "slide_title": "Worked example 9.3"
+  },
+  {
+    "chapter": 10,
+    "section": "10.1",
+    "source": "using System;\nvar pen = new Product(\"PEN\", 2.50m);\nConsole.WriteLine(pen.LineTotal(4).ToString(\"F2\"));\nclass Product {\n    private readonly string code;\n    private readonly decimal price;\n    public Product(string code, decimal price) { this.code = code; this.price = price; }\n    public decimal LineTotal(int quantity) { return price * quantity; }\n}\n",
+    "expected_stdout": "10.00\n",
+    "stdin": "",
+    "slide_title": "Worked example 10.1"
+  },
+  {
+    "chapter": 10,
+    "section": "10.2",
+    "source": "using System;\nvar c = new Contact(); c.Email = \"TEAM@EXAMPLE.EDU\";\ntry { c.Email = \"bad\"; } catch (ArgumentException) { Console.WriteLine(\"rejected\"); }\nConsole.WriteLine(c.Email);\nclass Contact {\n    private string email = \"\";\n    public string Email { get => email; set {\n        if (!value.Contains('@')) throw new ArgumentException();\n        email = value.ToLowerInvariant(); } }\n}\n",
+    "expected_stdout": "rejected\nteam@example.edu\n",
+    "stdin": "",
+    "slide_title": "Worked example 10.2"
+  },
+  {
+    "chapter": 10,
+    "section": "10.3",
+    "source": "using System;\nvar r = new Register(); r.Add(4m); r.Add(6m); r.Clear(); r.Add(3m);\nConsole.WriteLine($\"{r.Count} item, {r.Total:F2}\");\nclass Register {\n    public decimal Total { get; private set; }\n    public int Count { get; private set; }\n    public void Add(decimal amount) { Total += amount; Count++; }\n    public void Clear() { Total = 0m; Count = 0; }\n}\n",
+    "expected_stdout": "1 item, 3.00\n",
+    "stdin": "",
+    "slide_title": "Worked example 10.3"
+  },
+  {
+    "chapter": 11,
+    "section": "11.1",
+    "source": "using System;\nvar first = new Customer(\"North\"); var alias = first;\nvar copy = new Customer(first.Name); alias.Name = \"South\";\nConsole.WriteLine(first.Name); Console.WriteLine(copy.Name);\nConsole.WriteLine(ReferenceEquals(first, alias));\nclass Customer {\n    public string Name { get; set; }\n    public Customer(string name) { Name = name; }\n}\n",
+    "expected_stdout": "South\nNorth\nTrue\n",
+    "stdin": "",
+    "slide_title": "Worked example 11.1"
+  },
+  {
+    "chapter": 11,
+    "section": "11.2",
+    "source": "using System;\nvar size = new Size(2, 3); var wider = size with { Width = 7 };\nConsole.WriteLine($\"{size.Width},{wider.Width}\");\nvar a = new Address(\"North\"); var b = new Address(\"North\");\nConsole.WriteLine(a == b); Console.WriteLine(ReferenceEquals(a, b));\nreadonly record struct Size(int Width, int Height);\nrecord Address(string City);\n",
+    "expected_stdout": "2,7\nTrue\nFalse\n",
+    "stdin": "",
+    "slide_title": "Worked example 11.2"
+  },
+  {
+    "chapter": 11,
+    "section": "11.3",
+    "source": "using System;\nvar pen = new Product(\"PEN\", 2.50m);\nvar line = new Line(pen, 4);\nConsole.WriteLine(line.Amount.ToString(\"F2\"));\nrecord Product(string Sku, decimal Price);\nrecord Line(Product Product, int Quantity) {\n    public decimal Amount => Product.Price * Quantity;\n}\n",
+    "expected_stdout": "10.00\n",
+    "stdin": "",
+    "slide_title": "Worked example 11.3"
+  },
+  {
+    "chapter": 11,
+    "section": "11.4",
+    "source": "var stock = new Stock(3); int before = stock.Units;\ntry { stock.Take(4); } catch (InvalidOperationException) { }\nConsole.WriteLine(stock.Units == before);\nstock.Take(3); Console.WriteLine(stock.Units);\nclass Stock {\n    public int Units { get; private set; }\n    public Stock(int units) { Units = units; }\n    public void Take(int n) {\n        if (n <= 0 || n > Units) throw new InvalidOperationException();\n        Units -= n; } }\n",
+    "expected_stdout": "True\n0\n",
+    "stdin": "",
+    "slide_title": "Worked example 11.4"
+  },
+  {
+    "chapter": 12,
+    "section": "12.1",
+    "source": "using System;\nDiscount policy = new FixedDiscount();\nConsole.WriteLine(policy.Apply(3m));\nclass Discount {\n    public virtual decimal Apply(decimal x) {\n        if (x < 0) throw new ArgumentOutOfRangeException();\n        return x;\n    }\n}\nclass FixedDiscount : Discount {\n    public override decimal Apply(decimal x) { return Math.Max(0m, base.Apply(x) - 5m); }\n}\n",
+    "expected_stdout": "0\n",
+    "stdin": "",
+    "slide_title": "Worked example 12.1"
+  },
+  {
+    "chapter": 12,
+    "section": "12.2",
+    "source": "using System;\nReport[] reports = { new SalesReport(), new StockReport() };\nforeach (Report report in reports) Console.WriteLine(report.Title());\nabstract class Report { public abstract string Title(); }\nclass SalesReport : Report { public override string Title() => \"Sales\"; }\nclass StockReport : Report { public override string Title() => \"Stock\"; }\n",
+    "expected_stdout": "Sales\nStock\n",
+    "stdin": "",
+    "slide_title": "Worked example 12.2"
+  },
+  {
+    "chapter": 12,
+    "section": "12.3",
+    "source": "var checkout = new Checkout(new NoDiscount());\nConsole.WriteLine(checkout.Quote(20m));\ninterface IDiscount { decimal Apply(decimal amount); }\nclass NoDiscount : IDiscount { public decimal Apply(decimal x) {\n        if (x < 0) throw new ArgumentOutOfRangeException();\n        return x; } }\nclass Checkout {\n    private readonly IDiscount policy;\n    public Checkout(IDiscount policy) { this.policy = policy; }\n    public decimal Quote(decimal amount) => policy.Apply(amount);\n}\n",
+    "expected_stdout": "20\n",
+    "stdin": "",
+    "slide_title": "Worked example 12.3"
+  },
+  {
+    "chapter": 13,
+    "section": "13.1",
+    "source": "using System;\nusing System.Collections.Generic;\nvar history = new Stack<string>();\nhistory.Push(\"Rename\"); history.Push(\"Move\");\nConsole.WriteLine(history.Pop());\nConsole.WriteLine(history.Count);\n",
+    "expected_stdout": "Move\n1\n",
+    "stdin": "",
+    "slide_title": "Worked example 13.1"
+  },
+  {
+    "chapter": 13,
+    "section": "13.2",
+    "source": "using System;\nint count = 0, capacity = 1, copied = 0;\nfor (int value = 0; value < 8; value++) {\n    if (count == capacity) { copied += count; capacity *= 2; }\n    count++;\n}\nConsole.WriteLine($\"count={count}, capacity={capacity}, copied={copied}\");\n",
+    "expected_stdout": "count=8, capacity=8, copied=7\n",
+    "stdin": "",
+    "slide_title": "Worked example 13.2"
+  },
+  {
+    "chapter": 13,
+    "section": "13.3",
+    "source": "using System;\nint[] ids = { 2, 7, 10 };\nConsole.WriteLine(Count(ids, value => value >= 7));\nConsole.WriteLine(Count(ids, value => value % 2 == 0));\nstatic int Count<T>(T[] values, Func<T, bool> test) {\n    int count = 0;\n    foreach (T value in values) if (test(value)) count++;\n    return count;\n}\n",
+    "expected_stdout": "2\n2\n",
+    "stdin": "",
+    "slide_title": "Worked example 13.3"
+  },
+  {
+    "chapter": 13,
+    "section": "13.4",
+    "source": "using System;\nusing System.Collections.Generic;\nint visits = 0;\nIEnumerable<int> Source() {\n    for (int i = 0; i < 3; i++) { visits++; yield return i; }\n}\nusing (var it = Source().GetEnumerator()) {\n    Console.WriteLine(visits); it.MoveNext(); Console.WriteLine($\"{it.Current}:{visits}\");\n}\n",
+    "expected_stdout": "0\n0:1\n",
+    "stdin": "",
+    "slide_title": "Worked example 13.4"
+  },
+  {
+    "chapter": 14,
+    "section": "14.1",
+    "source": "using System;\nint[] items = new int[2]; int count = 0, copied = 0;\nfor (int value = 1; value <= 9; value++) {\n    if (count == items.Length) { copied += count; Array.Resize(ref items, items.Length * 2); }\n    items[count++] = value;\n}\nConsole.WriteLine($\"count={count}, capacity={items.Length}, copied={copied}\");\n",
+    "expected_stdout": "count=9, capacity=16, copied=14\n",
+    "stdin": "",
+    "slide_title": "Worked example 14.1"
+  },
+  {
+    "chapter": 14,
+    "section": "14.2",
+    "source": "using System;\nNode? head = new Node(20, new Node(30));\nhead = new Node(10, head);\nfor (Node? current = head; current is not null; current = current.Next)\n    Console.WriteLine(current.Value);\nclass Node {\n    public int Value; public Node? Next;\n    public Node(int value, Node? next = null) { Value = value; Next = next; }\n}\n",
+    "expected_stdout": "10\n20\n30\n",
+    "stdin": "",
+    "slide_title": "Worked example 14.2"
+  },
+  {
+    "chapter": 14,
+    "section": "14.3",
+    "source": "using System;\nusing System.Collections.Generic;\nint[] values = { 1, 2, 3, 4, 5, 6, 7, 8 };\nvar chain = new LinkedList<int>(values);\nvar current = chain.First!; int links = 0;\nwhile (current.Next is not null) { current = current.Next; links++; }\nConsole.WriteLine($\"array={values[7]}, reads=1\");\nConsole.WriteLine($\"linked={current.Value}, links={links}\");\n",
+    "expected_stdout": "array=8, reads=1\nlinked=8, links=7\n",
+    "stdin": "",
+    "slide_title": "Worked example 14.3"
+  },
+  {
+    "chapter": 15,
+    "section": "15.1",
+    "source": "using System;\nusing System.Collections.Generic;\nvar tasks = new Stack<string>();\ntasks.Push(\"Build\"); tasks.Push(\"Test\"); tasks.Push(\"Deploy\");\nwhile (tasks.Count > 0) Console.WriteLine(tasks.Pop());\n",
+    "expected_stdout": "Deploy\nTest\nBuild\n",
+    "stdin": "",
+    "slide_title": "Worked example 15.1"
+  },
+  {
+    "chapter": 15,
+    "section": "15.2",
+    "source": "using System;\nusing System.Collections.Generic;\nstring[] slots = { \"A\", \"B\", \"C\" }; int front = 0, count = 3;\nConsole.WriteLine(slots[front]); slots[front] = \"\";\nfront = (front + 1) % slots.Length; count--;\nslots[(front + count) % slots.Length] = \"D\"; count++;\nvar logical = new List<string>();\nfor (int i = 0; i < count; i++) logical.Add(slots[(front + i) % slots.Length]);\nConsole.WriteLine(string.Join(\",\", logical));\nConsole.WriteLine($\"front={front}, count={count}\");\n",
+    "expected_stdout": "A\nB,C,D\nfront=1, count=3\n",
+    "stdin": "",
+    "slide_title": "Worked example 15.2"
+  },
+  {
+    "chapter": 15,
+    "section": "15.3",
+    "source": "using System;\nusing System.Collections.Generic;\nvar urgent = new Stack<string>(); var normal = new Queue<string>();\nurgent.Push(\"U-1\"); urgent.Push(\"U-2\");\nnormal.Enqueue(\"N-1\"); normal.Enqueue(\"N-2\");\nif (urgent.Count > 0) Console.WriteLine(urgent.Pop());\nelse if (normal.Count > 0) Console.WriteLine(normal.Dequeue());\nelse Console.WriteLine(\"No tickets waiting.\");\n",
+    "expected_stdout": "U-2\n",
+    "stdin": "",
+    "slide_title": "Worked example 15.3"
+  },
+  {
+    "chapter": 16,
+    "section": "16.1",
+    "source": "using System;\nint[] values = { 5, 9, 12, 20, 31, 44 };\nConsole.WriteLine(Find(values, 20)); Console.WriteLine(Find(values, 21));\nstatic int Find(int[] a, int target) {\n    int low = 0, high = a.Length;\n    while (low < high) { int mid = low + (high - low) / 2;\n        if (a[mid] == target) return mid;\n        if (a[mid] < target) low = mid + 1; else high = mid; }\n    return -1;\n}\n",
+    "expected_stdout": "3\n-1\n",
+    "stdin": "",
+    "slide_title": "Worked example 16.1"
+  },
+  {
+    "chapter": 16,
+    "section": "16.2",
+    "source": "using System;\nint[] values = { 30, 10, 20 };\nfor (int i = 1; i < values.Length; i++) {\n    int saved = values[i], j = i;\n    while (j > 0 && values[j - 1] > saved) { values[j] = values[j - 1]; j--; }\n    values[j] = saved;\n}\nConsole.WriteLine(string.Join(\",\", values));\n",
+    "expected_stdout": "10,20,30\n",
+    "stdin": "",
+    "slide_title": "Worked example 16.2"
+  },
+  {
+    "chapter": 16,
+    "section": "16.2",
+    "source": "using System;\nint[] original = { 30, 10, 20 }, arrivals = { 30, 10, 20 }, report = { 10, 20, 30 };\nbool same = arrivals.Length == original.Length, ordered = true;\nfor (int i = 0; i < arrivals.Length; i++) same &= arrivals[i] == original[i];\nfor (int i = 1; i < report.Length; i++) ordered &= report[i - 1] <= report[i];\nbool kept = report.Length == original.Length;\nforeach (int value in original) { int before = 0, after = 0;\n    foreach (int x in original) if (x == value) before++;\n    foreach (int x in report) if (x == value) after++; kept &= before == after; }\nConsole.WriteLine(same && ordered && kept);\n",
+    "expected_stdout": "True\n",
+    "stdin": "",
+    "slide_title": "Check the complete contract 16.2"
+  },
+  {
+    "chapter": 17,
+    "section": "17.1",
+    "source": "using System;\nvar root = new Node(8, new Node(3, new Node(1), new Node(6)), new Node(10));\nConsole.WriteLine(Count(root));\nstatic int Count(Node? n) => n is null ? 0 : 1 + Count(n.Left) + Count(n.Right);\nrecord Node(int Id, Node? Left = null, Node? Right = null);\n",
+    "expected_stdout": "5\n",
+    "stdin": "",
+    "slide_title": "Worked example 17.1"
+  },
+  {
+    "chapter": 17,
+    "section": "17.2",
+    "source": "using System;\nvar root = new Node(8, new Node(3, new Node(1), new Node(6)), new Node(10));\nPrint(root, 0); Console.WriteLine();\nstatic void Print(Node? n, int depth) {\n    if (n is null) return;\n    Console.Write($\"{n.Id}:{depth} \");\n    Print(n.Left, depth + 1); Print(n.Right, depth + 1);\n}\nrecord Node(int Id, Node? Left = null, Node? Right = null);\n",
+    "expected_stdout": "8:0 3:1 1:2 6:2 10:1 \n",
+    "stdin": "",
+    "slide_title": "Worked example 17.2"
+  },
+  {
+    "chapter": 17,
+    "section": "17.3",
+    "source": "using System;\nvar left = new Node(3, new Node(1), new Node(6, null, new Node(7)));\nvar root = new Node(8, left, new Node(10));\nConsole.WriteLine(Contains(root, 7)); Console.WriteLine(Contains(root, 2));\nstatic bool Contains(Node? n, int target) {\n    while (n is not null) { if (target == n.Id) return true;\n        n = target < n.Id ? n.Left : n.Right; }\n    return false;\n}\nrecord Node(int Id, Node? Left = null, Node? Right = null);\n",
+    "expected_stdout": "True\nFalse\n",
+    "stdin": "",
+    "slide_title": "Worked example 17.3"
+  },
+  {
+    "chapter": 17,
+    "section": "17.4",
+    "source": "using System; using System.Collections.Generic;\nvar left = new Node(20, null, new Node(30));\nvar right = new Node(60, new Node(50), new Node(70));\nvar root = new Node(40, left, right);\nConsole.WriteLine(string.Join(\",\", Range(root, 30, 60)));\nstatic IEnumerable<int> Range(Node? n, int low, int high) {\n    if (n is null || low > high) yield break;\n    if (n.Id > low) foreach (int x in Range(n.Left, low, high)) yield return x;\n    if (n.Id >= low && n.Id <= high) yield return n.Id;\n    if (n.Id < high) foreach (int x in Range(n.Right, low, high)) yield return x;\n}\nrecord Node(int Id, Node? Left = null, Node? Right = null);\n",
+    "expected_stdout": "30,40,50,60\n",
+    "stdin": "",
+    "slide_title": "Worked example 17.4"
+  }
+]

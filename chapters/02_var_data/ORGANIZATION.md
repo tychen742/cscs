@@ -1,5 +1,9 @@
 # Chapter Organization — Variables and Data Types
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/02_var_data/0200_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: 2.1 and the type overview in 2.2, 35 minutes; meeting 2: conversion in 2.2 and operators/calls in 2.3, 40 minutes; meeting 3: 2.4, 35 minutes. Total 110 minutes. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Current Teaching Allocation (2026-10-21)
 
 This allocation supersedes earlier meeting estimates where they differ. Core readings remain assigned; a reading page is not a separate meeting. Preparation means reading the relevant explanations and predicting the named example before class.

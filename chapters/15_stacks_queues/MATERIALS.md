@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Materials: Stacks & Queues
 
+## Aligned Lecture Deck (2026-10-21)
+
+Source: `_html_extra/chapters/15_stacks_queues/1500_slides.md`, using the shared thinkpress-lecture theme. One part follows each current core content notebook with explicit goals, business examples, state traces, two quick checks, an existing exercise, verification cases, and a recap. Supporting/optional readings have short labeled reference parts and add no required meetings. The chapter title notes list one-based part start slides and the existing 110-minute allocation. Every slide has instructor notes with answers; student HTML excludes them. Code examples are standalone and listed in `authoring/slide_revision/code_09_17.json` for central execution verification. Existing assessment IDs, chapter order, and lesson content are unchanged. The landing page links one student deck; instructor PPTX is generated outside published assets.
+
 ## Active Notebooks
 
 - `1500_stacks_queues.ipynb`: orientation, measurable objectives, flow, video, and glossary.

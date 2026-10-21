@@ -1,5 +1,9 @@
 # Chapter Organization — Arrays
 
+## Current Lecture Deck (2026-10-21)
+
+The revised chapter deck is `_html_extra/chapters/07_arrays/0700_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: 7.1 and traversal/aliases in 7.2, 35 minutes; meeting 2: searches and one insertion-sort pass in 7.3, 40 minutes; meeting 3: 7.4 and parameter behavior in 7.2, 35 minutes. Total 110 minutes. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
+
 ## Standard Homework Scoring (2026-10-21)
 
 Standard Homework now has five applied true/false questions and five independent coding questions for ten points. The existing last-match, half-open binary-search, descending insertion-sort, and sorted-clone library-contract tasks remain core with their existing identities. A standalone rectangular branch/day summary adds direct 7.4 evidence, including zero rows, one row, and one column. The original twenty-question review follows Submit as explicitly optional, ungraded reference. New completed solutions retain independently verified .NET 10 output. Existing cells, metadata identities, and radio names/values remain; slides stay deferred.

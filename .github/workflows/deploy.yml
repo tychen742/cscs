@@ -54,7 +54,7 @@ jobs:
         run: jupyter-book build . --all
 
       - name: Add chapter slide decks
-        run: cp -R _html_extra/chapters/. _build/html/chapters/
+        run: python scripts/stage_lecture_slides.py
 
       - name: Set up SSH
         run: |

@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization: Priority Queues and Heaps
 
+## Aligned Lecture Deck (2026-10-21)
+
+One chapter source at `_html_extra/chapters/18_priority_queues/1800_slides.md` contains 46 slides, with one complete part per current core reading. Chapter-title speaker notes list part starts and the existing 110-minute meeting allocation; reading parts do not add meetings. Every slide has instructor notes, with check/practice answers confined to notes. Existing chapter order, assessments, and their identities are unchanged. Student HTML and instructor-only editable PowerPoint are generated centrally; complete standalone C# examples are verified from `authoring/slide_revision/code_18_26.json`.
+
 ## Assignment Alignment Revision (2026-10-21)
 
 Repeated Preview concepts are replaced in the same radio groups with distinct contract questions; existing canonical values and identities remain. Homework True/False items are concrete applied cases with misconception-specific explanations instead of generic feedback. Existing independent coding assessments remain; reference checklists make their separate trace/test evidence explicit.

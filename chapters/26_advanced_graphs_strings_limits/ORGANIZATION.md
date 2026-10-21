@@ -4,6 +4,10 @@ orphan: true
 
 # Chapter Organization — Advanced Algorithms
 
+## Aligned Lecture Deck (2026-10-21)
+
+One chapter source at `_html_extra/chapters/26_advanced_graphs_strings_limits/2600_slides.md` contains 46 slides, with one complete part per current core reading. Chapter 20 graph contracts are explicit preparation for the retained synthesis assignments. Chapter-title speaker notes list part starts and the existing 110-minute meeting allocation; reading parts do not add meetings. Every slide has instructor notes, with check/practice answers confined to notes. Existing chapter order, assessments, and their identities are unchanged. Student HTML and instructor-only editable PowerPoint are generated centrally; complete standalone C# examples are verified from `authoring/slide_revision/code_18_26.json`.
+
 ## Assignment Alignment Revision (2026-10-21)
 
 Preview now has native radio controls, hints, specific explanations, and varied display positions under unchanged numbered slots/cell IDs. Homework True/False choices have native controls and a balanced applied character-policy case. Visible submission guidance distinguishes page choices from a recorded course submission.
