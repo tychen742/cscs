@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Materials — Data Collections
+# Chapter Materials — Collections
 
 ## Core Depth Revision (2026-10-19)
 

@@ -79,7 +79,7 @@ The book is mapped to *Computer Science Curricula 2023* (CS2023), the joint curr
 | 5 | Methods and Strings | SDF-Fundamentals | SE-Construction, SDF-Data-Structures |
 | 6 | Testing, Debugging, and Error Handling | SDF-Practices, SE-Validation | SEC-Coding, SEP-Professional-Ethics |
 | 7 | Arrays | SDF-Data-Structures | SDF-Algorithms |
-| 8 | Data Collections | SDF-Data-Structures | AL-Foundational, FPL-Systems |
+| 8 | Collections | SDF-Data-Structures | AL-Foundational, FPL-Systems |
 | 9 | Files and Text | SDF-Fundamentals, SDF-Data-Structures | AL-Models, DM-Data, SEC-Coding, DM-Security, SEP-Privacy |
 | 10 | Classes and Objects | FPL-OOP, SDF-Fundamentals | SE-Design |
 | 11 | Object Design and Composition | FPL-OOP, SE-Design | SE-Construction (tests and invariants), FPL-Types (nullability) |

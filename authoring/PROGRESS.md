@@ -32,7 +32,7 @@ path (browser `localStorage` or server records) is not migrated.
 | 05 | `chapters/05_methods` | Methods | preview, lab, homework | In Progress |  |
 | 06 | `chapters/06_exceptions_testing` | Testing, Debugging, and Error Handling | preview, lab, homework | In Progress | Renamed; three core lessons retained. Deeper nullability relocated to Chapter 11; teaching/assessment alignment remains pending. Optional software-failure cases retained. |
 | 07 | `chapters/07_arrays` | Arrays | preview, lab, homework | In Progress | Renumbered from old Ch06 path |
-| 08 | `chapters/08_collections` | Data Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
+| 08 | `chapters/08_collections` | Collections | preview, lab, homework | In Progress | Stale `0802-list-dictionary`, `1101`, `1102` source notebooks removed 2026-10-04 |
 | 09 | `chapters/09_files_text` | Files and Text | preview, lab, homework | In Progress | Legacy `hw-gradefiles.ipynb` remains in TOC Optional privacy/security section and retained privacy assessments. |
 | 10 | `chapters/10_classes` | Classes and Objects | preview, lab, homework | Needs Review | Standard assignments revised and solutions verified; Book List optional after Chapter 12; slides pending |
 | 11 | `chapters/11_object_design` | Object Design and Composition | preview, lab, homework | Needs Review | Three lessons, connected order lab, transfer homework, and standalone reference checks; video/slides pending |

@@ -2,7 +2,7 @@
 orphan: true
 ---
 
-# Chapter Organization — Data Collections
+# Chapter Organization — Collections
 
 ## Core Depth Revision (2026-10-19)
 
@@ -38,7 +38,7 @@ distinguish sharing a collection reference from copying its elements.
 
 ## Sequence
 
-- Data collections (40 minutes): operations and contracts; a cited eight-family table; access patterns; generic types and namespaces; worked bookstore choices; family demonstrations; traversal and shared references.
+- Collections (40 minutes): operations and contracts; a cited eight-family table; access patterns; generic types and namespaces; worked bookstore choices; family demonstrations; traversal and shared references.
   Small, standalone demonstrations introduce behavior before the detailed APIs.
   Sets, linked lists, stacks, queues, and priority queues are recognition-level
   orientation here, not new implementation or required advanced API exercises.

@@ -20,7 +20,7 @@ Parts I-III (Chapters 1-12) form the complete CS1 route. Parts IV-V (Chapters 13
 ### Part II. Data and I/O (Chapters 7-9)
 
 7. Arrays.
-8. Data Collections.
+8. Collections.
 9. Files and Text.
 
 ### Part III. Object-Oriented Programming (Chapters 10-12)
