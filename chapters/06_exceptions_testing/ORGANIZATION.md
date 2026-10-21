@@ -15,7 +15,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | `0601_error_handling.ipynb` | Error Handling and Validation | Core content |
 | `0602_debugging_workflow.ipynb` | Debugging Workflow | Core content |
 | `0603_testing.ipynb` | Unit Testing | Core content |
-| `0605_software_responsibility.ipynb` | Computing and Society | Supporting reading |
+| `0604_software_responsibility.ipynb` | Computing and Society | Supporting reading |
 
 Keep the newly developed validation/debugger lessons and all original unit-testing material. The framework-setup/test-attribute discussion is now content before Footnotes. Historical commented reference banks remain preserved as source; they are not newly certified current setup instructions.
 
@@ -62,9 +62,9 @@ Total: 110 minutes. Testing is introduced in Chapters 1-5; this chapter consolid
 
 ## Scope and Later Reinforcement
 
-Keep basic missing-input checks here. Deeper nullable value/reference types, compiler flow warnings, null operators, optional relationships, and constructor contracts now belong to Chapter 11's supporting reading, `1104_nullability.ipynb`. Do not require records, LINQ, or advanced property patterns in Chapter 6. Files and resource cleanup return in Chapter 9; object-state, collaboration, and failure-contract tests return in Chapters 10-12.
+Keep basic missing-input checks here. Deeper nullable value/reference types, compiler flow warnings, null operators, optional relationships, and constructor contracts now belong to Chapter 11's supporting reading, `1105_nullability.ipynb`. Do not require records, LINQ, or advanced property patterns in Chapter 6. Files and resource cleanup return in Chapter 9; object-state, collaboration, and failure-contract tests return in Chapters 10-12.
 
-Optional `0605_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations without adding a required meeting. The prepared AI-review activity needs no paid AI access.
+Optional `0604_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations without adding a required meeting. The prepared AI-review activity needs no paid AI access.
 
 ## Alignment Work Remaining
 
@@ -83,7 +83,7 @@ The title, TOC, orientation, and nullable lesson location are updated. Align the
 | `0601_error_handling.ipynb`: Error Handling and Validation | Core content | 280 | 14 | 4 |
 | `0602_debugging_workflow.ipynb`: Debugging Workflow | Core content | 313 | 13 | 3 |
 | `0603_testing.ipynb`: Unit Testing | Core content | 2,984 | 13 | 5 |
-| `0605_software_responsibility.ipynb`: Computing and Society | Supporting reading | 942 | 17 | 2 |
+| `0604_software_responsibility.ipynb`: Computing and Society | Supporting reading | 942 | 17 | 2 |
 
 **Recommendation:** Retain distinct lessons; expand two thin ones.
 
@@ -110,7 +110,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0601_error_handling.ipynb`: Error Handling and Validation.
 - `0602_debugging_workflow.ipynb`: Debugging Workflow.
 - `0603_testing.ipynb`: Unit Testing.
-- `0605_software_responsibility.ipynb`: Computing and Society.
+- `0604_software_responsibility.ipynb`: Computing and Society.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

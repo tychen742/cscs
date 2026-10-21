@@ -17,7 +17,7 @@
 5. [ ] Reflow all paragraphs in book content so each paragraph is a single line (for better wrapping and formatting)
 6. [ ] Teaching devices adapted from introcs.cs.luc.edu (comparison 2026-10-04; use business examples):
    1. [ ] Ch.1: a "Learning to Solve Problems" study-skills page (don't memorize everything, keep a running summary, try first and then check), updated for when and how to use AI assistants.
-   2. [ ] Ch.2: teach reading syntax templates as an explicit skill early; today it appears only in `0502_signature_call`.
+   2. [ ] Ch.2: teach reading syntax templates as an explicit skill early; today it appears only in `0503_signature_call`.
    3. [ ] Ch.3: make the writer and consumer roles of a method explicit in `0501_intro_methods` (a caller needs the name, parameters, and return value; the writer decides how).
    4. [ ] Ch.8: a light performance lab timing linear vs. binary search with `Stopwatch`, to motivate Big-O in Semester 1 (today only `1903_collection_selection` in Semester 2).
    5. [ ] Ch.12/12: plan classes from a console transcript (nouns become classes, verbs become methods), using an order-entry session (Customer, Order, Product).

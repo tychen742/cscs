@@ -17,9 +17,9 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `0801_collections.ipynb` | Collection Families and Selection | Core content |
-| `0804_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
-| `0802_list.ipynb` | Lists | Core content |
-| `0803_dictionary.ipynb` | Dictionaries | Core content |
+| `0802_collection_operations.ipynb` | Collection Operations and Behavior | Core content |
+| `0803_list.ipynb` | Lists | Core content |
+| `0804_dictionary.ipynb` | Dictionaries | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -88,8 +88,8 @@ All completed lesson code cells have required imports and independently verified
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `0801_collections.ipynb`: Data Collections | Core content | 5,337 | 54 | 11 |
-| `0802_list.ipynb`: Lists | Core content | 1,594 | 40 | 23 |
-| `0803_dictionary.ipynb`: Dictionaries | Core content | 1,874 | 36 | 16 |
+| `0803_list.ipynb`: Lists | Core content | 1,594 | 40 | 23 |
+| `0804_dictionary.ipynb`: Dictionaries | Core content | 1,874 | 36 | 16 |
 
 **Recommendation:** Split the collection overview by instructional role.
 
@@ -115,9 +115,9 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `0801_collections.ipynb`: Collection Families and Selection.
-- `0804_collection_operations.ipynb`: Collection Operations and Behavior.
-- `0802_list.ipynb`: Lists.
-- `0803_dictionary.ipynb`: Dictionaries.
+- `0802_collection_operations.ipynb`: Collection Operations and Behavior.
+- `0803_list.ipynb`: Lists.
+- `0804_dictionary.ipynb`: Dictionaries.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -126,7 +126,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
 
-### `0803_dictionary.ipynb`
+### `0804_dictionary.ipynb`
 
 - Creating a Dictionary
 - Accessing Data in Dictionary

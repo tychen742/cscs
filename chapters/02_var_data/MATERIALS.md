@@ -11,9 +11,9 @@ This current arrangement supersedes conflicting historical outlines below. Assig
 | Reading | Audit findings | Developed coverage |
 | --- | --- | --- |
 | `0201_variables_types.ipynb` | B08 | Worked assignment trace → incomplete stock/reservation table → standalone learner print and explained state feedback; retained price-swap exercise remains. |
-| `0204_types_conversion.ipynb` | B01 | Range versus precision; cast/parse/domain distinctions; verified 16,777,217 counterexample and exact-small-value variation. Existing conversion examples and directional maps retained with corrected qualifications. |
-| `0202_operators_built_in_methods.ipynb` | B02, B09 | Operand/result types and division; precedence table with intermediate types; guided fractional-hours repair and explained output. Existing bill splitting and Math/pricing tasks retained. |
-| `0203_input_output.ipynb` | B10 | Prompt/read/parse/report pattern; invoice transcript and field-width interpretation; guided Folders report with zero-input variation. Existing UI helper and formatting catalogue retained. |
+| `0202_types_conversion.ipynb` | B01 | Range versus precision; cast/parse/domain distinctions; verified 16,777,217 counterexample and exact-small-value variation. Existing conversion examples and directional maps retained with corrected qualifications. |
+| `0203_operators_built_in_methods.ipynb` | B02, B09 | Operand/result types and division; precedence table with intermediate types; guided fractional-hours repair and explained output. Existing bill splitting and Math/pricing tasks retained. |
+| `0204_input_output.ipynb` | B10 | Prompt/read/parse/report pattern; invoice transcript and field-width interpretation; guided Folders report with zero-input variation. Existing UI helper and formatting catalogue retained. |
 
 Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
 
@@ -25,9 +25,9 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `0201_variables_types.ipynb` | Variables, Assignment, and State | Core content |
-| `0204_types_conversion.ipynb` | Types and Conversion | Core content |
-| `0202_operators_built_in_methods.ipynb` | Operators and Built-In Methods | Core content |
-| `0203_input_output.ipynb` | Input and Output | Core content |
+| `0202_types_conversion.ipynb` | Types and Conversion | Core content |
+| `0203_operators_built_in_methods.ipynb` | Operators and Built-In Methods | Core content |
+| `0204_input_output.ipynb` | Input and Output | Core content |
 
 Four readings remain: variables/state, types/conversion, operators/library calls, then console I/O. Teach types and conversion before the developed division/display cases. All input-casting examples now reside with conversion. Chapter 2 retains single-value output/composite/interpolation explanations; loop-generated report tables and their exercise variants are in 0402, after loop syntax.
 
@@ -43,9 +43,9 @@ Each content page has one local contents directive and one final Footnotes group
 ## Section Notebooks
 
 - `0201_variables_types.ipynb` — Variables, assignment, state and identifiers
-- `0204_types_conversion.ipynb` — Type foundations, conversion, input-casting examples and worked conversion/display reasoning
-- `0202_operators_built_in_methods.ipynb` — Operators and expressions, then built-in methods: method calls, `Math`, `Parse`, a first look at string methods (full treatment in 5.4)
-- `0203_input_output.ipynb` — Console input and output (renamed from 0206)
+- `0202_types_conversion.ipynb` — Type foundations, conversion, input-casting examples and worked conversion/display reasoning
+- `0203_operators_built_in_methods.ipynb` — Operators and expressions, then built-in methods: method calls, `Math`, `Parse`, a first look at string methods (full treatment in 5.4)
+- `0204_input_output.ipynb` — Console input and output (renamed from 0206)
 
 ## Assignments
 
@@ -100,8 +100,8 @@ Original mixed-expression legality, necessary/redundant casts, one-call multilin
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `0201_variables_types.ipynb`: Variables and Types | Core content | 3,753 | 58 | 30 |
-| `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods | Core content | 1,858 | 40 | 18 |
-| `0203_input_output.ipynb`: Input and Output | Core content | 2,021 | 40 | 24 |
+| `0203_operators_built_in_methods.ipynb`: Operators and Built-In Methods | Core content | 1,858 | 40 | 18 |
+| `0204_input_output.ipynb`: Input and Output | Core content | 2,021 | 40 | 24 |
 
 ### Source-to-Destination Plan
 
@@ -122,9 +122,9 @@ Before a later move, create a cell-level preservation map for these sources, inc
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `0201_variables_types.ipynb`: Variables, Assignment, and State.
-- `0204_types_conversion.ipynb`: Types and Conversion.
-- `0202_operators_built_in_methods.ipynb`: Operators and Built-In Methods.
-- `0203_input_output.ipynb`: Input and Output.
+- `0202_types_conversion.ipynb`: Types and Conversion.
+- `0203_operators_built_in_methods.ipynb`: Operators and Built-In Methods.
+- `0204_input_output.ipynb`: Input and Output.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -133,7 +133,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
 
-### `0204_types_conversion.ipynb`
+### `0202_types_conversion.ipynb`
 
 - Types
   - The Type System: Value, Reference, void, and Defaults

@@ -2,7 +2,7 @@
 
 **Role:** Reusable helper library.
 
-**Supports:** [1104_nullability](../../chapters/11_object_design/1104_nullability.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [1105_nullability](../../chapters/11_object_design/1105_nullability.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/_extras/console_input_introcs/README.md); [project file](../../demos/_extras/console_input_introcs/console_input_introcs.csproj).
 

@@ -172,10 +172,10 @@ are unchanged.
 ## Chapter 2 Restructured Around Built-In Methods (2026-10-10)
 
 Chapter 2 now has three sections: `0201_variables_types` (merged from the
-former variables and types sections), `0202_operators_built_in_methods`
+former variables and types sections), `0203_operators_built_in_methods`
 (operators plus a new Built-In Methods section: method calls, `Math`, `Parse`,
 a brief string methods intro, reading signatures, one practice exercise), and
-`0203_input_output` (renamed from `0206`). The full string methods section
+`0204_input_output` (renamed from `0206`). The full string methods section
 stays in chapter 3 (3.4). Updated the TOC, landing page, Chapter Topics,
 planning docs, instructor mappings, and redirects (old section URLs redirect
 to the merged pages). Ch 2 assessment alignment was completed on 2026-10-15 (see below).
@@ -527,3 +527,17 @@ projects/sources and broken local README links. The already edited collections
 demo remains intact; its check now expects the current 1-through-5 output.
 All 151 existing C# source/project files match their hashes at the start of this
 fix pass. No notebooks, assessments, or published paths changed.
+
+## Section File Names Normalized to TOC Order (2026-10-21)
+
+Twenty-seven section notebooks in Chapters 2, 5, 6, 7, 8, 9, 11, 16, 17, 22, 24,
+25, and 26 were renamed so the `NNSS` prefix matches the section's position in
+`_toc.yml`; slugs, labels, assessment IDs, and cell IDs are unchanged. Every old
+path redirects through `_ext/chapter_redirects.json`, anchor routes were
+duplicated under the new page names, and the subject-index additions were
+retargeted. Six unbuilt "Reading moved" stub notebooks (0306_switch,
+1603_workloads, 2202_divide_conquer, 2403_optimization_lab,
+2503_optimization_lab, 2601_graph_traversal) were removed; their URLs are
+served by the redirect map. Reader-side saved cell runs are keyed by page URL,
+so runs on renamed pages reset once.
+

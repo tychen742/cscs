@@ -11,9 +11,9 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `1701_tree_structure.ipynb` | Tree Structure and Recursive Models | Core content |
-| `1704_tree_traversal.ipynb` | Tree Traversal, Returned Values, and Costs | Core content |
-| `1702_binary_search_trees.ipynb` | Binary Search Trees | Core content |
-| `1703_tree_lab.ipynb` | Tree Queries and Verification | Core content |
+| `1702_tree_traversal.ipynb` | Tree Traversal, Returned Values, and Costs | Core content |
+| `1703_binary_search_trees.ipynb` | Binary Search Trees | Core content |
+| `1704_tree_lab.ipynb` | Tree Queries and Verification | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -85,8 +85,8 @@ Total: 110 minutes. Preparation and assignments supply additional practice.
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `1701_tree_structure.ipynb`: Tree Structure and Traversal | Core content | 1,380 | 29 | 8 |
-| `1702_binary_search_trees.ipynb`: Binary Search Trees | Core content | 1,686 | 29 | 9 |
-| `1703_tree_lab.ipynb`: Tree Implementation Lab | Core content | 864 | 17 | 6 |
+| `1703_binary_search_trees.ipynb`: Binary Search Trees | Core content | 1,686 | 29 | 9 |
+| `1704_tree_lab.ipynb`: Tree Implementation Lab | Core content | 864 | 17 | 6 |
 
 **Recommendation:** Split the initial tree/recursion/traversal lesson.
 
@@ -112,9 +112,9 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `1701_tree_structure.ipynb`: Tree Structure and Recursive Models.
-- `1704_tree_traversal.ipynb`: Tree Traversal, Returned Values, and Costs.
-- `1702_binary_search_trees.ipynb`: Binary Search Trees.
-- `1703_tree_lab.ipynb`: Tree Queries and Verification.
+- `1702_tree_traversal.ipynb`: Tree Traversal, Returned Values, and Costs.
+- `1703_binary_search_trees.ipynb`: Binary Search Trees.
+- `1704_tree_lab.ipynb`: Tree Queries and Verification.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

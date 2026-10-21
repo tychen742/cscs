@@ -2,7 +2,7 @@
 
 **Role:** Supplementary integrated example.
 
-**Supports:** [0803_dictionary](../../chapters/08_collections/0803_dictionary.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [0804_dictionary](../../chapters/08_collections/0804_dictionary.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/08_collections/help_responses/README.md); [project file](../../demos/08_collections/help_responses/help_responses.csproj).
 

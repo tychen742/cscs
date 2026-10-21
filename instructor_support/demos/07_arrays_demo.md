@@ -2,7 +2,7 @@
 
 **Role:** Concept companion with jagged-array extension.
 
-**Supports:** [0702_twodim](../../chapters/07_arrays/0702_twodim.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [0704_twodim](../../chapters/07_arrays/0704_twodim.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/07_arrays/arrays_demo/README.md); [project file](../../demos/07_arrays/arrays_demo/arrays_demo.csproj).
 

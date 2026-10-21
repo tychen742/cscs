@@ -12,7 +12,7 @@ This current arrangement supersedes conflicting historical outlines below. Assig
 | --- | --- | --- |
 | `0901_stream_file.ipynb` | B05 | Repair the read-versus-write call and add separate argument/result/overwrite patterns; retain original file walkthrough. |
 | `0903_text_operations.ipynb` | B07 | Verify the current standalone record-parser caller, which already repeats its helper; interpret accepted/rejected records and distinguish parsing from domain validation. |
-| `0906_regex.ipynb` | B14 | Explain Match/Matches/Replace result shapes, named groups and no-match handling; trace three whole-record cases and immutable replacement; guide Ticket extraction before independent pattern practice. Supporting status unchanged. |
+| `0904_regex.ipynb` | B14 | Explain Match/Matches/Replace result shapes, named groups and no-match handling; trace three whole-record cases and immutable replacement; guide Ticket extraction before independent pattern practice. Supporting status unchanged. |
 | `0905_privacy_security.ipynb` | B15 | Retain card-masking practice; clarify that display masking does not erase or anonymize stored data; guide purpose-based log review with synthetic input and explained field minimization. Optional status unchanged. |
 
 Preserve all prior explanations, examples and exercise variants. Factual corrections retain the instructional purpose and are recorded by stable cell ID in `authoring/ba_development_revision/corrections.json`. New runnable cells and project listings have independent .NET verification; SQL results are checked against a disposable SQLite fixture. Existing assessment notebooks and the TOC are unchanged.
@@ -27,7 +27,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | `0901_stream_file.ipynb` | File Foundations: Reading and Writing | Core content |
 | `0902_file_operations.ipynb` | File Workflows, Paths, and Resources | Core content |
 | `0903_text_operations.ipynb` | Text Operations | Core content |
-| `0906_regex.ipynb` | Regular Expressions | Supporting reading |
+| `0904_regex.ipynb` | Regular Expressions | Supporting reading |
 | `0905_privacy_security.ipynb` | Privacy and Security in Code | Optional reading |
 
 Retain three core readings: file foundations, paths/resources, and text operations. Regex is explicitly Supporting Reading and privacy explicitly Optional Reading in the TOC, matching their supporting roles. Keep the recent standalone path/resource examples. No recombination of these developed lessons is performed.
@@ -59,7 +59,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `0901_stream_file.ipynb` — Streams and file basics
 - `0902_file_operations.ipynb` — File read / write operations
 - `0903_text_operations.ipynb` — Text processing: splitting, token validation, safe replacement, structured records. Basic string methods (cleaning, immutability, searching, `Substring`, `Replace`) moved to `05_methods/0504_strings.ipynb` on 2026-10-04.
-- `0906_regex.ipynb` — Regular expressions
+- `0904_regex.ipynb` — Regular expressions
 
 ## Assignments
 
@@ -105,7 +105,7 @@ The file-driven collections lab follows Files; Chapter 8 links forward to it. Do
 | `0901_stream_file.ipynb`: Files As Streams | Core content | 834 | 8 | 1 |
 | `0902_file_operations.ipynb`: `StreamWriter` | Core content | 2,329 | 15 | 5 |
 | `0903_text_operations.ipynb`: Text Operations | Core content | 559 | 17 | 9 |
-| `0906_regex.ipynb`: Regular Expressions | Supporting reading | 297 | 13 | 8 |
+| `0904_regex.ipynb`: Regular Expressions | Supporting reading | 297 | 13 | 8 |
 | `0905_privacy_security.ipynb`: Privacy and Security in Code | Supporting reading | 696 | 20 | 4 |
 
 ### Source-to-Destination Plan
@@ -131,7 +131,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0901_stream_file.ipynb`: File Foundations: Reading and Writing.
 - `0902_file_operations.ipynb`: File Workflows, Paths, and Resources.
 - `0903_text_operations.ipynb`: Text Operations.
-- `0906_regex.ipynb`: Regular Expressions.
+- `0904_regex.ipynb`: Regular Expressions.
 - `0905_privacy_security.ipynb`: Privacy and Security in Code.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.

@@ -11,8 +11,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `2501_memoization_tabulation.ipynb` | Memoization, Tabulation, and Repeated Work | Core content |
-| `2504_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
-| `2502_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
+| `2502_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
+| `2503_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -28,7 +28,7 @@ This coverage update describes the current notebooks and supersedes older pre-re
 | Reading | Developed content-section coverage |
 | --- | --- |
 | `2501_memoization_tabulation.ipynb` | Derive Fibonacci recursion calls and cache hits, compare a fully traced memo with tabulation and guide a recurrence variation. |
-| `2504_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
+| `2502_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
 
 Keep repeated-work strategies, optimization states and backtracking. Teach cache misses/hits and table dependencies before exact-count claims, then derive minimum-pack updates and predecessor reconstruction before inventory transfer.
 
@@ -39,7 +39,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 - `2500_dynamic_programming_backtracking.ipynb`: objectives, glossary, navigation, and deferred slides.
 - `2501_memoization_tabulation.ipynb`: complete states, Fibonacci call/cache counts and induction, dependency-order invariants, rolling storage, minimum-coin recurrence and optimal substructure, unreachable markers, predecessor reconstruction, and pseudo-polynomial costs.
-- `2502_backtracking.ipynb`: include/exclude completeness, undo and snapshots, signed one-use subset witnesses, safe suffix bounds, failed-state memoization, resource limits, and positional permutations with duplicate labels.
+- `2503_backtracking.ipynb`: include/exclude completeness, undo and snapshots, signed one-use subset witnesses, safe suffix bounds, failed-state memoization, resource limits, and positional permutations with duplicate labels.
 - `2503_optimization_lab.ipynb`: purchasing quantities versus one-use invoices; independent amount-level and exhaustive-position references; validated witnesses; boundary contracts and evidence-based method selection.
 - Assignments: ten-question preview; five connected purchasing/reconciliation lab tasks; five applied true/false and five transfer coding homework tasks. Coding starters and hidden solutions are independent; solutions retain verified stdout.
 - `demos/25_dynamic_programming_backtracking/PlanningChecks.cs` and README: complete implementations with independent executable reference checks.
@@ -61,7 +61,7 @@ All 26 completed notebook cells compiled and ran independently; 13 hidden answer
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `2501_memoization_tabulation.ipynb`: Memoization and Tabulation | Core content | 779 | 21 | 6 |
-| `2502_backtracking.ipynb`: Backtracking and Search Spaces | Core content | 793 | 21 | 7 |
+| `2503_backtracking.ipynb`: Backtracking and Search Spaces | Core content | 793 | 21 | 7 |
 | `2503_optimization_lab.ipynb`: Dynamic Programming and Backtracking Lab | Core content | 476 | 21 | 6 |
 
 ### Source-to-Destination Plan
@@ -83,8 +83,8 @@ Before a later move, create a cell-level preservation map for these sources, inc
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `2501_memoization_tabulation.ipynb`: Memoization, Tabulation, and Repeated Work.
-- `2504_optimization_models.ipynb`: Optimization States and Reconstructed Solutions.
-- `2502_backtracking.ipynb`: Backtracking, Pruning, and Search States.
+- `2502_optimization_models.ipynb`: Optimization States and Reconstructed Solutions.
+- `2503_backtracking.ipynb`: Backtracking, Pruning, and Search States.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

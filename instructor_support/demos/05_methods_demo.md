@@ -2,7 +2,7 @@
 
 **Role:** Concept companion.
 
-**Supports:** [0503_parameter](../../chapters/05_methods/0503_parameter.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [0502_parameter](../../chapters/05_methods/0502_parameter.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/05_methods/methods_demo/README.md); [project file](../../demos/05_methods/methods_demo/methods_demo.csproj).
 

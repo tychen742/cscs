@@ -11,7 +11,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `2201_recursion.ipynb` | Recursive Contracts and Divide-and-Conquer | Core content |
-| `2203_merge_sort_lab.ipynb` | Stable Merge Sort and Verification | Core content |
+| `2202_merge_sort_lab.ipynb` | Stable Merge Sort and Verification | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -50,7 +50,7 @@ The earlier lecture allocation is superseded where it repeats relocated introduc
 | --- | --- | ---: | ---: | ---: |
 | `2201_recursion.ipynb`: Recursive Problem Solving | Core content | 405 | 15 | 5 |
 | `2202_divide_conquer.ipynb`: Divide-and-Conquer Design | Core content | 661 | 20 | 6 |
-| `2203_merge_sort_lab.ipynb`: Merge Sort Lab | Core content | 558 | 20 | 7 |
+| `2202_merge_sort_lab.ipynb`: Merge Sort Lab | Core content | 558 | 20 | 7 |
 
 **Recommendation:** Combine recursive design; retain merge sort as a full lesson.
 
@@ -74,7 +74,7 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `2201_recursion.ipynb`: Recursive Contracts and Divide-and-Conquer.
-- `2203_merge_sort_lab.ipynb`: Stable Merge Sort and Verification.
+- `2202_merge_sort_lab.ipynb`: Stable Merge Sort and Verification.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -83,7 +83,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
 
-### `2203_merge_sort_lab.ipynb`
+### `2202_merge_sort_lab.ipynb`
 
 - Prove the Combining Step Before Hiding It in Recursion
 - Combining Sorted Parts

@@ -13,8 +13,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `0701_onedim.ipynb` | Creating and Accessing Arrays | Core content |
-| `0703_array_processing.ipynb` | Processing and Sharing Arrays | Core content |
-| `0702_twodim.ipynb` | 2D & ND Arrays | Core content |
+| `0702_array_processing.ipynb` | Processing and Sharing Arrays | Core content |
+| `0704_twodim.ipynb` | 2D & ND Arrays | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -75,7 +75,7 @@ Landing pages and opening explanations explicitly classify arrays as collections
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `0701_onedim.ipynb`: 1D Arrays | Core content | 2,713 | 9 | 0 |
-| `0702_twodim.ipynb`: 2D & ND Arrays | Core content | 1,598 | 13 | 7 |
+| `0704_twodim.ipynb`: 2D & ND Arrays | Core content | 1,598 | 13 | 7 |
 
 **Recommendation:** Split the one-dimensional array lesson.
 
@@ -100,8 +100,8 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `0701_onedim.ipynb`: Creating and Accessing Arrays.
-- `0703_array_processing.ipynb`: Processing and Sharing Arrays.
-- `0702_twodim.ipynb`: 2D & ND Arrays.
+- `0702_array_processing.ipynb`: Processing and Sharing Arrays.
+- `0704_twodim.ipynb`: 2D & ND Arrays.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -112,7 +112,7 @@ Preserve the current chapter notebooks, reading order, existing explanations, ex
 
 | Location | Development or assessment |
 | --- | --- |
-| `0702_twodim.ipynb` | From One Row to a Table Summary |
+| `0704_twodim.ipynb` | From One Row to a Table Summary |
 
 Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
 
@@ -122,14 +122,14 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 
 | Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
 | --- | --- | --- | --- |
-| Two-dimensional aggregation bridge | 0702_twodim: branch/day table, one-row and one-column standalone demo | Change fixed coordinate, add branch, then reset each outer-loop total | Existing independent branch-by-day lab retained intact; it is assessment, not a replacement for the guided bridge. |
+| Two-dimensional aggregation bridge | 0704_twodim: branch/day table, one-row and one-column standalone demo | Change fixed coordinate, add branch, then reset each outer-loop total | Existing independent branch-by-day lab retained intact; it is assessment, not a replacement for the guided bridge. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
 
 
 ## CS1 Search and Sort Progression
 
-The core reading `0704_searching_sorting_arrays.ipynb` (7.3, between Processing and Sharing Arrays and 2D & ND Arrays) teaches linear search, binary search, and insertion sort, combining the library calls with hand-written versions. No existing notebook or exercise is removed or renamed; the search/sort cells drafted inside `0703_array_processing.ipynb` were moved into 7.3 on 2026-10-18 so nothing is taught twice. `0702_twodim.ipynb` places its core row/column bridge before optional jagged arrays.
+The core reading `0703_searching_sorting_arrays.ipynb` (7.3, between Processing and Sharing Arrays and 2D & ND Arrays) teaches linear search, binary search, and insertion sort, combining the library calls with hand-written versions. No existing notebook or exercise is removed or renamed; the search/sort cells drafted inside `0702_array_processing.ipynb` were moved into 7.3 on 2026-10-18 so nothing is taught twice. `0704_twodim.ipynb` places its core row/column bridge before optional jagged arrays.
 
 | Outcome | Explanation and worked example | Guided practice | Independent assessment |
 | --- | --- | --- | --- |

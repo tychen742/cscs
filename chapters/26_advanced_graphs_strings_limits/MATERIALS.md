@@ -10,8 +10,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
-| `2602_shortest_paths_strings.ipynb` | Direct String Matching and Result Contracts | Core content |
-| `2604_prefix_matching.ipynb` | Prefix Reuse and KMP | Core content |
+| `2601_shortest_paths_strings.ipynb` | Direct String Matching and Result Contracts | Core content |
+| `2602_prefix_matching.ipynb` | Prefix Reuse and KMP | Core content |
 | `2603_limits_project.ipynb` | Algorithms and Computational Limits | Core content |
 
 Three core readings remain: direct matching, prepared-prefix/KMP matching, then computational limits. The complete graph objective block is in 2404; traversal verification is the closing section of 2004 and the former page redirects there. Landing framing, objectives, glossary and Chapter Flow now match strings/limits. The existing graph video is retained and clearly captioned as prerequisite review for service-network assignments. All newly developed direct/KMP examples remain.
@@ -27,8 +27,8 @@ This coverage update describes the current notebooks and supersedes older pre-re
 
 | Reading | Developed content-section coverage |
 | --- | --- |
-| `2602_shortest_paths_strings.ipynb` | Trace candidate/character indexes in a complete direct matcher and guide overlap, empty and missing-result variations. |
-| `2604_prefix_matching.ipynb` | Derive prefix fallback links and annotate KMP scanning/overlap with a compact executable matcher and guided repeated-symbol trace. |
+| `2601_shortest_paths_strings.ipynb` | Trace candidate/character indexes in a complete direct matcher and guide overlap, empty and missing-result variations. |
+| `2602_prefix_matching.ipynb` | Derive prefix fallback links and annotate KMP scanning/overlap with a compact executable matcher and guided repeated-symbol trace. |
 
 Keep direct matching, prefix/KMP matching and computational limits. Traversal verification is now in Chapter 20. Develop direct candidate/offset reasoning before prefix construction, fallback and overlapping scan events. Retain graph objective reminders as a cross-chapter comparison.
 
@@ -39,7 +39,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 
 - `2600_advanced_graphs_strings_limits.ipynb`: objectives, glossary, navigation, and deferred slides.
 - `2601_graph_traversal.ipynb`: BFS/DFS verification contracts, weighted versus hop-count paths, and direction/component boundaries; complete traversal instruction and implementations are in Chapter 20.
-- `2602_shortest_paths_strings.ipynb`: hop/cost counterexample, complete ordinal direct and KMP matching, overlapping/empty patterns, proper-border proof, reusable owned prefix tables, actual comparison counts, UTF-16 offsets, and complete workload costs.
+- `2601_shortest_paths_strings.ipynb`: hop/cost counterexample, complete ordinal direct and KMP matching, overlapping/empty patterns, proper-border proof, reusable owned prefix tables, actual comparison counts, UTF-16 offsets, and complete workload costs.
 - `2603_limits_project.ipynb`: exact BigInteger growth models, verified greedy-cover counterexample and exhaustive optimum, feasibility versus quality guarantees, safe count pruning, boundary witnesses, and final comparison guidance using the existing capstone track.
 - Assignments: ten-question preview; five connected service-network/message/coverage lab tasks; five applied true/false and five transfer coding homework tasks. Starters and hidden solutions are independent; solutions retain verified stdout.
 - `demos/26_advanced_graphs_strings_limits/AdvancedChecks.cs` and README: complete implementations and independent reference checks.
@@ -67,7 +67,7 @@ Basic graph traversal now belongs to Chapter 20. `2601_graph_traversal.ipynb` re
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `2601_graph_traversal.ipynb`: Traversal Verification | Supporting reading | 224 | 8 | 0 |
-| `2602_shortest_paths_strings.ipynb`: Shortest Paths and String Matching | Core content | 687 | 21 | 7 |
+| `2601_shortest_paths_strings.ipynb`: Shortest Paths and String Matching | Core content | 687 | 21 | 7 |
 | `2603_limits_project.ipynb`: Algorithms and Computational Limits | Core content | 718 | 21 | 5 |
 
 ### Source-to-Destination Plan
@@ -88,8 +88,8 @@ Before a later move, create a cell-level preservation map for these sources, inc
 
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
-- `2602_shortest_paths_strings.ipynb`: Direct String Matching and Result Contracts.
-- `2604_prefix_matching.ipynb`: Prefix Reuse and KMP.
+- `2601_shortest_paths_strings.ipynb`: Direct String Matching and Result Contracts.
+- `2602_prefix_matching.ipynb`: Prefix Reuse and KMP.
 - `2603_limits_project.ipynb`: Algorithms and Computational Limits.
 - `2601_graph_traversal.ipynb`: Traversal Verification.
 

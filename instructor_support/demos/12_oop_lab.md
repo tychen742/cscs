@@ -2,7 +2,7 @@
 
 **Role:** Supplementary example; not a current lab solution.
 
-**Supports:** [1302_encapsulation](../../chapters/11_object_design/1102_composition.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [1302_encapsulation](../../chapters/11_object_design/1103_composition.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/12_oop/oop_lab/README.md); [project file](../../demos/12_oop/oop_lab/oop_lab.csproj).
 

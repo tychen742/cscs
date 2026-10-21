@@ -11,7 +11,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `2201_recursion.ipynb` | Recursive Contracts and Divide-and-Conquer | Core content |
-| `2203_merge_sort_lab.ipynb` | Stable Merge Sort and Verification | Core content |
+| `2202_merge_sort_lab.ipynb` | Stable Merge Sort and Verification | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -24,7 +24,7 @@ Each content page has one local contents directive and one final Footnotes group
 
 - `2201_recursion.ipynb`: Hidden suffix helpers and progress measures, recursion versus iteration, and stack/arithmetic limits.
 - `2202_divide_conquer.ipynb`: Half-open ranges, complete odd splits, guarded recursive maximum, any-match binary search, merge invariants, stable ties, and readable slice-based sorting.
-- `2203_merge_sort_lab.ipynb`: Merge-front trace, complete generic range/buffer sorting, labeled-record stability, order/preservation/copy checks, and actual comparison/write/call/depth counts.
+- `2202_merge_sort_lab.ipynb`: Merge-front trace, complete generic range/buffer sorting, labeled-record stability, order/preservation/copy checks, and actual comparison/write/call/depth counts.
 - Preview: Ten multiple-choice questions.
 - Lab: Five connected invoice-report tasks from recursive totals through merging, sorting, stability, and boundary verification.
 - Homework: Five applied true/false questions and five independent coding tasks.
@@ -48,7 +48,7 @@ Basic recursive cases and call/return traces now belong to Chapter 17. This opti
 | --- | --- | ---: | ---: | ---: |
 | `2201_recursion.ipynb`: Recursive Problem Solving | Core content | 405 | 15 | 5 |
 | `2202_divide_conquer.ipynb`: Divide-and-Conquer Design | Core content | 661 | 20 | 6 |
-| `2203_merge_sort_lab.ipynb`: Merge Sort Lab | Core content | 558 | 20 | 7 |
+| `2202_merge_sort_lab.ipynb`: Merge Sort Lab | Core content | 558 | 20 | 7 |
 
 ### Source-to-Destination Plan
 
@@ -69,7 +69,7 @@ Before a later move, create a cell-level preservation map for these sources, inc
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `2201_recursion.ipynb`: Recursive Contracts and Divide-and-Conquer.
-- `2203_merge_sort_lab.ipynb`: Stable Merge Sort and Verification.
+- `2202_merge_sort_lab.ipynb`: Stable Merge Sort and Verification.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -78,7 +78,7 @@ All pre-revision explanations and exercises are retained, with headings adjusted
 
 This is the current internal teaching order for the repaired pages. Earlier outlines remain historical where they differ. Chapter/section notebook order is unchanged. All original explanations, examples, exercises, code outputs, assessment identifiers, and link destinations are retained.
 
-### `2203_merge_sort_lab.ipynb`
+### `2202_merge_sort_lab.ipynb`
 
 - Prove the Combining Step Before Hiding It in Recursion
 - Combining Sorted Parts

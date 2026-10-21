@@ -11,8 +11,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `2501_memoization_tabulation.ipynb` | Memoization, Tabulation, and Repeated Work | Core content |
-| `2504_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
-| `2502_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
+| `2502_optimization_models.ipynb` | Optimization States and Reconstructed Solutions | Core content |
+| `2503_backtracking.ipynb` | Backtracking, Pruning, and Search States | Core content |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -30,7 +30,7 @@ Keep repeated-work strategies, optimization states and backtracking. Teach cache
 | Reading | Developed content-section coverage |
 | --- | --- |
 | `2501_memoization_tabulation.ipynb` | Derive Fibonacci recursion calls and cache hits, compare a fully traced memo with tabulation and guide a recurrence variation. |
-| `2504_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
+| `2502_optimization_models.ipynb` | Fill minimum-pack count/predecessor tables, reconstruct a witness and distinguish zero, unreachable and one-use inventory. |
 
 **Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
 
@@ -62,7 +62,7 @@ Keep the chapter focused on modeling and correctness rather than a catalog of DP
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `2501_memoization_tabulation.ipynb`: Memoization and Tabulation | Core content | 779 | 21 | 6 |
-| `2502_backtracking.ipynb`: Backtracking and Search Spaces | Core content | 793 | 21 | 7 |
+| `2503_backtracking.ipynb`: Backtracking and Search Spaces | Core content | 793 | 21 | 7 |
 | `2503_optimization_lab.ipynb`: Dynamic Programming and Backtracking Lab | Core content | 476 | 21 | 6 |
 
 **Recommendation:** Split DP foundations from optimization modeling; integrate verification.
@@ -88,8 +88,8 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `2501_memoization_tabulation.ipynb`: Memoization, Tabulation, and Repeated Work.
-- `2504_optimization_models.ipynb`: Optimization States and Reconstructed Solutions.
-- `2502_backtracking.ipynb`: Backtracking, Pruning, and Search States.
+- `2502_optimization_models.ipynb`: Optimization States and Reconstructed Solutions.
+- `2503_backtracking.ipynb`: Backtracking, Pruning, and Search States.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

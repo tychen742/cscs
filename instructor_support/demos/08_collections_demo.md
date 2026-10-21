@@ -2,7 +2,7 @@
 
 **Role:** Concept companion.
 
-**Supports:** [0802_list](../../chapters/08_collections/0802_list.ipynb). This relationship does not imply the code is an answer to an assignment.
+**Supports:** [0803_list](../../chapters/08_collections/0803_list.ipynb). This relationship does not imply the code is an answer to an assignment.
 
 **Source and student run instructions:** [project README](../../demos/08_collections/collections_demo/README.md); [project file](../../demos/08_collections/collections_demo/collections_demo.csproj).
 

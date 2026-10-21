@@ -13,10 +13,10 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `1101_objects_references.ipynb` | References, Identity, and Copying | Core content |
-| `1105_value_record_types.ipynb` | Structs, Records, and Data Models | Core content |
-| `1102_composition.ipynb` | Composition and Object Responsibilities | Core content |
-| `1103_testing_collaboration.ipynb` | Testing and Refactoring Collaborating Objects | Core content |
-| `1104_nullability.ipynb` | Nullability and Missing Data | Supporting reading |
+| `1102_value_record_types.ipynb` | Structs, Records, and Data Models | Core content |
+| `1103_composition.ipynb` | Composition and Object Responsibilities | Core content |
+| `1104_testing_collaboration.ipynb` | Testing and Refactoring Collaborating Objects | Core content |
+| `1105_nullability.ipynb` | Nullability and Missing Data | Supporting reading |
 
 Keep the current section boundaries and recently developed content. Consolidate repeated in-page navigation, distinguish repeated practice headings, retain all substantive explanations/examples and finish the instructional material before the final Footnotes group.
 
@@ -33,7 +33,7 @@ Keep the four current core readings and integrate nullability as supporting read
 
 | Reading | Developed content-section coverage |
 | --- | --- |
-| `1104_nullability.ipynb` | Distinguish missing/zero/empty, value/reference nullable semantics, annotation/runtime checks, null operators and guided optional-data output. |
+| `1105_nullability.ipynb` | Distinguish missing/zero/empty, value/reference nullable semantics, annotation/runtime checks, null operators and guided optional-data output. |
 
 **Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
 
@@ -66,7 +66,7 @@ Products and lines are immutable; each order owns its list. Repeated products cr
 
 ## Nullability Supporting Reading (2026-10-16)
 
-`1104_nullability.ipynb` relocates the deeper discussion from Chapter 6. Use its value/reference distinction and compiler warnings in meeting one, then conditional access and optional relationships in meeting two; integrate missing-data checks in meeting three. It is supporting reading, not a fourth required meeting. Keep basic null checks in earlier chapters. Explain that nullable annotations do not enforce runtime validity, null differs from empty/zero, and `!` suppresses warnings without validating data.
+`1105_nullability.ipynb` relocates the deeper discussion from Chapter 6. Use its value/reference distinction and compiler warnings in meeting one, then conditional access and optional relationships in meeting two; integrate missing-data checks in meeting three. It is supporting reading, not a fourth required meeting. Keep basic null checks in earlier chapters. Explain that nullable annotations do not enforce runtime validity, null differs from empty/zero, and `!` suppresses warnings without validating data.
 
 The relocated page retains existing code and cell metadata. Struct and record introductions now precede the relocated record example in 1101; retain its record syntax and link back to that introduction. Advanced LINQ/pattern exercises remain extension material, not prerequisites. Add missing-data examples/tests and transfer appropriate assessment items with their original IDs before claiming complete assessment alignment. Core generics remain in Chapter 13; library generic collections can be read using the Chapter 8 foundation.
 
@@ -81,9 +81,9 @@ Within meeting one, 1101 introduces readonly structs, default values, positional
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `1101_objects_references.ipynb`: Objects, References, and State | Core content | 1,638 | 26 | 8 |
-| `1102_composition.ipynb`: Composition and Object Responsibilities | Core content | 892 | 18 | 5 |
-| `1103_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects | Core content | 928 | 18 | 4 |
-| `1104_nullability.ipynb`: Nullability and Missing Data | Supporting reading | 325 | 10 | 4 |
+| `1103_composition.ipynb`: Composition and Object Responsibilities | Core content | 892 | 18 | 5 |
+| `1104_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects | Core content | 928 | 18 | 4 |
+| `1105_nullability.ipynb`: Nullability and Missing Data | Supporting reading | 325 | 10 | 4 |
 
 **Recommendation:** Split reference semantics from struct/record design.
 
@@ -109,10 +109,10 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `1101_objects_references.ipynb`: References, Identity, and Copying.
-- `1105_value_record_types.ipynb`: Structs, Records, and Data Models.
-- `1102_composition.ipynb`: Composition and Object Responsibilities.
-- `1103_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects.
-- `1104_nullability.ipynb`: Nullability and Missing Data.
+- `1102_value_record_types.ipynb`: Structs, Records, and Data Models.
+- `1103_composition.ipynb`: Composition and Object Responsibilities.
+- `1104_testing_collaboration.ipynb`: Testing and Refactoring Collaborating Objects.
+- `1105_nullability.ipynb`: Nullability and Missing Data.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 
@@ -133,8 +133,8 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 
 | Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
 | --- | --- | --- | --- |
-| Plain struct, record class, record struct | 1105_value_record_types existing syntax, copy/equality/with examples and comparison | Existing semantic predictions and type-choice practice | New independent fee/parcel/address task verifies ordinary struct copy, record equality versus identity, shallow with, and default values. |
-| Composition/refactoring judgment | 1102_composition and 1103_testing_collaboration existing object contracts | Existing order model and collaboration checks | New assessment requires refactoring duplicated address fields while retaining public-behavior regression checks. |
+| Plain struct, record class, record struct | 1102_value_record_types existing syntax, copy/equality/with examples and comparison | Existing semantic predictions and type-choice practice | New independent fee/parcel/address task verifies ordinary struct copy, record equality versus identity, shallow with, and default values. |
+| Composition/refactoring judgment | 1103_composition and 1104_testing_collaboration existing object contracts | Existing order model and collaboration checks | New assessment requires refactoring duplicated address fields while retaining public-behavior regression checks. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
 
@@ -148,4 +148,4 @@ Pass 6 of the content-development audit (`authoring/content_development_audit/`)
 
 ## Enumerations Added (2026-10-21)
 
-`1105_value_record_types.ipynb` ends with Enumerations: A Fixed Set of Named Values, the book's first treatment of `enum` as a value type: an `OrderStatus` example with underlying values, ordering comparison, `switch`, parsing and validation, and value copying. It adds no meeting; the section remains Structs, Records, and Data Models.
+`1102_value_record_types.ipynb` ends with Enumerations: A Fixed Set of Named Values, the book's first treatment of `enum` as a value type: an `OrderStatus` example with underlying values, ordering comparison, `switch`, parsing and validation, and value copying. It adds no meeting; the section remains Structs, Records, and Data Models.

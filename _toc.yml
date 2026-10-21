@@ -36,9 +36,9 @@ parts:
   - file: chapters/02_var_data/0200_variables_types
     sections:
     - file: chapters/02_var_data/0201_variables_types
-    - file: chapters/02_var_data/0204_types_conversion
-    - file: chapters/02_var_data/0202_operators_built_in_methods
-    - file: chapters/02_var_data/0203_input_output
+    - file: chapters/02_var_data/0202_types_conversion
+    - file: chapters/02_var_data/0203_operators_built_in_methods
+    - file: chapters/02_var_data/0204_input_output
     - file: chapters/02_var_data/assignments/index
       title: Assignments
       sections:
@@ -88,8 +88,8 @@ parts:
   - file: chapters/05_methods/0500_methods
     sections:
     - file: chapters/05_methods/0501_intro_methods
-    - file: chapters/05_methods/0503_parameter
-    - file: chapters/05_methods/0502_signature_call
+    - file: chapters/05_methods/0502_parameter
+    - file: chapters/05_methods/0503_signature_call
     - file: chapters/05_methods/0504_strings
     - file: chapters/05_methods/0505_summary
     - file: chapters/05_methods/0506_recursive_methods
@@ -112,7 +112,7 @@ parts:
     - file: chapters/06_exceptions_testing/0601_error_handling
     - file: chapters/06_exceptions_testing/0602_debugging_workflow
     - file: chapters/06_exceptions_testing/0603_testing
-    - file: chapters/06_exceptions_testing/0605_software_responsibility
+    - file: chapters/06_exceptions_testing/0604_software_responsibility
       title: Software Responsibility (Supporting Reading)
     - file: chapters/06_exceptions_testing/assignments/index
       title: Assignments
@@ -133,9 +133,9 @@ parts:
   - file: chapters/07_arrays/0700_arrays
     sections:
     - file: chapters/07_arrays/0701_onedim
-    - file: chapters/07_arrays/0703_array_processing
-    - file: chapters/07_arrays/0704_searching_sorting_arrays
-    - file: chapters/07_arrays/0702_twodim
+    - file: chapters/07_arrays/0702_array_processing
+    - file: chapters/07_arrays/0703_searching_sorting_arrays
+    - file: chapters/07_arrays/0704_twodim
     - file: chapters/07_arrays/assignments/index
       title: Assignments
       sections:
@@ -150,9 +150,9 @@ parts:
   - file: chapters/08_collections/0800_data_collections
     sections:
     - file: chapters/08_collections/0801_collections
-    - file: chapters/08_collections/0804_collection_operations
-    - file: chapters/08_collections/0802_list
-    - file: chapters/08_collections/0803_dictionary
+    - file: chapters/08_collections/0802_collection_operations
+    - file: chapters/08_collections/0803_list
+    - file: chapters/08_collections/0804_dictionary
     - file: chapters/08_collections/assignments/index
       title: Assignments
       sections:
@@ -167,7 +167,7 @@ parts:
     - file: chapters/09_files_text/0901_stream_file
     - file: chapters/09_files_text/0902_file_operations
     - file: chapters/09_files_text/0903_text_operations
-    - file: chapters/09_files_text/0906_regex
+    - file: chapters/09_files_text/0904_regex
       title: Regular Expressions (Supporting Reading)
     - file: chapters/09_files_text/0905_privacy_security
       title: Privacy and Security (Optional Reading)
@@ -223,10 +223,10 @@ parts:
   - file: chapters/11_object_design/1100_object_design
     sections:
     - file: chapters/11_object_design/1101_objects_references
-    - file: chapters/11_object_design/1105_value_record_types
-    - file: chapters/11_object_design/1102_composition
-    - file: chapters/11_object_design/1103_testing_collaboration
-    - file: chapters/11_object_design/1104_nullability
+    - file: chapters/11_object_design/1102_value_record_types
+    - file: chapters/11_object_design/1103_composition
+    - file: chapters/11_object_design/1104_testing_collaboration
+    - file: chapters/11_object_design/1105_nullability
       title: Nullability (Supporting Reading)
     - file: chapters/11_object_design/assignments/index
       title: Assignments
@@ -307,7 +307,7 @@ parts:
     sections:
     - file: chapters/16_searching_sorting/1601_searching
     - file: chapters/16_searching_sorting/1602_basic_sorting
-    - file: chapters/16_searching_sorting/1604_merge_sort
+    - file: chapters/16_searching_sorting/1603_merge_sort
       title: Merge Sort (Supporting Reading)
     - file: chapters/16_searching_sorting/assignments/index
       title: Assignments
@@ -326,9 +326,9 @@ parts:
   - file: chapters/17_trees/1700_trees_bst
     sections:
     - file: chapters/17_trees/1701_tree_structure
-    - file: chapters/17_trees/1704_tree_traversal
-    - file: chapters/17_trees/1702_binary_search_trees
-    - file: chapters/17_trees/1703_tree_lab
+    - file: chapters/17_trees/1702_tree_traversal
+    - file: chapters/17_trees/1703_binary_search_trees
+    - file: chapters/17_trees/1704_tree_lab
     - file: chapters/17_trees/assignments/index
       title: Assignments
       sections:
@@ -403,7 +403,7 @@ parts:
   - file: chapters/22_recursion_divide_conquer/2200_recursion_divide_conquer
     sections:
     - file: chapters/22_recursion_divide_conquer/2201_recursion
-    - file: chapters/22_recursion_divide_conquer/2203_merge_sort_lab
+    - file: chapters/22_recursion_divide_conquer/2202_merge_sort_lab
     - file: chapters/22_recursion_divide_conquer/assignments/index
       title: Assignments
       sections:
@@ -442,7 +442,7 @@ parts:
     sections:
     - file: chapters/24_greedy_graph_optimization/2401_greedy_choice
     - file: chapters/24_greedy_graph_optimization/2402_spanning_trees_shortest_paths
-    - file: chapters/24_greedy_graph_optimization/2404_shortest_paths
+    - file: chapters/24_greedy_graph_optimization/2403_shortest_paths
     - file: chapters/24_greedy_graph_optimization/assignments/index
       title: Assignments
       sections:
@@ -455,8 +455,8 @@ parts:
   - file: chapters/25_dynamic_programming_backtracking/2500_dynamic_programming_backtracking
     sections:
     - file: chapters/25_dynamic_programming_backtracking/2501_memoization_tabulation
-    - file: chapters/25_dynamic_programming_backtracking/2504_optimization_models
-    - file: chapters/25_dynamic_programming_backtracking/2502_backtracking
+    - file: chapters/25_dynamic_programming_backtracking/2502_optimization_models
+    - file: chapters/25_dynamic_programming_backtracking/2503_backtracking
     - file: chapters/25_dynamic_programming_backtracking/assignments/index
       title: Assignments
       sections:
@@ -468,8 +468,8 @@ parts:
         title: Homework
   - file: chapters/26_advanced_graphs_strings_limits/2600_advanced_graphs_strings_limits
     sections:
-    - file: chapters/26_advanced_graphs_strings_limits/2602_shortest_paths_strings
-    - file: chapters/26_advanced_graphs_strings_limits/2604_prefix_matching
+    - file: chapters/26_advanced_graphs_strings_limits/2601_shortest_paths_strings
+    - file: chapters/26_advanced_graphs_strings_limits/2602_prefix_matching
     - file: chapters/26_advanced_graphs_strings_limits/2603_limits_project
     - file: chapters/26_advanced_graphs_strings_limits/assignments/index
       title: Assignments

@@ -15,7 +15,7 @@ This current arrangement supersedes conflicting historical outlines below. Assig
 | Reading | Audit findings | Developed coverage |
 | --- | --- | --- |
 | `2401_greedy_choice.ipynb` | B06 | Embed MeetingSchedule support in its visible client-check starter; preserve the intended boundary/exchange task and existing answer. |
-| `2404_shortest_paths.ipynb` | B06 | Embed GreedyGraph support in both visible starters; distinguish client checks from reimplementing algorithms; preserve wide-distance, invalid-arc and separate facilities-model tasks. |
+| `2403_shortest_paths.ipynb` | B06 | Embed GreedyGraph support in both visible starters; distinguish client checks from reimplementing algorithms; preserve wide-distance, invalid-arc and separate facilities-model tasks. |
 
 Keep the current reading order and chapter boundaries. Develop explanation and relevant general syntax before the worked application; interpret output/state and a meaningful variation, then provide a local learner attempt with feedback. Existing labs and homework remain the independent transfer stage; do not move new prerequisite explanations into labs. Optional readings remain optional. The report in `authoring/ba_development_revision/` maps all 18 findings to current evidence and verification.
 
@@ -28,7 +28,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | --- | --- | --- |
 | `2401_greedy_choice.ipynb` | Greedy Choices and Exchange Reasoning | Core content |
 | `2402_spanning_trees_shortest_paths.ipynb` | Minimum Spanning Forests and Kruskal | Core content |
-| `2404_shortest_paths.ipynb` | Shortest Paths and Dijkstra | Core content |
+| `2403_shortest_paths.ipynb` | Shortest Paths and Dijkstra | Core content |
 
 The complete minimum-hops/minimum-cost graph counterexample from 2602 now appears with Dijkstra and the network-versus-route comparison in 2404. Preserve its original executable program, output and objective explanation. Kruskal and the newly developed union-find walkthrough remain in 2402.
 
@@ -104,7 +104,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 
 - `2401_greedy_choice.ipynb`: Greedy Choices and Exchange Reasoning.
 - `2402_spanning_trees_shortest_paths.ipynb`: Minimum Spanning Forests and Kruskal.
-- `2404_shortest_paths.ipynb`: Shortest Paths and Dijkstra.
+- `2403_shortest_paths.ipynb`: Shortest Paths and Dijkstra.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

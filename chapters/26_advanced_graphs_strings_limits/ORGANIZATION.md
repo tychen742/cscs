@@ -10,8 +10,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
-| `2602_shortest_paths_strings.ipynb` | Direct String Matching and Result Contracts | Core content |
-| `2604_prefix_matching.ipynb` | Prefix Reuse and KMP | Core content |
+| `2601_shortest_paths_strings.ipynb` | Direct String Matching and Result Contracts | Core content |
+| `2602_prefix_matching.ipynb` | Prefix Reuse and KMP | Core content |
 | `2603_limits_project.ipynb` | Algorithms and Computational Limits | Core content |
 
 Three core readings remain: direct matching, prepared-prefix/KMP matching, then computational limits. The complete graph objective block is in 2404; traversal verification is the closing section of 2004 and the former page redirects there. Landing framing, objectives, glossary and Chapter Flow now match strings/limits. The existing graph video is retained and clearly captioned as prerequisite review for service-network assignments. All newly developed direct/KMP examples remain.
@@ -29,8 +29,8 @@ Keep direct matching, prefix/KMP matching and computational limits. Traversal ve
 
 | Reading | Developed content-section coverage |
 | --- | --- |
-| `2602_shortest_paths_strings.ipynb` | Trace candidate/character indexes in a complete direct matcher and guide overlap, empty and missing-result variations. |
-| `2604_prefix_matching.ipynb` | Derive prefix fallback links and annotate KMP scanning/overlap with a compact executable matcher and guided repeated-symbol trace. |
+| `2601_shortest_paths_strings.ipynb` | Trace candidate/character indexes in a complete direct matcher and guide overlap, empty and missing-result variations. |
+| `2602_prefix_matching.ipynb` | Derive prefix fallback links and annotate KMP scanning/overlap with a compact executable matcher and guided repeated-symbol trace. |
 
 **Conceptual framework:** motivate the result contract and connect the new operation to prior control flow, state, representation or algorithm ideas.
 
@@ -68,7 +68,7 @@ The earlier lecture allocation is superseded where it repeats relocated introduc
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `2601_graph_traversal.ipynb`: Traversal Verification | Supporting reading | 224 | 8 | 0 |
-| `2602_shortest_paths_strings.ipynb`: Shortest Paths and String Matching | Core content | 687 | 21 | 7 |
+| `2601_shortest_paths_strings.ipynb`: Shortest Paths and String Matching | Core content | 687 | 21 | 7 |
 | `2603_limits_project.ipynb`: Algorithms and Computational Limits | Core content | 718 | 21 | 5 |
 
 **Recommendation:** Reframe around string algorithms and limits.
@@ -93,8 +93,8 @@ Preserve every existing explanation, exercise variation and assessment identity.
 
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
-- `2602_shortest_paths_strings.ipynb`: Direct String Matching and Result Contracts.
-- `2604_prefix_matching.ipynb`: Prefix Reuse and KMP.
+- `2601_shortest_paths_strings.ipynb`: Direct String Matching and Result Contracts.
+- `2602_prefix_matching.ipynb`: Prefix Reuse and KMP.
 - `2603_limits_project.ipynb`: Algorithms and Computational Limits.
 - `2601_graph_traversal.ipynb`: Traversal Verification.
 

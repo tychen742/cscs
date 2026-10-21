@@ -15,7 +15,7 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | `0601_error_handling.ipynb` | Error Handling and Validation | Core content |
 | `0602_debugging_workflow.ipynb` | Debugging Workflow | Core content |
 | `0603_testing.ipynb` | Unit Testing | Core content |
-| `0605_software_responsibility.ipynb` | Computing and Society | Supporting reading |
+| `0604_software_responsibility.ipynb` | Computing and Society | Supporting reading |
 
 Keep the newly developed validation/debugger lessons and all original unit-testing material. The framework-setup/test-attribute discussion is now content before Footnotes. Historical commented reference banks remain preserved as source; they are not newly certified current setup instructions.
 
@@ -47,7 +47,7 @@ All original lesson cells remain, except the explicitly documented presentation/
 - `0601_error_handling.ipynb` — Exception handling
 - `0602_debugging_workflow.ipynb` — Debugging workflow
 - `0603_testing.ipynb` — Unit testing
-- Deeper nullability supporting reading moved to `../11_object_design/1104_nullability.ipynb`; historical URLs redirect there.
+- Deeper nullability supporting reading moved to `../11_object_design/1105_nullability.ipynb`; historical URLs redirect there.
 
 ## Assignments
 
@@ -75,7 +75,7 @@ in `demos/README.md` and each project README.
 
 ## Integrated Responsibility Practice (2026-10-15)
 
-Optional `0605_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations from the former ethics chapter. It extends core testing without adding a required meeting.
+Optional `0604_software_responsibility.ipynb` retains software-failure cases and boundary-test demonstrations from the former ethics chapter. It extends core testing without adding a required meeting.
 
 ## AI Literacy Integration (2026-10-15)
 
@@ -94,7 +94,7 @@ The testing lesson adds a prepared AI-review activity in which ordinary tests pa
 | `0601_error_handling.ipynb`: Error Handling and Validation | Core content | 280 | 14 | 4 |
 | `0602_debugging_workflow.ipynb`: Debugging Workflow | Core content | 313 | 13 | 3 |
 | `0603_testing.ipynb`: Unit Testing | Core content | 2,984 | 13 | 5 |
-| `0605_software_responsibility.ipynb`: Computing and Society | Supporting reading | 942 | 17 | 2 |
+| `0604_software_responsibility.ipynb`: Computing and Society | Supporting reading | 942 | 17 | 2 |
 
 ### Source-to-Destination Plan
 
@@ -118,7 +118,7 @@ The section-boundary plan above is implemented in the current TOC. The earlier p
 - `0601_error_handling.ipynb`: Error Handling and Validation.
 - `0602_debugging_workflow.ipynb`: Debugging Workflow.
 - `0603_testing.ipynb`: Unit Testing.
-- `0605_software_responsibility.ipynb`: Computing and Society.
+- `0604_software_responsibility.ipynb`: Computing and Society.
 
 All pre-revision explanations and exercises are retained, with headings adjusted for coherent nesting. Added development includes topic-specific reasoning, worked state/decision tables and guided variations, rather than a word quota. See `authoring/section_revision/` for the original baseline, preservation evidence, online comparison sources and verification status. Code/build checks are recorded there, not inferred from this planning status.
 

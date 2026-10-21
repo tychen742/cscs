@@ -13,8 +13,8 @@ This is the current reading order and coverage. Earlier arrangement/count record
 | Current reading file | Instructional role/title | Status |
 | --- | --- | --- |
 | `0501_intro_methods.ipynb` | Designing and Calling Methods | Core content |
-| `0503_parameter.ipynb` | Method Parameters | Core content |
-| `0502_signature_call.ipynb` | Returned Results and Method Contracts | Core content |
+| `0502_parameter.ipynb` | Method Parameters | Core content |
+| `0503_signature_call.ipynb` | Returned Results and Method Contracts | Core content |
 | `0504_strings.ipynb` | Strings and Their Methods | Core content |
 | `0505_summary.ipynb` | Composition, Refactoring, and Method Checks | Core content |
 
@@ -158,8 +158,8 @@ exercise material rather than cutting it to fit a meeting.
 | Page at review baseline | Role in this review | Prose words | Markdown cells | Code cells |
 | --- | --- | ---: | ---: | ---: |
 | `0501_intro_methods.ipynb`: Introduction | Core content | 1,293 | 16 | 4 |
-| `0502_signature_call.ipynb`: Designing Methods | Core content | 2,823 | 52 | 11 |
-| `0503_parameter.ipynb`: Method Parameters | Core content | 1,778 | 34 | 9 |
+| `0503_signature_call.ipynb`: Designing Methods | Core content | 2,823 | 52 | 11 |
+| `0502_parameter.ipynb`: Method Parameters | Core content | 1,778 | 34 | 9 |
 | `0504_strings.ipynb`: Strings and Their Methods | Core content | 1,025 | 33 | 10 |
 | `0505_summary.ipynb`: Static Methods | Core content | 1,193 | 24 | 4 |
 
@@ -188,8 +188,8 @@ Preserve every existing explanation, exercise variation and assessment identity.
 The section-boundary plan above is implemented in the current TOC. The earlier proposed sequence is retained as the decision record. Reading pages and teaching meetings remain separate units.
 
 - `0501_intro_methods.ipynb`: Designing and Calling Methods.
-- `0503_parameter.ipynb`: Method Parameters.
-- `0502_signature_call.ipynb`: Returned Results and Method Contracts.
+- `0502_parameter.ipynb`: Method Parameters.
+- `0503_signature_call.ipynb`: Returned Results and Method Contracts.
 - `0504_strings.ipynb`: Strings and Their Methods.
 - `0505_summary.ipynb`: Composition, Refactoring, and Method Checks.
 
@@ -202,7 +202,7 @@ Preserve the current chapter notebooks, reading order, existing explanations, ex
 
 | Location | Development or assessment |
 | --- | --- |
-| `0503_parameter.ipynb` | Return Values, out, and ref |
+| `0502_parameter.ipynb` | Return Values, out, and ref |
 | `homework.ipynb` | Independent Method Contracts and Refactoring |
 
 Progression: read the relevant lesson and worked example, complete its guided practice, then attempt the added independent homework without copying the solution. Require contract-derived expected results, boundary evidence, and reasoning about the chosen representation or design. Assess process and explanation as well as output. Existing labs remain scaffolded applications rather than the sole evidence of independent mastery.
@@ -213,7 +213,7 @@ Lecture decks remain a separately tracked task. No additional chapter, meeting, 
 
 | Topic/outcome | Explanation and worked example | Guided preparation | Independent evidence |
 | --- | --- | --- | --- |
-| Output and reference parameters | 0503_parameter: syntax/obligation comparison and TryQuantity/AddOne trace | TryPercentage with valid, invalid, and boundary inputs | Independent Method Contracts and Refactoring; later parsers and linked-head replacement refer here. |
+| Output and reference parameters | 0502_parameter: syntax/obligation comparison and TryQuantity/AddOne trace | TryPercentage with valid, invalid, and boundary inputs | Independent Method Contracts and Refactoring; later parsers and linked-head replacement refer here. |
 | Independent method tests and refactoring | 0505_summary existing contract/refactoring progression | Existing method checks and regression practice | New packing contract requires independently derived expectations, separate calculation/display, and regression evidence. |
 
 Keep the original five-question coding tracks and smaller historical variations. Added transfer tasks complement them. Grade implementation, independently derived expected results, and the requested reasoning separately; correct output from a supplied class does not establish algorithm construction.
@@ -242,7 +242,7 @@ This is the current internal teaching order for the repaired pages. Earlier outl
     - Flow of execution
 - Guided Practice: Reuse a Notice
 
-### `0503_parameter.ipynb`
+### `0502_parameter.ipynb`
 
 - Map Arguments to Parameters
 - Return Values, out, and ref
