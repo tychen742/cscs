@@ -162,3 +162,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## OpenDSA-Modeled Development (2026-10-19)
 
 Pass 8 added explanation to the subsections that were under 100 words (13.1 Interfaces as Contracts, Client Code Depends on Behavior, Contracts Include Rules; 13.2 One Contract Multiple Representations, Array-Backed Stack, Linked Nodes, Operation Costs; 13.3 Why Generics Exist) and new `###` subsections placed where the concept is taught: Selecting a Data Structure (13.1), Best Worst and Average Cases and Growth-Rate Ordering (13.2), Records Keys and Homogeneity (13.3), Writing the Enumerator by Hand (13.4), plus tracing and completion exercises and a closing Check Your Understanding on each page. New headings are `###` so the page outlines keep their `##` count. The earlier per-reading timing estimate is superseded by the current three-meeting map at the top of this file. Reading count and added words do not establish actual lecture duration. See MATERIALS.md for the gap list.
+
+## Delegates Added (2026-10-21)
+
+`1303_generics.ipynb` gains Passing a Method: Delegates between the comparer examples and the short-expression bridge. It introduces `Func`, `Action`, `Comparison<T>`, and lambda syntax with a generic `Count<T>` example, so that the `Func` and `Comparison` arguments used from Chapter 19 onward are taught before first use. It adds no meeting.

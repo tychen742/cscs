@@ -145,3 +145,7 @@ Keep the original five-question coding tracks and smaller historical variations.
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 11.1 gained the reference diagrams its prose asks students to draw (alias versus independent objects, before and after the assignment) and a summary table. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+## Enumerations Added (2026-10-21)
+
+`1105_value_record_types.ipynb` ends with Enumerations: A Fixed Set of Named Values, the book's first treatment of `enum` as a value type: an `OrderStatus` example with underlying values, ordering comparison, `switch`, parsing and validation, and value copying. It adds no meeting; the section remains Structs, Records, and Data Models.
