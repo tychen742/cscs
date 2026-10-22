@@ -89,12 +89,6 @@ function initializeCsharpExecution() {
         resetButton.title = "Put back the book's code and forget your version";
         resetButton.hidden = true;
 
-        // "✓ ran" once the reader ran this cell with its own Run button (not Run all).
-        const ranMark = document.createElement("span");
-        ranMark.className = "thinkpress-ran-mark";
-        ranMark.textContent = "✓ ran";
-        ranMark.hidden = true;
-
         const stdinPanel = document.createElement("div");
         stdinPanel.className = "cscs-stdin-panel";
         stdinPanel.hidden = true;
@@ -130,7 +124,7 @@ function initializeCsharpExecution() {
         expectedToggle.className = "cscs-expected-toggle";
         expectedToggle.hidden = !storedOutput;
 
-        controls.append(runButton, resetButton, expectedToggle, ranMark, editButton, stdinPanel);
+        controls.append(runButton, resetButton, expectedToggle, editButton, stdinPanel);
         placeCellTail();
         let stdinRequested = false;
         let editMode = "view";
@@ -370,8 +364,6 @@ function initializeCsharpExecution() {
         function showRan(at) {
             if (!at) return;
             if (!ownRanAt || Date.parse(at) > Date.parse(ownRanAt)) ownRanAt = at;
-            ranMark.hidden = false;
-            ranMark.title = `You ran this cell (last ${formatRanAt(ownRanAt)}).`;
             cell.classList.add("thinkpress-cell-ran");
         }
 
@@ -400,13 +392,8 @@ function initializeCsharpExecution() {
             }));
         }
 
-        function formatRanAt(ranAt) {
-            const date = new Date(ranAt);
-            return Number.isNaN(date.getTime()) ? "an earlier visit" : date.toLocaleString();
-        }
-
         // Put a stored record on screen: the reader's code in the cell when they changed it,
-        // their last output under the cell, and the "ran" mark when they ran it on its own.
+        // their last output under the cell, and the ran gutter when they ran it on its own.
         function applyRecord(record) {
             lastApplied = recordKey(record);
             const code = record.edited && !sameCode(record.code, executableCode) ? record.code : null;
