@@ -81,6 +81,7 @@ function initializeCsharpExecution() {
         runButton.type = "button";
         runButton.className = "cscs-run-button";
         runButton.textContent = "Run";
+        runButton.title = "Run this cell (Shift+Enter)";
 
         const resetButton = document.createElement("button");
         resetButton.type = "button";
@@ -218,6 +219,13 @@ function initializeCsharpExecution() {
             stdinRequested = false;
             updateStdinVisibility();
             refreshEdited();
+        });
+
+        // Shift+Enter runs the cell in author mode's textarea too, as in place.
+        editor.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" || !event.shiftKey) return;
+            event.preventDefault();
+            runButton.click();
         });
 
         editor.addEventListener("input", () => {
