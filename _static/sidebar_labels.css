@@ -1,0 +1,9 @@
+/* Short labels first; ellipsis only when a narrow sidebar still cannot fit. */
+nav.bd-links a.reference.internal,
+nav.bd-links .caption-text,
+nav.bd-links .caption-text a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
