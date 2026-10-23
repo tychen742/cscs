@@ -1,5 +1,13 @@
 # Chapter Materials: Classes and Objects
 
+## Coherent Explanation Pass (2026-10-23)
+
+Reviewed all of 1001 as a continuous lesson: class/object/state overview, class header/body before components, declaration and use patterns before examples, construction and `this`, instance/static comparison, parameter-array calls, then tuple creation/return/deconstruction/collections. Defined namespace, assembly, inheritance, top-level/nested types, parameters/arguments, and overloads before dependent explanations. Converted visible legacy percent-prefixed notes into constructor explanations; corrected the CheckID output claim and static-state comparison. Preserved runnable cells, outputs, exercise IDs, section anchors, and examples. General patterns remain non-runnable text blocks.
+
+## Syntax-First Revision (2026-10-23)
+
+1001 now introduces class/member declarations, construction/member access, constructors, static classes/methods, parameter arrays, and tuple creation/return/deconstruction/collection forms with labeled general syntax and placeholder explanations before concrete examples. Schematics use text fences to distinguish patterns from runnable C#. Existing runnable cells, outputs, exercises, and identities are unchanged.
+
 ## Aligned Lecture Deck (2026-10-21)
 
 Source: `_html_extra/chapters/10_classes/1000_slides.md`, using the shared thinkpress-lecture theme. One part follows each current core content notebook with explicit goals, business examples, state traces, two quick checks, an existing exercise, verification cases, and a recap. Supporting/optional readings have short labeled reference parts and add no required meetings. The chapter title notes list one-based part start slides and the existing 110-minute allocation. Every slide has instructor notes with answers; student HTML excludes them. Code examples are standalone and listed in `authoring/slide_revision/code_09_17.json` for central execution verification. Existing assessment IDs, chapter order, and lesson content are unchanged. The landing page links one student deck; instructor PPTX is generated outside published assets.
