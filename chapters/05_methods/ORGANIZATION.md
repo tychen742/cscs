@@ -1,5 +1,9 @@
 # Chapter Organization — Methods
 
+## Method Reuse Figure (2026-10-23)
+
+Replaced the prose-only 5.1 reuse figure with three copied ATM welcome messages beside three calls to one `PrintWelcome` definition. Highlighted edit locations show the maintenance benefit: three bank-name edits versus one. The caption and explanation connect additional calls to reuse without duplicating the body. The runnable example uses the same bank scenario. The explanation distinguishes shared source code from deploying software to separate ATMs. Assessment identities are unchanged.
+
 ## Current Lecture Deck (2026-10-21)
 
 The revised chapter deck is `_html_extra/chapters/05_methods/0500_slides.md`. It follows the current reading order with a named part per reading, worked examples and state traces, quick checks, existing exercise links, and instructor notes. Meeting 1: 5.1 and argument mapping in 5.2, 35 minutes; meeting 2: returned values in 5.2 and contracts in 5.3, 40 minutes; meeting 3: strings in 5.4 and synthesis in 5.5, 35 minutes. Total 110 minutes. Part 5.5 is a short core recap; 5.6 is optional supporting preparation. Reading pages do not add meetings. Optional supporting parts remain unassessed. The chapter landing links the student HTML deck; the former overview remains unchanged for compatibility. Code verification is recorded with `authoring/slide_revision/code_01_08.json`; final render/build evidence is recorded by the shared slide workflow. Assessment identities and assignment notebooks are unchanged.
