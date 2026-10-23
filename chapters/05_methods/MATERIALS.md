@@ -2,7 +2,7 @@
 
 ## Method Reuse Figure (2026-10-23)
 
-Replaced the prose-only 5.1 reuse figure with three copied ATM welcome messages beside three calls to one `PrintWelcome` definition. Highlighted edit locations show the maintenance benefit: three bank-name edits versus one. The caption and explanation connect additional calls to reuse without duplicating the body. The runnable example uses the same bank scenario. The explanation distinguishes shared source code from deploying software to separate ATMs. Assessment identities are unchanged.
+Replaced the prose-only 5.1 reuse figure with three copied Ridgeline Supply branch-terminal welcome messages beside three calls to one `PrintWelcome` definition. Highlighted edit locations show the maintenance benefit: three company-name edits versus one. The caption and explanation connect additional calls to reuse without duplicating the body. The runnable example uses the same Ridgeline scenario. The explanation distinguishes shared source code from deploying software to separate terminals. Assessment identities are unchanged.
 
 ## Current Lecture Deck (2026-10-21)
 

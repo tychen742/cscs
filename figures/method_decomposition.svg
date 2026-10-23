@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 540" role="img" aria-labelledby="title desc">
-<title id="title">Three ATMs, one shared welcome message</title>
-<desc id="desc">Without a method, three ATMs each contain a copy of the two welcome-message statements. With a method, three PrintWelcome calls reuse one definition. Highlighted bank names show three edit locations before and one after. Both programs print the same three welcome messages. Arrows connect each ATM call to the shared method definition.</desc>
+<title id="title">Three branch terminals, one shared welcome message</title>
+<desc id="desc">Without a method, three branch terminals each contain a copy of the two welcome-message statements. With a method, three PrintWelcome calls reuse one definition. Highlighted company names show three edit locations before and one after. Both programs print the same three welcome messages. Arrows connect each terminal call to the shared method definition.</desc>
 <defs>
   <marker id="call_arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#386a87"/></marker>
 </defs>
@@ -15,40 +15,40 @@
 <text class="heading" x="24" y="35">Before: copy the statements</text>
 <text class="heading" x="574" y="35">After: call a method</text>
 <path d="M 550 18 V 475" stroke="#d8dfe5"/>
-<text class="label" x="24" y="75">ATM 1</text>
+<text class="label" x="24" y="75">Terminal 1</text>
 <rect x="24" y="86" width="496" height="66" rx="4" fill="#f5f7f9"/>
-<rect x="219" y="94" width="145" height="23" rx="2" fill="#ffe8ad"/>
-<text class="code" x="36" y="112">Console.WriteLine("Campus Bank");</text>
+<rect x="219" y="94" width="174" height="23" rx="2" fill="#ffe8ad"/>
+<text class="code" x="36" y="112">Console.WriteLine("Ridgeline Supply");</text>
 <text class="code" x="36" y="139">Console.WriteLine("------------");</text>
-<text class="label" x="24" y="183">ATM 2</text>
+<text class="label" x="24" y="183">Terminal 2</text>
 <rect x="24" y="194" width="496" height="66" rx="4" fill="#f5f7f9"/>
-<rect x="219" y="202" width="145" height="23" rx="2" fill="#ffe8ad"/>
-<text class="code" x="36" y="220">Console.WriteLine("Campus Bank");</text>
+<rect x="219" y="202" width="174" height="23" rx="2" fill="#ffe8ad"/>
+<text class="code" x="36" y="220">Console.WriteLine("Ridgeline Supply");</text>
 <text class="code" x="36" y="247">Console.WriteLine("------------");</text>
-<text class="label" x="24" y="291">ATM 3</text>
+<text class="label" x="24" y="291">Terminal 3</text>
 <rect x="24" y="302" width="496" height="66" rx="4" fill="#f5f7f9"/>
-<rect x="219" y="310" width="145" height="23" rx="2" fill="#ffe8ad"/>
-<text class="code" x="36" y="328">Console.WriteLine("Campus Bank");</text>
+<rect x="219" y="310" width="174" height="23" rx="2" fill="#ffe8ad"/>
+<text class="code" x="36" y="328">Console.WriteLine("Ridgeline Supply");</text>
 <text class="code" x="36" y="355">Console.WriteLine("------------");</text>
 <text class="label" x="574" y="75">Define the welcome message once:</text>
 <rect x="574" y="86" width="502" height="166" rx="4" fill="#f5f7f9"/>
 <text class="code" x="586" y="115">static void PrintWelcome()</text>
 <text class="code" x="586" y="143">{</text>
-<rect x="810" y="153" width="145" height="23" rx="2" fill="#ffe8ad"/>
-<text class="code" x="586" y="171">    Console.WriteLine("Campus Bank");</text>
+<rect x="810" y="153" width="174" height="23" rx="2" fill="#ffe8ad"/>
+<text class="code" x="586" y="171">    Console.WriteLine("Ridgeline Supply");</text>
 <text class="code" x="586" y="199">    Console.WriteLine("------------");</text>
 <text class="code" x="586" y="227">}</text>
-<text class="label" x="574" y="286">Call it at each ATM:</text>
-<text class="code" x="586" y="320">PrintWelcome();  <tspan class="label">// ATM 1</tspan></text>
-<text class="code" x="586" y="355">PrintWelcome();  <tspan class="label">// ATM 2</tspan></text>
-<text class="code" x="586" y="390">PrintWelcome();  <tspan class="label">// ATM 3</tspan></text>
+<text class="label" x="574" y="286">Call it at each terminal:</text>
+<text class="code" x="586" y="320">PrintWelcome();  <tspan class="label">// Terminal 1</tspan></text>
+<text class="code" x="586" y="355">PrintWelcome();  <tspan class="label">// Terminal 2</tspan></text>
+<text class="code" x="586" y="390">PrintWelcome();  <tspan class="label">// Terminal 3</tspan></text>
 <path class="call_link" d="M 1000 314 H 1090 Q 1100 314 1100 304 V 132 Q 1100 122 1090 122 H 1076"/>
 <path class="call_link" d="M 1000 349 H 1114 Q 1124 349 1124 339 V 174 Q 1124 164 1114 164 H 1076"/>
 <path class="call_link" d="M 1000 384 H 1138 Q 1148 384 1148 374 V 216 Q 1148 206 1138 206 H 1076"/>
-<text class="benefit" x="24" y="433">New bank name: edit three copies.</text>
-<text class="benefit" x="574" y="433">New bank name: edit one definition.</text>
+<text class="benefit" x="24" y="433">New company name: edit three copies.</text>
+<text class="benefit" x="574" y="433">New company name: edit one definition.</text>
 <text class="note" x="24" y="464">A missed edit leaves inconsistent welcome messages.</text>
 <text class="note" x="574" y="464">Every call uses the updated message.</text>
 <path d="M 24 488 H 1076" stroke="#d8dfe5"/>
-<text class="note" x="24" y="523">Same output. Less duplication. A fourth ATM needs only another PrintWelcome() call.</text>
+<text class="note" x="24" y="523">Same output. Less duplication. A fourth terminal needs only another PrintWelcome() call.</text>
 </svg>
