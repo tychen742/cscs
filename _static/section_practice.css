@@ -71,3 +71,42 @@
     .section-practice [role="tabpanel"][hidden] { display: block !important; }
     .section-practice .practice-panels { border: 0; padding: 0; }
 }
+
+/* Practice hints and explanations use the reading's normal text size. */
+#main-content:has([data-section-practice]) details.sd-dropdown,
+#main-content:has([data-section-practice]) details.sd-dropdown > summary,
+#main-content:has([data-section-practice]) .sd-summary-text {
+    font-size: inherit !important;
+}
+#main-content:has([data-section-practice]) details.sd-dropdown > summary {
+    border-left-width: 1px !important;
+}
+
+/* Match the runner controls, rather than the browser's native button bevel. */
+.section-practice [data-practice-tests] > button,
+.section-practice form[data-practice-check] button {
+    appearance: none;
+    background: var(--pst-color-surface, #f7f7f7);
+    border: 1px solid var(--pst-color-border, #d1d5db);
+    border-radius: 4px;
+    color: var(--pst-color-text-base, #27313a);
+    cursor: pointer;
+    font: inherit;
+    line-height: 1.25;
+    padding: .35rem .7rem;
+    transition: background-color 120ms ease;
+}
+.section-practice [data-practice-tests] > button:hover:not(:disabled),
+.section-practice form[data-practice-check] button:hover:not(:disabled) {
+    background: var(--pst-color-border, #e4e7eb);
+}
+.section-practice [data-practice-tests] > button:focus-visible,
+.section-practice form[data-practice-check] button:focus-visible {
+    outline: 2px solid var(--pst-color-primary, #365b84);
+    outline-offset: 2px;
+}
+.section-practice [data-practice-tests] > button:disabled,
+.section-practice form[data-practice-check] button:disabled {
+    cursor: wait;
+    opacity: .55;
+}
