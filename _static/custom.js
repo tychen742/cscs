@@ -157,26 +157,6 @@ document.addEventListener('click', function (e) {
 }, true);
 */
 
-// ---- SINGLE DOMContentLoaded handler ----
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("DOM ready!");
-
-    // Exercise counter labels
-    const exercises = document.querySelectorAll('div.cell.tag_exercise');
-    const total = exercises.length;
-
-    exercises.forEach((exercise, index) => {
-        // Skip if label already exists
-        if (exercise.querySelector('.exercise-label')) return;
-
-        const counter = index + 1;
-        const label = document.createElement('div');
-        label.className = 'exercise-label';
-        label.textContent = `Exercise ${counter} of ${total}`;
-        exercise.insertBefore(label, exercise.firstChild);
-    });
-});
-
 // Browser authoring for Press authors. Sign-in, sign-out, and the account menu come from
 // Press's shared auth.js (loaded by thinkpress-config.js). This adds "Edit this page" to
 // that menu for authoring roles; authoring requests carry a Press-signed author pass.

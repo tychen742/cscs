@@ -22,7 +22,6 @@ div.output {
 body {
     font-size: 0.85rem;
     line-height: 1.28;
-    counter-reset: exercise-counter;
 }
 
 h1,
@@ -575,9 +574,7 @@ p.admonition-title {
 }
 
 .tag_hide-input .admonition,
-.tag_hide-input details.admonition,
-.tag_exercise .admonition,
-.tag_exercise details.admonition {
+.tag_hide-input details.admonition {
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
     border-top-left-radius: 0 !important;
@@ -608,36 +605,6 @@ div.cell.docutils.container,
 div.container.cell,
 div.cell {
     margin-bottom: 1rem !important;   /* the theme's own spacing after a code cell */
-}
-
-div.cell.tag_exercise {
-    margin-bottom: 0.75rem !important;
-    padding: 0 !important;
-}
-
-/* "Exercise N of M" label that custom.js inserts at the top of each exercise cell */
-.exercise-label {
-    display: block;
-    font-size: 0.85em;
-    color: #771212;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-/* Tighter spacing for exercise cells */
-.tag_exercise .cell_input,
-.tag_exercise div.cell_input {
-    margin-bottom: 0.25rem !important;
-}
-
-.tag_exercise .cell_output,
-.tag_exercise div.cell_output {
-    margin-top: 3px !important;
-    padding-top: 3px !important;
-}
-
-div.cell.tag_exercise {
-    padding: 8px;
 }
 
 /* Cell states from Press's shared code-cells.css: thinkpress-cell-ran tints the
