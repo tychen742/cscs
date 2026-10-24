@@ -6,10 +6,12 @@
     function initializeSectionPractice() {
         document.querySelectorAll("[data-section-practice]").forEach(marker => {
             if (marker.dataset.practiceReady === "true") return;
-            const section = marker.closest("section");
+            const embedded = marker.querySelector(":scope > [data-practice-panel]");
+            const section = embedded ? marker : marker.closest("section");
             if (!section) return;
             const questions = Array.from(section.children).filter(child =>
-                child.tagName === "SECTION" && child.querySelector(":scope > h3"));
+                embedded ? child.hasAttribute("data-practice-panel") :
+                    child.tagName === "SECTION" && child.querySelector(":scope > h3"));
             const labels = (marker.dataset.practiceLabels || "").split("|");
             if (!questions.length || labels.length !== questions.length) return;
 
@@ -46,6 +48,20 @@
                 return button;
             });
             marker.replaceChildren(tabs, panels);
+            // Footnotes close the reading and stay visible outside the final tab.
+            if (!embedded) {
+                const last = questions[questions.length - 1];
+                const footnotes = Array.from(last.children).find(node =>
+                    node.matches(".rubric") && node.textContent.trim() === "Footnotes");
+                if (footnotes) {
+                    let node = footnotes;
+                    while (node) {
+                        const next = node.nextElementSibling;
+                        section.appendChild(node);
+                        node = next;
+                    }
+                }
+            }
 
             function select(index, focus) {
                 selected = (index + questions.length) % questions.length;
@@ -161,6 +177,18 @@
             });
 
             marker.dataset.practiceReady = "true";
+            section.querySelectorAll('[data-practice-check="single-prediction"]').forEach(form => {
+                form.addEventListener("submit", event => {
+                    event.preventDefault();
+                    const answer = form.querySelector('input:checked');
+                    form.querySelector("[data-practice-result]").textContent = !answer ?
+                        "Choose an output before checking." : answer.value === form.dataset.answer ?
+                        (form.dataset.program === "A" ? "Correct. Both independent conditions run, printing Pass then Distinction." :
+                            "Correct. The first branch prints Pass; the else if is skipped.") :
+                        (form.dataset.program === "A" ? "Try again. Each independent if tests its condition." :
+                            "Try again. A chain stops after its first matching branch.");
+                });
+            });
             section.querySelectorAll('[data-practice-check="zero-evidence"]').forEach(form => {
                 form.addEventListener("submit", event => {
                     event.preventDefault();

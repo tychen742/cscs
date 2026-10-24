@@ -171,3 +171,8 @@ Pass 4 of the content-development audit (`authoring/content_development_audit/`)
 ## Visual Support and Part I Shape (2026-10-18)
 
 Pass 6 of the content-development audit (`authoring/content_development_audit/`): 3.1 gained a runnable `if` example right after the syntax pattern and before the list of statement forms, and a runnable Boolean example in which a comparison produces the stored `bool`. New code cells compile and run standalone (.NET 10); tables and text diagrams are placed beside the example they explain. No heading, cell ID, or exercise ID changed.
+
+
+## Section 3.2 check placement trial (2026-10-24)
+
+MC checks now sit at subsection endings: Program A/B tabs follow else-if cases; the zero-charge evidence check follows Reason About the Unselected Branches, with its faulty program visible locally. The closing Predict, Explain, Repair, Apply tabs remain before Footnotes. Predict now requests a written baggage-rule trace; coding exercise identities, source, and saved outputs are unchanged. This trial does not establish a book-wide authoring rule.
